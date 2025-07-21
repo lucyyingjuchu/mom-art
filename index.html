@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Portfolio - Paintings & Calligraphy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fefefe;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2rem 0;
+            text-align: center;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #6c757d;
+            font-style: italic;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .nav-btn {
+            background: none;
+            border: none;
+            font-size: 1rem;
+            color: #495057;
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            background: #e9ecef;
+            color: #2c3e50;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Home Section */
+        .hero {
+            text-align: center;
+            padding: 3rem 0;
+            background: linear-gradient(135deg, #fff5f5 0%, #fff8f0 100%);
+            border-radius: 8px;
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #6c757d;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .featured-works {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .featured-work {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .featured-work:hover {
+            transform: translateY(-5px);
+        }
+
+        .featured-work img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .featured-work-info {
+            padding: 1.5rem;
+        }
+
+        .featured-work h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Gallery */
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: #2c3e50;
+            color: white;
+            border-color: #2c3e50;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .gallery-item-info {
+            padding: 1rem;
+        }
+
+        .gallery-item h3 {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-item p {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-text h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: #495057;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #2c3e50;
+        }
+
+        .submit-btn {
+            background: #2c3e50;
+            color: white;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #1a252f;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 4px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .lightbox-info {
+            position: absolute;
+            bottom: -60px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .gallery-filters {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            main {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Artist Name</div>
+        <div class="subtitle">Fine Art • Paintings & Calligraphy</div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <button class="nav-btn active" onclick="showSection('home')">Home</button>
+            <button class="nav-btn" onclick="showSection('gallery')">Gallery</button>
+            <button class="nav-btn" onclick="showSection('about')">About</button>
+            <button class="nav-btn" onclick="showSection('contact')">Contact</button>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <div class="hero">
+                <h1>Welcome to My Art World</h1>
+                <p>Explore a collection of paintings and calligraphy that captures the beauty of traditional and contemporary art forms. Each piece tells a story through delicate brushstrokes and thoughtful composition.</p>
+            </div>
+
+            <div class="featured-works">
+                <div class="featured-work">
+                    <img src="https://images.unsplash.com/photo-1578321272176-b7bbc0679853?w=400&h=300&fit=crop" alt="Featured Painting">
+                    <div class="featured-work-info">
+                        <h3>Serene Landscape</h3>
+                        <p>Oil on canvas, exploring the tranquil beauty of nature with soft, flowing brushstrokes.</p>
+                    </div>
+                </div>
+                <div class="featured-work">
+                    <img src="https://images.unsplash.com/photo-1594736797933-d0bd0e9f4b9a?w=400&h=300&fit=crop" alt="Featured Calligraphy">
+                    <div class="featured-work-info">
+                        <h3>Elegant Script</h3>
+                        <p>Traditional calligraphy piece showcasing the rhythm and flow of classical characters.</p>
+                    </div>
+                </div>
+                <div class="featured-work">
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop" alt="Featured Abstract">
+                    <div class="featured-work-info">
+                        <h3>Abstract Expression</h3>
+                        <p>Contemporary piece blending traditional techniques with modern artistic vision.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="section">
+            <div class="gallery-filters">
+                <button class="filter-btn active" onclick="filterGallery('all')">All Works</button>
+                <button class="filter-btn" onclick="filterGallery('paintings')">Paintings</button>
+                <button class="filter-btn" onclick="filterGallery('calligraphy')">Calligraphy</button>
+                <button class="filter-btn" onclick="filterGallery('recent')">Recent</button>
+            </div>
+
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Gallery items will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=400&fit=crop" alt="Artist Portrait">
+                </div>
+                <div class="about-text">
+                    <h2>About the Artist</h2>
+                    <p>With over [X] years of experience in fine art, I have dedicated my life to exploring the intersection of traditional techniques and contemporary expression. My work spans both painting and calligraphy, each medium offering unique opportunities to convey emotion and meaning.</p>
+                    <p>My paintings often focus on [describe themes - nature, portraits, abstract concepts], while my calligraphy work celebrates the timeless beauty of written characters as art forms. Each piece is created with careful attention to detail, using traditional materials and techniques passed down through generations.</p>
+                    <p>My art has been featured in [exhibitions/shows] and is held in private collections worldwide. I believe that art serves as a bridge between cultures and generations, preserving beauty and meaning for future viewers to discover and appreciate.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="contact-content">
+                <h2>Get In Touch</h2>
+                <p>I welcome inquiries about my work, custom commissions, and exhibition opportunities. Please feel free to reach out with any questions.</p>
+                
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+            <img id="lightboxImage" src="" alt="">
+            <div class="lightbox-info">
+                <h3 id="lightboxTitle"></h3>
+                <p id="lightboxDescription"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample artwork data - replace with your actual data
+        const artworks = [
+            {
+                id: 1,
+                title: "Mountain Serenity",
+                category: "paintings",
+                image: "https://images.unsplash.com/photo-1578321272176-b7bbc0679853?w=400&h=300&fit=crop",
+                description: "Oil on canvas, 24x30 inches",
+                year: "2024",
+                recent: true
+            },
+            {
+                id: 2,
+                title: "Flowing Characters",
+                category: "calligraphy",
+                image: "https://images.unsplash.com/photo-1594736797933-d0bd0e9f4b9a?w=400&h=300&fit=crop",
+                description: "Traditional ink on rice paper",
+                year: "2024",
+                recent: true
+            },
+            {
+                id: 3,
+                title: "Abstract Flow",
+                category: "paintings",
+                image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop",
+                description: "Acrylic on canvas, 20x24 inches",
+                year: "2023",
+                recent: false
+            },
+            {
+                id: 4,
+                title: "Elegant Script",
+                category: "calligraphy",
+                image: "https://images.unsplash.com/photo-1605106715994-18d3fecffb98?w=400&h=300&fit=crop",
+                description: "Brush and ink on handmade paper",
+                year: "2023",
+                recent: false
+            },
+            {
+                id: 5,
+                title: "Peaceful Waters",
+                category: "paintings",
+                image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop",
+                description: "Watercolor on paper, 18x24 inches",
+                year: "2024",
+                recent: true
+            },
+            {
+                id: 6,
+                title: "Classic Verses",
+                category: "calligraphy",
+                image: "https://images.unsplash.com/photo-1594736797933-d0bd0e9f4b9a?w=400&h=300&fit=crop",
+                description: "Traditional calligraphy with gold accents",
+                year: "2023",
+                recent: false
+            }
+        ];
+
+        // Navigation functionality
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Update nav buttons
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+
+        // Gallery functionality
+        function renderGallery(filter = 'all') {
+            const galleryGrid = document.getElementById('galleryGrid');
+            let filteredArtworks = artworks;
+
+            if (filter !== 'all') {
+                if (filter === 'recent') {
+                    filteredArtworks = artworks.filter(artwork => artwork.recent);
+                } else {
+                    filteredArtworks = artworks.filter(artwork => artwork.category === filter);
+                }
+            }
+
+            galleryGrid.innerHTML = filteredArtworks.map(artwork => `
+                <div class="gallery-item" onclick="openLightbox(${artwork.id})">
+                    <img src="${artwork.image}" alt="${artwork.title}">
+                    <div class="gallery-item-info">
+                        <h3>${artwork.title}</h3>
+                        <p>${artwork.description}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterGallery(filter) {
+            renderGallery(filter);
+            
+            // Update filter buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+
+        // Lightbox functionality
+        function openLightbox(artworkId) {
+            const artwork = artworks.find(art => art.id === artworkId);
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightboxImage');
+            const lightboxTitle = document.getElementById('lightboxTitle');
+            const lightboxDescription = document.getElementById('lightboxDescription');
+
+            lightboxImage.src = artwork.image;
+            lightboxTitle.textContent = artwork.title;
+            lightboxDescription.textContent = `${artwork.description} • ${artwork.year}`;
+            
+            lightbox.classList.add('active');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+
+        // Close lightbox when clicking outside the image
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLightbox();
+            }
+        });
+
+        // Initialize gallery on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            renderGallery();
+        });
+
+        // Form submission (you'll need to connect this to your backend)
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
