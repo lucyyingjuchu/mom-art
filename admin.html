@@ -816,7 +816,7 @@
             }
 
             grid.innerHTML = filteredArtworks.map(artwork => {
-                const imageUrl = artwork.image || 'https://via.placeholder.com/400x300/f8f9fa/6c757d?text=No+Image';
+                const imageUrl = artwork.image || './images/placeholder/artwork-placeholder.svg';
                 const title = artwork.title || 'Untitled';
                 const year = artwork.year || 'Unknown';
                 const size = artwork.sizeCm || artwork.size || 'Size not specified';
@@ -825,7 +825,7 @@
                 return `
                     <div class="artwork-card">
                         <img src="${imageUrl}" alt="${title}" class="artwork-image" 
-                             onerror="this.src='https://via.placeholder.com/400x300/f8f9fa/6c757d?text=Image+Error'">
+                             onerror="this.src='./images/placeholder/artwork-placeholder.svg'">
                         <div class="artwork-info">
                             <div class="artwork-title">${title}</div>
                             <div class="artwork-meta">
