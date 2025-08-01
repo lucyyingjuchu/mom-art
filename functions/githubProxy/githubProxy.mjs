@@ -11,8 +11,9 @@ export default async (req, context) => {
   }
 
   try {
-    const GITHUB_TOKEN = Netlify.env.get('GITHUB_TOKEN');
-    
+  //  const GITHUB_TOKEN = Netlify.env.get('GITHUB_TOKEN');
+    const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
+  
     if (!GITHUB_TOKEN) {
       return new Response(JSON.stringify({ error: 'GitHub token not configured' }), {
         status: 500,
