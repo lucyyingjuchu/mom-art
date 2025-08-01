@@ -707,7 +707,7 @@
     <script src="./js/reorganization-tool.js"></script>
 
     <script>
-        // Global variables (will be enhanced by github-admin.js)
+        // Global variables
         let artworks = [];
         let currentEditingId = null;
         let uploadedImages = {};
@@ -728,27 +728,15 @@
             setupImageUpload();
         });
 
-        // Load artworks from GitHub (will be enhanced by github-admin.js)
+        // Load artworks from data source
         async function loadArtworks() {
             try {
-                showLoadingStatus('Loading artworks from GitHub...');
+                showLoadingStatus('Loading artworks...');
                 
-                // Try to load from GitHub first (if github-admin.js is loaded)
-                if (typeof githubLoader !== 'undefined') {
-                    const result = await githubLoader.loadArtworks();
-                    if (result.success) {
-                        artworks = result.artworks;
-                        showLoadingStatus(`✅ Loaded ${artworks.length} artworks from GitHub`);
-                    } else {
-                        throw new Error(result.error);
-                    }
-                } else {
-                    // Fallback to local loading
-                    const response = await fetch('./data/artworks.json');
-                    const data = await response.json();
-                    artworks = Array.isArray(data) ? data : [];
-                    showLoadingStatus(`✅ Loaded ${artworks.length} artworks locally`);
-                }
+                const response = await fetch('./data/artworks.json');
+                const data = await response.json();
+                artworks = Array.isArray(data) ? data : [];
+                showLoadingStatus(`✅ Loaded ${artworks.length} artworks`);
                 
                 renderArtworks();
                 updateStats();
@@ -805,13 +793,12 @@
             
             const icon = success ? '🐙' : '⚠️';
             const text = success ? 
-                `${icon} Live data from GitHub` : 
-                `${icon} Data loading failed`;
+                `${icon} Data loaded` : 
+                `${icon} Loading failed`;
                 
             indicator.innerHTML = text;
             document.body.appendChild(indicator);
             
-            // Auto-fade if successful
             if (success) {
                 setTimeout(() => {
                     if (indicator && indicator.parentNode) {
@@ -825,519 +812,23 @@
         function generateSequentialId() {
             const year = document.getElementById('artworkYear').value || 'unknown';
             
-            // Find existing artworks for this year
             const yearArtworks = artworks.filter(artwork => {
                 const artworkYear = artwork.year || 'unknown';
                 return artworkYear.toString() === year.toString();
             });
             
-            // Extract numbers from existing IDs for this year
             const existingNumbers = yearArtworks
                 .map(artwork => {
                     if (!artwork.id) return 0;
-                    const match = artwork.id.match(new RegExp(`^${year.replace('.', '\\.')}_?(\\d+)<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Admin - 藝術作品管理</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f5f7fa;
-            color: #2c3e50;
-            line-height: 1.6;
-        }
-
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .toolbar {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
-            margin-bottom: 2rem;
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        .btn {
-            background: #3498db;
-            color: white;
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .btn:hover {
-            background: #2980b9;
-            transform: translateY(-2px);
-        }
-
-        .btn-success {
-            background: #27ae60;
-        }
-
-        .btn-success:hover {
-            background: #229954;
-        }
-
-        .btn-warning {
-            background: #f39c12;
-        }
-
-        .btn-warning:hover {
-            background: #d68910;
-        }
-
-        .btn-danger {
-            background: #e74c3c;
-        }
-
-        .btn-danger:hover {
-            background: #c0392b;
-        }
-
-        .btn-small {
-            padding: 0.5rem 1rem;
-            font-size: 0.9rem;
-        }
-
-        .search-box {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .search-box input {
-            width: 100%;
-            padding: 0.8rem;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 1rem;
-        }
-
-        .search-box input:focus {
-            outline: none;
-            border-color: #3498db;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .stat-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #3498db;
-            display: block;
-        }
-
-        .stat-label {
-            color: #7f8c8d;
-            margin-top: 0.5rem;
-        }
-
-        .github-section {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
-            margin-bottom: 2rem;
-        }
-
-        .github-section h3 {
-            color: #2c3e50;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .github-controls {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-            flex-wrap: wrap;
-            margin-bottom: 1rem;
-        }
-
-        .github-status {
-            margin-left: auto;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .status-connected {
-            background: #d4edda;
-            color: #155724;
-        }
-
-        .status-disconnected {
-            background: #f8d7da;
-            color: #721c24;
-        }
-
-        .artworks-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .artwork-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .artwork-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .artwork-image {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            background: #f8f9fa;
-        }
-
-        .artwork-info {
-            padding: 1.5rem;
-        }
-
-        .artwork-title {
-            font-size: 1.3rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            color: #2c3e50;
-        }
-
-        .artwork-meta {
-            color: #7f8c8d;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .artwork-actions {
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        /* Collapsible Reorganization Section */
-        .reorganization-section {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
-            margin-bottom: 2rem;
-            overflow: hidden;
-        }
-
-        .reorganization-header {
-            padding: 1rem 1.5rem;
-            background: #f8f9fa;
-            border-bottom: 1px solid #dee2e6;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            transition: background-color 0.3s ease;
-        }
-
-        .reorganization-header:hover {
-            background: #e9ecef;
-        }
-
-        .reorganization-header h4 {
-            color: #495057;
-            margin: 0;
-            font-size: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .reorganization-toggle {
-            color: #6c757d;
-            font-size: 1.2rem;
-            transition: transform 0.3s ease;
-        }
-
-        .reorganization-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease;
-        }
-
-        .reorganization-content.expanded {
-            max-height: 500px;
-        }
-
-        .reorganization-inner {
-            padding: 1.5rem;
-            background: linear-gradient(135deg, #e8f5e9 0%, #f0f8ff 100%);
-            border-left: 4px solid #28a745;
-        }
-
-        .reorganization-warning {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            color: #856404;
-            padding: 1rem;
-            border-radius: 8px;
-            margin-top: 1rem;
-            font-size: 0.9rem;
-        }
-
-        .reorganization-info {
-            background: white;
-            padding: 1rem;
-            border-radius: 8px;
-            margin: 1rem 0;
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            z-index: 1000;
-            overflow-y: auto;
-        }
-
-        .modal-content {
-            background: white;
-            margin: 2rem auto;
-            padding: 0;
-            border-radius: 12px;
-            max-width: 900px;
-            width: 90%;
-            max-height: 90vh;
-            overflow: hidden;
-        }
-
-        .modal-header {
-            background: #3498db;
-            color: white;
-            padding: 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .modal-header h2 {
-            margin: 0;
-        }
-
-        .close {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-
-        .modal-body {
-            padding: 2rem;
-            max-height: 60vh;
-            overflow-y: auto;
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-            color: #2c3e50;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 0.8rem;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-family: inherit;
-        }
-
-        .form-group textarea {
-            min-height: 100px;
-            resize: vertical;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: #3498db;
-        }
-
-        .upload-area {
-            border: 3px dashed #ddd;
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            background: #f8f9fa;
-        }
-
-        .upload-area:hover {
-            border-color: #3498db;
-            background: #e3f2fd;
-        }
-
-        .upload-area.dragover {
-            border-color: #27ae60;
-            background: #e8f5e8;
-        }
-
-        .preview-image {
-            max-width: 100%;
-            max-height: 300px;
-            border-radius: 8px;
-            margin-top: 1rem;
-        }
-
-        .success-message {
-            background: #d4edda;
-            border: 1px solid #c3e6cb;
-            color: #155724;
-            padding: 1rem;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-        }
-
-        .error-message {
-            background: #f8d7da;
-            border: 1px solid #f5c6cb;
-            color: #721c24;
-            padding: 1rem;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-        }
-
-        .info-message {
-            background: #d1ecf1;
-            border: 1px solid #bee5eb;
-            color: #0c5460;
-            padding: 1rem;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-        }
-
-        @media (max-width: 768px) {
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .toolbar {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            
-            .btn {
-                justify-content: center;
-            }
-            
-            .artworks-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .github-controls {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .github-status {
-                margin-left: 0;
-                margin-top: 1rem;
-            }
-
-            .reorganization-header h4 {
-                font-size: 0.9rem;
-            }
-        }
-));
+                    const match = artwork.id.match(new RegExp(`^${year.replace('.', '\\.')}_?(\\d+)$`));
                     return match ? parseInt(match[1]) : 0;
                 })
                 .filter(num => num > 0);
             
-            // Find the next sequential number
             const nextNumber = existingNumbers.length > 0 ? Math.max(...existingNumbers) + 1 : 1;
-            
-            // Format with zero padding
             const paddedNumber = nextNumber.toString().padStart(3, '0');
             
-            console.log(`Generated ID: ${year}_${paddedNumber} (existing: ${existingNumbers.join(', ')})`);
+            console.log(`Generated ID: ${year}_${paddedNumber}`);
             return `${year}_${paddedNumber}`;
         }
 
@@ -1435,7 +926,7 @@
             document.getElementById('artworkModal').style.display = 'block';
         }
 
-        // Enhanced edit artwork function
+        // Edit artwork function
         function editArtwork(id) {
             const artwork = artworks.find(a => a.id === id);
             if (!artwork) {
@@ -1443,14 +934,11 @@
                 return;
             }
 
-            console.log('Editing artwork:', artwork);
             currentEditingId = id;
             document.getElementById('modalTitle').textContent = 'Edit Artwork';
             
-            // Clear any previous image uploads
             delete uploadedImages[id];
             
-            // Populate all form fields with existing data
             document.getElementById('artworkTitle').value = artwork.title || '';
             document.getElementById('artworkTitleEn').value = artwork.titleEn || '';
             document.getElementById('artworkYear').value = artwork.year || '';
@@ -1460,7 +948,6 @@
             document.getElementById('artworkDescription').value = artwork.description || '';
             document.getElementById('artworkSubcategory').value = artwork.subcategory || '';
             
-            // Handle boolean fields properly
             document.getElementById('artworkFeatured').checked = 
                 artwork.featured === true || artwork.featured === 'true';
             document.getElementById('artworkAvailable').checked = 
@@ -1468,7 +955,6 @@
             
             document.getElementById('artworkPrice').value = artwork.price || '';
             
-            // Show existing image if available
             const previewImg = document.getElementById('previewImage');
             const uploadText = document.getElementById('uploadText');
             
@@ -1491,7 +977,6 @@
                 `;
             }
             
-            // Show modal
             document.getElementById('artworkModal').style.display = 'block';
         }
 
@@ -1510,23 +995,19 @@
             document.getElementById('artworkModal').style.display = 'none';
         }
 
-        // Setup image upload (enhanced by github-admin.js if available)
+        // Setup image upload
         function setupImageUpload() {
             const imageInput = document.getElementById('imageInput');
-            
-            // Remove any existing listeners
             imageInput.onchange = null;
             
-            // Check if GitHub upload handler exists
             if (typeof handleImageUploadWithGitHub === 'function') {
                 imageInput.addEventListener('change', handleImageUploadWithGitHub);
             } else {
-                // Fallback to basic upload
                 imageInput.addEventListener('change', handleBasicImageUpload);
             }
         }
 
-        // Basic image upload (fallback)
+        // Basic image upload fallback
         function handleBasicImageUpload(event) {
             const file = event.target.files[0];
             if (!file) return;
@@ -1589,7 +1070,6 @@
         document.getElementById('artworkForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Validation
             const title = document.getElementById('artworkTitle').value.trim();
             const year = document.getElementById('artworkYear').value.trim();
             const size = document.getElementById('artworkSize').value.trim();
@@ -1609,7 +1089,6 @@
                 return;
             }
             
-            // Generate ID for new artworks or keep existing for edits
             const artworkId = currentEditingId || generateSequentialId();
             
             const formData = {
@@ -1618,8 +1097,8 @@
                 titleEn: document.getElementById('artworkTitleEn').value.trim(),
                 category: 'paintings',
                 subcategory: document.getElementById('artworkSubcategory').value,
-                image: '', // Will be set below
-                imageHigh: '', // Will be set below
+                image: '',
+                imageHigh: '',
                 description: document.getElementById('artworkDescription').value.trim(),
                 descriptionEn: '',
                 format: document.getElementById('artworkFormat').value,
@@ -1637,60 +1116,46 @@
                 tags: []
             };
             
-            // Handle image URLs
             if (uploadedImages[artworkId] && uploadedImages[artworkId].githubUpload) {
-                // New image uploaded via GitHub
                 const githubUpload = uploadedImages[artworkId].githubUpload;
                 formData.image = githubUpload.artworkData.image;
                 formData.imageHigh = githubUpload.artworkData.imageHigh;
-                console.log('Using new GitHub images:', formData.image, formData.imageHigh);
             } else if (currentEditingId) {
-                // Editing existing artwork - preserve existing images if no new upload
                 const existingArtwork = artworks.find(a => a.id === currentEditingId);
                 if (existingArtwork) {
                     formData.image = existingArtwork.image || '';
                     formData.imageHigh = existingArtwork.imageHigh || '';
-                    console.log('Preserving existing images:', formData.image, formData.imageHigh);
                 }
             }
             
             if (currentEditingId) {
-                // Update existing artwork
                 const index = artworks.findIndex(a => a.id === currentEditingId);
                 if (index !== -1) {
                     artworks[index] = formData;
-                    console.log('Updated artwork:', formData);
                     showMessage('Artwork updated successfully!', 'success');
                 } else {
                     showMessage('Error: Artwork not found for update!', 'error');
                     return;
                 }
             } else {
-                // Add new artwork
                 artworks.push(formData);
-                console.log('Added new artwork:', formData);
                 showMessage('New artwork added successfully!', 'success');
             }
             
-            // Clean up uploaded images for this artwork
             delete uploadedImages[artworkId];
             
-            // Update UI
             renderArtworks();
             updateStats();
             closeModal();
             
-            // Show GitHub deployment reminder
             showMessage('💡 Remember to click "Deploy to Website" to publish changes!', 'info');
         });
 
         // Show message
         function showMessage(message, type) {
-            // Remove existing messages
             const existingMessages = document.querySelectorAll('.success-message, .error-message, .info-message');
             existingMessages.forEach(msg => msg.remove());
             
-            // Create new message
             const messageDiv = document.createElement('div');
             let className = 'success-message';
             if (type === 'error') className = 'error-message';
@@ -1699,11 +1164,9 @@
             messageDiv.className = className;
             messageDiv.textContent = message;
             
-            // Insert at top of container
             const container = document.querySelector('.container');
             container.insertBefore(messageDiv, container.firstChild);
             
-            // Remove after 5 seconds
             setTimeout(() => {
                 messageDiv.remove();
             }, 5000);
@@ -1718,7 +1181,7 @@
             }
         }
 
-        // GitHub Integration Functions (will be enhanced by github-admin.js)
+        // GitHub Integration Functions
         function testGitHubConnection() {
             if (typeof githubUploader !== 'undefined' && githubUploader.testConnection) {
                 githubUploader.testConnection().then(result => {
@@ -1729,4 +1192,47 @@
                         showMessage('GitHub connection successful!', 'success');
                     } else {
                         statusEl.className = 'github-status status-disconnected';
-                        statusEl.textContent = `
+                        statusEl.textContent = `❌ Connection failed`;
+                        showMessage(`GitHub connection failed: ${result.error}`, 'error');
+                    }
+                });
+            } else {
+                showMessage('GitHub integration not loaded. Please check github-admin.js', 'error');
+            }
+        }
+
+        function exportAndDeployToGitHub() {
+            if (typeof githubUploader !== 'undefined' && githubUploader.updateArtworksJson) {
+                showMessage('Deploying to GitHub...', 'info');
+                
+                githubUploader.updateArtworksJson(artworks, (message, percent) => {
+                    console.log(`${percent}%: ${message}`);
+                }).then(() => {
+                    showMessage('✅ Deployed! Netlify will auto-update your website.', 'success');
+                }).catch(error => {
+                    showMessage(`❌ Deployment failed: ${error.message}`, 'error');
+                });
+            } else {
+                const jsonData = JSON.stringify(artworks, null, 2);
+                const textarea = document.createElement('textarea');
+                textarea.value = jsonData;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                
+                showMessage('✅ JSON copied to clipboard! Replace your artworks.json file manually.', 'success');
+            }
+        }
+
+        // Make functions available globally
+        window.artworks = artworks;
+        window.renderArtworks = renderArtworks;
+        window.updateStats = updateStats;
+        window.showMessage = showMessage;
+        window.generateSequentialId = generateSequentialId;
+
+        console.log('✅ Admin system loaded successfully!');
+    </script>
+</body>
+</html>
