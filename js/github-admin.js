@@ -716,7 +716,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Replace image upload handler
     const originalImageInput = document.getElementById('imageInput');
     if (originalImageInput) {
-        originalImageInput.removeEventListener('change', handleImageUpload);
+    //    originalImageInput.removeEventListener('change', handleImageUpload);
         originalImageInput.addEventListener('change', handleImageUploadWithGitHub);
     }
     
