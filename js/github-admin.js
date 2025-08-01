@@ -1,5 +1,5 @@
-// Clean GitHub Admin - Fixed Auto-deploy Issues
-// Version: 2.2 - No auto-deploy on test, clear save behavior
+// Clean GitHub Admin - Reorganization Code Removed
+// Version: 2.3 - Focus on core GitHub operations only
 
 // ================================
 // CONFIGURATION
@@ -519,4 +519,4 @@ window.handleImageUploadWithGitHub = handleImageUploadWithGitHub;
 window.testGitHubConnection = testGitHubConnection;
 window.exportAndDeployToGitHub = exportAndDeployToGitHub;
 
-console.log('🎯 GitHub Admin v2.2 loaded - Fixed auto-deploy issues!');
+console.log('🎯 GitHub Admin v2.3 loaded - Reorganization code removed!');
