@@ -1,2 +1,3 @@
-[build]
-    directory = "netlify/functions"
+[[edge_functions]]
+path = "/netlify/functions/githubProxy"
+function = "githubProxy"
