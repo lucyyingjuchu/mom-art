@@ -103,6 +103,16 @@
             font-size: 0.9rem;
         }
 
+        .btn-subtle {
+            background: #6c757d;
+            font-size: 0.9rem;
+            padding: 0.6rem 1.2rem;
+        }
+
+        .btn-subtle:hover {
+            background: #5a6268;
+        }
+
         .search-box {
             flex: 1;
             min-width: 300px;
@@ -190,37 +200,6 @@
             color: #721c24;
         }
 
-        .reorganization-section {
-            background: linear-gradient(135deg, #e8f5e9 0%, #f0f8ff 100%);
-            border: 2px solid #28a745;
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .reorganization-section h3 {
-            color: #155724;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .reorganization-info {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1rem 0;
-            border-left: 4px solid #28a745;
-        }
-
-        .reorganization-warning {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            color: #856404;
-            padding: 1rem;
-            border-radius: 8px;
-            margin-top: 1rem;
-        }
-
         .artworks-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -267,6 +246,80 @@
         .artwork-actions {
             display: flex;
             gap: 0.5rem;
+        }
+
+        /* Collapsible Reorganization Section */
+        .reorganization-section {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .reorganization-header {
+            padding: 1rem 1.5rem;
+            background: #f8f9fa;
+            border-bottom: 1px solid #dee2e6;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background-color 0.3s ease;
+        }
+
+        .reorganization-header:hover {
+            background: #e9ecef;
+        }
+
+        .reorganization-header h4 {
+            color: #495057;
+            margin: 0;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .reorganization-toggle {
+            color: #6c757d;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .reorganization-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .reorganization-content.expanded {
+            max-height: 500px;
+        }
+
+        .reorganization-inner {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #e8f5e9 0%, #f0f8ff 100%);
+            border-left: 4px solid #28a745;
+        }
+
+        .reorganization-warning {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .reorganization-info {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            line-height: 1.6;
         }
 
         .modal {
@@ -441,6 +494,10 @@
                 margin-left: 0;
                 margin-top: 1rem;
             }
+
+            .reorganization-header h4 {
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
@@ -464,34 +521,6 @@
                 <div class="github-status status-disconnected" id="githubStatus">
                     Connection not tested
                 </div>
-            </div>
-        </div>
-
-        <!-- Complete Reorganization Section -->
-        <div class="reorganization-section">
-            <h3>🎯 Complete Portfolio Reorganization</h3>
-            <p style="margin: 0.5rem 0; color: #2e7d32;">
-                <strong>The Ultimate Fix:</strong> Create thumbnails from large images + reorder all artwork IDs sequentially.
-            </p>
-            
-            <div class="reorganization-info">
-                <strong>What this does:</strong><br>
-                • Creates 400px thumbnails from your large images (fast mobile loading)<br>
-                • Renumbers all artwork IDs sequentially: 2020_001, 2020_002, etc. (no gaps)<br>
-                • Renames all files with new IDs (thumbnails + large images)<br>
-                • Updates artworks.json with new structure<br>
-                • Auto-commits to GitHub and deploys to Netlify<br>
-                • Cleans up old files with old IDs
-            </div>
-            
-            <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
-                <button class="btn btn-success" onclick="startCompleteReorganization()" style="font-weight: bold;">
-                    🚀 Start Complete Reorganization
-                </button>
-            </div>
-            
-            <div class="reorganization-warning">
-                <strong>⚠️ Important:</strong> This will rename all files and auto-deploy. Takes 10-15 minutes. Don't close this window during the process.
             </div>
         </div>
 
@@ -526,6 +555,44 @@
             <div style="grid-column: 1 / -1; text-align: center; padding: 3rem; color: #7f8c8d;">
                 <h3>Loading artworks from GitHub...</h3>
                 <p>Please wait while we fetch the latest data.</p>
+            </div>
+        </div>
+
+        <!-- Collapsible Advanced Tools Section -->
+        <div class="reorganization-section">
+            <div class="reorganization-header" onclick="toggleReorganizationSection()">
+                <h4>🔧 Advanced Portfolio Tools</h4>
+                <span class="reorganization-toggle" id="reorganizationToggle">▼</span>
+            </div>
+            <div class="reorganization-content" id="reorganizationContent">
+                <div class="reorganization-inner">
+                    <h4 style="color: #155724; margin-bottom: 1rem;">🎯 Complete Portfolio Reorganization</h4>
+                    <p style="margin: 0.5rem 0; color: #2e7d32; font-size: 0.95rem;">
+                        <strong>One-time setup tool:</strong> Create thumbnails from large images + reorder all artwork IDs sequentially.
+                    </p>
+                    
+                    <div class="reorganization-info">
+                        <strong>What this does:</strong><br>
+                        • Creates 400px thumbnails from your large images (fast mobile loading)<br>
+                        • Renumbers all artwork IDs sequentially: 2020_001, 2020_002, etc. (no gaps)<br>
+                        • Renames all files with new IDs (thumbnails + large images)<br>
+                        • Updates artworks.json with new structure<br>
+                        • Auto-commits to GitHub and deploys to Netlify
+                    </div>
+                    
+                    <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; margin: 1rem 0;">
+                        <button class="btn btn-success" onclick="startCompleteReorganization()" style="font-weight: bold;">
+                            🚀 Start Complete Reorganization
+                        </button>
+                        <span style="color: #6c757d; font-size: 0.9rem;">
+                            (Use only when needed)
+                        </span>
+                    </div>
+                    
+                    <div class="reorganization-warning">
+                        <strong>⚠️ Important:</strong> This will rename all files and auto-deploy. Takes 10-15 minutes. Don't close this window during the process.
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -653,6 +720,15 @@
         let artworks = [];
         let currentEditingId = null;
         let uploadedImages = {};
+
+        // Toggle reorganization section
+        function toggleReorganizationSection() {
+            const content = document.getElementById('reorganizationContent');
+            const toggle = document.getElementById('reorganizationToggle');
+            
+            content.classList.toggle('expanded');
+            toggle.textContent = content.classList.contains('expanded') ? '▲' : '▼';
+        }
 
         // Initialize the admin panel
         document.addEventListener('DOMContentLoaded', function() {
