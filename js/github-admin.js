@@ -1,5 +1,5 @@
 // Clean GitHub Admin - All-in-One Art Portfolio Management
-// Version: 2.1 - Fixed duplicate reorganization sections
+// Version: 2.0 - Cleaned up and optimized
 
 // ================================
 // CONFIGURATION
@@ -401,7 +401,7 @@ async function handleImageUploadWithGitHub(event) {
         return;
     }
 
-    const artworkId = currentEditingId || generateSequentialId();
+    const artworkId = currentEditingId || generateId();
     
     try {
         const progressContainer = createProgressIndicator();
@@ -416,39 +416,105 @@ async function handleImageUploadWithGitHub(event) {
         document.getElementById('previewImage').src = URL.createObjectURL(file);
         document.getElementById('previewImage').style.display = 'block';
         
-        // Store upload result with correct structure
         uploadedImages[artworkId] = {
-            githubUpload: {
-                artworkData: {
-                    image: `./images/paintings/thumbnails/${artworkId}_thumb.jpg`,
-                    imageHigh: `./images/paintings/large/${artworkId}_large.jpg`
-                },
-                urls: uploadResult.urls
-            },
+            githubUpload: uploadResult,
             localPreview: URL.createObjectURL(file)
         };
 
         document.getElementById('uploadText').innerHTML = `
             <div style="color: #27ae60;">
                 ✅ Successfully uploaded to GitHub!<br>
-                📁 Thumbnail & Large version created<br>
-                🌐 Ready for deployment<br>
+                📁 ${Object.keys(uploadResult.uploadResults).length} sizes created<br>
+                🌐 Auto-deployed to website<br>
             </div>
         `;
 
         setTimeout(() => progressContainer.remove(), 3000);
-        showMessage('Images uploaded to GitHub successfully!', 'success');
+        showMessage('Artwork uploaded and deployed!', 'success');
 
     } catch (error) {
         console.error('GitHub upload failed:', error);
+        handleImageUpload(event); // Fallback
+        showMessage(`GitHub upload failed: ${error.message}. Using local processing.`, 'warning');
+    }
+}
+
+// Test GitHub connection
+async function testGitHubConnection() {
+    try {
+        showMessage('Testing GitHub connection...', 'info');
+        const result = await githubUploader.testConnection();
         
-        // Remove progress indicator
-        const progressContainer = document.querySelector('.upload-progress-container');
-        if (progressContainer) progressContainer.remove();
+        if (result.success) {
+            showMessage(`✅ Connected to ${result.repoName}!`, 'success');
+        } else {
+            showMessage(`❌ GitHub connection failed: ${result.error}`, 'error');
+        }
         
-        // Fallback to basic upload
-        handleBasicImageUpload(event);
-        showMessage(`GitHub upload failed: ${error.message}. Using local processing.`, 'error');
+        return result.success;
+    } catch (error) {
+        showMessage(`❌ Connection error: ${error.message}`, 'error');
+        return false;
+    }
+}
+
+// Deploy to GitHub
+async function exportAndDeployToGitHub() {
+    try {
+        showMessage('Deploying to GitHub...', 'info');
+        
+        const progressContainer = createProgressIndicator();
+        document.querySelector('.container').appendChild(progressContainer);
+        
+        await githubUploader.updateArtworksJson(
+            artworks,
+            (message, percent) => updateProgress(progressContainer, message, percent)
+        );
+        
+        showMessage('✅ Deployed! Netlify will auto-update your website.', 'success');
+        setTimeout(() => progressContainer.remove(), 3000);
+        
+    } catch (error) {
+        showMessage(`❌ Deployment failed: ${error.message}`, 'error');
+    }
+}
+
+// Complete reorganization
+async function startCompleteReorganization() {
+    try {
+        showMessage('Starting complete reorganization...', 'info');
+        
+        const progressModal = createCompleteReorgProgress();
+        document.body.appendChild(progressModal);
+        
+        const reorganizer = new CompleteReorganizer(githubUploader);
+        const result = await reorganizer.completeReorganization((message, percent) => {
+            updateCompleteReorgProgress(progressModal, message, percent);
+        });
+        
+        setTimeout(() => {
+            progressModal.remove();
+            
+            if (result.success) {
+                showMessage(
+                    `✅ Reorganization complete! Processed: ${result.processed}, Failed: ${result.failed}`, 
+                    'success'
+                );
+                
+                showIdMappingReport(result);
+                
+                if (typeof renderArtworks === 'function') {
+                    renderArtworks();
+                }
+            }
+        }, 2000);
+        
+    } catch (error) {
+        console.error('Reorganization error:', error);
+        showMessage(`❌ Reorganization failed: ${error.message}`, 'error');
+        
+        const progressModal = document.querySelector('.complete-reorg-progress');
+        if (progressModal) progressModal.remove();
     }
 }
 
@@ -590,35 +656,80 @@ function showIdMappingReport(result) {
     document.body.appendChild(reportModal);
 }
 
+// Add main UI
+function addGitHubUI() {
+    const githubHTML = `
+        <div class="github-config-section" style="margin-bottom: 2rem;">
+            <h3>🐙 GitHub Integration</h3>
+            <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+                <button class="btn" onclick="testGitHubConnection()">
+                    🔍 Test Connection
+                </button>
+                <button class="btn btn-success" onclick="exportAndDeployToGitHub()">
+                    🚀 Deploy to Website
+                </button>
+                <div id="githubStatus" style="margin-left: auto;">
+                    <span style="color: #6c757d;">Connection not tested</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="complete-reorganization-section" style="margin-bottom: 2rem; padding: 1.5rem; background: #e8f5e9; border: 1px solid #c8e6c9; border-radius: 8px;">
+            <h3>🎯 Complete Portfolio Reorganization</h3>
+            <p style="margin: 0.5rem 0; color: #2e7d32;">
+                <strong>The Ultimate Fix:</strong> Create thumbnails from large images + reorder all artwork IDs sequentially.
+            </p>
+            
+            <div style="margin: 1rem 0; padding: 1rem; background: white; border-radius: 4px; border-left: 4px solid #4caf50;">
+                <strong>What this does:</strong><br>
+                • Creates 400px thumbnails from your large images (fast mobile loading)<br>
+                • Renumbers all artwork IDs sequentially: 2020_001, 2020_002, etc. (no gaps)<br>
+                • Renames all files with new IDs (thumbnails + large images)<br>
+                • Updates artworks.json with new structure<br>
+                • Auto-commits to GitHub and deploys to Netlify<br>
+                • Cleans up old files with old IDs
+            </div>
+            
+            <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+                <button class="btn btn-success" onclick="startCompleteReorganization()" style="font-weight: bold;">
+                    🚀 Start Complete Reorganization
+                </button>
+            </div>
+            
+            <div style="margin-top: 1rem; font-size: 0.9rem; color: #2e7d32;">
+                <strong>⚠️ Important:</strong> This will rename all files and auto-deploy. Takes 10-15 minutes.
+            </div>
+        </div>
+    `;
+    
+    // Insert after toolbar
+    document.querySelector('.toolbar').insertAdjacentHTML('afterend', githubHTML);
+}
+
 // ================================
 // INITIALIZATION
 // ================================
 document.addEventListener('DOMContentLoaded', function() {
+    // Add GitHub UI
+    addGitHubUI();
+    
     // Replace image upload handler
     const originalImageInput = document.getElementById('imageInput');
     if (originalImageInput) {
+    //    originalImageInput.removeEventListener('change', handleImageUpload);
         originalImageInput.addEventListener('change', handleImageUploadWithGitHub);
     }
     
-    // Test connection on startup and update the existing GitHub status
+    // Test connection on startup
     setTimeout(async () => {
         const connected = await githubUploader.testConnection();
         const statusEl = document.getElementById('githubStatus');
         if (statusEl) {
-            if (connected.success) {
-                statusEl.className = 'github-status status-connected';
-                statusEl.textContent = `✅ Connected to ${connected.repoName}`;
-            } else {
-                statusEl.className = 'github-status status-disconnected';
-                statusEl.textContent = `❌ Connection failed`;
-            }
+            statusEl.innerHTML = connected.success ? 
+                '<span style="color: #28a745;">✅ Connected</span>' : 
+                '<span style="color: #dc3545;">❌ Not connected</span>';
         }
     }, 2000);
 });
 
-// Make functions available globally
-window.githubUploader = githubUploader;
-window.handleImageUploadWithGitHub = handleImageUploadWithGitHub;
-window.CompleteReorganizer = CompleteReorganizer;
-
-console.log('🎯 Clean GitHub Admin v2.1 loaded - Fixed duplicate sections!');
+console.log('🎯 Clean GitHub Admin v2.0 loaded!');
