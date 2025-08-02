@@ -1,5 +1,5 @@
-// Clean GitHub Admin - Reorganization Code Removed
-// Version: 2.3 - Focus on core GitHub operations only
+// Clean GitHub Admin - Fixed Global Function Scope
+// Version: 2.4 - Fixed processArtworksForReorganization global access
 
 // ================================
 // CONFIGURATION
@@ -157,10 +157,45 @@ class GitHubUploader {
             img.src = URL.createObjectURL(file);
         });
     }
-    // NEW FUNCTIONS TO ADD TO YOUR EXISTING github-admin.js
-    // Add these functions to the GitHubUploader class (don't replace existing functions)
 
-    // NEW: Download file from GitHub
+    // Create large version from file
+    async createLargeImage(file) {
+        return new Promise((resolve, reject) => {
+            const img = new Image();
+            
+            img.onload = () => {
+                try {
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+                    
+                    let { width, height } = img;
+                    const maxSize = 1600;
+                    
+                    if (Math.max(width, height) > maxSize) {
+                        const ratio = maxSize / Math.max(width, height);
+                        width = Math.round(width * ratio);
+                        height = Math.round(height * ratio);
+                    }
+                    
+                    canvas.width = width;
+                    canvas.height = height;
+                    
+                    ctx.imageSmoothingEnabled = true;
+                    ctx.imageSmoothingQuality = 'high';
+                    ctx.drawImage(img, 0, 0, width, height);
+                    
+                    canvas.toBlob(resolve, 'image/jpeg', 0.85);
+                } catch (error) {
+                    reject(error);
+                }
+            };
+            
+            img.onerror = reject;
+            img.src = URL.createObjectURL(file);
+        });
+    }
+
+    // Download file from GitHub
     async downloadFile(path) {
         try {
             console.log(`📥 Downloading ${path}...`);
@@ -200,7 +235,7 @@ class GitHubUploader {
         }
     }
 
-    // NEW: Check if file exists on GitHub
+    // Check if file exists on GitHub
     async checkFileExists(path) {
         try {
             const response = await fetch(`https://api.github.com/repos/${this.config.owner}/${this.config.repo}/contents/${path}`, {
@@ -215,7 +250,7 @@ class GitHubUploader {
         }
     }
 
-    // NEW: Delete file from GitHub
+    // Delete file from GitHub
     async deleteFile(path, message) {
         try {
             console.log(`🗑️ Deleting ${path}...`);
@@ -251,7 +286,7 @@ class GitHubUploader {
         }
     }
 
-    // NEW: Generate thumbnail from existing large image
+    // Generate thumbnail from existing large image
     async generateThumbnailFromLargeImage(largeImagePath, artworkId, onProgress) {
         try {
             onProgress?.('Downloading large image...', 10);
@@ -292,7 +327,7 @@ class GitHubUploader {
         }
     }
 
-    // NEW: Create thumbnail from blob (similar to existing createThumbnail but from blob)
+    // Create thumbnail from blob
     async createThumbnailFromBlob(blob) {
         return new Promise((resolve, reject) => {
             const img = new Image();
@@ -329,7 +364,7 @@ class GitHubUploader {
         });
     }
 
-    // NEW: Rename file (download, upload with new name, delete old)
+    // Rename file (download, upload with new name, delete old)
     async renameFile(oldPath, newPath, message, onProgress) {
         try {
             onProgress?.(`Renaming ${oldPath} to ${newPath}...`, 0);
@@ -364,7 +399,7 @@ class GitHubUploader {
         }
     }
 
-    // NEW: Process artwork for reorganization (handle renaming and thumbnail generation)
+    // Process artwork for reorganization (handle renaming and thumbnail generation)
     async processArtworkForReorganization(artwork, newId, onProgress) {
         try {
             const oldId = artwork.id;
@@ -436,94 +471,6 @@ class GitHubUploader {
             console.error(`Failed to process artwork ${artwork.id}:`, error);
             throw error;
         }
-    }
-
-    // ADD THESE GLOBAL FUNCTIONS (after the existing global functions in your file)
-
-    // NEW: Process multiple artworks for reorganization
-    async function processArtworksForReorganization(artworksToProcess, onProgress) {
-        console.log(`🔄 Processing ${artworksToProcess.length} artworks for reorganization...`);
-        
-        const results = [];
-        const total = artworksToProcess.length;
-        
-        for (let i = 0; i < artworksToProcess.length; i++) {
-            const { artwork, newId } = artworksToProcess[i];
-            
-            try {
-                const overallProgress = (i / total) * 100;
-                onProgress?.(`Processing ${i + 1}/${total}: ${artwork.title}`, overallProgress);
-                
-                const result = await githubUploader.processArtworkForReorganization(
-                    artwork, 
-                    newId,
-                    (subMessage, subProgress) => {
-                        const adjustedProgress = overallProgress + (subProgress / total);
-                        onProgress?.(subMessage, adjustedProgress);
-                    }
-                );
-                
-                results.push({
-                    artwork: artwork,
-                    newId: newId,
-                    result: result
-                });
-                
-            } catch (error) {
-                console.error(`Failed to process ${artwork.id}:`, error);
-                results.push({
-                    artwork: artwork,
-                    newId: newId,
-                    result: { success: false, error: error.message }
-                });
-            }
-        }
-        
-        const successful = results.filter(r => r.result.success).length;
-        const failed = results.filter(r => !r.result.success).length;
-        
-        console.log(`✅ Reorganization processing complete: ${successful} successful, ${failed} failed`);
-        
-        return results;
-    }
-
-    // Make new functions available globally
-    window.processArtworksForReorganization = processArtworksForReorganization;
-    // Create large version from file
-    async createLargeImage(file) {
-        return new Promise((resolve, reject) => {
-            const img = new Image();
-            
-            img.onload = () => {
-                try {
-                    const canvas = document.createElement('canvas');
-                    const ctx = canvas.getContext('2d');
-                    
-                    let { width, height } = img;
-                    const maxSize = 1600;
-                    
-                    if (Math.max(width, height) > maxSize) {
-                        const ratio = maxSize / Math.max(width, height);
-                        width = Math.round(width * ratio);
-                        height = Math.round(height * ratio);
-                    }
-                    
-                    canvas.width = width;
-                    canvas.height = height;
-                    
-                    ctx.imageSmoothingEnabled = true;
-                    ctx.imageSmoothingQuality = 'high';
-                    ctx.drawImage(img, 0, 0, width, height);
-                    
-                    canvas.toBlob(resolve, 'image/jpeg', 0.85);
-                } catch (error) {
-                    reject(error);
-                }
-            };
-            
-            img.onerror = reject;
-            img.src = URL.createObjectURL(file);
-        });
     }
 
     // Update artworks.json file
@@ -612,11 +559,58 @@ class GitHubUploader {
 }
 
 // ================================
-// GLOBAL FUNCTIONS
+// GLOBAL FUNCTIONS (MOVED OUTSIDE OF CLASS)
 // ================================
 
 // Initialize uploader
 const githubUploader = new GitHubUploader(GITHUB_CONFIG);
+
+// Process multiple artworks for reorganization - NOW PROPERLY GLOBAL
+async function processArtworksForReorganization(artworksToProcess, onProgress) {
+    console.log(`🔄 Processing ${artworksToProcess.length} artworks for reorganization...`);
+    
+    const results = [];
+    const total = artworksToProcess.length;
+    
+    for (let i = 0; i < artworksToProcess.length; i++) {
+        const { artwork, newId } = artworksToProcess[i];
+        
+        try {
+            const overallProgress = (i / total) * 100;
+            onProgress?.(`Processing ${i + 1}/${total}: ${artwork.title}`, overallProgress);
+            
+            const result = await githubUploader.processArtworkForReorganization(
+                artwork, 
+                newId,
+                (subMessage, subProgress) => {
+                    const adjustedProgress = overallProgress + (subProgress / total);
+                    onProgress?.(subMessage, adjustedProgress);
+                }
+            );
+            
+            results.push({
+                artwork: artwork,
+                newId: newId,
+                result: result
+            });
+            
+        } catch (error) {
+            console.error(`Failed to process ${artwork.id}:`, error);
+            results.push({
+                artwork: artwork,
+                newId: newId,
+                result: { success: false, error: error.message }
+            });
+        }
+    }
+    
+    const successful = results.filter(r => r.result.success).length;
+    const failed = results.filter(r => !r.result.success).length;
+    
+    console.log(`✅ Reorganization processing complete: ${successful} successful, ${failed} failed`);
+    
+    return results;
+}
 
 // Upload new artwork
 async function handleImageUploadWithGitHub(event) {
@@ -844,13 +838,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 2000);
 });
 
-
-
-
-// Make functions available globally
+// ================================
+// MAKE FUNCTIONS AVAILABLE GLOBALLY
+// ================================
 window.githubUploader = githubUploader;
 window.handleImageUploadWithGitHub = handleImageUploadWithGitHub;
 window.testGitHubConnection = testGitHubConnection;
 window.exportAndDeployToGitHub = exportAndDeployToGitHub;
+window.processArtworksForReorganization = processArtworksForReorganization;
 
-console.log('🎯 GitHub Admin v2.3 loaded - Reorganization code removed!');
+console.log('🎯 GitHub Admin v2.4 loaded - Fixed global function access!');
