@@ -143,7 +143,7 @@ function downloadJsonFile(data, filename = 'artworks_fixed.json') {
 }
 
 // Main function that gets called by the admin interface
-function startCompleteReorganization() {
+async function startCompleteReorganization() {
     console.log('🚀 Starting complete reorganization...');
     
     // Check if artworks are loaded
@@ -174,7 +174,7 @@ function startCompleteReorganization() {
         
         // Update the global artworks array
         window.artworks = correctedData;
-        
+
         // Re-render the display if functions are available
         if (typeof window.renderArtworks === 'function') {
             window.renderArtworks();
@@ -182,10 +182,16 @@ function startCompleteReorganization() {
         if (typeof window.updateStats === 'function') {
             window.updateStats();
         }
-        
-        // Download the corrected JSON file
-        downloadJsonFile(correctedData, 'artworks_corrected.json');
-        
+
+        // Deploy to GitHub
+        if (typeof window.githubUploader !== 'undefined') {
+            await window.githubUploader.updateArtworksJson(correctedData);
+            window.showMessage('✅ Reorganization deployed to GitHub! Website will update in ~2 minutes.', 'success');
+        } else {
+            // Fallback: Download the corrected JSON file
+            downloadJsonFile(correctedData, 'artworks_corrected.json');
+            window.showMessage('⚠️ GitHub uploader not found. JSON file downloaded instead.', 'warning');
+        }        
         // Show success message
         if (typeof window.showMessage === 'function') {
             window.showMessage(`✅ Reorganization complete! ${correctedData.length} artworks processed. JSON file downloaded.`, 'success');
