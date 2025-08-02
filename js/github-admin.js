@@ -1,5 +1,5 @@
-// Clean GitHub Admin - Fixed Global Function Scope
-// Version: 2.4 - Fixed processArtworksForReorganization global access
+// Clean GitHub Admin - Consolidated and Fixed
+// Version: 2.5 - Removed duplicates, fixed extensions, proper blob handling
 
 // ================================
 // CONFIGURATION
@@ -56,6 +56,7 @@ class GitHubUploader {
         }
     }
 
+    // Convert blob to base64
     async blobToBase64(blob) {
         return new Promise((resolve, reject) => {
             const reader = new FileReader();
@@ -68,22 +69,22 @@ class GitHubUploader {
         });
     }
 
-    // Upload artwork with thumbnail and large image
+    // Upload artwork with thumbnail and large image (for new uploads)
     async uploadArtwork(file, artwork, onProgress) {
         try {
             onProgress?.('Creating optimized images...', 10);
             
-            // Create thumbnail
-            const thumbnailBlob = await this.createThumbnail(file);
+            // Create thumbnail (PNG format for consistency)
+            const thumbnailBlob = await this.createImageFromFile(file, 400, 'thumbnail');
             onProgress?.('Thumbnail created', 30);
             
-            // Create large version
-            const largeBlob = await this.createLargeImage(file);
+            // Create large version (PNG format for consistency)
+            const largeBlob = await this.createImageFromFile(file, 1600, 'large');
             onProgress?.('Large image created', 50);
             
             // Upload thumbnail
             const thumbnailBase64 = await this.blobToBase64(thumbnailBlob);
-            const thumbnailPath = `${this.config.paths.thumbnails}${artwork.id}_thumb.jpg`;
+            const thumbnailPath = `${this.config.paths.thumbnails}${artwork.id}_thumb.png`;
             const thumbnailResult = await this.uploadFile(
                 thumbnailPath,
                 thumbnailBase64,
@@ -93,7 +94,7 @@ class GitHubUploader {
             
             // Upload large image
             const largeBase64 = await this.blobToBase64(largeBlob);
-            const largePath = `${this.config.paths.large}${artwork.id}_large.jpg`;
+            const largePath = `${this.config.paths.large}${artwork.id}_large.png`;
             const largeResult = await this.uploadFile(
                 largePath,
                 largeBase64,
@@ -121,8 +122,8 @@ class GitHubUploader {
         }
     }
 
-    // Create thumbnail from file
-    async createThumbnail(file) {
+    // CONSOLIDATED: Create optimized image from file (replaces createThumbnail and createLargeImage)
+    async createImageFromFile(file, maxSize, type = 'thumbnail') {
         return new Promise((resolve, reject) => {
             const img = new Image();
             
@@ -132,8 +133,8 @@ class GitHubUploader {
                     const ctx = canvas.getContext('2d');
                     
                     let { width, height } = img;
-                    const maxSize = 400;
                     
+                    // Resize if needed
                     if (Math.max(width, height) > maxSize) {
                         const ratio = maxSize / Math.max(width, height);
                         width = Math.round(width * ratio);
@@ -143,11 +144,15 @@ class GitHubUploader {
                     canvas.width = width;
                     canvas.height = height;
                     
+                    // High quality settings
                     ctx.imageSmoothingEnabled = true;
                     ctx.imageSmoothingQuality = 'high';
                     ctx.drawImage(img, 0, 0, width, height);
                     
-                    canvas.toBlob(resolve, 'image/jpeg', 0.8);
+                    // Convert to PNG with appropriate quality
+                    const quality = type === 'thumbnail' ? 0.8 : 0.9;
+                    canvas.toBlob(resolve, 'image/png', quality);
+                    
                 } catch (error) {
                     reject(error);
                 }
@@ -158,8 +163,8 @@ class GitHubUploader {
         });
     }
 
-    // Create large version from file
-    async createLargeImage(file) {
+    // CONSOLIDATED: Create optimized image from blob (replaces createThumbnailFromBlob)
+    async createImageFromBlob(blob, maxSize, type = 'thumbnail') {
         return new Promise((resolve, reject) => {
             const img = new Image();
             
@@ -169,8 +174,8 @@ class GitHubUploader {
                     const ctx = canvas.getContext('2d');
                     
                     let { width, height } = img;
-                    const maxSize = 1600;
                     
+                    // Resize if needed
                     if (Math.max(width, height) > maxSize) {
                         const ratio = maxSize / Math.max(width, height);
                         width = Math.round(width * ratio);
@@ -180,22 +185,33 @@ class GitHubUploader {
                     canvas.width = width;
                     canvas.height = height;
                     
+                    // High quality settings
                     ctx.imageSmoothingEnabled = true;
                     ctx.imageSmoothingQuality = 'high';
                     ctx.drawImage(img, 0, 0, width, height);
                     
-                    canvas.toBlob(resolve, 'image/jpeg', 0.85);
+                    // Convert to PNG with appropriate quality
+                    const quality = type === 'thumbnail' ? 0.8 : 0.9;
+                    canvas.toBlob(resolve, 'image/png', quality);
+                    
+                    // Clean up object URL
+                    URL.revokeObjectURL(img.src);
+                    
                 } catch (error) {
                     reject(error);
                 }
             };
             
-            img.onerror = reject;
-            img.src = URL.createObjectURL(file);
+            img.onerror = (error) => {
+                URL.revokeObjectURL(img.src);
+                reject(error);
+            };
+            
+            img.src = URL.createObjectURL(blob);
         });
     }
 
-    // Download file from GitHub
+    // FIXED: Download file from GitHub with proper blob handling
     async downloadFile(path) {
         try {
             console.log(`📥 Downloading ${path}...`);
@@ -214,20 +230,46 @@ class GitHubUploader {
 
             const data = await response.json();
             
-            // Decode base64 content to blob
-            const binaryString = atob(data.content.replace(/\s/g, ''));
-            const bytes = new Uint8Array(binaryString.length);
-            for (let i = 0; i < binaryString.length; i++) {
-                bytes[i] = binaryString.charCodeAt(i);
-            }
-            const blob = new Blob([bytes]);
+            // FIXED: Proper base64 decoding with better error handling
+            try {
+                const cleanContent = data.content.replace(/\s/g, '');
+                console.log(`📊 Content length: ${cleanContent.length} chars`);
+                
+                if (!cleanContent || cleanContent.length === 0) {
+                    throw new Error('Empty content received from GitHub');
+                }
+                
+                const binaryString = atob(cleanContent);
+                console.log(`📊 Decoded binary length: ${binaryString.length} bytes`);
+                
+                if (binaryString.length === 0) {
+                    throw new Error('Base64 decoding resulted in empty data');
+                }
+                
+                // Create proper typed array
+                const bytes = new Uint8Array(binaryString.length);
+                for (let i = 0; i < binaryString.length; i++) {
+                    bytes[i] = binaryString.charCodeAt(i);
+                }
+                
+                // Create blob with proper MIME type
+                const mimeType = path.toLowerCase().endsWith('.png') ? 'image/png' : 'image/jpeg';
+                const blob = new Blob([bytes], { type: mimeType });
+                
+                console.log(`✅ Created blob: ${blob.size} bytes, type: ${blob.type}`);
 
-            return {
-                success: true,
-                blob: blob,
-                sha: data.sha,
-                downloadUrl: data.download_url
-            };
+                return {
+                    success: true,
+                    blob: blob,
+                    sha: data.sha,
+                    downloadUrl: data.download_url,
+                    size: blob.size
+                };
+                
+            } catch (decodeError) {
+                console.error('Base64 decode error:', decodeError);
+                throw new Error(`Failed to decode file content: ${decodeError.message}`);
+            }
 
         } catch (error) {
             console.error(`Failed to download ${path}:`, error);
@@ -286,7 +328,7 @@ class GitHubUploader {
         }
     }
 
-    // Generate thumbnail from existing large image
+    // FIXED: Generate thumbnail from existing large image (consistent PNG format)
     async generateThumbnailFromLargeImage(largeImagePath, artworkId, onProgress) {
         try {
             onProgress?.('Downloading large image...', 10);
@@ -297,14 +339,15 @@ class GitHubUploader {
                 throw new Error(`Failed to download large image: ${downloadResult.error}`);
             }
 
+            console.log(`📥 Downloaded ${downloadResult.size} bytes from ${largeImagePath}`);
             onProgress?.('Creating thumbnail...', 40);
 
-            // Create thumbnail from the blob
-            const thumbnailBlob = await this.createThumbnailFromBlob(downloadResult.blob);
+            // Create thumbnail from the blob using consolidated function
+            const thumbnailBlob = await this.createImageFromBlob(downloadResult.blob, 400, 'thumbnail');
             
             onProgress?.('Uploading thumbnail...', 70);
 
-            // Upload thumbnail
+            // Upload thumbnail with consistent PNG extension
             const thumbnailBase64 = await this.blobToBase64(thumbnailBlob);
             const thumbnailPath = `${this.config.paths.thumbnails}${artworkId}_thumb.png`;
             const thumbnailResult = await this.uploadFile(
@@ -325,43 +368,6 @@ class GitHubUploader {
             console.error('Thumbnail generation failed:', error);
             throw error;
         }
-    }
-
-    // Create thumbnail from blob
-    async createThumbnailFromBlob(blob) {
-        return new Promise((resolve, reject) => {
-            const img = new Image();
-            
-            img.onload = () => {
-                try {
-                    const canvas = document.createElement('canvas');
-                    const ctx = canvas.getContext('2d');
-                    
-                    let { width, height } = img;
-                    const maxSize = 400;
-                    
-                    if (Math.max(width, height) > maxSize) {
-                        const ratio = maxSize / Math.max(width, height);
-                        width = Math.round(width * ratio);
-                        height = Math.round(height * ratio);
-                    }
-                    
-                    canvas.width = width;
-                    canvas.height = height;
-                    
-                    ctx.imageSmoothingEnabled = true;
-                    ctx.imageSmoothingQuality = 'high';
-                    ctx.drawImage(img, 0, 0, width, height);
-                    
-                    canvas.toBlob(resolve, 'image/png', 0.8);
-                } catch (error) {
-                    reject(error);
-                }
-            };
-            
-            img.onerror = reject;
-            img.src = URL.createObjectURL(blob);
-        });
     }
 
     // Rename file (download, upload with new name, delete old)
@@ -399,13 +405,13 @@ class GitHubUploader {
         }
     }
 
-    // Process artwork for reorganization (handle renaming and thumbnail generation)
+    // FIXED: Process artwork for reorganization with consistent PNG extensions
     async processArtworkForReorganization(artwork, newId, onProgress) {
         try {
             const oldId = artwork.id;
             const operations = [];
 
-            // Determine what operations are needed
+            // FIXED: Use consistent PNG extensions throughout
             const needsIdChange = oldId !== newId;
             const oldThumbnailPath = `${this.config.paths.thumbnails}${oldId}_thumb.png`;
             const oldLargePath = `${this.config.paths.large}${oldId}_large.png`;
@@ -433,7 +439,11 @@ class GitHubUploader {
                 await this.renameFile(
                     oldLargePath, 
                     newLargePath, 
-                    `Rename large image: ${oldId} → ${newId}`
+                    `Rename large image: ${oldId} → ${newId}`,
+                    (subMessage, subProgress) => {
+                        const adjustedProgress = 25 + (subProgress * 0.25);
+                        onProgress?.(subMessage, adjustedProgress);
+                    }
                 );
                 operations.push(`Renamed large: ${oldId} → ${newId}`);
             }
@@ -445,7 +455,14 @@ class GitHubUploader {
                 // If we renamed the large image, use new path, otherwise use old path
                 const sourceImagePath = needsIdChange ? newLargePath : oldLargePath;
                 
-                await this.generateThumbnailFromLargeImage(sourceImagePath, newId);
+                await this.generateThumbnailFromLargeImage(
+                    sourceImagePath, 
+                    newId,
+                    (subMessage, subProgress) => {
+                        const adjustedProgress = 50 + (subProgress * 0.4);
+                        onProgress?.(subMessage, adjustedProgress);
+                    }
+                );
                 
                 if (thumbnailExists && needsIdChange) {
                     // Delete old thumbnail if it existed and we renamed
@@ -532,7 +549,7 @@ class GitHubUploader {
         }
     }
 
-    // Alternative test that checks write permissions (still no commits)
+    // Test write permissions
     async testWritePermissions() {
         try {
             // Check if we can read the existing artworks.json
@@ -559,13 +576,13 @@ class GitHubUploader {
 }
 
 // ================================
-// GLOBAL FUNCTIONS (MOVED OUTSIDE OF CLASS)
+// GLOBAL FUNCTIONS (PROPERLY ACCESSIBLE)
 // ================================
 
 // Initialize uploader
 const githubUploader = new GitHubUploader(GITHUB_CONFIG);
 
-// Process multiple artworks for reorganization - NOW PROPERLY GLOBAL
+// FIXED: Process multiple artworks for reorganization - NOW PROPERLY GLOBAL
 async function processArtworksForReorganization(artworksToProcess, onProgress) {
     console.log(`🔄 Processing ${artworksToProcess.length} artworks for reorganization...`);
     
@@ -642,12 +659,12 @@ async function handleImageUploadWithGitHub(event) {
         document.getElementById('previewImage').src = URL.createObjectURL(file);
         document.getElementById('previewImage').style.display = 'block';
         
-        // Store upload result with correct structure
+        // FIXED: Store upload result with consistent PNG extensions
         uploadedImages[artworkId] = {
             githubUpload: {
                 artworkData: {
-                    image: `./images/paintings/thumbnails/${artworkId}_thumb.jpg`,
-                    imageHigh: `./images/paintings/large/${artworkId}_large.jpg`
+                    image: `./images/paintings/thumbnails/${artworkId}_thumb.png`,
+                    imageHigh: `./images/paintings/large/${artworkId}_large.png`
                 },
                 urls: uploadResult.urls
             },
@@ -811,6 +828,32 @@ async function exportAndDeployToGitHub() {
 }
 
 // ================================
+// TESTING/DEBUG FUNCTIONS
+// ================================
+
+// Test single thumbnail generation
+async function testSingleThumbnailGeneration(artworkId) {
+    console.log(`🧪 Testing thumbnail generation for ${artworkId}...`);
+    
+    try {
+        const result = await githubUploader.generateThumbnailFromLargeImage(
+            `images/paintings/large/${artworkId}_large.png`,
+            artworkId,
+            (message, percent) => {
+                console.log(`${percent}%: ${message}`);
+            }
+        );
+        
+        console.log('✅ Test successful:', result);
+        return result;
+        
+    } catch (error) {
+        console.error('❌ Test failed:', error);
+        return { success: false, error: error.message };
+    }
+}
+
+// ================================
 // INITIALIZATION
 // ================================
 document.addEventListener('DOMContentLoaded', function() {
@@ -846,5 +889,6 @@ window.handleImageUploadWithGitHub = handleImageUploadWithGitHub;
 window.testGitHubConnection = testGitHubConnection;
 window.exportAndDeployToGitHub = exportAndDeployToGitHub;
 window.processArtworksForReorganization = processArtworksForReorganization;
+window.testSingleThumbnailGeneration = testSingleThumbnailGeneration;
 
-console.log('🎯 GitHub Admin v2.4 loaded - Fixed global function access!');
+console.log('🎯 GitHub Admin v2.5 loaded - Consolidated, fixed duplicates, consistent PNG extensions!');
