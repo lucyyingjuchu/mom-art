@@ -504,54 +504,32 @@
                 <div class="reorganization-inner">
                     <h4 style="color: #155724; margin-bottom: 1rem;">🎯 Complete Portfolio Reorganization</h4>
                     <p style="margin: 0.5rem 0; color: #2e7d32; font-size: 0.95rem;">
-                        <strong>Comprehensive portfolio maintenance tool</strong> - Fixes IDs, generates missing thumbnails, and organizes everything properly.
+                        <strong>One-click maintenance tool</strong> - Fixes IDs, generates missing thumbnails, and organizes everything.
                     </p>
                     
                     <div class="reorganization-info">
-                        <strong>📋 What this tool does step by step:</strong><br><br>
-                        
-                        <strong>1. 🔄 ID Reorganization:</strong><br>
-                        • Sorts all artworks by year, then by title<br>
-                        • Renumbers IDs sequentially: 2020_001, 2020_002, 2021_001, etc.<br>
-                        • Ensures no gaps or duplicate IDs<br>
-                        • Fixes year mismatches (e.g., if artwork year is 2023 but ID says 2022_001)<br><br>
-                        
-                        <strong>2. 📁 File Operations (GitHub):</strong><br>
-                        • Downloads existing large images (2-3MB PNG files)<br>
-                        • Generates missing 400px thumbnails for fast web loading<br>
-                        • Renames files to match new IDs (if ID changed)<br>
-                        • Maintains both thumbnail and large image versions<br>
-                        • Uses PNG format consistently throughout<br><br>
-                        
-                        <strong>3. 📄 Database Update:</strong><br>
-                        • Updates artworks.json with new sequential IDs<br>
-                        • Fixes image paths to point to correct files<br>
-                        • Corrects file extensions (.jpg → .png)<br>
-                        • Preserves all artwork metadata (title, year, description, etc.)<br><br>
-                        
-                        <strong>4. 🚀 Auto-Deploy:</strong><br>
-                        • Commits all changes to GitHub repository<br>
-                        • Triggers Netlify rebuild automatically<br>
-                        • Website updates live in ~2 minutes
+                        <strong>📋 What this does:</strong><br>
+                        • Renumbers IDs sequentially (2020_001, 2020_002, etc.)<br>
+                        • Generates missing 400px thumbnails from large images<br>
+                        • Fixes year mismatches and file extensions<br>
+                        • Auto-deploys to GitHub and rebuilds website
                     </div>
                     
-                    <div style="background: #e8f5e9; padding: 1rem; border-radius: 8px; margin: 1rem 0; font-size: 0.9rem;">
-                        <strong>📊 Example transformation:</strong><br>
-                        Before: <code>2022_005</code> (but artwork year is 2023, missing thumbnail)<br>
-                        After: <code>2023_003</code> (correct year, sequential number, thumbnail generated)
+                    <div style="background: #e8f5e9; padding: 0.8rem; border-radius: 6px; margin: 1rem 0; font-size: 0.85rem;">
+                        <strong>Example:</strong> <code>2022_005</code> (year 2023, missing thumb) → <code>2023_003</code> (fixed year, thumb generated)
                     </div>
                     
                     <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; margin: 1rem 0;">
                         <button class="btn btn-success" onclick="startCompleteReorganization()" style="font-weight: bold;">
                             🚀 Start Complete Reorganization
                         </button>
-                        <span style="color: #6c757d; font-size: 0.9rem;">
-                            (Safe to run - backs up everything)
+                        <span style="color: #6c757d; font-size: 0.85rem;">
+                            Takes 10-15 min for 200+ artworks
                         </span>
                     </div>
                     
                     <div class="reorganization-warning">
-                        <strong>⏱️ Process details:</strong> Handles 200+ artworks in 10-15 minutes. Creates thumbnails for missing ones. Renames files as needed. Auto-deploys when complete. Don't close browser window during processing.
+                        <strong>⚠️ Note:</strong> Don't close browser during processing. Creates thumbnails for missing ones and auto-deploys when complete.
                     </div>
                 </div>
             </div>
