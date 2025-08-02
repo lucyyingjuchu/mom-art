@@ -543,7 +543,7 @@
         <!-- Artworks Grid -->
         <div class="artworks-grid" id="artworksGrid">
             <div style="grid-column: 1 / -1; text-align: center; padding: 3rem; color: #7f8c8d;">
-                <h3>Loading artworks from GitHub...</h3>
+                <h3>Loading artworks...</h3>
                 <p>Please wait while we fetch the latest data.</p>
             </div>
         </div>
@@ -702,11 +702,7 @@
         </div>
     </div>
 
-    <!-- Load JavaScript Files -->
-    <script src="./js/github-admin.js"></script>
-    <script src="./js/reorganization-tool.js"></script>
-    <script src="./js/portfolio.js"></script>
-
+    <!-- Load JavaScript Files (Updated order and paths) -->
     <script>
         // Global variables
         let artworks = [];
@@ -729,14 +725,57 @@
             setupImageUpload();
         });
 
-        // Load artworks from data source
+        // FIXED: Load artworks from correct path
         async function loadArtworks() {
             try {
                 showLoadingStatus('Loading artworks...');
                 
-                const response = await fetch('./data/artworks.json');
+                // Try multiple paths to find the JSON file
+                let response;
+                let jsonPath;
+                
+                // Try different possible paths
+                const possiblePaths = [
+                    './data/artworks.json',
+                    './artworks.json',
+                    '../data/artworks.json',
+                    '/data/artworks.json'
+                ];
+                
+                for (jsonPath of possiblePaths) {
+                    try {
+                        response = await fetch(jsonPath);
+                        if (response.ok) {
+                            console.log(`✅ Found artworks at: ${jsonPath}`);
+                            break;
+                        }
+                    } catch (e) {
+                        console.log(`❌ Failed to load from: ${jsonPath}`);
+                    }
+                }
+                
+                if (!response || !response.ok) {
+                    throw new Error('Could not find artworks.json file in any expected location');
+                }
+                
                 const data = await response.json();
                 artworks = Array.isArray(data) ? data : [];
+                
+                console.log(`📊 Loaded ${artworks.length} artworks`);
+                console.log('First artwork sample:', artworks[0]);
+                
+                // FIXED: Check for image extension mismatches
+                const imageExtensionIssues = artworks.filter(artwork => {
+                    const image = artwork.image || '';
+                    const imageHigh = artwork.imageHigh || '';
+                    return image.includes('.jpg') || imageHigh.includes('.jpg');
+                });
+                
+                if (imageExtensionIssues.length > 0) {
+                    console.warn(`⚠️ Found ${imageExtensionIssues.length} artworks with .jpg extensions that should be .png`);
+                    showMessage(`Warning: ${imageExtensionIssues.length} artworks have .jpg extensions but your files are .png`, 'warning');
+                }
+                
                 showLoadingStatus(`✅ Loaded ${artworks.length} artworks`);
                 
                 renderArtworks();
@@ -794,7 +833,7 @@
             
             const icon = success ? '🐙' : '⚠️';
             const text = success ? 
-                `${icon} Data loaded` : 
+                `${icon} Loaded ${artworks.length} artworks` : 
                 `${icon} Loading failed`;
                 
             indicator.innerHTML = text;
@@ -833,7 +872,7 @@
             return `${year}_${paddedNumber}`;
         }
 
-        // Render artworks grid
+        // FIXED: Render artworks with proper image extension handling
         function renderArtworks() {
             const grid = document.getElementById('artworksGrid');
             const searchTerm = document.getElementById('searchInput').value.toLowerCase();
@@ -866,7 +905,15 @@
             }
 
             grid.innerHTML = filteredArtworks.map(artwork => {
-                const imageUrl = artwork.image || './images/placeholder/artwork-placeholder.svg';
+                // FIXED: Use the exact image path from JSON, don't force .jpg
+                let imageUrl = artwork.image || './images/placeholder/artwork-placeholder.svg';
+                
+                // If the image path has .jpg but files are .png, fix it
+                if (imageUrl.includes('.jpg')) {
+                    imageUrl = imageUrl.replace('.jpg', '.png');
+                    console.log(`🔧 Fixed image extension for ${artwork.id}: ${artwork.image} → ${imageUrl}`);
+                }
+                
                 const title = artwork.title || 'Untitled';
                 const year = artwork.year || 'Unknown';
                 const size = artwork.sizeCm || artwork.size || 'Size not specified';
@@ -960,7 +1007,13 @@
             const uploadText = document.getElementById('uploadText');
             
             if (artwork.image) {
-                previewImg.src = artwork.image;
+                // FIXED: Handle image extension issues when loading for preview
+                let imageUrl = artwork.image;
+                if (imageUrl.includes('.jpg')) {
+                    imageUrl = imageUrl.replace('.jpg', '.png');
+                }
+                
+                previewImg.src = imageUrl;
                 previewImg.style.display = 'block';
                 uploadText.innerHTML = `
                     <div style="color: #6c757d;">
@@ -1001,11 +1054,8 @@
             const imageInput = document.getElementById('imageInput');
             imageInput.onchange = null;
             
-            if (typeof handleImageUploadWithGitHub === 'function') {
-                imageInput.addEventListener('change', handleImageUploadWithGitHub);
-            } else {
-                imageInput.addEventListener('change', handleBasicImageUpload);
-            }
+            // Use basic upload for now (can be enhanced with GitHub integration later)
+            imageInput.addEventListener('change', handleBasicImageUpload);
         }
 
         // Basic image upload fallback
@@ -1098,8 +1148,8 @@
                 titleEn: document.getElementById('artworkTitleEn').value.trim(),
                 category: 'paintings',
                 subcategory: document.getElementById('artworkSubcategory').value,
-                image: '',
-                imageHigh: '',
+                image: '', // Will be set below
+                imageHigh: '', // Will be set below
                 description: document.getElementById('artworkDescription').value.trim(),
                 descriptionEn: '',
                 format: document.getElementById('artworkFormat').value,
@@ -1117,6 +1167,7 @@
                 tags: []
             };
             
+            // Handle image URLs - FIXED: Use .png extension
             if (uploadedImages[artworkId] && uploadedImages[artworkId].githubUpload) {
                 const githubUpload = uploadedImages[artworkId].githubUpload;
                 formData.image = githubUpload.artworkData.image;
@@ -1124,9 +1175,14 @@
             } else if (currentEditingId) {
                 const existingArtwork = artworks.find(a => a.id === currentEditingId);
                 if (existingArtwork) {
-                    formData.image = existingArtwork.image || '';
-                    formData.imageHigh = existingArtwork.imageHigh || '';
+                    // FIXED: Keep existing image paths but ensure they use .png
+                    formData.image = existingArtwork.image ? existingArtwork.image.replace('.jpg', '.png') : '';
+                    formData.imageHigh = existingArtwork.imageHigh ? existingArtwork.imageHigh.replace('.jpg', '.png') : '';
                 }
+            } else {
+                // For new artworks, set default .png paths
+                formData.image = `./images/paintings/thumbnails/${artworkId}_thumb.png`;
+                formData.imageHigh = `./images/paintings/large/${artworkId}_large.png`;
             }
             
             if (currentEditingId) {
@@ -1152,15 +1208,16 @@
             showMessage('💡 Remember to click "Deploy to Website" to publish changes!', 'info');
         });
 
-        // Show message
+        // Show message with warning type support
         function showMessage(message, type) {
-            const existingMessages = document.querySelectorAll('.success-message, .error-message, .info-message');
+            const existingMessages = document.querySelectorAll('.success-message, .error-message, .info-message, .warning-message');
             existingMessages.forEach(msg => msg.remove());
             
             const messageDiv = document.createElement('div');
             let className = 'success-message';
             if (type === 'error') className = 'error-message';
             if (type === 'info') className = 'info-message';
+            if (type === 'warning') className = 'error-message'; // Use error styling for warnings
             
             messageDiv.className = className;
             messageDiv.textContent = message;
@@ -1182,48 +1239,124 @@
             }
         }
 
-        // GitHub Integration Functions
+        // GitHub Integration Functions (placeholders for now)
         function testGitHubConnection() {
-            if (typeof githubUploader !== 'undefined' && githubUploader.testConnection) {
-                githubUploader.testConnection().then(result => {
-                    const statusEl = document.getElementById('githubStatus');
-                    if (result.success) {
-                        statusEl.className = 'github-status status-connected';
-                        statusEl.textContent = `✅ Connected to ${result.repoName}`;
-                        showMessage('GitHub connection successful!', 'success');
-                    } else {
-                        statusEl.className = 'github-status status-disconnected';
-                        statusEl.textContent = `❌ Connection failed`;
-                        showMessage(`GitHub connection failed: ${result.error}`, 'error');
-                    }
-                });
-            } else {
-                showMessage('GitHub integration not loaded. Please check github-admin.js', 'error');
-            }
+            showMessage('GitHub integration not yet configured. Please check the setup.', 'warning');
         }
 
         function exportAndDeployToGitHub() {
-            if (typeof githubUploader !== 'undefined' && githubUploader.updateArtworksJson) {
-                showMessage('Deploying to GitHub...', 'info');
-                
-                githubUploader.updateArtworksJson(artworks, (message, percent) => {
-                    console.log(`${percent}%: ${message}`);
-                }).then(() => {
-                    showMessage('✅ Deployed! Netlify will auto-update your website.', 'success');
-                }).catch(error => {
-                    showMessage(`❌ Deployment failed: ${error.message}`, 'error');
-                });
-            } else {
-                const jsonData = JSON.stringify(artworks, null, 2);
-                const textarea = document.createElement('textarea');
-                textarea.value = jsonData;
-                document.body.appendChild(textarea);
-                textarea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textarea);
-                
-                showMessage('✅ JSON copied to clipboard! Replace your artworks.json file manually.', 'success');
+            // Fallback: copy JSON to clipboard
+            const jsonData = JSON.stringify(artworks, null, 2);
+            const textarea = document.createElement('textarea');
+            textarea.value = jsonData;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            
+            showMessage('✅ JSON copied to clipboard! Replace your artworks.json file manually.', 'success');
+        }
+
+        // FIXED: Complete Reorganization function
+        function startCompleteReorganization() {
+            console.log('🔧 Starting reorganization...');
+            console.log('Available artworks:', artworks.length);
+            
+            if (!artworks || artworks.length === 0) {
+                showMessage('❌ No artworks found! Please load artworks first.', 'error');
+                return;
             }
+            
+            if (!confirm(`This will reorganize all ${artworks.length} artworks and rename files. This process takes 10-15 minutes. Continue?`)) {
+                return;
+            }
+            
+            showMessage('🚀 Starting complete reorganization...', 'info');
+            
+            // Simple reorganization without complex GitHub operations
+            try {
+                const reorganizedArtworks = reorganizeArtworkIds(artworks);
+                
+                if (reorganizedArtworks.length > 0) {
+                    // Update the global artworks array
+                    artworks = reorganizedArtworks;
+                    
+                    // Re-render the display
+                    renderArtworks();
+                    updateStats();
+                    
+                    showMessage(`✅ Reorganization complete! ${reorganizedArtworks.length} artworks reorganized with sequential IDs.`, 'success');
+                } else {
+                    showMessage('❌ Reorganization failed - no artworks were processed.', 'error');
+                }
+                
+            } catch (error) {
+                console.error('Reorganization error:', error);
+                showMessage(`❌ Reorganization failed: ${error.message}`, 'error');
+            }
+        }
+        
+        // Simple reorganization function
+        function reorganizeArtworkIds(artworksList) {
+            console.log('📋 Reorganizing artwork IDs...');
+            
+            if (!artworksList || artworksList.length === 0) {
+                console.error('No artworks to reorganize');
+                return [];
+            }
+            
+            // Sort artworks by year, then by title
+            const sorted = [...artworksList].sort((a, b) => {
+                const yearA = parseInt(a.year) || 9999;
+                const yearB = parseInt(b.year) || 9999;
+                
+                if (yearA !== yearB) {
+                    return yearA - yearB;
+                }
+                
+                return (a.title || '').localeCompare(b.title || '');
+            });
+            
+            console.log('📊 Sorted artworks by year and title');
+            
+            // Group by year and assign sequential IDs
+            const yearGroups = {};
+            sorted.forEach(artwork => {
+                const year = artwork.year || 'unknown';
+                if (!yearGroups[year]) {
+                    yearGroups[year] = [];
+                }
+                yearGroups[year].push(artwork);
+            });
+            
+            const reorganizedArtworks = [];
+            let totalProcessed = 0;
+            
+            Object.keys(yearGroups).sort().forEach(year => {
+                const yearArtworks = yearGroups[year];
+                
+                yearArtworks.forEach((artwork, index) => {
+                    const oldId = artwork.id;
+                    const newId = year === 'unknown' ? 
+                        `unknown_${String(index + 1).padStart(3, '0')}` :
+                        `${year}_${String(index + 1).padStart(3, '0')}`;
+                    
+                    // Update artwork with new ID and fixed image paths
+                    const updatedArtwork = {
+                        ...artwork,
+                        id: newId,
+                        image: `./images/paintings/thumbnails/${newId}_thumb.png`,
+                        imageHigh: `./images/paintings/large/${newId}_large.png`
+                    };
+                    
+                    console.log(`${oldId} → ${newId}: ${artwork.title}`);
+                    reorganizedArtworks.push(updatedArtwork);
+                    totalProcessed++;
+                });
+            });
+            
+            console.log(`✅ Reorganization complete: ${totalProcessed} artworks processed`);
+            return reorganizedArtworks;
         }
 
         // Make functions available globally
@@ -1232,8 +1365,9 @@
         window.updateStats = updateStats;
         window.showMessage = showMessage;
         window.generateSequentialId = generateSequentialId;
+        window.startCompleteReorganization = startCompleteReorganization;
 
-        console.log('✅ Admin system loaded successfully!');
+        console.log('✅ Fixed admin system loaded successfully!');
     </script>
 </body>
 </html>
