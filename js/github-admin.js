@@ -211,7 +211,7 @@ class GitHubUploader {
         });
     }
 
-    // FIXED: Download file from GitHub with proper blob handling
+    // FIXED: Download file from GitHub with proper large file handling
     async downloadFile(path) {
         try {
             console.log(`📥 Downloading ${path}...`);
@@ -229,35 +229,21 @@ class GitHubUploader {
             }
 
             const data = await response.json();
+            console.log(`📊 File size: ${data.size} bytes (${Math.round(data.size/1024)}KB)`);
             
-            // FIXED: Proper base64 decoding with better error handling
-            try {
-                const cleanContent = data.content.replace(/\s/g, '');
-                console.log(`📊 Content length: ${cleanContent.length} chars`);
+            // GitHub Contents API limit is 1MB - use download_url for larger files
+            if (data.size > 1048576 || !data.content) {
+                console.log(`📁 Large file detected (${Math.round(data.size/1024/1024)}MB) - using download URL`);
                 
-                if (!cleanContent || cleanContent.length === 0) {
-                    throw new Error('Empty content received from GitHub');
+                // Download the file directly using the download_url
+                const downloadResponse = await fetch(data.download_url);
+                if (!downloadResponse.ok) {
+                    throw new Error(`Direct download failed: ${downloadResponse.status}`);
                 }
                 
-                const binaryString = atob(cleanContent);
-                console.log(`📊 Decoded binary length: ${binaryString.length} bytes`);
+                const blob = await downloadResponse.blob();
+                console.log(`✅ Downloaded via URL: ${blob.size} bytes, type: ${blob.type}`);
                 
-                if (binaryString.length === 0) {
-                    throw new Error('Base64 decoding resulted in empty data');
-                }
-                
-                // Create proper typed array
-                const bytes = new Uint8Array(binaryString.length);
-                for (let i = 0; i < binaryString.length; i++) {
-                    bytes[i] = binaryString.charCodeAt(i);
-                }
-                
-                // Create blob with proper MIME type
-                const mimeType = path.toLowerCase().endsWith('.png') ? 'image/png' : 'image/jpeg';
-                const blob = new Blob([bytes], { type: mimeType });
-                
-                console.log(`✅ Created blob: ${blob.size} bytes, type: ${blob.type}`);
-
                 return {
                     success: true,
                     blob: blob,
@@ -266,9 +252,49 @@ class GitHubUploader {
                     size: blob.size
                 };
                 
-            } catch (decodeError) {
-                console.error('Base64 decode error:', decodeError);
-                throw new Error(`Failed to decode file content: ${decodeError.message}`);
+            } else {
+                // Small file - use base64 content (original method)
+                console.log(`📄 Small file - using base64 content`);
+                
+                try {
+                    const cleanContent = data.content.replace(/\s/g, '');
+                    console.log(`📊 Content length: ${cleanContent.length} chars`);
+                    
+                    if (!cleanContent || cleanContent.length === 0) {
+                        throw new Error('Empty content received from GitHub');
+                    }
+                    
+                    const binaryString = atob(cleanContent);
+                    console.log(`📊 Decoded binary length: ${binaryString.length} bytes`);
+                    
+                    if (binaryString.length === 0) {
+                        throw new Error('Base64 decoding resulted in empty data');
+                    }
+                    
+                    // Create proper typed array
+                    const bytes = new Uint8Array(binaryString.length);
+                    for (let i = 0; i < binaryString.length; i++) {
+                        bytes[i] = binaryString.charCodeAt(i);
+                    }
+                    
+                    // Create blob with proper MIME type
+                    const mimeType = path.toLowerCase().endsWith('.png') ? 'image/png' : 'image/jpeg';
+                    const blob = new Blob([bytes], { type: mimeType });
+                    
+                    console.log(`✅ Created blob: ${blob.size} bytes, type: ${blob.type}`);
+
+                    return {
+                        success: true,
+                        blob: blob,
+                        sha: data.sha,
+                        downloadUrl: data.download_url,
+                        size: blob.size
+                    };
+                    
+                } catch (decodeError) {
+                    console.error('Base64 decode error:', decodeError);
+                    throw new Error(`Failed to decode file content: ${decodeError.message}`);
+                }
             }
 
         } catch (error) {
