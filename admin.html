@@ -103,6 +103,16 @@
             font-size: 0.9rem;
         }
 
+        .btn-subtle {
+            background: #6c757d;
+            font-size: 0.9rem;
+            padding: 0.6rem 1.2rem;
+        }
+
+        .btn-subtle:hover {
+            background: #5a6268;
+        }
+
         .search-box {
             flex: 1;
             min-width: 300px;
@@ -284,7 +294,7 @@
         }
 
         .reorganization-content.expanded {
-            max-height: 500px;
+            max-height: 800px;
         }
 
         .reorganization-inner {
@@ -540,14 +550,6 @@
             </div>
         </div>
 
-        <!-- Artworks Grid -->
-        <div class="artworks-grid" id="artworksGrid">
-            <div style="grid-column: 1 / -1; text-align: center; padding: 3rem; color: #7f8c8d;">
-                <h3>Loading artworks...</h3>
-                <p>Please wait while we fetch the latest data.</p>
-            </div>
-        </div>
-
         <!-- Collapsible Advanced Tools Section -->
         <div class="reorganization-section">
             <div class="reorganization-header" onclick="toggleReorganizationSection()">
@@ -558,16 +560,41 @@
                 <div class="reorganization-inner">
                     <h4 style="color: #155724; margin-bottom: 1rem;">🎯 Complete Portfolio Reorganization</h4>
                     <p style="margin: 0.5rem 0; color: #2e7d32; font-size: 0.95rem;">
-                        <strong>One-time setup tool:</strong> Create thumbnails from large images + reorder all artwork IDs sequentially.
+                        <strong>Comprehensive portfolio maintenance tool</strong> - Fixes IDs, generates missing thumbnails, and organizes everything properly.
                     </p>
                     
                     <div class="reorganization-info">
-                        <strong>What this does:</strong><br>
-                        • Creates 400px thumbnails from your large images (fast mobile loading)<br>
-                        • Renumbers all artwork IDs sequentially: 2020_001, 2020_002, etc. (no gaps)<br>
-                        • Renames all files with new IDs (thumbnails + large images)<br>
-                        • Updates artworks.json with new structure<br>
-                        • Auto-commits to GitHub and deploys to Netlify
+                        <strong>📋 What this tool does step by step:</strong><br><br>
+                        
+                        <strong>1. 🔄 ID Reorganization:</strong><br>
+                        • Sorts all artworks by year, then by title<br>
+                        • Renumbers IDs sequentially: 2020_001, 2020_002, 2021_001, etc.<br>
+                        • Ensures no gaps or duplicate IDs<br>
+                        • Fixes year mismatches (e.g., if artwork year is 2023 but ID says 2022_001)<br><br>
+                        
+                        <strong>2. 📁 File Operations (GitHub):</strong><br>
+                        • Downloads existing large images (2-3MB PNG files)<br>
+                        • Generates missing 400px thumbnails for fast web loading<br>
+                        • Renames files to match new IDs (if ID changed)<br>
+                        • Maintains both thumbnail and large image versions<br>
+                        • Uses PNG format consistently throughout<br><br>
+                        
+                        <strong>3. 📄 Database Update:</strong><br>
+                        • Updates artworks.json with new sequential IDs<br>
+                        • Fixes image paths to point to correct files<br>
+                        • Corrects file extensions (.jpg → .png)<br>
+                        • Preserves all artwork metadata (title, year, description, etc.)<br><br>
+                        
+                        <strong>4. 🚀 Auto-Deploy:</strong><br>
+                        • Commits all changes to GitHub repository<br>
+                        • Triggers Netlify rebuild automatically<br>
+                        • Website updates live in ~2 minutes
+                    </div>
+                    
+                    <div style="background: #e8f5e9; padding: 1rem; border-radius: 8px; margin: 1rem 0; font-size: 0.9rem;">
+                        <strong>📊 Example transformation:</strong><br>
+                        Before: <code>2022_005</code> (but artwork year is 2023, missing thumbnail)<br>
+                        After: <code>2023_003</code> (correct year, sequential number, thumbnail generated)
                     </div>
                     
                     <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; margin: 1rem 0;">
@@ -575,14 +602,22 @@
                             🚀 Start Complete Reorganization
                         </button>
                         <span style="color: #6c757d; font-size: 0.9rem;">
-                            (Use only when needed)
+                            (Safe to run - backs up everything)
                         </span>
                     </div>
                     
                     <div class="reorganization-warning">
-                        <strong>⚠️ Important:</strong> This will rename all files and auto-deploy. Takes 10-15 minutes. Don't close this window during the process.
+                        <strong>⏱️ Process details:</strong> Handles 200+ artworks in 10-15 minutes. Creates thumbnails for missing ones. Renames files as needed. Auto-deploys when complete. Don't close browser window during processing.
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <!-- Artworks Grid -->
+        <div class="artworks-grid" id="artworksGrid">
+            <div style="grid-column: 1 / -1; text-align: center; padding: 3rem; color: #7f8c8d;">
+                <h3>Loading artworks from GitHub...</h3>
+                <p>Please wait while we fetch the latest data.</p>
             </div>
         </div>
     </div>
@@ -702,9 +737,12 @@
         </div>
     </div>
 
-    <!-- Load JavaScript Files (Updated order and paths) -->
+    <!-- Load JavaScript Files -->
+    <script src="./js/github-admin.js"></script>
+    <script src="./js/reorganization-tool.js"></script>
+
     <script>
-        // Global variables
+        // Global variables (will be enhanced by github-admin.js)
         let artworks = [];
         let currentEditingId = null;
         let uploadedImages = {};
@@ -725,59 +763,27 @@
             setupImageUpload();
         });
 
-        // FIXED: Load artworks from correct path
+        // Load artworks from GitHub (will be enhanced by github-admin.js)
         async function loadArtworks() {
             try {
-                showLoadingStatus('Loading artworks...');
+                showLoadingStatus('Loading artworks from GitHub...');
                 
-                // Try multiple paths to find the JSON file
-                let response;
-                let jsonPath;
-                
-                // Try different possible paths
-                const possiblePaths = [
-                    './data/artworks.json',
-                    './artworks.json',
-                    '../data/artworks.json',
-                    '/data/artworks.json'
-                ];
-                
-                for (jsonPath of possiblePaths) {
-                    try {
-                        response = await fetch(jsonPath);
-                        if (response.ok) {
-                            console.log(`✅ Found artworks at: ${jsonPath}`);
-                            break;
-                        }
-                    } catch (e) {
-                        console.log(`❌ Failed to load from: ${jsonPath}`);
+                // Try to load from GitHub first (if github-admin.js is loaded)
+                if (typeof githubLoader !== 'undefined') {
+                    const result = await githubLoader.loadArtworks();
+                    if (result.success) {
+                        artworks = result.artworks;
+                        showLoadingStatus(`✅ Loaded ${artworks.length} artworks from GitHub`);
+                    } else {
+                        throw new Error(result.error);
                     }
+                } else {
+                    // Fallback to local loading
+                    const response = await fetch('./data/artworks.json');
+                    const data = await response.json();
+                    artworks = Array.isArray(data) ? data : [];
+                    showLoadingStatus(`✅ Loaded ${artworks.length} artworks locally`);
                 }
-                
-                if (!response || !response.ok) {
-                    throw new Error('Could not find artworks.json file in any expected location');
-                }
-                
-                const data = await response.json();
-                artworks = Array.isArray(data) ? data : [];
-                window.artworks = artworks; 
-                
-                console.log(`📊 Loaded ${artworks.length} artworks`);
-                console.log('First artwork sample:', artworks[0]);
-                
-                // FIXED: Check for image extension mismatches
-                const imageExtensionIssues = artworks.filter(artwork => {
-                    const image = artwork.image || '';
-                    const imageHigh = artwork.imageHigh || '';
-                    return image.includes('.jpg') || imageHigh.includes('.jpg');
-                });
-                
-                if (imageExtensionIssues.length > 0) {
-                    console.warn(`⚠️ Found ${imageExtensionIssues.length} artworks with .jpg extensions that should be .png`);
-                    showMessage(`Warning: ${imageExtensionIssues.length} artworks have .jpg extensions but your files are .png`, 'warning');
-                }
-                
-                showLoadingStatus(`✅ Loaded ${artworks.length} artworks`);
                 
                 renderArtworks();
                 updateStats();
@@ -834,12 +840,13 @@
             
             const icon = success ? '🐙' : '⚠️';
             const text = success ? 
-                `${icon} Loaded ${artworks.length} artworks` : 
-                `${icon} Loading failed`;
+                `${icon} Live data from GitHub` : 
+                `${icon} Data loading failed`;
                 
             indicator.innerHTML = text;
             document.body.appendChild(indicator);
             
+            // Auto-fade if successful
             if (success) {
                 setTimeout(() => {
                     if (indicator && indicator.parentNode) {
@@ -853,27 +860,424 @@
         function generateSequentialId() {
             const year = document.getElementById('artworkYear').value || 'unknown';
             
+            // Find existing artworks for this year
             const yearArtworks = artworks.filter(artwork => {
                 const artworkYear = artwork.year || 'unknown';
                 return artworkYear.toString() === year.toString();
             });
             
+            // Extract numbers from existing IDs for this year
             const existingNumbers = yearArtworks
                 .map(artwork => {
                     if (!artwork.id) return 0;
-                    const match = artwork.id.match(new RegExp(`^${year.replace('.', '\\.')}_?(\\d+)$`));
+                    const match = artwork.id.match(new RegExp(`^${year.replace('.', '\\.')}_?(\\d+)<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Admin - 藝術作品管理</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .toolbar {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .btn-success {
+            background: #27ae60;
+        }
+
+        .btn-success:hover {
+            background: #229954;
+        }
+
+        .btn-warning {
+            background: #f39c12;
+        }
+
+        .btn-warning:hover {
+            background: #d68910;
+        }
+
+        .btn-danger {
+            background: #e74c3c;
+        }
+
+        .btn-danger:hover {
+            background: #c0392b;
+        }
+
+        .btn-small {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+
+        .btn-subtle {
+            background: #6c757d;
+            font-size: 0.9rem;
+            padding: 0.6rem 1.2rem;
+        }
+
+        .btn-subtle:hover {
+            background: #5a6268;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #3498db;
+            display: block;
+        }
+
+        .stat-label {
+            color: #7f8c8d;
+            margin-top: 0.5rem;
+        }
+
+        .github-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+        }
+
+        .github-section h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .github-controls {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .github-status {
+            margin-left: auto;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .status-connected {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-disconnected {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .artworks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .artwork-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .artwork-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .artwork-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background: #f8f9fa;
+        }
+
+        .artwork-info {
+            padding: 1.5rem;
+        }
+
+        .artwork-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        .artwork-meta {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .artwork-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        /* Collapsible Reorganization Section */
+        .reorganization-section {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .reorganization-header {
+            padding: 1rem 1.5rem;
+            background: #f8f9fa;
+            border-bottom: 1px solid #dee2e6;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background-color 0.3s ease;
+        }
+
+        .reorganization-header:hover {
+            background: #e9ecef;
+        }
+
+        .reorganization-header h4 {
+            color: #495057;
+            margin: 0;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .reorganization-toggle {
+            color: #6c757d;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .reorganization-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .reorganization-content.expanded {
+            max-height: 800px;
+        }
+
+        .reorganization-inner {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #e8f5e9 0%, #f0f8ff 100%);
+            border-left: 4px solid #28a745;
+        }
+
+        .reorganization-warning {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .reorganization-info {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: white;
+            margin: 2rem auto;
+            padding: 0;
+            border-radius: 12px;
+            max-width: 900px;
+            width: 90%;
+            max-height: 90vh;
+            overflow: hidden;
+        }
+
+        .modal-header {
+            background: #3498db;
+            color: white;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+        }
+
+        .close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .modal-body {
+            padding: 2rem;
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+));
                     return match ? parseInt(match[1]) : 0;
                 })
                 .filter(num => num > 0);
             
+            // Find the next sequential number
             const nextNumber = existingNumbers.length > 0 ? Math.max(...existingNumbers) + 1 : 1;
+            
+            // Format with zero padding
             const paddedNumber = nextNumber.toString().padStart(3, '0');
             
-            console.log(`Generated ID: ${year}_${paddedNumber}`);
+            console.log(`Generated ID: ${year}_${paddedNumber} (existing: ${existingNumbers.join(', ')})`);
             return `${year}_${paddedNumber}`;
         }
 
-        // FIXED: Render artworks with proper image extension handling
+        // Render artworks grid
         function renderArtworks() {
             const grid = document.getElementById('artworksGrid');
             const searchTerm = document.getElementById('searchInput').value.toLowerCase();
@@ -906,15 +1310,7 @@
             }
 
             grid.innerHTML = filteredArtworks.map(artwork => {
-                // FIXED: Use the exact image path from JSON, don't force .jpg
-                let imageUrl = artwork.image || './images/placeholder/artwork-placeholder.svg';
-                
-                // If the image path has .jpg but files are .png, fix it
-                if (imageUrl.includes('.jpg')) {
-                    imageUrl = imageUrl.replace('.jpg', '.png');
-                    console.log(`🔧 Fixed image extension for ${artwork.id}: ${artwork.image} → ${imageUrl}`);
-                }
-                
+                const imageUrl = artwork.image || './images/placeholder/artwork-placeholder.svg';
                 const title = artwork.title || 'Untitled';
                 const year = artwork.year || 'Unknown';
                 const size = artwork.sizeCm || artwork.size || 'Size not specified';
@@ -975,7 +1371,7 @@
             document.getElementById('artworkModal').style.display = 'block';
         }
 
-        // Edit artwork function
+        // Enhanced edit artwork function
         function editArtwork(id) {
             const artwork = artworks.find(a => a.id === id);
             if (!artwork) {
@@ -983,11 +1379,14 @@
                 return;
             }
 
+            console.log('Editing artwork:', artwork);
             currentEditingId = id;
             document.getElementById('modalTitle').textContent = 'Edit Artwork';
             
+            // Clear any previous image uploads
             delete uploadedImages[id];
             
+            // Populate all form fields with existing data
             document.getElementById('artworkTitle').value = artwork.title || '';
             document.getElementById('artworkTitleEn').value = artwork.titleEn || '';
             document.getElementById('artworkYear').value = artwork.year || '';
@@ -997,6 +1396,7 @@
             document.getElementById('artworkDescription').value = artwork.description || '';
             document.getElementById('artworkSubcategory').value = artwork.subcategory || '';
             
+            // Handle boolean fields properly
             document.getElementById('artworkFeatured').checked = 
                 artwork.featured === true || artwork.featured === 'true';
             document.getElementById('artworkAvailable').checked = 
@@ -1004,17 +1404,12 @@
             
             document.getElementById('artworkPrice').value = artwork.price || '';
             
+            // Show existing image if available
             const previewImg = document.getElementById('previewImage');
             const uploadText = document.getElementById('uploadText');
             
             if (artwork.image) {
-                // FIXED: Handle image extension issues when loading for preview
-                let imageUrl = artwork.image;
-                if (imageUrl.includes('.jpg')) {
-                    imageUrl = imageUrl.replace('.jpg', '.png');
-                }
-                
-                previewImg.src = imageUrl;
+                previewImg.src = artwork.image;
                 previewImg.style.display = 'block';
                 uploadText.innerHTML = `
                     <div style="color: #6c757d;">
@@ -1032,6 +1427,7 @@
                 `;
             }
             
+            // Show modal
             document.getElementById('artworkModal').style.display = 'block';
         }
 
@@ -1050,16 +1446,23 @@
             document.getElementById('artworkModal').style.display = 'none';
         }
 
-        // Setup image upload
+        // Setup image upload (enhanced by github-admin.js if available)
         function setupImageUpload() {
             const imageInput = document.getElementById('imageInput');
+            
+            // Remove any existing listeners
             imageInput.onchange = null;
             
-            // Use basic upload for now (can be enhanced with GitHub integration later)
-            imageInput.addEventListener('change', handleBasicImageUpload);
+            // Check if GitHub upload handler exists
+            if (typeof handleImageUploadWithGitHub === 'function') {
+                imageInput.addEventListener('change', handleImageUploadWithGitHub);
+            } else {
+                // Fallback to basic upload
+                imageInput.addEventListener('change', handleBasicImageUpload);
+            }
         }
 
-        // Basic image upload fallback
+        // Basic image upload (fallback)
         function handleBasicImageUpload(event) {
             const file = event.target.files[0];
             if (!file) return;
@@ -1122,6 +1525,7 @@
         document.getElementById('artworkForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
+            // Validation
             const title = document.getElementById('artworkTitle').value.trim();
             const year = document.getElementById('artworkYear').value.trim();
             const size = document.getElementById('artworkSize').value.trim();
@@ -1141,6 +1545,7 @@
                 return;
             }
             
+            // Generate ID for new artworks or keep existing for edits
             const artworkId = currentEditingId || generateSequentialId();
             
             const formData = {
@@ -1168,64 +1573,73 @@
                 tags: []
             };
             
-            // Handle image URLs - FIXED: Use .png extension
+            // Handle image URLs
             if (uploadedImages[artworkId] && uploadedImages[artworkId].githubUpload) {
+                // New image uploaded via GitHub
                 const githubUpload = uploadedImages[artworkId].githubUpload;
                 formData.image = githubUpload.artworkData.image;
                 formData.imageHigh = githubUpload.artworkData.imageHigh;
+                console.log('Using new GitHub images:', formData.image, formData.imageHigh);
             } else if (currentEditingId) {
+                // Editing existing artwork - preserve existing images if no new upload
                 const existingArtwork = artworks.find(a => a.id === currentEditingId);
                 if (existingArtwork) {
-                    // FIXED: Keep existing image paths but ensure they use .png
-                    formData.image = existingArtwork.image ? existingArtwork.image.replace('.jpg', '.png') : '';
-                    formData.imageHigh = existingArtwork.imageHigh ? existingArtwork.imageHigh.replace('.jpg', '.png') : '';
+                    formData.image = existingArtwork.image || '';
+                    formData.imageHigh = existingArtwork.imageHigh || '';
+                    console.log('Preserving existing images:', formData.image, formData.imageHigh);
                 }
-            } else {
-                // For new artworks, set default .png paths
-                formData.image = `./images/paintings/thumbnails/${artworkId}_thumb.png`;
-                formData.imageHigh = `./images/paintings/large/${artworkId}_large.png`;
             }
             
             if (currentEditingId) {
+                // Update existing artwork
                 const index = artworks.findIndex(a => a.id === currentEditingId);
                 if (index !== -1) {
                     artworks[index] = formData;
+                    console.log('Updated artwork:', formData);
                     showMessage('Artwork updated successfully!', 'success');
                 } else {
                     showMessage('Error: Artwork not found for update!', 'error');
                     return;
                 }
             } else {
+                // Add new artwork
                 artworks.push(formData);
+                console.log('Added new artwork:', formData);
                 showMessage('New artwork added successfully!', 'success');
             }
             
+            // Clean up uploaded images for this artwork
             delete uploadedImages[artworkId];
             
+            // Update UI
             renderArtworks();
             updateStats();
             closeModal();
             
+            // Show GitHub deployment reminder
             showMessage('💡 Remember to click "Deploy to Website" to publish changes!', 'info');
         });
 
-        // Show message with warning type support
+        // Show message
         function showMessage(message, type) {
-            const existingMessages = document.querySelectorAll('.success-message, .error-message, .info-message, .warning-message');
+            // Remove existing messages
+            const existingMessages = document.querySelectorAll('.success-message, .error-message, .info-message');
             existingMessages.forEach(msg => msg.remove());
             
+            // Create new message
             const messageDiv = document.createElement('div');
             let className = 'success-message';
             if (type === 'error') className = 'error-message';
             if (type === 'info') className = 'info-message';
-            if (type === 'warning') className = 'error-message'; // Use error styling for warnings
             
             messageDiv.className = className;
             messageDiv.textContent = message;
             
+            // Insert at top of container
             const container = document.querySelector('.container');
             container.insertBefore(messageDiv, container.firstChild);
             
+            // Remove after 5 seconds
             setTimeout(() => {
                 messageDiv.remove();
             }, 5000);
@@ -1240,140 +1654,95 @@
             }
         }
 
-        // GitHub Integration Functions (placeholders for now)
+        // GitHub Integration Functions (will be enhanced by github-admin.js)
         function testGitHubConnection() {
-            showMessage('GitHub integration not yet configured. Please check the setup.', 'warning');
+            if (typeof githubUploader !== 'undefined' && githubUploader.testConnection) {
+                githubUploader.testConnection().then(result => {
+                    const statusEl = document.getElementById('githubStatus');
+                    if (result.success) {
+                        statusEl.className = 'github-status status-connected';
+                        statusEl.textContent = `✅ Connected to ${result.repoName}`;
+                        showMessage('GitHub connection successful!', 'success');
+                    } else {
+                        statusEl.className = 'github-status status-disconnected';
+                        statusEl.textContent = `❌ Connection failed`;
+                        showMessage(`GitHub connection failed: ${result.error}`, 'error');
+                    }
+                });
+            } else {
+                showMessage('GitHub integration not loaded. Please check github-admin.js', 'error');
+            }
         }
 
         function exportAndDeployToGitHub() {
-            // Fallback: copy JSON to clipboard
-            const jsonData = JSON.stringify(artworks, null, 2);
-            const textarea = document.createElement('textarea');
-            textarea.value = jsonData;
-            document.body.appendChild(textarea);
-            textarea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textarea);
-            
-            showMessage('✅ JSON copied to clipboard! Replace your artworks.json file manually.', 'success');
-        }
-
-        // FIXED: Complete Reorganization function
-        function startCompleteReorganization() {
-            console.log('🔧 Starting reorganization...');
-            console.log('Available artworks:', artworks.length);
-            
-            if (!artworks || artworks.length === 0) {
-                showMessage('❌ No artworks found! Please load artworks first.', 'error');
-                return;
-            }
-            
-            if (!confirm(`This will reorganize all ${artworks.length} artworks and rename files. This process takes 10-15 minutes. Continue?`)) {
-                return;
-            }
-            
-            showMessage('🚀 Starting complete reorganization...', 'info');
-            
-            // Simple reorganization without complex GitHub operations
-            try {
-                const reorganizedArtworks = reorganizeArtworkIds(artworks);
+            if (typeof githubUploader !== 'undefined' && githubUploader.updateArtworksJson) {
+                showMessage('Deploying to GitHub...', 'info');
                 
-                if (reorganizedArtworks.length > 0) {
-                    // Update the global artworks array
-                    artworks = reorganizedArtworks;
-                    
-                    // Re-render the display
-                    renderArtworks();
-                    updateStats();
-                    
-                    showMessage(`✅ Reorganization complete! ${reorganizedArtworks.length} artworks reorganized with sequential IDs.`, 'success');
-                } else {
-                    showMessage('❌ Reorganization failed - no artworks were processed.', 'error');
-                }
-                
-            } catch (error) {
-                console.error('Reorganization error:', error);
-                showMessage(`❌ Reorganization failed: ${error.message}`, 'error');
-            }
-        }
-        
-        // Simple reorganization function
-        function reorganizeArtworkIds(artworksList) {
-            console.log('📋 Reorganizing artwork IDs...');
-            
-            if (!artworksList || artworksList.length === 0) {
-                console.error('No artworks to reorganize');
-                return [];
-            }
-            
-            // Sort artworks by year, then by title
-            const sorted = [...artworksList].sort((a, b) => {
-                const yearA = parseInt(a.year) || 9999;
-                const yearB = parseInt(b.year) || 9999;
-                
-                if (yearA !== yearB) {
-                    return yearA - yearB;
-                }
-                
-                return (a.title || '').localeCompare(b.title || '');
-            });
-            
-            console.log('📊 Sorted artworks by year and title');
-            
-            // Group by year and assign sequential IDs
-            const yearGroups = {};
-            sorted.forEach(artwork => {
-                const year = artwork.year || 'unknown';
-                if (!yearGroups[year]) {
-                    yearGroups[year] = [];
-                }
-                yearGroups[year].push(artwork);
-            });
-            
-            const reorganizedArtworks = [];
-            let totalProcessed = 0;
-            
-            Object.keys(yearGroups).sort().forEach(year => {
-                const yearArtworks = yearGroups[year];
-                
-                yearArtworks.forEach((artwork, index) => {
-                    const oldId = artwork.id;
-                    const newId = year === 'unknown' ? 
-                        `unknown_${String(index + 1).padStart(3, '0')}` :
-                        `${year}_${String(index + 1).padStart(3, '0')}`;
-                    
-                    // Update artwork with new ID and fixed image paths
-                    const updatedArtwork = {
-                        ...artwork,
-                        id: newId,
-                        image: `./images/paintings/thumbnails/${newId}_thumb.png`,
-                        imageHigh: `./images/paintings/large/${newId}_large.png`
-                    };
-                    
-                    console.log(`${oldId} → ${newId}: ${artwork.title}`);
-                    reorganizedArtworks.push(updatedArtwork);
-                    totalProcessed++;
+                githubUploader.updateArtworksJson(artworks, (message, percent) => {
+                    console.log(`${percent}%: ${message}`);
+                }).then(() => {
+                    showMessage('✅ Deployed! Netlify will auto-update your website.', 'success');
+                }).catch(error => {
+                    showMessage(`❌ Deployment failed: ${error.message}`, 'error');
                 });
-            });
-            
-            console.log(`✅ Reorganization complete: ${totalProcessed} artworks processed`);
-            return reorganizedArtworks;
+            } else {
+                // Fallback: copy JSON to clipboard
+                const jsonData = JSON.stringify(artworks, null, 2);
+                const textarea = document.createElement('textarea');
+                textarea.value = jsonData;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                
+                showMessage('✅ JSON copied to clipboard! Replace your artworks.json file manually.', 'success');
+            }
         }
 
-        // Make functions available globally
+        function startCompleteReorganization() {
+            if (typeof window.startCompleteReorganization === 'function') {
+                // Function is loaded from reorganization-tool.js
+                window.startCompleteReorganization();
+            } else {
+                showMessage('Reorganization tool not loaded. Please check reorganization-tool.js', 'error');
+            }
+        }
+
+        // Debug function to check artwork structure
+        function debugArtworkStructure() {
+            console.log('Current artworks structure:');
+            artworks.forEach((artwork, index) => {
+                console.log(`${index + 1}. ID: ${artwork.id}, Title: ${artwork.title}, Year: ${artwork.year}`);
+            });
+            
+            // Check for duplicate IDs
+            const ids = artworks.map(a => a.id);
+            const duplicates = ids.filter((id, index) => ids.indexOf(id) !== index);
+            if (duplicates.length > 0) {
+                console.warn('Duplicate IDs found:', duplicates);
+            }
+        }
+
+        // Add debug button for development
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                const debugBtn = document.createElement('button');
+                debugBtn.className = 'btn';
+                debugBtn.innerHTML = '🐛 Debug Structure';
+                debugBtn.onclick = debugArtworkStructure;
+                document.querySelector('.toolbar').appendChild(debugBtn);
+            }
+        });
+
+        // Make functions available globally for GitHub admin integration
         window.artworks = artworks;
         window.renderArtworks = renderArtworks;
         window.updateStats = updateStats;
         window.showMessage = showMessage;
         window.generateSequentialId = generateSequentialId;
-        window.startCompleteReorganization = startCompleteReorganization;
 
-        console.log('✅ Fixed admin system loaded successfully!');
+        console.log('✅ Complete admin system with GitHub integration loaded!');
     </script>
-    <!-- Load JavaScript Files -->
-    <script src="./js/github-admin.js"></script>
-    <script src="./js/reorganization-tool.js"></script>
-    <script src="./js/portfolio.js"></script>
-
 </body>
 </html>
+            

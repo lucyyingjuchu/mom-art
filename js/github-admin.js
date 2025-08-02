@@ -1,5 +1,5 @@
-// Clean GitHub Admin - Consolidated and Fixed
-// Version: 2.5 - Removed duplicates, fixed extensions, proper blob handling
+// Complete GitHub Admin - Fixed Large File Downloads and Thumbnail Generation
+// Version: 2.6 - Handles files >1MB, consistent PNG extensions, proper blob handling
 
 // ================================
 // CONFIGURATION
@@ -122,7 +122,7 @@ class GitHubUploader {
         }
     }
 
-    // CONSOLIDATED: Create optimized image from file (replaces createThumbnail and createLargeImage)
+    // Create optimized image from file (handles both thumbnails and large images)
     async createImageFromFile(file, maxSize, type = 'thumbnail') {
         return new Promise((resolve, reject) => {
             const img = new Image();
@@ -163,7 +163,7 @@ class GitHubUploader {
         });
     }
 
-    // CONSOLIDATED: Create optimized image from blob (replaces createThumbnailFromBlob)
+    // Create optimized image from blob (for generating thumbnails from existing large images)
     async createImageFromBlob(blob, maxSize, type = 'thumbnail') {
         return new Promise((resolve, reject) => {
             const img = new Image();
@@ -198,6 +198,7 @@ class GitHubUploader {
                     URL.revokeObjectURL(img.src);
                     
                 } catch (error) {
+                    URL.revokeObjectURL(img.src);
                     reject(error);
                 }
             };
@@ -211,7 +212,7 @@ class GitHubUploader {
         });
     }
 
-    // FIXED: Download file from GitHub with proper large file handling
+    // FIXED: Download file from GitHub with proper large file handling (>1MB)
     async downloadFile(path) {
         try {
             console.log(`📥 Downloading ${path}...`);
@@ -354,7 +355,7 @@ class GitHubUploader {
         }
     }
 
-    // FIXED: Generate thumbnail from existing large image (consistent PNG format)
+    // Generate thumbnail from existing large image (consistent PNG format)
     async generateThumbnailFromLargeImage(largeImagePath, artworkId, onProgress) {
         try {
             onProgress?.('Downloading large image...', 10);
@@ -431,13 +432,13 @@ class GitHubUploader {
         }
     }
 
-    // FIXED: Process artwork for reorganization with consistent PNG extensions
+    // Process artwork for reorganization with consistent PNG extensions
     async processArtworkForReorganization(artwork, newId, onProgress) {
         try {
             const oldId = artwork.id;
             const operations = [];
 
-            // FIXED: Use consistent PNG extensions throughout
+            // Use consistent PNG extensions throughout
             const needsIdChange = oldId !== newId;
             const oldThumbnailPath = `${this.config.paths.thumbnails}${oldId}_thumb.png`;
             const oldLargePath = `${this.config.paths.large}${oldId}_large.png`;
@@ -602,13 +603,13 @@ class GitHubUploader {
 }
 
 // ================================
-// GLOBAL FUNCTIONS (PROPERLY ACCESSIBLE)
+// GLOBAL FUNCTIONS
 // ================================
 
 // Initialize uploader
 const githubUploader = new GitHubUploader(GITHUB_CONFIG);
 
-// FIXED: Process multiple artworks for reorganization - NOW PROPERLY GLOBAL
+// Process multiple artworks for reorganization - PROPERLY GLOBAL
 async function processArtworksForReorganization(artworksToProcess, onProgress) {
     console.log(`🔄 Processing ${artworksToProcess.length} artworks for reorganization...`);
     
@@ -685,7 +686,7 @@ async function handleImageUploadWithGitHub(event) {
         document.getElementById('previewImage').src = URL.createObjectURL(file);
         document.getElementById('previewImage').style.display = 'block';
         
-        // FIXED: Store upload result with consistent PNG extensions
+        // Store upload result with consistent PNG extensions
         uploadedImages[artworkId] = {
             githubUpload: {
                 artworkData: {
@@ -917,4 +918,4 @@ window.exportAndDeployToGitHub = exportAndDeployToGitHub;
 window.processArtworksForReorganization = processArtworksForReorganization;
 window.testSingleThumbnailGeneration = testSingleThumbnailGeneration;
 
-console.log('🎯 GitHub Admin v2.5 loaded - Consolidated, fixed duplicates, consistent PNG extensions!');
+console.log('🎯 GitHub Admin v2.6 loaded - Fixed large file downloads and thumbnail generation!');

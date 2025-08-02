@@ -1,39 +1,49 @@
-// Enhanced Reorganization Tool with Automatic File Operations
-// Handles ID changes, file renaming, and thumbnail generation
+// Complete Reorganization Tool with Fixed Detection Logic
+// Handles ID changes, file renaming, and thumbnail generation with proper GitHub checking
 
-console.log('🛠️ Loading Enhanced Reorganization Tool with File Operations...');
+console.log('🛠️ Loading Complete Reorganization Tool with Fixed Detection...');
 
-// Function to detect artworks that need processing (ID changes OR missing thumbnails)
+// FIXED: Function to detect artworks that need processing (actually checks GitHub)
 async function detectArtworksNeedingProcessing(artworksList) {
     console.log('🔍 Detecting artworks needing processing...');
     
     const needsProcessing = [];
+    const total = artworksList.length;
     
-    for (const artwork of artworksList) {
+    for (let i = 0; i < artworksList.length; i++) {
+        const artwork = artworksList[i];
         const currentYear = artwork.year || 'unknown';
         const idYear = extractYearFromId(artwork.id);
         const needsIdChange = idYear && idYear !== currentYear;
         
-        // Generate what the new ID would be (we'll calculate proper sequence later)
-        const tempNewId = `${currentYear}_temp`;
-        
-        // Check for missing thumbnail
+        // FIXED: Actually check if thumbnail exists on GitHub
         const thumbnailPath = `images/paintings/thumbnails/${artwork.id}_thumb.png`;
-        const hasThumbnailField = artwork.image && artwork.image.trim() !== '';
+        let thumbnailExists = false;
         
-        // We'll check if file actually exists during processing, for now assume missing if no field
-        const likelyMissingThumbnail = !hasThumbnailField;
+        try {
+            thumbnailExists = await window.githubUploader.checkFileExists(thumbnailPath);
+        } catch (error) {
+            console.warn(`Could not check thumbnail for ${artwork.id}:`, error);
+            thumbnailExists = false; // Assume missing if we can't check
+        }
         
-        if (needsIdChange || likelyMissingThumbnail) {
+        const missingThumbnail = !thumbnailExists;
+        
+        if (needsIdChange || missingThumbnail) {
             needsProcessing.push({
                 artwork: artwork,
                 reasons: {
                     idChange: needsIdChange,
-                    missingThumbnail: likelyMissingThumbnail,
+                    missingThumbnail: missingThumbnail,
                     oldYear: idYear,
                     newYear: currentYear
                 }
             });
+        }
+        
+        // Log progress for large collections
+        if ((i + 1) % 50 === 0 || i === total - 1) {
+            console.log(`🔍 Checked ${i + 1}/${total} artworks...`);
         }
     }
     
@@ -48,7 +58,7 @@ async function detectArtworksNeedingProcessing(artworksList) {
     return needsProcessing;
 }
 
-// Function to extract year from artwork ID (keeping existing function)
+// Function to extract year from artwork ID
 function extractYearFromId(id) {
     if (!id) return null;
     
@@ -60,7 +70,7 @@ function extractYearFromId(id) {
     return yearMatch ? yearMatch[1] : null;
 }
 
-// Enhanced reorganization function with file operations
+// FIXED: Enhanced reorganization function with proper file detection
 function reorganizeArtworks() {
     console.log('🔧 Starting enhanced reorganization with file operations...');
     
@@ -98,7 +108,6 @@ function reorganizeArtworks() {
     const reorganizedArtworks = [];
     const artworksToProcess = []; // Track artworks that need file operations
     let changesCount = 0;
-    let fileOperationsCount = 0;
     
     Object.keys(yearGroups).sort().forEach(year => {
         const yearArtworks = yearGroups[year];
@@ -112,17 +121,15 @@ function reorganizeArtworks() {
             
             // Check if this artwork needs file operations
             const needsIdChange = oldId !== newId;
-            const hasThumbnailField = artwork.image && artwork.image.trim() !== '';
             
-            if (needsIdChange || !hasThumbnailField) {
+            // FIXED: Don't assume thumbnail status here - we'll check during actual processing
+            if (needsIdChange) {
                 artworksToProcess.push({
                     artwork: artwork,
                     newId: newId,
                     needsIdChange: needsIdChange,
-                    needsThumbnail: !hasThumbnailField,
                     isYearChange: oldYear && oldYear !== year
                 });
-                fileOperationsCount++;
             }
             
             // Create updated artwork with new ID and corrected image paths
@@ -143,18 +150,19 @@ function reorganizeArtworks() {
         });
     });
     
-    // Store file operations for processing
+    // FIXED: Store artworks that need ID changes for processing
     window.artworksToProcess = artworksToProcess;
     
     console.log(`✅ Reorganization plan complete:`);
     console.log(`  • Total artworks: ${reorganizedArtworks.length}`);
     console.log(`  • ID changes: ${changesCount}`);
-    console.log(`  • File operations needed: ${fileOperationsCount}`);
+    console.log(`  • File operations needed: ${artworksToProcess.length} (ID changes only)`);
+    console.log(`  • Note: Missing thumbnail detection will happen during processing`);
     
     return reorganizedArtworks;
 }
 
-// Function to fix image extensions from .jpg to .png (keeping existing function)
+// Function to fix image extensions from .jpg to .png
 function fixImageExtensions() {
     console.log('🔧 Fixing image extensions...');
     
@@ -208,7 +216,7 @@ function generateCorrectedJson() {
     return reorganized;
 }
 
-// Function to download JSON file (keeping existing function)
+// Function to download JSON file
 function downloadJsonFile(data, filename = 'artworks_fixed.json') {
     const jsonString = JSON.stringify(data, null, 2);
     const blob = new Blob([jsonString], { type: 'application/json' });
@@ -258,7 +266,7 @@ function createFileOperationProgress() {
     return progressDiv;
 }
 
-// Enhanced main function with file operations
+// FIXED: Enhanced main function that properly detects missing thumbnails
 async function startCompleteReorganization() {
     console.log('🚀 Starting complete reorganization with file operations...');
     
@@ -280,27 +288,31 @@ async function startCompleteReorganization() {
     }
     
     try {
-        // Generate corrected data (this identifies artworks needing file operations)
+        // STEP 1: Generate corrected data (ID reorganization)
         const correctedData = generateCorrectedJson();
         
         if (!correctedData) {
             throw new Error('Failed to generate corrected data');
         }
         
-        const artworksToProcess = window.artworksToProcess || [];
+        // STEP 2: PROPERLY detect artworks needing file processing
+        console.log('🔍 Checking which artworks need file processing...');
+        const artworksNeedingProcessing = await detectArtworksNeedingProcessing(correctedData);
         
         // Prepare confirmation message
         let confirmMessage = `This will reorganize all ${window.artworks.length} artworks and fix image extensions.`;
         
-        if (artworksToProcess.length > 0) {
-            const yearChanges = artworksToProcess.filter(item => item.isYearChange).length;
-            const thumbnailGen = artworksToProcess.filter(item => item.needsThumbnail).length;
+        if (artworksNeedingProcessing.length > 0) {
+            const idChanges = artworksNeedingProcessing.filter(item => item.reasons.idChange).length;
+            const missingThumbnails = artworksNeedingProcessing.filter(item => item.reasons.missingThumbnail).length;
             
             confirmMessage += `\n\n📁 File Operations Required:`;
-            confirmMessage += `\n• ${artworksToProcess.length} artworks need file processing`;
-            if (yearChanges > 0) confirmMessage += `\n• ${yearChanges} year changes (file renaming)`;
-            if (thumbnailGen > 0) confirmMessage += `\n• ${thumbnailGen} missing thumbnails (generation)`;
-            confirmMessage += `\n\nThis will automatically rename files and generate thumbnails via GitHub API.`;
+            confirmMessage += `\n• ${artworksNeedingProcessing.length} artworks need file processing`;
+            if (idChanges > 0) confirmMessage += `\n• ${idChanges} ID changes (file renaming)`;
+            if (missingThumbnails > 0) confirmMessage += `\n• ${missingThumbnails} missing thumbnails (generation)`;
+            confirmMessage += `\n\nThis will process images via GitHub API (~${Math.ceil(artworksNeedingProcessing.length/10)} minutes).`;
+        } else {
+            confirmMessage += `\n\n✅ No file operations needed - all thumbnails exist and IDs are correct.`;
         }
         
         confirmMessage += `\n\nContinue?`;
@@ -312,12 +324,18 @@ async function startCompleteReorganization() {
             return;
         }
         
-        // Process file operations if needed
-        if (artworksToProcess.length > 0) {
+        // STEP 3: Process file operations if needed
+        if (artworksNeedingProcessing.length > 0) {
             const progressModal = createFileOperationProgress();
             
             try {
-                console.log(`🔄 Processing ${artworksToProcess.length} artworks for file operations...`);
+                console.log(`🔄 Processing ${artworksNeedingProcessing.length} artworks for file operations...`);
+                
+                // Convert to the format expected by processArtworksForReorganization
+                const artworksToProcess = artworksNeedingProcessing.map(item => ({
+                    artwork: item.artwork,
+                    newId: item.artwork.id // Use the new ID from corrected data
+                }));
                 
                 const fileResults = await window.processArtworksForReorganization(
                     artworksToProcess,
@@ -344,7 +362,7 @@ async function startCompleteReorganization() {
             }
         }
         
-        // Update the global artworks array
+        // STEP 4: Update the global artworks array
         window.artworks = correctedData;
 
         // Re-render the display
@@ -355,12 +373,12 @@ async function startCompleteReorganization() {
             window.updateStats();
         }
 
-        // Deploy JSON to GitHub
+        // STEP 5: Deploy JSON to GitHub
         await window.githubUploader.updateArtworksJson(correctedData);
         
         let successMessage = '✅ Complete reorganization finished!';
-        if (artworksToProcess.length > 0) {
-            successMessage += ` Files processed: ${artworksToProcess.length} artworks.`;
+        if (artworksNeedingProcessing.length > 0) {
+            successMessage += ` Files processed: ${artworksNeedingProcessing.length} artworks.`;
         }
         successMessage += ' Website will update in ~2 minutes.';
         
@@ -380,7 +398,7 @@ async function startCompleteReorganization() {
     }
 }
 
-// Make functions available globally (keeping existing exports and adding new ones)
+// Make functions available globally
 window.reorganizeArtworks = reorganizeArtworks;
 window.fixImageExtensions = fixImageExtensions;
 window.generateCorrectedJson = generateCorrectedJson;
@@ -389,4 +407,4 @@ window.startCompleteReorganization = startCompleteReorganization;
 window.detectArtworksNeedingProcessing = detectArtworksNeedingProcessing;
 window.extractYearFromId = extractYearFromId;
 
-console.log('✅ Enhanced Reorganization Tool with File Operations loaded successfully!');
+console.log('✅ Complete Reorganization Tool with Fixed Detection loaded successfully!');
