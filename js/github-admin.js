@@ -157,7 +157,338 @@ class GitHubUploader {
             img.src = URL.createObjectURL(file);
         });
     }
+    // NEW FUNCTIONS TO ADD TO YOUR EXISTING github-admin.js
+    // Add these functions to the GitHubUploader class (don't replace existing functions)
 
+    // NEW: Download file from GitHub
+    async downloadFile(path) {
+        try {
+            console.log(`📥 Downloading ${path}...`);
+            const response = await fetch(`https://api.github.com/repos/${this.config.owner}/${this.config.repo}/contents/${path}`, {
+                headers: {
+                    'Accept': 'application/vnd.github.v3+json'
+                }
+            });
+
+            if (!response.ok) {
+                if (response.status === 404) {
+                    return { success: false, error: 'File not found', notFound: true };
+                }
+                throw new Error(`Download failed: ${response.status}`);
+            }
+
+            const data = await response.json();
+            
+            // Decode base64 content to blob
+            const binaryString = atob(data.content.replace(/\s/g, ''));
+            const bytes = new Uint8Array(binaryString.length);
+            for (let i = 0; i < binaryString.length; i++) {
+                bytes[i] = binaryString.charCodeAt(i);
+            }
+            const blob = new Blob([bytes]);
+
+            return {
+                success: true,
+                blob: blob,
+                sha: data.sha,
+                downloadUrl: data.download_url
+            };
+
+        } catch (error) {
+            console.error(`Failed to download ${path}:`, error);
+            return { success: false, error: error.message };
+        }
+    }
+
+    // NEW: Check if file exists on GitHub
+    async checkFileExists(path) {
+        try {
+            const response = await fetch(`https://api.github.com/repos/${this.config.owner}/${this.config.repo}/contents/${path}`, {
+                method: 'HEAD',
+                headers: {
+                    'Accept': 'application/vnd.github.v3+json'
+                }
+            });
+            return response.ok;
+        } catch (error) {
+            return false;
+        }
+    }
+
+    // NEW: Delete file from GitHub
+    async deleteFile(path, message) {
+        try {
+            console.log(`🗑️ Deleting ${path}...`);
+            
+            // First get the file's SHA
+            const fileInfo = await this.downloadFile(path);
+            if (!fileInfo.success) {
+                console.log(`File ${path} doesn't exist, skipping delete`);
+                return { success: true, skipped: true };
+            }
+
+            const response = await fetch('/.netlify/functions/githubProxy', {
+                method: 'DELETE',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    path,
+                    message,
+                    sha: fileInfo.sha,
+                    branch: this.config.branch
+                })
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(`GitHub delete failed: ${errorData.message}`);
+            }
+
+            return { success: true };
+
+        } catch (error) {
+            console.error(`Failed to delete ${path}:`, error);
+            throw error;
+        }
+    }
+
+    // NEW: Generate thumbnail from existing large image
+    async generateThumbnailFromLargeImage(largeImagePath, artworkId, onProgress) {
+        try {
+            onProgress?.('Downloading large image...', 10);
+            
+            // Download the large image
+            const downloadResult = await this.downloadFile(largeImagePath);
+            if (!downloadResult.success) {
+                throw new Error(`Failed to download large image: ${downloadResult.error}`);
+            }
+
+            onProgress?.('Creating thumbnail...', 40);
+
+            // Create thumbnail from the blob
+            const thumbnailBlob = await this.createThumbnailFromBlob(downloadResult.blob);
+            
+            onProgress?.('Uploading thumbnail...', 70);
+
+            // Upload thumbnail
+            const thumbnailBase64 = await this.blobToBase64(thumbnailBlob);
+            const thumbnailPath = `${this.config.paths.thumbnails}${artworkId}_thumb.png`;
+            const thumbnailResult = await this.uploadFile(
+                thumbnailPath,
+                thumbnailBase64,
+                `Generate thumbnail for ${artworkId}`
+            );
+
+            onProgress?.('Thumbnail generated!', 100);
+
+            return {
+                success: true,
+                thumbnailPath: thumbnailPath,
+                thumbnailUrl: thumbnailResult.url
+            };
+
+        } catch (error) {
+            console.error('Thumbnail generation failed:', error);
+            throw error;
+        }
+    }
+
+    // NEW: Create thumbnail from blob (similar to existing createThumbnail but from blob)
+    async createThumbnailFromBlob(blob) {
+        return new Promise((resolve, reject) => {
+            const img = new Image();
+            
+            img.onload = () => {
+                try {
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+                    
+                    let { width, height } = img;
+                    const maxSize = 400;
+                    
+                    if (Math.max(width, height) > maxSize) {
+                        const ratio = maxSize / Math.max(width, height);
+                        width = Math.round(width * ratio);
+                        height = Math.round(height * ratio);
+                    }
+                    
+                    canvas.width = width;
+                    canvas.height = height;
+                    
+                    ctx.imageSmoothingEnabled = true;
+                    ctx.imageSmoothingQuality = 'high';
+                    ctx.drawImage(img, 0, 0, width, height);
+                    
+                    canvas.toBlob(resolve, 'image/png', 0.8);
+                } catch (error) {
+                    reject(error);
+                }
+            };
+            
+            img.onerror = reject;
+            img.src = URL.createObjectURL(blob);
+        });
+    }
+
+    // NEW: Rename file (download, upload with new name, delete old)
+    async renameFile(oldPath, newPath, message, onProgress) {
+        try {
+            onProgress?.(`Renaming ${oldPath} to ${newPath}...`, 0);
+
+            // Download existing file
+            onProgress?.('Downloading existing file...', 20);
+            const downloadResult = await this.downloadFile(oldPath);
+            if (!downloadResult.success) {
+                if (downloadResult.notFound) {
+                    console.log(`File ${oldPath} not found, skipping rename`);
+                    return { success: true, skipped: true };
+                }
+                throw new Error(`Failed to download ${oldPath}: ${downloadResult.error}`);
+            }
+
+            // Upload with new name
+            onProgress?.('Uploading with new name...', 60);
+            const base64Content = await this.blobToBase64(downloadResult.blob);
+            await this.uploadFile(newPath, base64Content, message);
+
+            // Delete old file
+            onProgress?.('Deleting old file...', 80);
+            await this.deleteFile(oldPath, `Remove old file after rename to ${newPath}`);
+
+            onProgress?.('Rename complete!', 100);
+
+            return { success: true };
+
+        } catch (error) {
+            console.error(`Failed to rename ${oldPath} to ${newPath}:`, error);
+            throw error;
+        }
+    }
+
+    // NEW: Process artwork for reorganization (handle renaming and thumbnail generation)
+    async processArtworkForReorganization(artwork, newId, onProgress) {
+        try {
+            const oldId = artwork.id;
+            const operations = [];
+
+            // Determine what operations are needed
+            const needsIdChange = oldId !== newId;
+            const oldThumbnailPath = `${this.config.paths.thumbnails}${oldId}_thumb.png`;
+            const oldLargePath = `${this.config.paths.large}${oldId}_large.png`;
+            const newThumbnailPath = `${this.config.paths.thumbnails}${newId}_thumb.png`;
+            const newLargePath = `${this.config.paths.large}${newId}_large.png`;
+
+            onProgress?.(`Processing ${artwork.title}...`, 0);
+
+            // Check what files exist
+            const [thumbnailExists, largeExists] = await Promise.all([
+                this.checkFileExists(oldThumbnailPath),
+                this.checkFileExists(oldLargePath)
+            ]);
+
+            console.log(`📋 ${oldId}: thumbnail=${thumbnailExists}, large=${largeExists}`);
+
+            if (!largeExists) {
+                console.warn(`⚠️ No large image found for ${oldId}, skipping...`);
+                return { success: true, skipped: true, reason: 'No large image found' };
+            }
+
+            // If ID changed, rename large image
+            if (needsIdChange) {
+                onProgress?.('Renaming large image...', 25);
+                await this.renameFile(
+                    oldLargePath, 
+                    newLargePath, 
+                    `Rename large image: ${oldId} → ${newId}`
+                );
+                operations.push(`Renamed large: ${oldId} → ${newId}`);
+            }
+
+            // Generate/regenerate thumbnail (either missing or ID changed)
+            if (!thumbnailExists || needsIdChange) {
+                onProgress?.('Generating thumbnail...', 50);
+                
+                // If we renamed the large image, use new path, otherwise use old path
+                const sourceImagePath = needsIdChange ? newLargePath : oldLargePath;
+                
+                await this.generateThumbnailFromLargeImage(sourceImagePath, newId);
+                
+                if (thumbnailExists && needsIdChange) {
+                    // Delete old thumbnail if it existed and we renamed
+                    await this.deleteFile(oldThumbnailPath, `Remove old thumbnail after rename`);
+                    operations.push(`Regenerated and renamed thumbnail: ${oldId} → ${newId}`);
+                } else {
+                    operations.push(`Generated missing thumbnail: ${newId}`);
+                }
+            }
+
+            onProgress?.('Processing complete!', 100);
+
+            return {
+                success: true,
+                operations: operations,
+                paths: {
+                    thumbnail: newThumbnailPath,
+                    large: newLargePath
+                }
+            };
+
+        } catch (error) {
+            console.error(`Failed to process artwork ${artwork.id}:`, error);
+            throw error;
+        }
+    }
+
+    // ADD THESE GLOBAL FUNCTIONS (after the existing global functions in your file)
+
+    // NEW: Process multiple artworks for reorganization
+    async function processArtworksForReorganization(artworksToProcess, onProgress) {
+        console.log(`🔄 Processing ${artworksToProcess.length} artworks for reorganization...`);
+        
+        const results = [];
+        const total = artworksToProcess.length;
+        
+        for (let i = 0; i < artworksToProcess.length; i++) {
+            const { artwork, newId } = artworksToProcess[i];
+            
+            try {
+                const overallProgress = (i / total) * 100;
+                onProgress?.(`Processing ${i + 1}/${total}: ${artwork.title}`, overallProgress);
+                
+                const result = await githubUploader.processArtworkForReorganization(
+                    artwork, 
+                    newId,
+                    (subMessage, subProgress) => {
+                        const adjustedProgress = overallProgress + (subProgress / total);
+                        onProgress?.(subMessage, adjustedProgress);
+                    }
+                );
+                
+                results.push({
+                    artwork: artwork,
+                    newId: newId,
+                    result: result
+                });
+                
+            } catch (error) {
+                console.error(`Failed to process ${artwork.id}:`, error);
+                results.push({
+                    artwork: artwork,
+                    newId: newId,
+                    result: { success: false, error: error.message }
+                });
+            }
+        }
+        
+        const successful = results.filter(r => r.result.success).length;
+        const failed = results.filter(r => !r.result.success).length;
+        
+        console.log(`✅ Reorganization processing complete: ${successful} successful, ${failed} failed`);
+        
+        return results;
+    }
+
+    // Make new functions available globally
+    window.processArtworksForReorganization = processArtworksForReorganization;
     // Create large version from file
     async createLargeImage(file) {
         return new Promise((resolve, reject) => {
@@ -512,6 +843,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }, 2000);
 });
+
+
+
 
 // Make functions available globally
 window.githubUploader = githubUploader;
