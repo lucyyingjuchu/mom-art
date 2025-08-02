@@ -760,6 +760,7 @@
                 
                 const data = await response.json();
                 artworks = Array.isArray(data) ? data : [];
+                window.artworks = artworks; 
                 
                 console.log(`📊 Loaded ${artworks.length} artworks`);
                 console.log('First artwork sample:', artworks[0]);
