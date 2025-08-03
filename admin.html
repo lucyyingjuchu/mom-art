@@ -42,7 +42,7 @@
             padding: 2rem;
         }
 
-        .toolbar, .github-section, .reorganization-section {
+        .toolbar, .github-section {
             background: white;
             padding: 1.5rem;
             border-radius: 12px;
@@ -169,73 +169,6 @@
         .stat-label {
             color: #7f8c8d;
             margin-top: 0.5rem;
-        }
-
-        .reorganization-header {
-            padding: 1rem 1.5rem;
-            background: #f8f9fa;
-            border-bottom: 1px solid #dee2e6;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            transition: background-color 0.3s ease;
-            margin: -1.5rem -1.5rem 0 -1.5rem;
-        }
-
-        .reorganization-header:hover {
-            background: #e9ecef;
-        }
-
-        .reorganization-header h4 {
-            color: #495057;
-            margin: 0;
-            font-size: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .reorganization-toggle {
-            color: #6c757d;
-            font-size: 1.2rem;
-            transition: transform 0.3s ease;
-        }
-
-        .reorganization-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease;
-        }
-
-        .reorganization-content.expanded {
-            max-height: 800px;
-        }
-
-        .reorganization-inner {
-            padding: 1.5rem;
-            background: linear-gradient(135deg, #e8f5e9 0%, #f0f8ff 100%);
-            border-left: 4px solid #28a745;
-            margin-top: 1rem;
-        }
-
-        .reorganization-info {
-            background: white;
-            padding: 1rem;
-            border-radius: 8px;
-            margin: 1rem 0;
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-
-        .reorganization-warning {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            color: #856404;
-            padding: 1rem;
-            border-radius: 8px;
-            margin-top: 1rem;
-            font-size: 0.9rem;
         }
 
         .artworks-grid {
@@ -494,47 +427,6 @@
             </div>
         </div>
 
-        <!-- Collapsible Advanced Tools Section -->
-        <div class="reorganization-section">
-            <div class="reorganization-header" onclick="toggleReorganizationSection()">
-                <h4>🔧 Advanced Portfolio Tools</h4>
-                <span class="reorganization-toggle" id="reorganizationToggle">▼</span>
-            </div>
-            <div class="reorganization-content" id="reorganizationContent">
-                <div class="reorganization-inner">
-                    <h4 style="color: #155724; margin-bottom: 1rem;">🎯 Complete Portfolio Reorganization</h4>
-                    <p style="margin: 0.5rem 0; color: #2e7d32; font-size: 0.95rem;">
-                        <strong>One-click maintenance tool</strong> - Fixes IDs, generates missing thumbnails, and organizes everything.
-                    </p>
-                    
-                    <div class="reorganization-info">
-                        <strong>📋 What this does:</strong><br>
-                        • Renumbers IDs sequentially (2020_001, 2020_002, etc.)<br>
-                        • Generates missing 400px thumbnails from large images<br>
-                        • Fixes year mismatches and file extensions<br>
-                        • Auto-deploys to GitHub and rebuilds website
-                    </div>
-                    
-                    <div style="background: #e8f5e9; padding: 0.8rem; border-radius: 6px; margin: 1rem 0; font-size: 0.85rem;">
-                        <strong>Example:</strong> <code>2022_005</code> (year 2023, missing thumb) → <code>2023_003</code> (fixed year, thumb generated)
-                    </div>
-                    
-                    <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; margin: 1rem 0;">
-                        <button class="btn btn-success" onclick="triggerReorganization()" style="font-weight: bold;">
-                            🚀 Start Complete Reorganization
-                        </button>
-                        <span style="color: #6c757d; font-size: 0.85rem;">
-                            Takes 10-15 min for 200+ artworks
-                        </span>
-                    </div>
-                    
-                    <div class="reorganization-warning">
-                        <strong>⚠️ Note:</strong> Don't close browser during processing. Creates thumbnails for missing ones and auto-deploys when complete.
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <!-- Artworks Grid -->
         <div class="artworks-grid" id="artworksGrid">
             <div style="grid-column: 1 / -1; text-align: center; padding: 3rem; color: #7f8c8d;">
@@ -661,7 +553,6 @@
 
     <!-- Load JavaScript Files -->
     <script src="./js/github-admin.js"></script>
-    <script src="./js/reorganization-tool.js"></script>
 
     <script>
         // Global variables
@@ -669,15 +560,7 @@
         let currentEditingId = null;
         let uploadedImages = {};
 
-        // All functions that are called by onclick handlers
-        function toggleReorganizationSection() {
-            const content = document.getElementById('reorganizationContent');
-            const toggle = document.getElementById('reorganizationToggle');
-            
-            content.classList.toggle('expanded');
-            toggle.textContent = content.classList.contains('expanded') ? '▲' : '▼';
-        }
-
+        // Core admin functions that DON'T conflict with github-admin.js
         function openAddModal() {
             currentEditingId = null;
             document.getElementById('modalTitle').textContent = 'Add New Artwork';
@@ -696,6 +579,7 @@
             renderArtworks();
         }
 
+        // GitHub functions - These will be loaded from github-admin.js
         function testGitHubConnection() {
             if (typeof window.testGitHubConnection === 'function') {
                 window.testGitHubConnection();
@@ -709,15 +593,6 @@
                 window.exportAndDeployToGitHub();
             } else {
                 showMessage('GitHub integration not loaded. Please check github-admin.js', 'error');
-            }
-        }
-
-        function triggerReorganization() {
-            // Call the reorganization tool from reorganization-tool.js
-            if (typeof window.startCompleteReorganization === 'function') {
-                window.startCompleteReorganization();
-            } else {
-                showMessage('Reorganization tool not loaded. Please refresh the page and try again.', 'error');
             }
         }
 
@@ -877,6 +752,11 @@
                 const response = await fetch('./data/artworks.json');
                 const data = await response.json();
                 artworks = Array.isArray(data) ? data : [];
+                
+                // Sync to window object for GitHub integration
+                window.artworks = artworks;
+                console.log(`✅ Loaded and synced ${artworks.length} artworks`);
+                
                 renderArtworks();
                 updateStats();
             } catch (error) {
@@ -885,13 +765,16 @@
             }
         }
 
-        // Image upload handling
+        // Image upload handling - will be replaced by GitHub version if available
         function setupImageUpload() {
             const imageInput = document.getElementById('imageInput');
             
-            if (typeof handleImageUploadWithGitHub === 'function') {
-                imageInput.addEventListener('change', handleImageUploadWithGitHub);
+            // Check if GitHub integration loaded
+            if (typeof window.handleImageUploadWithGitHub === 'function') {
+                imageInput.addEventListener('change', window.handleImageUploadWithGitHub);
+                console.log('✅ Using GitHub image upload');
             } else {
+                // Fallback to basic upload
                 imageInput.addEventListener('change', function(event) {
                     const file = event.target.files[0];
                     if (!file) return;
@@ -905,10 +788,11 @@
                     reader.onload = function(e) {
                         document.getElementById('previewImage').src = e.target.result;
                         document.getElementById('previewImage').style.display = 'block';
-                        document.getElementById('uploadText').innerHTML = '<div style="color: #f39c12;">⚠️ Image loaded locally<br><small>Use GitHub tools to upload to repository</small></div>';
+                        document.getElementById('uploadText').innerHTML = '<div style="color: #f39c12;">⚠️ Image loaded locally<br><small>Enable GitHub integration for cloud upload</small></div>';
                     };
                     reader.readAsDataURL(file);
                 });
+                console.log('⚠️ Using local image upload - GitHub integration not available');
             }
         }
 
@@ -964,6 +848,9 @@
                     showMessage('New artwork added successfully!', 'success');
                 }
                 
+                // Sync with window object for GitHub integration
+                window.artworks = artworks;
+                
                 renderArtworks();
                 updateStats();
                 closeModal();
@@ -978,7 +865,7 @@
             }
         });
 
-        // Make functions globally available
+        // Make functions globally available for integration
         window.artworks = artworks;
         window.renderArtworks = renderArtworks;
         window.updateStats = updateStats;
