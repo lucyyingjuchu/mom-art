@@ -389,10 +389,10 @@
         <div class="github-section">
             <h3>🐙 GitHub Integration</h3>
             <div class="github-controls">
-                <button class="btn" onclick="testGitHubConnection()">
+                <button class="btn" onclick="window.testGitHubConnection && window.testGitHubConnection()">
                     🔍 Test Connection
                 </button>
-                <button class="btn btn-success" onclick="exportAndDeployToGitHub()">
+                <button class="btn btn-success" onclick="window.exportAndDeployToGitHub && window.exportAndDeployToGitHub()">
                     🚀 Deploy to Website
                 </button>
                 <div class="github-status status-disconnected" id="githubStatus">
@@ -579,22 +579,8 @@
             renderArtworks();
         }
 
-        // GitHub functions - These will be loaded from github-admin.js
-        function testGitHubConnection() {
-            if (typeof window.testGitHubConnection === 'function') {
-                window.testGitHubConnection();
-            } else {
-                showMessage('GitHub integration not loaded. Please check github-admin.js', 'error');
-            }
-        }
-
-        function exportAndDeployToGitHub() {
-            if (typeof window.exportAndDeployToGitHub === 'function') {
-                window.exportAndDeployToGitHub();
-            } else {
-                showMessage('GitHub integration not loaded. Please check github-admin.js', 'error');
-            }
-        }
+        // GitHub functions - NO LOCAL DEFINITIONS to avoid recursion
+        // These buttons will call window.functions directly via onclick handlers
 
         function editArtwork(id) {
             const artwork = artworks.find(a => a.id === id);
