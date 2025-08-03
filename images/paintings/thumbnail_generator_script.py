@@ -72,8 +72,8 @@ class ThumbnailGenerator:
                 # Get current dimensions
                 width, height = img.size
                 
-                # Calculate new dimensions (max 400px on longest side)
-                max_size = 400
+                # Calculate new dimensions (max 800px on longest side)
+                max_size = 800
                 if width > height:
                     if width > max_size:
                         height = int(height * max_size / width)
