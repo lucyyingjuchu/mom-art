@@ -713,10 +713,6 @@
         }
 
         function triggerReorganization() {
-            // Sync the local artworks to window before calling reorganization
-            window.artworks = artworks;
-            console.log(`🔄 Synced ${artworks.length} artworks to window.artworks`);
-            
             // Call the reorganization tool from reorganization-tool.js
             if (typeof window.startCompleteReorganization === 'function') {
                 window.startCompleteReorganization();
@@ -881,11 +877,6 @@
                 const response = await fetch('./data/artworks.json');
                 const data = await response.json();
                 artworks = Array.isArray(data) ? data : [];
-                
-                // FIXED: Sync to window object immediately after loading
-                window.artworks = artworks;
-                console.log(`✅ Loaded and synced ${artworks.length} artworks`);
-                
                 renderArtworks();
                 updateStats();
             } catch (error) {
