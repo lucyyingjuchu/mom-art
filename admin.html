@@ -520,7 +520,7 @@
                     </div>
                     
                     <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; margin: 1rem 0;">
-                        <button class="btn btn-success" onclick="startCompleteReorganization()" style="font-weight: bold;">
+                        <button class="btn btn-success" onclick="triggerReorganization()" style="font-weight: bold;">
                             🚀 Start Complete Reorganization
                         </button>
                         <span style="color: #6c757d; font-size: 0.85rem;">
@@ -712,11 +712,12 @@
             }
         }
 
-        function startCompleteReorganization() {
+        function triggerReorganization() {
+            // Call the reorganization tool from reorganization-tool.js
             if (typeof window.startCompleteReorganization === 'function') {
                 window.startCompleteReorganization();
             } else {
-                showMessage('Reorganization tool not loaded. Please check reorganization-tool.js', 'error');
+                showMessage('Reorganization tool not loaded. Please refresh the page and try again.', 'error');
             }
         }
 
