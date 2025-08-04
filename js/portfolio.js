@@ -469,7 +469,7 @@ class ChineseArtPortfolio {
             <div class="gallery-item" onclick="openLightbox('${artwork.id}')">
                 <div class="gallery-item-image">
                     <img src="${imageUrl}" alt="${title}" loading="lazy" 
-                         onerror="this.src='https://via.placeholder.com/400x300/f8f9fa/6c757d?text=Image+Error'">
+                         onerror="this.src='./images/placeholder/artwork-placeholder.svg'">
                 </div>
                 <div class="gallery-item-info">
                     <h3>${title}</h3>
