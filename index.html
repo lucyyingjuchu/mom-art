@@ -635,63 +635,119 @@
             }
         }
         /* ================================ */
-        /* CONTACT SECTION STYLES */
+        /* CONNECT SECTION STYLES */
         /* ================================ */
-        .contact-content {
-            max-width: 600px;
+        .connect-content {
+            max-width: 800px;
             margin: 0 auto;
             text-align: center;
         }
 
-        .contact-form {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            margin-top: 2rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-            text-align: left;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
+        .connect-content h2 {
             color: #2c3e50;
-            font-weight: 500;
+            margin-bottom: 1rem;
+            font-size: 2rem;
         }
 
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #dee2e6;
-            border-radius: 4px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
+        .connect-content > p {
+            font-size: 1.1rem;
+            color: #6c757d;
+            margin-bottom: 3rem;
+            line-height: 1.6;
         }
 
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #2c3e50;
+        .connect-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
         }
 
-        .submit-btn {
+        .connect-item {
+            background: white;
+            padding: 2rem 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .connect-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .connect-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .connect-item h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .connect-item p {
+            color: #6c757d;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .connect-link {
+            display: inline-block;
             background: #2c3e50;
             color: white;
-            padding: 0.75rem 2rem;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 1rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
             transition: background 0.3s ease;
         }
 
-        .submit-btn:hover {
+        .connect-link:hover {
             background: #1a252f;
+        }
+
+        .coming-soon {
+            display: block;
+            color: #6c757d;
+            font-style: italic;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+        }
+
+        .location-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            color: #495057;
+            font-size: 1rem;
+        }
+
+        .location-icon {
+            font-size: 1.2rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .connect-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .connect-item {
+                padding: 1.5rem 1rem;
+            }
+            
+            .connect-content h2 {
+                font-size: 1.8rem;
+            }
         }
 
         /* ================================ */
@@ -712,21 +768,7 @@
                 gap: 2rem;
             }
             
-            .about-header {
-                display: grid;
-                grid-template-columns: 200px 1fr;  /* Even smaller portrait column */
-                gap: 2rem;
-                margin-bottom: 3rem;
-                align-items: start;
-            }
 
-            .artist-portrait img {
-                width: 100%;
-                height: 250px;  /* Reasonable portrait size */
-                object-fit: cover;
-                border-radius: 8px;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            }
             .gallery-filters {
                 flex-direction: column;
                 align-items: center;
@@ -773,8 +815,8 @@
     <!-- ================================ -->
     <header>
         <button id="languageToggle" class="language-toggle">中文</button>
-        <div class="logo">Artist Name</div>
-        <div class="subtitle">Fine Art • Paintings & Calligraphy</div>
+        <div class="logo">袁之靜 -曉然文化藝術 </div>
+        <div class="subtitle">國畫、書法作品</div>
     </header>
 
     <!-- ================================ -->
@@ -782,10 +824,10 @@
     <!-- ================================ -->
     <nav>
         <div class="nav-container">
-            <button class="nav-btn active" onclick="showSection('home')">Home</button>
-            <button class="nav-btn" onclick="showSection('gallery')">Gallery</button>
-            <button class="nav-btn" onclick="showSection('about')">About</button>
-            <button class="nav-btn" onclick="showSection('contact')">Contact</button>
+            <button class="nav-btn active" onclick="showSection('home')">精選</button>
+            <button class="nav-btn" onclick="showSection('gallery')">藝廊</button>
+            <button class="nav-btn" onclick="showSection('about')">關於</button>
+            <button class="nav-btn" onclick="showSection('connect')">聯絡</button>
         </div>
     </nav>
 
@@ -998,32 +1040,33 @@
             </div>
         </section>
 
-        <!-- CONTACT SECTION -->
-        <section id="contact" class="section">
-            <div class="contact-content">
-                <h2>Get In Touch</h2>
-                <p>I welcome inquiries about my work, custom commissions, and exhibition opportunities. Please feel free to reach out with any questions.</p>
+        <!-- CONNECT SECTION -->
+        <section id="connect" class="section">
+            <div class="connect-content">
+                <h2>Connect With Me</h2>
+                <p>Follow my artistic journey and stay updated with new works, exhibitions, and creative insights.</p>
                 
-                <div class="contact-form">
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">Send Message</button>
-                    </form>
+                <div class="connect-grid">
+                    <!-- Email -->
+                    <div class="connect-item">
+                        <div class="connect-icon">✉️</div>
+                        <h3>Email</h3>
+                        <p>For inquiries, commissions, or collaborations</p>
+                        <a href="mailto:d9062503@gmail.com" class="connect-link">d9062503@gmail.com</a>
+                    </div>
+
+                    <!-- Facebook -->
+                    <div class="connect-item">
+                        <div class="connect-icon">📘</div>
+                        <h3>Facebook</h3>
+                        <p>Latest artworks and behind-the-scenes content</p>
+                        <a href="https://www.facebook.com/profile.php?id=100064374351505" target="_blank" class="connect-link">Visit Fan Page</a>
+                    </div>
+                </div>
+
+                <div class="location-info">
+                    <div class="location-icon">📍</div>
+                    <span>Based in Taichung, Taiwan</span>
                 </div>
             </div>
         </section>
