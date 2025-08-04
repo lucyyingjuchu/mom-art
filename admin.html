@@ -744,8 +744,16 @@
                 publishBtn.disabled = true;
                 saveStatus.innerHTML = '🚀 Publishing...';
 
-                // If new artwork, upload images first
-                if (uploadedImages[draft.id]) {
+            // Handle image paths - check if already uploaded or need uploading
+            if (uploadedImages[draft.id]) {
+                // Check if images were already uploaded to GitHub
+                if (uploadedImages[draft.id].githubUpload) {
+                    // Use existing uploaded image paths
+                    draft.image = uploadedImages[draft.id].githubUpload.artworkData.image;
+                    draft.imageHigh = uploadedImages[draft.id].githubUpload.artworkData.imageHigh;
+                    saveStatus.innerHTML = '📤 Using existing uploaded images...';
+                } else {
+                    // Need to upload images
                     saveStatus.innerHTML = '📤 Uploading images...';
                     
                     const uploadResult = await window.githubUploader.uploadArtwork(
@@ -757,7 +765,7 @@
                     draft.image = `./images/paintings/thumbnails/${draft.id}_thumb.png`;
                     draft.imageHigh = `./images/paintings/large/${draft.id}_large.png`;
                 }
-
+            }
                 // Update local artworks array
                 if (currentEditingId) {
                     const index = artworks.findIndex(a => a.id === currentEditingId);
