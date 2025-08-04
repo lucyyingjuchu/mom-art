@@ -75,7 +75,7 @@ class GitHubUploader {
             onProgress?.('Creating optimized images...', 10);
             
             // Create thumbnail (PNG format for consistency)
-            const thumbnailBlob = await this.createImageFromFile(file, 400, 'thumbnail');
+            const thumbnailBlob = await this.createImageFromFile(file, 800, 'thumbnail');
             onProgress?.('Thumbnail created', 30);
             
             // Create large version (PNG format for consistency)
@@ -370,7 +370,7 @@ class GitHubUploader {
             onProgress?.('Creating thumbnail...', 40);
 
             // Create thumbnail from the blob using consolidated function
-            const thumbnailBlob = await this.createImageFromBlob(downloadResult.blob, 400, 'thumbnail');
+            const thumbnailBlob = await this.createImageFromBlob(downloadResult.blob, 800, 'thumbnail');
             
             onProgress?.('Uploading thumbnail...', 70);
 
