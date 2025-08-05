@@ -5394,5 +5394,25 @@
     "recent": "",
     "exhibitions": [],
     "tags": []
+  },
+  {
+    "id": "2025_001",
+    "title": "test",
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "landscape",
+    "image": "",
+    "imageHigh": "",
+    "description": "",
+    "format": "軸",
+    "mediumEn": "",
+    "sizeCm": "135x70",
+    "year": "2025",
+    "price": "",
+    "available": false,
+    "featured": false,
+    "recent": true,
+    "exhibitions": [],
+    "tags": []
   }
 ]
