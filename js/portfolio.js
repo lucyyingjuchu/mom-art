@@ -218,11 +218,11 @@ class ChineseArtPortfolio {
     constructor() {
         this.artworks = [];
         this.categories = {};
-        this.currentLanguage = 'en'; // 'en' or 'zh'
+        this.currentLanguage = 'zh'; // Default to Chinese
         this.categorizer = new ArtworkCategorizer();
         this.filterStats = {};
         
-        // NEW: Track active multi-select filters
+        // Track active multi-select filters
         this.activeFilters = {
             subject: [],
             location: [],
@@ -230,6 +230,29 @@ class ChineseArtPortfolio {
         };
         
         this.loadArtworks();
+    }
+
+    // NEW: Get localized text from language dictionary
+    t(path, params = {}) {
+        const keys = path.split('.');
+        let value = LANGUAGE_DATA[this.currentLanguage];
+        
+        for (const key of keys) {
+            value = value?.[key];
+        }
+        
+        if (!value) {
+            console.warn(`Missing translation for: ${path}`);
+            return path;
+        }
+        
+        // Replace parameters like {count}, {total}, etc.
+        let result = value;
+        Object.keys(params).forEach(key => {
+            result = result.replace(`{${key}}`, params[key]);
+        });
+        
+        return result;
     }
 
     // Load artworks from JSON file
@@ -310,7 +333,7 @@ class ChineseArtPortfolio {
         return this.artworks.find(artwork => artwork.id === id);
     }
 
-    // NEW: Toggle filter selection (multi-select)
+    // Toggle filter selection (multi-select)
     toggleFilter(filterType, filterValue) {
         if (!this.activeFilters[filterType]) {
             this.activeFilters[filterType] = [];
@@ -332,7 +355,7 @@ class ChineseArtPortfolio {
         this.updateFilterUI();
     }
 
-    // NEW: Clear all filters
+    // Clear all filters
     clearAllFilters() {
         this.activeFilters = {
             subject: [],
@@ -343,7 +366,7 @@ class ChineseArtPortfolio {
         this.updateFilterUI();
     }
 
-    // NEW: Update filter button states
+    // Update filter button states
     updateFilterUI() {
         document.querySelectorAll('.filter-btn').forEach(btn => {
             const filterType = btn.dataset.filterType;
@@ -405,7 +428,7 @@ class ChineseArtPortfolio {
         });
     }
 
-    // Get localized text
+    // Get localized text for artwork fields
     getText(artwork, field) {
         if (this.currentLanguage === 'zh') {
             return artwork[field] || artwork[field + 'En'] || '';
@@ -416,19 +439,87 @@ class ChineseArtPortfolio {
     // Toggle language
     toggleLanguage() {
         this.currentLanguage = this.currentLanguage === 'en' ? 'zh' : 'en';
-        this.renderGallery();
-        this.updateLanguageUI();
+        this.updateAllUI();
     }
 
-    // Update language UI
-    updateLanguageUI() {
+    // NEW: Update all UI elements when language changes
+    updateAllUI() {
+        this.updateStaticText();
+        this.renderGallery();
+        this.renderFeaturedWorks();
+        this.renderFilterMenu();
+        this.updateLanguageToggle();
+    }
+
+    // NEW: Update static text elements
+    updateStaticText() {
+        // Update header
+        document.querySelector('.logo').textContent = this.t('header.title');
+        document.querySelector('.subtitle').textContent = this.t('header.subtitle');
+        
+        // Update navigation
+        const navButtons = document.querySelectorAll('.nav-btn');
+        navButtons[0].textContent = this.t('nav.featured');
+        navButtons[1].textContent = this.t('nav.gallery'); 
+        navButtons[2].textContent = this.t('nav.about');
+        navButtons[3].textContent = this.t('nav.connect');
+        
+        // Update home page
+        document.querySelector('.hero h1').textContent = this.t('home.heroTitle');
+        document.querySelector('.hero p').textContent = this.t('home.heroDescription');
+        
+        // Update about page titles
+        const aboutTitle = document.querySelector('.artist-intro h2');
+        if (aboutTitle) aboutTitle.textContent = this.t('about.mainTitle');
+        
+        const videoTitle = document.querySelector('.featured-video h3');
+        if (videoTitle) videoTitle.textContent = this.t('about.videoTitle');
+        
+        // Update section headers
+        const sectionHeaders = document.querySelectorAll('.section-header');
+        const headerKeys = ['educationTitle', 'awardsTitle', 'publicationsTitle', 'teachingTitle', 'positionsTitle', 'exhibitionsTitle', 'groupShowsTitle'];
+        sectionHeaders.forEach((header, index) => {
+            if (headerKeys[index]) {
+                const icon = header.textContent.split(' ')[0]; // Keep the emoji
+                header.textContent = `${icon} ${this.t('about.' + headerKeys[index])}`;
+            }
+        });
+        
+        // Update connect page
+        const connectTitle = document.querySelector('#connect h2');
+        if (connectTitle) connectTitle.textContent = this.t('connect.title');
+        
+        const connectSubtitle = document.querySelector('#connect .connect-content > p');
+        if (connectSubtitle) connectSubtitle.textContent = this.t('connect.subtitle');
+        
+        // Update lightbox elements
+        this.updateLightboxText();
+    }
+
+    // NEW: Update lightbox text
+    updateLightboxText() {
+        const shareBtn = document.querySelector('.control-btn[onclick="shareArtwork()"]');
+        if (shareBtn) shareBtn.title = this.t('lightbox.shareTitle');
+        
+        const closeBtn = document.querySelector('.control-btn[onclick="closeLightbox()"]');
+        if (closeBtn) closeBtn.title = this.t('lightbox.closeTitle');
+        
+        const prevBtn = document.querySelector('.nav-arrow.prev');
+        if (prevBtn) prevBtn.title = this.t('lightbox.prevTitle');
+        
+        const nextBtn = document.querySelector('.nav-arrow.next');
+        if (nextBtn) nextBtn.title = this.t('lightbox.nextTitle');
+    }
+
+    // Update language toggle button
+    updateLanguageToggle() {
         const langToggle = document.getElementById('languageToggle');
         if (langToggle) {
             langToggle.textContent = this.currentLanguage === 'en' ? '中文' : 'English';
         }
     }
 
-    // NEW: Render gallery with multi-select filters
+    // Render gallery with multi-select filters
     renderGallery() {
         const galleryGrid = document.getElementById('galleryGrid');
         if (!galleryGrid) return;
@@ -441,9 +532,15 @@ class ChineseArtPortfolio {
         if (resultsInfo) {
             const activeFilterCount = Object.values(this.activeFilters).flat().length;
             if (activeFilterCount > 0) {
-                resultsInfo.textContent = `Showing ${filteredArtworks.length} of ${this.artworks.length} artworks (${activeFilterCount} filters active)`;
+                resultsInfo.textContent = this.t('filters.showingFiltered', {
+                    count: filteredArtworks.length,
+                    total: this.artworks.length,
+                    filters: activeFilterCount
+                });
             } else {
-                resultsInfo.textContent = `Showing all ${this.artworks.length} artworks`;
+                resultsInfo.textContent = this.t('filters.showingAll', {
+                    total: this.artworks.length
+                });
             }
         }
 
@@ -453,14 +550,14 @@ class ChineseArtPortfolio {
 
     // Create artwork card HTML
     createArtworkCard(artwork) {
-        const title = this.getText(artwork, 'title') || 'Untitled';
-        const description = this.getText(artwork, 'description') || 'No description available';
+        const title = this.getText(artwork, 'title') || this.t('common.untitled');
+        const description = this.getText(artwork, 'description') || this.t('common.noDescription');
         
         // Handle missing images
         const imageUrl = artwork.image || './images/placeholder/artwork-placeholder.svg';
         
         // Handle missing size
-        const size = artwork.sizeCm || 'Size not specified';
+        const size = artwork.sizeCm || this.t('common.sizeNotSpecified');
         
         // Handle boolean fields with defaults
         const available = this.getBooleanValue(artwork, 'available', true);
@@ -475,16 +572,18 @@ class ChineseArtPortfolio {
                     <h3>${title}</h3>
                     <p>${description}</p>
                     <div class="artwork-meta">
-                        <span class="year">${artwork.year || 'Unknown'}</span>
+                        <span class="year">${artwork.year || this.t('common.unknown')}</span>
                         <span class="size">${size}</span>
-                        ${available ? '<span class="available">Available</span>' : '<span class="sold">Sold</span>'}
+                        ${available ? 
+                            `<span class="available">${this.t('common.available')}</span>` : 
+                            `<span class="sold">${this.t('common.sold')}</span>`}
                     </div>
                 </div>
             </div>
         `;
     }
 
-    // NEW: Generate dynamic filter menu with multi-select capability
+    // Generate dynamic filter menu with multi-select capability
     generateFilterMenu() {
         const stats = this.filterStats;
         
@@ -493,7 +592,7 @@ class ChineseArtPortfolio {
                 <div class="filter-menu">
                     <!-- Multi-Select Subject Filters -->
                     <div class="filter-section">
-                        <h4>By Subject 題材</h4>
+                        <h4>${this.t('filters.bySubject')}</h4>
                         <div class="secondary-filters">
                             ${Object.entries(stats.subjects).map(([subject, count]) => `
                                 <button class="filter-btn" 
@@ -508,7 +607,7 @@ class ChineseArtPortfolio {
                     <!-- Multi-Select Location Filters -->
                     ${Object.keys(stats.locations).length > 0 ? `
                     <div class="filter-section">
-                        <h4>By Location 地點</h4>
+                        <h4>${this.t('filters.byLocation')}</h4>
                         <div class="secondary-filters">
                             ${Object.entries(stats.locations).map(([location, count]) => `
                                 <button class="filter-btn" 
@@ -523,16 +622,16 @@ class ChineseArtPortfolio {
 
                     <!-- Multi-Select Year Filters -->
                     <div class="filter-section">
-                        <h4>By Year 年代</h4>
+                        <h4>${this.t('filters.byYear')}</h4>
                         <div class="secondary-filters">
                             <button class="filter-btn" data-filter-type="year" data-filter-value="recent">
-                                Recent 2020+ (${stats.years.recent})
+                                ${this.t('years.recent')} (${stats.years.recent})
                             </button>
                             <button class="filter-btn" data-filter-type="year" data-filter-value="2010s">
-                                2010s (${stats.years['2010s']})
+                                ${this.t('years.2010s')} (${stats.years['2010s']})
                             </button>
                             <button class="filter-btn" data-filter-type="year" data-filter-value="earlier">
-                                Earlier (${stats.years.earlier})
+                                ${this.t('years.earlier')} (${stats.years.earlier})
                             </button>
                         </div>
                     </div>
@@ -541,7 +640,7 @@ class ChineseArtPortfolio {
                     <div class="filter-section">
                         <div class="secondary-filters">
                             <button class="filter-btn clear-all-btn" onclick="portfolio.clearAllFilters()">
-                                Clear All Filters
+                                ${this.t('filters.clearAll')}
                             </button>
                         </div>
                     </div>
@@ -550,7 +649,7 @@ class ChineseArtPortfolio {
                     <div class="search-sort-container">
                         <div class="search-box">
                             <span class="search-icon">🔍</span>
-                            <input type="text" placeholder="Search artworks..." id="searchInput">
+                            <input type="text" placeholder="${this.t('filters.searchPlaceholder')}" id="searchInput">
                         </div>
                         <select class="sort-dropdown" id="sortSelect">
                             <option value="newest">Newest First</option>
@@ -566,34 +665,14 @@ class ChineseArtPortfolio {
 
     // Label mapping for display
     getSubjectLabel(subject) {
-        const labels = {
-            'waterfall': 'Waterfalls 瀑布',
-            'landscape': 'Landscape 山水',
-            'flowers': 'Flowers & Birds 花鳥',
-            'bamboo': 'Bamboo 墨竹',
-            'calligraphy': 'Calligraphy 書法',
-            'flowingclouds': 'Flowing Clouds 煙雲',
-            'abstract': 'Abstract 抽象',
-        };
-        return labels[subject] || subject;
+        const baseLabel = this.t(`subjects.${subject}`);
+        return this.currentLanguage === 'en' ? 
+            `${baseLabel} ${this.t(`subjects.${subject}`, {}, 'zh')}` : 
+            baseLabel;
     }
 
     getLocationLabel(location) {
-        const labels = {
-            'huangshan': 'Huangshan 黃山',
-            'alishan': 'Alishan 阿里山',
-            'taroko': 'Taroko 太魯閣',
-            'hehuanshan': 'Hehuanshan 合歡山',
-            'yushan': 'Yushan 玉山',
-            'liushishishan': 'Liushishi Mt. 六十石山',
-            'guishandao': 'Guishan Island 龜山島',
-            'longdong': 'Longdong 龍洞',
-            'zhangjiajie': 'Zhangjiajie 張家界',
-            'grandcanyon': 'Grand Canyon 大峽谷',
-            'iguazu': 'Iguazu Falls 伊瓜蘇',
-            'niagara': 'Niagara Falls 尼加拉'
-        };
-        return labels[location] || location;
+        return this.t(`locations.${location}`);
     }
 
     // Initialize gallery and event listeners
@@ -601,8 +680,9 @@ class ChineseArtPortfolio {
         this.renderGallery();
         this.setupEventListeners();
         this.renderFeaturedWorks();
-        this.updateLanguageUI();
+        this.updateLanguageToggle();
         this.renderFilterMenu();
+        this.updateStaticText();
     }
 
     // Render filter menu
@@ -614,7 +694,7 @@ class ChineseArtPortfolio {
         }
     }
 
-    // NEW: Setup multi-select filter event listeners
+    // Setup multi-select filter event listeners
     setupFilterListeners() {
         // Multi-select filter buttons
         document.querySelectorAll('.filter-btn:not(.clear-all-btn)').forEach(btn => {
@@ -634,15 +714,14 @@ class ChineseArtPortfolio {
         const featuredContainer = document.querySelector('.featured-works');
         if (!featuredContainer) return;
 
-        const featuredWorks = this.getFeaturedArtworks().slice(0, 6); // Show up to 6 featured works
+        const featuredWorks = this.getFeaturedArtworks().slice(0, 6);
         const worksToShow = featuredWorks.length > 0 ? featuredWorks : this.artworks.slice(0, 3);
         
-        // Create a sophisticated gallery layout for featured works with smart masonry
         featuredContainer.innerHTML = `
             <div class="featured-gallery">
                 <div class="featured-header">
-                    <h2>Featured Artworks</h2>
-                    <p>A curated selection of exceptional pieces</p>
+                    <h2>${this.t('home.featuredTitle')}</h2>
+                    <p>${this.t('home.featuredSubtitle')}</p>
                 </div>
                 
                 <div class="featured-grid" id="featuredMasonryGrid">
@@ -651,16 +730,13 @@ class ChineseArtPortfolio {
                 
                 <div class="featured-footer">
                     <button class="view-all-btn" onclick="showSection('gallery')">
-                        View Complete Gallery
+                        ${this.t('home.viewAllButton')}
                     </button>
                 </div>
             </div>
         `;
         
-        // Add custom CSS for featured works
         this.addFeaturedWorksCSS();
-        
-        // Create smart masonry layout
         this.createSmartMasonryLayout(worksToShow);
     }
     
@@ -668,7 +744,6 @@ class ChineseArtPortfolio {
     getArtworkSpan(artwork) {
         console.log('🔍 Analyzing artwork:', artwork.title);
         
-        // Check all possible size fields
         const sizeFields = [artwork.sizeCm, artwork.size, artwork.dimensions].filter(Boolean);
         console.log('📏 Size fields found:', sizeFields);
         
@@ -685,23 +760,21 @@ class ChineseArtPortfolio {
             for (const pattern of patterns) {
                 const match = size.match(pattern);
                 if (match) {
-                    // First number is HEIGHT, second is WIDTH
                     const height = parseInt(match[1]);
                     const width = parseInt(match[2]);
                     
                     const aspectRatio = width / height;
                     console.log(`📊 Dimensions: H${height} × W${width}, Aspect Ratio: ${aspectRatio.toFixed(2)}`);
                     
-                    // Determine span based on aspect ratio
                     let span;
                     if (aspectRatio >= 2.0) {
-                        span = 3; // Very wide panoramic
+                        span = 3;
                         console.log('🌅 Classified as: PANORAMIC (3 columns)');
                     } else if (aspectRatio >= 1.3) {
-                        span = 2; // Moderately wide landscape
+                        span = 2;
                         console.log('🏞️ Classified as: LANDSCAPE (2 columns)');
                     } else {
-                        span = 1; // Vertical or square
+                        span = 1;
                         console.log('🖼️ Classified as: PORTRAIT/SQUARE (1 column)');
                     }
                     
@@ -719,7 +792,6 @@ class ChineseArtPortfolio {
         const grid = document.getElementById('featuredMasonryGrid');
         if (!grid) return;
         
-        // First, process all artworks and get their span requirements
         const processedArtworks = worksToShow.map((artwork, index) => {
             const spanInfo = this.getArtworkSpan(artwork);
             return {
@@ -729,20 +801,8 @@ class ChineseArtPortfolio {
             };
         });
         
-        console.log('Original order:', processedArtworks.map(a => ({ 
-            title: a.artwork.title, 
-            span: a.span 
-        })));
-        
-        // Sort all items by span (largest first) for better packing
         const sortedItems = [...processedArtworks].sort((a, b) => b.span - a.span);
         
-        console.log('Sorted for packing:', sortedItems.map(a => ({ 
-            title: a.artwork.title, 
-            span: a.span 
-        })));
-        
-        // Smart bin-packing algorithm for ALL items (no heroes)
         const rows = [];
         const remainingItems = [...sortedItems];
         
@@ -750,8 +810,6 @@ class ChineseArtPortfolio {
             const currentRow = [];
             let currentRowSpan = 0;
             
-            // AGGRESSIVE PACKING: Try to find the best combination for each row
-            // First, try to fit the largest item that can fit
             for (let i = 0; i < remainingItems.length; i++) {
                 const item = remainingItems[i];
                 
@@ -759,15 +817,13 @@ class ChineseArtPortfolio {
                     currentRow.push(item);
                     currentRowSpan += item.span;
                     remainingItems.splice(i, 1);
-                    break; // Found first item for this row
+                    break;
                 }
             }
             
-            // Then, fill remaining space with smaller items
             while (currentRowSpan < 3 && remainingItems.length > 0) {
                 let foundFit = false;
                 
-                // Look for items that can fit in remaining space
                 for (let i = 0; i < remainingItems.length; i++) {
                     const item = remainingItems[i];
                     
@@ -776,50 +832,33 @@ class ChineseArtPortfolio {
                         currentRowSpan += item.span;
                         remainingItems.splice(i, 1);
                         foundFit = true;
-                        // Don't break here - keep trying to fill the row completely
                     }
                 }
                 
-                // If no item fits, break out of while loop
                 if (!foundFit) break;
             }
             
-            // Add completed row (even if not completely full)
             rows.push(currentRow);
-            
-            console.log(`✅ Created row with ${currentRow.length} items, total span: ${currentRowSpan}/3`);
         }
         
-        console.log('Final packed rows:', rows.map(row => row.map(item => ({ 
-            title: item.artwork.title, 
-            span: item.span 
-        }))));
-        
-        // Generate HTML for each row with debug info
         const rowsHTML = rows.map((row, rowIndex) => {
             const totalSpan = row.reduce((sum, item) => sum + item.span, 0);
             const itemsHTML = row.map(item => this.createFeaturedItemHTML(item)).join('');
             
-            console.log(`🎨 Rendering row ${rowIndex}: ${row.length} items, total span: ${totalSpan}`);
-            
             return `
                 <div class="featured-row" data-row="${rowIndex}" data-total-span="${totalSpan}">
-                    <!-- Row ${rowIndex}: ${row.length} items, span ${totalSpan}/3 -->
                     ${itemsHTML}
                 </div>
             `;
         }).join('');
         
-        console.log('🏁 Final HTML structure generated');
         grid.innerHTML = rowsHTML;
     }
 
-    // Add sophisticated CSS for featured works display
-    
     // Create HTML for individual featured item  
     createFeaturedItemHTML(item) {
         const { artwork, span } = item;
-        const title = this.getText(artwork, 'title') || 'Untitled';
+        const title = this.getText(artwork, 'title') || this.t('common.untitled');
         const description = this.getText(artwork, 'description') || '';
         const year = artwork.year || '';
         const size = artwork.sizeCm || '';
@@ -851,15 +890,15 @@ class ChineseArtPortfolio {
                         ${size ? `<span class="featured-size">${size}</span>` : ''}
                         ${medium ? `<span class="featured-medium">${medium}</span>` : ''}
                         <span class="featured-status ${available ? 'available' : 'sold'}">
-                            ${available ? 'Available' : 'Sold'}
+                            ${available ? this.t('common.available') : this.t('common.sold')}
                         </span>
                     </div>
                 </div>
             </div>
         `;
     }
+
     addFeaturedWorksCSS() {
-        // Only add CSS once
         if (document.getElementById('featured-works-css')) return;
         
         const style = document.createElement('style');
@@ -903,7 +942,6 @@ class ChineseArtPortfolio {
                 position: relative;
             }
             
-            /* Force grid column spanning within rows */
             .featured-row .featured-item-span-1 {
                 grid-column: span 1;
             }
@@ -914,13 +952,6 @@ class ChineseArtPortfolio {
             
             .featured-row .featured-item-span-3 {
                 grid-column: span 3;
-            }
-            
-            .featured-row .featured-item-hero {
-                /* Hero items use their natural span, not forced to 3 columns */
-                grid-column: span var(--hero-span, 1);
-                max-width: 600px;
-                justify-self: center;
             }
             
             .featured-item {
@@ -937,22 +968,6 @@ class ChineseArtPortfolio {
             .featured-item:hover {
                 transform: translateY(-8px);
                 box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-            }
-            
-            .featured-item-hero {
-                /* Hero styling moved to .featured-row .featured-item-hero above */
-            }
-            
-            .featured-item-span-1 {
-                /* Grid spanning handled by .featured-row rules above */
-            }
-            
-            .featured-item-span-2 {
-                /* Grid spanning handled by .featured-row rules above */
-            }
-            
-            .featured-item-span-3 {
-                /* Grid spanning handled by .featured-row rules above */
             }
             
             .featured-image-container {
@@ -998,14 +1013,6 @@ class ChineseArtPortfolio {
             
             .featured-item-span-3 .featured-image-container img {
                 min-height: 250px;
-            }
-            
-            .featured-item-hero .featured-image-container {
-                min-height: 400px;
-            }
-            
-            .featured-item-hero .featured-image-container img {
-                min-height: 400px;
             }
             
             .featured-item:hover .featured-image-container img {
@@ -1144,13 +1151,11 @@ class ChineseArtPortfolio {
                 box-shadow: 0 8px 25px rgba(44,62,80,0.4);
             }
             
-            /* Responsive Design */
             @media (max-width: 1200px) {
                 .featured-row {
                     grid-template-columns: repeat(2, 1fr);
                 }
                 
-                .featured-item-hero,
                 .featured-item-span-3 {
                     grid-column: span 2;
                 }
@@ -1170,7 +1175,6 @@ class ChineseArtPortfolio {
                     gap: 1.5rem;
                 }
                 
-                .featured-item-hero,
                 .featured-item-span-1,
                 .featured-item-span-2,
                 .featured-item-span-3 {
@@ -1187,14 +1191,6 @@ class ChineseArtPortfolio {
                 
                 .featured-info {
                     padding: 1.5rem;
-                }
-                
-                .featured-item-hero {
-                    max-width: 100%;
-                }
-                
-                .featured-image-container img {
-                    max-height: 400px;
                 }
             }
         `;
@@ -1225,10 +1221,12 @@ class ChineseArtPortfolio {
         const galleryGrid = document.getElementById('galleryGrid');
         if (!galleryGrid) return;
 
-        // Update results counter
         const resultsInfo = document.getElementById('resultsInfo');
         if (resultsInfo) {
-            resultsInfo.textContent = `Found ${results.length} artworks`;
+            resultsInfo.textContent = this.t('filters.showingResults', {
+                count: results.length,
+                total: this.artworks.length
+            });
         }
 
         galleryGrid.innerHTML = results.map(artwork => this.createArtworkCard(artwork)).join('');

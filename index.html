@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./css/lightbox.css">
     
     <style>
+        /* ... ALL YOUR EXISTING CSS STAYS EXACTLY THE SAME ... */
         * {
             margin: 0;
             padding: 0;
@@ -815,8 +816,8 @@
     <!-- ================================ -->
     <header>
         <button id="languageToggle" class="language-toggle">中文</button>
-        <div class="logo">袁之靜 -曉然文化藝術 </div>
-        <div class="subtitle">國畫、書法作品</div>
+        <div class="logo"><!-- Will be filled by JavaScript --></div>
+        <div class="subtitle"><!-- Will be filled by JavaScript --></div>
     </header>
 
     <!-- ================================ -->
@@ -824,10 +825,10 @@
     <!-- ================================ -->
     <nav>
         <div class="nav-container">
-            <button class="nav-btn active" onclick="showSection('home')">精選</button>
-            <button class="nav-btn" onclick="showSection('gallery')">藝廊</button>
-            <button class="nav-btn" onclick="showSection('about')">關於</button>
-            <button class="nav-btn" onclick="showSection('connect')">聯絡</button>
+            <button class="nav-btn active" onclick="showSection('home')"><!-- Will be filled by JavaScript --></button>
+            <button class="nav-btn" onclick="showSection('gallery')"><!-- Will be filled by JavaScript --></button>
+            <button class="nav-btn" onclick="showSection('about')"><!-- Will be filled by JavaScript --></button>
+            <button class="nav-btn" onclick="showSection('connect')"><!-- Will be filled by JavaScript --></button>
         </div>
     </nav>
 
@@ -838,8 +839,8 @@
         <!-- HOME SECTION -->
         <section id="home" class="section active">
             <div class="hero">
-                <h1>Welcome to My Art World</h1>
-                <p>Explore a collection of paintings and calligraphy that captures the beauty of traditional and contemporary art forms. Each piece tells a story through delicate brushstrokes and thoughtful composition.</p>
+                <h1><!-- Will be filled by JavaScript --></h1>
+                <p><!-- Will be filled by JavaScript --></p>
             </div>
 
             <div class="featured-works">
@@ -854,7 +855,7 @@
             </div>
 
             <div class="results-info" id="resultsInfo">
-                Loading artworks...
+                <!-- Will be filled by JavaScript -->
             </div>
 
             <div class="gallery-filters" style="display: none;">
@@ -871,7 +872,6 @@
         </section>
 
         <!-- ABOUT SECTION -->
-         
         <section id="about" class="section">
             <div class="about-header">
                 <div class="artist-portrait">
@@ -879,7 +879,7 @@
                         onerror="this.src='https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=500&fit=crop'">
                 </div>
                 <div class="artist-intro">
-                    <h2>🎨 藝術家袁之靜（號曉然）｜書畫創作與教育者</h2>
+                    <h2><!-- Will be filled by JavaScript --></h2>
                     <div class="intro-text">
                         <p>袁之靜，號曉然，自幼承庭訓，得傳家風，習詩詞與書法，厚植國學基礎，寄情丹青，深耕中國水墨之美，致力於書畫創作與藝術教育傳承。</p>
                         
@@ -892,7 +892,7 @@
 
             <!-- Featured Video Section -->
             <div class="featured-video">
-                <h3>創作紀錄片</h3>
+                <h3><!-- Will be filled by JavaScript --></h3>
                 <div class="video-container">
                     <iframe src="https://www.youtube.com/embed/aNMLWYIksjw" 
                             title="第14屆臺中市美術家接力展 【天地有大美】袁之靜水墨展創作紀錄片" 
@@ -908,7 +908,7 @@
             <div class="professional-info">
                 <!-- Always Visible Sections -->
                 <div class="info-section">
-                    <h3 class="section-header">📚 學歷</h3>
+                    <h3 class="section-header">📚 <!-- Will be filled by JavaScript --></h3>
                     <div class="section-content">
                         <ul>
                             <li>國立台灣藝術大學 書畫藝術研究所 碩士（M.F.A.）</li>
@@ -918,7 +918,7 @@
                 </div>
 
                 <div class="info-section">
-                    <h3 class="section-header">🏅 獲獎紀錄</h3>
+                    <h3 class="section-header">🏅 <!-- Will be filled by JavaScript --></h3>
                     <div class="section-content">
                         <ul>
                             <li>2024 台中市美術家接力展「藝術薪火相傳」 入選</li>
@@ -934,7 +934,7 @@
 
                 <div class="info-section">
                     <h3 class="section-header collapsible" onclick="toggleCareerSection('publications')">
-                        📖 出版與著作
+                        📖 <!-- Will be filled by JavaScript -->
                         <span class="toggle-arrow">▼</span>
                     </h3>
                     <div id="publications" class="collapsible-content">
@@ -950,7 +950,7 @@
 
                 <div class="info-section">
                     <h3 class="section-header collapsible" onclick="toggleCareerSection('teaching')">
-                        🎓 教學經歷
+                        🎓 <!-- Will be filled by JavaScript -->
                         <span class="toggle-arrow">▼</span>
                     </h3>
                     <div id="teaching" class="collapsible-content">
@@ -971,7 +971,7 @@
 
                 <div class="info-section">
                     <h3 class="section-header collapsible" onclick="toggleCareerSection('positions')">
-                        🏛 現任職務與學會身分
+                        🏛 <!-- Will be filled by JavaScript -->
                         <span class="toggle-arrow">▼</span>
                     </h3>
                     <div id="positions" class="collapsible-content">
@@ -997,7 +997,7 @@
 
                 <div class="info-section">
                     <h3 class="section-header collapsible" onclick="toggleCareerSection('exhibitions')">
-                        🖼 個展一覽
+                        🖼 <!-- Will be filled by JavaScript -->
                         <span class="toggle-arrow">▼</span>
                     </h3>
                     <div id="exhibitions" class="collapsible-content">
@@ -1019,7 +1019,7 @@
 
                 <div class="info-section">
                     <h3 class="section-header collapsible" onclick="toggleCareerSection('group-shows')">
-                        🧑‍🎨 聯展與教學成果展
+                        🧑‍🎨 <!-- Will be filled by JavaScript -->
                         <span class="toggle-arrow">▼</span>
                     </h3>
                     <div id="group-shows" class="collapsible-content">
@@ -1043,30 +1043,30 @@
         <!-- CONNECT SECTION -->
         <section id="connect" class="section">
             <div class="connect-content">
-                <h2>Connect With Me</h2>
-                <p>Follow my artistic journey and stay updated with new works, exhibitions, and creative insights.</p>
+                <h2><!-- Will be filled by JavaScript --></h2>
+                <p><!-- Will be filled by JavaScript --></p>
                 
                 <div class="connect-grid">
                     <!-- Email -->
                     <div class="connect-item">
                         <div class="connect-icon">✉️</div>
-                        <h3>Email</h3>
-                        <p>For inquiries, commissions, or collaborations</p>
+                        <h3><!-- Will be filled by JavaScript --></h3>
+                        <p><!-- Will be filled by JavaScript --></p>
                         <a href="mailto:d9062503@gmail.com" class="connect-link">d9062503@gmail.com</a>
                     </div>
 
                     <!-- Facebook -->
                     <div class="connect-item">
                         <div class="connect-icon">📘</div>
-                        <h3>Facebook</h3>
-                        <p>Latest artworks and behind-the-scenes content</p>
-                        <a href="https://www.facebook.com/profile.php?id=100064374351505" target="_blank" class="connect-link">Visit Fan Page</a>
+                        <h3><!-- Will be filled by JavaScript --></h3>
+                        <p><!-- Will be filled by JavaScript --></p>
+                        <a href="https://www.facebook.com/profile.php?id=100064374351505" target="_blank" class="connect-link"><!-- Will be filled by JavaScript --></a>
                     </div>
                 </div>
 
                 <div class="location-info">
                     <div class="location-icon">📍</div>
-                    <span>Based in Taichung, Taiwan</span>
+                    <span><!-- Will be filled by JavaScript --></span>
                 </div>
             </div>
         </section>
@@ -1078,8 +1078,8 @@
     <div class="lightbox" id="lightbox">
         <div class="lightbox-container">
             <!-- Navigation Arrows -->
-            <button class="nav-arrow prev" onclick="navigateArtwork('prev')" title="Previous Artwork">‹</button>
-            <button class="nav-arrow next" onclick="navigateArtwork('next')" title="Next Artwork">›</button>
+            <button class="nav-arrow prev" onclick="navigateArtwork('prev')" title="<!-- Will be filled by JavaScript -->">‹</button>
+            <button class="nav-arrow next" onclick="navigateArtwork('next')" title="<!-- Will be filled by JavaScript -->">›</button>
 
             <!-- Main Content -->
             <div class="lightbox-content">
@@ -1094,7 +1094,7 @@
                     <div class="artwork-title-en" id="artworkTitleEn">English Title</div>
                     
                     <div class="availability-status available" id="availabilityStatus">
-                        Available for Purchase
+                        <!-- Will be filled by JavaScript -->
                     </div>
 
                     <div class="artwork-description" id="artworkDescription">
@@ -1103,19 +1103,19 @@
 
                     <div class="artwork-specs">
                         <div class="spec-item">
-                            <span class="spec-label">Year</span>
+                            <span class="spec-label"><!-- Will be filled by JavaScript --></span>
                             <span class="spec-value" id="artworkYear">2023</span>
                         </div>
                         <div class="spec-item">
-                            <span class="spec-label">Dimensions</span>
+                            <span class="spec-label"><!-- Will be filled by JavaScript --></span>
                             <span class="spec-value" id="artworkSize">135 × 70 cm</span>
                         </div>
                         <div class="spec-item">
-                            <span class="spec-label">Medium</span>
+                            <span class="spec-label"><!-- Will be filled by JavaScript --></span>
                             <span class="spec-value" id="artworkMedium">Ink on Paper</span>
                         </div>
                         <div class="spec-item">
-                            <span class="spec-label">Format</span>
+                            <span class="spec-label"><!-- Will be filled by JavaScript --></span>
                             <span class="spec-value" id="artworkFormat">Hanging Scroll</span>
                         </div>
                     </div>
@@ -1128,8 +1128,8 @@
 
             <!-- Controls (Zoom buttons will be added dynamically here) -->
             <div class="lightbox-controls">
-                <button class="control-btn" onclick="shareArtwork()" title="Share Artwork">↗</button>
-                <button class="control-btn" onclick="closeLightbox()" title="Close Lightbox">✕</button>
+                <button class="control-btn" onclick="shareArtwork()" title="<!-- Will be filled by JavaScript -->">↗</button>
+                <button class="control-btn" onclick="closeLightbox()" title="<!-- Will be filled by JavaScript -->">✕</button>
             </div>
         </div>
     </div>
@@ -1138,30 +1138,32 @@
     <!-- ================================ -->
     <!-- JAVASCRIPT FILES -->
     <!-- ================================ -->
-    <!-- Load portfolio first (contains the main data and portfolio object) -->
+    <!-- Load language data first -->
+    <script src="./js/languages.js"></script>
+    
+    <!-- Load portfolio (contains the main data and portfolio object) -->
     <script src="./js/portfolio.js"></script>
 
-    <!-- Load lightbox second (depends on portfolio being available) -->
+    <!-- Load lightbox (depends on portfolio being available) -->
     <script src="./js/lightbox.js"></script>
 
     <script>
-
-    // NEW: Add this function here
-    function toggleCareerSection(sectionId) {
-        const content = document.getElementById(sectionId);
-        const header = content.previousElementSibling;
-        const arrow = header.querySelector('.toggle-arrow');
-        
-        if (content.classList.contains('expanded')) {
-            content.classList.remove('expanded');
-            arrow.classList.remove('rotated');
-        } else {
-            content.classList.add('expanded');
-            arrow.classList.add('rotated');
+        // Function to toggle collapsible sections
+        function toggleCareerSection(sectionId) {
+            const content = document.getElementById(sectionId);
+            const header = content.previousElementSibling;
+            const arrow = header.querySelector('.toggle-arrow');
+            
+            if (content.classList.contains('expanded')) {
+                content.classList.remove('expanded');
+                arrow.classList.remove('rotated');
+            } else {
+                content.classList.add('expanded');
+                arrow.classList.add('rotated');
+            }
         }
-    }
 
-    <!-- Initialize form handling -->
+        // Initialize form handling
         document.addEventListener('DOMContentLoaded', function () {
             // Form submission handling
             const form = document.querySelector('form');
@@ -1176,9 +1178,8 @@
             // Debug: Check if everything loaded correctly
             console.log('Portfolio loaded:', typeof portfolio !== 'undefined');
             console.log('Lightbox functions loaded:', typeof openLightbox !== 'undefined');
+            console.log('Language data loaded:', typeof LANGUAGE_DATA !== 'undefined');
         });
     </script>
-
-
 </body>
 </html>
