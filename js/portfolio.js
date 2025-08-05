@@ -229,11 +229,30 @@ class ChineseArtPortfolio {
             year: []
         };
         
-        this.loadArtworks();
+        //this.loadArtworks();
     }
 
-    // NEW: Get localized text from language dictionary
+    async init() {
+    // Wait a bit to ensure LANGUAGE_DATA is loaded
+    if (typeof LANGUAGE_DATA === 'undefined') {
+        console.log('Waiting for LANGUAGE_DATA to load...');
+        // Try again after a short delay
+        setTimeout(() => this.init(), 100);
+        return;
+    }
+    
+    console.log('LANGUAGE_DATA loaded, initializing portfolio...');
+    await this.loadArtworks();
+    }
+
+    // NEW: Get localized text from language dictionary with safety checks
     t(path, params = {}) {
+        // Safety check: if LANGUAGE_DATA isn't loaded yet, return the path as fallback
+        if (typeof LANGUAGE_DATA === 'undefined') {
+            console.warn(`LANGUAGE_DATA not loaded yet for: ${path}`);
+            return path; // Return the path itself as fallback
+        }
+        
         const keys = path.split('.');
         let value = LANGUAGE_DATA[this.currentLanguage];
         
@@ -476,6 +495,7 @@ class ChineseArtPortfolio {
         if (videoTitle) videoTitle.textContent = this.t('about.videoTitle');
         
         // Update section headers
+        /*
         const sectionHeaders = document.querySelectorAll('.section-header');
         const headerKeys = ['educationTitle', 'awardsTitle', 'publicationsTitle', 'teachingTitle', 'positionsTitle', 'exhibitionsTitle', 'groupShowsTitle'];
         sectionHeaders.forEach((header, index) => {
@@ -484,7 +504,8 @@ class ChineseArtPortfolio {
                 header.textContent = `${icon} ${this.t('about.' + headerKeys[index])}`;
             }
         });
-        
+        */
+       
         // Update connect page
         const connectTitle = document.querySelector('#connect h2');
         if (connectTitle) connectTitle.textContent = this.t('connect.title');
@@ -494,7 +515,10 @@ class ChineseArtPortfolio {
         
         // Update lightbox elements
         this.updateLightboxText();
-    }
+
+        // ADD THIS LINE HERE:
+        this.updateAboutContent();
+   }
 
     // NEW: Update lightbox text
     updateLightboxText() {
@@ -546,6 +570,70 @@ class ChineseArtPortfolio {
 
         // Render artwork cards
         galleryGrid.innerHTML = filteredArtworks.map(artwork => this.createArtworkCard(artwork)).join('');
+    }
+
+    // NEW: Update about page content with translations
+    updateAboutContent() {
+        // Update artist introduction paragraphs
+        const introP1 = document.querySelector('.intro-p1');
+        if (introP1) introP1.textContent = this.t('about.introParagraph1');
+
+        const introP2 = document.querySelector('.intro-p2'); 
+        if (introP2) introP2.textContent = this.t('about.introParagraph2');
+
+        const introP3 = document.querySelector('.intro-p3');
+        if (introP3) introP3.textContent = this.t('about.introParagraph3');
+
+        // Update section titles (the ones with emojis)
+        const educationHeader = document.querySelector('.info-section:nth-child(1) .section-header');
+        if (educationHeader) {
+            educationHeader.innerHTML = `📚 ${this.t('about.educationTitle')}`;
+        }
+
+        const awardsHeader = document.querySelector('.info-section:nth-child(2) .section-header');
+        if (awardsHeader) {
+            awardsHeader.innerHTML = `🏅 ${this.t('about.awardsTitle')}`;
+        }
+
+        // Update collapsible section titles
+        this.updateCollapsibleHeader('publications', '📖', 'about.publicationsTitle');
+        this.updateCollapsibleHeader('teaching', '🎓', 'about.teachingTitle');
+        this.updateCollapsibleHeader('positions', '🏛', 'about.positionsTitle');
+        this.updateCollapsibleHeader('exhibitions', '🖼', 'about.exhibitionsTitle');
+        this.updateCollapsibleHeader('group-shows', '🧑‍🎨', 'about.groupShowsTitle');
+
+        // Update list contents
+        this.updateListContent('education-list', 'about.education');
+        this.updateListContent('awards-list', 'about.awards');
+        this.updateListContent('publications-list', 'about.publications');
+        this.updateListContent('teaching-list', 'about.teaching');
+        this.updateListContent('positions-list', 'about.positions');
+        this.updateListContent('exhibitions-list', 'about.exhibitions');
+        this.updateListContent('group-shows-list', 'about.groupShows');
+    }
+
+    // Helper method to update collapsible headers
+    updateCollapsibleHeader(sectionId, emoji, titleKey) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            const header = section.previousElementSibling;
+            if (header) {
+                const arrow = header.querySelector('.toggle-arrow');
+                const arrowHtml = arrow ? `<span class="toggle-arrow">${arrow.textContent}</span>` : '';
+                header.innerHTML = `${emoji} ${this.t(titleKey)} ${arrowHtml}`;
+            }
+        }
+    }
+
+    // Helper method to update list contents
+    updateListContent(className, dataKey) {
+        const list = document.querySelector(`.${className}`);
+        if (list) {
+            const items = this.t(dataKey);
+            if (Array.isArray(items)) {
+                list.innerHTML = items.map(item => `<li>${item}</li>`).join('');
+            }
+        }
     }
 
     // Create artwork card HTML
@@ -1235,6 +1323,11 @@ class ChineseArtPortfolio {
 
 // Initialize portfolio
 const portfolio = new ChineseArtPortfolio();
+
+// Wait for everything to be ready, then initialize
+document.addEventListener('DOMContentLoaded', () => {
+    portfolio.init();
+});
 
 // Make functions available globally for onclick handlers
 window.showSection = function(sectionId) {
