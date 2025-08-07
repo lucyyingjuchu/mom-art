@@ -106,7 +106,9 @@ const LANGUAGE_DATA = {
             shareTitle: "Share Artwork",
             closeTitle: "Close Lightbox",
             prevTitle: "Previous Artwork",
-            nextTitle: "Next Artwork"
+            nextTitle: "Next Artwork",
+            fullscreenView: "Fullscreen View", 
+            splitView: "Split View"    
         },
         
         // Common
@@ -227,7 +229,9 @@ const LANGUAGE_DATA = {
             shareTitle: "分享作品",
             closeTitle: "關閉檢視",
             prevTitle: "上一件作品",
-            nextTitle: "下一件作品"
+            nextTitle: "下一件作品",
+            fullscreenView: "全螢幕檢視",        
+            splitView: "分割檢視"                
         },
         
         // Common
