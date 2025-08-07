@@ -1638,11 +1638,11 @@
   {
     "id": "2021_021",
     "title": "森情",
-    "titleEn": "作品標題翻譯：Sylvan Sentiment",
+    "titleEn": "Woodland Sentiment",
     "image": "./images/paintings/thumbnails/2021_021_thumb.png",
     "imageHigh": "./images/paintings/large/2021_021_large.png",
     "description": "森情",
-    "descriptionEn": "“森情”可以翻譯為 “Forest Affection” 或 “Woodland Sentiment”。這樣的翻譯既保留了原意，又增添了一絲詩意。",
+    "descriptionEn": "Forest Affection",
     "format": "框",
     "mediumEn": "",
     "sizeCm": "70x45",
@@ -2235,7 +2235,7 @@
   {
     "id": "2022_013",
     "title": "悠遊",
-    "titleEn": "作品標題翻譯：Serene Wanderings",
+    "titleEn": "Serene Wanderings",
     "image": "./images/paintings/thumbnails/2022_013_thumb.png",
     "imageHigh": "./images/paintings/large/2022_013_large.png",
     "description": "悠遊",
@@ -2355,7 +2355,7 @@
   {
     "id": "2022_019",
     "title": "歸",
-    "titleEn": "作品標題翻譯：Return",
+    "titleEn": "Return",
     "image": "./images/paintings/thumbnails/2022_019_thumb.png",
     "imageHigh": "./images/paintings/large/2022_019_large.png",
     "description": "歸",
@@ -2435,7 +2435,7 @@
   {
     "id": "2022_023",
     "title": "泊",
-    "titleEn": "作品標題翻譯：Harboring",
+    "titleEn": "Harboring",
     "image": "./images/paintings/thumbnails/2022_023_thumb.png",
     "imageHigh": "./images/paintings/large/2022_023_large.png",
     "description": "泊",
@@ -2455,7 +2455,7 @@
   {
     "id": "2022_024",
     "title": "清音",
-    "titleEn": "作品標題翻譯：Crystal Harmony",
+    "titleEn": "Crystal Harmony",
     "image": "./images/paintings/thumbnails/2022_024_thumb.png",
     "imageHigh": "./images/paintings/large/2022_024_large.png",
     "description": "清音",
@@ -2675,7 +2675,7 @@
   {
     "id": "2022_036",
     "title": "稻花香",
-    "titleEn": "作品標題翻譯：Aroma of Rice Blossoms",
+    "titleEn": "Aroma of Rice Blossoms",
     "image": "./images/paintings/thumbnails/2022_036_thumb.png",
     "imageHigh": "./images/paintings/large/2022_036_large.png",
     "description": "稻花香",
@@ -3374,7 +3374,7 @@
   {
     "id": "unknown_032",
     "title": "梅花小鳥",
-    "titleEn": "作品標題翻譯：Plum Blossom and Songbird",
+    "titleEn": "Plum Blossom and Songbird",
     "image": "./images/paintings/thumbnails/unknown_032_thumb.png",
     "imageHigh": "./images/paintings/large/unknown_032_large.png",
     "description": "梅色分紅白",
@@ -3757,7 +3757,7 @@
   {
     "id": "unknown_057",
     "title": "秋瀑",
-    "titleEn": "作品標題翻譯：Autumn Cascade",
+    "titleEn": "Autumn Cascade",
     "image": "./images/paintings/thumbnails/unknown_057_thumb.png",
     "imageHigh": "./images/paintings/large/unknown_057_large.png",
     "description": "人入畫圖中",
@@ -3814,7 +3814,7 @@
   {
     "id": "unknown_060",
     "title": "篆書對聯 x 2",
-    "titleEn": "作品標題翻譯：Couplets in Seal Script",
+    "titleEn": "Couplets in Seal Script",
     "image": "./images/paintings/thumbnails/unknown_060_thumb.png",
     "imageHigh": "./images/paintings/large/unknown_060_large.png",
     "description": null,
@@ -3948,7 +3948,7 @@
   {
     "id": "unknown_068",
     "title": "自在",
-    "titleEn": "作品標題翻譯：In Tranquility",
+    "titleEn": "In Tranquility",
     "image": "./images/paintings/thumbnails/unknown_068_thumb.png",
     "imageHigh": "./images/paintings/large/unknown_068_large.png",
     "description": "長形小山水【自在】",
@@ -4025,7 +4025,7 @@
   {
     "id": "unknown_073",
     "title": "草書條幅",
-    "titleEn": "作品標題翻譯：Scroll of Cursive Script",
+    "titleEn": "Scroll of Cursive Script",
     "image": "./images/paintings/thumbnails/unknown_073_thumb.png",
     "imageHigh": "./images/paintings/large/unknown_073_large.png",
     "description": null,
@@ -4407,7 +4407,7 @@
   {
     "id": "2025_001",
     "title": "test",
-    "titleEn": "作品標題翻譯：Essence of Time",
+    "titleEn": "Essence of Time",
     "image": "",
     "imageHigh": "",
     "description": "",
