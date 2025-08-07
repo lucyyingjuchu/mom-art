@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <rect width="100%" height="100%" fill="#f5f5f5"/>
+  
+  <!-- Traditional Chinese text: 作品預覽 (Artwork Preview) -->
+  <text x="200" y="160" 
+        text-anchor="middle" 
+        font-family="'Microsoft JhengHei', 'PingFang TC', 'Hiragino Sans GB', 'STHeiti', sans-serif" 
+        font-size="32" 
+        font-weight="400"
+        fill="#8b7355">作品預覽</text>
+        
+  <!-- Optional smaller subtitle: 暫無圖片 (No Image Available) -->
+  <text x="200" y="190" 
+        text-anchor="middle" 
+        font-family="'Microsoft JhengHei', 'PingFang TC', 'Hiragino Sans GB', 'STHeiti', sans-serif" 
+        font-size="18" 
+        font-weight="300"
+        fill="#999">暫無圖片</text>
+</svg>

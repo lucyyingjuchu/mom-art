@@ -53,11 +53,11 @@ const LANGUAGE_DATA = {
             huangshan: "HuangShan",
             alishan: "AliShan",
             taroko: "Taroko",
-            hehuanshan: "HeHuanShan",
-            yushan: "Yushan",
-            liushishishan: "LiuShiDan Mt.",
+            hehuanshan: "Mt. HeHuan",
+            yushan: "Mt. Jade",
+            liushidanshan: "Mt. Sixty Stone",
             guishandao: "GuiShan Island",
-            longdong: "LongDong",
+            longdong: "Dragon Cave",
             zhangjiajie: "Zhangjiajie",
             grandcanyon: "Grand Canyon",
             iguazu: "Iguazu Falls",
@@ -198,7 +198,8 @@ const LANGUAGE_DATA = {
             unknown: "Unknown",
             sizeNotSpecified: "Size not specified",
             noDescription: "No description available",
-            loading: "Loading artworks..."
+            loading: "Loading artworks...",
+            viewDetails: "View Details"  
         }
     },
     
@@ -400,7 +401,8 @@ const LANGUAGE_DATA = {
             unknown: "未知",
             sizeNotSpecified: "尺寸未標明",
             noDescription: "無作品說明",
-            loading: "載入作品中..."
+            loading: "載入作品中...",
+            viewDetails: "放大檢視"
         }
     }
 };

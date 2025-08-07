@@ -74,8 +74,28 @@ window.openLightbox = function(artworkId) {
         return;
     }
 
-    currentArtworkIndex = portfolio.artworks.findIndex(a => a.id === artworkId);
-    artworksData = portfolio.artworks;
+    // DETERMINE CONTEXT: Are we on featured works or full gallery?
+    const currentSection = document.querySelector('.section.active');
+    const isHomePage = currentSection && currentSection.id === 'home';
+
+    if (isHomePage) {
+        // If on home page, use only featured artworks for navigation
+        artworksData = portfolio.getFeaturedArtworks();
+        if (artworksData.length === 0) {
+            // Fallback if no featured works
+            artworksData = portfolio.artworks.slice(0, 6);
+        }
+    } else {
+        // If on gallery page, use all artworks (or filtered ones if filters are active)
+        const hasActiveFilters = Object.values(portfolio.activeFilters).some(arr => arr.length > 0);
+        if (hasActiveFilters) {
+            artworksData = portfolio.categorizer.getMultiFilteredArtworks(portfolio.activeFilters, portfolio.artworks);
+        } else {
+            artworksData = portfolio.artworks;
+        }
+    }
+
+    currentArtworkIndex = artworksData.findIndex(a => a.id === artworkId);
     populateLightbox(artwork);
     
     const lightbox = document.getElementById('lightbox');

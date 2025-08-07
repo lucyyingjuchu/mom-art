@@ -9,9 +9,7 @@
     <link rel="stylesheet" href="./css/lightbox.css">
     
     <style>
-        /* ================================ */
-        /* RESET & BASE STYLES */
-        /* ================================ */
+        /* ... ALL YOUR EXISTING CSS STAYS EXACTLY THE SAME ... */
         * {
             margin: 0;
             padding: 0;
@@ -26,7 +24,7 @@
         }
 
         /* ================================ */
-        /* HEADER & NAVIGATION */
+        /* HEADER STYLES */
         /* ================================ */
         header {
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
@@ -68,6 +66,9 @@
             background: #1a252f;
         }
 
+        /* ================================ */
+        /* NAVIGATION STYLES */
+        /* ================================ */
         nav {
             background: white;
             padding: 1rem 0;
@@ -96,37 +97,13 @@
             transition: all 0.3s ease;
         }
 
-        .nav-btn:hover, 
-        .nav-btn.active {
+        .nav-btn:hover, .nav-btn.active {
             background: #e9ecef;
             color: #2c3e50;
         }
 
         /* ================================ */
-        /* MAIN LAYOUT */
-        /* ================================ */
-        main {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .section {
-            display: none;
-        }
-
-        .section.active {
-            display: block;
-            animation: fadeIn 0.5s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* ================================ */
-        /* FILTER SYSTEM */
+        /* FILTER MENU STYLES */
         /* ================================ */
         .filter-container {
             background: white;
@@ -143,22 +120,11 @@
             padding: 0 2rem;
         }
 
-        .filter-section {
-            margin-bottom: 1rem;
-        }
-
-        .filter-section h4 {
-            text-align: center;
-            margin-bottom: 0.8rem;
-            color: #495057;
-            font-size: 0.95rem;
-            font-weight: 500;
-        }
-
-        .secondary-filters {
+        .primary-filters {
             display: flex;
             justify-content: center;
-            gap: 0.5rem;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
             flex-wrap: wrap;
         }
 
@@ -182,6 +148,47 @@
             background: #2c3e50;
             color: white;
             border-color: #2c3e50;
+        }
+
+        .filter-section {
+            margin-bottom: 1rem;
+        }
+
+        .filter-section h4 {
+            text-align: center;
+            margin-bottom: 0.8rem;
+            color: #495057;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .secondary-filters {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .secondary-filter-btn {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 0.4rem 0.8rem;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.8rem;
+            color: #6c757d;
+        }
+
+        .secondary-filter-btn:hover {
+            background: #e9ecef;
+            color: #495057;
+        }
+
+        .secondary-filter-btn.active {
+            background: #495057;
+            color: white;
+            border-color: #495057;
         }
 
         .search-sort-container {
@@ -221,6 +228,16 @@
             font-size: 0.9rem;
         }
 
+        .sort-dropdown {
+            padding: 0.5rem 0.8rem;
+            border: 1px solid #dee2e6;
+            border-radius: 20px;
+            background: white;
+            font-family: 'Georgia', serif;
+            outline: none;
+            font-size: 0.9rem;
+        }
+
         .results-info {
             text-align: center;
             margin: 1rem 0;
@@ -229,7 +246,30 @@
         }
 
         /* ================================ */
-        /* HOME SECTION */
+        /* MAIN CONTENT STYLES */
+        /* ================================ */
+        main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ================================ */
+        /* HOME SECTION STYLES */
         /* ================================ */
         .hero {
             text-align: center;
@@ -237,11 +277,10 @@
             background: linear-gradient(135deg, #fff5f5 0%, #fff8f0 100%);
             border-radius: 8px;
             margin-bottom: 3rem;
-            display: none; /* Hidden by default */
         }
 
         .hero h1 {
-            font-size: 2.2rem;
+            font-size: 3rem;
             color: #2c3e50;
             margin-bottom: 1rem;
             font-weight: 300;
@@ -252,16 +291,62 @@
             color: #6c757d;
             max-width: 600px;
             margin: 0 auto;
-            white-space: pre-line;
         }
 
         .featured-works {
-            margin-top: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .featured-work {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            height: auto;
+        }
+
+        .featured-work:hover {
+            transform: translateY(-5px);
+        }
+
+        .featured-work img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            background: #f8f9fa;
+        }
+
+        .featured-work-info {
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .featured-work h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
         }
 
         /* ================================ */
-        /* GALLERY SECTION */
+        /* GALLERY SECTION STYLES */
         /* ================================ */
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -279,24 +364,11 @@
             display: flex;
             flex-direction: column;
             height: fit-content;
-            opacity: 0;
-            animation: fadeInGallery 0.6s ease forwards;
         }
 
         .gallery-item:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-        }
-
-        .gallery-item:nth-child(1) { animation-delay: 0.1s; }
-        .gallery-item:nth-child(2) { animation-delay: 0.2s; }
-        .gallery-item:nth-child(3) { animation-delay: 0.3s; }
-        .gallery-item:nth-child(4) { animation-delay: 0.4s; }
-        .gallery-item:nth-child(5) { animation-delay: 0.5s; }
-        .gallery-item:nth-child(6) { animation-delay: 0.6s; }
-
-        @keyframes fadeInGallery {
-            to { opacity: 1; }
         }
 
         .gallery-item-image {
@@ -360,14 +432,31 @@
             font-weight: bold;
         }
 
+        .gallery-item {
+            opacity: 0;
+            animation: fadeInGallery 0.6s ease forwards;
+        }
+
+        @keyframes fadeInGallery {
+            to { opacity: 1; }
+        }
+
+        .gallery-item:nth-child(1) { animation-delay: 0.1s; }
+        .gallery-item:nth-child(2) { animation-delay: 0.2s; }
+        .gallery-item:nth-child(3) { animation-delay: 0.3s; }
+        .gallery-item:nth-child(4) { animation-delay: 0.4s; }
+        .gallery-item:nth-child(5) { animation-delay: 0.5s; }
+        .gallery-item:nth-child(6) { animation-delay: 0.6s; }
+
         /* ================================ */
-        /* ABOUT SECTION */
+        /* PROFESSIONAL ABOUT SECTION */
         /* ================================ */
 
-        /* Portrait + Text Layout (Responsive) */
+        /* ADD THESE NEW SECTIONS - Portrait and Video Layout */
+        /* Header with portrait and intro side by side */
         .about-header {
             display: grid;
-            grid-template-columns: 300px 1fr;
+            grid-template-columns: 400px 1fr;  /* Small portrait, flexible text */
             gap: 2rem;
             margin-bottom: 3rem;
             align-items: start;
@@ -375,7 +464,7 @@
 
         .artist-portrait img {
             width: 100%;
-            height: 400px;
+            height: 500px;  /* Reasonable portrait size */
             object-fit: cover;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -395,7 +484,7 @@
             font-size: 1.05rem;
         }
 
-        /* Featured Video */
+        /* Featured video section */
         .featured-video {
             margin-bottom: 3rem;
             text-align: center;
@@ -408,7 +497,7 @@
         }
 
         .video-container {
-            max-width: 600px;
+            max-width: 600px;  /* Bigger video */
             margin: 0 auto;
             position: relative;
             border-radius: 8px;
@@ -418,11 +507,12 @@
 
         .video-container iframe {
             width: 100%;
-            height: 350px;
+            height: 350px;  /* Bigger height */
             border: none;
         }
 
-        /* Professional Information Grid */
+        /* KEEP ALL YOUR EXISTING CSS BELOW - NO CHANGES */
+        /* Professional information grid */
         .professional-info {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -502,8 +592,51 @@
             transform: rotate(180deg);
         }
 
+        /* ENHANCED RESPONSIVE DESIGN - Updated to include new elements */
+        @media (max-width: 768px) {
+            /* NEW - Mobile layout for portrait and text */
+            .about-header {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+            
+            .artist-portrait img {
+                max-width: 200px;
+                height: 200px;
+                margin: 0 auto;
+            }
+            
+            .artist-intro {
+                text-align: left;
+            }
+            
+            .artist-intro h2 {
+                font-size: 1.5rem;
+            }
+            
+            /* NEW - Mobile video */
+            .video-container iframe {
+                height: 250px;
+            }
+            
+            /* EXISTING - Your professional info mobile styles */
+            .professional-info {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .section-header {
+                padding: 1rem;
+                font-size: 1rem;
+            }
+            
+            .section-content {
+                padding: 1rem;
+            }
+        }
         /* ================================ */
-        /* CONNECT SECTION */
+        /* CONNECT SECTION STYLES */
         /* ================================ */
         .connect-content {
             max-width: 800px;
@@ -578,6 +711,14 @@
             background: #1a252f;
         }
 
+        .coming-soon {
+            display: block;
+            color: #6c757d;
+            font-style: italic;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+        }
+
         .location-info {
             display: flex;
             align-items: center;
@@ -594,98 +735,8 @@
             font-size: 1.2rem;
         }
 
-        /* ================================ */
-        /* RESPONSIVE DESIGN */
-        /* ================================ */
-
-        /* Tablet Styles */
-        @media (max-width: 1024px) {
-            .about-header {
-                grid-template-columns: 250px 1fr;
-                gap: 1.5rem;
-            }
-            
-            .artist-portrait img {
-                height: 300px;
-            }
-            
-            .artist-intro h2 {
-                font-size: 1.6rem;
-            }
-        }
-
-        /* Mobile Styles */
+        /* Responsive adjustments */
         @media (max-width: 768px) {
-            /* Navigation */
-            .nav-container {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            /* Main Layout */
-            main {
-                padding: 1rem;
-            }
-
-            /* Hero */
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            /* About Section - Mobile Layout */
-            .about-header {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                text-align: center;
-            }
-            
-            .artist-portrait {
-                display: flex;
-                justify-content: center;
-            }
-            
-            .artist-portrait img {
-                width: 200px;
-                height: 250px;
-                max-width: none;
-            }
-            
-            .artist-intro {
-                text-align: left;
-            }
-            
-            .artist-intro h2 {
-                font-size: 1.4rem;
-                text-align: center;
-                margin-bottom: 1.5rem;
-            }
-            
-            .intro-text p {
-                font-size: 1rem;
-                line-height: 1.7;
-            }
-
-            /* Video */
-            .video-container iframe {
-                height: 250px;
-            }
-            
-            /* Professional Info */
-            .professional-info {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            
-            .section-header {
-                padding: 1rem;
-                font-size: 1rem;
-            }
-            
-            .section-content {
-                padding: 1rem;
-            }
-
-            /* Connect */
             .connect-grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
@@ -698,16 +749,54 @@
             .connect-content h2 {
                 font-size: 1.8rem;
             }
+        }
 
-            /* Language Toggle */
+        /* ================================ */
+        /* RESPONSIVE DESIGN */
+        /* ================================ */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+
+            .gallery-filters {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            main {
+                padding: 1rem;
+            }
+
             .language-toggle {
                 position: static;
                 margin-bottom: 1rem;
             }
 
-            /* Filters */
             .filter-menu {
                 padding: 0 1rem;
+            }
+
+            .primary-filters,
+            .secondary-filters {
+                gap: 0.5rem;
+            }
+
+            .filter-btn,
+            .secondary-filter-btn {
+                font-size: 0.8rem;
+                padding: 0.4rem 0.8rem;
             }
 
             .search-sort-container {
@@ -792,9 +881,11 @@
                 <div class="artist-intro">
                     <h2><!-- Will be filled by JavaScript --></h2>
                     <div class="intro-text">
-                        <p class="intro-p1"><!-- Will be filled by JavaScript --></p>
-                        <p class="intro-p2"><!-- Will be filled by JavaScript --></p>
-                        <p class="intro-p3"><!-- Will be filled by JavaScript --></p>
+                        <p>袁之靜，號曉然，自幼承庭訓，得傳家風，習詩詞與書法，厚植國學基礎，寄情丹青，深耕中國水墨之美，致力於書畫創作與藝術教育傳承。</p>
+                        
+                        <p>畢業於國立台灣藝術大學書畫藝術研究所（M.F.A.），並獲國立中興大學學士學位。長年習書作畫逾四十載，師承羅振賢、王景浩、蔡友、高義瑝、游世河、黃才松、王子奚、林進忠、林隆達、李蕭錕、薛平南、歐豪年、蘇峰男、蕭進興等多位書畫名家。</p>
+                        
+                        <p>以自然為師，工作之餘走訪名山大川，從天地萬物中觀照意境與筆法。創作風格融合詩、書、畫、印，講求畫中意境的靈動與書寫節奏的和諧，用詩句構圖、以書法入畫、妥善用印，追求畫面中深遠、高遠、悠遠的精神境界。</p>
                     </div>
                 </div>
             </div>
@@ -819,8 +910,9 @@
                 <div class="info-section">
                     <h3 class="section-header">📚 <!-- Will be filled by JavaScript --></h3>
                     <div class="section-content">
-                        <ul class="education-list">
-                            <!-- Will be filled by JavaScript -->
+                        <ul>
+                            <li>國立台灣藝術大學 書畫藝術研究所 碩士（M.F.A.）</li>
+                            <li>國立中興大學 學士</li>
                         </ul>
                     </div>
                 </div>
@@ -828,8 +920,14 @@
                 <div class="info-section">
                     <h3 class="section-header">🏅 <!-- Will be filled by JavaScript --></h3>
                     <div class="section-content">
-                        <ul class="awards-list">
-                            <!-- Will be filled by JavaScript -->
+                        <ul>
+                            <li>2024 台中市美術家接力展「藝術薪火相傳」 入選</li>
+                            <li>2024 台中市當代藝術家 遴選</li>
+                            <li>2010 台中縣美展 書法類第二名</li>
+                            <li>2010 南投縣第十一屆玉山美術獎 書法類入選</li>
+                            <li>2009 台中縣美展 書法類優選</li>
+                            <li>2008 台中縣美展 書法類入選</li>
+                            <li>2006 國際女畫家百名水墨畫展 正選（中華藝術同心會）</li>
                         </ul>
                     </div>
                 </div>
@@ -841,8 +939,10 @@
                     </h3>
                     <div id="publications" class="collapsible-content">
                         <div class="section-content">
-                            <ul class="publications-list">
-                                <!-- Will be filled by JavaScript -->
+                            <ul>
+                                <li>《天地有大美》ISBN 978-626-7374-49-8（2024）</li>
+                                <li>《書情畫意》ISBN 978-957-43-0510-0（2014）</li>
+                                <li>《去住無心·煙雲情境》水墨創作研究碩士論文（2012）</li>
                             </ul>
                         </div>
                     </div>
@@ -855,8 +955,15 @@
                     </h3>
                     <div id="teaching" class="collapsible-content">
                         <div class="section-content">
-                            <ul class="teaching-list">
-                                <!-- Will be filled by JavaScript -->
+                            <ul>
+                                <li>國立中興大學 國際學生文化交流課程／華語國畫班 兼任講師（2012–迄今）</li>
+                                <li>國立中興大學 微型課程講師（2018–2020）</li>
+                                <li>中臺科技大學 藝術課程兼任講師（2012–2019）</li>
+                                <li>朝陽科技大學 書法與水墨畫課程兼任講師（2018–2019）</li>
+                                <li>臺中市大墩文化中心 藝文研習班教師（2017–迄今）</li>
+                                <li>臺中市後驛社區大學 水墨新境課程教師（2017–2020）</li>
+                                <li>曉然文化藝術工作室 負責人（2017–迄今）</li>
+                                <li>臺中市大坑社區大學 麗澤國畫社授課教師（2012–2017）</li>
                             </ul>
                         </div>
                     </div>
@@ -869,8 +976,20 @@
                     </h3>
                     <div id="positions" class="collapsible-content">
                         <div class="section-content">
-                            <ul class="positions-list">
-                                <!-- Will be filled by JavaScript -->
+                            <ul>
+                                <li>曉然文化藝術工作室 負責人</li>
+                                <li>台灣省中國書畫學會 榮譽理事長／現任理事長</li>
+                                <li>中華書畫藝術研究會 秘書長</li>
+                                <li>臺藝大國際當代藝術聯盟 常務理事</li>
+                                <li>臺中市華藝女子畫會 常務理事</li>
+                                <li>中臺科技大學 藝術中心 諮詢委員</li>
+                                <li>臺中市大坑麗澤文化資產研究學會 理事長</li>
+                                <li>傅狷夫書畫學會 理事</li>
+                                <li>臺中市墨緣雅集畫會 理事</li>
+                                <li>臺中市中華書畫協會 理事</li>
+                                <li>朝中畫會 監事</li>
+                                <li>中華民國畫學會、臺中市書法學會、中國美術協會、藝濤畫會、中國藝術協會、臺灣傳統與現代藝術學會 會員</li>
+                                <li>中國河南省中原書畫研究院 高級藝術顧問</li>
                             </ul>
                         </div>
                     </div>
@@ -883,8 +1002,16 @@
                     </h3>
                     <div id="exhibitions" class="collapsible-content">
                         <div class="section-content">
-                            <ul class="exhibitions-list">
-                                <!-- Will be filled by JavaScript -->
+                            <ul>
+                                <li>2024 《薪傳中臺·天地大美》｜中臺科技大學藝文中心</li>
+                                <li>2024 《天地有大美》袁之靜水墨創作展｜台中市葫蘆墩文化中心（台中市美術家接力展）</li>
+                                <li>2023 《靜觀自在》袁之靜水墨展｜台中市大墩文化中心</li>
+                                <li>2022 《妙法自然》袁之靜水墨展｜台中市葫蘆墩文化中心</li>
+                                <li>2018 《行雪流水～袁之靜水墨展》｜朝陽科技大學設計禮堂藝廊</li>
+                                <li>2018 《行雲流水》袁之靜水墨展｜台中市大墩文化中心</li>
+                                <li>2014 《書情畫意》袁之靜書畫創作展｜中臺科技大學藝文中心</li>
+                                <li>2013 《書情審意》袁德炯、袁之靜父女書畫展｜台中市大墩文化中心</li>
+                                <li>2012 《去住無心．煙雲情境》袁之靜水墨創作展｜國立台灣藝術大學 真善美藝廊</li>
                             </ul>
                         </div>
                     </div>
@@ -897,8 +1024,15 @@
                     </h3>
                     <div id="group-shows" class="collapsible-content">
                         <div class="section-content">
-                            <ul class="group-shows-list">
-                                <!-- Will be filled by JavaScript -->
+                            <ul>
+                                <li>2023 《潤物無聲》袁之靜師生水墨畫展｜台中市大墩文化中心</li>
+                                <li>2020 《夏艷》袁之靜師生國畫展｜台中署立醫院藝術走廊</li>
+                                <li>2019 《書情畫意》袁曉然師生成果展｜朝陽科技大學設計禮堂藝廊</li>
+                                <li>2019 師生國畫成果展｜台中市大墩文化中心</li>
+                                <li>2019 書情畫意書畫班聯展｜台中市政府惠中樓藝廊</li>
+                                <li>2018 《丹青花博》書情畫意班師生聯展｜東勢客家文化園區</li>
+                                <li>2017 書情畫意師生聯展｜國軍台中總醫院藝宣走廊</li>
+                                <li>2017 《華枝春滿》麗澤國畫班聯展｜豐原醫院藝文走廊</li>
                             </ul>
                         </div>
                     </div>
