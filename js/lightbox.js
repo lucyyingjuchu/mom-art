@@ -97,7 +97,7 @@ function updateLightboxUIText() {
     
     // Update spec labels
     const specLabels = document.querySelectorAll('.spec-label');
-    const labelKeys = ['lightbox.yearLabel', 'lightbox.dimensionsLabel', 'lightbox.formatLabel'];
+    const labelKeys = ['lightbox.yearLabel', 'lightbox.dimensionsLabel', 'lightbox.mediumLabel', 'lightbox.formatLabel'];
     specLabels.forEach((label, index) => {
         if (labelKeys[index]) {
             label.textContent = getLocalizedText(labelKeys[index]);
@@ -336,18 +336,20 @@ function populateLightbox(artwork) {
     const currentLang = (typeof portfolio !== 'undefined') ? portfolio.currentLanguage : 'zh';
     
     // Get language-appropriate fields
-    let title, titleEn, description, format, size;
+    let title, titleEn, description, medium, format, size;
     
     if (currentLang === 'zh') {
         title = artwork.title || getLocalizedText('common.untitled');
         titleEn = artwork.titleEn || '';
         description = artwork.description || ''; // Leave blank if missing
+        medium = artwork.format || ''; // Use Chinese format
         format = artwork.format || '';
         size = artwork.sizeCm || getLocalizedText('common.sizeNotSpecified');
     } else {
         title = artwork.titleEn || artwork.title || getLocalizedText('common.untitled');
         titleEn = ''; // Don't show Chinese title in English mode
         description = artwork.descriptionEn || ''; // Leave blank if missing
+        medium = artwork.mediumEn || '';
         format = artwork.formatEn || artwork.format || '';
         // For English: show both cm and inches if available
         if (artwork.sizeCm && artwork.sizeInches) {
@@ -357,13 +359,14 @@ function populateLightbox(artwork) {
         }
     }
 
-    // Set artwork details with language-appropriate content (REMOVED MEDIUM)
+    // Set artwork details with language-appropriate content
     const elements = {
         'artworkTitle': title,
         'artworkTitleEn': titleEn,
         'artworkDescription': description,
         'artworkYear': artwork.year || getLocalizedText('common.unknown'),
         'artworkSize': size,
+        'artworkMedium': medium,
         'artworkFormat': format
     };
 
@@ -650,14 +653,9 @@ function showFullscreenIndicator(entering) {
     
     const indicator = document.createElement('div');
     indicator.className = 'fullscreen-indicator';
-    
-    // BILINGUAL UPDATE: Use language-aware text
-    const fullscreenText = getLocalizedText('lightbox.fullscreenView');
-    const splitViewText = getLocalizedText('lightbox.splitView');
-    
     indicator.innerHTML = entering ? 
-        `📱 <span>${fullscreenText}</span>` : 
-        `🖼️ <span>${splitViewText}</span>`;
+        '📱 <span>Fullscreen View</span>' : 
+        '🖼️ <span>Split View</span>';
     
     const lightbox = document.querySelector('.lightbox-container');
     if (lightbox) {
