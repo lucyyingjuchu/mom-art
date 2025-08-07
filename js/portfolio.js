@@ -445,6 +445,10 @@ class ChineseArtPortfolio {
     toggleLanguage() {
         this.currentLanguage = this.currentLanguage === 'en' ? 'zh' : 'en';
         this.updateAllUI();
+            // BILINGUAL UPDATE: Update lightbox if it's open
+        if (typeof window.updateLightboxLanguage === 'function') {
+        window.updateLightboxLanguage();
+        }
     }
 
     // NEW: Update all UI elements when language changes

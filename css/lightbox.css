@@ -486,3 +486,316 @@
     background: white;
     transform: translateY(-50%) scale(1.15);
 }
+
+/* ================================================= */
+/* BILINGUAL LIGHTBOX IMPROVEMENTS - ADD TO EXISTING CSS */
+/* These overrides improve text readability for bilingual content */
+/* ================================================= */
+
+/* 1. BETTER PROPORTIONS - More space for text content */
+.lightbox-image-section {
+    flex: 1.8; /* Reduced from 2 */
+    min-width: 55%; /* Reduced from 60% */
+    max-width: 65%; /* Reduced from 70% */
+}
+
+.lightbox-info-section {
+    flex: 1.2; /* Increased from 1 */
+    max-width: 450px; /* Increased from 400px */
+    min-width: 350px; /* Added minimum width */
+    padding: 2rem; /* Reduced from 3rem for more text space */
+}
+
+/* 2. IMPROVED TYPOGRAPHY - Better sizes for bilingual content */
+.artwork-title {
+    font-size: 1.4rem; /* Reduced from 1.8rem */
+    margin-bottom: 0.3rem; /* Reduced spacing */
+    line-height: 1.25; /* Tighter for longer English titles */
+}
+
+.artwork-title-en {
+    font-size: 1rem; /* Reduced from 1.1rem */
+    margin-bottom: 1rem; /* Reduced from 1.5rem */
+    line-height: 1.4;
+    opacity: 0.8; /* Subtle hierarchy */
+    min-height: 1.2rem; /* Reserve space when empty */
+}
+
+/* Hide English title completely when empty */
+.artwork-title-en:empty {
+    display: none;
+    margin-bottom: 0;
+}
+
+.artwork-description {
+    font-size: 0.9rem; /* Reduced from 1rem */
+    line-height: 1.6; /* Better for reading */
+    margin-bottom: 1.5rem; /* Reduced from 2rem */
+    padding: 1rem; /* Add padding for visual separation */
+    background: #f8f9fa; /* Light background */
+    border-radius: 6px;
+    border-left: 3px solid #e9ecef;
+}
+
+/* Hide description completely when empty */
+.artwork-description:empty {
+    display: none;
+    margin-bottom: 0;
+    padding: 0;
+    background: none;
+    border: none;
+}
+
+/* 3. BETTER SPECIFICATION LAYOUT - Stack on narrow screens */
+.artwork-specs {
+    margin-bottom: 1.5rem; /* Reduced from 2rem */
+    padding-top: 1rem; /* Reduced from 1.5rem */
+}
+
+.spec-item {
+    display: grid; /* Changed from flex */
+    grid-template-columns: 90px 1fr; /* Fixed label width */
+    gap: 1rem;
+    margin-bottom: 0.6rem; /* Reduced from 0.8rem */
+    font-size: 0.9rem; /* Reduced from 0.95rem */
+    align-items: baseline;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid #f1f3f4;
+}
+
+.spec-item:last-child {
+    border-bottom: none;
+}
+
+.spec-label {
+    font-weight: 600;
+    color: #6c757d; /* Softer color */
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.spec-value {
+    color: #2c3e50;
+    text-align: left; /* Changed from right for better readability */
+    word-break: break-word; /* Handle long text */
+    line-height: 1.3;
+}
+
+/* 4. IMPROVED AVAILABILITY STATUS */
+.availability-status {
+    padding: 0.6rem 1rem; /* Reduced padding */
+    margin-bottom: 1rem; /* Reduced from 1.5rem */
+    font-size: 0.85rem; /* Smaller text */
+    font-weight: 500; /* Reduced from 600 */
+    border-radius: 20px; /* More rounded */
+}
+
+/* 5. COMPACT TAGS */
+.artwork-tags {
+    margin-bottom: 1.5rem; /* Reduced from 2rem */
+}
+
+.tag {
+    font-size: 0.75rem; /* Reduced from 0.8rem */
+    padding: 0.3rem 0.6rem; /* Reduced padding */
+    margin-right: 0.4rem; /* Reduced spacing */
+    margin-bottom: 0.4rem;
+    background: #e9ecef; /* Neutral background */
+    color: #495057;
+}
+
+/* 6. RESPONSIVE IMPROVEMENTS */
+
+/* Large screens - Even more generous */
+@media (min-width: 1400px) {
+    .lightbox-info-section {
+        max-width: 500px;
+        padding: 2.5rem;
+    }
+    
+    .artwork-title {
+        font-size: 1.6rem;
+    }
+    
+    .artwork-title-en {
+        font-size: 1.1rem;
+    }
+    
+    .artwork-description {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+    
+    .spec-item {
+        grid-template-columns: 110px 1fr;
+        font-size: 0.95rem;
+    }
+}
+
+/* Medium screens - Balanced layout */
+@media (max-width: 1200px) and (min-width: 900px) {
+    .lightbox-image-section {
+        flex: 1.6;
+        min-width: 50%;
+        max-width: 60%;
+    }
+    
+    .lightbox-info-section {
+        max-width: 400px;
+        min-width: 320px;
+    }
+}
+
+/* Tablet landscape - Start preparing for stack */
+@media (max-width: 899px) and (min-width: 768px) {
+    .lightbox-content {
+        max-width: 90vw;
+    }
+    
+    .lightbox-image-section {
+        flex: 1.4;
+        min-width: 45%;
+    }
+    
+    .lightbox-info-section {
+        padding: 1.5rem;
+        min-width: 300px;
+    }
+    
+    .spec-item {
+        grid-template-columns: 80px 1fr;
+        font-size: 0.85rem;
+    }
+}
+
+/* Mobile portrait - Stack and optimize */
+@media (max-width: 767px) {
+    .lightbox-info-section {
+        padding: 1.5rem; /* Override mobile padding */
+        min-width: auto;
+        max-width: 100%;
+        max-height: 45vh; /* Ensure scrollable */
+    }
+    
+    .artwork-title {
+        font-size: 1.2rem;
+    }
+    
+    .artwork-title-en {
+        font-size: 0.9rem;
+    }
+    
+    .artwork-description {
+        font-size: 0.85rem;
+        padding: 0.8rem;
+        line-height: 1.5;
+    }
+    
+    .spec-item {
+        grid-template-columns: 1fr; /* Stack labels and values */
+        gap: 0.2rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .spec-label {
+        font-size: 0.75rem;
+        margin-bottom: 0.2rem;
+    }
+    
+    .spec-value {
+        font-size: 0.85rem;
+        padding-left: 0.5rem;
+    }
+    
+    .availability-status {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.8rem;
+    }
+}
+
+/* Small mobile - Ultra compact */
+@media (max-width: 480px) {
+    .lightbox-info-section {
+        padding: 1rem;
+    }
+    
+    .artwork-title {
+        font-size: 1.1rem;
+    }
+    
+    .artwork-title-en {
+        font-size: 0.85rem;
+    }
+    
+    .artwork-description {
+        font-size: 0.8rem;
+        padding: 0.6rem;
+    }
+    
+    .spec-value {
+        font-size: 0.8rem;
+    }
+}
+
+/* 7. ENGLISH-SPECIFIC LAYOUT IMPROVEMENTS */
+/* When viewing in English mode, optimize for longer text */
+[data-language="en"] .artwork-title {
+    font-size: 1.3rem; /* Slightly smaller for longer English titles */
+    line-height: 1.2;
+}
+
+[data-language="en"] .artwork-description {
+    font-size: 0.9rem;
+    line-height: 1.6; /* Better for English reading */
+}
+
+[data-language="en"] .spec-value {
+    font-size: 0.85rem; /* Accommodate longer English text */
+}
+
+/* 8. CHINESE-SPECIFIC OPTIMIZATIONS */
+/* When viewing in Chinese mode, can use slightly larger text */
+[data-language="zh"] .artwork-title {
+    font-size: 1.5rem;
+    line-height: 1.3;
+}
+
+[data-language="zh"] .artwork-description {
+    font-size: 0.95rem;
+    line-height: 1.7; /* Better for Chinese characters */
+}
+
+/* 9. VISUAL HIERARCHY IMPROVEMENTS */
+/* Better separation between sections */
+.artwork-specs {
+    border-top: 1px solid #e9ecef; /* Softer border */
+}
+
+/* Subtle hover effects for better interactivity */
+.spec-item:hover {
+    background: rgba(248, 249, 250, 0.5);
+    border-radius: 4px;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+/* Better scrollbar for info section on overflow */
+.lightbox-info-section::-webkit-scrollbar {
+    width: 6px;
+}
+
+.lightbox-info-section::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.lightbox-info-section::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+.lightbox-info-section::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}

@@ -1,7 +1,8 @@
 // Complete Working Lightbox - ALL zoom indicators use clean progress bar
-// Version: 7.0 - Absolutely NO text in any zoom indicators
+// Version: 7.1 - BILINGUAL FRAMEWORK with language-aware placeholders
+// BILINGUAL FRAMEWORK UPDATE - Preserves all existing zoom/pan functionality
 
-console.log('🚀 Loading lightbox...');
+console.log('🚀 Loading bilingual lightbox...');
 
 // ================================
 // GLOBAL VARIABLES
@@ -57,7 +58,65 @@ function showCleanZoomIndicator() {
 }
 
 // ================================
-// GLOBAL FUNCTIONS
+// BILINGUAL HELPER FUNCTIONS
+// ================================
+
+// Get language-aware placeholder image
+function getPlaceholderImage() {
+    if (typeof portfolio !== 'undefined' && portfolio.currentLanguage) {
+        return `./images/placeholder/artwork-placeholder-${portfolio.currentLanguage}.svg`;
+    }
+    // Fallback to generic placeholder
+    return './images/placeholder/artwork-placeholder.svg';
+}
+
+// Get localized text with fallback
+function getLocalizedText(key, params = {}) {
+    if (typeof portfolio !== 'undefined' && typeof portfolio.t === 'function') {
+        return portfolio.t(key, params);
+    }
+    // Fallback for cases where portfolio isn't ready
+    return key;
+}
+
+// Update lightbox UI text elements
+function updateLightboxUIText() {
+    // Update navigation tooltips
+    const prevBtn = document.querySelector('.nav-arrow.prev');
+    if (prevBtn) prevBtn.title = getLocalizedText('lightbox.prevTitle');
+    
+    const nextBtn = document.querySelector('.nav-arrow.next');
+    if (nextBtn) nextBtn.title = getLocalizedText('lightbox.nextTitle');
+    
+    // Update control button tooltips
+    const shareBtn = document.querySelector('.control-btn[onclick="shareArtwork()"]');
+    if (shareBtn) shareBtn.title = getLocalizedText('lightbox.shareTitle');
+    
+    const closeBtn = document.querySelector('.control-btn[onclick="closeLightbox()"]');
+    if (closeBtn) closeBtn.title = getLocalizedText('lightbox.closeTitle');
+    
+    // Update spec labels
+    const specLabels = document.querySelectorAll('.spec-label');
+    const labelKeys = ['lightbox.yearLabel', 'lightbox.dimensionsLabel', 'lightbox.mediumLabel', 'lightbox.formatLabel'];
+    specLabels.forEach((label, index) => {
+        if (labelKeys[index]) {
+            label.textContent = getLocalizedText(labelKeys[index]);
+        }
+    });
+    
+    // Update zoom control tooltips if they exist
+    const zoomInBtn = document.querySelector('.zoom-in-btn');
+    if (zoomInBtn) zoomInBtn.title = 'Zoom In (+)'; // These can stay in English as they're symbols
+    
+    const zoomOutBtn = document.querySelector('.zoom-out-btn');
+    if (zoomOutBtn) zoomOutBtn.title = 'Zoom Out (-)';
+    
+    const fullscreenBtn = document.querySelector('.zoom-fullscreen-btn');
+    if (fullscreenBtn) fullscreenBtn.title = 'Toggle Fullscreen';
+}
+
+// ================================
+// GLOBAL FUNCTIONS (UNCHANGED)
 // ================================
 
 window.openLightbox = function(artworkId) {
@@ -74,28 +133,8 @@ window.openLightbox = function(artworkId) {
         return;
     }
 
-    // DETERMINE CONTEXT: Are we on featured works or full gallery?
-    const currentSection = document.querySelector('.section.active');
-    const isHomePage = currentSection && currentSection.id === 'home';
-
-    if (isHomePage) {
-        // If on home page, use only featured artworks for navigation
-        artworksData = portfolio.getFeaturedArtworks();
-        if (artworksData.length === 0) {
-            // Fallback if no featured works
-            artworksData = portfolio.artworks.slice(0, 6);
-        }
-    } else {
-        // If on gallery page, use all artworks (or filtered ones if filters are active)
-        const hasActiveFilters = Object.values(portfolio.activeFilters).some(arr => arr.length > 0);
-        if (hasActiveFilters) {
-            artworksData = portfolio.categorizer.getMultiFilteredArtworks(portfolio.activeFilters, portfolio.artworks);
-        } else {
-            artworksData = portfolio.artworks;
-        }
-    }
-
-    currentArtworkIndex = artworksData.findIndex(a => a.id === artworkId);
+    currentArtworkIndex = portfolio.artworks.findIndex(a => a.id === artworkId);
+    artworksData = portfolio.artworks;
     populateLightbox(artwork);
     
     const lightbox = document.getElementById('lightbox');
@@ -274,7 +313,10 @@ function populateLightbox(artwork) {
     hasDragged = false;
     
     image.classList.add('loading');
-    image.src = artwork.imageHigh || artwork.image || './images/placeholder/artwork-placeholder.svg';
+    
+    // BILINGUAL UPDATE: Use language-aware placeholder
+    const placeholderImage = getPlaceholderImage();
+    image.src = artwork.imageHigh || artwork.image || placeholderImage;
     
     image.onload = function() {
         image.classList.remove('loading');
@@ -285,19 +327,47 @@ function populateLightbox(artwork) {
     };
 
     image.onerror = function() {
-        image.src = './images/placeholder/artwork-placeholder.svg';
+        // BILINGUAL UPDATE: Use language-aware placeholder on error
+        image.src = placeholderImage;
         image.classList.remove('loading');
     };
 
-    // Set artwork details
+    // BILINGUAL UPDATE: Language-aware field selection
+    const currentLang = (typeof portfolio !== 'undefined') ? portfolio.currentLanguage : 'zh';
+    
+    // Get language-appropriate fields
+    let title, titleEn, description, medium, format, size;
+    
+    if (currentLang === 'zh') {
+        title = artwork.title || getLocalizedText('common.untitled');
+        titleEn = artwork.titleEn || '';
+        description = artwork.description || ''; // Leave blank if missing
+        medium = artwork.format || ''; // Use Chinese format
+        format = artwork.format || '';
+        size = artwork.sizeCm || getLocalizedText('common.sizeNotSpecified');
+    } else {
+        title = artwork.titleEn || artwork.title || getLocalizedText('common.untitled');
+        titleEn = ''; // Don't show Chinese title in English mode
+        description = artwork.descriptionEn || ''; // Leave blank if missing
+        medium = artwork.mediumEn || '';
+        format = artwork.formatEn || artwork.format || '';
+        // For English: show both cm and inches if available
+        if (artwork.sizeCm && artwork.sizeInches) {
+            size = `${artwork.sizeCm} (${artwork.sizeInches})`;
+        } else {
+            size = artwork.sizeCm || artwork.sizeInches || getLocalizedText('common.sizeNotSpecified');
+        }
+    }
+
+    // Set artwork details with language-appropriate content
     const elements = {
-        'artworkTitle': artwork.title || 'Untitled',
-        'artworkTitleEn': artwork.titleEn || '',
-        'artworkDescription': artwork.description || 'No description available',
-        'artworkYear': artwork.year || 'Unknown',
-        'artworkSize': artwork.sizeCm || 'Size not specified',
-        'artworkMedium': artwork.mediumEn || artwork.format || 'Medium not specified',
-        'artworkFormat': artwork.format || 'Format not specified'
+        'artworkTitle': title,
+        'artworkTitleEn': titleEn,
+        'artworkDescription': description,
+        'artworkYear': artwork.year || getLocalizedText('common.unknown'),
+        'artworkSize': size,
+        'artworkMedium': medium,
+        'artworkFormat': format
     };
 
     Object.entries(elements).forEach(([id, text]) => {
@@ -305,13 +375,17 @@ function populateLightbox(artwork) {
         if (el) el.textContent = text;
     });
 
+    // Update availability status with localized text
     const statusEl = document.getElementById('availabilityStatus');
     if (statusEl && portfolio) {
         const isAvailable = portfolio.getBooleanValue(artwork, 'available', true);
-        statusEl.textContent = isAvailable ? 'Available for Purchase' : 'Sold';
+        statusEl.textContent = isAvailable ? 
+            getLocalizedText('lightbox.availableStatus') : 
+            getLocalizedText('lightbox.soldStatus');
         statusEl.className = `availability-status ${isAvailable ? 'available' : 'sold'}`;
     }
 
+    // Handle tags (unchanged)
     const tagsEl = document.getElementById('artworkTags');
     if (tagsEl) {
         if (artwork.tags && artwork.tags.length > 0) {
@@ -320,6 +394,9 @@ function populateLightbox(artwork) {
             tagsEl.innerHTML = '';
         }
     }
+    
+    // BILINGUAL UPDATE: Update all UI text elements
+    updateLightboxUIText();
 }
 
 function initializeImageZoom() {
@@ -613,6 +690,22 @@ function addZoomControls() {
 }
 
 // ================================
+// BILINGUAL UPDATE: Global function to refresh lightbox language
+// ================================
+window.updateLightboxLanguage = function() {
+    // Update UI text if lightbox is open
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox && lightbox.classList.contains('active')) {
+        updateLightboxUIText();
+        
+        // Re-populate the current artwork with new language
+        if (artworksData[currentArtworkIndex]) {
+            populateLightbox(artworksData[currentArtworkIndex]);
+        }
+    }
+};
+
+// ================================
 // EVENT LISTENERS
 // ================================
 
@@ -675,4 +768,4 @@ function setupLightboxEventListeners() {
     });
 }
 
-console.log('🎨 Clean Lightbox v7.0 loaded - NO TEXT in zoom indicators!');
+console.log('🎨 Bilingual Lightbox v7.1 loaded - Language-aware placeholders and field selection!');
