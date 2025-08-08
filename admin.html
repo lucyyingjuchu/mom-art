@@ -387,16 +387,13 @@
     <div class="container">
         <!-- GitHub Integration Section -->
         <div class="github-section">
-            <h3>🐙 GitHub 整合</h3>
+            <h3>🐙 GitHub 連線狀態</h3>
             <div class="github-controls">
-                <button class="btn" onclick="window.testGitHubConnection && window.testGitHubConnection()">
-                    🔍 測試連線
-                </button>
-                <button class="btn btn-success" onclick="window.exportAndDeployToGitHub && window.exportAndDeployToGitHub()">
-                    🚀 發布至網站
-                </button>
-                <div class="github-status status-disconnected" id="githubStatus">
-                    尚未測試連線
+                <div class="github-status status-disconnected" id="githubStatus" style="margin-left: 0;">
+                    正在檢查連線...
+                </div>
+                <div id="connectionWarning" style="display: none; margin-top: 1rem; padding: 1rem; background: #fff3cd; border: 1px solid #ffc107; border-radius: 8px; color: #856404;">
+                    ⚠️ <strong>連線中斷</strong> - 請勿進行任何編輯操作，請聯絡 Lucy 協助處理。
                 </div>
             </div>
         </div>
@@ -568,9 +565,21 @@
         let uploadedImages = {};
         let localDrafts = {}; // Store local drafts
         let pendingPublications = []; // Track what needs publishing
+        let isConnected = false; // Track GitHub connection status
+
+        // Check if editing should be disabled
+        function checkEditingPermission() {
+            if (!isConnected) {
+                showMessage('GitHub 連線中斷，無法進行編輯操作。請聯絡 Lucy。', 'error');
+                return false;
+            }
+            return true;
+        }
 
         // Core admin functions that DON'T conflict with github-admin.js
         function openAddModal() {
+            if (!checkEditingPermission()) return;
+            
             currentEditingId = null;
             document.getElementById('modalTitle').textContent = '新增作品';
             document.getElementById('artworkForm').reset();
@@ -598,6 +607,8 @@
         // These buttons will call window.functions directly via onclick handlers
 
         function editArtwork(id) {
+            if (!checkEditingPermission()) return;
+            
             const artwork = artworks.find(a => a.id === id);
             if (!artwork) {
                 showMessage('找不到作品！', 'error');
@@ -642,6 +653,8 @@
         }
 
         function deleteArtwork(id) {
+            if (!checkEditingPermission()) return;
+            
             if (confirm('確定要刪除此作品嗎？此操作無法復原。')) {
                 showDeleteWithUndo(id);
             }
@@ -735,6 +748,8 @@
 
         // NEW: Publish function for individual artworks
         async function publishArtwork() {
+            if (!checkEditingPermission()) return;
+            
             const draftId = currentEditingId || 'new';
             const draft = localDrafts[draftId];
             
@@ -914,7 +929,7 @@
             }, 5000);
         }
 
-        // Load artworks
+        // Load artworks and check GitHub connection
         async function loadArtworks() {
             try {
                 const response = await fetch('./data/artworks.json');
@@ -930,6 +945,42 @@
             } catch (error) {
                 console.error('Error loading artworks:', error);
                 showMessage(`載入作品失敗：${error.message}`, 'error');
+            }
+        }
+
+        // Check GitHub connection and update UI
+        async function checkGitHubConnection() {
+            try {
+                if (window.githubUploader) {
+                    const connected = await window.githubUploader.testConnection();
+                    const statusEl = document.getElementById('githubStatus');
+                    const warningEl = document.getElementById('connectionWarning');
+                    const addButton = document.querySelector('.btn-success');
+                    
+                    if (connected.success) {
+                        isConnected = true;
+                        statusEl.className = 'github-status status-connected';
+                        statusEl.textContent = `✅ 已連線至 ${connected.repoName}`;
+                        warningEl.style.display = 'none';
+                        if (addButton) addButton.disabled = false;
+                    } else {
+                        isConnected = false;
+                        statusEl.className = 'github-status status-disconnected';
+                        statusEl.textContent = `❌ 連線失敗`;
+                        warningEl.style.display = 'block';
+                        if (addButton) addButton.disabled = true;
+                    }
+                } else {
+                    // GitHub uploader not loaded yet, try again later
+                    setTimeout(checkGitHubConnection, 1000);
+                }
+            } catch (error) {
+                isConnected = false;
+                const statusEl = document.getElementById('githubStatus');
+                const warningEl = document.getElementById('connectionWarning');
+                statusEl.className = 'github-status status-disconnected';
+                statusEl.textContent = `❌ 連線錯誤`;
+                warningEl.style.display = 'block';
             }
         }
 
@@ -977,10 +1028,18 @@
         document.addEventListener('DOMContentLoaded', function() {
             loadArtworks();
             setupImageUpload();
+            
+            // Check GitHub connection on startup
+            setTimeout(checkGitHubConnection, 1000);
+            
+            // Re-check connection every 30 seconds
+            setInterval(checkGitHubConnection, 30000);
 
             // Form handler - NOW SAVES DRAFT LOCALLY
             document.getElementById('artworkForm').addEventListener('submit', function(e) {
                 e.preventDefault();
+                
+                if (!checkEditingPermission()) return;
                 
                 const title = document.getElementById('artworkTitle').value.trim();
                 const year = document.getElementById('artworkYear').value.trim();
