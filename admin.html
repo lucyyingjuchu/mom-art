@@ -541,6 +541,14 @@
                             </div>
                             <img id="previewImage" class="preview-image" style="display: none;">
                         </div>
+                        <div id="imageControls" style="margin-top: 1rem; display: none;">
+                            <button type="button" class="btn btn-danger btn-small" onclick="clearImage()">
+                                🗑️ 清除圖片
+                            </button>
+                            <button type="button" class="btn btn-small" onclick="document.getElementById('imageInput').click()">
+                                🔄 更換圖片
+                            </button>
+                        </div>
                     </div>
                     
                     <div style="display: flex; gap: 1rem; margin-top: 2rem; align-items: center;">
@@ -587,6 +595,7 @@
             document.getElementById('uploadText').innerHTML = '📸 點擊上傳圖片或拖放檔案<br><small>支援 JPG、PNG、WebP 格式，最大 50MB</small>';
             document.getElementById('publishBtn').disabled = true;
             document.getElementById('saveStatus').textContent = '';
+            document.getElementById('imageControls').style.display = 'none';
             document.getElementById('artworkModal').style.display = 'block';
         }
 
@@ -596,6 +605,39 @@
             if (currentEditingId && localDrafts[currentEditingId]) {
                 delete localDrafts[currentEditingId];
             }
+        }
+
+        // Clear image function
+        function clearImage() {
+            const artworkId = currentEditingId || 'pending';
+            
+            // Clear the file input
+            document.getElementById('imageInput').value = '';
+            
+            // Clear preview
+            document.getElementById('previewImage').style.display = 'none';
+            document.getElementById('previewImage').src = '';
+            
+            // Update upload text
+            document.getElementById('uploadText').innerHTML = '<div style="color: #f39c12;">⚠️ 圖片已清除<br><small>請上傳新圖片</small></div>';
+            
+            // Hide image controls
+            document.getElementById('imageControls').style.display = 'none';
+            
+            // Clear from uploadedImages
+            if (uploadedImages[artworkId]) {
+                if (uploadedImages[artworkId].localPreview) {
+                    URL.revokeObjectURL(uploadedImages[artworkId].localPreview);
+                }
+                delete uploadedImages[artworkId];
+            }
+            
+            // Mark that image should be cleared (for existing artworks)
+            if (currentEditingId) {
+                uploadedImages[currentEditingId] = { cleared: true };
+            }
+            
+            showMessage('圖片已清除。儲存後生效。', 'info');
         }
 
         function filterArtworks() {
@@ -632,14 +674,17 @@
             // Show existing image
             const previewImg = document.getElementById('previewImage');
             const uploadText = document.getElementById('uploadText');
+            const imageControls = document.getElementById('imageControls');
             
             if (artwork.image) {
                 previewImg.src = artwork.image;
                 previewImg.style.display = 'block';
-                uploadText.innerHTML = '<div style="color: #6c757d;">📸 目前圖片已載入<br><small>上傳新圖片以取代</small></div>';
+                uploadText.innerHTML = '<div style="color: #6c757d;">📸 目前圖片已載入<br><small>點擊更換或使用下方按鈕</small></div>';
+                imageControls.style.display = 'block';
             } else {
                 previewImg.style.display = 'none';
                 uploadText.innerHTML = '<div style="color: #f39c12;">⚠️ 未找到圖片<br><small>請上傳圖片</small></div>';
+                imageControls.style.display = 'none';
             }
             
             // Reset publish state
@@ -757,6 +802,91 @@
             }
         }
 
+        // NEW: Check Netlify deployment status
+        async function checkDeploymentStatus(startTime, artworkTitle) {
+            const maxAttempts = 60; // 最多檢查 5 分鐘 (60 * 5秒)
+            let attempts = 0;
+            
+            const checkStatus = async () => {
+                try {
+                    attempts++;
+                    
+                    // Call Netlify function to check status
+                    const response = await fetch('/.netlify/functions/deployStatus');
+                    if (!response.ok) {
+                        throw new Error('Failed to check deployment status');
+                    }
+                    
+                    const data = await response.json();
+                    
+                    // Check if this is our deployment (created after we started)
+                    const deployTime = new Date(data.createdAt).getTime();
+                    if (deployTime < startTime) {
+                        // This is an old deployment, keep waiting
+                        if (attempts < maxAttempts) {
+                            setTimeout(checkStatus, 5000); // Check again in 5 seconds
+                        } else {
+                            showMessage('部署檢查超時，請手動確認網站更新狀態。', 'warning');
+                        }
+                        return;
+                    }
+                    
+                    // This is our deployment
+                    if (data.status === 'ready') {
+                        // Deployment successful!
+                        showMessage(`✅ 作品「${artworkTitle}」已成功部署到網站！`, 'success');
+                        
+                        // Remove deployment notice if exists
+                        const deployNotice = document.querySelector('.deployment-notice');
+                        if (deployNotice) {
+                            deployNotice.remove();
+                        }
+                        
+                        // Show success notification
+                        const successNotice = document.createElement('div');
+                        successNotice.className = 'success-message';
+                        successNotice.innerHTML = `
+                            <strong>🎉 部署完成！</strong><br>
+                            作品「${artworkTitle}」已成功發布到網站。<br>
+                            <a href="https://xiaran.netlify.app" target="_blank" style="color: #155724;">點此查看網站 →</a>
+                        `;
+                        const container = document.querySelector('.container');
+                        container.insertBefore(successNotice, container.firstChild.nextSibling);
+                        
+                        setTimeout(() => successNotice.remove(), 10000);
+                        
+                    } else if (data.status === 'building' || data.status === 'processing') {
+                        // Still building, check again
+                        if (attempts < maxAttempts) {
+                            setTimeout(checkStatus, 5000);
+                        } else {
+                            showMessage('部署時間較長，請稍後手動確認。', 'warning');
+                        }
+                        
+                    } else if (data.status === 'error' || data.status === 'failed') {
+                        // Deployment failed
+                        showMessage(`❌ 部署失敗，請聯絡 Lucy 處理。`, 'error');
+                        
+                    } else {
+                        // Unknown status, keep checking
+                        if (attempts < maxAttempts) {
+                            setTimeout(checkStatus, 5000);
+                        }
+                    }
+                    
+                } catch (error) {
+                    console.error('Error checking deployment:', error);
+                    // If API is not available, fall back to timer-based message
+                    if (attempts === 1) {
+                        showMessage(`作品「${artworkTitle}」已提交，預計 2-3 分鐘後生效。`, 'info');
+                    }
+                }
+            };
+            
+            // Start checking after 10 seconds (give Netlify time to start)
+            setTimeout(checkStatus, 10000);
+        }
+
         // NEW: Publish function for individual artworks
         async function publishArtwork() {
             if (!checkEditingPermission()) return;
@@ -809,33 +939,32 @@
                 saveStatus.innerHTML = '🌐 更新網站中...';
                 await window.githubUploader.updateArtworksJson(artworks);
                 
+                // Record deployment start time
+                const deployStartTime = Date.now();
+                
                 // Success with deployment notice
                 saveStatus.innerHTML = '✅ 已提交更新';
                 publishBtn.disabled = false;
                 
-                // Show detailed deployment message
-                showMessage(`作品「${draft.title}」已成功提交！網站將在 2-3 分鐘內自動更新。`, 'success');
+                // Show deployment tracking message
+                showMessage(`作品「${draft.title}」已成功提交！正在監控部署狀態...`, 'success');
                 
                 // Add deployment status notice
                 const deploymentNotice = document.createElement('div');
-                deploymentNotice.className = 'info-message';
+                deploymentNotice.className = 'info-message deployment-notice';
                 deploymentNotice.innerHTML = `
                     <strong>📦 部署狀態</strong><br>
-                    Netlify 正在自動部署您的更新...<br>
-                    <small>• 預計完成時間：2-3 分鐘</small><br>
-                    <small>• 完成後請重新整理網頁確認更新</small><br>
-                    <small>• 如需查看部署進度，可前往 <a href="https://app.netlify.com" target="_blank" style="color: #0c5460;">Netlify 控制台</a></small>
+                    <div id="deployStatus">⏳ Netlify 正在自動部署您的更新...</div>
+                    <small>• 系統將自動檢查部署進度</small><br>
+                    <small>• 部署完成後會通知您</small><br>
+                    <small>• 您也可以前往 <a href="https://app.netlify.com/sites/xiaran/deploys" target="_blank" style="color: #0c5460;">Netlify 控制台</a> 查看</small>
                 `;
                 
                 const container = document.querySelector('.container');
                 container.insertBefore(deploymentNotice, container.firstChild.nextSibling);
                 
-                // Auto remove deployment notice after 30 seconds
-                setTimeout(() => {
-                    deploymentNotice.style.transition = 'opacity 0.5s';
-                    deploymentNotice.style.opacity = '0';
-                    setTimeout(() => deploymentNotice.remove(), 500);
-                }, 30000);
+                // Start checking deployment status
+                checkDeploymentStatus(deployStartTime, draft.title);
                 
                 // Clean up
                 delete localDrafts[draftId];
@@ -1047,10 +1176,12 @@
                 // Show local preview
                 const previewImg = document.getElementById('previewImage');
                 const uploadText = document.getElementById('uploadText');
+                const imageControls = document.getElementById('imageControls');
                 
                 previewImg.src = uploadedImages[artworkId].localPreview;
                 previewImg.style.display = 'block';
                 uploadText.innerHTML = '<div style="color: #28a745;">📸 圖片已準備上傳<br><small>將在發布時上傳</small></div>';
+                imageControls.style.display = 'block';
 
                 console.log('✅ 圖片已儲存在本地，準備發布');
             });
@@ -1098,8 +1229,14 @@
                 if (currentEditingId) {
                     const existingArtwork = artworks.find(a => a.id === currentEditingId);
                     if (existingArtwork) {
-                        existingImagePath = existingArtwork.image || '';
-                        existingImageHighPath = existingArtwork.imageHigh || '';
+                        // Check if image was cleared
+                        if (uploadedImages[currentEditingId] && uploadedImages[currentEditingId].cleared) {
+                            existingImagePath = '';
+                            existingImageHighPath = '';
+                        } else {
+                            existingImagePath = existingArtwork.image || '';
+                            existingImageHighPath = existingArtwork.imageHigh || '';
+                        }
                     }
                 }
                 
@@ -1159,6 +1296,7 @@
         window.generateSequentialId = generateSequentialId;
         window.publishArtwork = publishArtwork;
         window.undoDelete = undoDelete;
+        window.clearImage = clearImage;
 
         console.log('✅ 管理介面載入成功！');
     </script>

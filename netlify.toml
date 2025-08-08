@@ -1,3 +1,6 @@
 [[edge_functions]]
 path = "/netlify/functions/githubProxy"
 function = "githubProxy"
+
+[functions]
+directory = "netlify/functions"
