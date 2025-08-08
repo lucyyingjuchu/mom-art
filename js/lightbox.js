@@ -97,7 +97,7 @@ function updateLightboxUIText() {
     
     // Update spec labels
     const specLabels = document.querySelectorAll('.spec-label');
-    const labelKeys = ['lightbox.yearLabel', 'lightbox.dimensionsLabel', 'lightbox.mediumLabel', 'lightbox.formatLabel'];
+    const labelKeys = ['lightbox.yearLabel', 'lightbox.dimensionsLabel', 'lightbox.formatLabel'];
     specLabels.forEach((label, index) => {
         if (labelKeys[index]) {
             label.textContent = getLocalizedText(labelKeys[index]);
