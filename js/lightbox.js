@@ -81,28 +81,12 @@ function getLocalizedText(key, params = {}) {
 
 // Update lightbox UI text elements
 function updateLightboxUIText() {
-    console.log('🔄 Updating lightbox UI text...');
-    console.log('Portfolio available:', typeof portfolio !== 'undefined');
-    console.log('LANGUAGE_DATA available:', typeof LANGUAGE_DATA !== 'undefined');
-    
-    if (typeof portfolio !== 'undefined') {
-        console.log('Current language:', portfolio.currentLanguage);
-    }
-    
     // Update navigation tooltips
     const prevBtn = document.querySelector('.nav-arrow.prev');
-    if (prevBtn) {
-        const prevText = getLocalizedText('lightbox.prevTitle');
-        console.log('Prev title:', prevText);
-        prevBtn.title = prevText;
-    }
+    if (prevBtn) prevBtn.title = getLocalizedText('lightbox.prevTitle');
     
     const nextBtn = document.querySelector('.nav-arrow.next');
-    if (nextBtn) {
-        const nextText = getLocalizedText('lightbox.nextTitle');
-        console.log('Next title:', nextText);
-        nextBtn.title = nextText;
-    }
+    if (nextBtn) nextBtn.title = getLocalizedText('lightbox.nextTitle');
     
     // Update control button tooltips
     const shareBtn = document.querySelector('.control-btn[onclick="shareArtwork()"]');
@@ -122,33 +106,21 @@ function updateLightboxUIText() {
     
     // Update zoom control tooltips if they exist
     const zoomInBtn = document.querySelector('.zoom-in-btn');
-    if (zoomInBtn) {
-        const zoomInText = getLocalizedText('lightbox.zoomInTitle');
-        console.log('Zoom in text:', zoomInText);
-        zoomInBtn.title = zoomInText;
-    }
+    if (zoomInBtn) zoomInBtn.title = 'Zoom In (+)'; // These can stay in English as they're symbols
     
     const zoomOutBtn = document.querySelector('.zoom-out-btn');
-    if (zoomOutBtn) {
-        const zoomOutText = getLocalizedText('lightbox.zoomOutTitle');
-        console.log('Zoom out text:', zoomOutText);
-        zoomOutBtn.title = zoomOutText;
-    }
+    if (zoomOutBtn) zoomOutBtn.title = 'Zoom Out (-)';
     
     const fullscreenBtn = document.querySelector('.zoom-fullscreen-btn');
-    if (fullscreenBtn) {
-        const fullscreenText = getLocalizedText('lightbox.toggleFullscreenTitle');
-        console.log('Fullscreen text:', fullscreenText);
-        fullscreenBtn.title = fullscreenText;
-    }
+    if (fullscreenBtn) fullscreenBtn.title = 'Toggle Fullscreen';
 }
 
 // ================================
 // GLOBAL FUNCTIONS (UNCHANGED)
 // ================================
 
-window.openLightbox = function(artworkId, context = 'all') {
-    console.log('🎨 Opening lightbox for:', artworkId, 'Context:', context);
+window.openLightbox = function(artworkId) {
+    console.log('🎨 Opening lightbox for:', artworkId);
     
     if (typeof portfolio === 'undefined') {
         console.error('Portfolio not loaded');
@@ -161,24 +133,8 @@ window.openLightbox = function(artworkId, context = 'all') {
         return;
     }
 
-    // Set artworks data based on context
-    if (context === 'featured') {
-        artworksData = portfolio.getFeaturedArtworks();
-        console.log('📌 Using featured artworks only:', artworksData.length);
-    } else {
-        artworksData = portfolio.artworks;
-        console.log('📋 Using all artworks:', artworksData.length);
-    }
-    
-    // Find the current artwork index in the appropriate array
-    currentArtworkIndex = artworksData.findIndex(a => a.id === artworkId);
-    
-    if (currentArtworkIndex === -1) {
-        console.warn('Artwork not found in current context, falling back to all artworks');
-        artworksData = portfolio.artworks;
-        currentArtworkIndex = portfolio.artworks.findIndex(a => a.id === artworkId);
-    }
-    
+    currentArtworkIndex = portfolio.artworks.findIndex(a => a.id === artworkId);
+    artworksData = portfolio.artworks;
     populateLightbox(artwork);
     
     const lightbox = document.getElementById('lightbox');
@@ -380,18 +336,20 @@ function populateLightbox(artwork) {
     const currentLang = (typeof portfolio !== 'undefined') ? portfolio.currentLanguage : 'zh';
     
     // Get language-appropriate fields
-    let title, titleEn, description, format, size;
+    let title, titleEn, description, medium, format, size;
     
     if (currentLang === 'zh') {
         title = artwork.title || getLocalizedText('common.untitled');
         titleEn = artwork.titleEn || '';
         description = artwork.description || ''; // Leave blank if missing
+        medium = artwork.format || ''; // Use Chinese format
         format = artwork.format || '';
         size = artwork.sizeCm || getLocalizedText('common.sizeNotSpecified');
     } else {
         title = artwork.titleEn || artwork.title || getLocalizedText('common.untitled');
         titleEn = ''; // Don't show Chinese title in English mode
         description = artwork.descriptionEn || ''; // Leave blank if missing
+        medium = artwork.mediumEn || '';
         format = artwork.formatEn || artwork.format || '';
         // For English: show both cm and inches if available
         if (artwork.sizeCm && artwork.sizeInches) {
@@ -401,13 +359,14 @@ function populateLightbox(artwork) {
         }
     }
 
-    // Set artwork details with language-appropriate content (REMOVED MEDIUM)
+    // Set artwork details with language-appropriate content
     const elements = {
         'artworkTitle': title,
         'artworkTitleEn': titleEn,
         'artworkDescription': description,
         'artworkYear': artwork.year || getLocalizedText('common.unknown'),
         'artworkSize': size,
+        'artworkMedium': medium,
         'artworkFormat': format
     };
 
@@ -694,32 +653,9 @@ function showFullscreenIndicator(entering) {
     
     const indicator = document.createElement('div');
     indicator.className = 'fullscreen-indicator';
-    
-    // Get current language
-    let currentLang = 'zh';
-    if (typeof portfolio !== 'undefined' && portfolio.currentLanguage) {
-        currentLang = portfolio.currentLanguage;
-    }
-    
-    // HARDCODED translations to bypass the translation system issue
-    const translations = {
-        zh: {
-            fullscreenView: "全螢幕檢視",
-            splitView: "分割檢視"
-        },
-        en: {
-            fullscreenView: "Fullscreen View",
-            splitView: "Split View"
-        }
-    };
-    
-    const t = translations[currentLang] || translations.zh;
-    
-    if (entering) {
-        indicator.innerHTML = `📱 <span>${t.fullscreenView}</span>`;
-    } else {
-        indicator.innerHTML = `🖼️ <span>${t.splitView}</span>`;
-    }
+    indicator.innerHTML = entering ? 
+        '📱 <span>Fullscreen View</span>' : 
+        '🖼️ <span>Split View</span>';
     
     const lightbox = document.querySelector('.lightbox-container');
     if (lightbox) {
@@ -730,8 +666,6 @@ function showFullscreenIndicator(entering) {
             setTimeout(() => indicator.remove(), 300);
         }, 2000);
     }
-    
-    console.log('✅ Fullscreen indicator shown:', entering ? t.fullscreenView : t.splitView);
 }
 
 function addZoomControls() {
@@ -746,38 +680,13 @@ function addZoomControls() {
     const zoomControls = document.createElement('div');
     zoomControls.className = 'zoom-controls';
     
-    // Get current language
-    let currentLang = 'zh';
-    if (typeof portfolio !== 'undefined' && portfolio.currentLanguage) {
-        currentLang = portfolio.currentLanguage;
-    }
-    
-    // HARDCODED translations to bypass the translation system issue
-    const translations = {
-        zh: {
-            zoomIn: "放大 (+)",
-            zoomOut: "縮小 (-)",
-            fullscreen: "切換全螢幕"
-        },
-        en: {
-            zoomIn: "Zoom In (+)",
-            zoomOut: "Zoom Out (-)",
-            fullscreen: "Toggle Fullscreen"
-        }
-    };
-    
-    const t = translations[currentLang] || translations.zh;
-    
     zoomControls.innerHTML = `
-        <button class="control-btn zoom-in-btn" onclick="zoomIn();" title="${t.zoomIn}">+</button>
-        <button class="control-btn zoom-out-btn" onclick="zoomOut();" title="${t.zoomOut}">−</button>
-        <button class="control-btn zoom-fullscreen-btn" onclick="toggleFullscreenZoom();" title="${t.fullscreen}">⛶</button>
+        <button class="control-btn zoom-in-btn" onclick="zoomIn();" title="Zoom In (+)">+</button>
+        <button class="control-btn zoom-out-btn" onclick="zoomOut();" title="Zoom Out (-)">−</button>
+        <button class="control-btn zoom-fullscreen-btn" onclick="toggleFullscreenZoom();" title="Toggle Fullscreen">⛶</button>
     `;
     
     lightboxControls.insertBefore(zoomControls, lightboxControls.firstChild);
-    
-    console.log('✅ Zoom controls created with language:', currentLang);
-    console.log('✅ Tooltips:', t);
 }
 
 // ================================
