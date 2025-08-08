@@ -760,7 +760,7 @@
                         { id: draft.id, title: draft.title }
                     );
 
-                    // Update draft with uploaded image paths
+                    // Update draft with uploaded image paths - 只有在上傳新圖片時才更新路徑
                     draft.image = `./images/paintings/thumbnails/${draft.id}_thumb.png`;
                     draft.imageHigh = `./images/paintings/large/${draft.id}_large.png`;
                     
@@ -999,14 +999,25 @@
                     delete uploadedImages['pending'];
                 }
                 
+                // Get existing artwork data if editing
+                let existingImagePath = '';
+                let existingImageHighPath = '';
+                if (currentEditingId) {
+                    const existingArtwork = artworks.find(a => a.id === currentEditingId);
+                    if (existingArtwork) {
+                        existingImagePath = existingArtwork.image || '';
+                        existingImageHighPath = existingArtwork.imageHigh || '';
+                    }
+                }
+                
                 const formData = {
                     id: artworkId,
                     title: title,
                     titleEn: document.getElementById('artworkTitleEn').value.trim(),
                     category: 'paintings',
                     subcategory: document.getElementById('artworkSubcategory').value,
-                    image: '', // Will be populated during publish if image uploaded
-                    imageHigh: '', // Will be populated during publish if image uploaded
+                    image: existingImagePath, // 保留原有圖片路徑
+                    imageHigh: existingImageHighPath, // 保留原有大圖路徑
                     description: document.getElementById('artworkDescription').value.trim(),
                     curatorNote: document.getElementById('artworkCuratorNote').value.trim(),
                     curatorNoteEn: '', // 英文版本之後翻譯
