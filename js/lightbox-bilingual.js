@@ -147,8 +147,8 @@ function updateLightboxUIText() {
 // GLOBAL FUNCTIONS (UNCHANGED)
 // ================================
 
-window.openLightbox = function(artworkId, context = 'all') {
-    console.log('🎨 Opening lightbox for:', artworkId, 'Context:', context);
+window.openLightbox = function(artworkId) {
+    console.log('🎨 Opening lightbox for:', artworkId);
     
     if (typeof portfolio === 'undefined') {
         console.error('Portfolio not loaded');
@@ -161,24 +161,8 @@ window.openLightbox = function(artworkId, context = 'all') {
         return;
     }
 
-    // Set artworks data based on context
-    if (context === 'featured') {
-        artworksData = portfolio.getFeaturedArtworks();
-        console.log('📌 Using featured artworks only:', artworksData.length);
-    } else {
-        artworksData = portfolio.artworks;
-        console.log('📋 Using all artworks:', artworksData.length);
-    }
-    
-    // Find the current artwork index in the appropriate array
-    currentArtworkIndex = artworksData.findIndex(a => a.id === artworkId);
-    
-    if (currentArtworkIndex === -1) {
-        console.warn('Artwork not found in current context, falling back to all artworks');
-        artworksData = portfolio.artworks;
-        currentArtworkIndex = portfolio.artworks.findIndex(a => a.id === artworkId);
-    }
-    
+    currentArtworkIndex = portfolio.artworks.findIndex(a => a.id === artworkId);
+    artworksData = portfolio.artworks;
     populateLightbox(artwork);
     
     const lightbox = document.getElementById('lightbox');

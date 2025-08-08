@@ -106,7 +106,12 @@ const LANGUAGE_DATA = {
             shareTitle: "Share Artwork",
             closeTitle: "Close Lightbox",
             prevTitle: "Previous Artwork",
-            nextTitle: "Next Artwork"
+            nextTitle: "Next Artwork",
+            zoomInTitle: "Zoom In (+)",
+            zoomOutTitle: "Zoom Out (-)",
+            toggleFullscreenTitle: "Toggle Fullscreen",
+            fullscreenViewText: "Fullscreen View",
+            splitViewText: "Split View"
         },
         
         // Common
@@ -206,7 +211,7 @@ const LANGUAGE_DATA = {
         
         // Connect page
         connect: {
-            title: "與我聯繫",
+            title: "聯絡我",
             subtitle: "關注我的藝術旅程，獲取最新作品、展覽和創作見解。",
             emailTitle: "電子郵件",
             emailDesc: "諮詢、委託或合作事宜",
@@ -227,7 +232,12 @@ const LANGUAGE_DATA = {
             shareTitle: "分享作品",
             closeTitle: "關閉檢視",
             prevTitle: "上一件作品",
-            nextTitle: "下一件作品"
+            nextTitle: "下一件作品",
+            zoomInTitle: "放大 (+)",
+            zoomOutTitle: "縮小 (-)",
+            toggleFullscreenTitle: "切換全螢幕",
+            fullscreenViewText: "全螢幕檢視",
+            splitViewText: "分割檢視"
         },
         
         // Common
