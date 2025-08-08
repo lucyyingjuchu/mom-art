@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Admin - 藝術作品管理</title>
+    <title>作品管理系統 - 藝術作品管理</title>
     <style>
         * {
             margin: 0;
@@ -12,7 +12,7 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', 'Microsoft JhengHei', Tahoma, Geneva, Verdana, sans-serif;
             background: #f5f7fa;
             color: #2c3e50;
             line-height: 1.6;
@@ -380,23 +380,23 @@
 </head>
 <body>
     <div class="header">
-        <h1>🎨 Portfolio Admin</h1>
-        <p>藝術作品管理系統 - Art Collection Management</p>
+        <h1>🎨 作品管理系統</h1>
+        <p>藝術作品管理介面</p>
     </div>
 
     <div class="container">
         <!-- GitHub Integration Section -->
         <div class="github-section">
-            <h3>🐙 GitHub Integration</h3>
+            <h3>🐙 GitHub 整合</h3>
             <div class="github-controls">
                 <button class="btn" onclick="window.testGitHubConnection && window.testGitHubConnection()">
-                    🔍 Test Connection
+                    🔍 測試連線
                 </button>
                 <button class="btn btn-success" onclick="window.exportAndDeployToGitHub && window.exportAndDeployToGitHub()">
-                    🚀 Deploy to Website
+                    🚀 發布至網站
                 </button>
                 <div class="github-status status-disconnected" id="githubStatus">
-                    Connection not tested
+                    尚未測試連線
                 </div>
             </div>
         </div>
@@ -404,10 +404,10 @@
         <!-- Toolbar -->
         <div class="toolbar">
             <button class="btn btn-success" onclick="openAddModal()">
-                ➕ Add New Artwork
+                ➕ 新增作品
             </button>
             <div class="search-box">
-                <input type="text" id="searchInput" placeholder="Search artworks..." onkeyup="filterArtworks()">
+                <input type="text" id="searchInput" placeholder="搜尋作品..." onkeyup="filterArtworks()">
             </div>
         </div>
 
@@ -415,23 +415,23 @@
         <div class="stats">
             <div class="stat-card">
                 <span class="stat-number" id="totalArtworks">0</span>
-                <div class="stat-label">Total Artworks</div>
+                <div class="stat-label">總作品數</div>
             </div>
             <div class="stat-card">
                 <span class="stat-number" id="featuredCount">0</span>
-                <div class="stat-label">Featured Pieces</div>
+                <div class="stat-label">精選作品</div>
             </div>
             <div class="stat-card">
                 <span class="stat-number" id="recentCount">0</span>
-                <div class="stat-label">Recent (2020+)</div>
+                <div class="stat-label">近期作品 (2020+)</div>
             </div>
         </div>
 
         <!-- Artworks Grid -->
         <div class="artworks-grid" id="artworksGrid">
             <div style="grid-column: 1 / -1; text-align: center; padding: 3rem; color: #7f8c8d;">
-                <h3>Loading artworks...</h3>
-                <p>Please wait while we fetch the latest data.</p>
+                <h3>載入作品中...</h3>
+                <p>請稍候，正在取得最新資料。</p>
             </div>
         </div>
     </div>
@@ -440,7 +440,7 @@
     <div id="artworkModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 id="modalTitle">Add New Artwork</h2>
+                <h2 id="modalTitle">新增作品</h2>
                 <button class="close" onclick="closeModal()">&times;</button>
             </div>
             <div class="modal-body">
@@ -449,39 +449,39 @@
                         <!-- Left Column -->
                         <div>
                             <div class="form-group">
-                                <label for="artworkTitle">Title (標題) *</label>
+                                <label for="artworkTitle">標題 *</label>
                                 <input type="text" id="artworkTitle" required>
                             </div>
                             
                             <div class="form-group">
-                                <label for="artworkTitleEn">English Title</label>
+                                <label for="artworkTitleEn">英文標題</label>
                                 <input type="text" id="artworkTitleEn">
                             </div>
                             
                             <div class="form-group">
-                                <label for="artworkYear">Year (年份) *</label>
-                                <input type="text" id="artworkYear" placeholder="e.g., 2023 or unknown" required>
+                                <label for="artworkYear">年份 *</label>
+                                <input type="text" id="artworkYear" placeholder="例如：2023 或 不詳" required>
                             </div>
                             
                             <div class="form-group">
-                                <label for="artworkSize">Size (尺寸) *</label>
-                                <input type="text" id="artworkSize" placeholder="e.g., 135×70" required>
+                                <label for="artworkSize">尺寸 *</label>
+                                <input type="text" id="artworkSize" placeholder="例如：135×70" required>
                             </div>
                             
                             <div class="form-group">
-                                <label for="artworkMedium">Medium (媒材)</label>
-                                <input type="text" id="artworkMedium" placeholder="e.g., 水墨紙本, Oil on Canvas">
+                                <label for="artworkMedium">媒材</label>
+                                <input type="text" id="artworkMedium" placeholder="例如：水墨紙本">
                             </div>
                             
                             <div class="form-group">
-                                <label for="artworkFormat">Format (裝裱)</label>
+                                <label for="artworkFormat">裝裱形式</label>
                                 <select id="artworkFormat">
-                                    <option value="">Select format...</option>
-                                    <option value="軸">軸 (Scroll)</option>
-                                    <option value="框">框 (Framed)</option>
-                                    <option value="鏡片">鏡片 (Mirror Frame)</option>
-                                    <option value="扇面">扇面 (Fan)</option>
-                                    <option value="橫軸">橫軸 (Horizontal Scroll)</option>
+                                    <option value="">請選擇...</option>
+                                    <option value="軸">軸</option>
+                                    <option value="框">框</option>
+                                    <option value="鏡片">鏡片</option>
+                                    <option value="扇面">扇面</option>
+                                    <option value="橫軸">橫軸</option>
                                 </select>
                             </div>
                         </div>
@@ -489,23 +489,28 @@
                         <!-- Right Column -->
                         <div>
                             <div class="form-group">
-                                <label for="artworkDescription">Description (描述)</label>
-                                <textarea id="artworkDescription" placeholder="Artwork description..."></textarea>
+                                <label for="artworkDescription">作品描述</label>
+                                <textarea id="artworkDescription" placeholder="請輸入作品描述..."></textarea>
                             </div>
                             
                             <div class="form-group">
-                                <label for="artworkSubcategory">Subject (題材)</label>
+                                <label for="artworkCuratorNote">策展人筆記</label>
+                                <textarea id="artworkCuratorNote" placeholder="請輸入策展人筆記或評論..."></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="artworkSubcategory">題材類別</label>
                                 <select id="artworkSubcategory">
-                                    <option value="">Select subject...</option>
-                                    <option value="calligraphy">Calligraphy 書法</option>
-                                    <option value="landscape">Landscape 山水</option>
-                                    <option value="waterfall">Waterfall 瀑布</option>
-                                    <option value="flowers">Flowers 花卉</option>
-                                    <option value="birds">Birds 禽鳥</option>
-                                    <option value="bamboo">Bamboo 竹</option>
-                                    <option value="plum">Plum 梅</option>
-                                    <option value="lotus">Lotus 荷</option>
-                                    <option value="other">Other 其他</option>
+                                    <option value="">請選擇...</option>
+                                    <option value="calligraphy">書法</option>
+                                    <option value="landscape">山水</option>
+                                    <option value="waterfall">瀑布</option>
+                                    <option value="flowers">花卉</option>
+                                    <option value="birds">禽鳥</option>
+                                    <option value="bamboo">竹</option>
+                                    <option value="plum">梅</option>
+                                    <option value="lotus">荷</option>
+                                    <option value="other">其他</option>
                                 </select>
                             </div>
                             
@@ -513,39 +518,39 @@
                                 <div style="display: flex; gap: 1rem;">
                                     <label>
                                         <input type="checkbox" id="artworkFeatured">
-                                        Featured 精選作品
+                                        精選作品
                                     </label>
                                     <label>
                                         <input type="checkbox" id="artworkAvailable" checked>
-                                        Available 可售
+                                        可售
                                     </label>
                                 </div>
                             </div>
                             
                             <div class="form-group">
-                                <label for="artworkPrice">Price (價格)</label>
-                                <input type="text" id="artworkPrice" placeholder="Optional">
+                                <label for="artworkPrice">價格</label>
+                                <input type="text" id="artworkPrice" placeholder="選填">
                             </div>
                         </div>
                     </div>
                     
                     <!-- Image Upload -->
                     <div class="form-group">
-                        <label>Artwork Image (作品圖片)</label>
+                        <label>作品圖片</label>
                         <div class="upload-area" onclick="document.getElementById('imageInput').click()">
                             <input type="file" id="imageInput" accept="image/*" style="display: none;">
                             <div id="uploadText">
-                                📸 Click to upload image or drag & drop<br>
-                                <small>Supports JPG, PNG, WebP. Max 50MB.</small>
+                                📸 點擊上傳圖片或拖放檔案<br>
+                                <small>支援 JPG、PNG、WebP 格式，最大 50MB</small>
                             </div>
                             <img id="previewImage" class="preview-image" style="display: none;">
                         </div>
                     </div>
                     
                     <div style="display: flex; gap: 1rem; margin-top: 2rem; align-items: center;">
-                        <button type="submit" class="btn btn-success">💾 Save Draft</button>
-                        <button type="button" class="btn btn-success" id="publishBtn" onclick="publishArtwork()" disabled>🚀 Publish</button>
-                        <button type="button" class="btn" onclick="closeModal()">Cancel</button>
+                        <button type="submit" class="btn btn-success">💾 儲存草稿</button>
+                        <button type="button" class="btn btn-success" id="publishBtn" onclick="publishArtwork()" disabled>🚀 發布</button>
+                        <button type="button" class="btn" onclick="closeModal()">取消</button>
                         <div id="saveStatus" style="margin-left: 1rem; font-size: 0.9rem; color: #6c757d;"></div>
                     </div>
                 </form>
@@ -567,11 +572,11 @@
         // Core admin functions that DON'T conflict with github-admin.js
         function openAddModal() {
             currentEditingId = null;
-            document.getElementById('modalTitle').textContent = 'Add New Artwork';
+            document.getElementById('modalTitle').textContent = '新增作品';
             document.getElementById('artworkForm').reset();
             document.getElementById('artworkAvailable').checked = true;
             document.getElementById('previewImage').style.display = 'none';
-            document.getElementById('uploadText').innerHTML = '📸 Click to upload image or drag & drop<br><small>Supports JPG, PNG, WebP. Max 50MB.</small>';
+            document.getElementById('uploadText').innerHTML = '📸 點擊上傳圖片或拖放檔案<br><small>支援 JPG、PNG、WebP 格式，最大 50MB</small>';
             document.getElementById('publishBtn').disabled = true;
             document.getElementById('saveStatus').textContent = '';
             document.getElementById('artworkModal').style.display = 'block';
@@ -595,12 +600,12 @@
         function editArtwork(id) {
             const artwork = artworks.find(a => a.id === id);
             if (!artwork) {
-                showMessage('Artwork not found!', 'error');
+                showMessage('找不到作品！', 'error');
                 return;
             }
 
             currentEditingId = id;
-            document.getElementById('modalTitle').textContent = 'Edit Artwork';
+            document.getElementById('modalTitle').textContent = '編輯作品';
             
             // Populate form fields
             document.getElementById('artworkTitle').value = artwork.title || '';
@@ -610,6 +615,7 @@
             document.getElementById('artworkMedium').value = artwork.mediumEn || artwork.medium || '';
             document.getElementById('artworkFormat').value = artwork.format || '';
             document.getElementById('artworkDescription').value = artwork.description || '';
+            document.getElementById('artworkCuratorNote').value = artwork.curatorNote || '';
             document.getElementById('artworkSubcategory').value = artwork.subcategory || '';
             document.getElementById('artworkFeatured').checked = artwork.featured === true || artwork.featured === 'true';
             document.getElementById('artworkAvailable').checked = artwork.available !== false && artwork.available !== 'false';
@@ -622,10 +628,10 @@
             if (artwork.image) {
                 previewImg.src = artwork.image;
                 previewImg.style.display = 'block';
-                uploadText.innerHTML = '<div style="color: #6c757d;">📸 Current image loaded<br><small>Upload new image to replace</small></div>';
+                uploadText.innerHTML = '<div style="color: #6c757d;">📸 目前圖片已載入<br><small>上傳新圖片以取代</small></div>';
             } else {
                 previewImg.style.display = 'none';
-                uploadText.innerHTML = '<div style="color: #f39c12;">⚠️ No image found<br><small>Please upload an image</small></div>';
+                uploadText.innerHTML = '<div style="color: #f39c12;">⚠️ 未找到圖片<br><small>請上傳圖片</small></div>';
             }
             
             // Reset publish state
@@ -636,7 +642,7 @@
         }
 
         function deleteArtwork(id) {
-            if (confirm('Are you sure you want to delete this artwork? This action cannot be undone.')) {
+            if (confirm('確定要刪除此作品嗎？此操作無法復原。')) {
                 showDeleteWithUndo(id);
             }
         }
@@ -655,9 +661,9 @@
             const messageDiv = document.createElement('div');
             messageDiv.className = 'info-message';
             messageDiv.innerHTML = `
-                <strong>Artwork "${artwork.title}" deleted.</strong>
-                <button class="btn btn-small" onclick="undoDelete('${id}')" style="margin-left: 1rem;">UNDO</button>
-                <span id="undoTimer" style="margin-left: 1rem;">(${timeLeft}s)</span>
+                <strong>作品「${artwork.title}」已刪除。</strong>
+                <button class="btn btn-small" onclick="undoDelete('${id}')" style="margin-left: 1rem;">復原</button>
+                <span id="undoTimer" style="margin-left: 1rem;">(${timeLeft}秒)</span>
             `;
             
             const container = document.querySelector('.container');
@@ -670,7 +676,7 @@
             const timer = setInterval(() => {
                 timeLeft--;
                 const timerEl = document.getElementById('undoTimer');
-                if (timerEl) timerEl.textContent = `(${timeLeft}s)`;
+                if (timerEl) timerEl.textContent = `(${timeLeft}秒)`;
                 
                 if (timeLeft <= 0) {
                     clearInterval(timer);
@@ -691,7 +697,7 @@
                 
                 renderArtworks();
                 updateStats();
-                showMessage('Deletion cancelled. Artwork restored.', 'success');
+                showMessage('刪除已取消，作品已復原。', 'success');
             }
         }
 
@@ -713,9 +719,9 @@
 
                     // Update JSON
                     await window.githubUploader.updateArtworksJson(artworks);
-                    showMessage('Artwork permanently deleted and published.', 'success');
+                    showMessage('作品已永久刪除並發布。', 'success');
                 } else {
-                    showMessage('Artwork deleted locally. Use "Deploy" to publish changes.', 'info');
+                    showMessage('作品已在本地刪除。請使用「發布」按鈕發布變更。', 'info');
                 }
                 
                 // Sync with window
@@ -723,7 +729,7 @@
                 
             } catch (error) {
                 console.error('Failed to delete artwork:', error);
-                showMessage(`Failed to delete artwork: ${error.message}`, 'error');
+                showMessage(`刪除作品失敗：${error.message}`, 'error');
             }
         }
 
@@ -733,7 +739,7 @@
             const draft = localDrafts[draftId];
             
             if (!draft) {
-                showMessage('No draft to publish! Please save first.', 'error');
+                showMessage('沒有草稿可發布！請先儲存。', 'error');
                 return;
             }
 
@@ -742,12 +748,12 @@
                 const saveStatus = document.getElementById('saveStatus');
                 
                 publishBtn.disabled = true;
-                saveStatus.innerHTML = '🚀 Publishing...';
+                saveStatus.innerHTML = '🚀 發布中...';
 
                 // Handle image upload during publish
                 const pendingImageKey = currentEditingId || 'pending';
                 if (uploadedImages[pendingImageKey] && uploadedImages[pendingImageKey].file) {
-                    saveStatus.innerHTML = '📤 Uploading images to GitHub...';
+                    saveStatus.innerHTML = '📤 上傳圖片至 GitHub...';
                     
                     const uploadResult = await window.githubUploader.uploadArtwork(
                         uploadedImages[pendingImageKey].file,
@@ -774,11 +780,11 @@
                 }
 
                 // Deploy to GitHub
-                saveStatus.innerHTML = '🌐 Updating website...';
+                saveStatus.innerHTML = '🌐 更新網站中...';
                 await window.githubUploader.updateArtworksJson(artworks);
                 
                 // Success!
-                saveStatus.innerHTML = '✅ Published! Live in ~2 minutes';
+                saveStatus.innerHTML = '✅ 發布成功！約2分鐘後生效';
                 publishBtn.disabled = false;
                 
                 // Clean up
@@ -792,7 +798,7 @@
                 renderArtworks();
                 updateStats();
                 
-                showMessage('Artwork published successfully!', 'success');
+                showMessage('作品發布成功！', 'success');
                 
                 setTimeout(() => {
                     closeModal();
@@ -800,9 +806,9 @@
 
             } catch (error) {
                 console.error('Publish failed:', error);
-                document.getElementById('saveStatus').innerHTML = '❌ Publish failed';
+                document.getElementById('saveStatus').innerHTML = '❌ 發布失敗';
                 document.getElementById('publishBtn').disabled = false;
-                showMessage(`Publish failed: ${error.message}`, 'error');
+                showMessage(`發布失敗：${error.message}`, 'error');
             }
         }
 
@@ -838,38 +844,38 @@
             });
 
             if (filteredArtworks.length === 0 && artworks.length === 0) {
-                grid.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 3rem; color: #7f8c8d;"><h3>No artworks found</h3><p>Click "Add New Artwork" to get started!</p></div>';
+                grid.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 3rem; color: #7f8c8d;"><h3>尚無作品</h3><p>點擊「新增作品」開始！</p></div>';
                 return;
             }
 
             if (filteredArtworks.length === 0 && artworks.length > 0) {
-                grid.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 3rem; color: #7f8c8d;"><h3>No matching artworks</h3><p>Try a different search term.</p></div>';
+                grid.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 3rem; color: #7f8c8d;"><h3>沒有符合的作品</h3><p>請嘗試其他搜尋關鍵字。</p></div>';
                 return;
             }
 
             grid.innerHTML = filteredArtworks.map(artwork => {
-                const imageUrl = artwork.image || './images/placeholder/artwork-placeholder.svg';
-                const title = artwork.title || 'Untitled';
-                const year = artwork.year || 'Unknown';
-                const size = artwork.sizeCm || artwork.size || 'Size not specified';
+                const imageUrl = artwork.image || './images/placeholder/artwork-placeholder-zh.svg';
+                const title = artwork.title || '未命名';
+                const year = artwork.year || '年份不詳';
+                const size = artwork.sizeCm || artwork.size || '尺寸未註明';
                 const featured = artwork.featured === 'true' || artwork.featured === true;
                 
                 return `
                     <div class="artwork-card">
                         <img src="${imageUrl}" alt="${title}" class="artwork-image" 
-                             onerror="this.src='./images/placeholder/artwork-placeholder.svg'">
+                             onerror="this.src='./images/placeholder/artwork-placeholder-zh.svg'">
                         <div class="artwork-info">
                             <div class="artwork-title">${title}</div>
                             <div class="artwork-meta">
                                 ${year} • ${size}
-                                ${featured ? ' • ⭐ Featured' : ''}
+                                ${featured ? ' • ⭐ 精選' : ''}
                             </div>
                             <div class="artwork-actions">
                                 <button class="btn btn-small" onclick="editArtwork('${artwork.id}')">
-                                    ✏️ Edit
+                                    ✏️ 編輯
                                 </button>
                                 <button class="btn btn-danger btn-small" onclick="deleteArtwork('${artwork.id}')">
-                                    🗑️ Delete
+                                    🗑️ 刪除
                                 </button>
                             </div>
                         </div>
@@ -917,13 +923,13 @@
                 
                 // Sync to window object for GitHub integration
                 window.artworks = artworks;
-                console.log(`✅ Loaded and synced ${artworks.length} artworks`);
+                console.log(`✅ 載入並同步了 ${artworks.length} 件作品`);
                 
                 renderArtworks();
                 updateStats();
             } catch (error) {
                 console.error('Error loading artworks:', error);
-                showMessage(`Failed to load artworks: ${error.message}`, 'error');
+                showMessage(`載入作品失敗：${error.message}`, 'error');
             }
         }
 
@@ -937,12 +943,12 @@
                 if (!file) return;
 
                 if (file.size > 50 * 1024 * 1024) {
-                    showMessage('Image too large. Please use images under 50MB.', 'error');
+                    showMessage('圖片太大，請使用 50MB 以下的圖片。', 'error');
                     return;
                 }
 
                 if (!file.type.startsWith('image/')) {
-                    showMessage('Please select a valid image file.', 'error');
+                    showMessage('請選擇有效的圖片檔案。', 'error');
                     return;
                 }
 
@@ -959,12 +965,12 @@
                 
                 previewImg.src = uploadedImages[artworkId].localPreview;
                 previewImg.style.display = 'block';
-                uploadText.innerHTML = '<div style="color: #28a745;">📸 Image ready for upload<br><small>Will be uploaded when you publish</small></div>';
+                uploadText.innerHTML = '<div style="color: #28a745;">📸 圖片已準備上傳<br><small>將在發布時上傳</small></div>';
 
-                console.log('✅ Image stored locally, ready for publish');
+                console.log('✅ 圖片已儲存在本地，準備發布');
             });
             
-            console.log('✅ Using local-only image preview');
+            console.log('✅ 使用本地圖片預覽');
         }
 
         // Form submission
@@ -981,7 +987,7 @@
                 const size = document.getElementById('artworkSize').value.trim();
                 
                 if (!title || !year || !size) {
-                    showMessage('Title, Year, and Size are required!', 'error');
+                    showMessage('標題、年份和尺寸為必填欄位！', 'error');
                     return;
                 }
                 
@@ -1002,9 +1008,13 @@
                     image: '', // Will be populated during publish if image uploaded
                     imageHigh: '', // Will be populated during publish if image uploaded
                     description: document.getElementById('artworkDescription').value.trim(),
+                    curatorNote: document.getElementById('artworkCuratorNote').value.trim(),
+                    curatorNoteEn: '', // 英文版本之後翻譯
                     format: document.getElementById('artworkFormat').value,
+                    formatEn: '', // 英文版本之後翻譯
                     mediumEn: document.getElementById('artworkMedium').value.trim(),
                     sizeCm: size,
+                    sizeInches: '', // 英制尺寸之後轉換
                     year: year,
                     price: document.getElementById('artworkPrice').value.trim(),
                     available: document.getElementById('artworkAvailable').checked,
@@ -1023,9 +1033,9 @@
                 const saveStatus = document.getElementById('saveStatus');
                 
                 publishBtn.disabled = false;
-                saveStatus.innerHTML = '⚠️ Draft saved locally - will be lost if browser closes';
+                saveStatus.innerHTML = '⚠️ 草稿已儲存在本地 - 瀏覽器關閉將會遺失';
                 
-                showMessage('Draft saved! Click "Publish" to make it live.', 'success');
+                showMessage('草稿已儲存！點擊「發布」使其生效。', 'success');
             });
 
             // Modal close on outside click
@@ -1046,7 +1056,7 @@
         window.publishArtwork = publishArtwork;
         window.undoDelete = undoDelete;
 
-        console.log('✅ Admin interface loaded successfully!');
+        console.log('✅ 管理介面載入成功！');
     </script>
 </body>
 </html>
