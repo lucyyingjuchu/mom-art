@@ -875,7 +875,7 @@ class ChineseArtPortfolio {
         const spanClass = `featured-item-span-${span}`;
         
         return `
-            <div class="featured-item ${spanClass}" onclick="openLightbox('${artwork.id}')">
+            <div class="featured-item ${spanClass}" onclick="openLightbox('${artwork.id}', 'featured')">
                 <div class="featured-image-container">
                     <img src="${imageUrl}" alt="${title}" 
                          onerror="this.src='./images/placeholder/artwork-placeholder.svg'"
