@@ -1183,42 +1183,10 @@
         function setupImageUpload() {
             const imageInput = document.getElementById('imageInput');
             
-            // Always use local-only preview (no immediate GitHub upload)
-            imageInput.addEventListener('change', function(event) {
-                const file = event.target.files[0];
-                if (!file) return;
+            // Use GitHub upload with immediate upload
+            imageInput.addEventListener('change', handleImageUploadWithGitHub);
+            console.log('✅ 使用 GitHub 圖片上傳');
 
-                if (file.size > 50 * 1024 * 1024) {
-                    showMessage('圖片太大，請使用 50MB 以下的圖片。', 'error');
-                    return;
-                }
-
-                if (!file.type.startsWith('image/')) {
-                    showMessage('請選擇有效的圖片檔案。', 'error');
-                    return;
-                }
-
-                // Store file for later upload during publish
-                const artworkId = currentEditingId || 'pending';
-                uploadedImages[artworkId] = {
-                    file: file,
-                    localPreview: URL.createObjectURL(file)
-                };
-
-                // Show local preview
-                const previewImg = document.getElementById('previewImage');
-                const uploadText = document.getElementById('uploadText');
-                const imageControls = document.getElementById('imageControls');
-                
-                previewImg.src = uploadedImages[artworkId].localPreview;
-                previewImg.style.display = 'block';
-                uploadText.innerHTML = '<div style="color: #28a745;">📸 圖片已準備上傳<br><small>將在發布時上傳</small></div>';
-                imageControls.style.display = 'block';
-
-                console.log('✅ 圖片已儲存在本地，準備發布');
-            });
-            
-            console.log('✅ 使用本地圖片預覽');
         }
 
         // Form submission
