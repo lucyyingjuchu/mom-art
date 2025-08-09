@@ -4256,25 +4256,6 @@
     "curatorNoteEn": ""
   },
   {
-    "id": "unknown_093",
-    "title": "雲端北峰風在吹",
-    "titleEn": "Wind Blows on the Northern Peak Above the Clouds",
-    "image": "./images/paintings/thumbnails/unknown_093_thumb.png",
-    "imageHigh": "./images/paintings/large/unknown_093_large.png",
-    "description": null,
-    "descriptionEn": "",
-    "format": null,
-    "mediumEn": "",
-    "sizeCm": "75x70",
-    "sizeInches": "29.5×27.6 inches",
-    "year": "unknown",
-    "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": ""
-  },
-  {
     "id": "unknown_094",
     "title": "雲自來去花自紅─玉山‧杜鵑‧雲海",
     "titleEn": "Clouds Come and Go, Flowers Bloom in Their Time: Yushan, Azalea, Sea of Clouds",
@@ -4311,24 +4292,5 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": ""
-  },
-  {
-    "id": "2025_001",
-    "title": "test",
-    "titleEn": "Essence of Time",
-    "image": "",
-    "imageHigh": "",
-    "description": "",
-    "format": "軸",
-    "mediumEn": "",
-    "sizeCm": "135x70",
-    "year": "2025",
-    "price": "",
-    "available": false,
-    "featured": false,
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll",
-    "sizeInches": "53.1×27.6 inches"
   }
 ]
