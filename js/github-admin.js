@@ -609,52 +609,6 @@ class GitHubUploader {
 // Initialize uploader
 const githubUploader = new GitHubUploader(GITHUB_CONFIG);
 
-// Process multiple artworks for reorganization - PROPERLY GLOBAL
-async function processArtworksForReorganization(artworksToProcess, onProgress) {
-    console.log(`🔄 Processing ${artworksToProcess.length} artworks for reorganization...`);
-    
-    const results = [];
-    const total = artworksToProcess.length;
-    
-    for (let i = 0; i < artworksToProcess.length; i++) {
-        const { artwork, newId } = artworksToProcess[i];
-        
-        try {
-            const overallProgress = (i / total) * 100;
-            onProgress?.(`Processing ${i + 1}/${total}: ${artwork.title}`, overallProgress);
-            
-            const result = await githubUploader.processArtworkForReorganization(
-                artwork, 
-                newId,
-                (subMessage, subProgress) => {
-                    const adjustedProgress = overallProgress + (subProgress / total);
-                    onProgress?.(subMessage, adjustedProgress);
-                }
-            );
-            
-            results.push({
-                artwork: artwork,
-                newId: newId,
-                result: result
-            });
-            
-        } catch (error) {
-            console.error(`Failed to process ${artwork.id}:`, error);
-            results.push({
-                artwork: artwork,
-                newId: newId,
-                result: { success: false, error: error.message }
-            });
-        }
-    }
-    
-    const successful = results.filter(r => r.result.success).length;
-    const failed = results.filter(r => !r.result.success).length;
-    
-    console.log(`✅ Reorganization processing complete: ${successful} successful, ${failed} failed`);
-    
-    return results;
-}
 
 // Upload new artwork
 async function handleImageUploadWithGitHub(event) {
@@ -662,12 +616,12 @@ async function handleImageUploadWithGitHub(event) {
     if (!file) return;
 
     if (file.size > 50 * 1024 * 1024) {
-        showMessage('Image too large. Please use images under 50MB.', 'error');
+        showMessage('圖片太大，請使用 50MB 以下的圖片。', 'error');
         return;
     }
 
     if (!file.type.startsWith('image/')) {
-        showMessage('Please select a valid image file.', 'error');
+        showMessage('請選擇有效的圖片檔案。', 'error');
         return;
     }
 
@@ -698,16 +652,22 @@ async function handleImageUploadWithGitHub(event) {
             localPreview: URL.createObjectURL(file)
         };
 
+        // 更新顯示控制按鈕
+        const imageControls = document.getElementById('imageControls');
+        if (imageControls) {
+            imageControls.style.display = 'block';
+        }
+
         document.getElementById('uploadText').innerHTML = `
             <div style="color: #27ae60;">
-                ✅ Successfully uploaded to GitHub!<br>
-                📁 Thumbnail & Large version created<br>
-                🌐 Images ready for deployment<br>
+                ✅ 圖片上傳成功！<br>
+                📁 已建立縮圖和大圖<br>
+                🌐 圖片準備發布<br>
             </div>
         `;
 
         setTimeout(() => progressContainer.remove(), 3000);
-        showMessage('Images uploaded to GitHub successfully!', 'success');
+        showMessage('圖片已成功上傳！', 'success');
 
     } catch (error) {
         console.error('GitHub upload failed:', error);
@@ -716,9 +676,17 @@ async function handleImageUploadWithGitHub(event) {
         const progressContainer = document.querySelector('.upload-progress-container');
         if (progressContainer) progressContainer.remove();
         
-        // Fallback to basic upload
-        handleBasicImageUpload(event);
-        showMessage(`GitHub upload failed: ${error.message}. Using local processing.`, 'error');
+        // 不呼叫不存在的 handleBasicImageUpload
+        // 只顯示錯誤訊息
+        showMessage(`圖片上傳失敗：${error.message}`, 'error');
+        
+        // 顯示失敗狀態
+        document.getElementById('uploadText').innerHTML = `
+            <div style="color: #dc3545;">
+                ❌ 上傳失敗<br>
+                <small>請稍後再試</small>
+            </div>
+        `;
     }
 }
 

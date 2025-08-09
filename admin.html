@@ -826,7 +826,7 @@
                         if (attempts < maxAttempts) {
                             setTimeout(checkStatus, 5000); // Check again in 5 seconds
                         } else {
-                            showMessage('部署檢查超時，請手動確認網站更新狀態。', 'warning');
+                            showMessage('發佈檢查超時，請手動確認網站更新狀態。', 'warning');
                         }
                         return;
                     }
@@ -834,7 +834,7 @@
                     // This is our deployment
                     if (data.status === 'ready') {
                         // Deployment successful!
-                        showMessage(`✅ 作品「${artworkTitle}」已成功部署到網站！`, 'success');
+                        showMessage(`✅ 作品「${artworkTitle}」已成功發佈到網站！`, 'success');
                         
                         // Remove deployment notice if exists
                         const deployNotice = document.querySelector('.deployment-notice');
@@ -846,9 +846,9 @@
                         const successNotice = document.createElement('div');
                         successNotice.className = 'success-message';
                         successNotice.innerHTML = `
-                            <strong>🎉 部署完成！</strong><br>
-                            作品「${artworkTitle}」已成功發布到網站。<br>
-                            <a href="https://xiaran.netlify.app" target="_blank" style="color: #155724;">點此查看網站 →</a>
+                            <strong>🎉 發佈完成！</strong><br>
+                            作品「${artworkTitle}」已成功發佈到網站。<br>
+                            <a href="https://xiaoran.netlify.app" target="_blank" style="color: #155724;">點此查看網站 →</a>
                         `;
                         const container = document.querySelector('.container');
                         container.insertBefore(successNotice, container.firstChild.nextSibling);
@@ -970,11 +970,10 @@
                     const deploymentNotice = document.createElement('div');
                     deploymentNotice.className = 'info-message deployment-notice';
                     deploymentNotice.innerHTML = `
-                        <strong>📦 部署狀態</strong><br>
-                        <div id="deployStatus">⏳ Netlify 正在自動部署您的更新...</div>
-                        <small>• 系統將自動檢查部署進度</small><br>
-                        <small>• 部署完成後會通知您</small><br>
-                        <small>• 您也可以前往 <a href="https://app.netlify.com/sites/xiaran/deploys" target="_blank" style="color: #0c5460;">Netlify 控制台</a> 查看</small>
+                        <strong>📦 發佈狀態</strong><br>
+                        <div id="deployStatus">⏳ Netlify 正在自動發佈您的更新...</div>
+                        <small>• 系統將自動檢查發佈進度</small><br>
+                        <small>• 發佈完成後會通知您</small><br>
                     `;
                     
                     const container = document.querySelector('.container');
@@ -984,15 +983,15 @@
                     checkDeploymentStatus(deployStartTime, draft.title);
                     
                 } catch (deployError) {
-                    console.error('部署失敗:', deployError);
-                    saveStatus.innerHTML = '❌ 發布失敗';
+                    console.error('發佈失敗:', deployError);
+                    saveStatus.innerHTML = '❌ 發佈失敗';
                     publishBtn.disabled = false;
                     
                     // 更詳細的錯誤訊息
                     if (deployError.message.includes('JSON')) {
-                        showMessage('發布失敗：伺服器回應格式錯誤，可能是檔案太大或網路問題。請稍後再試。', 'error');
+                        showMessage('發佈失敗：伺服器回應格式錯誤，可能是檔案太大或網路問題。請稍後再試。', 'error');
                     } else {
-                        showMessage(`發布失敗：${deployError.message}`, 'error');
+                        showMessage(`發佈失敗：${deployError.message}`, 'error');
                     }
                     
                     return; // 停止執行
@@ -1265,9 +1264,18 @@
                     tags: []
                 };
                 
+                // 🔴 關鍵修正：檢查是否有已上傳的圖片路徑
+                if (uploadedImages[artworkId] && uploadedImages[artworkId].githubUpload) {
+                    formData.image = uploadedImages[artworkId].githubUpload.artworkData.image;
+                    formData.imageHigh = uploadedImages[artworkId].githubUpload.artworkData.imageHigh;
+                    console.log('使用已上傳的圖片路徑:', formData.image, formData.imageHigh);
+                }
+                
                 // Save as local draft
                 const draftId = currentEditingId || 'new';
                 localDrafts[draftId] = formData;
+                
+                console.log('草稿已保存:', draftId, formData);
                 
                 // Update UI
                 const publishBtn = document.getElementById('publishBtn');
@@ -1278,7 +1286,6 @@
                 
                 showMessage('草稿已儲存！點擊「發布」使其生效。', 'success');
             });
-
             // Modal close on outside click
             window.onclick = function(event) {
                 const modal = document.getElementById('artworkModal');
