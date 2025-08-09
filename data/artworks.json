@@ -4370,5 +4370,29 @@
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
     "sizeInches": "53.1×27.6 inches"
+  },
+  {
+    "id": "2023_001",
+    "title": "test",
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "",
+    "image": "",
+    "imageHigh": "",
+    "description": "",
+    "curatorNote": "",
+    "curatorNoteEn": "",
+    "format": "",
+    "formatEn": "",
+    "mediumEn": "",
+    "sizeCm": "130x 75",
+    "sizeInches": "",
+    "year": "2023",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "recent": true,
+    "exhibitions": [],
+    "tags": []
   }
 ]
