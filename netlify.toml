@@ -1,7 +1,2 @@
-[[edge_functions]]
-path = "/netlify/functions/githubProxy"
-function = "githubProxy"
-
 [build]
-directory = "netlify/functions/deployStatus"
-function = "deployStatus"
+functions = "functions"
