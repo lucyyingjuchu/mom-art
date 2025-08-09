@@ -4375,5 +4375,29 @@
     "recent": true,
     "exhibitions": [],
     "tags": []
+  },
+  {
+    "id": "2023_002",
+    "title": "test",
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "",
+    "image": "./images/paintings/thumbnails/2023_002_thumb.png",
+    "imageHigh": "./images/paintings/large/2023_002_large.png",
+    "description": "",
+    "curatorNote": "",
+    "curatorNoteEn": "",
+    "format": "鏡片",
+    "formatEn": "",
+    "mediumEn": "",
+    "sizeCm": "135x70",
+    "sizeInches": "",
+    "year": "2023",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "recent": true,
+    "exhibitions": [],
+    "tags": []
   }
 ]
