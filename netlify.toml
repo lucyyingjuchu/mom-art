@@ -2,5 +2,6 @@
 path = "/netlify/functions/githubProxy"
 function = "githubProxy"
 
-[functions]
-directory = "netlify/functions"
+[build]
+directory = "netlify/functions/deployStatus"
+function = "deployStatus"

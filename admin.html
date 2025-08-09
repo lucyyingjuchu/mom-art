@@ -908,22 +908,37 @@
 
                 // Handle image upload during publish
                 const pendingImageKey = currentEditingId || 'pending';
-                if (uploadedImages[pendingImageKey] && uploadedImages[pendingImageKey].file) {
+                
+                // Check if image was cleared
+                if (uploadedImages[pendingImageKey] && uploadedImages[pendingImageKey].cleared) {
+                    // Image was cleared - ensure empty strings for image paths
+                    draft.image = '';
+                    draft.imageHigh = '';
+                    console.log('圖片已清除，設定為空字串');
+                    
+                } else if (uploadedImages[pendingImageKey] && uploadedImages[pendingImageKey].file) {
+                    // New image uploaded
                     saveStatus.innerHTML = '📤 上傳圖片至 GitHub...';
                     
-                    const uploadResult = await window.githubUploader.uploadArtwork(
-                        uploadedImages[pendingImageKey].file,
-                        { id: draft.id, title: draft.title }
-                    );
+                    try {
+                        const uploadResult = await window.githubUploader.uploadArtwork(
+                            uploadedImages[pendingImageKey].file,
+                            { id: draft.id, title: draft.title }
+                        );
 
-                    // Update draft with uploaded image paths - 只有在上傳新圖片時才更新路徑
-                    draft.image = `./images/paintings/thumbnails/${draft.id}_thumb.png`;
-                    draft.imageHigh = `./images/paintings/large/${draft.id}_large.png`;
-                    
-                    // Clean up local file reference
-                    URL.revokeObjectURL(uploadedImages[pendingImageKey].localPreview);
-                    delete uploadedImages[pendingImageKey];
+                        // Update draft with uploaded image paths - 只有在上傳新圖片時才更新路徑
+                        draft.image = `./images/paintings/thumbnails/${draft.id}_thumb.png`;
+                        draft.imageHigh = `./images/paintings/large/${draft.id}_large.png`;
+                        
+                        // Clean up local file reference
+                        URL.revokeObjectURL(uploadedImages[pendingImageKey].localPreview);
+                        delete uploadedImages[pendingImageKey];
+                    } catch (uploadError) {
+                        console.error('圖片上傳失敗:', uploadError);
+                        showMessage('圖片上傳失敗，但會繼續儲存其他資料', 'warning');
+                    }
                 }
+                // else: keep existing image paths (no change)
 
                 // Update local artworks array
                 if (currentEditingId) {
@@ -937,34 +952,51 @@
 
                 // Deploy to GitHub
                 saveStatus.innerHTML = '🌐 更新網站中...';
-                await window.githubUploader.updateArtworksJson(artworks);
                 
-                // Record deployment start time
-                const deployStartTime = Date.now();
-                
-                // Success with deployment notice
-                saveStatus.innerHTML = '✅ 已提交更新';
-                publishBtn.disabled = false;
-                
-                // Show deployment tracking message
-                showMessage(`作品「${draft.title}」已成功提交！正在監控部署狀態...`, 'success');
-                
-                // Add deployment status notice
-                const deploymentNotice = document.createElement('div');
-                deploymentNotice.className = 'info-message deployment-notice';
-                deploymentNotice.innerHTML = `
-                    <strong>📦 部署狀態</strong><br>
-                    <div id="deployStatus">⏳ Netlify 正在自動部署您的更新...</div>
-                    <small>• 系統將自動檢查部署進度</small><br>
-                    <small>• 部署完成後會通知您</small><br>
-                    <small>• 您也可以前往 <a href="https://app.netlify.com/sites/xiaran/deploys" target="_blank" style="color: #0c5460;">Netlify 控制台</a> 查看</small>
-                `;
-                
-                const container = document.querySelector('.container');
-                container.insertBefore(deploymentNotice, container.firstChild.nextSibling);
-                
-                // Start checking deployment status
-                checkDeploymentStatus(deployStartTime, draft.title);
+                try {
+                    await window.githubUploader.updateArtworksJson(artworks);
+                    
+                    // Record deployment start time
+                    const deployStartTime = Date.now();
+                    
+                    // Success with deployment notice
+                    saveStatus.innerHTML = '✅ 已提交更新';
+                    publishBtn.disabled = false;
+                    
+                    // Show deployment tracking message
+                    showMessage(`作品「${draft.title}」已成功提交！正在監控部署狀態...`, 'success');
+                    
+                    // Add deployment status notice
+                    const deploymentNotice = document.createElement('div');
+                    deploymentNotice.className = 'info-message deployment-notice';
+                    deploymentNotice.innerHTML = `
+                        <strong>📦 部署狀態</strong><br>
+                        <div id="deployStatus">⏳ Netlify 正在自動部署您的更新...</div>
+                        <small>• 系統將自動檢查部署進度</small><br>
+                        <small>• 部署完成後會通知您</small><br>
+                        <small>• 您也可以前往 <a href="https://app.netlify.com/sites/xiaran/deploys" target="_blank" style="color: #0c5460;">Netlify 控制台</a> 查看</small>
+                    `;
+                    
+                    const container = document.querySelector('.container');
+                    container.insertBefore(deploymentNotice, container.firstChild.nextSibling);
+                    
+                    // Start checking deployment status
+                    checkDeploymentStatus(deployStartTime, draft.title);
+                    
+                } catch (deployError) {
+                    console.error('部署失敗:', deployError);
+                    saveStatus.innerHTML = '❌ 發布失敗';
+                    publishBtn.disabled = false;
+                    
+                    // 更詳細的錯誤訊息
+                    if (deployError.message.includes('JSON')) {
+                        showMessage('發布失敗：伺服器回應格式錯誤，可能是檔案太大或網路問題。請稍後再試。', 'error');
+                    } else {
+                        showMessage(`發布失敗：${deployError.message}`, 'error');
+                    }
+                    
+                    return; // 停止執行
+                }
                 
                 // Clean up
                 delete localDrafts[draftId];
