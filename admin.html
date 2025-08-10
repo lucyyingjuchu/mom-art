@@ -760,32 +760,44 @@
             try {
                 // Delete images and update JSON
                 if (window.githubUploader) {
-                    try {
-                        // Delete thumbnail
-                        if (artwork.image) {
-                            const thumbnailPath = artwork.image.replace('./images/paintings/', 'images/paintings/');
-                            await window.githubUploader.deleteFile(thumbnailPath, `Delete thumbnail for ${artwork.title}`);
-                        }
-                    } catch (error) {
-                        console.log('縮圖可能不存在或已刪除:', error);
+                    // 修正圖片路徑（確保格式正確）
+                    const promises = [];
+                    
+                    // Delete thumbnail - 使用正確的路徑格式
+                    if (artwork.image) {
+                        const thumbnailPath = artwork.image
+                            .replace('./images/paintings/', 'images/paintings/')
+                            .replace('images/paintings/images/paintings/', 'images/paintings/'); // 避免重複
+                            
+                        console.log('刪除縮圖:', thumbnailPath);
+                        promises.push(
+                            window.githubUploader.deleteFile(thumbnailPath, `Delete thumbnail for ${artwork.title}`)
+                                .catch(err => console.log('縮圖可能不存在:', err))
+                        );
                     }
                     
-                    try {
-                        // Delete large image  
-                        if (artwork.imageHigh) {
-                            const largePath = artwork.imageHigh.replace('./images/paintings/', 'images/paintings/');
-                            await window.githubUploader.deleteFile(largePath, `Delete large image for ${artwork.title}`);
-                        }
-                    } catch (error) {
-                        console.log('大圖可能不存在或已刪除:', error);
+                    // Delete large image - 使用正確的路徑格式
+                    if (artwork.imageHigh) {
+                        const largePath = artwork.imageHigh
+                            .replace('./images/paintings/', 'images/paintings/')
+                            .replace('images/paintings/images/paintings/', 'images/paintings/'); // 避免重複
+                            
+                        console.log('刪除大圖:', largePath);
+                        promises.push(
+                            window.githubUploader.deleteFile(largePath, `Delete large image for ${artwork.title}`)
+                                .catch(err => console.log('大圖可能不存在:', err))
+                        );
                     }
+                    
+                    // 等待所有刪除操作
+                    await Promise.all(promises);
 
                     // Update JSON - 這是最重要的步驟
                     await window.githubUploader.updateArtworksJson(artworks);
                     
                     showMessage(`作品「${artwork.title}」已永久刪除。網站將在 2-3 分鐘內更新。`, 'success');
                 } else {
-                    showMessage('作品已在本地刪除。請使用「發布」按鈕發布變更。', 'info');
+                    showMessage('作品已在本地刪除。', 'info');
                 }
                 
                 // Sync with window
@@ -793,17 +805,89 @@
                 
             } catch (error) {
                 console.error('Failed to delete artwork:', error);
-                // 更友善的錯誤訊息
-                if (error.message && error.message.includes('undefined')) {
-                    showMessage(`刪除作品時發生錯誤，但資料可能已更新。請重新整理頁面確認。`, 'warning');
-                } else {
-                    showMessage(`刪除作品失敗：${error.message || '未知錯誤'}`, 'error');
-                }
+                showMessage(`刪除作品失敗：${error.message || '未知錯誤'}`, 'error');
             }
         }
-
         // NEW: Check Netlify deployment status
         async function checkDeploymentStatus(startTime, artworkTitle) {
+            const maxAttempts = 60;
+            let attempts = 0;
+            let initialDeployId = null;
+            
+            // 先取得目前的部署 ID
+            try {
+                const initResponse = await fetch('/.netlify/functions/deployStatus');
+                if (initResponse.ok) {
+                    const initData = await initResponse.json();
+                    initialDeployId = initData.deployId;
+                    console.log('開始監控，目前部署 ID:', initialDeployId);
+                }
+            } catch (error) {
+                console.log('無法取得初始部署狀態');
+            }
+            
+            const checkStatus = async () => {
+                try {
+                    attempts++;
+                    
+                    const response = await fetch('/.netlify/functions/deployStatus');
+                    if (!response.ok) {
+                        throw new Error('Failed to check deployment status');
+                    }
+                    
+                    const data = await response.json();
+                    
+                    // 檢查是否是新的部署（比較 deploy ID 而不是時間）
+                    if (initialDeployId && data.deployId !== initialDeployId) {
+                        console.log('偵測到新部署！', data.deployId);
+                        
+                        if (data.status === 'ready') {
+                            // 部署成功！
+                            showMessage(`✅ 作品「${artworkTitle}」已成功發布到網站！`, 'success');
+                            
+                            // 移除部署通知
+                            const deployNotice = document.querySelector('.deployment-notice');
+                            if (deployNotice) {
+                                deployNotice.remove();
+                            }
+                            
+                            // 顯示成功通知
+                            const successNotice = document.createElement('div');
+                            successNotice.className = 'success-message';
+                            successNotice.innerHTML = `
+                                <strong>🎉 發布完成！</strong><br>
+                                作品「${artworkTitle}」已成功發布到網站。<br>
+                                <a href="https://xiaran.netlify.app" target="_blank" style="color: #155724;">點此查看網站 →</a>
+                            `;
+                            const container = document.querySelector('.container');
+                            container.insertBefore(successNotice, container.firstChild.nextSibling);
+                            
+                            setTimeout(() => successNotice.remove(), 10000);
+                            return; // 停止檢查
+                            
+                        } else if (data.status === 'building' || data.status === 'processing') {
+                            console.log('還在建構中...');
+                        }
+                    }
+                    
+                    // 繼續檢查
+                    if (attempts < maxAttempts) {
+                        setTimeout(checkStatus, 5000);
+                    } else {
+                        showMessage('發布檢查超時，請手動確認網站更新狀態。', 'warning');
+                    }
+                    
+                } catch (error) {
+                    console.error('Error checking deployment:', error);
+                    if (attempts === 1) {
+                        showMessage(`作品「${artworkTitle}」已提交，預計 2-3 分鐘後生效。`, 'info');
+                    }
+                }
+            };
+            
+            // 等待 10 秒後開始檢查（讓 Netlify 有時間開始部署）
+            setTimeout(checkStatus, 10000);
+        }
             const maxAttempts = 60; // 最多檢查 5 分鐘 (60 * 5秒)
             let attempts = 0;
             
