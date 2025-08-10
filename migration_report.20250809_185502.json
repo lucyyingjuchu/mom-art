@@ -1,0 +1,3107 @@
+{
+  "timestamp": "20250809_185502",
+  "root": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art",
+  "json_input": "data/artworks.json",
+  "json_output": "(dry-run)",
+  "id_scheme": "uuidv7",
+  "delete_orphans": false,
+  "dry_run": true,
+  "counts": {
+    "json_entries": 221,
+    "fs_ids_seen": 98,
+    "orphan_files": 19,
+    "missing_path_clears": 267,
+    "planned_moves": 175,
+    "deleted_files": 0
+  },
+  "missing_path_clears": [
+    {
+      "entry_index": 2,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2011_001_thumb.png"
+    },
+    {
+      "entry_index": 2,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2011_001_large.png"
+    },
+    {
+      "entry_index": 3,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2011_002_thumb.png"
+    },
+    {
+      "entry_index": 3,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2011_002_large.png"
+    },
+    {
+      "entry_index": 4,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2011_003_thumb.png"
+    },
+    {
+      "entry_index": 4,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2011_003_large.png"
+    },
+    {
+      "entry_index": 5,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2011_004_thumb.png"
+    },
+    {
+      "entry_index": 5,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2011_004_large.png"
+    },
+    {
+      "entry_index": 6,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2011_006_thumb.png"
+    },
+    {
+      "entry_index": 6,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2011_006_large.png"
+    },
+    {
+      "entry_index": 7,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2011_007_thumb.png"
+    },
+    {
+      "entry_index": 7,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2011_007_large.png"
+    },
+    {
+      "entry_index": 8,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2011_008_thumb.png"
+    },
+    {
+      "entry_index": 8,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2011_008_large.png"
+    },
+    {
+      "entry_index": 10,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2011_010_thumb.png"
+    },
+    {
+      "entry_index": 10,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2011_010_large.png"
+    },
+    {
+      "entry_index": 11,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2011_011_thumb.png"
+    },
+    {
+      "entry_index": 11,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2011_011_large.png"
+    },
+    {
+      "entry_index": 12,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2011_013_thumb.png"
+    },
+    {
+      "entry_index": 12,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2011_013_large.png"
+    },
+    {
+      "entry_index": 13,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2011_014_thumb.png"
+    },
+    {
+      "entry_index": 13,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2011_014_large.png"
+    },
+    {
+      "entry_index": 14,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2011_015_thumb.png"
+    },
+    {
+      "entry_index": 14,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2011_015_large.png"
+    },
+    {
+      "entry_index": 15,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2011_016_thumb.png"
+    },
+    {
+      "entry_index": 15,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2011_016_large.png"
+    },
+    {
+      "entry_index": 16,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2011_017_thumb.png"
+    },
+    {
+      "entry_index": 16,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2011_017_large.png"
+    },
+    {
+      "entry_index": 17,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2011_018_thumb.png"
+    },
+    {
+      "entry_index": 17,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2011_018_large.png"
+    },
+    {
+      "entry_index": 18,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2011_019_thumb.png"
+    },
+    {
+      "entry_index": 18,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2011_019_large.png"
+    },
+    {
+      "entry_index": 19,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2011_020_thumb.png"
+    },
+    {
+      "entry_index": 19,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2011_020_large.png"
+    },
+    {
+      "entry_index": 20,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2016_001_thumb.png"
+    },
+    {
+      "entry_index": 20,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2016_001_large.png"
+    },
+    {
+      "entry_index": 21,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2016_002_thumb.png"
+    },
+    {
+      "entry_index": 21,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2016_002_large.png"
+    },
+    {
+      "entry_index": 22,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2016_003_thumb.png"
+    },
+    {
+      "entry_index": 22,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2016_003_large.png"
+    },
+    {
+      "entry_index": 23,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2017_001_thumb.png"
+    },
+    {
+      "entry_index": 23,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2017_001_large.png"
+    },
+    {
+      "entry_index": 24,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2017_002_thumb.png"
+    },
+    {
+      "entry_index": 24,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2017_002_large.png"
+    },
+    {
+      "entry_index": 26,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2017_004_thumb.png"
+    },
+    {
+      "entry_index": 26,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2017_004_large.png"
+    },
+    {
+      "entry_index": 27,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2017_005_thumb.png"
+    },
+    {
+      "entry_index": 27,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2017_005_large.png"
+    },
+    {
+      "entry_index": 28,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2018_001_thumb.png"
+    },
+    {
+      "entry_index": 28,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2018_001_large.png"
+    },
+    {
+      "entry_index": 30,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2018_003_thumb.png"
+    },
+    {
+      "entry_index": 30,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2018_003_large.png"
+    },
+    {
+      "entry_index": 32,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2018_005_thumb.png"
+    },
+    {
+      "entry_index": 32,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2018_005_large.png"
+    },
+    {
+      "entry_index": 33,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2018_006_thumb.png"
+    },
+    {
+      "entry_index": 33,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2018_006_large.png"
+    },
+    {
+      "entry_index": 34,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2018_007_thumb.png"
+    },
+    {
+      "entry_index": 34,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2018_007_large.png"
+    },
+    {
+      "entry_index": 36,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2018_009_thumb.png"
+    },
+    {
+      "entry_index": 36,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2018_009_large.png"
+    },
+    {
+      "entry_index": 38,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2018_011_thumb.png"
+    },
+    {
+      "entry_index": 38,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2018_011_large.png"
+    },
+    {
+      "entry_index": 40,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2018_013_thumb.png"
+    },
+    {
+      "entry_index": 40,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2018_013_large.png"
+    },
+    {
+      "entry_index": 41,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2018_014_thumb.png"
+    },
+    {
+      "entry_index": 41,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2018_014_large.png"
+    },
+    {
+      "entry_index": 42,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2018_015_thumb.png"
+    },
+    {
+      "entry_index": 42,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2018_015_large.png"
+    },
+    {
+      "entry_index": 43,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2018_016_thumb.png"
+    },
+    {
+      "entry_index": 43,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2018_016_large.png"
+    },
+    {
+      "entry_index": 44,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2018_017_thumb.png"
+    },
+    {
+      "entry_index": 44,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2018_017_large.png"
+    },
+    {
+      "entry_index": 46,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2018_019_thumb.png"
+    },
+    {
+      "entry_index": 46,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2018_019_large.png"
+    },
+    {
+      "entry_index": 47,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2018_020_thumb.png"
+    },
+    {
+      "entry_index": 47,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2018_020_large.png"
+    },
+    {
+      "entry_index": 55,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2019_004_thumb.png"
+    },
+    {
+      "entry_index": 55,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2019_004_large.png"
+    },
+    {
+      "entry_index": 56,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2020_001_thumb.png"
+    },
+    {
+      "entry_index": 56,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2020_001_large.png"
+    },
+    {
+      "entry_index": 59,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2020_004_thumb.png"
+    },
+    {
+      "entry_index": 59,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2020_004_large.png"
+    },
+    {
+      "entry_index": 63,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2021_004_thumb.png"
+    },
+    {
+      "entry_index": 63,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2021_004_large.png"
+    },
+    {
+      "entry_index": 64,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2021_005_thumb.png"
+    },
+    {
+      "entry_index": 64,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2021_005_large.png"
+    },
+    {
+      "entry_index": 65,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2021_006_thumb.png"
+    },
+    {
+      "entry_index": 65,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2021_006_large.png"
+    },
+    {
+      "entry_index": 66,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2021_007_thumb.png"
+    },
+    {
+      "entry_index": 66,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2021_007_large.png"
+    },
+    {
+      "entry_index": 67,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2021_008_thumb.png"
+    },
+    {
+      "entry_index": 67,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2021_008_large.png"
+    },
+    {
+      "entry_index": 73,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2021_014_thumb.png"
+    },
+    {
+      "entry_index": 73,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2021_014_large.png"
+    },
+    {
+      "entry_index": 82,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2021_023_thumb.png"
+    },
+    {
+      "entry_index": 82,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2021_023_large.png"
+    },
+    {
+      "entry_index": 84,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2021_025_thumb.png"
+    },
+    {
+      "entry_index": 84,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2021_025_large.png"
+    },
+    {
+      "entry_index": 85,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2021_026_thumb.png"
+    },
+    {
+      "entry_index": 85,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2021_026_large.png"
+    },
+    {
+      "entry_index": 86,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2021_027_thumb.png"
+    },
+    {
+      "entry_index": 86,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2021_027_large.png"
+    },
+    {
+      "entry_index": 88,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2021_029_thumb.png"
+    },
+    {
+      "entry_index": 88,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2021_029_large.png"
+    },
+    {
+      "entry_index": 89,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2021_030_thumb.png"
+    },
+    {
+      "entry_index": 89,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2021_030_large.png"
+    },
+    {
+      "entry_index": 90,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2021_031_thumb.png"
+    },
+    {
+      "entry_index": 90,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2021_031_large.png"
+    },
+    {
+      "entry_index": 91,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2021_032_thumb.png"
+    },
+    {
+      "entry_index": 91,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2021_032_large.png"
+    },
+    {
+      "entry_index": 92,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2021_033_thumb.png"
+    },
+    {
+      "entry_index": 92,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2021_033_large.png"
+    },
+    {
+      "entry_index": 94,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2021_035_thumb.png"
+    },
+    {
+      "entry_index": 94,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2021_035_large.png"
+    },
+    {
+      "entry_index": 96,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/2021_037_thumb.png"
+    },
+    {
+      "entry_index": 96,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/2021_037_large.png"
+    },
+    {
+      "entry_index": 144,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_001_thumb.png"
+    },
+    {
+      "entry_index": 144,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_001_large.png"
+    },
+    {
+      "entry_index": 145,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_002_thumb.png"
+    },
+    {
+      "entry_index": 145,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_002_large.png"
+    },
+    {
+      "entry_index": 146,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_004_thumb.png"
+    },
+    {
+      "entry_index": 146,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_004_large.png"
+    },
+    {
+      "entry_index": 147,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_005_thumb.png"
+    },
+    {
+      "entry_index": 147,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_005_large.png"
+    },
+    {
+      "entry_index": 148,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_007_thumb.png"
+    },
+    {
+      "entry_index": 148,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_007_large.png"
+    },
+    {
+      "entry_index": 149,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_009_thumb.png"
+    },
+    {
+      "entry_index": 149,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_009_large.png"
+    },
+    {
+      "entry_index": 150,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_010_thumb.png"
+    },
+    {
+      "entry_index": 150,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_010_large.png"
+    },
+    {
+      "entry_index": 151,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_012_thumb.png"
+    },
+    {
+      "entry_index": 151,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_012_large.png"
+    },
+    {
+      "entry_index": 152,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_013_thumb.png"
+    },
+    {
+      "entry_index": 152,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_013_large.png"
+    },
+    {
+      "entry_index": 153,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_014_thumb.png"
+    },
+    {
+      "entry_index": 153,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_014_large.png"
+    },
+    {
+      "entry_index": 154,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_015_thumb.png"
+    },
+    {
+      "entry_index": 154,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_015_large.png"
+    },
+    {
+      "entry_index": 155,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_016_thumb.png"
+    },
+    {
+      "entry_index": 155,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_016_large.png"
+    },
+    {
+      "entry_index": 156,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_017_thumb.png"
+    },
+    {
+      "entry_index": 156,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_017_large.png"
+    },
+    {
+      "entry_index": 157,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_018_thumb.png"
+    },
+    {
+      "entry_index": 157,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_018_large.png"
+    },
+    {
+      "entry_index": 158,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_019_thumb.png"
+    },
+    {
+      "entry_index": 158,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_019_large.png"
+    },
+    {
+      "entry_index": 159,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_021_thumb.png"
+    },
+    {
+      "entry_index": 159,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_021_large.png"
+    },
+    {
+      "entry_index": 160,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_022_thumb.png"
+    },
+    {
+      "entry_index": 160,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_022_large.png"
+    },
+    {
+      "entry_index": 161,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_024_thumb.png"
+    },
+    {
+      "entry_index": 161,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_024_large.png"
+    },
+    {
+      "entry_index": 162,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_025_thumb.png"
+    },
+    {
+      "entry_index": 162,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_025_large.png"
+    },
+    {
+      "entry_index": 163,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_027_thumb.png"
+    },
+    {
+      "entry_index": 163,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_027_large.png"
+    },
+    {
+      "entry_index": 164,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_028_thumb.png"
+    },
+    {
+      "entry_index": 164,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_028_large.png"
+    },
+    {
+      "entry_index": 165,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_030_thumb.png"
+    },
+    {
+      "entry_index": 165,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_030_large.png"
+    },
+    {
+      "entry_index": 166,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_031_thumb.png"
+    },
+    {
+      "entry_index": 166,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_031_large.png"
+    },
+    {
+      "entry_index": 167,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_032_thumb.png"
+    },
+    {
+      "entry_index": 167,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_032_large.png"
+    },
+    {
+      "entry_index": 169,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_034_thumb.png"
+    },
+    {
+      "entry_index": 169,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_034_large.png"
+    },
+    {
+      "entry_index": 170,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_035_thumb.png"
+    },
+    {
+      "entry_index": 170,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_035_large.png"
+    },
+    {
+      "entry_index": 171,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_036_thumb.png"
+    },
+    {
+      "entry_index": 171,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_036_large.png"
+    },
+    {
+      "entry_index": 172,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_037_thumb.png"
+    },
+    {
+      "entry_index": 172,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_037_large.png"
+    },
+    {
+      "entry_index": 173,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_039_thumb.png"
+    },
+    {
+      "entry_index": 173,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_039_large.png"
+    },
+    {
+      "entry_index": 174,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_040_thumb.png"
+    },
+    {
+      "entry_index": 174,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_040_large.png"
+    },
+    {
+      "entry_index": 175,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_043_thumb.png"
+    },
+    {
+      "entry_index": 175,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_043_large.png"
+    },
+    {
+      "entry_index": 176,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_044_thumb.png"
+    },
+    {
+      "entry_index": 176,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_044_large.png"
+    },
+    {
+      "entry_index": 177,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_045_thumb.png"
+    },
+    {
+      "entry_index": 177,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_045_large.png"
+    },
+    {
+      "entry_index": 178,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_046_thumb.png"
+    },
+    {
+      "entry_index": 178,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_046_large.png"
+    },
+    {
+      "entry_index": 179,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_047_thumb.png"
+    },
+    {
+      "entry_index": 179,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_047_large.png"
+    },
+    {
+      "entry_index": 180,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_049_thumb.png"
+    },
+    {
+      "entry_index": 180,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_049_large.png"
+    },
+    {
+      "entry_index": 181,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_050_thumb.png"
+    },
+    {
+      "entry_index": 181,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_050_large.png"
+    },
+    {
+      "entry_index": 182,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_051_thumb.png"
+    },
+    {
+      "entry_index": 182,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_051_large.png"
+    },
+    {
+      "entry_index": 183,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_052_thumb.png"
+    },
+    {
+      "entry_index": 183,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_052_large.png"
+    },
+    {
+      "entry_index": 184,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_054_thumb.png"
+    },
+    {
+      "entry_index": 184,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_054_large.png"
+    },
+    {
+      "entry_index": 185,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_055_thumb.png"
+    },
+    {
+      "entry_index": 185,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_055_large.png"
+    },
+    {
+      "entry_index": 186,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_056_thumb.png"
+    },
+    {
+      "entry_index": 186,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_056_large.png"
+    },
+    {
+      "entry_index": 187,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_057_thumb.png"
+    },
+    {
+      "entry_index": 187,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_057_large.png"
+    },
+    {
+      "entry_index": 188,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_058_thumb.png"
+    },
+    {
+      "entry_index": 188,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_058_large.png"
+    },
+    {
+      "entry_index": 189,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_059_thumb.png"
+    },
+    {
+      "entry_index": 189,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_059_large.png"
+    },
+    {
+      "entry_index": 190,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_060_thumb.png"
+    },
+    {
+      "entry_index": 190,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_060_large.png"
+    },
+    {
+      "entry_index": 191,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_061_thumb.png"
+    },
+    {
+      "entry_index": 191,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_061_large.png"
+    },
+    {
+      "entry_index": 192,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_062_thumb.png"
+    },
+    {
+      "entry_index": 192,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_062_large.png"
+    },
+    {
+      "entry_index": 193,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_063_thumb.png"
+    },
+    {
+      "entry_index": 193,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_063_large.png"
+    },
+    {
+      "entry_index": 194,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_064_thumb.png"
+    },
+    {
+      "entry_index": 194,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_064_large.png"
+    },
+    {
+      "entry_index": 195,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_066_large.png"
+    },
+    {
+      "entry_index": 196,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_067_thumb.png"
+    },
+    {
+      "entry_index": 196,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_067_large.png"
+    },
+    {
+      "entry_index": 197,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_068_thumb.png"
+    },
+    {
+      "entry_index": 197,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_068_large.png"
+    },
+    {
+      "entry_index": 198,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_069_thumb.png"
+    },
+    {
+      "entry_index": 198,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_069_large.png"
+    },
+    {
+      "entry_index": 199,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_071_thumb.png"
+    },
+    {
+      "entry_index": 199,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_071_large.png"
+    },
+    {
+      "entry_index": 200,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_072_thumb.png"
+    },
+    {
+      "entry_index": 200,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_072_large.png"
+    },
+    {
+      "entry_index": 201,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_073_thumb.png"
+    },
+    {
+      "entry_index": 201,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_073_large.png"
+    },
+    {
+      "entry_index": 202,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_074_thumb.png"
+    },
+    {
+      "entry_index": 202,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_074_large.png"
+    },
+    {
+      "entry_index": 203,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_075_thumb.png"
+    },
+    {
+      "entry_index": 203,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_075_large.png"
+    },
+    {
+      "entry_index": 204,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_076_thumb.png"
+    },
+    {
+      "entry_index": 204,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_076_large.png"
+    },
+    {
+      "entry_index": 205,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_077_thumb.png"
+    },
+    {
+      "entry_index": 205,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_077_large.png"
+    },
+    {
+      "entry_index": 206,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_078_thumb.png"
+    },
+    {
+      "entry_index": 206,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_078_large.png"
+    },
+    {
+      "entry_index": 207,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_080_thumb.png"
+    },
+    {
+      "entry_index": 207,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_080_large.png"
+    },
+    {
+      "entry_index": 208,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_082_thumb.png"
+    },
+    {
+      "entry_index": 208,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_082_large.png"
+    },
+    {
+      "entry_index": 209,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_083_thumb.png"
+    },
+    {
+      "entry_index": 209,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_083_large.png"
+    },
+    {
+      "entry_index": 210,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_085_thumb.png"
+    },
+    {
+      "entry_index": 210,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_085_large.png"
+    },
+    {
+      "entry_index": 211,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_086_thumb.png"
+    },
+    {
+      "entry_index": 211,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_086_large.png"
+    },
+    {
+      "entry_index": 212,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_087_thumb.png"
+    },
+    {
+      "entry_index": 212,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_087_large.png"
+    },
+    {
+      "entry_index": 213,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_088_thumb.png"
+    },
+    {
+      "entry_index": 213,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_088_large.png"
+    },
+    {
+      "entry_index": 214,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_089_thumb.png"
+    },
+    {
+      "entry_index": 214,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_089_large.png"
+    },
+    {
+      "entry_index": 215,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_090_thumb.png"
+    },
+    {
+      "entry_index": 215,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_090_large.png"
+    },
+    {
+      "entry_index": 216,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_091_thumb.png"
+    },
+    {
+      "entry_index": 216,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_091_large.png"
+    },
+    {
+      "entry_index": 217,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_092_thumb.png"
+    },
+    {
+      "entry_index": 217,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_092_large.png"
+    },
+    {
+      "entry_index": 218,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_093_thumb.png"
+    },
+    {
+      "entry_index": 218,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_093_large.png"
+    },
+    {
+      "entry_index": 219,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_094_thumb.png"
+    },
+    {
+      "entry_index": 219,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_094_large.png"
+    },
+    {
+      "entry_index": 220,
+      "field": "image",
+      "old_value": "./images/paintings/thumbnails/unknown_095_thumb.png"
+    },
+    {
+      "entry_index": 220,
+      "field": "imageHigh",
+      "old_value": "./images/paintings/large/unknown_095_large.png"
+    }
+  ],
+  "deleted_files": [],
+  "renames": [
+    {
+      "kind": "thumb",
+      "old_id": "2008_001",
+      "new_id": "019891b0-3a36-7694-9f0a-a30421232214",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2008_001_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a36-7694-9f0a-a30421232214_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a36-7694-9f0a-a30421232214_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2008_001_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a36-7694-9f0a-a30421232214_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2008_001",
+      "new_id": "019891b0-3a36-7694-9f0a-a30421232214",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2008_001_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a36-7694-9f0a-a30421232214_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a36-7694-9f0a-a30421232214_large.png",
+      "old_rel": "images/paintings/large/2008_001_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a36-7694-9f0a-a30421232214_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2010_001",
+      "new_id": "019891b0-3a36-7a2d-aa8d-b333792d5c4b",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2010_001_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a36-7a2d-aa8d-b333792d5c4b_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a36-7a2d-aa8d-b333792d5c4b_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2010_001_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a36-7a2d-aa8d-b333792d5c4b_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2010_001",
+      "new_id": "019891b0-3a36-7a2d-aa8d-b333792d5c4b",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2010_001_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a36-7a2d-aa8d-b333792d5c4b_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a36-7a2d-aa8d-b333792d5c4b_large.png",
+      "old_rel": "images/paintings/large/2010_001_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a36-7a2d-aa8d-b333792d5c4b_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2011_009",
+      "new_id": "019891b0-3a36-7fa7-ac6b-833a7310fa87",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2011_009_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a36-7fa7-ac6b-833a7310fa87_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a36-7fa7-ac6b-833a7310fa87_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2011_009_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a36-7fa7-ac6b-833a7310fa87_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2011_009",
+      "new_id": "019891b0-3a36-7fa7-ac6b-833a7310fa87",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2011_009_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a36-7fa7-ac6b-833a7310fa87_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a36-7fa7-ac6b-833a7310fa87_large.png",
+      "old_rel": "images/paintings/large/2011_009_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a36-7fa7-ac6b-833a7310fa87_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2017_003",
+      "new_id": "019891b0-3a37-7cf2-acc5-879030584d8c",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2017_003_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7cf2-acc5-879030584d8c_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7cf2-acc5-879030584d8c_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2017_003_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7cf2-acc5-879030584d8c_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2017_003",
+      "new_id": "019891b0-3a37-7cf2-acc5-879030584d8c",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2017_003_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7cf2-acc5-879030584d8c_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7cf2-acc5-879030584d8c_large.png",
+      "old_rel": "images/paintings/large/2017_003_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7cf2-acc5-879030584d8c_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2018_002",
+      "new_id": "019891b0-3a37-7be5-b974-51599f6c88c6",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2018_002_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7be5-b974-51599f6c88c6_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7be5-b974-51599f6c88c6_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2018_002_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7be5-b974-51599f6c88c6_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2018_002",
+      "new_id": "019891b0-3a37-7be5-b974-51599f6c88c6",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2018_002_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7be5-b974-51599f6c88c6_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7be5-b974-51599f6c88c6_large.png",
+      "old_rel": "images/paintings/large/2018_002_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7be5-b974-51599f6c88c6_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2018_004",
+      "new_id": "019891b0-3a37-7a9b-a654-57df13215f97",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2018_004_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7a9b-a654-57df13215f97_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7a9b-a654-57df13215f97_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2018_004_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7a9b-a654-57df13215f97_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2018_004",
+      "new_id": "019891b0-3a37-7a9b-a654-57df13215f97",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2018_004_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7a9b-a654-57df13215f97_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7a9b-a654-57df13215f97_large.png",
+      "old_rel": "images/paintings/large/2018_004_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7a9b-a654-57df13215f97_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2018_008",
+      "new_id": "019891b0-3a37-79d4-8176-2369cbcd1e34",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2018_008_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-79d4-8176-2369cbcd1e34_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-79d4-8176-2369cbcd1e34_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2018_008_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-79d4-8176-2369cbcd1e34_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2018_008",
+      "new_id": "019891b0-3a37-79d4-8176-2369cbcd1e34",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2018_008_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-79d4-8176-2369cbcd1e34_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-79d4-8176-2369cbcd1e34_large.png",
+      "old_rel": "images/paintings/large/2018_008_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-79d4-8176-2369cbcd1e34_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2018_010",
+      "new_id": "019891b0-3a37-713a-8d37-2ba7678bb88e",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2018_010_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-713a-8d37-2ba7678bb88e_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-713a-8d37-2ba7678bb88e_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2018_010_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-713a-8d37-2ba7678bb88e_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2018_010",
+      "new_id": "019891b0-3a37-713a-8d37-2ba7678bb88e",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2018_010_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-713a-8d37-2ba7678bb88e_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-713a-8d37-2ba7678bb88e_large.png",
+      "old_rel": "images/paintings/large/2018_010_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-713a-8d37-2ba7678bb88e_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2018_012",
+      "new_id": "019891b0-3a37-7879-b65e-2a4041c1b247",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2018_012_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7879-b65e-2a4041c1b247_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7879-b65e-2a4041c1b247_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2018_012_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7879-b65e-2a4041c1b247_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2018_012",
+      "new_id": "019891b0-3a37-7879-b65e-2a4041c1b247",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2018_012_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7879-b65e-2a4041c1b247_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7879-b65e-2a4041c1b247_large.png",
+      "old_rel": "images/paintings/large/2018_012_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7879-b65e-2a4041c1b247_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2018_018",
+      "new_id": "019891b0-3a37-7015-a8ee-5bfd9bfca2c5",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2018_018_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7015-a8ee-5bfd9bfca2c5_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7015-a8ee-5bfd9bfca2c5_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2018_018_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7015-a8ee-5bfd9bfca2c5_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2018_018",
+      "new_id": "019891b0-3a37-7015-a8ee-5bfd9bfca2c5",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2018_018_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7015-a8ee-5bfd9bfca2c5_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7015-a8ee-5bfd9bfca2c5_large.png",
+      "old_rel": "images/paintings/large/2018_018_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7015-a8ee-5bfd9bfca2c5_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2018_021",
+      "new_id": "019891b0-3a37-726b-9799-9c0ed7f7caf6",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2018_021_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-726b-9799-9c0ed7f7caf6_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-726b-9799-9c0ed7f7caf6_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2018_021_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-726b-9799-9c0ed7f7caf6_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2018_021",
+      "new_id": "019891b0-3a37-726b-9799-9c0ed7f7caf6",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2018_021_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-726b-9799-9c0ed7f7caf6_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-726b-9799-9c0ed7f7caf6_large.png",
+      "old_rel": "images/paintings/large/2018_021_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-726b-9799-9c0ed7f7caf6_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2018_022",
+      "new_id": "019891b0-3a37-7440-ad89-8259eeff5fde",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2018_022_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7440-ad89-8259eeff5fde_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7440-ad89-8259eeff5fde_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2018_022_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7440-ad89-8259eeff5fde_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2018_022",
+      "new_id": "019891b0-3a37-7440-ad89-8259eeff5fde",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2018_022_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7440-ad89-8259eeff5fde_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7440-ad89-8259eeff5fde_large.png",
+      "old_rel": "images/paintings/large/2018_022_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7440-ad89-8259eeff5fde_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2018_023",
+      "new_id": "019891b0-3a37-7fad-89ee-a5516c9a43c8",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2018_023_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7fad-89ee-a5516c9a43c8_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7fad-89ee-a5516c9a43c8_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2018_023_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7fad-89ee-a5516c9a43c8_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2018_023",
+      "new_id": "019891b0-3a37-7fad-89ee-a5516c9a43c8",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2018_023_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7fad-89ee-a5516c9a43c8_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7fad-89ee-a5516c9a43c8_large.png",
+      "old_rel": "images/paintings/large/2018_023_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7fad-89ee-a5516c9a43c8_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2018_024",
+      "new_id": "019891b0-3a37-722c-b0e5-f7915d09e482",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2018_024_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-722c-b0e5-f7915d09e482_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-722c-b0e5-f7915d09e482_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2018_024_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-722c-b0e5-f7915d09e482_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2018_024",
+      "new_id": "019891b0-3a37-722c-b0e5-f7915d09e482",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2018_024_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-722c-b0e5-f7915d09e482_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-722c-b0e5-f7915d09e482_large.png",
+      "old_rel": "images/paintings/large/2018_024_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-722c-b0e5-f7915d09e482_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2019_001",
+      "new_id": "019891b0-3a37-7d97-ab6b-25e289ea8b4d",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2019_001_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7d97-ab6b-25e289ea8b4d_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7d97-ab6b-25e289ea8b4d_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2019_001_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7d97-ab6b-25e289ea8b4d_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2019_001",
+      "new_id": "019891b0-3a37-7d97-ab6b-25e289ea8b4d",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2019_001_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7d97-ab6b-25e289ea8b4d_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7d97-ab6b-25e289ea8b4d_large.png",
+      "old_rel": "images/paintings/large/2019_001_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7d97-ab6b-25e289ea8b4d_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2019_002",
+      "new_id": "019891b0-3a37-729e-8fbe-ed552d93c624",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2019_002_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-729e-8fbe-ed552d93c624_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-729e-8fbe-ed552d93c624_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2019_002_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-729e-8fbe-ed552d93c624_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2019_002",
+      "new_id": "019891b0-3a37-729e-8fbe-ed552d93c624",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2019_002_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-729e-8fbe-ed552d93c624_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-729e-8fbe-ed552d93c624_large.png",
+      "old_rel": "images/paintings/large/2019_002_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-729e-8fbe-ed552d93c624_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2019_003",
+      "new_id": "019891b0-3a37-7604-8d65-61f0554cfa3a",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2019_003_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7604-8d65-61f0554cfa3a_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7604-8d65-61f0554cfa3a_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2019_003_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7604-8d65-61f0554cfa3a_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2019_003",
+      "new_id": "019891b0-3a37-7604-8d65-61f0554cfa3a",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2019_003_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7604-8d65-61f0554cfa3a_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7604-8d65-61f0554cfa3a_large.png",
+      "old_rel": "images/paintings/large/2019_003_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7604-8d65-61f0554cfa3a_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2020_002",
+      "new_id": "019891b0-3a37-7d92-9ab1-4ba94b048ac7",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2020_002_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7d92-9ab1-4ba94b048ac7_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7d92-9ab1-4ba94b048ac7_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2020_002_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7d92-9ab1-4ba94b048ac7_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2020_002",
+      "new_id": "019891b0-3a37-7d92-9ab1-4ba94b048ac7",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2020_002_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7d92-9ab1-4ba94b048ac7_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7d92-9ab1-4ba94b048ac7_large.png",
+      "old_rel": "images/paintings/large/2020_002_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7d92-9ab1-4ba94b048ac7_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2020_003",
+      "new_id": "019891b0-3a37-7ce8-8d3f-f9536944374b",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2020_003_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7ce8-8d3f-f9536944374b_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7ce8-8d3f-f9536944374b_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2020_003_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7ce8-8d3f-f9536944374b_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2020_003",
+      "new_id": "019891b0-3a37-7ce8-8d3f-f9536944374b",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2020_003_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7ce8-8d3f-f9536944374b_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7ce8-8d3f-f9536944374b_large.png",
+      "old_rel": "images/paintings/large/2020_003_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7ce8-8d3f-f9536944374b_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2021_001",
+      "new_id": "019891b0-3a37-7505-a9c6-76207d3134a3",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2021_001_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7505-a9c6-76207d3134a3_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7505-a9c6-76207d3134a3_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2021_001_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7505-a9c6-76207d3134a3_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2021_001",
+      "new_id": "019891b0-3a37-7505-a9c6-76207d3134a3",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2021_001_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7505-a9c6-76207d3134a3_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7505-a9c6-76207d3134a3_large.png",
+      "old_rel": "images/paintings/large/2021_001_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7505-a9c6-76207d3134a3_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2021_002",
+      "new_id": "019891b0-3a37-7c5b-93d2-9f179e762fc8",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2021_002_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7c5b-93d2-9f179e762fc8_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7c5b-93d2-9f179e762fc8_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2021_002_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7c5b-93d2-9f179e762fc8_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2021_002",
+      "new_id": "019891b0-3a37-7c5b-93d2-9f179e762fc8",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2021_002_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7c5b-93d2-9f179e762fc8_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7c5b-93d2-9f179e762fc8_large.png",
+      "old_rel": "images/paintings/large/2021_002_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7c5b-93d2-9f179e762fc8_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2021_003",
+      "new_id": "019891b0-3a37-7e41-b36b-1a8d4d776125",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2021_003_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7e41-b36b-1a8d4d776125_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7e41-b36b-1a8d4d776125_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2021_003_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7e41-b36b-1a8d4d776125_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2021_003",
+      "new_id": "019891b0-3a37-7e41-b36b-1a8d4d776125",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2021_003_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7e41-b36b-1a8d4d776125_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7e41-b36b-1a8d4d776125_large.png",
+      "old_rel": "images/paintings/large/2021_003_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7e41-b36b-1a8d4d776125_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2021_009",
+      "new_id": "019891b0-3a37-7969-a654-bf2a7bda0390",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2021_009_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7969-a654-bf2a7bda0390_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7969-a654-bf2a7bda0390_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2021_009_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7969-a654-bf2a7bda0390_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2021_009",
+      "new_id": "019891b0-3a37-7969-a654-bf2a7bda0390",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2021_009_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7969-a654-bf2a7bda0390_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7969-a654-bf2a7bda0390_large.png",
+      "old_rel": "images/paintings/large/2021_009_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7969-a654-bf2a7bda0390_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2021_010",
+      "new_id": "019891b0-3a37-72bd-acfc-5b2e95746c34",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2021_010_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-72bd-acfc-5b2e95746c34_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-72bd-acfc-5b2e95746c34_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2021_010_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-72bd-acfc-5b2e95746c34_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2021_010",
+      "new_id": "019891b0-3a37-72bd-acfc-5b2e95746c34",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2021_010_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-72bd-acfc-5b2e95746c34_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-72bd-acfc-5b2e95746c34_large.png",
+      "old_rel": "images/paintings/large/2021_010_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-72bd-acfc-5b2e95746c34_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2021_011",
+      "new_id": "019891b0-3a37-7588-ac42-1c87fb23f446",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2021_011_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7588-ac42-1c87fb23f446_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7588-ac42-1c87fb23f446_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2021_011_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7588-ac42-1c87fb23f446_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2021_011",
+      "new_id": "019891b0-3a37-7588-ac42-1c87fb23f446",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2021_011_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7588-ac42-1c87fb23f446_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7588-ac42-1c87fb23f446_large.png",
+      "old_rel": "images/paintings/large/2021_011_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7588-ac42-1c87fb23f446_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2021_012",
+      "new_id": "019891b0-3a37-7f2d-9893-59bc6ea2193e",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2021_012_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7f2d-9893-59bc6ea2193e_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7f2d-9893-59bc6ea2193e_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2021_012_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7f2d-9893-59bc6ea2193e_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2021_012",
+      "new_id": "019891b0-3a37-7f2d-9893-59bc6ea2193e",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2021_012_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7f2d-9893-59bc6ea2193e_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7f2d-9893-59bc6ea2193e_large.png",
+      "old_rel": "images/paintings/large/2021_012_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7f2d-9893-59bc6ea2193e_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2021_013",
+      "new_id": "019891b0-3a37-700c-b048-e888ecadb5b6",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2021_013_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-700c-b048-e888ecadb5b6_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-700c-b048-e888ecadb5b6_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2021_013_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-700c-b048-e888ecadb5b6_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2021_013",
+      "new_id": "019891b0-3a37-700c-b048-e888ecadb5b6",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2021_013_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-700c-b048-e888ecadb5b6_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-700c-b048-e888ecadb5b6_large.png",
+      "old_rel": "images/paintings/large/2021_013_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-700c-b048-e888ecadb5b6_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2021_015",
+      "new_id": "019891b0-3a37-7c20-bffa-0e26ff62f1dc",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2021_015_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7c20-bffa-0e26ff62f1dc_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7c20-bffa-0e26ff62f1dc_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2021_015_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7c20-bffa-0e26ff62f1dc_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2021_015",
+      "new_id": "019891b0-3a37-7c20-bffa-0e26ff62f1dc",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2021_015_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7c20-bffa-0e26ff62f1dc_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7c20-bffa-0e26ff62f1dc_large.png",
+      "old_rel": "images/paintings/large/2021_015_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7c20-bffa-0e26ff62f1dc_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2021_016",
+      "new_id": "019891b0-3a37-7550-8a6d-be92e7751c02",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2021_016_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7550-8a6d-be92e7751c02_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7550-8a6d-be92e7751c02_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2021_016_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7550-8a6d-be92e7751c02_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2021_016",
+      "new_id": "019891b0-3a37-7550-8a6d-be92e7751c02",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2021_016_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7550-8a6d-be92e7751c02_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7550-8a6d-be92e7751c02_large.png",
+      "old_rel": "images/paintings/large/2021_016_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7550-8a6d-be92e7751c02_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2021_017",
+      "new_id": "019891b0-3a37-7c08-b518-2a808d9f49b6",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2021_017_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7c08-b518-2a808d9f49b6_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7c08-b518-2a808d9f49b6_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2021_017_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7c08-b518-2a808d9f49b6_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2021_017",
+      "new_id": "019891b0-3a37-7c08-b518-2a808d9f49b6",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2021_017_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7c08-b518-2a808d9f49b6_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7c08-b518-2a808d9f49b6_large.png",
+      "old_rel": "images/paintings/large/2021_017_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7c08-b518-2a808d9f49b6_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2021_018",
+      "new_id": "019891b0-3a37-736b-bf4f-25dc005a044d",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2021_018_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-736b-bf4f-25dc005a044d_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-736b-bf4f-25dc005a044d_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2021_018_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-736b-bf4f-25dc005a044d_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2021_018",
+      "new_id": "019891b0-3a37-736b-bf4f-25dc005a044d",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2021_018_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-736b-bf4f-25dc005a044d_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-736b-bf4f-25dc005a044d_large.png",
+      "old_rel": "images/paintings/large/2021_018_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-736b-bf4f-25dc005a044d_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2021_019",
+      "new_id": "019891b0-3a37-72a5-a6fa-90597ae885b7",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2021_019_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-72a5-a6fa-90597ae885b7_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-72a5-a6fa-90597ae885b7_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2021_019_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-72a5-a6fa-90597ae885b7_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2021_019",
+      "new_id": "019891b0-3a37-72a5-a6fa-90597ae885b7",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2021_019_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-72a5-a6fa-90597ae885b7_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-72a5-a6fa-90597ae885b7_large.png",
+      "old_rel": "images/paintings/large/2021_019_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-72a5-a6fa-90597ae885b7_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2021_020",
+      "new_id": "019891b0-3a37-7205-a98e-ffcdb86bcf45",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2021_020_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7205-a98e-ffcdb86bcf45_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7205-a98e-ffcdb86bcf45_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2021_020_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7205-a98e-ffcdb86bcf45_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2021_020",
+      "new_id": "019891b0-3a37-7205-a98e-ffcdb86bcf45",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2021_020_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7205-a98e-ffcdb86bcf45_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7205-a98e-ffcdb86bcf45_large.png",
+      "old_rel": "images/paintings/large/2021_020_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7205-a98e-ffcdb86bcf45_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2021_021",
+      "new_id": "019891b0-3a37-7cb0-9ef3-49e51a90747f",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2021_021_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7cb0-9ef3-49e51a90747f_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7cb0-9ef3-49e51a90747f_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2021_021_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7cb0-9ef3-49e51a90747f_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2021_021",
+      "new_id": "019891b0-3a37-7cb0-9ef3-49e51a90747f",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2021_021_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7cb0-9ef3-49e51a90747f_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7cb0-9ef3-49e51a90747f_large.png",
+      "old_rel": "images/paintings/large/2021_021_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7cb0-9ef3-49e51a90747f_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2021_022",
+      "new_id": "019891b0-3a37-76b3-b3b9-f22f5e5e78f0",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2021_022_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-76b3-b3b9-f22f5e5e78f0_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-76b3-b3b9-f22f5e5e78f0_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2021_022_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-76b3-b3b9-f22f5e5e78f0_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2021_022",
+      "new_id": "019891b0-3a37-76b3-b3b9-f22f5e5e78f0",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2021_022_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-76b3-b3b9-f22f5e5e78f0_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-76b3-b3b9-f22f5e5e78f0_large.png",
+      "old_rel": "images/paintings/large/2021_022_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-76b3-b3b9-f22f5e5e78f0_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2021_024",
+      "new_id": "019891b0-3a37-7755-8b5a-3c78ee6c2673",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2021_024_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7755-8b5a-3c78ee6c2673_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7755-8b5a-3c78ee6c2673_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2021_024_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7755-8b5a-3c78ee6c2673_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2021_024",
+      "new_id": "019891b0-3a37-7755-8b5a-3c78ee6c2673",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2021_024_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7755-8b5a-3c78ee6c2673_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7755-8b5a-3c78ee6c2673_large.png",
+      "old_rel": "images/paintings/large/2021_024_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7755-8b5a-3c78ee6c2673_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2021_028",
+      "new_id": "019891b0-3a37-7598-b897-ce4583f9e905",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2021_028_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7598-b897-ce4583f9e905_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7598-b897-ce4583f9e905_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2021_028_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7598-b897-ce4583f9e905_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2021_028",
+      "new_id": "019891b0-3a37-7598-b897-ce4583f9e905",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2021_028_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7598-b897-ce4583f9e905_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7598-b897-ce4583f9e905_large.png",
+      "old_rel": "images/paintings/large/2021_028_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7598-b897-ce4583f9e905_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2021_034",
+      "new_id": "019891b0-3a37-7691-90d5-9da0b6428804",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2021_034_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7691-90d5-9da0b6428804_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7691-90d5-9da0b6428804_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2021_034_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7691-90d5-9da0b6428804_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2021_034",
+      "new_id": "019891b0-3a37-7691-90d5-9da0b6428804",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2021_034_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7691-90d5-9da0b6428804_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7691-90d5-9da0b6428804_large.png",
+      "old_rel": "images/paintings/large/2021_034_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7691-90d5-9da0b6428804_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2021_036",
+      "new_id": "019891b0-3a37-7682-bb7a-b7af12f0e710",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2021_036_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7682-bb7a-b7af12f0e710_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7682-bb7a-b7af12f0e710_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2021_036_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7682-bb7a-b7af12f0e710_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2021_036",
+      "new_id": "019891b0-3a37-7682-bb7a-b7af12f0e710",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2021_036_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7682-bb7a-b7af12f0e710_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7682-bb7a-b7af12f0e710_large.png",
+      "old_rel": "images/paintings/large/2021_036_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7682-bb7a-b7af12f0e710_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022.8_001",
+      "new_id": "019891b0-3a37-79ee-8d7d-84aadf6035a2",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022.8_001_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-79ee-8d7d-84aadf6035a2_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-79ee-8d7d-84aadf6035a2_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022.8_001_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-79ee-8d7d-84aadf6035a2_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022.8_001",
+      "new_id": "019891b0-3a37-79ee-8d7d-84aadf6035a2",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022.8_001_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-79ee-8d7d-84aadf6035a2_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-79ee-8d7d-84aadf6035a2_large.png",
+      "old_rel": "images/paintings/large/2022.8_001_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-79ee-8d7d-84aadf6035a2_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_001",
+      "new_id": "019891b0-3a37-71b3-bf80-3a848ec9384f",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_001_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-71b3-bf80-3a848ec9384f_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-71b3-bf80-3a848ec9384f_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_001_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-71b3-bf80-3a848ec9384f_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_001",
+      "new_id": "019891b0-3a37-71b3-bf80-3a848ec9384f",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_001_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-71b3-bf80-3a848ec9384f_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-71b3-bf80-3a848ec9384f_large.png",
+      "old_rel": "images/paintings/large/2022_001_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-71b3-bf80-3a848ec9384f_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_002",
+      "new_id": "019891b0-3a37-77c9-a2c1-eefe2bc2002c",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_002_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-77c9-a2c1-eefe2bc2002c_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-77c9-a2c1-eefe2bc2002c_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_002_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-77c9-a2c1-eefe2bc2002c_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_002",
+      "new_id": "019891b0-3a37-77c9-a2c1-eefe2bc2002c",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_002_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-77c9-a2c1-eefe2bc2002c_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-77c9-a2c1-eefe2bc2002c_large.png",
+      "old_rel": "images/paintings/large/2022_002_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-77c9-a2c1-eefe2bc2002c_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_003",
+      "new_id": "019891b0-3a37-79fb-a0ad-1f47e6f21cee",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_003_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-79fb-a0ad-1f47e6f21cee_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-79fb-a0ad-1f47e6f21cee_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_003_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-79fb-a0ad-1f47e6f21cee_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_003",
+      "new_id": "019891b0-3a37-79fb-a0ad-1f47e6f21cee",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_003_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-79fb-a0ad-1f47e6f21cee_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-79fb-a0ad-1f47e6f21cee_large.png",
+      "old_rel": "images/paintings/large/2022_003_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-79fb-a0ad-1f47e6f21cee_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_004",
+      "new_id": "019891b0-3a37-7236-b617-76c17120205c",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_004_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7236-b617-76c17120205c_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7236-b617-76c17120205c_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_004_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7236-b617-76c17120205c_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_004",
+      "new_id": "019891b0-3a37-7236-b617-76c17120205c",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_004_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7236-b617-76c17120205c_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7236-b617-76c17120205c_large.png",
+      "old_rel": "images/paintings/large/2022_004_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7236-b617-76c17120205c_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_005",
+      "new_id": "019891b0-3a37-7140-8281-dc0dd889cfc0",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_005_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7140-8281-dc0dd889cfc0_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7140-8281-dc0dd889cfc0_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_005_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7140-8281-dc0dd889cfc0_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_005",
+      "new_id": "019891b0-3a37-7140-8281-dc0dd889cfc0",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_005_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7140-8281-dc0dd889cfc0_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7140-8281-dc0dd889cfc0_large.png",
+      "old_rel": "images/paintings/large/2022_005_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7140-8281-dc0dd889cfc0_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_006",
+      "new_id": "019891b0-3a37-7c76-ab30-007be6c7e88a",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_006_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7c76-ab30-007be6c7e88a_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7c76-ab30-007be6c7e88a_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_006_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7c76-ab30-007be6c7e88a_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_006",
+      "new_id": "019891b0-3a37-7c76-ab30-007be6c7e88a",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_006_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7c76-ab30-007be6c7e88a_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7c76-ab30-007be6c7e88a_large.png",
+      "old_rel": "images/paintings/large/2022_006_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7c76-ab30-007be6c7e88a_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_007",
+      "new_id": "019891b0-3a37-7cb9-870a-d3dc78efc217",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_007_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7cb9-870a-d3dc78efc217_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7cb9-870a-d3dc78efc217_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_007_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7cb9-870a-d3dc78efc217_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_007",
+      "new_id": "019891b0-3a37-7cb9-870a-d3dc78efc217",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_007_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7cb9-870a-d3dc78efc217_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7cb9-870a-d3dc78efc217_large.png",
+      "old_rel": "images/paintings/large/2022_007_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7cb9-870a-d3dc78efc217_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_008",
+      "new_id": "019891b0-3a37-7b69-956b-f51801351fb1",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_008_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7b69-956b-f51801351fb1_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7b69-956b-f51801351fb1_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_008_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7b69-956b-f51801351fb1_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_008",
+      "new_id": "019891b0-3a37-7b69-956b-f51801351fb1",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_008_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7b69-956b-f51801351fb1_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7b69-956b-f51801351fb1_large.png",
+      "old_rel": "images/paintings/large/2022_008_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7b69-956b-f51801351fb1_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_009",
+      "new_id": "019891b0-3a37-736e-9090-910a67bf29fa",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_009_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-736e-9090-910a67bf29fa_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-736e-9090-910a67bf29fa_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_009_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-736e-9090-910a67bf29fa_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_009",
+      "new_id": "019891b0-3a37-736e-9090-910a67bf29fa",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_009_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-736e-9090-910a67bf29fa_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-736e-9090-910a67bf29fa_large.png",
+      "old_rel": "images/paintings/large/2022_009_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-736e-9090-910a67bf29fa_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_010",
+      "new_id": "019891b0-3a37-7301-8fac-fbdaf90c5a74",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_010_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7301-8fac-fbdaf90c5a74_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7301-8fac-fbdaf90c5a74_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_010_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7301-8fac-fbdaf90c5a74_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_010",
+      "new_id": "019891b0-3a37-7301-8fac-fbdaf90c5a74",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_010_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7301-8fac-fbdaf90c5a74_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7301-8fac-fbdaf90c5a74_large.png",
+      "old_rel": "images/paintings/large/2022_010_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7301-8fac-fbdaf90c5a74_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_011",
+      "new_id": "019891b0-3a37-7af1-9c91-9df970acaf87",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_011_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7af1-9c91-9df970acaf87_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7af1-9c91-9df970acaf87_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_011_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7af1-9c91-9df970acaf87_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_011",
+      "new_id": "019891b0-3a37-7af1-9c91-9df970acaf87",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_011_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7af1-9c91-9df970acaf87_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7af1-9c91-9df970acaf87_large.png",
+      "old_rel": "images/paintings/large/2022_011_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7af1-9c91-9df970acaf87_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_012",
+      "new_id": "019891b0-3a37-739f-9847-0b163e9ee640",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_012_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-739f-9847-0b163e9ee640_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-739f-9847-0b163e9ee640_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_012_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-739f-9847-0b163e9ee640_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_012",
+      "new_id": "019891b0-3a37-739f-9847-0b163e9ee640",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_012_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-739f-9847-0b163e9ee640_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-739f-9847-0b163e9ee640_large.png",
+      "old_rel": "images/paintings/large/2022_012_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-739f-9847-0b163e9ee640_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_013",
+      "new_id": "019891b0-3a37-7e47-8e84-8bfc0ee3ab93",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_013_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7e47-8e84-8bfc0ee3ab93_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7e47-8e84-8bfc0ee3ab93_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_013_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7e47-8e84-8bfc0ee3ab93_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_013",
+      "new_id": "019891b0-3a37-7e47-8e84-8bfc0ee3ab93",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_013_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7e47-8e84-8bfc0ee3ab93_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7e47-8e84-8bfc0ee3ab93_large.png",
+      "old_rel": "images/paintings/large/2022_013_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7e47-8e84-8bfc0ee3ab93_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_014",
+      "new_id": "019891b0-3a37-7ee4-8bda-59cd39f8fd39",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_014_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7ee4-8bda-59cd39f8fd39_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7ee4-8bda-59cd39f8fd39_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_014_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7ee4-8bda-59cd39f8fd39_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_014",
+      "new_id": "019891b0-3a37-7ee4-8bda-59cd39f8fd39",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_014_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7ee4-8bda-59cd39f8fd39_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7ee4-8bda-59cd39f8fd39_large.png",
+      "old_rel": "images/paintings/large/2022_014_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7ee4-8bda-59cd39f8fd39_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_015",
+      "new_id": "019891b0-3a37-768d-9538-b088d04208c7",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_015_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-768d-9538-b088d04208c7_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-768d-9538-b088d04208c7_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_015_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-768d-9538-b088d04208c7_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_015",
+      "new_id": "019891b0-3a37-768d-9538-b088d04208c7",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_015_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-768d-9538-b088d04208c7_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-768d-9538-b088d04208c7_large.png",
+      "old_rel": "images/paintings/large/2022_015_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-768d-9538-b088d04208c7_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_016",
+      "new_id": "019891b0-3a37-7aea-8059-415341dc4bf2",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_016_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7aea-8059-415341dc4bf2_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7aea-8059-415341dc4bf2_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_016_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7aea-8059-415341dc4bf2_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_016",
+      "new_id": "019891b0-3a37-7aea-8059-415341dc4bf2",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_016_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7aea-8059-415341dc4bf2_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7aea-8059-415341dc4bf2_large.png",
+      "old_rel": "images/paintings/large/2022_016_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7aea-8059-415341dc4bf2_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_017",
+      "new_id": "019891b0-3a37-775c-ac51-edc0dc382633",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_017_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-775c-ac51-edc0dc382633_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-775c-ac51-edc0dc382633_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_017_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-775c-ac51-edc0dc382633_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_017",
+      "new_id": "019891b0-3a37-775c-ac51-edc0dc382633",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_017_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-775c-ac51-edc0dc382633_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-775c-ac51-edc0dc382633_large.png",
+      "old_rel": "images/paintings/large/2022_017_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-775c-ac51-edc0dc382633_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_018",
+      "new_id": "019891b0-3a37-7eb0-9dc4-565501afcf81",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_018_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7eb0-9dc4-565501afcf81_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7eb0-9dc4-565501afcf81_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_018_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7eb0-9dc4-565501afcf81_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_018",
+      "new_id": "019891b0-3a37-7eb0-9dc4-565501afcf81",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_018_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7eb0-9dc4-565501afcf81_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7eb0-9dc4-565501afcf81_large.png",
+      "old_rel": "images/paintings/large/2022_018_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7eb0-9dc4-565501afcf81_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_019",
+      "new_id": "019891b0-3a37-7f60-b4f3-ef8bc19e30e7",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_019_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7f60-b4f3-ef8bc19e30e7_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7f60-b4f3-ef8bc19e30e7_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_019_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7f60-b4f3-ef8bc19e30e7_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_019",
+      "new_id": "019891b0-3a37-7f60-b4f3-ef8bc19e30e7",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_019_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7f60-b4f3-ef8bc19e30e7_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7f60-b4f3-ef8bc19e30e7_large.png",
+      "old_rel": "images/paintings/large/2022_019_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7f60-b4f3-ef8bc19e30e7_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_020",
+      "new_id": "019891b0-3a37-7ef2-9ead-1eb993b10f35",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_020_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7ef2-9ead-1eb993b10f35_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7ef2-9ead-1eb993b10f35_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_020_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7ef2-9ead-1eb993b10f35_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_020",
+      "new_id": "019891b0-3a37-7ef2-9ead-1eb993b10f35",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_020_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7ef2-9ead-1eb993b10f35_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7ef2-9ead-1eb993b10f35_large.png",
+      "old_rel": "images/paintings/large/2022_020_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7ef2-9ead-1eb993b10f35_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_021",
+      "new_id": "019891b0-3a37-7444-b6a7-13b5a61d1def",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_021_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7444-b6a7-13b5a61d1def_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7444-b6a7-13b5a61d1def_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_021_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7444-b6a7-13b5a61d1def_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_021",
+      "new_id": "019891b0-3a37-7444-b6a7-13b5a61d1def",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_021_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7444-b6a7-13b5a61d1def_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7444-b6a7-13b5a61d1def_large.png",
+      "old_rel": "images/paintings/large/2022_021_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7444-b6a7-13b5a61d1def_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_022",
+      "new_id": "019891b0-3a37-74f6-ad0d-c76fdc224a6a",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_022_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-74f6-ad0d-c76fdc224a6a_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-74f6-ad0d-c76fdc224a6a_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_022_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-74f6-ad0d-c76fdc224a6a_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_022",
+      "new_id": "019891b0-3a37-74f6-ad0d-c76fdc224a6a",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_022_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-74f6-ad0d-c76fdc224a6a_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-74f6-ad0d-c76fdc224a6a_large.png",
+      "old_rel": "images/paintings/large/2022_022_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-74f6-ad0d-c76fdc224a6a_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_023",
+      "new_id": "019891b0-3a37-7f01-b82b-6ac7bda9548c",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_023_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7f01-b82b-6ac7bda9548c_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7f01-b82b-6ac7bda9548c_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_023_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7f01-b82b-6ac7bda9548c_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_023",
+      "new_id": "019891b0-3a37-7f01-b82b-6ac7bda9548c",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_023_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7f01-b82b-6ac7bda9548c_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7f01-b82b-6ac7bda9548c_large.png",
+      "old_rel": "images/paintings/large/2022_023_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7f01-b82b-6ac7bda9548c_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_024",
+      "new_id": "019891b0-3a37-75f8-80ee-ebf8c4b45153",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_024_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-75f8-80ee-ebf8c4b45153_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-75f8-80ee-ebf8c4b45153_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_024_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-75f8-80ee-ebf8c4b45153_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_024",
+      "new_id": "019891b0-3a37-75f8-80ee-ebf8c4b45153",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_024_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-75f8-80ee-ebf8c4b45153_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-75f8-80ee-ebf8c4b45153_large.png",
+      "old_rel": "images/paintings/large/2022_024_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-75f8-80ee-ebf8c4b45153_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_025",
+      "new_id": "019891b0-3a37-7e64-bf15-4c0322234239",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_025_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7e64-bf15-4c0322234239_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7e64-bf15-4c0322234239_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_025_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7e64-bf15-4c0322234239_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_025",
+      "new_id": "019891b0-3a37-7e64-bf15-4c0322234239",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_025_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7e64-bf15-4c0322234239_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7e64-bf15-4c0322234239_large.png",
+      "old_rel": "images/paintings/large/2022_025_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7e64-bf15-4c0322234239_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_026",
+      "new_id": "019891b0-3a37-7647-b26d-4f44ac9428be",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_026_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7647-b26d-4f44ac9428be_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7647-b26d-4f44ac9428be_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_026_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7647-b26d-4f44ac9428be_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_026",
+      "new_id": "019891b0-3a37-7647-b26d-4f44ac9428be",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_026_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7647-b26d-4f44ac9428be_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7647-b26d-4f44ac9428be_large.png",
+      "old_rel": "images/paintings/large/2022_026_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7647-b26d-4f44ac9428be_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_027",
+      "new_id": "019891b0-3a37-7969-834f-a04ce7b773ca",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_027_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7969-834f-a04ce7b773ca_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7969-834f-a04ce7b773ca_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_027_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7969-834f-a04ce7b773ca_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_027",
+      "new_id": "019891b0-3a37-7969-834f-a04ce7b773ca",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_027_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7969-834f-a04ce7b773ca_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7969-834f-a04ce7b773ca_large.png",
+      "old_rel": "images/paintings/large/2022_027_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7969-834f-a04ce7b773ca_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_028",
+      "new_id": "019891b0-3a37-738e-b196-3779b8e552b9",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_028_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-738e-b196-3779b8e552b9_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-738e-b196-3779b8e552b9_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_028_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-738e-b196-3779b8e552b9_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_028",
+      "new_id": "019891b0-3a37-738e-b196-3779b8e552b9",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_028_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-738e-b196-3779b8e552b9_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-738e-b196-3779b8e552b9_large.png",
+      "old_rel": "images/paintings/large/2022_028_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-738e-b196-3779b8e552b9_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_029",
+      "new_id": "019891b0-3a37-76c1-b07b-81273ab74c9c",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_029_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-76c1-b07b-81273ab74c9c_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-76c1-b07b-81273ab74c9c_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_029_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-76c1-b07b-81273ab74c9c_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_029",
+      "new_id": "019891b0-3a37-76c1-b07b-81273ab74c9c",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_029_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-76c1-b07b-81273ab74c9c_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-76c1-b07b-81273ab74c9c_large.png",
+      "old_rel": "images/paintings/large/2022_029_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-76c1-b07b-81273ab74c9c_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_030",
+      "new_id": "019891b0-3a37-74b3-abdc-28b0a23642ce",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_030_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-74b3-abdc-28b0a23642ce_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-74b3-abdc-28b0a23642ce_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_030_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-74b3-abdc-28b0a23642ce_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_030",
+      "new_id": "019891b0-3a37-74b3-abdc-28b0a23642ce",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_030_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-74b3-abdc-28b0a23642ce_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-74b3-abdc-28b0a23642ce_large.png",
+      "old_rel": "images/paintings/large/2022_030_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-74b3-abdc-28b0a23642ce_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_031",
+      "new_id": "019891b0-3a37-78e7-804a-8c93552ad21a",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_031_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-78e7-804a-8c93552ad21a_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-78e7-804a-8c93552ad21a_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_031_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-78e7-804a-8c93552ad21a_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_031",
+      "new_id": "019891b0-3a37-78e7-804a-8c93552ad21a",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_031_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-78e7-804a-8c93552ad21a_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-78e7-804a-8c93552ad21a_large.png",
+      "old_rel": "images/paintings/large/2022_031_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-78e7-804a-8c93552ad21a_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_032",
+      "new_id": "019891b0-3a37-768b-915a-ad653914f070",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_032_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-768b-915a-ad653914f070_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-768b-915a-ad653914f070_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_032_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-768b-915a-ad653914f070_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_032",
+      "new_id": "019891b0-3a37-768b-915a-ad653914f070",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_032_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-768b-915a-ad653914f070_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-768b-915a-ad653914f070_large.png",
+      "old_rel": "images/paintings/large/2022_032_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-768b-915a-ad653914f070_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_034",
+      "new_id": "019891b0-3a37-7148-b7cc-e6309b53f225",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_034_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7148-b7cc-e6309b53f225_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7148-b7cc-e6309b53f225_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_034_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7148-b7cc-e6309b53f225_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_034",
+      "new_id": "019891b0-3a37-7148-b7cc-e6309b53f225",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_034_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7148-b7cc-e6309b53f225_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7148-b7cc-e6309b53f225_large.png",
+      "old_rel": "images/paintings/large/2022_034_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7148-b7cc-e6309b53f225_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_035",
+      "new_id": "019891b0-3a37-7d71-82fa-737fea99507f",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_035_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7d71-82fa-737fea99507f_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7d71-82fa-737fea99507f_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_035_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7d71-82fa-737fea99507f_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_035",
+      "new_id": "019891b0-3a37-7d71-82fa-737fea99507f",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_035_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7d71-82fa-737fea99507f_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7d71-82fa-737fea99507f_large.png",
+      "old_rel": "images/paintings/large/2022_035_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7d71-82fa-737fea99507f_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_036",
+      "new_id": "019891b0-3a37-7feb-b260-99ea42081549",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_036_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7feb-b260-99ea42081549_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7feb-b260-99ea42081549_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_036_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7feb-b260-99ea42081549_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_036",
+      "new_id": "019891b0-3a37-7feb-b260-99ea42081549",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_036_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7feb-b260-99ea42081549_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7feb-b260-99ea42081549_large.png",
+      "old_rel": "images/paintings/large/2022_036_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7feb-b260-99ea42081549_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_037",
+      "new_id": "019891b0-3a37-782d-b43e-4da49262f5af",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_037_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-782d-b43e-4da49262f5af_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-782d-b43e-4da49262f5af_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_037_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-782d-b43e-4da49262f5af_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_037",
+      "new_id": "019891b0-3a37-782d-b43e-4da49262f5af",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_037_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-782d-b43e-4da49262f5af_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-782d-b43e-4da49262f5af_large.png",
+      "old_rel": "images/paintings/large/2022_037_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-782d-b43e-4da49262f5af_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_038",
+      "new_id": "019891b0-3a37-7ffc-b57e-59a6cf1002b2",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_038_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7ffc-b57e-59a6cf1002b2_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7ffc-b57e-59a6cf1002b2_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_038_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7ffc-b57e-59a6cf1002b2_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_038",
+      "new_id": "019891b0-3a37-7ffc-b57e-59a6cf1002b2",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_038_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7ffc-b57e-59a6cf1002b2_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7ffc-b57e-59a6cf1002b2_large.png",
+      "old_rel": "images/paintings/large/2022_038_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7ffc-b57e-59a6cf1002b2_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_039",
+      "new_id": "019891b0-3a37-7566-a7cd-1ab710338ad5",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_039_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7566-a7cd-1ab710338ad5_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7566-a7cd-1ab710338ad5_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_039_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7566-a7cd-1ab710338ad5_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_039",
+      "new_id": "019891b0-3a37-7566-a7cd-1ab710338ad5",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_039_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7566-a7cd-1ab710338ad5_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7566-a7cd-1ab710338ad5_large.png",
+      "old_rel": "images/paintings/large/2022_039_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7566-a7cd-1ab710338ad5_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_040",
+      "new_id": "019891b0-3a37-7ec2-a66a-fa0d59ca04fc",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_040_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7ec2-a66a-fa0d59ca04fc_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7ec2-a66a-fa0d59ca04fc_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_040_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7ec2-a66a-fa0d59ca04fc_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_040",
+      "new_id": "019891b0-3a37-7ec2-a66a-fa0d59ca04fc",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_040_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7ec2-a66a-fa0d59ca04fc_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7ec2-a66a-fa0d59ca04fc_large.png",
+      "old_rel": "images/paintings/large/2022_040_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7ec2-a66a-fa0d59ca04fc_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_041",
+      "new_id": "019891b0-3a37-7e78-95ea-bd152f4cab6b",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_041_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7e78-95ea-bd152f4cab6b_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7e78-95ea-bd152f4cab6b_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_041_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7e78-95ea-bd152f4cab6b_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_041",
+      "new_id": "019891b0-3a37-7e78-95ea-bd152f4cab6b",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_041_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7e78-95ea-bd152f4cab6b_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7e78-95ea-bd152f4cab6b_large.png",
+      "old_rel": "images/paintings/large/2022_041_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7e78-95ea-bd152f4cab6b_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_042",
+      "new_id": "019891b0-3a37-7bd0-9f8a-b77576a60994",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_042_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7bd0-9f8a-b77576a60994_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7bd0-9f8a-b77576a60994_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_042_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7bd0-9f8a-b77576a60994_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_042",
+      "new_id": "019891b0-3a37-7bd0-9f8a-b77576a60994",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_042_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7bd0-9f8a-b77576a60994_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7bd0-9f8a-b77576a60994_large.png",
+      "old_rel": "images/paintings/large/2022_042_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7bd0-9f8a-b77576a60994_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_044",
+      "new_id": "019891b0-3a37-72fe-89c4-638ed5381648",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_044_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-72fe-89c4-638ed5381648_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-72fe-89c4-638ed5381648_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_044_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-72fe-89c4-638ed5381648_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_044",
+      "new_id": "019891b0-3a37-72fe-89c4-638ed5381648",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_044_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-72fe-89c4-638ed5381648_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-72fe-89c4-638ed5381648_large.png",
+      "old_rel": "images/paintings/large/2022_044_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-72fe-89c4-638ed5381648_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_045",
+      "new_id": "019891b0-3a37-72ff-919f-ff0b15c25c0e",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_045_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-72ff-919f-ff0b15c25c0e_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-72ff-919f-ff0b15c25c0e_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_045_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-72ff-919f-ff0b15c25c0e_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_045",
+      "new_id": "019891b0-3a37-72ff-919f-ff0b15c25c0e",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_045_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-72ff-919f-ff0b15c25c0e_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-72ff-919f-ff0b15c25c0e_large.png",
+      "old_rel": "images/paintings/large/2022_045_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-72ff-919f-ff0b15c25c0e_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_046",
+      "new_id": "019891b0-3a37-715e-8b43-df0b12bba56d",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_046_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-715e-8b43-df0b12bba56d_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-715e-8b43-df0b12bba56d_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_046_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-715e-8b43-df0b12bba56d_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_046",
+      "new_id": "019891b0-3a37-715e-8b43-df0b12bba56d",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_046_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-715e-8b43-df0b12bba56d_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-715e-8b43-df0b12bba56d_large.png",
+      "old_rel": "images/paintings/large/2022_046_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-715e-8b43-df0b12bba56d_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_047",
+      "new_id": "019891b0-3a37-715d-9830-2418658e2e06",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_047_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-715d-9830-2418658e2e06_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-715d-9830-2418658e2e06_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_047_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-715d-9830-2418658e2e06_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_047",
+      "new_id": "019891b0-3a37-715d-9830-2418658e2e06",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_047_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-715d-9830-2418658e2e06_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-715d-9830-2418658e2e06_large.png",
+      "old_rel": "images/paintings/large/2022_047_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-715d-9830-2418658e2e06_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "2022_048",
+      "new_id": "019891b0-3a37-7b9b-95f6-a740004c4008",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\2022_048_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7b9b-95f6-a740004c4008_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7b9b-95f6-a740004c4008_thumb.png",
+      "old_rel": "images/paintings/thumbnails/2022_048_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7b9b-95f6-a740004c4008_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "2022_048",
+      "new_id": "019891b0-3a37-7b9b-95f6-a740004c4008",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\2022_048_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-7b9b-95f6-a740004c4008_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-7b9b-95f6-a740004c4008_large.png",
+      "old_rel": "images/paintings/large/2022_048_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-7b9b-95f6-a740004c4008_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "unknown_033",
+      "new_id": "019891b0-3a37-78d5-9c02-84e81f39323e",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\unknown_033_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-78d5-9c02-84e81f39323e_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-78d5-9c02-84e81f39323e_thumb.png",
+      "old_rel": "images/paintings/thumbnails/unknown_033_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-78d5-9c02-84e81f39323e_thumb.png"
+    },
+    {
+      "kind": "large",
+      "old_id": "unknown_033",
+      "new_id": "019891b0-3a37-78d5-9c02-84e81f39323e",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\unknown_033_large.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large\\.__moving\\019891b0-3a37-78d5-9c02-84e81f39323e_large.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/large/019891b0-3a37-78d5-9c02-84e81f39323e_large.png",
+      "old_rel": "images/paintings/large/unknown_033_large.png",
+      "new_rel": "images/paintings/large/019891b0-3a37-78d5-9c02-84e81f39323e_large.png"
+    },
+    {
+      "kind": "thumb",
+      "old_id": "unknown_066",
+      "new_id": "019891b0-3a37-7430-bfe5-7e36f08405b4",
+      "old_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\unknown_066_thumb.png",
+      "tmp_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails\\.__moving\\019891b0-3a37-7430-bfe5-7e36f08405b4_thumb.png.__tmp",
+      "new_abs": "C:\\Users\\paral\\Documents\\GitHub\\mom-art\\mom-art\\images/paintings/thumbnails/019891b0-3a37-7430-bfe5-7e36f08405b4_thumb.png",
+      "old_rel": "images/paintings/thumbnails/unknown_066_thumb.png",
+      "new_rel": "images/paintings/thumbnails/019891b0-3a37-7430-bfe5-7e36f08405b4_thumb.png"
+    }
+  ]
+}
