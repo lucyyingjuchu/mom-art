@@ -965,13 +965,13 @@
                     publishBtn.disabled = false;
                     
                     // Show deployment tracking message
-                    showMessage(`作品「${draft.title}」已成功提交！正在監控部署狀態...`, 'success');
+                    showMessage(`作品「${draft.title}」已成功提交！正在監控發布狀態...`, 'success');
                     
                     // Add deployment status notice
                     const deploymentNotice = document.createElement('div');
                     deploymentNotice.className = 'info-message deployment-notice';
                     deploymentNotice.innerHTML = `
-                        <strong>📦 發佈狀態</strong><br>
+                        <strong>📦 作品「${draft.title}」發布狀態</strong><br>
                         <div id="deployStatus">⏳ Netlify 正在自動發佈您的更新...</div>
                         <small>• 系統將自動檢查發佈進度</small><br>
                         <small>• 發佈完成後會通知您</small><br>
