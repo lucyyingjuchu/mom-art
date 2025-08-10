@@ -884,93 +884,10 @@
                     }
                 }
             };
-            
-            // 等待 10 秒後開始檢查（讓 Netlify 有時間開始部署）
-            setTimeout(checkStatus, 10000);
-        }
-            const maxAttempts = 60; // 最多檢查 5 分鐘 (60 * 5秒)
-            let attempts = 0;
-            
-            const checkStatus = async () => {
-                try {
-                    attempts++;
-                    
-                    // Call Netlify function to check status
-                    const response = await fetch('/.netlify/functions/deployStatus');
-                    if (!response.ok) {
-                        throw new Error('Failed to check deployment status');
-                    }
-                    
-                    const data = await response.json();
-                    
-                    // Check if this is our deployment (created after we started)
-                    const deployTime = new Date(data.createdAt).getTime();
-                    if (deployTime < startTime) {
-                        // This is an old deployment, keep waiting
-                        if (attempts < maxAttempts) {
-                            setTimeout(checkStatus, 5000); // Check again in 5 seconds
-                        } else {
-                            showMessage('發佈檢查超時，請手動確認網站更新狀態。', 'warning');
-                        }
-                        return;
-                    }
-                    
-                    // This is our deployment
-                    if (data.status === 'ready') {
-                        // Deployment successful!
-                        showMessage(`✅ 作品「${artworkTitle}」已成功發佈到網站！`, 'success');
-                        
-                        // Remove deployment notice if exists
-                        const deployNotice = document.querySelector('.deployment-notice');
-                        if (deployNotice) {
-                            deployNotice.remove();
-                        }
-                        
-                        // Show success notification
-                        const successNotice = document.createElement('div');
-                        successNotice.className = 'success-message';
-                        successNotice.innerHTML = `
-                            <strong>🎉 發佈完成！</strong><br>
-                            作品「${artworkTitle}」已成功發佈到網站。<br>
-                            <a href="https://xiaoran.netlify.app" target="_blank" style="color: #155724;">點此查看網站 →</a>
-                        `;
-                        const container = document.querySelector('.container');
-                        container.insertBefore(successNotice, container.firstChild.nextSibling);
-                        
-                        setTimeout(() => successNotice.remove(), 10000);
-                        
-                    } else if (data.status === 'building' || data.status === 'processing') {
-                        // Still building, check again
-                        if (attempts < maxAttempts) {
-                            setTimeout(checkStatus, 5000);
-                        } else {
-                            showMessage('部署時間較長，請稍後手動確認。', 'warning');
-                        }
-                        
-                    } else if (data.status === 'error' || data.status === 'failed') {
-                        // Deployment failed
-                        showMessage(`❌ 部署失敗，請聯絡 Lucy 處理。`, 'error');
-                        
-                    } else {
-                        // Unknown status, keep checking
-                        if (attempts < maxAttempts) {
-                            setTimeout(checkStatus, 5000);
-                        }
-                    }
-                    
-                } catch (error) {
-                    console.error('Error checking deployment:', error);
-                    // If API is not available, fall back to timer-based message
-                    if (attempts === 1) {
-                        showMessage(`作品「${artworkTitle}」已提交，預計 2-3 分鐘後生效。`, 'info');
-                    }
-                }
-            };
-            
-            // Start checking after 10 seconds (give Netlify time to start)
-            setTimeout(checkStatus, 10000);
-        }
-
+    
+    // 等待 10 秒後開始檢查（讓 Netlify 有時間開始部署）
+    setTimeout(checkStatus, 10000);
+}
         // NEW: Publish function for individual artworks
         async function publishArtwork() {
             if (!checkEditingPermission()) return;
