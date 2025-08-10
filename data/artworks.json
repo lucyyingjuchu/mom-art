@@ -4351,29 +4351,5 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": ""
-  },
-  {
-    "id": "2023_001",
-    "title": "test",
-    "titleEn": "",
-    "category": "paintings",
-    "subcategory": "",
-    "image": "./images/paintings/thumbnails/2023_001_thumb.png",
-    "imageHigh": "./images/paintings/large/2023_001_large.png",
-    "description": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "format": "",
-    "formatEn": "",
-    "mediumEn": "",
-    "sizeCm": "130x 75",
-    "sizeInches": "",
-    "year": "2023",
-    "price": "",
-    "available": true,
-    "featured": false,
-    "recent": true,
-    "exhibitions": [],
-    "tags": []
   }
 ]
