@@ -14,10 +14,34 @@ const GITHUB_CONFIG = {
         large: 'images/paintings/large/'
     }
 };
+// ================================
+// UUIDv7 GENERATION
+// ================================
+
+function uuidv7() {
+// 48-bit UNIX ms timestamp + version + variant + randomness（簡化純 JS 實作）
+const ts = BigInt(Date.now()) & ((1n << 48n) - 1n);
+const randA = BigInt(Math.floor(Math.random() * 0x1000)); // 12 bits
+// 62 bits randomness：用兩次 31-bit 的隨機數拼起來
+const r1 = BigInt(Math.floor(Math.random() * 0x80000000));
+const r2 = BigInt(Math.floor(Math.random() * 0x80000000));
+const randB = (r1 << 31n) | r2; // 62 bits
+
+let n = (ts << 80n)                // 48 ts
+        | (0x7n << 76n)              // version 7
+        | (randA << 64n)             // 12 rand_a
+        | (0x2n << 62n)              // variant 10
+        | randB;                     // 62 rand_b
+
+const hex = n.toString(16).padStart(32, '0');
+return `${hex.slice(0,8)}-${hex.slice(8,12)}-${hex.slice(12,16)}-${hex.slice(16,20)}-${hex.slice(20)}`;
+}
+
 
 // ================================
 // MAIN GITHUB UPLOADER CLASS
 // ================================
+
 class GitHubUploader {
     constructor(config) {
         this.config = config;
@@ -625,7 +649,7 @@ async function handleImageUploadWithGitHub(event) {
         return;
     }
 
-    const artworkId = currentEditingId || generateSequentialId();
+    const artworkId = currentEditingId || uuidv7();    
     
     try {
         const progressContainer = createProgressIndicator();
@@ -886,4 +910,3 @@ window.exportAndDeployToGitHub = exportAndDeployToGitHub;
 window.processArtworksForReorganization = processArtworksForReorganization;
 window.testSingleThumbnailGeneration = testSingleThumbnailGeneration;
 
-console.log('🎯 GitHub Admin v2.6 loaded - Fixed large file downloads and thumbnail generation!');

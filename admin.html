@@ -566,6 +566,7 @@
     <script src="./js/github-admin.js"></script>
 
     <script>
+        
         // Global variables
         let artworks = [];
         let currentEditingId = null;
@@ -1022,24 +1023,6 @@
         }
 
         // Utility functions
-        function generateSequentialId() {
-            const year = document.getElementById('artworkYear').value || 'unknown';
-            const yearArtworks = artworks.filter(artwork => {
-                const artworkYear = artwork.year || 'unknown';
-                return artworkYear.toString() === year.toString();
-            });
-            
-            const existingNumbers = yearArtworks
-                .map(artwork => {
-                    if (!artwork.id) return 0;
-                    const match = artwork.id.match(new RegExp(`^${year.replace('.', '\\.')}_?(\\d+)$`));
-                    return match ? parseInt(match[1]) : 0;
-                })
-                .filter(num => num > 0);
-            
-            const nextNumber = existingNumbers.length > 0 ? Math.max(...existingNumbers) + 1 : 1;
-            return `${year}_${nextNumber.toString().padStart(3, '0')}`;
-        }
 
         function renderArtworks() {
             const grid = document.getElementById('artworksGrid');
@@ -1301,7 +1284,6 @@
         window.renderArtworks = renderArtworks;
         window.updateStats = updateStats;
         window.showMessage = showMessage;
-        window.generateSequentialId = generateSequentialId;
         window.publishArtwork = publishArtwork;
         window.undoDelete = undoDelete;
         window.clearImage = clearImage;
