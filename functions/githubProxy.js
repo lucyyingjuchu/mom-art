@@ -1,6 +1,6 @@
 exports.handler = async (event, context) => {
-    // Only allow POST requests
-    if (event.httpMethod !== 'POST') {
+    // 允許 POST 和 DELETE
+    if (event.httpMethod !== 'POST' && event.httpMethod !== 'DELETE') {
         return {
             statusCode: 405,
             body: JSON.stringify({ error: 'Method not allowed' })
@@ -17,9 +17,61 @@ exports.handler = async (event, context) => {
             };
         }
 
-        // Parse the request body
-        const { path, content, message, branch = 'main' } = JSON.parse(event.body);
+        const { path, content, message, branch = 'main', sha } = JSON.parse(event.body);
         
+        const GITHUB_OWNER = 'lucyyingjuchu';
+        const GITHUB_REPO = 'mom-art';
+
+        // 處理 DELETE 請求
+        if (event.httpMethod === 'DELETE') {
+            if (!path || !message || !sha) {
+                return {
+                    statusCode: 400,
+                    body: JSON.stringify({ error: 'Missing required fields for delete: path, message, sha' })
+                };
+            }
+
+            const deleteResponse = await fetch(
+                `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${path}`,
+                {
+                    method: 'DELETE',
+                    headers: {
+                        'Authorization': `Bearer ${GITHUB_TOKEN}`,
+                        'Accept': 'application/vnd.github+json',
+                        'Content-Type': 'application/json',
+                        'User-Agent': 'netlify-function'
+                    },
+                    body: JSON.stringify({
+                        message: message,
+                        sha: sha,
+                        branch: branch
+                    })
+                }
+            );
+
+            if (!deleteResponse.ok) {
+                const errorData = await deleteResponse.text();
+                return {
+                    statusCode: deleteResponse.status,
+                    body: JSON.stringify({ 
+                        error: 'GitHub API delete error', 
+                        details: errorData 
+                    })
+                };
+            }
+
+            return {
+                statusCode: 200,
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Headers': 'Content-Type',
+                    'Access-Control-Allow-Methods': 'POST, DELETE, OPTIONS'
+                },
+                body: JSON.stringify({ success: true, message: 'File deleted successfully' })
+            };
+        }
+
+        // 原本的 POST 處理（上傳/更新檔案）
         if (!path || !content || !message) {
             return {
                 statusCode: 400,
@@ -27,9 +79,7 @@ exports.handler = async (event, context) => {
             };
         }
 
-        // Your GitHub repo configuration
-        const GITHUB_OWNER = 'lucyyingjuchu';
-        const GITHUB_REPO = 'mom-art';
+        // ... 其餘的 POST 處理邏輯保持不變 ...
         
         // Check if file exists first (to get SHA for updates)
         let sha = null;
@@ -97,7 +147,7 @@ exports.handler = async (event, context) => {
             headers: {
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Headers': 'Content-Type',
-                'Access-Control-Allow-Methods': 'POST, OPTIONS'
+                'Access-Control-Allow-Methods': 'POST, DELETE, OPTIONS'
             },
             body: JSON.stringify(result)
         };
