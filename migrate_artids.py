@@ -9,7 +9,8 @@ ArtID migration tool
 - Outputs a CSV/JSON report and a migrated JSON file
 
 Usage:
-  python migrate_artids.py --root <project_root> --json artworks.json --id-scheme uuid --dry-run
+  python migrate_artids.py --root <project_root> --json artworks.json --id-scheme uuidv7 --dry-run
+  python migrate_artids.py --root <project_root> --json artworks.json --id-scheme uuidv4
   python migrate_artids.py --root <project_root> --json artworks.json --id-scheme numeric8
 
 Notes:
@@ -28,13 +29,30 @@ import re
 import shutil
 import sys
 import uuid
+import time
+import random
 
 # --------------------------- Helpers ---------------------------
 
-def uuid_str():
-    # Use UUID4 for broad compatibility (Python 3.8+). UUID7 would be nicer for sortability,
-    # but it requires Python 3.11+. If you want UUID7, swap to: uuid.uuid7().
+def uuidv4_str():
     return str(uuid.uuid4())
+
+def uuidv7_str():
+    """Pure-Python UUID v7 per draft spec.
+    Layout (big-endian):
+      48 bits: unix_ts_ms
+       4 bits: version (0b0111)
+      12 bits: rand_a
+       2 bits: variant (0b10)
+      62 bits: rand_b
+    """
+    ts_ms = int(time.time() * 1000) & ((1 << 48) - 1)
+    rand_a = random.getrandbits(12)
+    rand_b = random.getrandbits(62)
+    n = (ts_ms << 80) | (0x7 << 76) | (rand_a << 64) | (0b10 << 62) | rand_b
+    # Format as 8-4-4-4-12 hex
+    hex32 = f"{n:032x}"
+    return f"{hex32[0:8]}-{hex32[8:12]}-{hex32[12:16]}-{hex32[16:20]}-{hex32[20:32]}"
 
 def numeric8_gen(start=1):
     # Simple generator for zero-padded 8-digit numbers
@@ -104,7 +122,7 @@ def main():
     ap.add_argument("--json", default="artworks.json", help="Path to artworks.json (relative to root or absolute)")
     ap.add_argument("--thumb-dir", default="images/paintings/thumbnails", help="Thumbnails directory relative to root")
     ap.add_argument("--large-dir", default="images/paintings/large", help="Large images directory relative to root")
-    ap.add_argument("--id-scheme", choices=["uuid", "numeric8"], default="uuid", help="New ID scheme")
+    ap.add_argument("--id-scheme", choices=["uuidv7", "uuidv4", "numeric8"], default="uuidv7", help="New ID scheme")
     ap.add_argument("--delete-orphans", action="store_true", help="Delete image files that have no matching JSON entry")
     ap.add_argument("--dry-run", action="store_true", help="Do not change files, only report actions")
     ap.add_argument("--start-index", type=int, default=1, help="Start index for numeric8 scheme (default 1)")
@@ -177,8 +195,10 @@ def main():
 
     # Step 3: Remap IDs and rename files safely
     # Build id map
-    if args.id_scheme == "uuid":
-        new_id_for = {old: uuid_str() for old in json_ids}
+    if args.id_scheme == "uuidv7":
+        new_id_for = {old: uuidv7_str() for old in json_ids}
+    elif args.id_scheme == "uuidv4":
+        new_id_for = {old: uuidv4_str() for old in json_ids}
     else:  # numeric8
         gen = numeric8_gen(start=args.start_index)
         new_id_for = {old: next(gen) for old in json_ids}
