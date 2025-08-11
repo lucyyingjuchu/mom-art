@@ -6,7 +6,7 @@ class ArtworkCategorizer {
             // By Subject
             subject: {
                 'waterfall': ['瀑布', '瀑', '飛瀑', '銀瀑', '煙聲'],
-                'landscape': ['山水', '山', '峰', '雲海', '煙雲', '嵐', '壑', '石'],
+                'landscape': ['山水', '山', '峰', '雲海', '煙雲', '嵐', '壑', '石','木','谷'],
                 'flowingclouds': ['煙', '雲', '煙雲', '雲海', '霧'],
                 'flowers': ['花', '梅', '菊', '藤', '紫藤', '杜鵑', '桃花', '荷', '蓮', '牡丹', '阿勃勒', '金針', '櫻花', '凌霄'],
                 'bamboo': ['竹', '墨竹', '疏竹', '翠竹'],
@@ -213,6 +213,7 @@ class ArtworkCategorizer {
         return stats;
     }
 }
+
 
 class ChineseArtPortfolio {
     constructor() {
@@ -528,7 +529,7 @@ class ChineseArtPortfolio {
         }
     }
 
-    // Render gallery with multi-select filters
+    // Updated renderGallery method with image prioritization and randomization
     renderGallery() {
         const galleryGrid = document.getElementById('galleryGrid');
         if (!galleryGrid) return;
@@ -536,25 +537,42 @@ class ChineseArtPortfolio {
         // Use multi-select filtering
         const filteredArtworks = this.categorizer.getMultiFilteredArtworks(this.activeFilters, this.artworks);
 
-        // Update results counter
+        // Separate artworks with real images from those without
+        const artworksWithImages = filteredArtworks.filter(artwork => this.hasRealImage(artwork));
+        const artworksWithoutImages = filteredArtworks.filter(artwork => !this.hasRealImage(artwork));
+
+        // Randomize each group separately
+        const randomizedWithImages = this.shuffleArray(artworksWithImages);
+        const randomizedWithoutImages = this.shuffleArray(artworksWithoutImages);
+
+        // Combine: images first, then placeholders
+        const prioritizedArtworks = [...randomizedWithImages, ...randomizedWithoutImages];
+
+        // Calculate counts OUTSIDE the if block so they're available everywhere
+        const activeFilterCount = Object.values(this.activeFilters).flat().length;
+        const imageCount = artworksWithImages.length;
+        const totalCount = filteredArtworks.length;
+
+        // Update results counter with image statistics
         const resultsInfo = document.getElementById('resultsInfo');
         if (resultsInfo) {
-            const activeFilterCount = Object.values(this.activeFilters).flat().length;
             if (activeFilterCount > 0) {
                 resultsInfo.textContent = this.t('filters.showingFiltered', {
-                    count: filteredArtworks.length,
+                    count: totalCount,
                     total: this.artworks.length,
                     filters: activeFilterCount
-                });
+                }) + ` (${imageCount} ${this.t('gallery.withImages')})`;
             } else {
                 resultsInfo.textContent = this.t('filters.showingAll', {
-                    total: this.artworks.length
-                });
+                    total: totalCount
+                }) + ` (${imageCount} ${this.t('gallery.withImages')})`;
             }
         }
 
-        // Render artwork cards
-        galleryGrid.innerHTML = filteredArtworks.map(artwork => this.createArtworkCard(artwork)).join('');
+        // Render artwork cards with prioritized order
+        galleryGrid.innerHTML = prioritizedArtworks.map(artwork => this.createArtworkCard(artwork)).join('');
+        
+        console.log(`🎨 Gallery rendered: ${imageCount} with images, ${totalCount - imageCount} with placeholders`);
     }
 
     // Create artwork card HTML
@@ -861,7 +879,7 @@ class ChineseArtPortfolio {
         grid.innerHTML = rowsHTML;
     }
 
-    // Create HTML for individual featured item  
+   // Fixed createFeaturedItemHTML method - replace the existing one in your portfolio.js
     createFeaturedItemHTML(item) {
         const { artwork, span } = item;
         const title = this.getText(artwork, 'title') || this.t('common.untitled');
@@ -869,7 +887,7 @@ class ChineseArtPortfolio {
         const year = artwork.year || '';
         const size = artwork.sizeCm || '';
         const medium = artwork.mediumEn || artwork.format || '';
-        const imageUrl = artwork.imageHigh || artwork.image || './images/placeholder/artwork-placeholder.svg';
+        const imageUrl = artwork.imageHigh || artwork.image || this.getPlaceholderImage();
         const available = this.getBooleanValue(artwork, 'available', true);
         
         const spanClass = `featured-item-span-${span}`;
@@ -878,8 +896,8 @@ class ChineseArtPortfolio {
             <div class="featured-item ${spanClass}" onclick="openLightbox('${artwork.id}', 'featured')">
                 <div class="featured-image-container">
                     <img src="${imageUrl}" alt="${title}" 
-                         onerror="this.src='./images/placeholder/artwork-placeholder.svg'"
-                         onload="this.parentElement.parentElement.classList.add('image-loaded')">
+                        onerror="this.src='${this.getPlaceholderImage()}'"
+                        onload="this.parentElement.parentElement.classList.add('image-loaded')">
                     <div class="featured-overlay">
                         <div class="featured-overlay-content">
                             <span class="view-details">${this.t('common.viewDetails')}</span>
@@ -1237,6 +1255,32 @@ class ChineseArtPortfolio {
 
         galleryGrid.innerHTML = results.map(artwork => this.createArtworkCard(artwork)).join('');
     }
+
+        // Helper method to check if artwork has a real image
+    hasRealImage(artwork) {
+        // Check if artwork has non-empty image paths
+        const hasImagePath = (artwork.image && artwork.image.trim() !== '') || 
+                            (artwork.imageHigh && artwork.imageHigh.trim() !== '');
+        
+        // Also check if it's not pointing to placeholder
+        const isNotPlaceholder = artwork.image && 
+                                !artwork.image.includes('placeholder') && 
+                                artwork.image !== this.getPlaceholderImage();
+        
+        return hasImagePath && isNotPlaceholder;
+    }
+
+    // Helper method to shuffle array randomly
+    shuffleArray(array) {
+        const shuffled = [...array];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        return shuffled;
+    }
+
+    
 }
 
 // Initialize portfolio

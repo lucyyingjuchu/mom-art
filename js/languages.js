@@ -24,6 +24,11 @@ const LANGUAGE_DATA = {
             viewAllButton: "View Complete Gallery"
         },
         
+        //Gallery
+        gallery: {
+            withImages: "with images",
+        },
+
         // Gallery filters
         filters: {
             bySubject: "By Subject",
@@ -224,6 +229,12 @@ const LANGUAGE_DATA = {
             heroDescription: "以自然為師，融詩書畫印於一體\n深耕中國水墨之美四十餘載\n在這裡感受傳統國畫的雋永之美\n體驗筆墨間的詩意與禪境",            featuredTitle: "精選作品",
             featuredSubtitle: "精心策劃的傑出作品",
             viewAllButton: "查看完整作品集"
+        },
+
+        //Gallery
+    
+        gallery: {
+            withImages: "含圖片"
         },
         
         // Gallery filters
