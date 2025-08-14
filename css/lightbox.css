@@ -1112,3 +1112,50 @@
 .lightbox-info-section::-webkit-scrollbar-thumb:hover {
     background: #a8a8a8;
 }
+
+/* 圓形帶邊框指示器樣式 - 添加到 lightbox.css */
+.view-indicators {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 1001;
+}
+
+.view-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    border: 2px solid rgba(255,255,255,0.8);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.view-dot:hover {
+    background: rgba(255,255,255,0.6);
+    transform: scale(1.1);
+}
+
+.view-dot.active {
+    background: white;
+    border-color: white;
+    transform: scale(1.2);
+    box-shadow: 0 0 0 3px rgba(255,255,255,0.3);
+}
+
+/* 響應式調整 */
+@media (max-width: 768px) {
+    .view-indicators {
+        bottom: 20px;
+    }
+    
+    .view-dot {
+        width: 14px;
+        height: 14px;
+        border-width: 2px;
+    }
+}

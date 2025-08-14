@@ -17,8 +17,81 @@
     "curatorNoteEn": "",
     "descriptionEn": "In the dance of water and moonlight, chaos unfolds, As heaven and earth in myriad forms behold. What essence do the seasons’ winds convey? Amidst the chill, the lone plum blossoms sway.",
     "formatEn": "Hanging Scroll",
-    "sizeInches": "53.1×27.6 inches"
+    "sizeInches": "53.1×27.6 inches",
+    "productViews": [
+        {
+            "type": "original",           
+            "title": "原作",
+            "icon": "🖼️",
+            "image": "./images/paintings/large/019891b0-f39c-7cee-bc2d-85b83d7ced08_large.png",
+            "description": "高清原作細節"
+        },
+        {
+            "type": "original-mockup",    
+            "title": "原作展示",
+            "icon": "🏠",
+            "image": "./images/mockups/original/019891b0-f39c-7cee-bc2d-85b83d7ced08_mockup_orig.png",
+            "description": "135×70cm 原作在客廳的效果"
+        },
+        {
+            "type": "print",             
+            "title": "限量版畫",
+            "icon": "📄",
+            "image": "./images/prints/019891b0-f39c-7cee-bc2d-85b83d7ced08_print.jpg",
+            "description": "高品質藝術微噴版畫"
+        },
+        {
+            "type": "print-mockup",       
+            "icon": "🏠",
+            "image": "./images/mockups/prints/019891b0-f39c-7cee-bc2d-85b83d7ced08_living.jpg",
+            "description": "50×35cm 版畫在書房的效果"
+        },
+        {
+            "type": "packaging",          
+            "title": "精美包裝",
+            "icon": "📦",
+            "image": "./images/packaging/019891b0-f39c-7cee-bc2d-85b83d7ced08_box.jpg",
+            "description": "專業裝裱與包裝"
+        },
+        {
+            "type": "detail",             
+            "title": "印刷細節",
+            "icon": "🔍",
+            "image": "./images/details/019891b0-f39c-7cee-bc2d-85b83d7ced08_detail.jpg",
+            "description": "紙張質感與簽名細節"
+        }
+    ],
+    "products": [
+        {
+            "type": "original",
+            "name": "原作",
+            "price": 45000,
+            "currency": "TWD",
+            "size": "135×70 cm",
+            "available": true,
+            "unique": true
+        },
+        {
+            "type": "print-large",
+            "name": "大尺寸限量版畫",
+            "price": 8000,
+            "currency": "TWD", 
+            "size": "70×50 cm",
+            "edition": 20,
+            "available": true
+        },
+        {
+            "type": "print-medium",
+            "name": "中尺寸版畫",
+            "price": 4500,
+            "currency": "TWD",
+            "size": "50×35 cm", 
+            "edition": 50,
+            "available": true
+        }
+    ]
   },
+
   {
     "id": "019891b0-f39c-752c-bde4-db1ef1f5529c",
     "title": "源頭應是天上來─瀑布",

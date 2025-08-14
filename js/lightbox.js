@@ -24,6 +24,8 @@ let fullscreenThreshold = 2;
 let originalLightboxContent = null;
 let isZoomBlocked = false;
 let zoomBlockTimeout = null;
+let currentArtworkViews = [];
+let currentViewIndex = 0;
 const BLOCK_DURATION = 600;
 
 // ================================
@@ -222,6 +224,7 @@ window.closeLightbox = function() {
             existingControls.remove();
         }
     }
+    cleanupViews();
 };
 
 window.navigateArtwork = function(direction) {
@@ -438,6 +441,21 @@ function populateLightbox(artwork) {
     
     // BILINGUAL UPDATE: Update all UI text elements
     updateLightboxUIText();
+
+    // 設置多視圖功能
+    setupArtworkViews(artwork);
+    
+    // 圖片加載完成後添加指示器
+    image.onload = function() {
+        image.classList.remove('loading');
+        setTimeout(() => {
+            initializeImageZoom();
+            addZoomControls();
+            
+            // 添加視圖指示器
+            addViewIndicators();
+        }, 100);
+    };
 }
 
 function initializeImageZoom() {
@@ -859,4 +877,151 @@ function setupLightboxEventListeners() {
     });
 }
 
-console.log('🎨 Bilingual Lightbox v7.1 loaded - Language-aware placeholders and field selection!');
+// 設置作品的多個視圖
+function setupArtworkViews(artwork) {
+    currentArtworkViews = [];
+    
+    // 如果有 productViews，使用新系統
+    if (artwork.productViews && artwork.productViews.length > 0) {
+        currentArtworkViews = artwork.productViews.map(view => ({
+            src: view.image,
+            alt: getArtworkText(artwork, 'title') + ' - ' + view.title,
+            type: view.type,
+            title: view.title,
+            icon: view.icon,
+            description: view.description
+        }));
+    } else {
+        // 向後兼容：使用原有系統
+        const placeholderImage = getPlaceholderImage();
+        currentArtworkViews = [
+            {
+                src: artwork.imageHigh || artwork.image || placeholderImage,
+                alt: getArtworkText(artwork, 'title') + ' - 原作',
+                type: 'original',
+                title: '原作',
+                icon: '🖼️'
+            }
+        ];
+        
+        // 檢查舊的房間展示欄位
+        if (artwork.roomDisplay) {
+            currentArtworkViews.push({
+                src: artwork.roomDisplay,
+                alt: getArtworkText(artwork, 'title') + ' - 房間展示',
+                type: 'room',
+                title: '房間展示',
+                icon: '🏠'
+            });
+        }
+    }
+    
+    currentViewIndex = 0;
+}
+
+// 獲取作品文字（根據當前語言）
+function getArtworkText(artwork, field) {
+    if (typeof portfolio !== 'undefined' && portfolio.currentLanguage === 'en') {
+        return artwork[field + 'En'] || artwork[field] || '';
+    }
+    return artwork[field] || artwork[field + 'En'] || '';
+}
+
+// 添加視圖指示器
+function addViewIndicators() {
+    const imageSection = document.querySelector('.lightbox-image-section');
+    if (!imageSection || currentArtworkViews.length <= 1) return;
+    
+    // 移除現有指示器
+    const existingIndicators = imageSection.querySelector('.view-indicators');
+    if (existingIndicators) {
+        existingIndicators.remove();
+    }
+    
+    // 創建新指示器容器
+    const indicators = document.createElement('div');
+    indicators.className = 'view-indicators';
+    
+    // 如果視圖太多（>4個），使用緊湊模式
+    const isCompact = currentArtworkViews.length > 4;
+    if (isCompact) {
+        indicators.classList.add('compact-mode');
+    }
+    
+    currentArtworkViews.forEach((view, index) => {
+        const dot = document.createElement('div');
+        dot.className = `view-dot ${index === 0 ? 'active' : ''}`;
+        dot.title = view.title || `視圖 ${index + 1}`;
+        dot.onclick = () => switchArtworkView(index);
+        
+        // 如果有圖標且不是緊湊模式，顯示圖標
+        if (view.icon && !isCompact) {
+            dot.textContent = view.icon;
+            dot.classList.add('icon-dot');
+        }
+        
+        indicators.appendChild(dot);
+    });
+    
+    imageSection.appendChild(indicators);
+    
+    console.log(`✅ Added ${currentArtworkViews.length} view indicators`);
+}
+
+// 切換作品視圖
+function switchArtworkView(index) {
+    if (index === currentViewIndex || index >= currentArtworkViews.length) return;
+    
+    const image = document.getElementById('lightboxImage');
+    const dots = document.querySelectorAll('.view-dot');
+    
+    if (!image || !dots.length) return;
+    
+    console.log(`🔄 Switching to view ${index}: ${currentArtworkViews[index].title}`);
+    
+    // 更新指示器狀態
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[index].classList.add('active');
+    
+    // 添加淡出效果
+    image.style.opacity = '0.5';
+    image.style.transition = 'opacity 0.3s ease';
+    
+    setTimeout(() => {
+        // 切換圖片
+        const newView = currentArtworkViews[index];
+        image.src = newView.src;
+        image.alt = newView.alt;
+        
+        // 淡入效果
+        image.style.opacity = '1';
+        
+        currentViewIndex = index;
+        
+        // 處理圖片加載錯誤
+        image.onerror = function() {
+            console.warn(`⚠️ Failed to load view image: ${newView.src}`);
+            image.src = getPlaceholderImage();
+        };
+        
+    }, 150);
+}
+
+// 清理視圖數據（當關閉 lightbox 時調用）
+function cleanupViews() {
+    currentArtworkViews = [];
+    currentViewIndex = 0;
+    
+    // 移除指示器
+    const indicators = document.querySelector('.view-indicators');
+    if (indicators) {
+        indicators.remove();
+    }
+}
+
+window.setupArtworkViews = setupArtworkViews;
+window.addViewIndicators = addViewIndicators;
+window.switchArtworkView = switchArtworkView;
+window.cleanupViews = cleanupViews;
+
+console.log('✅ Multi-view system loaded for lightbox');

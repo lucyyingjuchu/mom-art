@@ -192,7 +192,12 @@ const LANGUAGE_DATA = {
             shareTitle: "Share Artwork",
             closeTitle: "Close Lightbox",
             prevTitle: "Previous Artwork",
-            nextTitle: "Next Artwork"
+            nextTitle: "Next Artwork",
+            originalView: 'Original',
+            roomView: 'Room Display',
+            originalDescription: 'High-resolution original details',
+            roomDescription: 'Decorative effect in home',
+            viewIndicator: 'Multiple Views'
         },
         
         // Common
@@ -401,7 +406,12 @@ const LANGUAGE_DATA = {
             shareTitle: "分享作品",
             closeTitle: "關閉檢視",
             prevTitle: "上一件作品",
-            nextTitle: "下一件作品"
+            nextTitle: "下一件作品",
+            originalView: '原作',
+            roomView: '房間展示',
+            originalDescription: '高清原作細節',
+            roomDescription: '在家中的裝飾效果',
+            viewIndicator: '多視圖'
         },
         
         // Common

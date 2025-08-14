@@ -591,6 +591,12 @@ class ChineseArtPortfolio {
         
         return `
             <div class="gallery-item" onclick="openLightbox('${artwork.id}')">
+                        ${this.hasMultipleViews(artwork) ? 
+                `<div class="multi-view-indicator">
+                    <span class="view-count">${this.getViewCount(artwork)}</span>
+                    <span class="view-icon">👁️</span>
+                </div>` : ''
+                        }
                 <div class="gallery-item-image">
                     <img src="${imageUrl}" alt="${title}" loading="lazy" 
                          onerror="this.src='${this.getPlaceholderImage()}'">
@@ -1280,8 +1286,114 @@ class ChineseArtPortfolio {
         return shuffled;
     }
 
+    //To add multi-view for each artwork
+
+    setupArtworkViews(artwork) {
+    // 這個方法主要是為了保持一致性，實際邏輯在 lightbox.js 中
+    console.log('🎨 Setting up artwork views for:', this.getText(artwork, 'title'));
     
+    // 檢查作品是否有多視圖
+    if (artwork.productViews && artwork.productViews.length > 0) {
+        console.log(`📸 Found ${artwork.productViews.length} product views`);
+        return artwork.productViews;
+    }
+    
+    // 向後兼容檢查
+    const views = [];
+    
+    // 添加原作視圖
+    views.push({
+        type: 'original',
+        title: this.t('lightbox.originalView') || '原作',
+        icon: '🖼️',
+        image: artwork.imageHigh || artwork.image || this.getPlaceholderImage(),
+        description: this.t('lightbox.originalDescription') || '高清原作細節'
+    });
+    
+    // 檢查舊的房間展示欄位
+    if (artwork.roomDisplay) {
+        views.push({
+            type: 'room-display',
+            title: this.t('lightbox.roomView') || '房間展示',
+            icon: '🏠',
+            image: artwork.roomDisplay,
+            description: this.t('lightbox.roomDescription') || '在家中的裝飾效果'
+        });
+    }
+    
+    return views;
+    }
+
+    // 檢查作品是否有多視圖
+    hasMultipleViews(artwork) {
+        if (artwork.productViews && artwork.productViews.length > 1) {
+            return true;
+        }
+        
+        // 檢查舊的數據結構
+        const viewCount = 1 + (artwork.roomDisplay ? 1 : 0);
+        return viewCount > 1;
+    }
+
+    // 獲取作品的視圖數量
+    getViewCount(artwork) {
+        if (artwork.productViews) {
+            return artwork.productViews.length;
+        }
+        
+        // 向後兼容
+        return 1 + (artwork.roomDisplay ? 1 : 0);
+    }
+
+    // 驗證作品視圖數據
+    validateArtworkViews(artwork) {
+        if (!artwork.productViews) {
+            return { valid: true, message: 'No product views (using legacy mode)' };
+        }
+        
+        const issues = [];
+        
+        artwork.productViews.forEach((view, index) => {
+            if (!view.image) {
+                issues.push(`View ${index + 1}: Missing image`);
+            }
+            if (!view.title) {
+                issues.push(`View ${index + 1}: Missing title`);
+            }
+            if (!view.type) {
+                issues.push(`View ${index + 1}: Missing type`);
+            }
+        });
+        
+        return {
+            valid: issues.length === 0,
+            message: issues.length > 0 ? issues.join(', ') : 'All views valid',
+            issues: issues
+        };  
+    }
+    debugArtworkViews(artworkId) {
+        const artwork = this.getArtwork(artworkId);
+        if (!artwork) {
+            console.error('❌ Artwork not found:', artworkId);
+            return;
+        }
+        
+        console.log('🎨 Artwork:', this.getText(artwork, 'title'));
+        console.log('📸 Has multiple views:', this.hasMultipleViews(artwork));
+        console.log('🔢 View count:', this.getViewCount(artwork));
+        
+        const validation = this.validateArtworkViews(artwork);
+        console.log('✅ Validation:', validation);
+        
+        if (artwork.productViews) {
+            console.log('📋 Product views:');
+            artwork.productViews.forEach((view, index) => {
+                console.log(`  ${index + 1}. ${view.title} (${view.type}) - ${view.image}`);
+            });
+        }
+    }
 }
+
 
 // Initialize portfolio
 const portfolio = new ChineseArtPortfolio();
@@ -1302,3 +1414,13 @@ window.showSection = function(sectionId) {
 window.filterGallery = function(filterType, filterValue) {
     portfolio.renderGallery(filterType, filterValue);
 };
+
+window.debugArtworkViews = function(artworkId) {
+    if (typeof portfolio !== 'undefined') {
+        portfolio.debugArtworkViews(artworkId);
+    } else {
+        console.error('Portfolio not loaded');
+    }
+};
+
+console.log('✅ Multi-view system loaded for portfolio');
