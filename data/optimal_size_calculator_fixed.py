@@ -72,28 +72,28 @@ class OptimalSizeCalculator:
             
         return artwork_type, viewing_style
 
-    def get_size_preferences(self, artwork_type, viewing_style):
-        """根據畫作類型獲得尺寸偏好"""
+    def get_area_preferences(self, artwork_type, viewing_style):
+        """根據畫作類型獲得面積偏好"""
         base_preferences = {
-            'small': {'min': 8, 'max': 12},
-            'medium': {'min': 12, 'max': 18},
-            'large': {'min': 18, 'max': 24}
+            'small': {'min': 60, 'max': 110},
+            'medium': {'min': 111, 'max': 160},
+            'large': {'min': 161, 'max': 210}
         }
         
         # 根據畫作類型調整
         if artwork_type == 'landscape':
             # 山水畫傾向於更大尺寸
             base_preferences = {
-                'medium': {'min': 12, 'max': 18},
-                'large': {'min': 18, 'max': 24},
-                'statement': {'min': 24, 'max': 36}
+                'medium': {'min': 111, 'max': 160},
+                'large': {'min': 161, 'max': 210},
+                'statement': {'min': 211, 'max': 300}
             }
             
         elif artwork_type == 'calligraphy':
             # 書法傾向於較小精緻尺寸
             base_preferences = {
-                'small': {'min': 8, 'max': 12},
-                'medium': {'min': 12, 'max': 18}
+                'small': {'min': 60, 'max': 110},
+                'medium': {'min': 111, 'max': 160}
             }
             
         return base_preferences
@@ -125,6 +125,81 @@ class OptimalSizeCalculator:
         
         return max(0, min(100, score))
 
+    def find_best_integer_combinations(self, target_areas, original_ratio):
+        """找到最接近目標面積且比例一致的整數組合"""
+        all_combinations = []
+        
+        # 為每個目標面積找到候選的整數組合
+        for target_area in target_areas:
+            # 估算大概的尺寸範圍
+            estimated_height = math.sqrt(target_area / original_ratio)
+            estimated_width = math.sqrt(target_area * original_ratio)
+            
+            # 在估算尺寸附近搜索整數組合
+            height_range = range(max(6, int(estimated_height) - 3), int(estimated_height) + 4)
+            width_range = range(max(6, int(estimated_width) - 3), int(estimated_width) + 4)
+            
+            for h in height_range:
+                for w in width_range:
+                    area = w * h
+                    ratio = w / h
+                    area_diff = abs(area - target_area)
+                    ratio_diff = abs(ratio - original_ratio)
+                    
+                    # 只考慮面積差異在合理範圍內的組合
+                    if area_diff <= target_area * 0.4:
+                        all_combinations.append({
+                            'width': w,
+                            'height': h,
+                            'area': area,
+                            'ratio': ratio,
+                            'target_area': target_area,
+                            'area_diff': area_diff,
+                            'ratio_diff': ratio_diff
+                        })
+        
+        if not all_combinations:
+            return []
+        
+        # 直接按比例差異排序，找到比例最接近的組合
+        all_combinations.sort(key=lambda x: x['ratio_diff'])
+        
+        # 選擇前幾個比例最好的組合，確保覆蓋不同面積
+        selected = []
+        used_dimensions = set()
+        target_areas_sorted = sorted(set(target_areas))
+        
+        # 首先嘗試為每個目標面積找到最佳比例的組合
+        for target_area in target_areas_sorted:
+            if len(selected) >= 3:
+                break
+                
+            # 找到面積接近且比例最好的組合
+            candidates = [combo for combo in all_combinations 
+                         if abs(combo['area'] - target_area) <= target_area * 0.4
+                         and f"{combo['width']}x{combo['height']}" not in used_dimensions]
+            
+            if candidates:
+                # 選擇比例最好的
+                best_candidate = min(candidates, key=lambda x: x['ratio_diff'])
+                selected.append(best_candidate)
+                used_dimensions.add(f"{best_candidate['width']}x{best_candidate['height']}")
+        
+        # 如果還沒有3個，從剩余比例最好的組合中補充
+        remaining_candidates = [combo for combo in all_combinations 
+                               if f"{combo['width']}x{combo['height']}" not in used_dimensions]
+        
+        for combo in remaining_candidates:
+            if len(selected) >= 3:
+                break
+            selected.append(combo)
+            used_dimensions.add(f"{combo['width']}x{combo['height']}")
+        
+        # 按面積排序最終結果
+        selected.sort(key=lambda x: x['area'])
+        
+        return selected
+
     def calculate_optimal_sizes(self, artwork):
         """計算最適合的展示尺寸"""
         height_cm, width_cm = self.parse_size_cm(artwork.get('sizeCm', ''))
@@ -141,68 +216,25 @@ class OptimalSizeCalculator:
         # 分析畫作特性
         artwork_type, viewing_style = self.analyze_artwork_characteristics(artwork)
         
-        # 根據畫作類型調整尺寸偏好
-        size_preferences = self.get_size_preferences(artwork_type, viewing_style)
+        # 根據畫作類型調整面積偏好
+        area_preferences = self.get_area_preferences(artwork_type, viewing_style)
         
-        all_sizes = []
+        # 收集所有目標面積
+        all_target_areas = []
+        for area_range in area_preferences.values():
+            min_area = area_range['min']
+            max_area = area_range['max']
+            all_target_areas.extend([min_area, (min_area + max_area) / 2, max_area])
         
-        # 為每個尺寸範圍生成候選尺寸
-        for size_category, size_range in size_preferences.items():
-            min_size = size_range['min']
-            max_size = size_range['max']
-            
-            # 嘗試該範圍內的幾個目標尺寸
-            for target_size in [min_size, (min_size + max_size) / 2, max_size]:
-                if original_ratio > 1:
-                    # 橫向畫作 (寬 > 高)
-                    width = target_size
-                    height = width / original_ratio
-                else:
-                    # 直向畫作 (高 > 寬)
-                    height = target_size
-                    width = height * original_ratio
-                
-                # 保持精確比例的四捨五入
-                width_rounded = round(width)
-                height_rounded = round(height)
-                
-                # 驗證比例是否保持一致
-                new_ratio = width_rounded / height_rounded
-                if abs(new_ratio - original_ratio) > 0.1:
-                    # 如果比例偏差太大，調整一個維度
-                    if original_ratio > 1:
-                        height_rounded = round(width_rounded / original_ratio)
-                    else:
-                        width_rounded = round(height_rounded * original_ratio)
-                
-                # 檢查是否在合理範圍內
-                if (min_size <= max(width_rounded, height_rounded) <= max_size and
-                    min(width_rounded, height_rounded) >= 6):
-                    
-                    score = self.calculate_recommendation_score(width_rounded, height_rounded, original_ratio)
-                    
-                    all_sizes.append({
-                        'width_inches': width_rounded,
-                        'height_inches': height_rounded,
-                        'score': score
-                    })
+        # 找到最佳的整數組合
+        best_combinations = self.find_best_integer_combinations(all_target_areas, original_ratio)
         
-        # 去除重複尺寸
-        unique_sizes = {}
-        for size in all_sizes:
-            key = f"{size['width_inches']}x{size['height_inches']}"
-            if key not in unique_sizes or size['score'] > unique_sizes[key]['score']:
-                unique_sizes[key] = size
-        
-        # 按分數排序，取前2-3個
-        sorted_sizes = sorted(unique_sizes.values(), key=lambda x: x['score'], reverse=True)
-        
-        # 返回最多3個最佳尺寸，移除分數
+        # 轉換為結果格式
         result = []
-        for i, size in enumerate(sorted_sizes[:3]):
+        for combo in best_combinations:
             result.append({
-                'width_inches': size['width_inches'],
-                'height_inches': size['height_inches']
+                'width_inches': combo['width'],
+                'height_inches': combo['height']
             })
         
         return result
