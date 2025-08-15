@@ -1007,8 +1007,6 @@ function switchArtworkView(index) {
     }, 150);
 }
 
-
-
 // 清理視圖數據（當關閉 lightbox 時調用）
 function cleanupViews() {
     currentArtworkViews = [];
