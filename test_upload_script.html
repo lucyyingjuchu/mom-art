@@ -424,12 +424,82 @@
                     response: priceResult
                 });
                 
-                // Test 2: Try correct Excel-based field structure
-                console.log('🧪 Test 2: Testing Excel template structure');
+                // Test 2: Official API example structure (EXACT)
+                console.log('🧪 Test 2: Official API example structure');
                 
-                const correctOrderPayload = {
+                const officialOrderPayload = {
                     "orders": [{
-                        "order_po": "TEST_EXCEL_" + Date.now(),
+                        "order_po": "TEST_OFFICIAL_" + Date.now(),
+                        "order_key": null,
+                        "recipient": {
+                            "first_name": "Test",
+                            "last_name": "Customer",
+                            "company_name": "Xiaoran Art Gallery",
+                            "address_1": "123 Test Street",
+                            "address_2": null,
+                            "address_3": null,
+                            "city": "Test City",
+                            "state_code": "CA",
+                            "province": null,
+                            "zip_postal_code": "90210",
+                            "country_code": "us",
+                            "phone": "555-555-5555",
+                            "email": "test@example.com",
+                            "address_order_po": "TEST_OFFICIAL_" + Date.now()
+                        },
+                        "order_items": [{
+                            "product_order_po": "TEST_OFFICIAL_" + Date.now(),
+                            "product_qty": 1,
+                            "product_sku": "5M175M37S6X12",
+                            "product_image": null,  // NULL as shown in official example!
+                            "product_title": selectedArtwork.finerworks_image.finerworks_api_object.title,
+                            "template": null,
+                            "product_guid": uploadedImageGuid,  // Use our uploaded image GUID
+                            "custom_data_1": null,
+                            "custom_data_2": null,
+                            "custom_data_3": null
+                        }],
+                        "shipping_code": "SD",
+                        "ship_by_date": null,
+                        "customs_tax_info": null,
+                        "gift_message": null,
+                        "test_mode": true,  // Keep test mode
+                        "webhook_order_status_url": null,
+                        "document_url": null,
+                        "acct_number_ups": null,
+                        "acct_number_fedex": null,
+                        "custom_data_1": null,
+                        "custom_data_2": null,
+                        "custom_data_3": null
+                    }],
+                    "validate_only": true
+                };
+                
+                const officialResponse = await fetch('/.netlify/functions/finerworks-api', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        endpoint: 'submit_orders',
+                        data: officialOrderPayload
+                    })
+                });
+                
+                const officialResult = await officialResponse.json();
+                testResults.push({
+                    test: 'Official API example structure (product_image: null)',
+                    success: officialResponse.ok,
+                    status: officialResponse.status,
+                    response: officialResult
+                });
+                
+                // Test 3: Try without product_image fields at all
+                console.log('🧪 Test 3: Try without product_image fields');
+                
+                const noImageOrderPayload = {
+                    "orders": [{
+                        "order_po": "TEST_NO_IMG_" + Date.now(),
                         "recipient": {
                             "first_name": "Test",
                             "last_name": "Customer", 
@@ -444,36 +514,34 @@
                             "country_code": "us"
                         },
                         "order_items": [{
-                            "product_order_po": "TEST_EXCEL_" + Date.now(),
+                            "product_order_po": "TEST_NO_IMG_" + Date.now(),
                             "product_qty": 1,
-                            "product_sku": "5M175M37S6X12",
-                            "shipping_code": "SD",
-                            "product_image_file_url": selectedArtwork.finerworks_image.finerworks_api_object.private_hires_uri,
-                            "product_thumb_url": selectedArtwork.finerworks_image.finerworks_api_object.public_thumbnail_uri,
-                            "product_cropping": ""
+                            "product_sku": "5M175M37S6X12"
+                            // No image fields - maybe they're linked via get_prices call?
                         }],
+                        "shipping_code": "SD",
                         "test_mode": true
                     }],
                     "validate_only": true
                 };
                 
-                const correctResponse = await fetch('/.netlify/functions/finerworks-api', {
+                const noImageResponse = await fetch('/.netlify/functions/finerworks-api', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
                         endpoint: 'submit_orders',
-                        data: correctOrderPayload
+                        data: noImageOrderPayload
                     })
                 });
                 
-                const correctResult = await correctResponse.json();
+                const noImageResult = await noImageResponse.json();
                 testResults.push({
-                    test: 'Excel template structure (CORRECT)',
-                    success: correctResponse.ok,
-                    status: correctResponse.status,
-                    response: correctResult
+                    test: 'No product_image fields (SKU only)',
+                    success: noImageResponse.ok,
+                    status: noImageResponse.status,
+                    response: noImageResult
                 });
                 
                 // Test 3: Try list_product_types
