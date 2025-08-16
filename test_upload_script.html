@@ -424,94 +424,56 @@
                     response: priceResult
                 });
                 
-                // Test 2: Try different product_image formats
-                console.log('🧪 Test 2: Testing different product_image formats');
+                // Test 2: Try correct Excel-based field structure
+                console.log('🧪 Test 2: Testing Excel template structure');
                 
-                const imageFormats = [
-                    uploadedImageId,  // Just the number
-                    uploadedImageGuid,  // Just the GUID
-                    { "id": uploadedImageId },  // Object with id
-                    { "image_id": uploadedImageId },  // Object with image_id
-                    { "id": uploadedImageId, "guid": uploadedImageGuid },  // Both
-                    null  // No image (for comparison)
-                ];
+                const correctOrderPayload = {
+                    "orders": [{
+                        "order_po": "TEST_EXCEL_" + Date.now(),
+                        "recipient": {
+                            "first_name": "Test",
+                            "last_name": "Customer", 
+                            "company_name": "Xiaoran Art Test",
+                            "address_1": "123 Test Street",
+                            "address_2": "",
+                            "city": "Test City",
+                            "state_code": "CA",
+                            "province": "",
+                            "zip_postal_code": "90210",
+                            "phone": "555-555-5555",
+                            "country_code": "us"
+                        },
+                        "order_items": [{
+                            "product_order_po": "TEST_EXCEL_" + Date.now(),
+                            "product_qty": 1,
+                            "product_sku": "5M175M37S6X12",
+                            "shipping_code": "SD",
+                            "product_image_file_url": selectedArtwork.finerworks_image.finerworks_api_object.private_hires_uri,
+                            "product_thumb_url": selectedArtwork.finerworks_image.finerworks_api_object.public_thumbnail_uri,
+                            "product_cropping": ""
+                        }],
+                        "test_mode": true
+                    }],
+                    "validate_only": true
+                };
                 
-                const imageTestResults = [];
+                const correctResponse = await fetch('/.netlify/functions/finerworks-api', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        endpoint: 'submit_orders',
+                        data: correctOrderPayload
+                    })
+                });
                 
-                for (let i = 0; i < imageFormats.length; i++) {
-                    const imageFormat = imageFormats[i];
-                    const formatName = i === 0 ? 'number' : 
-                                     i === 1 ? 'guid' : 
-                                     i === 2 ? '{id}' : 
-                                     i === 3 ? '{image_id}' : 
-                                     i === 4 ? '{id+guid}' : 'null';
-                    
-                    try {
-                        const testOrderPayload = {
-                            "orders": [{
-                                "order_po": "TEST_" + Date.now() + "_" + i,
-                                "recipient": {
-                                    "first_name": "Test",
-                                    "last_name": "Customer",
-                                    "address_1": "123 Test Street",
-                                    "city": "Test City",
-                                    "state_code": "CA",
-                                    "zip_postal_code": "90210",
-                                    "country_code": "us",
-                                    "phone": "555-555-5555",
-                                    "email": "test@example.com"
-                                },
-                                "order_items": [{
-                                    "product_order_po": "TEST_" + Date.now() + "_" + i,
-                                    "product_qty": 1,
-                                    "product_sku": "5M175M37S6X12",
-                                    "product_image": imageFormat,  // Testing different formats
-                                    "product_title": selectedArtwork.finerworks_image.finerworks_api_object.title
-                                }],
-                                "shipping_code": "SD",
-                                "test_mode": true,
-                                "customs_tax_info": null,
-                                "gift_message": null
-                            }],
-                            "validate_only": true
-                        };
-                        
-                        const response = await fetch('/.netlify/functions/finerworks-api', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
-                            body: JSON.stringify({
-                                endpoint: 'submit_orders',
-                                data: testOrderPayload
-                            })
-                        });
-                        
-                        const result = await response.json();
-                        imageTestResults.push({
-                            format: formatName,
-                            value: imageFormat,
-                            success: response.ok,
-                            status: response.status,
-                            response: result
-                        });
-                        
-                    } catch (error) {
-                        imageTestResults.push({
-                            format: formatName,
-                            value: imageFormat,
-                            success: false,
-                            status: 'error',
-                            response: { error: error.message }
-                        });
-                    }
-                }
-                
+                const correctResult = await correctResponse.json();
                 testResults.push({
-                    test: 'product_image format testing',
-                    success: imageTestResults.some(r => r.success),
-                    status: 'multiple',
-                    response: imageTestResults
+                    test: 'Excel template structure (CORRECT)',
+                    success: correctResponse.ok,
+                    status: correctResponse.status,
+                    response: correctResult
                 });
                 
                 // Test 3: Try list_product_types
