@@ -494,54 +494,205 @@
                     response: officialResult
                 });
                 
-                // Test 3: Try without product_image fields at all
-                console.log('🧪 Test 3: Try without product_image fields');
+                // Test 4: Try with null GUID (like official example)
+                console.log('🧪 Test 4: Try with null GUID (virtual inventory approach)');
                 
-                const noImageOrderPayload = {
+                const nullGuidOrderPayload = {
                     "orders": [{
-                        "order_po": "TEST_NO_IMG_" + Date.now(),
+                        "order_po": "TEST_NULL_GUID_" + Date.now(),
+                        "order_key": null,
                         "recipient": {
                             "first_name": "Test",
-                            "last_name": "Customer", 
-                            "company_name": "Xiaoran Art Test",
+                            "last_name": "Customer",
+                            "company_name": "Xiaoran Art Gallery",
                             "address_1": "123 Test Street",
-                            "address_2": "",
+                            "address_2": null,
+                            "address_3": null,
                             "city": "Test City",
                             "state_code": "CA",
-                            "province": "",
+                            "province": null,
                             "zip_postal_code": "90210",
+                            "country_code": "us",
                             "phone": "555-555-5555",
-                            "country_code": "us"
+                            "email": "test@example.com",
+                            "address_order_po": "TEST_NULL_GUID_" + Date.now()
                         },
                         "order_items": [{
-                            "product_order_po": "TEST_NO_IMG_" + Date.now(),
+                            "product_order_po": "TEST_NULL_GUID_" + Date.now(),
                             "product_qty": 1,
-                            "product_sku": "5M175M37S6X12"
-                            // No image fields - maybe they're linked via get_prices call?
+                            "product_sku": "5M175M37S6X12",
+                            "product_image": null,
+                            "product_title": selectedArtwork.finerworks_image.finerworks_api_object.title,
+                            "template": null,
+                            "product_guid": "00000000-0000-0000-0000-000000000000",  // NULL GUID like example
+                            "custom_data_1": null,
+                            "custom_data_2": null,
+                            "custom_data_3": null
                         }],
                         "shipping_code": "SD",
-                        "test_mode": true
+                        "ship_by_date": null,
+                        "customs_tax_info": null,
+                        "gift_message": null,
+                        "test_mode": true,
+                        "webhook_order_status_url": null,
+                        "document_url": null,
+                        "acct_number_ups": null,
+                        "acct_number_fedex": null,
+                        "custom_data_1": null,
+                        "custom_data_2": null,
+                        "custom_data_3": null
                     }],
                     "validate_only": true
                 };
                 
-                const noImageResponse = await fetch('/.netlify/functions/finerworks-api', {
+                const nullGuidResponse = await fetch('/.netlify/functions/finerworks-api', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
                         endpoint: 'submit_orders',
-                        data: noImageOrderPayload
+                        data: nullGuidOrderPayload
                     })
                 });
                 
-                const noImageResult = await noImageResponse.json();
+                const nullGuidResult = await nullGuidResponse.json();
+                // Test 5: Virtual inventory - NO product_image field at all
+                console.log('🧪 Test 5: Virtual inventory - omit product_image field completely');
+                
+                const virtualInventoryPayload = {
+                    "orders": [{
+                        "order_po": "TEST_VIRTUAL_" + Date.now(),
+                        "order_key": null,
+                        "recipient": {
+                            "first_name": "Test",
+                            "last_name": "Customer",
+                            "company_name": "Xiaoran Art Gallery",
+                            "address_1": "123 Test Street",
+                            "address_2": null,
+                            "address_3": null,
+                            "city": "Test City",
+                            "state_code": "CA",
+                            "province": null,
+                            "zip_postal_code": "90210",
+                            "country_code": "us",
+                            "phone": "555-555-5555",
+                            "email": "test@example.com",
+                            "address_order_po": "TEST_VIRTUAL_" + Date.now()
+                        },
+                        "order_items": [{
+                            "product_order_po": "TEST_VIRTUAL_" + Date.now(),
+                            "product_qty": 1,
+                            "product_sku": "5M175M37S6X12",
+                            // NO product_image field - virtual inventory doesn't need it!
+                            "product_title": selectedArtwork.finerworks_image.finerworks_api_object.title,
+                            "template": null,
+                            "product_guid": "00000000-0000-0000-0000-000000000000",
+                            "custom_data_1": null,
+                            "custom_data_2": null,
+                            "custom_data_3": null
+                        }],
+                        "shipping_code": "SD",
+                        "ship_by_date": null,
+                        "customs_tax_info": null,
+                        "gift_message": null,
+                        "test_mode": true,
+                        "webhook_order_status_url": null,
+                        "document_url": null,
+                        "acct_number_ups": null,
+                        "acct_number_fedex": null,
+                        "custom_data_1": null,
+                        "custom_data_2": null,
+                        "custom_data_3": null
+                    }],
+                    "validate_only": true
+                };
+                
+                const virtualResponse = await fetch('/.netlify/functions/finerworks-api', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        endpoint: 'submit_orders',
+                        data: virtualInventoryPayload
+                    })
+                });
+                
+                const virtualResult = await virtualResponse.json();
+                // Test 6: Print-on-demand with correct product_image_file structure
+                console.log('🧪 Test 6: Print-on-demand with product_image_file');
+                
+                const printOnDemandPayload = {
+                    "orders": [{
+                        "order_po": "TEST_POD_" + Date.now(),
+                        "order_key": null,
+                        "recipient": {
+                            "first_name": "Test",
+                            "last_name": "Customer",
+                            "company_name": "Xiaoran Art Gallery",
+                            "address_1": "123 Test Street",
+                            "address_2": null,
+                            "address_3": null,
+                            "city": "Test City",
+                            "state_code": "CA",
+                            "province": null,
+                            "zip_postal_code": "90210",
+                            "country_code": "us",
+                            "phone": "555-555-5555",
+                            "email": "test@example.com",
+                            "address_order_po": "TEST_POD_" + Date.now()
+                        },
+                        "order_items": [{
+                            "product_order_po": "TEST_POD_" + Date.now(),
+                            "product_qty": 1,
+                            "product_sku": "5M175M37S6X12",  // Still use this for size/paper type
+                            "product_image": {
+                                "pixel_width": selectedArtwork.finerworks_image.finerworks_api_object.pix_w,
+                                "pixel_height": selectedArtwork.finerworks_image.finerworks_api_object.pix_h,
+                                "product_url_file": selectedArtwork.finerworks_image.finerworks_api_object.private_hires_uri,
+                                "product_url_thumbnail": selectedArtwork.finerworks_image.finerworks_api_object.public_thumbnail_uri
+                            },
+                            "product_title": selectedArtwork.finerworks_image.finerworks_api_object.title,
+                            "template": null,
+                            "product_guid": "00000000-0000-0000-0000-000000000000",
+                            "custom_data_1": null,
+                            "custom_data_2": null,
+                            "custom_data_3": null
+                        }],
+                        "shipping_code": "SD",
+                        "ship_by_date": null,
+                        "customs_tax_info": null,
+                        "gift_message": null,
+                        "test_mode": true,
+                        "webhook_order_status_url": null,
+                        "document_url": null,
+                        "acct_number_ups": null,
+                        "acct_number_fedex": null,
+                        "custom_data_1": null,
+                        "custom_data_2": null,
+                        "custom_data_3": null
+                    }],
+                    "validate_only": true
+                };
+                
+                const podResponse = await fetch('/.netlify/functions/finerworks-api', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        endpoint: 'submit_orders',
+                        data: printOnDemandPayload
+                    })
+                });
+                
+                const podResult = await podResponse.json();
                 testResults.push({
-                    test: 'No product_image fields (SKU only)',
-                    success: noImageResponse.ok,
-                    status: noImageResponse.status,
-                    response: noImageResult
+                    test: 'Print-on-demand with product_image_file',
+                    success: podResponse.ok,
+                    status: podResponse.status,
+                    response: podResult
                 });
                 
                 // Test 3: Try list_product_types
