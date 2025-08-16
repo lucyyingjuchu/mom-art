@@ -360,101 +360,180 @@
             const productsResult = document.getElementById('products-result');
             
             productsBtn.disabled = true;
-            productsBtn.textContent = 'Creating Products...';
+            productsBtn.textContent = 'Testing Product Creation...';
             
             productsResult.innerHTML = `
                 <div class="result info">
-                    <strong>🔄 Creating print products...</strong>
-                    <p>Creating products for all recommended sizes...</p>
+                    <strong>🔄 Testing different approaches...</strong>
+                    <p>Let's try to figure out the correct way to create products...</p>
                 </div>
             `;
             
             try {
-                // Get the recommended sizes from your data
+                const testResults = [];
+                
+                // Test 1: Try get_prices endpoint with our uploaded image
+                console.log('🧪 Test 1: Getting prices for uploaded image');
+                
                 const recommendedSizes = selectedArtwork.recommended_sizes || [];
+                const priceRequests = recommendedSizes.map(size => ({
+                    "image_id": uploadedImageId,
+                    "sku": `5M175M37S${size.width_inches}X${size.height_inches}`,
+                    "quantity": 1
+                }));
                 
-                if (recommendedSizes.length === 0) {
-                    throw new Error('No recommended sizes found for this artwork');
-                }
+                const priceResponse = await fetch('/.netlify/functions/finerworks-api', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        endpoint: 'get_prices',
+                        data: priceRequests
+                    })
+                });
                 
-                // Create products for each recommended size
-                const productResults = [];
+                const priceResult = await priceResponse.json();
+                testResults.push({
+                    test: 'get_prices with image_id',
+                    success: priceResponse.ok,
+                    status: priceResponse.status,
+                    response: priceResult
+                });
                 
-                for (const size of recommendedSizes) {
-                    console.log(`🎨 Creating product for size: ${size.width_inches}×${size.height_inches}`);
-                    
-                    // Create the product payload
-                    // We'll use the SKU pattern you discovered: 5M175M37S{WIDTH}X{HEIGHT}
-                    const sku = `5M175M37S${size.width_inches}X${size.height_inches}`;
-                    
-                    const productPayload = {
-                        "products": [{
-                            "image_id": uploadedImageId,
-                            "sku": sku,
-                            "quantity": 1,
-                            "width": size.width_inches,
-                            "height": size.height_inches
-                        }]
-                    };
-                    
-                    console.log(`📤 Product payload:`, productPayload);
-                    
-                    // Send product creation request
-                    const response = await fetch('/.netlify/functions/finerworks-api', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
+                // Test 2: Try a test order structure (with test_mode: true)
+                console.log('🧪 Test 2: Try test order');
+                
+                const testOrderPayload = {
+                    "orders": [{
+                        "order_po": "TEST_" + Date.now(),
+                        "order_key": null,
+                        "recipient": {
+                            "first_name": "Test",
+                            "last_name": "Customer",
+                            "company_name": "Xiaoran Art Test",
+                            "address_1": "123 Test Street",
+                            "address_2": null,
+                            "address_3": null,
+                            "city": "Test City",
+                            "state_code": "CA",
+                            "province": null,
+                            "zip_postal_code": "90210",
+                            "country_code": "us",
+                            "phone": "555-555-5555",
+                            "email": "test@example.com",
+                            "address_order_po": "TEST_" + Date.now()
                         },
-                        body: JSON.stringify({
-                            endpoint: 'submit_orders',  // or whatever the correct endpoint is
-                            data: productPayload
-                        })
-                    });
-                    
-                    const result = await response.json();
-                    console.log(`📥 Product response for ${size.width_inches}×${size.height_inches}:`, result);
-                    
-                    productResults.push({
-                        size: `${size.width_inches}×${size.height_inches}`,
-                        sku: sku,
-                        success: response.ok,
-                        response: result,
-                        status: response.status
-                    });
-                }
+                        "order_items": [{
+                            "product_order_po": "TEST_" + Date.now(),
+                            "product_qty": 1,
+                            "product_sku": "5M175M37S6X12",
+                            "product_image": uploadedImageId,  // Use our uploaded image ID
+                            "product_title": selectedArtwork.finerworks_image.finerworks_api_object.title,
+                            "template": null,
+                            "product_guid": uploadedImageGuid,
+                            "custom_data_1": null,
+                            "custom_data_2": null,
+                            "custom_data_3": null
+                        }],
+                        "shipping_code": "SD",
+                        "ship_by_date": null,
+                        "customs_tax_info": null,
+                        "gift_message": null,
+                        "test_mode": true,  // IMPORTANT: Test mode!
+                        "webhook_order_status_url": null,
+                        "document_url": null,
+                        "acct_number_ups": null,
+                        "acct_number_fedex": null,
+                        "custom_data_1": null,
+                        "custom_data_2": null,
+                        "custom_data_3": null
+                    }],
+                    "validate_only": true  // IMPORTANT: Just validate, don't actually submit
+                };
                 
-                // Display results
-                let resultsHtml = `<div class="result ${productResults.every(r => r.success) ? 'success' : 'error'}">`;
-                resultsHtml += `<strong>${productResults.every(r => r.success) ? '✅' : '⚠️'} Product Creation Results</strong>`;
+                const testOrderResponse = await fetch('/.netlify/functions/finerworks-api', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        endpoint: 'submit_orders',
+                        data: testOrderPayload
+                    })
+                });
                 
-                for (const result of productResults) {
+                const testOrderResult = await testOrderResponse.json();
+                testResults.push({
+                    test: 'submit_orders (test mode + validate only)',
+                    success: testOrderResponse.ok,
+                    status: testOrderResponse.status,
+                    response: testOrderResult
+                });
+                
+                // Test 3: Try list_product_types
+                console.log('🧪 Test 3: Try list_product_types');
+                
+                const productTypesResponse = await fetch('/.netlify/functions/finerworks-api', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        endpoint: 'list_product_types',
+                        data: {}
+                    })
+                });
+                
+                const productTypesResult = await productTypesResponse.json();
+                testResults.push({
+                    test: 'list_product_types',
+                    success: productTypesResponse.ok,
+                    status: productTypesResponse.status,
+                    response: productTypesResult
+                });
+                
+                // Display all test results
+                let resultsHtml = `<div class="result info"><strong>🧪 Test Results</strong><p>Let's see what works:</p>`;
+                
+                for (const result of testResults) {
+                    const statusColor = result.success ? '#d4edda' : '#f8d7da';
                     resultsHtml += `
-                        <div style="margin: 1rem 0; padding: 0.5rem; background: ${result.success ? '#d4edda' : '#f8d7da'}; border-radius: 4px;">
-                            <strong>Size: ${result.size} (SKU: ${result.sku})</strong><br>
+                        <div style="margin: 1rem 0; padding: 1rem; background: ${statusColor}; border-radius: 4px;">
+                            <strong>${result.test}</strong><br>
                             Status: ${result.success ? '✅ Success' : '❌ Failed'} (${result.status})<br>
                             <details>
                                 <summary>View Response</summary>
-                                <pre>${JSON.stringify(result.response, null, 2)}</pre>
+                                <pre style="max-height: 200px; overflow-y: auto;">${JSON.stringify(result.response, null, 2)}</pre>
                             </details>
                         </div>
                     `;
                 }
                 
+                resultsHtml += `
+                    <p><strong>Next Steps:</strong></p>
+                    <ul>
+                        <li>If get_prices works, we can get pricing for your sizes</li>
+                        <li>If list_product_types works, we can see what products are available</li>
+                        <li>The working endpoint will tell us the correct workflow</li>
+                    </ul>
+                `;
+                
                 resultsHtml += '</div>';
                 productsResult.innerHTML = resultsHtml;
                 
             } catch (error) {
-                console.error('Product creation error:', error);
+                console.error('Testing error:', error);
                 productsResult.innerHTML = `
                     <div class="result error">
-                        <strong>❌ Product Creation Error</strong>
+                        <strong>❌ Testing Error</strong>
                         <p>${error.message}</p>
                     </div>
                 `;
             }
             
             productsBtn.disabled = false;
-            productsBtn.textContent = 'Create Print Products';
+            productsBtn.textContent = 'Test Product Creation Methods';
         }
 
         function showDebugInfo() {
