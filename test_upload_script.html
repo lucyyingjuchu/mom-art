@@ -1,4 +1,27 @@
-<!DOCTYPE html>
+                // Test 1: Try get_prices endpoint with correct field names
+                console.log('🧪 Test 1: Getting prices for uploaded image (fixed)');
+                
+                const recommendedSizes = selectedArtwork.recommended_sizes || [];
+                const priceRequests = recommendedSizes.map(size => ({
+                    "image_id": uploadedImageId,
+                    "product_sku": `5M175M37S${size.width_inches}X${size.height_inches}`,  // Fixed: product_sku
+                    "product_qty": 1  // Fixed: product_qty
+                }));
+                
+                const priceResponse = await fetch('/.netlify/functions/finerworks-api', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        endpoint: 'get_prices',
+                        data: priceRequests
+                    })
+                });
+                
+                const priceResult = await priceResponse.json();
+                testResults.push({
+                    test<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -372,14 +395,14 @@
             try {
                 const testResults = [];
                 
-                // Test 1: Try get_prices endpoint with our uploaded image
-                console.log('🧪 Test 1: Getting prices for uploaded image');
+                // Test 1: Try get_prices with correct field names
+                console.log('🧪 Test 1: Getting prices for uploaded image (fixed field names)');
                 
                 const recommendedSizes = selectedArtwork.recommended_sizes || [];
                 const priceRequests = recommendedSizes.map(size => ({
                     "image_id": uploadedImageId,
-                    "sku": `5M175M37S${size.width_inches}X${size.height_inches}`,
-                    "quantity": 1
+                    "product_sku": `5M175M37S${size.width_inches}X${size.height_inches}`,
+                    "product_qty": 1
                 }));
                 
                 const priceResponse = await fetch('/.netlify/functions/finerworks-api', {
@@ -395,80 +418,100 @@
                 
                 const priceResult = await priceResponse.json();
                 testResults.push({
-                    test: 'get_prices with image_id',
+                    test: 'get_prices with image_id (fixed field names)',
                     success: priceResponse.ok,
                     status: priceResponse.status,
                     response: priceResult
                 });
                 
-                // Test 2: Try a test order structure (with test_mode: true)
-                console.log('🧪 Test 2: Try test order');
+                // Test 2: Try different product_image formats
+                console.log('🧪 Test 2: Testing different product_image formats');
                 
-                const testOrderPayload = {
-                    "orders": [{
-                        "order_po": "TEST_" + Date.now(),
-                        "order_key": null,
-                        "recipient": {
-                            "first_name": "Test",
-                            "last_name": "Customer",
-                            "company_name": "Xiaoran Art Test",
-                            "address_1": "123 Test Street",
-                            "address_2": null,
-                            "address_3": null,
-                            "city": "Test City",
-                            "state_code": "CA",
-                            "province": null,
-                            "zip_postal_code": "90210",
-                            "country_code": "us",
-                            "phone": "555-555-5555",
-                            "email": "test@example.com",
-                            "address_order_po": "TEST_" + Date.now()
-                        },
-                        "order_items": [{
-                            "product_order_po": "TEST_" + Date.now(),
-                            "product_qty": 1,
-                            "product_sku": "5M175M37S6X12",
-                            "product_image": uploadedImageId,  // Use our uploaded image ID
-                            "product_title": selectedArtwork.finerworks_image.finerworks_api_object.title,
-                            "template": null,
-                            "product_guid": uploadedImageGuid,
-                            "custom_data_1": null,
-                            "custom_data_2": null,
-                            "custom_data_3": null
-                        }],
-                        "shipping_code": "SD",
-                        "ship_by_date": null,
-                        "customs_tax_info": null,
-                        "gift_message": null,
-                        "test_mode": true,  // IMPORTANT: Test mode!
-                        "webhook_order_status_url": null,
-                        "document_url": null,
-                        "acct_number_ups": null,
-                        "acct_number_fedex": null,
-                        "custom_data_1": null,
-                        "custom_data_2": null,
-                        "custom_data_3": null
-                    }],
-                    "validate_only": true  // IMPORTANT: Just validate, don't actually submit
-                };
+                const imageFormats = [
+                    uploadedImageId,  // Just the number
+                    uploadedImageGuid,  // Just the GUID
+                    { "id": uploadedImageId },  // Object with id
+                    { "image_id": uploadedImageId },  // Object with image_id
+                    { "id": uploadedImageId, "guid": uploadedImageGuid },  // Both
+                    null  // No image (for comparison)
+                ];
                 
-                const testOrderResponse = await fetch('/.netlify/functions/finerworks-api', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        endpoint: 'submit_orders',
-                        data: testOrderPayload
-                    })
-                });
+                const imageTestResults = [];
                 
-                const testOrderResult = await testOrderResponse.json();
+                for (let i = 0; i < imageFormats.length; i++) {
+                    const imageFormat = imageFormats[i];
+                    const formatName = i === 0 ? 'number' : 
+                                     i === 1 ? 'guid' : 
+                                     i === 2 ? '{id}' : 
+                                     i === 3 ? '{image_id}' : 
+                                     i === 4 ? '{id+guid}' : 'null';
+                    
+                    try {
+                        const testOrderPayload = {
+                            "orders": [{
+                                "order_po": "TEST_" + Date.now() + "_" + i,
+                                "recipient": {
+                                    "first_name": "Test",
+                                    "last_name": "Customer",
+                                    "address_1": "123 Test Street",
+                                    "city": "Test City",
+                                    "state_code": "CA",
+                                    "zip_postal_code": "90210",
+                                    "country_code": "us",
+                                    "phone": "555-555-5555",
+                                    "email": "test@example.com"
+                                },
+                                "order_items": [{
+                                    "product_order_po": "TEST_" + Date.now() + "_" + i,
+                                    "product_qty": 1,
+                                    "product_sku": "5M175M37S6X12",
+                                    "product_image": imageFormat,  // Testing different formats
+                                    "product_title": selectedArtwork.finerworks_image.finerworks_api_object.title
+                                }],
+                                "shipping_code": "SD",
+                                "test_mode": true,
+                                "customs_tax_info": null,
+                                "gift_message": null
+                            }],
+                            "validate_only": true
+                        };
+                        
+                        const response = await fetch('/.netlify/functions/finerworks-api', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({
+                                endpoint: 'submit_orders',
+                                data: testOrderPayload
+                            })
+                        });
+                        
+                        const result = await response.json();
+                        imageTestResults.push({
+                            format: formatName,
+                            value: imageFormat,
+                            success: response.ok,
+                            status: response.status,
+                            response: result
+                        });
+                        
+                    } catch (error) {
+                        imageTestResults.push({
+                            format: formatName,
+                            value: imageFormat,
+                            success: false,
+                            status: 'error',
+                            response: { error: error.message }
+                        });
+                    }
+                }
+                
                 testResults.push({
-                    test: 'submit_orders (test mode + validate only)',
-                    success: testOrderResponse.ok,
-                    status: testOrderResponse.status,
-                    response: testOrderResult
+                    test: 'product_image format testing',
+                    success: imageTestResults.some(r => r.success),
+                    status: 'multiple',
+                    response: imageTestResults
                 });
                 
                 // Test 3: Try list_product_types
