@@ -153,7 +153,14 @@
         </div>
         
         <div class="test-section">
-            <h3>4. Debug Information</h3>
+            <h3>4. Create Print Products</h3>
+            <p>Now let's create actual print products using the uploaded image:</p>
+            <button onclick="createProducts()" id="products-btn" disabled>Create Print Products</button>
+            <div id="products-result"></div>
+        </div>
+        
+        <div class="test-section">
+            <h3>5. Debug Information</h3>
             <button onclick="showDebugInfo()" id="debug-btn" disabled>Show Upload Payload</button>
             <div id="debug-info"></div>
         </div>
@@ -162,6 +169,8 @@
     <script>
         let artworkData = null;
         let selectedArtwork = null;
+        let uploadedImageId = null;
+        let uploadedImageGuid = null;
 
         async function loadArtworkData() {
             const loadBtn = document.getElementById('load-btn');
@@ -297,10 +306,19 @@
                 console.log('📥 Upload response:', result);
                 
                 if (response.ok) {
+                    // Store the uploaded image details
+                    if (result.images && result.images.length > 0) {
+                        uploadedImageId = result.images[0].id;
+                        uploadedImageGuid = result.images[0].guid;
+                        document.getElementById('products-btn').disabled = false;
+                    }
+                    
                     uploadResult.innerHTML = `
                         <div class="result success">
                             <strong>✅ Upload Successful!</strong>
                             <p>Image successfully uploaded to Finer Works</p>
+                            <p><strong>Image ID:</strong> ${uploadedImageId}</p>
+                            <p><strong>GUID:</strong> ${uploadedImageGuid}</p>
                             <details>
                                 <summary>View Response</summary>
                                 <pre>${JSON.stringify(result, null, 2)}</pre>
@@ -333,6 +351,110 @@
             
             uploadBtn.disabled = false;
             uploadBtn.textContent = 'Test Upload to Finer Works';
+        }
+
+        async function createProducts() {
+            if (!selectedArtwork || !uploadedImageId) return;
+            
+            const productsBtn = document.getElementById('products-btn');
+            const productsResult = document.getElementById('products-result');
+            
+            productsBtn.disabled = true;
+            productsBtn.textContent = 'Creating Products...';
+            
+            productsResult.innerHTML = `
+                <div class="result info">
+                    <strong>🔄 Creating print products...</strong>
+                    <p>Creating products for all recommended sizes...</p>
+                </div>
+            `;
+            
+            try {
+                // Get the recommended sizes from your data
+                const recommendedSizes = selectedArtwork.recommended_sizes || [];
+                
+                if (recommendedSizes.length === 0) {
+                    throw new Error('No recommended sizes found for this artwork');
+                }
+                
+                // Create products for each recommended size
+                const productResults = [];
+                
+                for (const size of recommendedSizes) {
+                    console.log(`🎨 Creating product for size: ${size.width_inches}×${size.height_inches}`);
+                    
+                    // Create the product payload
+                    // We'll use the SKU pattern you discovered: 5M175M37S{WIDTH}X{HEIGHT}
+                    const sku = `5M175M37S${size.width_inches}X${size.height_inches}`;
+                    
+                    const productPayload = {
+                        "products": [{
+                            "image_id": uploadedImageId,
+                            "sku": sku,
+                            "quantity": 1,
+                            "width": size.width_inches,
+                            "height": size.height_inches
+                        }]
+                    };
+                    
+                    console.log(`📤 Product payload:`, productPayload);
+                    
+                    // Send product creation request
+                    const response = await fetch('/.netlify/functions/finerworks-api', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            endpoint: 'submit_orders',  // or whatever the correct endpoint is
+                            data: productPayload
+                        })
+                    });
+                    
+                    const result = await response.json();
+                    console.log(`📥 Product response for ${size.width_inches}×${size.height_inches}:`, result);
+                    
+                    productResults.push({
+                        size: `${size.width_inches}×${size.height_inches}`,
+                        sku: sku,
+                        success: response.ok,
+                        response: result,
+                        status: response.status
+                    });
+                }
+                
+                // Display results
+                let resultsHtml = `<div class="result ${productResults.every(r => r.success) ? 'success' : 'error'}">`;
+                resultsHtml += `<strong>${productResults.every(r => r.success) ? '✅' : '⚠️'} Product Creation Results</strong>`;
+                
+                for (const result of productResults) {
+                    resultsHtml += `
+                        <div style="margin: 1rem 0; padding: 0.5rem; background: ${result.success ? '#d4edda' : '#f8d7da'}; border-radius: 4px;">
+                            <strong>Size: ${result.size} (SKU: ${result.sku})</strong><br>
+                            Status: ${result.success ? '✅ Success' : '❌ Failed'} (${result.status})<br>
+                            <details>
+                                <summary>View Response</summary>
+                                <pre>${JSON.stringify(result.response, null, 2)}</pre>
+                            </details>
+                        </div>
+                    `;
+                }
+                
+                resultsHtml += '</div>';
+                productsResult.innerHTML = resultsHtml;
+                
+            } catch (error) {
+                console.error('Product creation error:', error);
+                productsResult.innerHTML = `
+                    <div class="result error">
+                        <strong>❌ Product Creation Error</strong>
+                        <p>${error.message}</p>
+                    </div>
+                `;
+            }
+            
+            productsBtn.disabled = false;
+            productsBtn.textContent = 'Create Print Products';
         }
 
         function showDebugInfo() {
