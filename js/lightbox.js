@@ -188,6 +188,9 @@ window.openLightbox = function(artworkId, context = 'all') {
         lightbox.classList.add('active');
         document.body.style.overflow = 'hidden';
         console.log('✅ Lightbox opened');
+
+        setTimeout(() => document.dispatchEvent(new CustomEvent('lightboxOpened', { detail: { artwork } })), 100);
+
     }
 };
 

@@ -525,7 +525,7 @@ class ChineseArtPortfolio {
     updateLanguageToggle() {
         const langToggle = document.getElementById('languageToggle');
         if (langToggle) {
-            langToggle.textContent = this.currentLanguage === 'en' ? '中文' : 'English';
+            langToggle.textContent = this.currentLanguage === 'en' ? '中' : 'En';
         }
     }
 
@@ -591,12 +591,6 @@ class ChineseArtPortfolio {
         
         return `
             <div class="gallery-item" onclick="openLightbox('${artwork.id}')">
-                        ${this.hasMultipleViews(artwork) ? 
-                `<div class="multi-view-indicator">
-                    <span class="view-count">${this.getViewCount(artwork)}</span>
-                    <span class="view-icon">👁️</span>
-                </div>` : ''
-                        }
                 <div class="gallery-item-image">
                     <img src="${imageUrl}" alt="${title}" loading="lazy" 
                          onerror="this.src='${this.getPlaceholderImage()}'">

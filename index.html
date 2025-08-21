@@ -7,6 +7,8 @@
     
     <!-- External Lightbox CSS -->
     <link rel="stylesheet" href="./css/lightbox.css">
+    <!-- Shopping Cart CSS -->
+    <link rel="stylesheet" href="./css/shopping.css">
     
     <style>
         /* ... ALL YOUR EXISTING CSS STAYS EXACTLY THE SAME ... */
@@ -832,6 +834,94 @@
                 font-size: 0.8rem;
             }
             
+    /* ADD this CSS to your index.html <style> section, after your existing header styles */
+
+    /* ================================ */
+    /* HEADER ICONS STYLES */
+    /* ================================ */
+
+    /* Header Icons Container */
+    .header-icons {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        display: flex;
+        gap: 10px;
+        z-index: 200;
+    }
+
+    /* Consistent Icon Styling for both language and cart */
+    .header-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        position: relative;
+        background: #2c3e50;
+        color: white;
+    }
+
+    .header-icon:hover {
+        background: #1a252f;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    }
+
+    /* Override old language toggle positioning */
+    .language-toggle {
+        position: static !important;
+        top: auto !important;
+        right: auto !important;
+    }
+
+    /* Cart Count Badge */
+    .cart-count {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        background: #e74c3c;
+        color: white;
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        font-size: 12px;
+        font-weight: 600;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid white;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    /* Show cart count when there are items */
+    .cart-count[style*="display: flex"], 
+    .cart-count:not(:empty) {
+        display: flex !important;
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 768px) {
+        .header-icons {
+            position: static;
+            justify-content: center;
+            margin-top: 1rem;
+            gap: 15px;
+        }
+        
+        .header-icon {
+            width: 45px;
+            height: 45px;
+            font-size: 14px;
+        }
+    }
     </style>
 </head>
 <body>
@@ -839,7 +929,12 @@
     <!-- HEADER SECTION -->
     <!-- ================================ -->
     <header>
-        <button id="languageToggle" class="language-toggle">中文</button>
+        <!-- Header Icons Container -->
+        <div class="header-icons">
+            <button id="languageToggle" class="header-icon language-toggle">中</button>
+            <!-- Cart icon will be inserted here by JavaScript -->
+        </div>
+        
         <div class="logo"><!-- Will be filled by JavaScript --></div>
         <div class="subtitle"><!-- Will be filled by JavaScript --></div>
     </header>
@@ -1167,6 +1262,9 @@
 
     <!-- Load lightbox (depends on portfolio being available) -->
     <script src="./js/lightbox.js"></script>
+
+    <!-- Load shopping functionality -->
+    <script src="./js/shopping.js"></script>
 
     <script>
         // Function to toggle collapsible sections
