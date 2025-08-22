@@ -159,31 +159,164 @@ function initializeMobileLightbox() {
     
     console.log('📱 Mobile device detected - applying mobile optimizations');
     
-    // 禁用所有縮放相關功能
     const image = document.getElementById('lightboxImage');
-    if (image) {
-        // 移除所有縮放事件監聽器
-        image.style.transform = 'none';
-        image.style.cursor = 'default';
-        
-        // 重置縮放變數
-        zoomLevel = 1;
-        panX = 0;
-        panY = 0;
-        isDragging = false;
-        hasDragged = false;
-        
-        // 簡單的點擊關閉功能
-        image.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            // 手機板點擊圖片不做任何動作，或者可以關閉 lightbox
-            // window.closeLightbox();
-        });
-    }
+    if (!image) return;
     
-    // 添加滑動手勢支援（可選）
+    // 重置所有縮放變數
+    zoomLevel = 1;
+    panX = 0;
+    panY = 0;
+    isDragging = false;
+    hasDragged = false;
+    
+    // 設置圖片樣式
+    image.style.transform = 'none';
+    image.style.cursor = 'pointer';
+    
+    // 添加點擊放大功能
+    image.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        openFullscreenImage();
+    });
+    
+    // 添加滑動手勢支援
     addMobileSwipeGestures();
+}
+
+// 手機板全螢幕查看原圖
+function openFullscreenImage() {
+    const image = document.getElementById('lightboxImage');
+    if (!image || !isMobileDevice()) return;
+    
+    console.log('📱 Opening fullscreen image view');
+    
+    // 創建全螢幕圖片容器
+    const fullscreenContainer = document.createElement('div');
+    fullscreenContainer.className = 'mobile-fullscreen-image';
+    fullscreenContainer.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0,0,0,0.95);
+        z-index: 10010;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    `;
+    
+    // 創建全螢幕圖片
+    const fullscreenImage = document.createElement('img');
+    fullscreenImage.src = image.src;
+    fullscreenImage.alt = image.alt;
+    fullscreenImage.style.cssText = `
+        max-width: 95vw;
+        max-height: 95vh;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        border-radius: 4px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    `;
+    
+    // 創建關閉按鈕
+    const closeButton = document.createElement('button');
+    closeButton.innerHTML = '×';
+    closeButton.style.cssText = `
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        width: 44px;
+        height: 44px;
+        border: none;
+        border-radius: 50%;
+        background: rgba(0,0,0,0.8);
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(10px);
+        border: 2px solid rgba(255,255,255,0.2);
+    `;
+    
+    // 關閉功能
+    const closeFullscreen = () => {
+        fullscreenContainer.style.opacity = '0';
+        setTimeout(() => {
+            document.body.removeChild(fullscreenContainer);
+        }, 300);
+    };
+    
+    closeButton.addEventListener('click', closeFullscreen);
+    
+    // 點擊背景關閉
+    fullscreenContainer.addEventListener('click', function(e) {
+        if (e.target === fullscreenContainer) {
+            closeFullscreen();
+        }
+    });
+    
+    // 組裝元素
+    fullscreenContainer.appendChild(fullscreenImage);
+    fullscreenContainer.appendChild(closeButton);
+    document.body.appendChild(fullscreenContainer);
+    
+    // 淡入動畫
+    setTimeout(() => {
+        fullscreenContainer.style.opacity = '1';
+    }, 10);
+    
+    // 添加簡單的縮放手勢（雙指縮放）
+    let scale = 1;
+    let lastDistance = 0;
+    
+    fullscreenImage.addEventListener('touchstart', function(e) {
+        if (e.touches.length === 2) {
+            const touch1 = e.touches[0];
+            const touch2 = e.touches[1];
+            lastDistance = Math.hypot(
+                touch2.clientX - touch1.clientX,
+                touch2.clientY - touch1.clientY
+            );
+        }
+    }, { passive: true });
+    
+    fullscreenImage.addEventListener('touchmove', function(e) {
+        if (e.touches.length === 2) {
+            e.preventDefault();
+            const touch1 = e.touches[0];
+            const touch2 = e.touches[1];
+            const distance = Math.hypot(
+                touch2.clientX - touch1.clientX,
+                touch2.clientY - touch1.clientY
+            );
+            
+            if (lastDistance > 0) {
+                const scaleChange = distance / lastDistance;
+                scale = Math.max(0.5, Math.min(3, scale * scaleChange));
+                fullscreenImage.style.transform = `scale(${scale})`;
+            }
+            
+            lastDistance = distance;
+        }
+    }, { passive: false });
+    
+    // 雙擊重置縮放
+    fullscreenImage.addEventListener('dblclick', function() {
+        scale = scale > 1 ? 1 : 2;
+        fullscreenImage.style.transform = `scale(${scale})`;
+        fullscreenImage.style.transition = 'transform 0.3s ease';
+        
+        setTimeout(() => {
+            fullscreenImage.style.transition = '';
+        }, 300);
+    });
 }
 
 function addMobileSwipeGestures() {
