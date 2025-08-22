@@ -29,78 +29,121 @@ let currentViewIndex = 0;
 const BLOCK_DURATION = 600;
 
 // ================================
-// 精確動態比例計算系統
+// 精確動態比例計算系統 - 修復版本
 // ================================
 
-/**
- * 根據畫作的實際尺寸計算最佳 lightbox 布局比例
- * @param {string} sizeString - 畫作尺寸字符串，如 "24x70", "90×180", "135 × 70 cm" 等
- * @returns {object} - 包含 imageWidth 和 infoWidth 的對象
- */
-function calculatePreciseLayout(sizeString) {
-    if (!sizeString) {
-        console.log('📐 No size info, using default layout');
-        return { imageWidth: '65%', infoWidth: '35%' };
+function calculateSmartLightboxLayout(sizeString) {
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+    const maxTotal = screenWidth * 0.9;            // 最大總寬度 90%
+    const maxImageHeight = screenHeight * 0.8;     // 最大高度 80vh
+    
+    // 解析比例
+    let aspectRatio = 1;
+    if (sizeString) {
+        const numbers = sizeString.replace(/[^\d\s]/g, ' ').match(/\d+/g);
+        if (numbers && numbers.length >= 2) {
+            const height = parseInt(numbers[0]);
+            const width = parseInt(numbers[1]);
+            aspectRatio = width / height;
+        }
     }
     
-    // 提取數字，支援各種格式
-    const numbers = sizeString.match(/\d+/g);
-    if (!numbers || numbers.length < 2) {
-        console.log('📐 Cannot parse size, using default layout');
-        return { imageWidth: '65%', infoWidth: '35%' };
+    console.log(`📐 Aspect ratio: ${aspectRatio.toFixed(2)} (${aspectRatio > 1 ? 'landscape' : 'portrait'})`);
+    
+    // 🎯 Step 1: 基於高度限制計算圖片尺寸
+    let imageDisplayHeight = maxImageHeight;
+    let imageDisplayWidth = imageDisplayHeight * aspectRatio;
+    
+    // 🎯 Step 2: 圖片 + 上下左右 5% margin = Image Section 寬度
+    let imageSectionWidth = imageDisplayWidth * 1.1; // 左右各5% = 10% 額外寬度
+    
+    // 🎯 Step 3: Info section 寬度應該基於實際內容需求，而不是固定比例
+    // 設定一個合理的 info section 寬度範圍
+    const minInfoWidth = 300;  // 最小寬度
+    const maxInfoWidth = 450;  // 最大寬度
+    let infoWidth = Math.min(maxInfoWidth, Math.max(minInfoWidth, screenWidth * 0.35)); // 35% 而不是 45%
+    
+    // 🎯 Step 4: 計算總寬度
+    let totalWidth = imageSectionWidth + infoWidth;
+    
+    // 🎯 Step 5: 檢查總寬度是否超限，如果超過則縮放
+    if (totalWidth > maxTotal) {
+        console.log(`⚠️ Total width ${totalWidth.toFixed(0)}px exceeds limit ${maxTotal.toFixed(0)}px`);
+        
+        // 重新計算：從最大總寬度反推
+        const maxImageSectionWidth = maxTotal - infoWidth;
+        imageSectionWidth = maxImageSectionWidth;
+        imageDisplayWidth = imageSectionWidth / 1.1;  // 扣掉 margin 後的圖片寬度
+        imageDisplayHeight = imageDisplayWidth / aspectRatio;
+        totalWidth = imageSectionWidth + infoWidth;
+        
+        console.log(`🔧 Adjusted to fit: Image section ${imageSectionWidth.toFixed(0)}px, Total ${totalWidth.toFixed(0)}px`);
     }
     
-    const width = parseInt(numbers[0]);
-    const height = parseInt(numbers[1]);
-    const aspectRatio = width / height;
-    
-    console.log(`📐 Artwork size: ${width}×${height}, ratio: ${aspectRatio.toFixed(3)}`);
-    
-    // 精確的連續函數計算
-    let imagePercentage;
-    
-    if (aspectRatio <= 0.4) {
-        // 極窄垂直畫作 (0.4以下): 78-80%
-        imagePercentage = 78 + (aspectRatio / 0.4) * 2;
-    } else if (aspectRatio <= 0.8) {
-        // 窄垂直畫作 (0.4-0.8): 70-78%
-        imagePercentage = 70 + ((aspectRatio - 0.4) / 0.4) * 8;
-    } else if (aspectRatio <= 1.2) {
-        // 接近方形 (0.8-1.2): 65-70%
-        imagePercentage = 65 + ((aspectRatio - 0.8) / 0.4) * 5;
-    } else if (aspectRatio <= 2.0) {
-        // 橫幅畫作 (1.2-2.0): 58-65%
-        imagePercentage = 58 + ((aspectRatio - 1.2) / 0.8) * 7;
-    } else {
-        // 極寬橫幅 (2.0以上): 55-58%
-        imagePercentage = 55 + Math.min((aspectRatio - 2.0) / 1.0, 1) * 3;
+    // 🎯 Step 6: 再次檢查高度限制
+    if (imageDisplayHeight > maxImageHeight) {
+        console.log(`⚠️ Height ${imageDisplayHeight.toFixed(0)}px exceeds limit ${maxImageHeight.toFixed(0)}px`);
+        
+        // 基於高度重新計算
+        imageDisplayHeight = maxImageHeight;
+        imageDisplayWidth = imageDisplayHeight * aspectRatio;
+        imageSectionWidth = imageDisplayWidth * 1.1;
+        totalWidth = imageSectionWidth + infoWidth;
+        
+        // 如果調整後又超過寬度限制，再次調整
+        if (totalWidth > maxTotal) {
+            const maxImageSectionWidth = maxTotal - infoWidth;
+            imageSectionWidth = maxImageSectionWidth;
+            imageDisplayWidth = imageSectionWidth / 1.1;
+            imageDisplayHeight = imageDisplayWidth / aspectRatio;
+            totalWidth = imageSectionWidth + infoWidth;
+        }
+        
+        console.log(`🔧 Height-adjusted: ${imageDisplayWidth.toFixed(0)}×${imageDisplayHeight.toFixed(0)}`);
     }
     
-    // 確保在合理範圍內
-    imagePercentage = Math.max(55, Math.min(80, imagePercentage));
-    const infoPercentage = 100 - imagePercentage;
+    // 🎯 Step 7: 最終優化 - 確保比例合理
+    const imagePercentage = (imageSectionWidth / totalWidth * 100).toFixed(1);
+    const infoPercentage = (infoWidth / totalWidth * 100).toFixed(1);
     
-    console.log(`📐 Calculated layout: ${imagePercentage.toFixed(1)}% image, ${infoPercentage.toFixed(1)}% info`);
+    console.log(`✅ Final layout:`);
+    console.log(`   Image: ${imageDisplayWidth.toFixed(0)}×${imageDisplayHeight.toFixed(0)}px`);
+    console.log(`   Image Section: ${imageSectionWidth.toFixed(0)}px (${imagePercentage}%, 含5% margin)`);
+    console.log(`   Info Section: ${infoWidth.toFixed(0)}px (${infoPercentage}%)`);
+    console.log(`   Total Container: ${totalWidth.toFixed(0)}px`);
     
     return {
-        imageWidth: `${imagePercentage.toFixed(1)}%`,
-        infoWidth: `${infoPercentage.toFixed(1)}%`
+        containerWidth: `${totalWidth}px`,           // 總寬度
+        imageWidth: `${imageSectionWidth}px`,        // Image section 寬度
+        infoWidth: `${infoWidth}px`                  // Info section 寬度
     };
 }
 
 /**
- * 應用動態布局到 lightbox
- * @param {object} layout - 包含 imageWidth 和 infoWidth 的布局對象
+ * 檢查並應用布局 - 修復版本
  */
-function applyDynamicLayout(layout) {
+function applySmartLayout(layout) {
     const lightboxContent = document.querySelector('.lightbox-content');
-    if (!lightboxContent) return;
+    if (!lightboxContent) {
+        console.error('❌ Lightbox content not found');
+        return;
+    }
     
-    // 使用 CSS 變量設置比例
+    console.log(`🎯 Applying layout: ${layout.containerWidth}`);
+    
+    // 🎯 關鍵修復：直接設置 lightbox-content 的寬度
+    lightboxContent.style.width = layout.containerWidth;
+    
+    // 🎯 同時設置 CSS 變量供其他元素使用
+    lightboxContent.style.setProperty('--container-width', layout.containerWidth);
     lightboxContent.style.setProperty('--image-width', layout.imageWidth);
     lightboxContent.style.setProperty('--info-width', layout.infoWidth);
     
-    console.log(`✅ Applied dynamic layout: ${layout.imageWidth} | ${layout.infoWidth}`);
+    console.log(`✅ Layout applied successfully`);
+    console.log(`   Container width: ${layout.containerWidth}`);
+    console.log(`   Image section: ${layout.imageWidth}`);
+    console.log(`   Info section: ${layout.infoWidth}`);
 }
 
 // ================================
@@ -519,15 +562,13 @@ function populateLightbox(artwork) {
     // BILINGUAL UPDATE: Update all UI text elements
     updateLightboxUIText();
 
-    // ✨ 新增：動態比例計算和應用
+    // ✨ 關鍵修復：動態比例計算和應用
     console.log('🎨 Calculating optimal layout for artwork...');
     
     // 嘗試從多個可能的尺寸欄位獲取數據
     const sizeData = artwork.sizeCm || artwork.sizeInches || artwork.size || artwork.dimensions;
-    const optimalLayout = calculatePreciseLayout(sizeData);
-    
-    // 應用計算出的最佳比例
-    applyDynamicLayout(optimalLayout);
+    const optimalLayout = calculateSmartLightboxLayout(sizeData);
+    applySmartLayout(optimalLayout);
     
     console.log(`✅ Artwork "${artwork.title}" layout optimized`);
 
