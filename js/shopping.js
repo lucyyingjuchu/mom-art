@@ -706,7 +706,7 @@ class ShoppingCart {
                         "address_order_po": "XIAORAN_" + Date.now()
                     },
                     "order_items": this.items.map(item => ({
-                        "product_order_po": "ITEM_" + Date.now() + "_" + item.id,
+                    "product_order_po": "ITEM_" + Date.now().toString().slice(-10) + "_" + index,  // 更短的格式
                         "product_qty": item.quantity,
                         "product_sku": "5M175M37S6X12", // 先用固定值測試
                         "product_image": {
