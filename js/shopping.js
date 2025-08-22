@@ -282,12 +282,13 @@ class ShoppingCart {
     }
     
     async fetchPrice(artwork, size) {
-        // Use the print-on-demand structure that worked in your tests
+        // 正確的 API 格式 - 不需要 image_id
         const priceRequest = {
-            "image_id": "687582", // We could upload each image, but for now use a test ID
-            "product_sku": `5M175M37S${size.width_inches}X${size.height_inches}`,
-            "product_qty": 1
+            "product_qty": 1,
+            "product_sku": `5M175M37S${size.width_inches}X${size.height_inches}`
         };
+        
+        console.log('💰 Fetching price for:', priceRequest);
         
         try {
             const response = await fetch('/.netlify/functions/finerworks-api', {
@@ -302,19 +303,18 @@ class ShoppingCart {
             });
             
             const result = await response.json();
+            console.log('💰 Price API result:', result);
             
-            if (response.ok && result.length > 0) {
-                // Extract price from the working response structure
-                const basePrice = parseFloat(result[0].price || result[0].total_price || 25.00);
-                // Apply your 2.5x markup
+            if (response.ok && result.prices && result.prices.length > 0) {
+                const basePrice = parseFloat(result.prices[0].total_price || result.prices[0].product_price || 25.00);
                 return Math.round(basePrice * 2.5 * 100) / 100;
             } else {
-                console.warn('Price API failed, using fallback');
+                console.warn('💰 Price API failed, using fallback');
                 return this.calculateFallbackPrice(size.width_inches * size.height_inches);
             }
             
         } catch (error) {
-            console.error('Price fetch error:', error);
+            console.error('💰 Price fetch error:', error);
             return this.calculateFallbackPrice(size.width_inches * size.height_inches);
         }
     }
