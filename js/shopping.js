@@ -178,7 +178,6 @@ class ShoppingCart {
                         <div class="size-option" data-size-index="${index}">
                             <div class="size-info">
                                 <div class="size-dimensions">${size.width_inches}" × ${size.height_inches}"</div>
-                                <div class="size-description">${this.getSizeDescription(size)}</div>
                             </div>
                             <div class="size-price">
                                 <div class="price-amount" id="price-${index}">
@@ -245,12 +244,6 @@ class ShoppingCart {
         });
     }
     
-    getSizeDescription(size) {
-        const area = size.width_inches * size.height_inches;
-        if (area < 80) return this.getText('shopping.sizeSmall');
-        if (area < 200) return this.getText('shopping.sizeMedium');
-        return this.getText('shopping.sizeLarge');
-    }
     
     async loadPricesForArtwork(artwork) {
         const sizes = artwork.recommended_sizes || [];
