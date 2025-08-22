@@ -465,10 +465,10 @@ class ChineseArtPortfolio {
 
     // NEW: Update static text elements
     updateStaticText() {
-        // Update header
-        document.querySelector('.logo').textContent = this.t('header.title');
-        document.querySelector('.subtitle').textContent = this.t('header.subtitle');
-        
+        // Update home page - 使用 innerHTML 而不是 textContent
+        document.querySelector('.hero h1').textContent = this.t('home.heroTitle');
+        document.querySelector('.hero p').innerHTML = this.t('home.heroDescription'); // 改成 innerHTML
+          
         // Update navigation
         const navButtons = document.querySelectorAll('.nav-btn');
         navButtons[0].textContent = this.t('nav.featured');

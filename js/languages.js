@@ -269,7 +269,7 @@ const LANGUAGE_DATA = {
     zh: {
         // Header
         header: {
-            title: "袁之霖 - 曉然文化藝術",
+            title: "袁之靜 - 曉然文化藝術",
             subtitle: "詩書畫印，天地有大美:國畫、書法作品"
         },
         
@@ -284,8 +284,9 @@ const LANGUAGE_DATA = {
         // Home page
         home: {
             heroTitle: "邀請您，共徜徉於詩意水墨之間",
-            heroDescription: "以自然為師，融詩書畫印於一體\n深耕中國水墨之美四十餘載\n在這裡感受傳統國畫的雋永之美\n體驗筆墨間的詩意與禪境",            featuredTitle: "精選作品",
-            featuredSubtitle: "精心策劃的傑出作品",
+            heroDescription: "以自然為師，融詩書畫印於一體<br>深耕中國水墨之美四十餘載<br>在這裡感受傳統國畫的雋永之美<br>體驗筆墨間的詩意與禪境",            
+            featuredTitle: "精選作品",
+            featuredSubtitle: "傑出作品展示",
             viewAllButton: "查看完整作品集"
         },
 
@@ -344,10 +345,10 @@ const LANGUAGE_DATA = {
         
         // About page
         about: {
-            mainTitle: "藝術家袁之霖（號曉然）｜書畫創作與教育者",
+            mainTitle: "藝術家袁之靜（號曉然）｜書畫創作與教育者",
             videoTitle: "創作紀錄片",
             // Artist introduction paragraphs
-            introParagraph1: "袁之霖，號曉然，自幼承庭訓，得傳家風，習詩詞與書法，厚植國學基礎，寄情丹青，深耕中國水墨之美，致力於書畫創作與藝術教育傳承。",
+            introParagraph1: "袁之靜，號曉然，自幼承庭訓，得傳家風，習詩詞與書法，厚植國學基礎，寄情丹青，深耕中國水墨之美，致力於書畫創作與藝術教育傳承。",
             introParagraph2: "畢業於國立台灣藝術大學書畫藝術研究所（M.F.A.），並獲國立中興大學學士學位。長年習書作畫逾四十載，師承羅振賢、王景浩、蔡友、高義璋、游世河、黃才松、王子奚、林進忠、林隆達、李蕭錕、薛平南、歐豪年、蘇峰男、蕭進興等多位書畫名家。",
             introParagraph3: "以自然為師，工作之餘走訪名山大川，從天地萬物中觀照意境與筆法。創作風格融合詩、書、畫、印，講求畫中意境的靈動與書寫節奏的和諧，用詩句構圖、以書法入畫、妥善用印，追求畫面中深遠、高遠、悠遠的精神境界。",
             educationTitle: "學歷",
