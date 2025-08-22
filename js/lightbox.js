@@ -29,6 +29,81 @@ let currentViewIndex = 0;
 const BLOCK_DURATION = 600;
 
 // ================================
+// 精確動態比例計算系統
+// ================================
+
+/**
+ * 根據畫作的實際尺寸計算最佳 lightbox 布局比例
+ * @param {string} sizeString - 畫作尺寸字符串，如 "24x70", "90×180", "135 × 70 cm" 等
+ * @returns {object} - 包含 imageWidth 和 infoWidth 的對象
+ */
+function calculatePreciseLayout(sizeString) {
+    if (!sizeString) {
+        console.log('📐 No size info, using default layout');
+        return { imageWidth: '65%', infoWidth: '35%' };
+    }
+    
+    // 提取數字，支援各種格式
+    const numbers = sizeString.match(/\d+/g);
+    if (!numbers || numbers.length < 2) {
+        console.log('📐 Cannot parse size, using default layout');
+        return { imageWidth: '65%', infoWidth: '35%' };
+    }
+    
+    const width = parseInt(numbers[0]);
+    const height = parseInt(numbers[1]);
+    const aspectRatio = width / height;
+    
+    console.log(`📐 Artwork size: ${width}×${height}, ratio: ${aspectRatio.toFixed(3)}`);
+    
+    // 精確的連續函數計算
+    let imagePercentage;
+    
+    if (aspectRatio <= 0.4) {
+        // 極窄垂直畫作 (0.4以下): 78-80%
+        imagePercentage = 78 + (aspectRatio / 0.4) * 2;
+    } else if (aspectRatio <= 0.8) {
+        // 窄垂直畫作 (0.4-0.8): 70-78%
+        imagePercentage = 70 + ((aspectRatio - 0.4) / 0.4) * 8;
+    } else if (aspectRatio <= 1.2) {
+        // 接近方形 (0.8-1.2): 65-70%
+        imagePercentage = 65 + ((aspectRatio - 0.8) / 0.4) * 5;
+    } else if (aspectRatio <= 2.0) {
+        // 橫幅畫作 (1.2-2.0): 58-65%
+        imagePercentage = 58 + ((aspectRatio - 1.2) / 0.8) * 7;
+    } else {
+        // 極寬橫幅 (2.0以上): 55-58%
+        imagePercentage = 55 + Math.min((aspectRatio - 2.0) / 1.0, 1) * 3;
+    }
+    
+    // 確保在合理範圍內
+    imagePercentage = Math.max(55, Math.min(80, imagePercentage));
+    const infoPercentage = 100 - imagePercentage;
+    
+    console.log(`📐 Calculated layout: ${imagePercentage.toFixed(1)}% image, ${infoPercentage.toFixed(1)}% info`);
+    
+    return {
+        imageWidth: `${imagePercentage.toFixed(1)}%`,
+        infoWidth: `${infoPercentage.toFixed(1)}%`
+    };
+}
+
+/**
+ * 應用動態布局到 lightbox
+ * @param {object} layout - 包含 imageWidth 和 infoWidth 的布局對象
+ */
+function applyDynamicLayout(layout) {
+    const lightboxContent = document.querySelector('.lightbox-content');
+    if (!lightboxContent) return;
+    
+    // 使用 CSS 變量設置比例
+    lightboxContent.style.setProperty('--image-width', layout.imageWidth);
+    lightboxContent.style.setProperty('--info-width', layout.infoWidth);
+    
+    console.log(`✅ Applied dynamic layout: ${layout.imageWidth} | ${layout.infoWidth}`);
+}
+
+// ================================
 // CLEAN ZOOM INDICATOR FUNCTION
 // ================================
 function showCleanZoomIndicator() {
@@ -445,6 +520,18 @@ function populateLightbox(artwork) {
     // BILINGUAL UPDATE: Update all UI text elements
     updateLightboxUIText();
 
+    // ✨ 新增：動態比例計算和應用
+    console.log('🎨 Calculating optimal layout for artwork...');
+    
+    // 嘗試從多個可能的尺寸欄位獲取數據
+    const sizeData = artwork.sizeCm || artwork.sizeInches || artwork.size || artwork.dimensions;
+    const optimalLayout = calculatePreciseLayout(sizeData);
+    
+    // 應用計算出的最佳比例
+    applyDynamicLayout(optimalLayout);
+    
+    console.log(`✅ Artwork "${artwork.title}" layout optimized`);
+
     // 設置多視圖功能
     setupArtworkViews(artwork);
     
@@ -725,57 +812,6 @@ function showFullscreenIndicator(entering) {
     // HARDCODED translations to bypass the translation system issue
     const translations = {
         zh: {
-            fullscreenView: "全螢幕檢視",
-            splitView: "分割檢視"
-        },
-        en: {
-            fullscreenView: "Fullscreen View",
-            splitView: "Split View"
-        }
-    };
-    
-    const t = translations[currentLang] || translations.zh;
-    
-    if (entering) {
-        indicator.innerHTML = `📱 <span>${t.fullscreenView}</span>`;
-    } else {
-        indicator.innerHTML = `🖼️ <span>${t.splitView}</span>`;
-    }
-    
-    const lightbox = document.querySelector('.lightbox-container');
-    if (lightbox) {
-        lightbox.appendChild(indicator);
-        
-        setTimeout(() => {
-            indicator.style.opacity = '0';
-            setTimeout(() => indicator.remove(), 300);
-        }, 2000);
-    }
-    
-    console.log('✅ Fullscreen indicator shown:', entering ? t.fullscreenView : t.splitView);
-}
-
-function addZoomControls() {
-    const existingControls = document.querySelector('.zoom-controls');
-    if (existingControls) {
-        existingControls.remove();
-    }
-    
-    const lightboxControls = document.querySelector('.lightbox-controls');
-    if (!lightboxControls) return;
-    
-    const zoomControls = document.createElement('div');
-    zoomControls.className = 'zoom-controls';
-    
-    // Get current language
-    let currentLang = 'zh';
-    if (typeof portfolio !== 'undefined' && portfolio.currentLanguage) {
-        currentLang = portfolio.currentLanguage;
-    }
-    
-    // HARDCODED translations to bypass the translation system issue
-    const translations = {
-        zh: {
             zoomIn: "放大 (+)",
             zoomOut: "縮小 (-)",
             fullscreen: "切換全螢幕"
@@ -1027,4 +1063,55 @@ window.addViewIndicators = addViewIndicators;
 window.switchArtworkView = switchArtworkView;
 window.cleanupViews = cleanupViews;
 
-console.log('✅ Multi-view system loaded for lightbox');
+console.log('✅ Multi-view system loaded for lightbox'); translation system issue
+    const translations = {
+        zh: {
+            fullscreenView: "全螢幕檢視",
+            splitView: "分割檢視"
+        },
+        en: {
+            fullscreenView: "Fullscreen View",
+            splitView: "Split View"
+        }
+    };
+    
+    const t = translations[currentLang] || translations.zh;
+    
+    if (entering) {
+        indicator.innerHTML = `📱 <span>${t.fullscreenView}</span>`;
+    } else {
+        indicator.innerHTML = `🖼️ <span>${t.splitView}</span>`;
+    }
+    
+    const lightbox = document.querySelector('.lightbox-container');
+    if (lightbox) {
+        lightbox.appendChild(indicator);
+        
+        setTimeout(() => {
+            indicator.style.opacity = '0';
+            setTimeout(() => indicator.remove(), 300);
+        }, 2000);
+    }
+    
+    console.log('✅ Fullscreen indicator shown:', entering ? t.fullscreenView : t.splitView);
+}
+
+function addZoomControls() {
+    const existingControls = document.querySelector('.zoom-controls');
+    if (existingControls) {
+        existingControls.remove();
+    }
+    
+    const lightboxControls = document.querySelector('.lightbox-controls');
+    if (!lightboxControls) return;
+    
+    const zoomControls = document.createElement('div');
+    zoomControls.className = 'zoom-controls';
+    
+    // Get current language
+    let currentLang = 'zh';
+    if (typeof portfolio !== 'undefined' && portfolio.currentLanguage) {
+        currentLang = portfolio.currentLanguage;
+    }
+    
+    // HARDCODED translations to bypass the

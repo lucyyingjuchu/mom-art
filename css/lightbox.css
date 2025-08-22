@@ -52,7 +52,7 @@
 /* Image section with zoom and pan support */
 .lightbox-image-section {
     position: relative;
-    width: 65%;               /* 固定寬度，移除 flex */
+    width: var(--image-width, 65%);
     height: 100%;             /* 固定高度 */
     background: #f8f9fa;
     display: flex;
@@ -65,7 +65,7 @@
 
 /* Enhanced lightbox image with smooth transitions */
 .lightbox-image {
-    width: 100%;
+    width: var(--info-width, 35%);
     height: 100%;
     object-fit: contain;
     object-position: center;
