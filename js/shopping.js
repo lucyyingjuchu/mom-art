@@ -392,6 +392,9 @@ class ShoppingCart {
             quantity: quantity,
             sizeIndex: this.selectedSize
         };
+
+        console.log('🛒 Cart item created:', cartItem);
+    
         
         // Check if item already exists
         const existingIndex = this.items.findIndex(item => item.id === cartItem.id);
@@ -429,22 +432,8 @@ class ShoppingCart {
         console.log('fallback image:', this.currentArtwork?.image);
         console.log('fallback imageHigh:', this.currentArtwork?.imageHigh);
         
-        // FIXED: Proper image source
-        const image = this.currentArtwork.finerworks_image?.finerworks_api_object?.public_thumbnail_uri 
-            || this.currentArtwork.image 
-            || this.currentArtwork.imageHigh 
-            || '';
-        
-        console.log('🖼️ Final selected image:', image);
-        
-        const cartItem = {
-            // ... 其他欄位 ...
-            image: image,
-            // ...
-        };
-        
-        console.log('🛒 Cart item created:', cartItem);
-        // ...
+
+
     }
     
     showShoppingMessage(message, type) {
