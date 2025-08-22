@@ -419,6 +419,32 @@ class ShoppingCart {
             btn.classList.add('adding');
             setTimeout(() => btn.classList.remove('adding'), 300);
         }
+
+        console.log('🛒 === CART IMAGE DEBUG ===');
+        console.log('currentArtwork:', this.currentArtwork);
+        console.log('currentArtwork.id:', this.currentArtwork?.id);
+        console.log('finerworks_image exists:', !!this.currentArtwork?.finerworks_image);
+        console.log('finerworks_api_object exists:', !!this.currentArtwork?.finerworks_image?.finerworks_api_object);
+        console.log('public_thumbnail_uri:', this.currentArtwork?.finerworks_image?.finerworks_api_object?.public_thumbnail_uri);
+        console.log('fallback image:', this.currentArtwork?.image);
+        console.log('fallback imageHigh:', this.currentArtwork?.imageHigh);
+        
+        // FIXED: Proper image source
+        const image = this.currentArtwork.finerworks_image?.finerworks_api_object?.public_thumbnail_uri 
+            || this.currentArtwork.image 
+            || this.currentArtwork.imageHigh 
+            || '';
+        
+        console.log('🖼️ Final selected image:', image);
+        
+        const cartItem = {
+            // ... 其他欄位 ...
+            image: image,
+            // ...
+        };
+        
+        console.log('🛒 Cart item created:', cartItem);
+        // ...
     }
     
     showShoppingMessage(message, type) {
