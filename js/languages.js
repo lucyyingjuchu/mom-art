@@ -204,8 +204,9 @@ const LANGUAGE_DATA = {
         shopping: {
             cartTitle: "Shopping Cart",
             cartEmpty: "Your cart is empty",
-            cartEmptyDesc: "Browse artworks and add your favorites to the cart",
-            selectSizeTitle: "Select Size & Purchase",
+            cartEmptyDesc: "Browse artworks and add your favorite Glicee Fine Art prints to the cart",
+            selectSizeTitle: "Giclee - Fine Art Paper Prints",
+            selectSizeSubtitle: "Thick Matboard mounted, hang or frame ready",
             availableSizes: "Available sizes:",
             quantity: "Quantity:",
             addToCart: "Add to Cart",
@@ -216,15 +217,11 @@ const LANGUAGE_DATA = {
             processing: "Processing...",
             remove: "Remove",
             
-            // Size descriptions
-            sizeSmall: "Small size - Perfect for desk or small spaces",
-            sizeMedium: "Medium size - Suitable for living room or office", 
-            sizeLarge: "Large size - Perfect for large rooms or display spaces",
-            
+
             // Shopping messages
-            notAvailable: "This artwork is not available for purchase",
+            notAvailable: "The Glclee Fine Art Print of this artwork  is not available for purchase",
             notAvailableDesc: "If you're interested, please contact us for inquiries.",
-            priceLoading: "Loading...",
+            priceLoading: "Price Loading...",
             priceLoadFailed: "Price load failed",
             
             // Checkout form
@@ -472,27 +469,24 @@ const LANGUAGE_DATA = {
         shopping: {
             cartTitle: "購物車",
             cartEmpty: "購物車是空的",
-            cartEmptyDesc: "瀏覽藝術作品，將喜愛的作品加入購物車",
-            selectSizeTitle: "選擇尺寸與訂購",
+            cartEmptyDesc: "瀏覽藝術作品，將喜愛微噴印刷作品的加入購物車",
+            selectSizeTitle: "藝術微噴印刷",
+            selectSizeSubtitle: "厚卡紙裝裱，可掛可裱",
             availableSizes: "可選尺寸：",
             quantity: "數量：",
             addToCart: "加入購物車",
             addingToCart: "加入中...",
-            addedToCart: "已加入購物車！",
+            addedToCart: "已加入購物車！請回主頁面查看購物車內容",
             total: "總計：",
             checkout: "結帳",
             processing: "處理中...",
             remove: "移除",
             
-            // Size descriptions
-            sizeSmall: "小尺寸 - 適合書桌或小空間",
-            sizeMedium: "中尺寸 - 適合客廳或辦公室", 
-            sizeLarge: "大尺寸 - 適合大廳或展示空間",
             
             // Shopping messages
-            notAvailable: "此作品暫不提供訂購",
+            notAvailable: "此微噴印刷作品暫不提供訂購",
             notAvailableDesc: "如有興趣，請透過聯絡方式詢問。",
-            priceLoading: "載入中...",
+            priceLoading: "價格載入中...",
             priceLoadFailed: "價格載入失敗",
             
             // Checkout form

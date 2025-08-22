@@ -851,7 +851,7 @@ class ShoppingCart {
             <p style="font-size: 0.9rem; color: #495057; margin-bottom: 2rem;">
                 ${this.getText('shopping.orderNumber')} #${Date.now().toString().slice(-6)}
             </p>
-            <button onclick="this.closest('div[style*=\"position: fixed\"]').remove()"
+            <button onclick="this.closest('div[style*=\\"position: fixed\\"]').remove()"
                     style="padding: 1rem 2rem; background: #2c3e50; color: white; border: none; border-radius: 6px; cursor: pointer;">
                 ${this.getText('shopping.continueBrowsing')}
             </button>
