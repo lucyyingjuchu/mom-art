@@ -244,12 +244,18 @@ class ShoppingCart {
             this.addToCart();
         });
     }
-    
+        
     getSizeDescription(size) {
-        const area = size.width_inches * size.height_inches;
-        if (area < 80) return this.getText('shopping.sizeSmall');
-        if (area < 200) return this.getText('shopping.sizeMedium');
-        return this.getText('shopping.sizeLarge');
+        const widthCm = Math.round(size.width_inches * 2.54);
+        const heightCm = Math.round(size.height_inches * 2.54);
+        
+        const currentLang = this.getCurrentLanguage();
+        
+        if (currentLang === 'zh') {
+            return `${widthCm} × ${heightCm} 公分`;
+        } else {
+            return `${widthCm} × ${heightCm} cm`;
+        }
     }
     
     async loadPricesForArtwork(artwork) {
