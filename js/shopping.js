@@ -113,7 +113,7 @@ class ShoppingCart {
     async enhanceLightboxWithShopping(artwork) {
         // Fetch shopping data separately
         try {
-            const response = await fetch('./finerworks_ready_artworks.json');
+            const response = await fetch('./data/finerworks_ready_artworks.json');
             const shoppingData = await response.json();
             const artworkShoppingInfo = shoppingData[artwork.id];
             
