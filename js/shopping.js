@@ -506,7 +506,12 @@ class ShoppingCart {
             
             return `
                 <div class="cart-item" data-item-id="${item.id}">
-                    <img src="${item.image}" alt="${displayTitle}" class="cart-item-image">
+                    <img src="${item.image}" 
+                        alt="${displayTitle}" 
+                        class="cart-item-image clickable-image" 
+                        onclick="shoppingCart.openArtworkLightbox('${item.artworkId}')"
+                        style="cursor: pointer;"
+                        title="點擊查看作品詳情">
                     <div class="cart-item-details">
                         <div class="cart-item-title">${displayTitle}</div>
                         <div class="cart-item-size">${this.getText('lightbox.dimensionsLabel')}: ${item.size}</div>
@@ -861,6 +866,25 @@ class ShoppingCart {
         confirmationOverlay.appendChild(confirmation);
         document.body.appendChild(confirmationOverlay);
     }
+    openArtworkLightbox(artworkId) {
+    console.log('🎨 Opening lightbox for artwork:', artworkId);
+    
+    // 關閉購物車
+    this.closeCart();
+    
+    // 稍微延遲一下讓購物車關閉動畫完成
+    setTimeout(() => {
+        // 嘗試不同的全域函數名稱
+        if (typeof openLightbox === 'function') {
+            openLightbox(artworkId);
+        } else if (typeof window.openLightbox === 'function') {
+            window.openLightbox(artworkId);
+        } else {
+            console.error('❌ openLightbox function not found');
+            console.log('Available functions:', Object.keys(window).filter(key => key.includes('lightbox')));
+        }
+    }, 300);
+}
 }
 
 // Initialize shopping cart when DOM is loaded
