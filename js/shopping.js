@@ -376,11 +376,6 @@ class ShoppingCart {
             || this.currentArtwork.imageHigh 
             || '';
         
-        // 調試用 - 檢查資料是否正確
-        console.log('🎨 Adding to cart - Title:', title);
-        console.log('🎨 Current artwork:', this.currentArtwork);
-        console.log('🖼️ Using image URL:', image);
-        
         const cartItem = {
             id: `${this.currentArtwork.id}-${this.selectedSize}`,
             artworkId: this.currentArtwork.id,
@@ -392,9 +387,6 @@ class ShoppingCart {
             quantity: quantity,
             sizeIndex: this.selectedSize
         };
-
-        console.log('🛒 Cart item created:', cartItem);
-    
         
         // Check if item already exists
         const existingIndex = this.items.findIndex(item => item.id === cartItem.id);
@@ -422,18 +414,6 @@ class ShoppingCart {
             btn.classList.add('adding');
             setTimeout(() => btn.classList.remove('adding'), 300);
         }
-
-        console.log('🛒 === CART IMAGE DEBUG ===');
-        console.log('currentArtwork:', this.currentArtwork);
-        console.log('currentArtwork.id:', this.currentArtwork?.id);
-        console.log('finerworks_image exists:', !!this.currentArtwork?.finerworks_image);
-        console.log('finerworks_api_object exists:', !!this.currentArtwork?.finerworks_image?.finerworks_api_object);
-        console.log('public_thumbnail_uri:', this.currentArtwork?.finerworks_image?.finerworks_api_object?.public_thumbnail_uri);
-        console.log('fallback image:', this.currentArtwork?.image);
-        console.log('fallback imageHigh:', this.currentArtwork?.imageHigh);
-        
-
-
     }
     
     showShoppingMessage(message, type) {
