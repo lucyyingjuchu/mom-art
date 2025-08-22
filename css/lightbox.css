@@ -1394,5 +1394,14 @@
     border: 1px solid #f5c6cb;
 }
 
+.cart-item-image.clickable-image:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+    transition: all 0.2s ease;
+}
+
+.cart-item-image {
+    transition: all 0.2s ease;
+}
 
 }
