@@ -1,8 +1,8 @@
 // Complete Working Lightbox - ALL zoom indicators use clean progress bar
-// Version: 7.1 - BILINGUAL FRAMEWORK with language-aware placeholders
+// Version: 7.2 - BILINGUAL FRAMEWORK with Dynamic Layout System
 // BILINGUAL FRAMEWORK UPDATE - Preserves all existing zoom/pan functionality
 
-console.log('🚀 Loading bilingual lightbox...');
+console.log('🚀 Loading bilingual lightbox with dynamic layout...');
 
 // ================================
 // GLOBAL VARIABLES
@@ -221,7 +221,7 @@ function updateLightboxUIText() {
 }
 
 // ================================
-// GLOBAL FUNCTIONS (UNCHANGED)
+// GLOBAL FUNCTIONS
 // ================================
 
 window.openLightbox = function(artworkId, context = 'all') {
@@ -265,7 +265,6 @@ window.openLightbox = function(artworkId, context = 'all') {
         console.log('✅ Lightbox opened');
 
         setTimeout(() => document.dispatchEvent(new CustomEvent('lightboxOpened', { detail: { artwork } })), 100);
-
     }
 };
 
@@ -448,6 +447,7 @@ function populateLightbox(artwork) {
         setTimeout(() => {
             initializeImageZoom();
             addZoomControls();
+            addViewIndicators();
         }, 100);
     };
 
@@ -466,15 +466,14 @@ function populateLightbox(artwork) {
     if (currentLang === 'zh') {
         title = artwork.title || getLocalizedText('common.untitled');
         titleEn = artwork.titleEn || '';
-        description = artwork.description || ''; // Leave blank if missing
+        description = artwork.description || '';
         format = artwork.format || '';
         size = artwork.sizeCm || getLocalizedText('common.sizeNotSpecified');
     } else {
         title = artwork.titleEn || artwork.title || getLocalizedText('common.untitled');
-        titleEn = ''; // Don't show Chinese title in English mode
-        description = artwork.descriptionEn || ''; // Leave blank if missing
+        titleEn = '';
+        description = artwork.descriptionEn || '';
         format = artwork.formatEn || artwork.format || '';
-        // For English: show both cm and inches if available
         if (artwork.sizeCm && artwork.sizeInches) {
             size = `${artwork.sizeCm} (${artwork.sizeInches})`;
         } else {
@@ -482,7 +481,7 @@ function populateLightbox(artwork) {
         }
     }
 
-    // Set artwork details with language-appropriate content (REMOVED MEDIUM)
+    // Set artwork details with language-appropriate content
     const elements = {
         'artworkTitle': title,
         'artworkTitleEn': titleEn,
@@ -507,7 +506,7 @@ function populateLightbox(artwork) {
         statusEl.className = `availability-status ${isAvailable ? 'available' : 'sold'}`;
     }
 
-    // Handle tags (unchanged)
+    // Handle tags
     const tagsEl = document.getElementById('artworkTags');
     if (tagsEl) {
         if (artwork.tags && artwork.tags.length > 0) {
@@ -534,18 +533,6 @@ function populateLightbox(artwork) {
 
     // 設置多視圖功能
     setupArtworkViews(artwork);
-    
-    // 圖片加載完成後添加指示器
-    image.onload = function() {
-        image.classList.remove('loading');
-        setTimeout(() => {
-            initializeImageZoom();
-            addZoomControls();
-            
-            // 添加視圖指示器
-            addViewIndicators();
-        }, 100);
-    };
 }
 
 function initializeImageZoom() {
@@ -812,6 +799,57 @@ function showFullscreenIndicator(entering) {
     // HARDCODED translations to bypass the translation system issue
     const translations = {
         zh: {
+            fullscreenView: "全螢幕檢視",
+            splitView: "分割檢視"
+        },
+        en: {
+            fullscreenView: "Fullscreen View",
+            splitView: "Split View"
+        }
+    };
+    
+    const t = translations[currentLang] || translations.zh;
+    
+    if (entering) {
+        indicator.innerHTML = `📱 <span>${t.fullscreenView}</span>`;
+    } else {
+        indicator.innerHTML = `🖼️ <span>${t.splitView}</span>`;
+    }
+    
+    const lightbox = document.querySelector('.lightbox-container');
+    if (lightbox) {
+        lightbox.appendChild(indicator);
+        
+        setTimeout(() => {
+            indicator.style.opacity = '0';
+            setTimeout(() => indicator.remove(), 300);
+        }, 2000);
+    }
+    
+    console.log('✅ Fullscreen indicator shown:', entering ? t.fullscreenView : t.splitView);
+}
+
+function addZoomControls() {
+    const existingControls = document.querySelector('.zoom-controls');
+    if (existingControls) {
+        existingControls.remove();
+    }
+    
+    const lightboxControls = document.querySelector('.lightbox-controls');
+    if (!lightboxControls) return;
+    
+    const zoomControls = document.createElement('div');
+    zoomControls.className = 'zoom-controls';
+    
+    // Get current language
+    let currentLang = 'zh';
+    if (typeof portfolio !== 'undefined' && portfolio.currentLanguage) {
+        currentLang = portfolio.currentLanguage;
+    }
+    
+    // HARDCODED translations to bypass the translation system issue
+    const translations = {
+        zh: {
             zoomIn: "放大 (+)",
             zoomOut: "縮小 (-)",
             fullscreen: "切換全螢幕"
@@ -915,6 +953,10 @@ function setupLightboxEventListeners() {
         }
     });
 }
+
+// ================================
+// MULTI-VIEW SYSTEM
+// ================================
 
 // 設置作品的多個視圖
 function setupArtworkViews(artwork) {
@@ -1058,60 +1100,12 @@ function cleanupViews() {
     }
 }
 
+// Export multi-view functions to global scope
 window.setupArtworkViews = setupArtworkViews;
 window.addViewIndicators = addViewIndicators;
 window.switchArtworkView = switchArtworkView;
 window.cleanupViews = cleanupViews;
 
-console.log('✅ Multi-view system loaded for lightbox'); translation system issue
-    const translations = {
-        zh: {
-            fullscreenView: "全螢幕檢視",
-            splitView: "分割檢視"
-        },
-        en: {
-            fullscreenView: "Fullscreen View",
-            splitView: "Split View"
-        }
-    };
-    
-    const t = translations[currentLang] || translations.zh;
-    
-    if (entering) {
-        indicator.innerHTML = `📱 <span>${t.fullscreenView}</span>`;
-    } else {
-        indicator.innerHTML = `🖼️ <span>${t.splitView}</span>`;
-    }
-    
-    const lightbox = document.querySelector('.lightbox-container');
-    if (lightbox) {
-        lightbox.appendChild(indicator);
-        
-        setTimeout(() => {
-            indicator.style.opacity = '0';
-            setTimeout(() => indicator.remove(), 300);
-        }, 2000);
-    }
-    
-    console.log('✅ Fullscreen indicator shown:', entering ? t.fullscreenView : t.splitView);
-}
-
-function addZoomControls() {
-    const existingControls = document.querySelector('.zoom-controls');
-    if (existingControls) {
-        existingControls.remove();
-    }
-    
-    const lightboxControls = document.querySelector('.lightbox-controls');
-    if (!lightboxControls) return;
-    
-    const zoomControls = document.createElement('div');
-    zoomControls.className = 'zoom-controls';
-    
-    // Get current language
-    let currentLang = 'zh';
-    if (typeof portfolio !== 'undefined' && portfolio.currentLanguage) {
-        currentLang = portfolio.currentLanguage;
-    }
-    
-    // HARDCODED translations to bypass the
+console.log('✅ Multi-view system loaded for lightbox');
+console.log('✅ Dynamic layout system loaded for lightbox');
+console.log('✅ All lightbox functions exported to global scope');
