@@ -370,7 +370,49 @@ class ShoppingCart {
             || this.currentArtwork.imageHigh 
             || '';
         
-        // Rest of the method stays the same...
+        // 調試用 - 檢查資料是否正確
+        console.log('🎨 Adding to cart - Title:', title);
+        console.log('🎨 Current artwork:', this.currentArtwork);
+        console.log('🖼️ Using image URL:', image);
+        
+        const cartItem = {
+            id: `${this.currentArtwork.id}-${this.selectedSize}`,
+            artworkId: this.currentArtwork.id,
+            title: title,
+            titleEn: titleEn,
+            image: image,
+            size: `${size.width_inches}" × ${size.height_inches}"`,
+            price: price,
+            quantity: quantity,
+            sizeIndex: this.selectedSize
+        };
+        
+        // Check if item already exists
+        const existingIndex = this.items.findIndex(item => item.id === cartItem.id);
+        
+        if (existingIndex >= 0) {
+            // Update quantity
+            this.items[existingIndex].quantity += quantity;
+        } else {
+            // Add new item
+            this.items.push(cartItem);
+        }
+        
+        // Save to localStorage
+        localStorage.setItem('xiaoran_cart', JSON.stringify(this.items));
+        
+        // Update display
+        this.updateCartDisplay();
+        
+        // Show success message
+        this.showShoppingMessage(this.getText('shopping.addedToCart'), 'success');
+        
+        // Animate button
+        const btn = document.getElementById('addToCartBtn');
+        if (btn) {
+            btn.classList.add('adding');
+            setTimeout(() => btn.classList.remove('adding'), 300);
+        }
     }
     
     showShoppingMessage(message, type) {
