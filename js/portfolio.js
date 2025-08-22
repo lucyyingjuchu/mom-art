@@ -450,6 +450,8 @@ class ChineseArtPortfolio {
         if (typeof window.updateLightboxLanguage === 'function') {
         window.updateLightboxLanguage();
         }
+            // NEW: Notify shopping cart of language change
+        document.dispatchEvent(new CustomEvent('languageChanged'));
     }
 
     // NEW: Update all UI elements when language changes
