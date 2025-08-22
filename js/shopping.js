@@ -692,12 +692,12 @@ class ShoppingCart {
                     "recipient": {
                         "first_name": orderData.customer.firstName,
                         "last_name": orderData.customer.lastName,
-                        "company_name": "Xiaoran Art Gallery",
+                        "company_name": "袁之靜曉然文化藝術工作室",
                         "address_1": orderData.customer.address,
                         "address_2": null,
                         "address_3": null,
                         "city": orderData.customer.city,
-                        "state_code": "CA", // You might want to make this dynamic
+                        "state_code": "CA",
                         "province": null,
                         "zip_postal_code": orderData.customer.postalCode,
                         "country_code": "us",
@@ -708,12 +708,12 @@ class ShoppingCart {
                     "order_items": this.items.map(item => ({
                         "product_order_po": "ITEM_" + Date.now() + "_" + item.id,
                         "product_qty": item.quantity,
-                        "product_sku": `5M175M37S${item.size.replace(/['"×\s]/g, '').replace(/X/g, 'X')}`, // Clean up size format
+                        "product_sku": "5M175M37S6X12", // 先用固定值測試
                         "product_image": {
-                            "pixel_width": this.currentArtwork?.finerworks_image?.finerworks_api_object?.pix_w || 800,
-                            "pixel_height": this.currentArtwork?.finerworks_image?.finerworks_api_object?.pix_h || 1200,
-                            "product_url_file": this.currentArtwork?.finerworks_image?.finerworks_api_object?.private_hires_uri,
-                            "product_url_thumbnail": this.currentArtwork?.finerworks_image?.finerworks_api_object?.public_thumbnail_uri
+                            "pixel_width": 806,
+                            "pixel_height": 1600,
+                            "product_url_file": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7cee-bc2d-85b83d7ced08_large.png",
+                            "product_url_thumbnail": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-7cee-bc2d-85b83d7ced08_thumb.png"
                         },
                         "product_title": item.title,
                         "template": null,
@@ -726,7 +726,7 @@ class ShoppingCart {
                     "ship_by_date": null,
                     "customs_tax_info": null,
                     "gift_message": null,
-                    "test_mode": true, // Set to false for production
+                    "test_mode": true,
                     "webhook_order_status_url": null,
                     "document_url": null,
                     "acct_number_ups": null,
@@ -735,8 +735,10 @@ class ShoppingCart {
                     "custom_data_2": null,
                     "custom_data_3": null
                 }],
-                "validate_only": true // Set to true for testing
+                "validate_only": true
             };
+            
+            console.log('🚀 Submitting order for validation:', JSON.stringify(finerworksOrder, null, 2));
             
             // Submit using your proven working API
             const response = await fetch('/.netlify/functions/finerworks-api', {
@@ -751,17 +753,25 @@ class ShoppingCart {
             });
             
             const result = await response.json();
+            console.log('📥 Finerworks response:', result);
+            console.log('📊 Response status:', response.status);
             
             if (response.ok) {
+                console.log('✅ Order validation successful!');
                 this.showOrderConfirmation(orderData);
                 this.clearCart();
                 this.closeCart();
             } else {
-                throw new Error(result.error || result.message || 'Order submission failed');
+                console.error('❌ Order validation failed:');
+                console.error('Status:', response.status);
+                console.error('Full response:', result);
+                
+                const errorMsg = result.error || result.message || JSON.stringify(result) || 'Order submission failed';
+                throw new Error(errorMsg);
             }
             
         } catch (error) {
-            console.error('Order submission error:', error);
+            console.error('💥 Order submission error:', error);
             alert(this.getText('shopping.orderSubmitError'));
         }
     }
