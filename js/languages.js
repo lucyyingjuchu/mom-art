@@ -116,14 +116,14 @@ const LANGUAGE_DATA = {
             
             // Teaching experience
             teaching: [
-                "National Chung Hsing University - International Student Cultural Exchange Program / Chinese Painting Class for Chinese Language Students, Adjunct Lecturer (2012–Present)",
-                "National Chung Hsing University - Micro-course Lecturer (2018–2020)",
-                "Central Taiwan University of Science and Technology - Art Course Adjunct Lecturer (2012–2019)",
-                "Chaoyang University of Technology - Calligraphy and Ink Painting Course Adjunct Lecturer (2018–2019)",
-                "Taichung Dadun Cultural Center - Art Workshop Teacher (2017–Present)",
-                "Taichung Houyi Community University - New Realm of Ink Painting Course Teacher (2017–2020)",
-                "Xiaoran Cultural Arts Studio - Director (2017–Present)",
-                "Taichung Dakeng Community University - Lize Chinese Painting Society Instructor (2012–2017)"
+                "National Chung Hsing University - International Student Cultural Exchange Program / Chinese Painting Class for Chinese Language Students, Adjunct Lecturer (2012—Present)",
+                "National Chung Hsing University - Micro-course Lecturer (2018—2020)",
+                "Central Taiwan University of Science and Technology - Art Course Adjunct Lecturer (2012—2019)",
+                "Chaoyang University of Technology - Calligraphy and Ink Painting Course Adjunct Lecturer (2018—2019)",
+                "Taichung Dadun Cultural Center - Art Workshop Teacher (2017—Present)",
+                "Taichung Houyi Community University - New Realm of Ink Painting Course Teacher (2017—2020)",
+                "Xiaoran Cultural Arts Studio - Director (2017—Present)",
+                "Taichung Dakeng Community University - Lize Chinese Painting Society Instructor (2012—2017)"
             ],
             
             // Current positions
@@ -200,6 +200,59 @@ const LANGUAGE_DATA = {
             viewIndicator: 'Multiple Views'
         },
         
+        // NEW: Shopping Cart
+        shopping: {
+            cartTitle: "Shopping Cart",
+            cartEmpty: "Your cart is empty",
+            cartEmptyDesc: "Browse artworks and add your favorites to the cart",
+            selectSizeTitle: "Select Size & Purchase",
+            availableSizes: "Available sizes:",
+            quantity: "Quantity:",
+            addToCart: "Add to Cart",
+            addingToCart: "Adding...",
+            addedToCart: "Added to cart!",
+            total: "Total:",
+            checkout: "Checkout",
+            processing: "Processing...",
+            remove: "Remove",
+            
+            // Size descriptions
+            sizeSmall: "Small size - Perfect for desk or small spaces",
+            sizeMedium: "Medium size - Suitable for living room or office", 
+            sizeLarge: "Large size - Perfect for large rooms or display spaces",
+            
+            // Shopping messages
+            notAvailable: "This artwork is not available for purchase",
+            notAvailableDesc: "If you're interested, please contact us for inquiries.",
+            priceLoading: "Loading...",
+            priceLoadFailed: "Price load failed",
+            
+            // Checkout form
+            checkoutTitle: "Checkout Information",
+            customerInfo: "Customer Information",
+            firstName: "First Name",
+            lastName: "Last Name", 
+            email: "Email",
+            phone: "Phone Number",
+            address: "Complete Address",
+            city: "City",
+            postalCode: "Postal Code",
+            orderSummary: "Order Summary",
+            note: "Note:",
+            testModeWarning: "This is test mode. Actual orders will be confirmed via email and will not be charged immediately.",
+            confirmOrder: "Confirm Order",
+            
+            // Order confirmation
+            orderSuccess: "Order Confirmed Successfully!",
+            orderThanks: "Thank you for your purchase! We have received your order and will contact you via email to confirm details as soon as possible.",
+            orderNumber: "Order Number:",
+            continueBrowsing: "Continue Browsing",
+            
+            // Errors
+            checkoutError: "An error occurred during checkout, please try again later.",
+            orderSubmitError: "Order submission failed, please try again later."
+        },
+        
         // Common
         common: {
             available: "Available",
@@ -216,7 +269,7 @@ const LANGUAGE_DATA = {
     zh: {
         // Header
         header: {
-            title: "袁之靜 - 曉然文化藝術",
+            title: "袁之霖 - 曉然文化藝術",
             subtitle: "詩書畫印，天地有大美:國畫、書法作品"
         },
         
@@ -291,11 +344,11 @@ const LANGUAGE_DATA = {
         
         // About page
         about: {
-            mainTitle: "藝術家袁之靜（號曉然）｜書畫創作與教育者",
+            mainTitle: "藝術家袁之霖（號曉然）｜書畫創作與教育者",
             videoTitle: "創作紀錄片",
             // Artist introduction paragraphs
-            introParagraph1: "袁之靜，號曉然，自幼承庭訓，得傳家風，習詩詞與書法，厚植國學基礎，寄情丹青，深耕中國水墨之美，致力於書畫創作與藝術教育傳承。",
-            introParagraph2: "畢業於國立台灣藝術大學書畫藝術研究所（M.F.A.），並獲國立中興大學學士學位。長年習書作畫逾四十載，師承羅振賢、王景浩、蔡友、高義瑝、游世河、黃才松、王子奚、林進忠、林隆達、李蕭錕、薛平南、歐豪年、蘇峰男、蕭進興等多位書畫名家。",
+            introParagraph1: "袁之霖，號曉然，自幼承庭訓，得傳家風，習詩詞與書法，厚植國學基礎，寄情丹青，深耕中國水墨之美，致力於書畫創作與藝術教育傳承。",
+            introParagraph2: "畢業於國立台灣藝術大學書畫藝術研究所（M.F.A.），並獲國立中興大學學士學位。長年習書作畫逾四十載，師承羅振賢、王景浩、蔡友、高義璋、游世河、黃才松、王子奚、林進忠、林隆達、李蕭錕、薛平南、歐豪年、蘇峰男、蕭進興等多位書畫名家。",
             introParagraph3: "以自然為師，工作之餘走訪名山大川，從天地萬物中觀照意境與筆法。創作風格融合詩、書、畫、印，講求畫中意境的靈動與書寫節奏的和諧，用詩句構圖、以書法入畫、妥善用印，追求畫面中深遠、高遠、悠遠的精神境界。",
             educationTitle: "學歷",
             awardsTitle: "獲獎紀錄",
@@ -318,62 +371,62 @@ const LANGUAGE_DATA = {
                 "2010 南投縣第十一屆玉山美術獎 書法類入選",
                 "2009 台中縣美展 書法類優選",
                 "2008 台中縣美展 書法類入選",
-                "2006 國際女畫家百名水墨畫展 正選（中華藝術同心會）"
+                "2006 國際女畫家百人水墨畫展 正選（中華藝術同心會）"
             ],
             
             // Publications content
             publications: [
                 "《天地有大美》ISBN 978-626-7374-49-8（2024）",
                 "《書情畫意》ISBN 978-957-43-0510-0（2014）",
-                "《去住無心·煙雲情境》水墨創作研究碩士論文（2012）"
+                "《去住無心‧煙雲情境》水墨創作研究碩士論文（2012）"
             ],
             
             // Teaching experience
             teaching: [
-                "國立中興大學 國際學生文化交流課程／華語國畫班 兼任講師（2012–迄今）",
-                "國立中興大學 微型課程講師（2018–2020）",
-                "中臺科技大學 藝術課程兼任講師（2012–2019）",
-                "朝陽科技大學 書法與水墨畫課程兼任講師（2018–2019）",
-                "臺中市大墩文化中心 藝文研習班教師（2017–迄今）",
-                "臺中市後驛社區大學 水墨新境課程教師（2017–2020）",
-                "曉然文化藝術工作室 負責人（2017–迄今）",
-                "臺中市大坑社區大學 麗澤國畫社授課教師（2012–2017）"
+                "國立中興大學 國際學生文化交流課程∕華語國畫班 兼任講師（2012—迄今）",
+                "國立中興大學 微型課程講師（2018—2020）",
+                "中台科技大學 藝術課程兼任講師（2012—2019）",
+                "朝陽科技大學 書法與水墨畫課程兼任講師（2018—2019）",
+                "臺中市大墩文化中心 藝文研習班教師（2017—迄今）",
+                "臺中市後驛社區大學 水墨新境課程教師（2017—2020）",
+                "曉然文化藝術工作室 負責人（2017—迄今）",
+                "臺中市大坑社區大學 麗澤國畫社授課教師（2012—2017）"
             ],
             
             // Current positions
             positions: [
                 "曉然文化藝術工作室 負責人",
-                "台灣省中國書畫學會 榮譽理事長／現任理事長",
+                "台灣省中國書畫學會 榮譽理事長∕現任理事長",
                 "中華書畫藝術研究會 秘書長",
                 "臺藝大國際當代藝術聯盟 常務理事",
                 "臺中市華藝女子畫會 常務理事",
-                "中臺科技大學 藝術中心 諮詢委員",
+                "中台科技大學 藝術中心 諮詢委員",
                 "臺中市大坑麗澤文化資產研究學會 理事長",
                 "傅狷夫書畫學會 理事",
                 "臺中市墨緣雅集畫會 理事",
                 "臺中市中華書畫協會 理事",
-                "朝中畫會 監事",
-                "中華民國畫學會、臺中市書法學會、中國美術協會、藝濤畫會、中國藝術協會、臺灣傳統與現代藝術學會 會員",
+                "昭中畫會 監事",
+                "中華民國畫學會、臺中市書法學會、中國美術協會、藝濤畫會、中國藝術協會、台灣傳統與現代藝術學會 會員",
                 "中國河南省中原書畫研究院 高級藝術顧問"
             ],
             
             // Solo exhibitions
             exhibitions: [
-                "2024 《薪傳中臺·天地大美》｜中臺科技大學藝文中心",
-                "2024 《天地有大美》袁之靜水墨創作展｜台中市葫蘆墩文化中心（台中市美術家接力展）",
-                "2023 《靜觀自在》袁之靜水墨展｜台中市大墩文化中心",
-                "2022 《妙法自然》袁之靜水墨展｜台中市葫蘆墩文化中心",
-                "2018 《行雪流水～袁之靜水墨展》｜朝陽科技大學設計禮堂藝廊",
-                "2018 《行雲流水》袁之靜水墨展｜台中市大墩文化中心",
-                "2014 《書情畫意》袁之靜書畫創作展｜中臺科技大學藝文中心",
-                "2013 《書情審意》袁德炯、袁之靜父女書畫展｜台中市大墩文化中心",
-                "2012 《去住無心．煙雲情境》袁之靜水墨創作展｜國立台灣藝術大學 真善美藝廊"
+                "2024 《薪傳中台‧天地大美》｜中台科技大學藝文中心",
+                "2024 《天地有大美》袁之霖水墨創作展｜台中市葫蘆墩文化中心（台中市美術家接力展）",
+                "2023 《靜觀自在》袁之霖水墨展｜台中市大墩文化中心",
+                "2022 《妙法自然》袁之霖水墨展｜台中市葫蘆墩文化中心",
+                "2018 《行雪流水～袁之霖水墨展》｜朝陽科技大學設計禮堂藝廊",
+                "2018 《行雲流水》袁之霖水墨展｜台中市大墩文化中心",
+                "2014 《書情畫意》袁之霖書畫創作展｜中台科技大學藝文中心",
+                "2013 《書情審意》袁德炯、袁之霖父女書畫展｜台中市大墩文化中心",
+                "2012 《去住無心．煙雲情境》袁之霖水墨創作展｜國立台灣藝術大學 真善美藝廊"
             ],
             
             // Group exhibitions
             groupShows: [
-                "2023 《潤物無聲》袁之靜師生水墨畫展｜台中市大墩文化中心",
-                "2020 《夏艷》袁之靜師生國畫展｜台中署立醫院藝術走廊",
+                "2023 《潤物無聲》袁之霖師生水墨畫展｜台中市大墩文化中心",
+                "2020 《夏艷》袁之霖師生國畫展｜台中署立醫院藝術走廊",
                 "2019 《書情畫意》袁曉然師生成果展｜朝陽科技大學設計禮堂藝廊",
                 "2019 師生國畫成果展｜台中市大墩文化中心",
                 "2019 書情畫意書畫班聯展｜台中市政府惠中樓藝廊",
@@ -412,6 +465,59 @@ const LANGUAGE_DATA = {
             originalDescription: '高清原作細節',
             roomDescription: '在家中的裝飾效果',
             viewIndicator: '多視圖'
+        },
+        
+        // NEW: Shopping Cart
+        shopping: {
+            cartTitle: "購物車",
+            cartEmpty: "購物車是空的",
+            cartEmptyDesc: "瀏覽藝術作品，將喜愛的作品加入購物車",
+            selectSizeTitle: "選擇尺寸與訂購",
+            availableSizes: "可選尺寸：",
+            quantity: "數量：",
+            addToCart: "加入購物車",
+            addingToCart: "加入中...",
+            addedToCart: "已加入購物車！",
+            total: "總計：",
+            checkout: "結帳",
+            processing: "處理中...",
+            remove: "移除",
+            
+            // Size descriptions
+            sizeSmall: "小尺寸 - 適合書桌或小空間",
+            sizeMedium: "中尺寸 - 適合客廳或辦公室", 
+            sizeLarge: "大尺寸 - 適合大廳或展示空間",
+            
+            // Shopping messages
+            notAvailable: "此作品暫不提供訂購",
+            notAvailableDesc: "如有興趣，請透過聯絡方式詢問。",
+            priceLoading: "載入中...",
+            priceLoadFailed: "價格載入失敗",
+            
+            // Checkout form
+            checkoutTitle: "結帳資訊",
+            customerInfo: "收件人資訊",
+            firstName: "名字",
+            lastName: "姓氏", 
+            email: "電子郵件",
+            phone: "電話號碼",
+            address: "完整地址",
+            city: "城市",
+            postalCode: "郵遞區號",
+            orderSummary: "訂單摘要",
+            note: "注意：",
+            testModeWarning: "這是測試模式。實際訂單將通過電子郵件確認，不會立即收費。",
+            confirmOrder: "確認訂單",
+            
+            // Order confirmation
+            orderSuccess: "訂單確認成功！",
+            orderThanks: "感謝您的訂購！我們已收到您的訂單，將會盡快通過電子郵件與您聯繫確認詳細資訊。",
+            orderNumber: "訂單編號：",
+            continueBrowsing: "繼續瀏覽",
+            
+            // Errors
+            checkoutError: "結帳過程中發生錯誤，請稍後再試。",
+            orderSubmitError: "訂單提交失敗，請稍後再試。"
         },
         
         // Common
