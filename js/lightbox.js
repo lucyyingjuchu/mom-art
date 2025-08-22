@@ -147,8 +147,89 @@ function applySmartLayout(layout) {
 }
 
 // ================================
-// CLEAN ZOOM INDICATOR FUNCTION
+// 手機板檢測和特殊處理
 // ================================
+
+function isMobileDevice() {
+    return window.innerWidth <= 768;
+}
+
+function initializeMobileLightbox() {
+    if (!isMobileDevice()) return;
+    
+    console.log('📱 Mobile device detected - applying mobile optimizations');
+    
+    // 禁用所有縮放相關功能
+    const image = document.getElementById('lightboxImage');
+    if (image) {
+        // 移除所有縮放事件監聽器
+        image.style.transform = 'none';
+        image.style.cursor = 'default';
+        
+        // 重置縮放變數
+        zoomLevel = 1;
+        panX = 0;
+        panY = 0;
+        isDragging = false;
+        hasDragged = false;
+        
+        // 簡單的點擊關閉功能
+        image.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            // 手機板點擊圖片不做任何動作，或者可以關閉 lightbox
+            // window.closeLightbox();
+        });
+    }
+    
+    // 添加滑動手勢支援（可選）
+    addMobileSwipeGestures();
+}
+
+function addMobileSwipeGestures() {
+    const lightboxContent = document.querySelector('.lightbox-content');
+    if (!lightboxContent || !isMobileDevice()) return;
+    
+    let startY = 0;
+    let currentY = 0;
+    let isDragging = false;
+    
+    lightboxContent.addEventListener('touchstart', function(e) {
+        if (e.touches.length === 1) {
+            startY = e.touches[0].clientY;
+            isDragging = true;
+        }
+    }, { passive: true });
+    
+    lightboxContent.addEventListener('touchmove', function(e) {
+        if (!isDragging || e.touches.length !== 1) return;
+        
+        currentY = e.touches[0].clientY;
+        const deltaY = currentY - startY;
+        
+        // 向下滑動超過100px時準備關閉
+        if (deltaY > 100) {
+            lightboxContent.style.transform = `translateY(${deltaY * 0.3}px)`;
+            lightboxContent.style.opacity = Math.max(0.3, 1 - deltaY / 300);
+        }
+    }, { passive: true });
+    
+    lightboxContent.addEventListener('touchend', function(e) {
+        if (!isDragging) return;
+        isDragging = false;
+        
+        const deltaY = currentY - startY;
+        
+        if (deltaY > 150) {
+            // 向下滑動足夠距離，關閉 lightbox
+            window.closeLightbox();
+        } else {
+            // 回彈
+            lightboxContent.style.transform = '';
+            lightboxContent.style.opacity = '';
+        }
+    }, { passive: true });
+}
 function showCleanZoomIndicator() {
     const existingIndicator = document.querySelector('.zoom-indicator');
     if (existingIndicator) {
@@ -488,8 +569,13 @@ function populateLightbox(artwork) {
     image.onload = function() {
         image.classList.remove('loading');
         setTimeout(() => {
-            initializeImageZoom();
-            addZoomControls();
+            // 🎯 手機板特殊處理
+            if (isMobileDevice()) {
+                initializeMobileLightbox();
+            } else {
+                initializeImageZoom();
+                addZoomControls();
+            }
             addViewIndicators();
         }, 100);
     };
@@ -562,15 +648,19 @@ function populateLightbox(artwork) {
     // BILINGUAL UPDATE: Update all UI text elements
     updateLightboxUIText();
 
-    // ✨ 關鍵修復：動態比例計算和應用
-    console.log('🎨 Calculating optimal layout for artwork...');
-    
-    // 嘗試從多個可能的尺寸欄位獲取數據
-    const sizeData = artwork.sizeCm || artwork.sizeInches || artwork.size || artwork.dimensions;
-    const optimalLayout = calculateSmartLightboxLayout(sizeData);
-    applySmartLayout(optimalLayout);
-    
-    console.log(`✅ Artwork "${artwork.title}" layout optimized`);
+    // ✨ 桌面版才應用動態布局，手機版使用固定布局
+    if (!isMobileDevice()) {
+        console.log('🎨 Calculating optimal layout for artwork...');
+        
+        // 嘗試從多個可能的尺寸欄位獲取數據
+        const sizeData = artwork.sizeCm || artwork.sizeInches || artwork.size || artwork.dimensions;
+        const optimalLayout = calculateSmartLightboxLayout(sizeData);
+        applySmartLayout(optimalLayout);
+        
+        console.log(`✅ Artwork "${artwork.title}" layout optimized`);
+    } else {
+        console.log('📱 Mobile layout - using fixed responsive design');
+    }
 
     // 設置多視圖功能
     setupArtworkViews(artwork);
@@ -871,6 +961,12 @@ function showFullscreenIndicator(entering) {
 }
 
 function addZoomControls() {
+    // 🎯 手機板不添加縮放控制
+    if (isMobileDevice()) {
+        console.log('📱 Mobile device - skipping zoom controls');
+        return;
+    }
+    
     const existingControls = document.querySelector('.zoom-controls');
     if (existingControls) {
         existingControls.remove();

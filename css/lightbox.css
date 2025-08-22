@@ -862,100 +862,169 @@
     }
 }
 
-/* Mobile responsive */
+/* 🚫 手機板專用設計 - 簡化體驗 */
 @media (max-width: 768px) {
+    /* 手機板：固定全螢幕寬度，垂直布局 */
     .lightbox-content {
         flex-direction: column;
-        max-width: 95vw;
-        max-height: 95vh;
-        width: 95vw;  /* 手機上固定寬度 */
+        width: 100vw !important;  /* 強制全寬 */
+        height: 100vh !important; /* 強制全高 */
+        max-width: none !important;
+        max-height: none !important;
+        border-radius: 0; /* 移除圓角 */
+        --container-width: 100vw; /* 覆蓋動態寬度 */
     }
 
+    /* 圖片區域：佔據大部分螢幕空間 */
     .lightbox-image-section {
+        width: 100% !important;
+        height: 70vh; /* 固定70%螢幕高度 */
         max-width: 100%;
-        min-height: 60%;
-        -webkit-overflow-scrolling: touch;
+        min-height: 70vh;
+        background: #000; /* 黑色背景更適合手機 */
+        --image-width: 100%; /* 覆蓋動態寬度 */
     }
 
+    /* 手機板圖片樣式：更大更清晰 */
+    .lightbox-image {
+        width: 95%; /* 佔圖片區域的95% */
+        height: auto;
+        max-width: 95%;
+        max-height: 90%; /* 允許更大的高度 */
+        margin: 2.5%; /* 四周2.5%留白 */
+        object-fit: contain;
+        object-position: center;
+        /* 移除所有變換效果 */
+        transform: none !important;
+        cursor: default !important;
+    }
+
+    /* 資訊區域：底部固定高度，可滾動 */
     .lightbox-info-section {
+        width: 100% !important;
+        height: 30vh; /* 固定30%螢幕高度 */
         max-width: 100%;
-        padding: 1.5rem; /* Override mobile padding */
-        max-height: 45vh; /* Ensure scrollable */
+        max-height: 30vh;
+        padding: 1rem; /* 緊湊的內邊距 */
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch; /* iOS 滑動優化 */
+        --info-width: 100%; /* 覆蓋動態寬度 */
     }
 
-    .artwork-title {
-        font-size: 1.2rem;
-    }
-    
-    .artwork-title-en {
-        font-size: 0.9rem;
-    }
-    
-    .artwork-description {
-        font-size: 0.85rem;
-        padding: 0.8rem;
-        line-height: 1.5;
-    }
-    
-    .spec-item {
-        grid-template-columns: 1fr; /* Stack labels and values */
-        gap: 0.2rem;
-        margin-bottom: 0.8rem;
-    }
-    
-    .spec-label {
-        font-size: 0.75rem;
-        margin-bottom: 0.2rem;
-    }
-    
-    .spec-value {
-        font-size: 0.85rem;
-        padding-left: 0.5rem;
-    }
-    
-    .availability-status {
-        font-size: 0.8rem;
-        padding: 0.5rem 0.8rem;
-    }
-
-    .nav-arrow {
-        display: none;
-    }
-
+    /* 🚫 隱藏桌面版功能 */
     .zoom-controls {
-        margin-right: 0.5rem;
+        display: none !important; /* 完全隱藏縮放控制 */
     }
     
-    .zoom-controls .control-btn {
-        width: 36px;
-        height: 36px;
-        font-size: 1.2rem;
+    .nav-arrow {
+        display: none !important; /* 隱藏左右箭頭 */
     }
     
     .zoom-indicator {
-        top: 15px;
-        font-size: 12px;
-        padding: 6px 12px;
-    }
-    
-    .view-indicators {
-        bottom: 20px;
-    }
-    
-    .view-dot {
-        width: 14px;
-        height: 14px;
-        border-width: 2px;
+        display: none !important; /* 隱藏縮放指示器 */
     }
     
     .fullscreen-indicator {
-        top: 50px;
-        font-size: 12px;
-        padding: 10px 16px;
+        display: none !important; /* 隱藏全螢幕指示器 */
+    }
+
+    /* 🎯 優化手機板內容顯示 */
+    .artwork-title {
+        font-size: 1.1rem;
+        margin-bottom: 0.2rem;
     }
     
-    .fullscreen-indicator small {
-        display: none;
+    .artwork-title-en {
+        font-size: 0.85rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .artwork-description {
+        font-size: 0.8rem;
+        padding: 0.6rem;
+        line-height: 1.4;
+        margin-bottom: 1rem;
+    }
+    
+    /* 規格資訊：垂直堆疊 */
+    .spec-item {
+        display: block; /* 改為垂直布局 */
+        margin-bottom: 0.6rem;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #f1f3f4;
+    }
+    
+    .spec-label {
+        font-size: 0.7rem;
+        display: block;
+        margin-bottom: 0.2rem;
+        color: #666;
+    }
+    
+    .spec-value {
+        font-size: 0.8rem;
+        display: block;
+        font-weight: 500;
+        color: #333;
+    }
+    
+    .availability-status {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
+        margin: 0.5rem 0;
+    }
+
+    /* 🎯 手機板視圖指示器優化 */
+    .view-indicators {
+        bottom: 10px;
+        gap: 8px;
+    }
+    
+    .view-dot {
+        width: 12px;
+        height: 12px;
+        border-width: 1px;
+    }
+    
+    .view-dot.active {
+        transform: scale(1.5);
+    }
+
+    /* 🎯 關閉按鈕優化 */
+    .lightbox-controls {
+        top: 0.5rem;
+        right: 0.5rem;
+    }
+    
+    .control-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 1.1rem;
+        background: rgba(0, 0, 0, 0.7); /* 深色背景，在圖片上更明顯 */
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .control-btn:hover {
+        background: rgba(0, 0, 0, 0.9);
+        color: white;
+    }
+
+    /* 🚫 手機板不需要的功能樣式 */
+    .lightbox-image.zoomable,
+    .lightbox-image.zoomed,
+    .lightbox-image.dragging {
+        cursor: default !important;
+    }
+
+    /* 🎯 購物區域優化（如果存在） */
+    .shopping-section {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        margin-left: -1rem;
+        margin-right: -1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 }
 
