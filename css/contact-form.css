@@ -218,46 +218,86 @@
     margin-bottom: 0.4rem;
 }
 
-/* Availability status - 可點擊版本 */
+/* Availability status - FINAL VERSION */
 .availability-status {
-    padding: 0.6rem 1rem;
-    border-radius: 20px;
+    padding: 0.6rem 1rem; /* Reduced padding */
+    border-radius: 20px; /* More rounded */
     text-align: center;
-    font-weight: 500;
-    margin-bottom: 1rem;
-    font-size: 0.85rem;
-    transition: all 0.3s ease; /* 添加過渡效果 */
+    font-weight: 500; /* Reduced from 600 */
+    margin-bottom: 1rem; /* Reduced from 1.5rem */
+    font-size: 0.85rem; /* Smaller text */
 }
 
 .availability-status.available {
     background: #d5f4e6;
     color: #27ae60;
     border: 1px solid #27ae60;
-    cursor: pointer; /* 可點擊游標 */
-}
-
-.availability-status.available:hover {
-    background: #c8e6c9; /* 滑鼠懸停效果 */
-    transform: translateY(-1px); /* 輕微上移 */
-    box-shadow: 0 2px 8px rgba(39, 174, 96, 0.2); /* 陰影效果 */
-}
-
-.availability-status.available:active {
-    transform: translateY(0); /* 點擊時回歸原位 */
-    box-shadow: 0 1px 4px rgba(39, 174, 96, 0.2);
 }
 
 .availability-status.sold {
     background: #fadbd8;
     color: #e74c3c;
     border: 1px solid #e74c3c;
-    cursor: default; /* 默認游標 */
 }
 
-/* 移除購買詢價按鈕相關樣式 */
-/* .purchase-inquiry-section,
-.inquiry-button,
-.inquiry-button.sold 等樣式都不需要了 */
+/* 🆕 購買詢價按鈕 */
+.purchase-inquiry-section {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid #e9ecef;
+}
+
+.inquiry-button {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
+}
+
+.inquiry-button:hover {
+    background: linear-gradient(135deg, #2980b9 0%, #1f5582 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.3);
+}
+
+.inquiry-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.2);
+}
+
+.inquiry-button::before {
+    content: "💌";
+    font-size: 1.1rem;
+}
+
+/* 已售出時的按鈕樣式 */
+.inquiry-button.sold {
+    background: #95a5a6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.inquiry-button.sold:hover {
+    background: #95a5a6;
+    transform: none;
+    box-shadow: none;
+}
+
+.inquiry-button.sold::before {
+    content: "❌";
+}
 
 /* Control buttons */
 .lightbox-controls {

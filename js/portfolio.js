@@ -464,50 +464,188 @@ class ChineseArtPortfolio {
     }
 
     // NEW: Update static text elements
+
     updateStaticText() {
+        console.log('🚀 updateStaticText() started'); // 添加這行
 
-        // Update navigation
+        // ================================
+        // NAVIGATION
+        // ================================
         const navButtons = document.querySelectorAll('.nav-btn');
-        navButtons[0].textContent = this.t('nav.featured');
-        navButtons[1].textContent = this.t('nav.gallery'); 
-        navButtons[2].textContent = this.t('nav.about');
-        navButtons[3].textContent = this.t('nav.connect');
+        if (navButtons.length >= 4) {
+            navButtons[0].textContent = this.t('nav.featured');
+            navButtons[1].textContent = this.t('nav.gallery'); 
+            navButtons[2].textContent = this.t('nav.about');
+            navButtons[3].textContent = this.t('nav.connect');
+        }
         
-        // Update home page
-
-            // Update header
-        document.querySelector('.logo').textContent = this.t('header.title');
-        document.querySelector('.subtitle').textContent = this.t('header.subtitle');
-
-        document.querySelector('.hero h1').textContent = this.t('home.heroTitle');
-        document.querySelector('.hero p').innerHTML = this.t('home.heroDescription');
+        // ================================
+        // HEADER
+        // ================================
+        const logoElement = document.querySelector('.logo');
+        const subtitleElement = document.querySelector('.subtitle');
         
-        // Update about page titles
+        if (logoElement) logoElement.textContent = this.t('header.title');
+        if (subtitleElement) subtitleElement.textContent = this.t('header.subtitle');
+
+        // ================================
+        // HOME PAGE
+        // ================================
+        const heroTitle = document.querySelector('.hero h1');
+        const heroDesc = document.querySelector('.hero p');
+        
+        if (heroTitle) heroTitle.textContent = this.t('home.heroTitle');
+        if (heroDesc) heroDesc.innerHTML = this.t('home.heroDescription');
+        
+        // ================================
+        // ABOUT PAGE
+        // ================================
+        
+        // About page main title
         const aboutTitle = document.querySelector('.artist-intro h2');
         if (aboutTitle) aboutTitle.textContent = this.t('about.mainTitle');
         
+        // Video section title
         const videoTitle = document.querySelector('.featured-video h3');
         if (videoTitle) videoTitle.textContent = this.t('about.videoTitle');
         
-        // Update section headers
+        console.log('🎯 About to update bio paragraphs'); // 添加這行
+
+        // Artist introduction paragraphs
+        const artistBioP1 = document.getElementById('artistBioP1');
+        const artistBioP2 = document.getElementById('artistBioP2');
+        const artistBioP3 = document.getElementById('artistBioP3');
+        
+        if (artistBioP1) artistBioP1.textContent = this.t('about.introParagraph1');
+        if (artistBioP2) artistBioP2.textContent = this.t('about.introParagraph2');
+        if (artistBioP3) artistBioP3.textContent = this.t('about.introParagraph3');
+        
+        // Update section headers - PRESERVE ARROWS
         const sectionHeaders = document.querySelectorAll('.section-header');
         const headerKeys = ['educationTitle', 'awardsTitle', 'publicationsTitle', 'teachingTitle', 'positionsTitle', 'exhibitionsTitle', 'groupShowsTitle'];
+        
         sectionHeaders.forEach((header, index) => {
             if (headerKeys[index]) {
                 const icon = header.textContent.split(' ')[0]; // Keep the emoji
-                header.textContent = `${icon} ${this.t('about.' + headerKeys[index])}`;
+                const arrow = header.querySelector('.toggle-arrow'); // SAVE THE ARROW
+                
+                // Update text without destroying the arrow
+                if (arrow) {
+                    // For collapsible headers, preserve the arrow
+                    header.innerHTML = `${icon} ${this.t('about.' + headerKeys[index])}`;
+                    header.appendChild(arrow); // PUT THE ARROW BACK
+                } else {
+                    // For non-collapsible headers, just update text
+                    header.textContent = `${icon} ${this.t('about.' + headerKeys[index])}`;
+                }
             }
         });
         
-        // Update connect page
+        // Update about section lists content
+        this.updateAboutListContent('education', this.t('about.education'));
+        this.updateAboutListContent('awards', this.t('about.awards'));
+        this.updateAboutListContent('publications', this.t('about.publications'));
+        this.updateAboutListContent('teaching', this.t('about.teaching'));
+        this.updateAboutListContent('positions', this.t('about.positions'));
+        this.updateAboutListContent('exhibitions', this.t('about.exhibitions'));
+        this.updateAboutListContent('group-shows', this.t('about.groupShows'));
+        
+        // ================================
+        // CONNECT PAGE
+        // ================================
         const connectTitle = document.querySelector('#connect h2');
         if (connectTitle) connectTitle.textContent = this.t('connect.title');
         
         const connectSubtitle = document.querySelector('#connect .connect-content > p');
         if (connectSubtitle) connectSubtitle.textContent = this.t('connect.subtitle');
         
-        // Update lightbox elements
+        // Connect page elements
+        const emailTitle = document.querySelector('#connect .connect-item:first-child h3');
+        if (emailTitle) emailTitle.textContent = this.t('connect.emailTitle');
+
+        const emailDesc = document.querySelector('#connect .connect-item:first-child p');
+        if (emailDesc) emailDesc.textContent = this.t('connect.emailDesc');
+
+        const facebookTitle = document.querySelector('#connect .connect-item:last-child h3');
+        if (facebookTitle) facebookTitle.textContent = this.t('connect.facebookTitle');
+
+        const facebookDesc = document.querySelector('#connect .connect-item:last-child p');
+        if (facebookDesc) facebookDesc.textContent = this.t('connect.facebookDesc');
+
+        // Location text - MAKE SURE THIS IS HERE
+        const locationText = document.getElementById('locationText');
+        if (locationText) {
+            locationText.textContent = this.t('connect.locationText');
+            console.log('🔄 Updated location text to:', locationText.textContent);
+        } else {
+            console.log('❌ Location text element not found');
+        }
+        // Location text
+        const locationMap = document.getElementById('locationMap');
+        if (locationMap) {
+            if (this.currentLanguage === 'en') {
+                locationMap.style.display = 'block';
+            } else {
+                locationMap.style.display = 'none';
+            }
+        }
+
+        // ================================
+        // LIGHTBOX ELEMENTS
+        // ================================
         this.updateLightboxText();
+    }
+
+    // ================================
+    // HELPER METHOD FOR ABOUT SECTION LISTS
+    // ================================
+    // UNIVERSAL FIX - Replace updateAboutListContent with this:
+    updateAboutListContent(sectionId, items) {
+        // Find the section by ID
+        const section = document.getElementById(sectionId);
+        
+        if (!section) {
+            console.warn(`About section not found: ${sectionId}`);
+            return;
+        }
+        
+        // Validate that items is an array
+        if (!Array.isArray(items)) {
+            console.warn(`Items is not an array for section: ${sectionId}`, items);
+            return;
+        }
+        
+        // Try to find section content in different structures
+        let contentContainer;
+        
+        // Method 1: Check if the section itself has class 'section-content' (Education & Awards)
+        if (section.classList.contains('section-content')) {
+            contentContainer = section;
+            console.log(`📍 Found direct section-content for ${sectionId}`);
+        }
+        // Method 2: Look for nested .section-content (Collapsible sections)
+        else {
+            contentContainer = section.querySelector('.section-content');
+            if (contentContainer) {
+                console.log(`📍 Found nested section-content for ${sectionId}`);
+            }
+        }
+        
+        // If still not found, try the section itself as last resort
+        if (!contentContainer) {
+            contentContainer = section;
+            console.log(`📍 Using section itself as container for ${sectionId}`);
+        }
+        
+        // Create the list content
+        contentContainer.innerHTML = `<ul>${items.map(item => `<li>${item}</li>`).join('')}</ul>`;
+        
+        console.log(`✅ Updated ${sectionId} with ${items.length} items`);
+    }
+    // Also add this helper method to handle mixed content types:
+    updateAboutSection(sectionId, content) {
+        // This method can handle both arrays and strings
+        this.updateAboutListContent(sectionId, content);
     }
 
     // NEW: Update lightbox text

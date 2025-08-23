@@ -197,9 +197,68 @@ const LANGUAGE_DATA = {
             roomView: 'Room Display',
             originalDescription: 'High-resolution original details',
             roomDescription: 'Decorative effect in home',
-            viewIndicator: 'Multiple Views'
+            viewIndicator: 'Multiple Views',
+            // 🆕 新增購買按鈕
+            purchaseInquiry: "Purchase Inquiry",
+            inquireButton: "I'm Interested"
         },
         
+        // 🆕 新增聯絡表單文字
+        contactForm: {
+            title: "Purchase Inquiry",
+            subtitle: "Interested in this artwork? Please fill out the information below and we'll contact you soon",
+            artworkInfoTitle: "Artwork Information",
+            contactInfoTitle: "Contact Information",
+            shippingInfoTitle: "Shipping Information",
+            
+            // Artwork info fields
+            artworkTitle: "Artwork Title",
+            artworkSize: "Dimensions", 
+            artworkFormat: "Framing",
+            artworkYear: "Year Created",
+            
+            // Contact info fields
+            customerName: "Full Name",
+            customerEmail: "Email Address",
+            customerPhone: "Phone Number",
+            
+            // Shipping info fields
+            shippingAddress: "Shipping Address", 
+            shippingMethod: "Shipping Method",
+            shippingNote: "Additional Notes",
+            
+            // Shipping options
+            shippingOptions: {
+                homeDelivery: "Home Delivery",
+                storePickup: "Gallery Pickup",
+                courierDelivery: "Courier Service", 
+                registeredMail: "Registered Mail"
+            },
+            
+            // Button texts
+            submitButton: "Send Inquiry",
+            cancelButton: "Cancel", 
+            closeButton: "Close",
+            
+            // Placeholder texts
+            requiredField: "This field is required",
+            emailPlaceholder: "Please enter a valid email address",
+            phonePlaceholder: "Please enter your phone number", 
+            addressPlaceholder: "Please enter complete mailing address",
+            notePlaceholder: "Special requirements, questions, or preferred contact time (optional)",
+            shippingMethodPlaceholder: "Please select shipping method",
+            
+            // Success/error messages
+            submitSuccess: "Inquiry submitted successfully! We will contact you within 24 hours.",
+            submitError: "Submission failed. Please try again later or contact us directly.",
+            invalidEmail: "Please enter a valid email format",
+            invalidPhone: "Please enter a valid phone number format",
+            
+            // Additional information
+            privacyNote: "Your personal information will only be used for this inquiry. We protect your privacy.",
+            responseTime: "We typically respond to inquiries within 24 hours."
+        },
+    
         // NEW: Shopping Cart
         shopping: {
             cartTitle: "Shopping Cart",
@@ -462,8 +521,68 @@ const LANGUAGE_DATA = {
             roomView: '房間展示',
             originalDescription: '高清原作細節',
             roomDescription: '在家中的裝飾效果',
-            viewIndicator: '多視圖'
+            viewIndicator: '多視圖',
+            purchaseInquiry: "購買詢價",
+            inquireButton: "我有興趣"
         },
+
+        // 🆕 新增聯絡表單文字
+        contactForm: {
+            title: "購買詢價",
+            subtitle: "對此作品有興趣？請填寫以下資訊，我們將儘快與您聯繫",
+            artworkInfoTitle: "作品資訊",
+            contactInfoTitle: "聯絡資訊", 
+            shippingInfoTitle: "配送資訊",
+            
+            // 作品資訊欄位
+            artworkTitle: "作品名稱",
+            artworkSize: "尺寸",
+            artworkFormat: "裝裱方式",
+            artworkYear: "創作年份",
+            
+            // 聯絡資訊欄位
+            customerName: "姓名",
+            customerEmail: "電子郵件",
+            customerPhone: "手機號碼",
+            
+            // 配送資訊欄位  
+            shippingAddress: "配送地址",
+            shippingMethod: "配送方式",
+            shippingNote: "備註說明",
+            
+            // 配送方式選項
+            shippingOptions: {
+                homeDelivery: "宅配到府",
+                storePickup: "藝廊取貨", 
+                courierDelivery: "快遞配送",
+                registeredMail: "掛號郵寄"
+            },
+            
+            // 按鈕文字
+            submitButton: "送出詢價",
+            cancelButton: "取消",
+            closeButton: "關閉",
+            
+            // 提示文字
+            requiredField: "此欄位為必填",
+            emailPlaceholder: "請輸入有效的電子郵件地址",
+            phonePlaceholder: "請輸入手機號碼 (如: 0912345678)",
+            addressPlaceholder: "請輸入完整郵寄地址",
+            notePlaceholder: "特殊需求、問題或偏好的聯繫時間（選填）",
+            shippingMethodPlaceholder: "請選擇配送方式",
+            
+            // 成功/錯誤訊息
+            submitSuccess: "詢價表單已送出！我們將在24小時內與您聯繫。",
+            submitError: "送出失敗，請稍後再試或直接來電聯繫我們。",
+            invalidEmail: "請輸入有效的電子郵件格式",
+            invalidPhone: "請輸入有效的手機號碼格式",
+            
+            // 額外說明
+            privacyNote: "您的個人資料僅用於此次詢價，我們會妥善保護您的隱私。",
+            responseTime: "我們通常會在24小時內回覆您的詢價。"
+        },
+    
+
         
         // NEW: Shopping Cart
         shopping: {

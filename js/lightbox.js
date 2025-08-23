@@ -778,6 +778,9 @@ function populateLightbox(artwork) {
         }
     }
     
+    // 🆕 讓可購買狀態變成可點擊
+    addClickableAvailabilityStatus(artwork);
+    
     // BILINGUAL UPDATE: Update all UI text elements
     updateLightboxUIText();
 
@@ -1379,3 +1382,37 @@ window.cleanupViews = cleanupViews;
 console.log('✅ Multi-view system loaded for lightbox');
 console.log('✅ Dynamic layout system loaded for lightbox');
 console.log('✅ All lightbox functions exported to global scope');
+
+// ================================
+// 🆕 可點擊的可購買狀態
+// ================================
+
+function addClickableAvailabilityStatus(artwork) {
+    const statusEl = document.getElementById('availabilityStatus');
+    if (!statusEl) return;
+    
+    // 檢查作品是否可購買
+    const isAvailable = portfolio ? portfolio.getBooleanValue(artwork, 'available', true) : true;
+    
+    if (isAvailable) {
+        // 移除現有的點擊事件監聽器（如果有的話）
+        const newStatusEl = statusEl.cloneNode(true);
+        statusEl.parentNode.replaceChild(newStatusEl, statusEl);
+        
+        // 添加點擊事件
+        newStatusEl.addEventListener('click', function() {
+            // 確保聯絡表單系統已載入
+            if (typeof openContactForm === 'function') {
+                openContactForm(artwork.id);
+            } else {
+                console.error('Contact form system not loaded');
+                // 降級處理：顯示聯絡資訊或跳轉
+                alert('請透過電話或Email與我們聯繫');
+            }
+        });
+        
+        console.log('✅ Availability status is now clickable');
+    } else {
+        console.log('✅ Artwork is sold - status not clickable');
+    }
+}
