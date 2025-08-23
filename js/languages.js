@@ -175,7 +175,7 @@ const LANGUAGE_DATA = {
             subtitle: "Follow my artistic journey and stay updated with new works, exhibitions, and creative insights.",
             emailTitle: "Email",
             emailDesc: "For inquiries, commissions, or collaborations",
-            facebookTitle: "Facebook", 
+            facebookTitle: "Facebook Fan Page", 
             facebookDesc: "Latest artworks and behind-the-scenes content",
             facebookButton: "Visit Fan Page",
             locationText: "Based in Taichung, Taiwan"
@@ -440,7 +440,7 @@ const LANGUAGE_DATA = {
             subtitle: "關注我的藝術旅程，獲取最新作品、展覽和創作見解。",
             emailTitle: "電子郵件",
             emailDesc: "諮詢、委託或合作事宜",
-            facebookTitle: "臉書",
+            facebookTitle: "臉書粉絲專頁",
             facebookDesc: "最新作品與幕後花絮",
             facebookButton: "造訪粉絲頁",
             locationText: "工作室位於台灣台中"

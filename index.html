@@ -685,6 +685,12 @@
             margin-bottom: 1rem;
         }
 
+        /* Facebook icon image styling */
+        .connect-icon img {
+            width: 2.5rem;
+            height: 2.5rem;
+            object-fit: contain;
+        }
         .connect-item h3 {
             color: #2c3e50;
             margin-bottom: 0.5rem;
@@ -1176,7 +1182,9 @@
 
                     <!-- Facebook -->
                     <div class="connect-item">
-                        <div class="connect-icon">📘</div>
+                        <div class="connect-icon">
+                            <img src="./images/contact/256px-Facebook_Logo_2023.png" alt="Facebook" onerror="this.style.display='none'; this.parentElement.innerHTML='📘';">
+                        </div>
                         <h3><!-- Will be filled by JavaScript --></h3>
                         <p><!-- Will be filled by JavaScript --></p>
                         <a href="https://www.facebook.com/profile.php?id=100064374351505" target="_blank" class="connect-link"><!-- Will be filled by JavaScript --></a>
