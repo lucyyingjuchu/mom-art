@@ -825,6 +825,7 @@ class ShoppingCart {
     
     showOrderConfirmation(orderData) {
         const confirmationOverlay = document.createElement('div');
+        confirmationOverlay.className = 'order-confirmation-overlay'; // Add proper class name
         confirmationOverlay.style.cssText = `
             position: fixed;
             top: 0;
@@ -840,15 +841,29 @@ class ShoppingCart {
         `;
         
         const confirmation = document.createElement('div');
+        confirmation.className = 'order-confirmation-modal';
         confirmation.style.cssText = `
             background: white;
             border-radius: 12px;
             padding: 3rem 2rem;
             max-width: 400px;
             text-align: center;
+            position: relative;
         `;
         
+        // Create close function that we can reference reliably
+        const closeConfirmation = () => {
+            confirmationOverlay.remove();
+        };
+        
         confirmation.innerHTML = `
+            <button onclick="this.closest('.order-confirmation-overlay').remove()"
+                    style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #6c757d; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: all 0.2s ease;"
+                    onmouseover="this.style.background='#f8f9fa'; this.style.color='#495057';"
+                    onmouseout="this.style.background='none'; this.style.color='#6c757d';">
+                ✕
+            </button>
+            
             <div style="font-size: 3rem; margin-bottom: 1rem;">✅</div>
             <h2 style="color: #27ae60; margin-bottom: 1rem;">${this.getText('shopping.orderSuccess')}</h2>
             <p style="color: #6c757d; margin-bottom: 2rem; line-height: 1.6;">
@@ -857,15 +872,25 @@ class ShoppingCart {
             <p style="font-size: 0.9rem; color: #495057; margin-bottom: 2rem;">
                 ${this.getText('shopping.orderNumber')} #${Date.now().toString().slice(-6)}
             </p>
-            <button onclick="this.closest('div[style*=\\"position: fixed\\"]').remove()"
-                    style="padding: 1rem 2rem; background: #2c3e50; color: white; border: none; border-radius: 6px; cursor: pointer;">
+            <button onclick="this.closest('.order-confirmation-overlay').remove()"
+                    style="padding: 1rem 2rem; background: #2c3e50; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 1rem; transition: background 0.2s ease;"
+                    onmouseover="this.style.background='#34495e';"
+                    onmouseout="this.style.background='#2c3e50';">
                 ${this.getText('shopping.continueBrowsing')}
             </button>
         `;
         
+        // Also allow clicking on overlay background to close
+        confirmationOverlay.addEventListener('click', (e) => {
+            if (e.target === confirmationOverlay) {
+                closeConfirmation();
+            }
+        });
+        
         confirmationOverlay.appendChild(confirmation);
         document.body.appendChild(confirmationOverlay);
     }
+
     openArtworkLightbox(artworkId) {
     console.log('🎨 Opening lightbox for artwork:', artworkId);
     
