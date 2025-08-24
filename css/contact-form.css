@@ -1,1168 +1,516 @@
-/* lightbox.css - Complete Premium Lightbox Styles */
+/* contact-form.css - 購買詢價表單樣式 */
 
-/* Main lightbox container */
-.lightbox {
+/* ================================
+   模態框基本樣式
+   ================================ */
+
+.contact-form-modal {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.95);
-    z-index: 10000;
-    display: none;
+    z-index: 15000; /* 比 lightbox 更高 */
     opacity: 0;
-    transition: opacity 0.4s ease;
-    backdrop-filter: blur(10px);
+    visibility: hidden;
+    transition: all 0.3s ease;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-.lightbox.active {
-    display: flex;
+.contact-form-modal.active {
     opacity: 1;
+    visibility: visible;
 }
 
-/* Lightbox container */
-.lightbox-container {
+.contact-form-overlay {
     width: 100%;
     height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 2rem;
-    position: relative;
+    overflow-y: auto;
 }
 
-/* Main content layout - 修復：寬度應該隨內容調整 */
-.lightbox-content {
-    display: flex;
-    width: var(--container-width, 95vw);  /* 使用動態計算的寬度 */
-    height: 85vh;
-    max-width: none;  /* 移除固定最大寬度限制 */
+.contact-form-container {
     background: white;
     border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-    transform: scale(0.8);
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
 }
 
-.lightbox.active .lightbox-content {
+.contact-form-modal.active .contact-form-container {
     transform: scale(1);
 }
 
-/* Image section with zoom and pan support */
-.lightbox-image-section {
-    position: relative;
-    width: var(--image-width, 65%);  /* 使用變量 */
-    height: 100%;
-    background: #f8f9fa;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    flex-shrink: 0;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
+/* ================================
+   表頭樣式
+   ================================ */
 
-/* Enhanced lightbox image with smooth transitions */
-.lightbox-image {
-    width: 90.9%;           /* 佔 image section 的 90.9% */
-    height: auto;           /* 重要：讓圖片保持比例 */
-    max-width: 90.9%;       /* 確保不超出 */
-    max-height: 80vh;       /* 保持高度限制 */
-    margin: 5% 4.55%;       /* 上下5%，左右4.55% margin */
-    object-fit: contain;
-    object-position: center;
-}
-
-/* Dynamic cursor states */
-.lightbox-image.zoomable {
-    cursor: zoom-in;
-}
-
-.lightbox-image.zoomed {
-    cursor: grab;
-}
-
-.lightbox-image.dragging {
-    cursor: grabbing !important;
-}
-
-/* Loading state */
-.lightbox-image.loading {
-    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0f0 50%, #f0f0f0 75%);
-    background-size: 200% 100%;
-    animation: shimmer 1.5s infinite;
-    opacity: 0.7;
-}
-
-@keyframes shimmer {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
-}
-
-/* Info section */
-.lightbox-info-section {
-    width: var(--info-width, 35%);   /* 使用變量 */
-    height: 100%;
-    padding: 2rem;
-    overflow-y: auto;
-    background: white;
-    flex-shrink: 0;
-}
-
-/* Artwork details - FINAL VERSION */
-.artwork-title {
-    font-size: 1.4rem; /* Reduced from 1.8rem */
-    font-weight: 600;
-    color: #2c3e50;
-    margin-bottom: 0.3rem; /* Reduced spacing */
-    line-height: 1.25; /* Tighter for longer English titles */
-}
-
-.artwork-title-en {
-    font-size: 1rem; /* Reduced from 1.1rem */
-    color: #7f8c8d;
-    margin-bottom: 1rem; /* Reduced from 1.5rem */
-    font-style: italic;
-    line-height: 1.4;
-    opacity: 0.8; /* Subtle hierarchy */
-    min-height: 1.2rem; /* Reserve space when empty */
-}
-
-/* Hide English title completely when empty */
-.artwork-title-en:empty {
-    display: none;
-    margin-bottom: 0;
-}
-
-.artwork-description {
-    font-size: 0.9rem; /* Reduced from 1rem */
-    line-height: 1.6; /* Better for reading */
-    color: #34495e;
-    margin-bottom: 1.5rem; /* Reduced from 2rem */
-    font-family: 'Georgia', serif;
-    padding: 1rem; /* Add padding for visual separation */
-    background: #f8f9fa; /* Light background */
-    border-radius: 6px;
-    border-left: 3px solid #e9ecef;
-}
-
-/* Hide description completely when empty */
-.artwork-description:empty {
-    display: none;
-    margin-bottom: 0;
-    padding: 0;
-    background: none;
-    border: none;
-}
-
-/* Specifications - FINAL VERSION */
-.artwork-specs {
-    border-top: 1px solid #e9ecef; /* Softer border */
-    padding-top: 1rem; /* Reduced from 1.5rem */
-    margin-bottom: 1.5rem; /* Reduced from 2rem */
-}
-
-.spec-item {
-    display: grid; /* Changed from flex */
-    grid-template-columns: 90px 1fr; /* Fixed label width */
-    gap: 1rem;
-    margin-bottom: 0.6rem; /* Reduced from 0.8rem */
-    font-size: 0.9rem; /* Reduced from 0.95rem */
-    align-items: baseline;
-    padding: 0.4rem 0;
-    border-bottom: 1px solid #f1f3f4;
-}
-
-.spec-item:last-child {
-    border-bottom: none;
-}
-
-.spec-label {
-    font-weight: 600;
-    color: #6c757d; /* Softer color */
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.spec-value {
-    color: #2c3e50;
-    text-align: left; /* Changed from right for better readability */
-    word-break: break-word; /* Handle long text */
-    line-height: 1.3;
-}
-
-/* Subtle hover effects for better interactivity */
-.spec-item:hover {
-    background: rgba(248, 249, 250, 0.5);
-    border-radius: 4px;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    transition: all 0.2s ease;
-}
-
-/* Tags - FINAL VERSION */
-.artwork-tags {
-    margin-bottom: 1.5rem; /* Reduced from 2rem */
-}
-
-.tag {
-    display: inline-block;
-    background: #e9ecef; /* Neutral background */
-    color: #495057;
-    padding: 0.3rem 0.6rem; /* Reduced padding */
-    border-radius: 20px;
-    font-size: 0.75rem; /* Reduced from 0.8rem */
-    margin-right: 0.4rem; /* Reduced spacing */
-    margin-bottom: 0.4rem;
-}
-
-/* Availability status - FINAL VERSION */
-.availability-status {
-    padding: 0.6rem 1rem; /* Reduced padding */
-    border-radius: 20px; /* More rounded */
-    text-align: center;
-    font-weight: 500; /* Reduced from 600 */
-    margin-bottom: 1rem; /* Reduced from 1.5rem */
-    font-size: 0.85rem; /* Smaller text */
-}
-
-.availability-status.available {
-    background: #d5f4e6;
-    color: #27ae60;
-    border: 1px solid #27ae60;
-}
-
-.availability-status.sold {
-    background: #fadbd8;
-    color: #e74c3c;
-    border: 1px solid #e74c3c;
-}
-
-/* 🆕 購買詢價按鈕 */
-.purchase-inquiry-section {
-    margin-top: 1.5rem;
-    padding-top: 1.5rem;
-    border-top: 2px solid #e9ecef;
-}
-
-.inquiry-button {
-    width: 100%;
-    padding: 1rem 1.5rem;
-    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+.contact-form-header {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
     color: white;
-    border: none;
-    border-radius: 12px;
-    font-size: 1rem;
+    padding: 2rem;
+    border-radius: 16px 16px 0 0;
+    position: relative;
+}
+
+.contact-form-header h2 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.8rem;
     font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
 }
 
-.inquiry-button:hover {
-    background: linear-gradient(135deg, #2980b9 0%, #1f5582 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.3);
+.contact-form-subtitle {
+    margin: 0;
+    font-size: 1rem;
+    opacity: 0.9;
+    line-height: 1.4;
 }
 
-.inquiry-button:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.2);
-}
-
-.inquiry-button::before {
-    content: "💌";
-    font-size: 1.1rem;
-}
-
-/* 已售出時的按鈕樣式 */
-.inquiry-button.sold {
-    background: #95a5a6;
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
-}
-
-.inquiry-button.sold:hover {
-    background: #95a5a6;
-    transform: none;
-    box-shadow: none;
-}
-
-.inquiry-button.sold::before {
-    content: "❌";
-}
-
-/* Control buttons */
-.lightbox-controls {
+.contact-form-close {
     position: absolute;
     top: 1rem;
     right: 1rem;
-    display: flex;
-    gap: 0.5rem;
-}
-
-.control-btn {
     width: 40px;
     height: 40px;
-    background: rgba(255, 255, 255, 0.9);
     border: none;
     border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 1.5rem;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
-    font-size: 1.2rem;
-    color: #2c3e50;
 }
 
-.control-btn:hover {
-    background: white;
-    transform: scale(1.1);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-
-.control-btn:focus {
-    outline: 2px solid #2c3e50;
-    outline-offset: 2px;
-}
-
-/* Zoom controls styling */
-.zoom-controls {
-    display: flex;
-    gap: 0.5rem;
-    margin-right: 1rem;
-}
-
-.zoom-controls .control-btn {
-    width: 40px;
-    height: 40px;
-    font-weight: bold;
-}
-
-.zoom-in-btn {
-    font-size: 1.6rem !important;
-}
-
-.zoom-out-btn {
-    font-size: 1.8rem !important;
-}
-
-.zoom-reset-btn {
-    font-size: 1.2rem !important;
-}
-
-/* Zoom indicator */
-.zoom-indicator {
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: 500;
-    z-index: 10003;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    backdrop-filter: blur(10px);
-}
-
-/* Navigation arrows */
-.nav-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 50px;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.9);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 1.5rem;
-    color: #2c3e50;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10001;           /* 確保在最上層 */
-}
-
-.nav-arrow:hover {
-    background: white;
-    transform: translateY(-50%) scale(1.1);
-}
-
-.nav-arrow.prev {
-    left: 1rem;
-}
-
-.nav-arrow.next {
-    right: 1rem;
-}
-
-/* Accessibility improvements */
-.lightbox-image:focus {
-    outline: 2px solid #2c3e50;
-    outline-offset: 4px;
-}
-
-/* High DPI displays */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .lightbox-image {
-        image-rendering: -webkit-optimize-contrast;
-        image-rendering: crisp-edges;
-    }
-}
-
-/* Fullscreen mode styles */
-.lightbox-content.fullscreen-mode {
-    display: flex;
-    width: 95vw;
-    height: 85vh;
-    max-width: none;  /* 確保全螢幕模式也沒有最大寬度限制 */
-    border-radius: 0;
-    background: #000;
-}
-
-.lightbox-image-section.fullscreen-image {
-    max-width: 100%;
-    min-width: 100%;
-    width: 100%;
-    height: 100%;
-    background: #000;
-}
-
-.lightbox-content.fullscreen-mode .lightbox-info-section {
-    display: none;
-}
-
-.lightbox-content.fullscreen-mode .lightbox-image {
-    max-height: 100vh;
-    max-width: 100vw;
-}
-
-/* Fullscreen indicator */
-.fullscreen-indicator {
-    position: absolute;
-    top: 70px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 12px 20px;
-    border-radius: 25px;
-    font-size: 14px;
-    font-weight: 500;
-    z-index: 10002;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    backdrop-filter: blur(10px);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.fullscreen-indicator span {
-    font-weight: 600;
-}
-
-.fullscreen-indicator small {
-    font-size: 12px;
-    opacity: 0.8;
-    margin-left: 8px;
-}
-
-/* Enhanced fullscreen button */
-.zoom-fullscreen-btn {
-    font-size: 1.3rem !important;
-    position: relative;
-}
-
-.zoom-fullscreen-btn:hover::after {
-    content: attr(title);
-    position: absolute;
-    bottom: -35px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 12px;
-    white-space: nowrap;
-    pointer-events: none;
-}
-
-/* Navigation arrows adjustment in fullscreen */
-.lightbox-content.fullscreen-mode ~ .nav-arrow {
-    background: rgba(255, 255, 255, 0.95);
-    border: 2px solid rgba(0, 0, 0, 0.1);
-}
-
-.lightbox-content.fullscreen-mode ~ .nav-arrow:hover {
-    background: white;
-    transform: translateY(-50%) scale(1.15);
-}
-
-/* Better scrollbar for info section on overflow */
-.lightbox-info-section::-webkit-scrollbar {
-    width: 6px;
-}
-
-.lightbox-info-section::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 3px;
-}
-
-.lightbox-info-section::-webkit-scrollbar-thumb {
-    background: #c1c1c1;
-    border-radius: 3px;
-}
-
-.lightbox-info-section::-webkit-scrollbar-thumb:hover {
-    background: #a8a8a8;
-}
-
-/* ENGLISH-SPECIFIC LAYOUT IMPROVEMENTS */
-/* When viewing in English mode, optimize for longer text */
-[data-language="en"] .artwork-title {
-    font-size: 1.3rem; /* Slightly smaller for longer English titles */
-    line-height: 1.2;
-}
-
-[data-language="en"] .artwork-description {
-    font-size: 0.9rem;
-    line-height: 1.6; /* Better for English reading */
-}
-
-[data-language="en"] .spec-value {
-    font-size: 0.85rem; /* Accommodate longer English text */
-}
-
-/* CHINESE-SPECIFIC OPTIMIZATIONS */
-/* When viewing in Chinese mode, can use slightly larger text */
-[data-language="zh"] .artwork-title {
-    font-size: 1.5rem;
-    line-height: 1.3;
-}
-
-[data-language="zh"] .artwork-description {
-    font-size: 0.95rem;
-    line-height: 1.7; /* Better for Chinese characters */
-}
-
-/* 圓形帶邊框指示器樣式 - 添加到 lightbox.css */
-.view-indicators {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 12px;
-    z-index: 1001;
-}
-
-.view-dot {
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.3);
-    border: 2px solid rgba(255,255,255,0.8);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.view-dot:hover {
-    background: rgba(255,255,255,0.6);
+.contact-form-close:hover {
+    background: rgba(255, 255, 255, 0.3);
     transform: scale(1.1);
 }
 
-.view-dot.active {
-    background: white;
-    border-color: white;
-    transform: scale(1.2);
-    box-shadow: 0 0 0 3px rgba(255,255,255,0.3);
+/* ================================
+   表單內容樣式
+   ================================ */
+
+.contact-form-content {
+    padding: 2rem;
 }
 
-/* ================================================= */
-/* SHOPPING ENHANCEMENTS FOR EXISTING LIGHTBOX */
-/* These styles add e-commerce features to your current design */
-/* ================================================= */
-
-/* Shopping section in lightbox info panel */
-.shopping-section {
-    border-top: 2px solid #e9ecef;
-    margin-top: 2rem;
-    padding-top: 2rem;
-    background: #f8f9fa;
-    margin-left: -2rem;
-    margin-right: -2rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    margin-bottom: -2rem;
-    padding-bottom: 2rem;
+.form-section {
+    margin-bottom: 2rem;
 }
 
-.shopping-section h4 {
+.form-section:last-of-type {
+    margin-bottom: 0;
+}
+
+.form-section h3 {
     color: #2c3e50;
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.shopping-section h4::before {
-    content: "🛒";
     font-size: 1.2rem;
-}
-
-/* Size selection */
-.size-selection {
-    margin-bottom: 1.5rem;
-}
-
-.size-label {
-    display: block;
     font-weight: 600;
-    color: #495057;
-    margin-bottom: 0.8rem;
-    font-size: 0.9rem;
+    margin: 0 0 1.5rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e9ecef;
 }
 
-.size-options {
+.form-row {
     display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-}
-
-.size-option {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem;
-    border: 2px solid #e9ecef;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    background: white;
-}
-
-.size-option:hover {
-    border-color: #2c3e50;
-    box-shadow: 0 2px 8px rgba(44,62,80,0.1);
-}
-
-.size-option.selected {
-    border-color: #2c3e50;
-    background: #f8f9fa;
-    box-shadow: 0 0 0 1px #2c3e50;
-}
-
-.size-info {
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-}
-
-.size-dimensions {
-    font-weight: 600;
-    color: #2c3e50;
-    font-size: 0.95rem;
-}
-
-.size-description {
-    font-size: 0.8rem;
-    color: #6c757d;
-}
-
-.size-price {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.2rem;
-}
-
-.price-amount {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #27ae60;
-}
-
-.price-loading {
-    font-size: 0.8rem;
-    color: #6c757d;
-    font-style: italic;
-}
-
-/* Add to cart section */
-.add-to-cart-section {
-    margin-top: 1.5rem;
-}
-
-.quantity-selector {
-    display: flex;
-    align-items: center;
     gap: 1rem;
     margin-bottom: 1rem;
 }
 
-.quantity-selector label {
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
     font-weight: 600;
     color: #495057;
+    margin-bottom: 0.5rem;
     font-size: 0.9rem;
 }
 
-.quantity-controls {
-    display: flex;
-    align-items: center;
+.required {
+    color: #e74c3c;
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 0.8rem 1rem;
     border: 2px solid #e9ecef;
-    border-radius: 6px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    font-family: inherit;
     background: white;
 }
 
-.quantity-btn {
-    width: 36px;
-    height: 36px;
-    border: none;
-    background: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #495057;
-    transition: all 0.2s ease;
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #2c3e50;
+    box-shadow: 0 0 0 3px rgba(44, 62, 80, 0.1);
 }
 
-.quantity-btn:hover {
+.form-group input[readonly] {
     background: #f8f9fa;
-    color: #2c3e50;
-}
-
-.quantity-btn:disabled {
-    opacity: 0.4;
+    color: #6c757d;
     cursor: not-allowed;
 }
 
-.quantity-input {
-    width: 50px;
-    height: 36px;
-    border: none;
-    text-align: center;
-    font-weight: 600;
-    background: none;
-    color: #2c3e50;
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+    line-height: 1.5;
 }
 
-.quantity-input:focus {
-    outline: none;
-    background: #f8f9fa;
+.form-group select {
+    cursor: pointer;
 }
 
-/* Add to cart button */
-.add-to-cart-btn {
-    width: 100%;
-    padding: 1rem;
-    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-    color: white;
+/* 錯誤樣式 */
+.form-group input.error,
+.form-group select.error,
+.form-group textarea.error {
+    border-color: #e74c3c;
+    background: #fdf2f2;
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+    font-weight: 500;
+}
+
+/* ================================
+   按鈕樣式
+   ================================ */
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e9ecef;
+    margin-top: 2rem;
+}
+
+.btn-cancel,
+.btn-submit {
+    padding: 0.8rem 2rem;
     border: none;
     border-radius: 8px;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
+    min-width: 120px;
 }
 
-.add-to-cart-btn:hover {
-    background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(44,62,80,0.3);
-}
-
-.add-to-cart-btn:disabled {
+.btn-cancel {
     background: #6c757d;
+    color: white;
+}
+
+.btn-cancel:hover {
+    background: #5a6268;
+    transform: translateY(-1px);
+}
+
+.btn-submit {
+    background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+    color: white;
+}
+
+.btn-submit:hover {
+    background: linear-gradient(135deg, #219a52 0%, #27ae60 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(39, 174, 96, 0.3);
+}
+
+.btn-submit:disabled {
+    background: #95a5a6;
     cursor: not-allowed;
     transform: none;
     box-shadow: none;
 }
 
-.add-to-cart-btn::before {
-    content: "🛒";
-    font-size: 1.1rem;
-}
+/* ================================
+   訊息樣式
+   ================================ */
 
-/* Shopping success message */
-.shopping-message {
-    margin-top: 1rem;
-    padding: 0.8rem;
-    border-radius: 6px;
-    font-size: 0.9rem;
-    text-align: center;
+.form-message {
+    margin: 1rem 2rem;
+    padding: 1rem;
+    border-radius: 8px;
     font-weight: 500;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
 }
 
-.shopping-message.success {
+.form-message.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.form-message.success {
     background: #d4edda;
     color: #155724;
     border: 1px solid #c3e6cb;
 }
 
-.shopping-message.error {
+.form-message.error {
     background: #f8d7da;
     color: #721c24;
     border: 1px solid #f5c6cb;
 }
 
-.cart-item-image.clickable-image:hover {
-    opacity: 0.8;
-    transform: scale(1.05);
-    transition: all 0.2s ease;
-}
+/* ================================
+   響應式設計
+   ================================ */
 
-.cart-item-image {
-    transition: all 0.2s ease;
-}
-
-/* ================================================= */
-/* RESPONSIVE DESIGN */
-/* ================================================= */
-
-/* Large screens - Even more generous */
-@media (min-width: 1400px) {
-    .lightbox-info-section {
-        max-width: 500px;
-        padding: 2.5rem;
-    }
-    
-    .artwork-title {
-        font-size: 1.6rem;
-    }
-    
-    .artwork-title-en {
-        font-size: 1.1rem;
-    }
-    
-    .artwork-description {
-        font-size: 1rem;
-        line-height: 1.7;
-    }
-    
-    .spec-item {
-        grid-template-columns: 110px 1fr;
-        font-size: 0.95rem;
-    }
-}
-
-@media (max-width: 1400px) and (min-width: 1000px) {
-    .lightbox-content {
-        width: var(--container-width, 95vw);  /* 使用動態寬度 */
-        height: 85vh;
-    }
-    
-    .lightbox-info-section {
-        padding: 1.5rem;
-    }
-}
-
-/* Medium screens - Balanced layout */
-@media (max-width: 1200px) and (min-width: 900px) {
-    .lightbox-image-section {
-        width: 60%;
-    }
-    
-    .lightbox-info-section {
-        width: 40%;
-    }
-}
-
-@media (max-width: 999px) and (min-width: 768px) {
-    .lightbox-content {
-        width: var(--container-width, 98vw);  /* 使用動態寬度 */
-        height: 90vh;
-    }
-    
-    .lightbox-image-section {
-        width: 60%;
-    }
-    
-    .lightbox-info-section {
-        width: 40%;
-        padding: 1.5rem;
-    }
-}
-
-/* Tablet landscape - Start preparing for stack */
-@media (max-width: 899px) and (min-width: 768px) {
-    .lightbox-content {
-        max-width: none;  /* 移除最大寬度限制 */
-        width: var(--container-width, 90vw);  /* 使用動態寬度 */
-    }
-    
-    .spec-item {
-        grid-template-columns: 80px 1fr;
-        font-size: 0.85rem;
-    }
-}
-
-/* 🚫 手機板專用設計 - 自然流動布局 */
+/* 平板尺寸 */
 @media (max-width: 768px) {
-    /* 手機板：固定全螢幕寬度，垂直布局 */
-    .lightbox-content {
+    .contact-form-overlay {
+        padding: 1rem;
+    }
+    
+    .contact-form-container {
+        max-height: 95vh;
+    }
+    
+    .contact-form-header {
+        padding: 1.5rem;
+    }
+    
+    .contact-form-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .contact-form-content {
+        padding: 1.5rem;
+    }
+    
+    .form-row {
         flex-direction: column;
-        width: 100vw !important;  /* 強制全寬 */
-        height: 100vh !important; /* 強制全高 */
-        max-width: none !important;
-        max-height: none !important;
-        border-radius: 0; /* 移除圓角 */
-        overflow-y: auto; /* 允許整體滾動 */
-        --container-width: 100vw; /* 覆蓋動態寬度 */
-    }
-
-    /* 圖片區域：自然高度，完整顯示圖片 */
-    .lightbox-image-section {
-        width: 100% !important;
-        height: auto; /* 自然高度 */
-        min-height: 50vh; /* 最小高度確保圖片可見 */
-        max-height: none; /* 移除最大高度限制 */
-        background: #000; /* 黑色背景 */
-        flex-shrink: 0; /* 防止壓縮 */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 1rem 0; /* 上下留白 */
-        --image-width: 100%; /* 覆蓋動態寬度 */
-    }
-
-    /* 手機板圖片樣式：自然尺寸，可點擊放大 */
-    .lightbox-image {
-        width: auto; /* 自然寬度 */
-        height: auto; /* 自然高度 */
-        max-width: 90%; /* 最大不超過螢幕90% */
-        max-height: 60vh; /* 最大高度60vh，確保下方有空間 */
-        margin: 0 auto; /* 居中 */
-        object-fit: contain;
-        object-position: center;
-        /* 移除所有變換效果 */
-        transform: none !important;
-        cursor: pointer !important; /* 指示可點擊 */
-        border-radius: 4px; /* 輕微圓角 */
-        box-shadow: 0 4px 20px rgba(0,0,0,0.3); /* 陰影效果 */
-        transition: transform 0.2s ease; /* 點擊效果 */
-    }
-
-    /* 點擊效果 */
-    .lightbox-image:active {
-        transform: scale(0.98) !important;
-    }
-
-    /* 資訊區域：自然展開，不限制高度 */
-    .lightbox-info-section {
-        width: 100% !important;
-        height: auto; /* 自然高度 */
-        min-height: auto; /* 移除最小高度 */
-        max-height: none; /* 移除最大高度限制 */
-        padding: 1.5rem; /* 舒適的內邊距 */
-        overflow-y: visible; /* 不需要滾動 */
-        background: white;
-        --info-width: 100%; /* 覆蓋動態寬度 */
-    }
-
-    /* 🚫 隱藏桌面版功能 */
-    .zoom-controls {
-        display: none !important;
+        gap: 0;
     }
     
-    .nav-arrow {
-        display: none !important;
+    .form-group {
+        margin-bottom: 1rem;
     }
     
-    .zoom-indicator {
-        display: none !important;
+    .form-actions {
+        flex-direction: column-reverse;
     }
     
-    .fullscreen-indicator {
-        display: none !important;
+    .btn-cancel,
+    .btn-submit {
+        width: 100%;
+        margin: 0;
     }
+}
 
-    /* 🎯 優化手機板內容顯示 */
-    .artwork-title {
+/* 手機尺寸 */
+@media (max-width: 480px) {
+    .contact-form-overlay {
+        padding: 0.5rem;
+        align-items: flex-start;
+        padding-top: 2rem;
+    }
+    
+    .contact-form-container {
+        max-height: 95vh;
+        border-radius: 12px;
+    }
+    
+    .contact-form-header {
+        padding: 1rem;
+        border-radius: 12px 12px 0 0;
+    }
+    
+    .contact-form-header h2 {
         font-size: 1.3rem;
         margin-bottom: 0.3rem;
-        font-weight: 600;
     }
     
-    .artwork-title-en {
-        font-size: 0.95rem;
-        margin-bottom: 0.8rem;
-        opacity: 0.7;
-    }
-    
-    .artwork-description {
+    .contact-form-subtitle {
         font-size: 0.9rem;
+    }
+    
+    .contact-form-close {
+        top: 0.5rem;
+        right: 0.5rem;
+        width: 35px;
+        height: 35px;
+        font-size: 1.3rem;
+    }
+    
+    .contact-form-content {
         padding: 1rem;
-        line-height: 1.6;
-        margin-bottom: 1.2rem;
-        background: #f8f9fa;
-        border-radius: 8px;
     }
     
-    /* 規格資訊：垂直堆疊，更清晰 */
-    .artwork-specs {
-        margin-bottom: 1.5rem;
-        border-top: 1px solid #e9ecef;
-        padding-top: 1rem;
-    }
-    
-    .spec-item {
-        display: block;
+    .form-section h3 {
+        font-size: 1.1rem;
         margin-bottom: 1rem;
-        padding: 0.8rem;
-        background: #f8f9fa;
-        border-radius: 6px;
-        border: none;
     }
     
-    .spec-label {
-        font-size: 0.75rem;
-        display: block;
-        margin-bottom: 0.3rem;
-        color: #6c757d;
-        font-weight: 600;
-        text-transform: uppercase;
-    }
-    
-    .spec-value {
-        font-size: 0.9rem;
-        display: block;
-        font-weight: 500;
-        color: #2c3e50;
-        line-height: 1.4;
-    }
-    
-    .availability-status {
+    .form-group label {
         font-size: 0.85rem;
-        padding: 0.6rem 1rem;
-        margin: 1rem 0;
-        text-align: center;
-        border-radius: 20px;
-    }
-
-    /* 🎯 手機板視圖指示器優化 */
-    .view-indicators {
-        bottom: 1rem;
-        gap: 10px;
     }
     
-    .view-dot {
-        width: 10px;
-        height: 10px;
-        border-width: 2px;
-        background: rgba(255,255,255,0.6);
-        border-color: rgba(255,255,255,0.9);
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 0.7rem 0.8rem;
+        font-size: 0.9rem;
     }
     
-    .view-dot.active {
-        transform: scale(1.4);
-        background: white;
-        box-shadow: 0 0 0 2px rgba(255,255,255,0.5);
-    }
-
-    /* 🎯 關閉按鈕優化 */
-    .lightbox-controls {
-        position: fixed; /* 固定位置 */
-        top: 1rem;
-        right: 1rem;
-        z-index: 10001;
+    .form-message {
+        margin: 1rem;
+        padding: 0.8rem;
+        font-size: 0.9rem;
     }
     
-    .control-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem;
-        background: rgba(0, 0, 0, 0.8);
-        color: white;
-        border: 2px solid rgba(255, 255, 255, 0.3);
-        backdrop-filter: blur(10px);
-    }
-    
-    .control-btn:hover {
-        background: rgba(0, 0, 0, 0.9);
-        color: white;
-        transform: scale(1.05);
-    }
-
-    /* 🚫 手機板不需要的功能樣式 */
-    .lightbox-image.zoomable,
-    .lightbox-image.zoomed,
-    .lightbox-image.dragging {
-        cursor: pointer !important; /* 保持可點擊 */
-    }
-
-    /* 🎯 購物區域優化（如果存在） */
-    .shopping-section {
-        margin-top: 1.5rem;
+    .form-actions {
         padding-top: 1.5rem;
-        margin-left: -1.5rem;
-        margin-right: -1.5rem;
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-        border-top: 2px solid #e9ecef;
-    }
-
-    /* 🎯 標籤區域優化 */
-    .artwork-tags {
-        margin-bottom: 1.5rem;
+        margin-top: 1.5rem;
     }
     
-    .tag {
-        display: inline-block;
-        background: #e9ecef;
-        color: #495057;
-        padding: 0.4rem 0.8rem;
-        border-radius: 15px;
-        font-size: 0.8rem;
-        margin-right: 0.5rem;
-        margin-bottom: 0.5rem;
+    .btn-cancel,
+    .btn-submit {
+        padding: 0.9rem 1.5rem;
+        font-size: 0.9rem;
     }
 }
 
-/* Small mobile - Ultra compact */
-@media (max-width: 480px) {
-    .lightbox-info-section {
-        padding: 1rem;
+/* ================================
+   特殊效果和動畫
+   ================================ */
+
+/* 輸入框獲得焦點時的微動畫 */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    transform: translateY(-1px);
+}
+
+/* 按鈕載入狀態 */
+.btn-submit:disabled::after {
+    content: '';
+    width: 16px;
+    height: 16px;
+    margin-left: 8px;
+    border: 2px solid transparent;
+    border-top: 2px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 表單區塊淡入效果 */
+.form-section {
+    animation: fadeInUp 0.5s ease-out;
+    animation-fill-mode: both;
+}
+
+.form-section:nth-child(1) { animation-delay: 0.1s; }
+.form-section:nth-child(2) { animation-delay: 0.2s; }
+.form-section:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 滾動條美化 */
+.contact-form-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.contact-form-container::-webkit-scrollbar-track {
+    background: #f1f3f4;
+    border-radius: 3px;
+}
+
+.contact-form-container::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+.contact-form-container::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* ================================
+   深色模式支援 (選用)
+   ================================ */
+
+@media (prefers-color-scheme: dark) {
+    .contact-form-container {
+        background: #2c3e50;
+        color: #ecf0f1;
     }
     
-    .artwork-title {
-        font-size: 1.1rem;
+    .form-section h3 {
+        color: #ecf0f1;
+        border-bottom-color: #34495e;
     }
     
-    .artwork-title-en {
-        font-size: 0.85rem;
+    .form-group label {
+        color: #bdc3c7;
     }
     
-    .artwork-description {
-        font-size: 0.8rem;
-        padding: 0.6rem;
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        background: #34495e;
+        border-color: #4a5f7a;
+        color: #ecf0f1;
     }
     
-    .spec-value {
-        font-size: 0.8rem;
+    .form-group input[readonly] {
+        background: #3a4a5c;
+        color: #95a5a6;
+    }
+    
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        border-color: #3498db;
+        box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+    }
+    
+    .form-actions {
+        border-top-color: #34495e;
     }
 }
