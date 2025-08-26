@@ -1,16 +1,47 @@
-// contact-form.js - 購買詢價表單系統
-// 版本: 1.0 - 整合 lightbox 和多語言系統
+// contact-form.js - Enhanced Professional Contact Form System
+// Version: 2.0 - Clean implementation with smart phone input and autocomplete
 
-console.log('📋 Loading contact form system...');
+console.log('📋 Loading enhanced contact form system...');
 
 // ================================
 // 全域變數
 // ================================
 let currentInquiryArtwork = null;
 let contactFormOpen = false;
+let userCountry = 'TW'; // Default to Taiwan
 
 // ================================
-// 語言文字設定 - 擴充到 language.js
+// Country Detection & Phone Enhancement
+// ================================
+
+const COUNTRY_CODES = {
+    'TW': '+886', 'CN': '+86', 'US': '+1', 'CA': '+1', 'GB': '+44',
+    'AU': '+61', 'JP': '+81', 'KR': '+82', 'SG': '+65', 'HK': '+852',
+    'MY': '+60', 'TH': '+66', 'PH': '+63', 'ID': '+62', 'VN': '+84',
+    'IN': '+91', 'FR': '+33', 'DE': '+49', 'IT': '+39', 'ES': '+34',
+    'NL': '+31', 'BE': '+32', 'CH': '+41', 'AT': '+43', 'SE': '+46',
+    'NO': '+47', 'DK': '+45', 'FI': '+358', 'BR': '+55', 'MX': '+52',
+    'AR': '+54', 'CL': '+56', 'CO': '+57', 'PE': '+51', 'NZ': '+64'
+};
+
+function getCountryCode(countryCode) {
+    return COUNTRY_CODES[countryCode] || '+886';
+}
+
+async function detectUserCountry() {
+    try {
+        const response = await fetch('https://ipapi.co/country_code/');
+        const country = await response.text();
+        userCountry = country.trim() || 'TW';
+        console.log('🌍 Detected user country:', userCountry);
+    } catch (error) {
+        console.log('🌍 Country detection failed, using Taiwan as default');
+        userCountry = 'TW';
+    }
+}
+
+// ================================
+// 語言文字設定
 // ================================
 const CONTACT_FORM_TEXTS = {
     zh: {
@@ -52,10 +83,6 @@ const CONTACT_FORM_TEXTS = {
             
             // 提示文字
             requiredField: "必填欄位",
-            emailPlaceholder: "請輸入有效的電子郵件地址",
-            phonePlaceholder: "請輸入手機號碼",
-            addressPlaceholder: "請輸入完整地址",
-            notePlaceholder: "特殊需求或問題（選填）",
             
             // 成功/錯誤訊息
             submitSuccess: "詢價表單已送出！我們將儘快與您聯繫。",
@@ -103,10 +130,6 @@ const CONTACT_FORM_TEXTS = {
             
             // Placeholder texts
             requiredField: "Required field",
-            emailPlaceholder: "Please enter a valid email address",
-            phonePlaceholder: "Please enter your phone number", 
-            addressPlaceholder: "Please enter complete address",
-            notePlaceholder: "Special requirements or questions (optional)",
             
             // Success/error messages
             submitSuccess: "Inquiry submitted successfully! We will contact you soon.",
@@ -140,66 +163,102 @@ function validateEmail(email) {
     return emailRegex.test(email);
 }
 
-// 驗證手機號碼（台灣格式）
+// 驗證手機號碼（國際格式）
 function validatePhone(phone) {
-    const phoneRegex = /^(\+886|0)?[0-9]{9,10}$/;
-    return phoneRegex.test(phone.replace(/[\s-]/g, ''));
+    // Remove all non-digit characters for validation
+    const cleanPhone = phone.replace(/[^\d]/g, '');
+    // Accept phone numbers between 7-15 digits (international standard)
+    return cleanPhone.length >= 7 && cleanPhone.length <= 15;
 }
 
 // ================================
-// 主要功能函數
+// HTML 生成函數
 // ================================
 
-// 開啟聯絡表單
-window.openContactForm = function(artworkId) {
-    console.log('📋 Opening contact form for artwork:', artworkId);
-    
-    if (typeof portfolio === 'undefined') {
-        console.error('Portfolio not loaded');
-        return;
-    }
-    
-    const artwork = portfolio.getArtwork(artworkId);
-    if (!artwork) {
-        console.error('Artwork not found:', artworkId);
-        return;
-    }
-    
-    currentInquiryArtwork = artwork;
-    createContactFormModal();
-};
-
-// 創建聯絡表單模態框
-function createContactFormModal() {
-    if (contactFormOpen) return;
-    
-    contactFormOpen = true;
-    const currentLang = (typeof portfolio !== 'undefined') ? portfolio.currentLanguage : 'zh';
-    
-    // 創建模態框容器
-    const modal = document.createElement('div');
-    modal.className = 'contact-form-modal';
-    modal.innerHTML = generateContactFormHTML();
-    
-    document.body.appendChild(modal);
-    document.body.style.overflow = 'hidden';
-    
-    // 綁定事件
-    bindContactFormEvents(modal);
-    
-    // 填入作品資訊
-    populateArtworkInfo();
-    
-    // 淡入動畫
-    setTimeout(() => modal.classList.add('active'), 10);
-    
-    console.log('✅ Contact form opened');
+function generateContactInfoSection() {
+    return `
+        <div class="form-section">
+            <h3>${getContactText('contactForm.contactInfoTitle')}</h3>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>${getContactText('contactForm.customerName')} <span class="required">*</span></label>
+                    <input type="text" 
+                           id="customerName" 
+                           name="given-name"
+                           autocomplete="given-name"
+                           required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>${getContactText('contactForm.customerEmail')} <span class="required">*</span></label>
+                    <input type="email" 
+                           id="customerEmail" 
+                           name="email"
+                           autocomplete="email"
+                           required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>${getContactText('contactForm.customerPhone')} <span class="required">*</span></label>
+                    <div class="phone-input-container">
+                        <input type="text" 
+                               id="countryCode"
+                               class="country-code-input" 
+                               value="${getCountryCode(userCountry)}"
+                               placeholder="+886">
+                        <input type="tel" 
+                               id="customerPhone"
+                               class="phone-number-input"
+                               name="tel"
+                               autocomplete="tel"
+                               required>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
 }
 
-// 生成表單 HTML
+function generateShippingInfoSection() {
+    return `
+        <div class="form-section">
+            <h3>${getContactText('contactForm.shippingInfoTitle')}</h3>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>${getContactText('contactForm.shippingAddress')} <span class="required">*</span></label>
+                    <textarea id="shippingAddress" 
+                              name="street-address"
+                              autocomplete="shipping street-address"
+                              rows="3" 
+                              required></textarea>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>${getContactText('contactForm.shippingMethod')} <span class="required">*</span></label>
+                    <select id="shippingMethod" required>
+                        <option value="">請選擇配送方式</option>
+                        <option value="homeDelivery">${getContactText('contactForm.shippingOptions.homeDelivery')}</option>
+                        <option value="storePickup">${getContactText('contactForm.shippingOptions.storePickup')}</option>
+                        <option value="courierDelivery">${getContactText('contactForm.shippingOptions.courierDelivery')}</option>
+                        <option value="registeredMail">${getContactText('contactForm.shippingOptions.registeredMail')}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>${getContactText('contactForm.shippingNote')}</label>
+                    <textarea id="shippingNote" rows="3"></textarea>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+// 生成完整表單 HTML
 function generateContactFormHTML() {
-    const currentLang = (typeof portfolio !== 'undefined') ? portfolio.currentLanguage : 'zh';
-    
     return `
         <div class="contact-form-overlay">
             <div class="contact-form-container">
@@ -211,7 +270,7 @@ function generateContactFormHTML() {
                 
                 <form class="contact-form-content" id="artworkInquiryForm">
                     <!-- 作品資訊區塊 -->
-                    <div class="form-section">
+                    <div class="form-section artwork-info-section">
                         <h3>${getContactText('contactForm.artworkInfoTitle')}</h3>
                         <div class="form-row">
                             <div class="form-group">
@@ -236,54 +295,10 @@ function generateContactFormHTML() {
                     </div>
                     
                     <!-- 聯絡資訊區塊 -->
-                    <div class="form-section">
-                        <h3>${getContactText('contactForm.contactInfoTitle')}</h3>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>${getContactText('contactForm.customerName')} <span class="required">*</span></label>
-                                <input type="text" id="customerName" required>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>${getContactText('contactForm.customerEmail')} <span class="required">*</span></label>
-                                <input type="email" id="customerEmail" placeholder="${getContactText('contactForm.emailPlaceholder')}" required>
-                            </div>
-                            <div class="form-group">
-                                <label>${getContactText('contactForm.customerPhone')} <span class="required">*</span></label>
-                                <input type="tel" id="customerPhone" placeholder="${getContactText('contactForm.phonePlaceholder')}" required>
-                            </div>
-                        </div>
-                    </div>
+                    ${generateContactInfoSection()}
                     
                     <!-- 配送資訊區塊 -->
-                    <div class="form-section">
-                        <h3>${getContactText('contactForm.shippingInfoTitle')}</h3>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>${getContactText('contactForm.shippingAddress')} <span class="required">*</span></label>
-                                <textarea id="shippingAddress" rows="3" placeholder="${getContactText('contactForm.addressPlaceholder')}" required></textarea>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>${getContactText('contactForm.shippingMethod')} <span class="required">*</span></label>
-                                <select id="shippingMethod" required>
-                                    <option value="">請選擇配送方式</option>
-                                    <option value="homeDelivery">${getContactText('contactForm.shippingOptions.homeDelivery')}</option>
-                                    <option value="storePickup">${getContactText('contactForm.shippingOptions.storePickup')}</option>
-                                    <option value="courierDelivery">${getContactText('contactForm.shippingOptions.courierDelivery')}</option>
-                                    <option value="registeredMail">${getContactText('contactForm.shippingOptions.registeredMail')}</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>${getContactText('contactForm.shippingNote')}</label>
-                                <textarea id="shippingNote" rows="3" placeholder="${getContactText('contactForm.notePlaceholder')}"></textarea>
-                            </div>
-                        </div>
-                    </div>
+                    ${generateShippingInfoSection()}
                     
                     <!-- 表單按鈕 -->
                     <div class="form-actions">
@@ -297,6 +312,59 @@ function generateContactFormHTML() {
             </div>
         </div>
     `;
+}
+
+// ================================
+// 主要功能函數
+// ================================
+
+// 開啟聯絡表單
+window.openContactForm = function(artworkId) {
+    console.log('📋 Opening contact form for artwork:', artworkId);
+    
+    if (typeof portfolio === 'undefined') {
+        console.error('Portfolio not loaded');
+        return;
+    }
+    
+    const artwork = portfolio.getArtwork(artworkId);
+    if (!artwork) {
+        console.error('Artwork not found:', artworkId);
+        return;
+    }
+    
+    currentInquiryArtwork = artwork;
+    
+    // Detect user country first, then create modal
+    detectUserCountry().then(() => {
+        createContactFormModal();
+    });
+};
+
+// 創建聯絡表單模態框
+function createContactFormModal() {
+    if (contactFormOpen) return;
+    
+    contactFormOpen = true;
+    
+    // 創建模態框容器
+    const modal = document.createElement('div');
+    modal.className = 'contact-form-modal';
+    modal.innerHTML = generateContactFormHTML();
+    
+    document.body.appendChild(modal);
+    document.body.style.overflow = 'hidden';
+    
+    // 綁定事件
+    bindContactFormEvents(modal);
+    
+    // 填入作品資訊
+    populateArtworkInfo();
+    
+    // 淡入動畫
+    setTimeout(() => modal.classList.add('active'), 10);
+    
+    console.log('✅ Contact form opened');
 }
 
 // 綁定表單事件
@@ -367,10 +435,13 @@ function populateArtworkInfo() {
     console.log('✅ Artwork info populated:', title);
 }
 
+// ================================
+// 驗證函數
+// ================================
+
 // 驗證電子郵件輸入
 function validateEmailInput(input) {
     const email = input.value.trim();
-    const errorElement = input.parentNode.querySelector('.error-message');
     
     if (email && !validateEmail(email)) {
         showFieldError(input, getContactText('contactForm.invalidEmail'));
@@ -384,7 +455,6 @@ function validateEmailInput(input) {
 // 驗證手機號碼輸入
 function validatePhoneInput(input) {
     const phone = input.value.trim();
-    const errorElement = input.parentNode.querySelector('.error-message');
     
     if (phone && !validatePhone(phone)) {
         showFieldError(input, getContactText('contactForm.invalidPhone'));
@@ -416,47 +486,6 @@ function hideFieldError(input) {
     input.classList.remove('error');
 }
 
-// 處理表單提交
-function handleFormSubmit(e) {
-    e.preventDefault();
-    
-    const form = e.target;
-    const formData = new FormData(form);
-    
-    // 驗證必填欄位
-    if (!validateForm(form)) {
-        return;
-    }
-    
-    // 收集表單數據
-    const inquiryData = {
-        artwork: {
-            id: currentInquiryArtwork?.id,
-            title: document.getElementById('artworkTitle').value,
-            year: document.getElementById('artworkYear').value,
-            size: document.getElementById('artworkSize').value,
-            format: document.getElementById('artworkFormat').value
-        },
-        customer: {
-            name: document.getElementById('customerName').value,
-            email: document.getElementById('customerEmail').value,
-            phone: document.getElementById('customerPhone').value
-        },
-        shipping: {
-            address: document.getElementById('shippingAddress').value,
-            method: document.getElementById('shippingMethod').value,
-            note: document.getElementById('shippingNote').value
-        },
-        timestamp: new Date().toISOString(),
-        language: (typeof portfolio !== 'undefined') ? portfolio.currentLanguage : 'zh'
-    };
-    
-    console.log('📋 Form data:', inquiryData);
-    
-    // 提交表單（這裡需要根據你的後端接口調整）
-    submitInquiry(inquiryData);
-}
-
 // 驗證表單
 function validateForm(form) {
     let isValid = true;
@@ -481,7 +510,61 @@ function validateForm(form) {
     return isValid;
 }
 
-// 提交詢價（需要根據實際後端調整）
+// ================================
+// 表單提交處理
+// ================================
+
+// 處理表單提交
+function handleFormSubmit(e) {
+    e.preventDefault();
+    
+    const form = e.target;
+    
+    // 驗證必填欄位
+    if (!validateForm(form)) {
+        return;
+    }
+    
+    // 收集增強的表單數據
+    const inquiryData = {
+        artwork: {
+            id: currentInquiryArtwork?.id,
+            title: document.getElementById('artworkTitle').value,
+            year: document.getElementById('artworkYear').value,
+            size: document.getElementById('artworkSize').value,
+            format: document.getElementById('artworkFormat').value
+        },
+        customer: {
+            name: document.getElementById('customerName').value,
+            email: document.getElementById('customerEmail').value,
+            phone: document.getElementById('countryCode').value + ' ' + document.getElementById('customerPhone').value,
+            country: userCountry
+        },
+        shipping: {
+            address: document.getElementById('shippingAddress').value,
+            method: document.getElementById('shippingMethod').value,
+            note: document.getElementById('shippingNote').value
+        },
+        analytics: {
+            timestamp: new Date().toISOString(),
+            language: (typeof portfolio !== 'undefined') ? portfolio.currentLanguage : 'zh',
+            referrer: document.referrer,
+            user_agent: navigator.userAgent,
+            detected_country: userCountry,
+            session_data: {
+                page_views: sessionStorage.getItem('pageViews') || 0,
+                time_on_site: Date.now() - (sessionStorage.getItem('sessionStart') || Date.now())
+            }
+        }
+    };
+    
+    console.log('📋 Enhanced form data:', inquiryData);
+    
+    // 提交表單
+    submitInquiry(inquiryData);
+}
+
+// 提交詢價
 function submitInquiry(data) {
     const messageDiv = document.getElementById('formMessage');
     const submitBtn = document.querySelector('.btn-submit');
@@ -490,8 +573,7 @@ function submitInquiry(data) {
     submitBtn.textContent = '提交中...';
     submitBtn.disabled = true;
     
-    // 這裡可以替換為實際的 API 調用
-    // 目前使用模擬提交
+    // 模擬提交（替換為實際的 API 調用）
     setTimeout(() => {
         // 模擬成功提交
         showFormMessage(getContactText('contactForm.submitSuccess'), 'success');
@@ -505,7 +587,7 @@ function submitInquiry(data) {
             closeContactForm();
         }, 3000);
         
-        // 實際使用時，這裡應該是 API 調用
+        // TODO: 實際實施時替換為真實的 API 調用
         /*
         fetch('/api/artwork-inquiry', {
             method: 'POST',
@@ -542,6 +624,10 @@ function showFormMessage(message, type) {
     }, 5000);
 }
 
+// ================================
+// 關閉表單
+// ================================
+
 // 關閉聯絡表單
 function closeContactForm() {
     const modal = document.querySelector('.contact-form-modal');
@@ -563,4 +649,18 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-console.log('✅ Contact form system loaded');
+// ================================
+// 初始化
+// ================================
+
+// 初始化會話追蹤（用於分析）
+if (!sessionStorage.getItem('sessionStart')) {
+    sessionStorage.setItem('sessionStart', Date.now());
+    sessionStorage.setItem('pageViews', 0);
+}
+
+// 增加頁面瀏覽數
+const currentViews = parseInt(sessionStorage.getItem('pageViews')) || 0;
+sessionStorage.setItem('pageViews', currentViews + 1);
+
+console.log('✅ Enhanced contact form system loaded');
