@@ -275,21 +275,21 @@ function generateContactFormHTML() {
                         <div class="form-row">
                             <div class="form-group">
                                 <label>${getContactText('contactForm.artworkTitle')}</label>
-                                <input type="text" id="artworkTitle" readonly>
+                                <input type="text" id="contactArtworkTitle" readonly>
                             </div>
                             <div class="form-group">
                                 <label>${getContactText('contactForm.artworkYear')}</label>
-                                <input type="text" id="artworkYear" readonly>
+                                <input type="text" id="contactArtworkYear" readonly>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
                                 <label>${getContactText('contactForm.artworkSize')}</label>
-                                <input type="text" id="artworkSize" readonly>
+                                <input type="text" id="contactArtworkSize" readonly>
                             </div>
                             <div class="form-group">
                                 <label>${getContactText('contactForm.artworkFormat')}</label>
-                                <input type="text" id="artworkFormat" readonly>
+                                <input type="text" id="contactArtworkFormat" readonly>
                             </div>
                         </div>
                     </div>
@@ -319,20 +319,37 @@ function generateContactFormHTML() {
 // ================================
 
 // 開啟聯絡表單
+
+// REPLACE your window.openContactForm function with this:
 window.openContactForm = function(artworkId) {
     console.log('📋 Opening contact form for artwork:', artworkId);
     
+    // Add more detailed checks
     if (typeof portfolio === 'undefined') {
-        console.error('Portfolio not loaded');
+        console.error('❌ Portfolio not loaded yet - retrying in 500ms');
+        setTimeout(() => window.openContactForm(artworkId), 500);
+        return;
+    }
+    
+    if (typeof portfolio.getArtwork !== 'function') {
+        console.error('❌ Portfolio.getArtwork not available');
+        return;
+    }
+    
+    if (!portfolio.artworks || portfolio.artworks.length === 0) {
+        console.error('❌ Portfolio artworks not loaded yet - retrying in 500ms');
+        setTimeout(() => window.openContactForm(artworkId), 500);
         return;
     }
     
     const artwork = portfolio.getArtwork(artworkId);
     if (!artwork) {
-        console.error('Artwork not found:', artworkId);
+        console.error('❌ Artwork not found:', artworkId);
+        console.log('🔍 Available artworks:', portfolio.artworks.map(a => a.id));
         return;
     }
     
+    console.log('✅ All checks passed, proceeding with contact form');
     currentInquiryArtwork = artwork;
     
     // Detect user country first, then create modal
@@ -358,14 +375,18 @@ function createContactFormModal() {
     // 綁定事件
     bindContactFormEvents(modal);
     
-    // 填入作品資訊
-    populateArtworkInfo();
+    // 🎯 CRITICAL FIX: Wait for DOM to be ready before populating
+    setTimeout(() => {
+        console.log('🔄 DOM should be ready, populating artwork info...');
+        populateArtworkInfo();
+    }, 100); // Give DOM time to render
     
     // 淡入動畫
     setTimeout(() => modal.classList.add('active'), 10);
     
     console.log('✅ Contact form opened');
 }
+
 
 // 綁定表單事件
 function bindContactFormEvents(modal) {
@@ -402,13 +423,40 @@ function bindContactFormEvents(modal) {
 }
 
 // 填入作品資訊
+// ULTRA DEBUG VERSION - Replace your populateArtworkInfo() function with this:
+
+// REPLACE your populateArtworkInfo() function with this clean version:
+
 function populateArtworkInfo() {
-    if (!currentInquiryArtwork) return;
+    console.log('Populating artwork info...');
+    
+    if (!currentInquiryArtwork) {
+        console.error('No current inquiry artwork');
+        return;
+    }
+    
+    // Use unique IDs that don't conflict with lightbox
+    const titleInput = document.getElementById('contactArtworkTitle');
+    const yearInput = document.getElementById('contactArtworkYear');
+    const sizeInput = document.getElementById('contactArtworkSize');
+    const formatInput = document.getElementById('contactArtworkFormat');
+    
+    console.log('Form elements found:', {
+        titleInput: !!titleInput,
+        yearInput: !!yearInput,
+        sizeInput: !!sizeInput,
+        formatInput: !!formatInput
+    });
+    
+    if (!titleInput || !yearInput || !sizeInput || !formatInput) {
+        console.error('Some form elements not found');
+        return;
+    }
     
     const currentLang = (typeof portfolio !== 'undefined') ? portfolio.currentLanguage : 'zh';
     const artwork = currentInquiryArtwork;
     
-    // 根據語言選擇合適的欄位
+    // Get language-appropriate values
     let title, format, size;
     
     if (currentLang === 'zh') {
@@ -421,18 +469,18 @@ function populateArtworkInfo() {
         size = artwork.sizeCm || artwork.sizeInches || 'Not specified';
     }
     
-    // 填入表單
-    const titleInput = document.getElementById('artworkTitle');
-    const yearInput = document.getElementById('artworkYear');
-    const sizeInput = document.getElementById('artworkSize');
-    const formatInput = document.getElementById('artworkFormat');
+    // Set the values
+    titleInput.value = title;
+    yearInput.value = artwork.year || '未指定';
+    sizeInput.value = size;
+    formatInput.value = format;
     
-    if (titleInput) titleInput.value = title;
-    if (yearInput) yearInput.value = artwork.year || '未指定';
-    if (sizeInput) sizeInput.value = size;
-    if (formatInput) formatInput.value = format;
-    
-    console.log('✅ Artwork info populated:', title);
+    console.log('Values set:', {
+        title: titleInput.value,
+        year: yearInput.value,
+        size: sizeInput.value,
+        format: formatInput.value
+    });
 }
 
 // ================================

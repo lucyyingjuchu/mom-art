@@ -311,8 +311,8 @@ const LANGUAGE_DATA = {
         
         // Common
         common: {
-            available: "Available",
-            sold: "Sold",
+            available: "Original Art Available",
+            sold: "Original Art Sold",
             untitled: "Untitled",
             unknown: "Unknown",
             sizeNotSpecified: "Size not specified",
@@ -507,8 +507,8 @@ const LANGUAGE_DATA = {
         
         // Lightbox
         lightbox: {
-            availableStatus: "可供購買",
-            soldStatus: "已售出",
+            availableStatus: "原作可供購買",
+            soldStatus: "原作已售出",
             yearLabel: "年份",
             dimensionsLabel: "尺寸",
             mediumLabel: "媒材", 
@@ -636,8 +636,8 @@ const LANGUAGE_DATA = {
         
         // Common
         common: {
-            available: "可售",
-            sold: "已售",
+            available: "原作可售",
+            sold: "原作已售",
             untitled: "無題",
             unknown: "未知",
             sizeNotSpecified: "尺寸未標明",
