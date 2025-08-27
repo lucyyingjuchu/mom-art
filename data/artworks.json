@@ -1253,26 +1253,6 @@
     "formatEn": "Hanging Scroll"
   },
   {
-    "id": "019891b0-f39c-72d7-ba51-154cd64be00e",
-    "title": "飛瀑聲千里，煙濤影萬重。―煙聲瀑布 ",
-    "titleEn": "Echoes of the Cascading Falls",
-    "image": "",
-    "imageHigh": "",
-    "description": "飛瀑聲千里，煙濤影萬重。",
-    "descriptionEn": "The sound of the waterfall echoes for a thousand miles, While the misty waves cast shadows in layers untold.",
-    "format": "軸",
-    "mediumEn": "",
-    "sizeCm": "140x75",
-    "sizeInches": "55.1×29.5 inches",
-    "year": "2020",
-    "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
-  },
-  {
     "id": "019891b0-f39c-728f-a1de-1b6a07cf80ff",
     "title": " 桃江兩岸正逢春",
     "titleEn": "Spring Along the Peach River Banks",
@@ -1972,25 +1952,6 @@
     "recent": true,
     "exhibitions": [],
     "tags": []
-  },
-  {
-    "id": "019891b0-f39c-7ed4-8701-98e0c4d77b85",
-    "title": "飛瀑聲千里，煙濤影萬重。",
-    "titleEn": "Echoes of Waterfalls, Shadows of Mist",
-    "image": "",
-    "imageHigh": "",
-    "description": "飛瀑聲千里，煙濤影萬重。",
-    "descriptionEn": "The sound of cascading waterfalls stretches a thousand miles, While misty waves cast shadows in countless layers.",
-    "format": null,
-    "mediumEn": "",
-    "sizeCm": null,
-    "sizeInches": "",
-    "year": "2021",
-    "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": ""
   },
   {
     "id": "019891b0-f39c-79ee-915a-34d3aa1decd1",
