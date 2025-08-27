@@ -890,7 +890,7 @@ class ShoppingCart {
         
         form.addEventListener('submit', (e) => {
             e.preventDefault();
-            console.log('📝 Form submitted!');
+              console.log('📝 Form submitted!');
             console.log('📋 Form data:', new FormData(form));
   
             submitBtn.disabled = true;
@@ -910,6 +910,54 @@ class ShoppingCart {
             document.head.removeChild(style);
             delete window.toggleOrderSummary;
         });
+
+        // Add a small delay to ensure DOM is ready, then attach handlers
+        setTimeout(() => {
+            const form = document.getElementById('checkoutFormElement');
+            const submitBtn = document.getElementById('submitOrderBtn');
+            
+            console.log('🔍 Form found:', !!form);
+            console.log('🔍 Submit button found:', !!submitBtn);
+            
+            if (!form) {
+                console.error('❌ Form element not found!');
+                return;
+            }
+            
+            if (!submitBtn) {
+                console.error('❌ Submit button not found!');
+                return;
+            }
+            
+            // Handle form submission
+            form.addEventListener('submit', (e) => {
+                console.log('📝 Form submit event fired!');
+                e.preventDefault();
+                
+                submitBtn.disabled = true;
+                submitBtn.style.background = '#6c757d';
+                submitBtn.style.cursor = 'not-allowed';
+                submitBtn.textContent = this.getText('shopping.processing');
+                
+                // Get form data
+                const formData = new FormData(form);
+                console.log('📋 Form data collected');
+                
+                // Handle state/province data
+                const stateProvince = formData.get('stateProvince') || formData.get('stateProvinceText');
+                formData.set('stateProvince', stateProvince);
+                
+                console.log('🚀 About to call submitOrder...');
+                this.submitOrder(formData);
+                
+                checkoutOverlay.remove();
+                document.head.removeChild(style);
+                delete window.toggleOrderSummary;
+            });
+            
+            console.log('✅ Form event listener attached');
+            
+        }, 100); // Small delay to ensure DOM is ready
     }
     
     async submitOrder(formData) {
