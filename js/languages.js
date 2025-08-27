@@ -183,8 +183,8 @@ const LANGUAGE_DATA = {
         
         // Lightbox
         lightbox: {
-            availableStatus: "Available for Purchase",
-            soldStatus: "Sold",
+            availableStatus: "Original Art Available",
+            soldStatus: "Original Art Sold",
             yearLabel: "Year",
             dimensionsLabel: "Dimensions", 
             mediumLabel: "Medium",
@@ -311,8 +311,8 @@ const LANGUAGE_DATA = {
         
         // Common
         common: {
-            available: "Original Art Available",
-            sold: "Original Art Sold",
+            available: "Available",
+            sold: "Sold",
             untitled: "Untitled",
             unknown: "Unknown",
             sizeNotSpecified: "Size not specified",
@@ -586,9 +586,9 @@ const LANGUAGE_DATA = {
         
         // NEW: Shopping Cart
         shopping: {
-            cartTitle: "購物車",
+            cartTitle: "微噴印刷購物車",
             cartEmpty: "購物車是空的",
-            cartEmptyDesc: "瀏覽藝術作品，將喜愛微噴印刷作品的加入購物車",
+            cartEmptyDesc: "瀏覽藝術作品，將喜愛的作品的加入購物車",
             selectSizeTitle: "藝術微噴印刷",
             selectSizeSubtitle: "厚卡紙裝裱，可掛可裱",
             availableSizes: "可選尺寸：",
@@ -636,8 +636,8 @@ const LANGUAGE_DATA = {
         
         // Common
         common: {
-            available: "原作可售",
-            sold: "原作已售",
+            available: "可售",
+            sold: "已售",
             untitled: "無題",
             unknown: "未知",
             sizeNotSpecified: "尺寸未標明",

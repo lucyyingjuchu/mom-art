@@ -282,10 +282,10 @@ class ShoppingCart {
     }
     
     async fetchPrice(artwork, size) {
-        // 正確的 API 格式 - 不需要 image_id
+        // FIXED: Use 210 for Canson Infinity Arches instead of 175
         const priceRequest = {
             "product_qty": 1,
-            "product_sku": `5M175M37S${size.width_inches}X${size.height_inches}`
+            "product_sku": `5M210M37S${size.width_inches}X${size.height_inches}`
         };
         
         console.log('💰 Fetching price for:', priceRequest);
@@ -385,7 +385,10 @@ class ShoppingCart {
             size: `${size.width_inches}" × ${size.height_inches}"`,
             price: price,
             quantity: quantity,
-            sizeIndex: this.selectedSize
+            sizeIndex: this.selectedSize,
+            // ADD THESE - store dimensions directly:
+            width_inches: size.width_inches,
+            height_inches: size.height_inches
         };
         
         // Check if item already exists
@@ -732,7 +735,7 @@ class ShoppingCart {
         };
         
         try {
-            // Convert to Finerworks Print-on-Demand format (the one that worked!)
+            // Convert to Finerworks Print-on-Demand format
             const finerworksOrder = {
                 "orders": [{
                     "order_po": "XIAORAN_" + Date.now(),
@@ -754,13 +757,15 @@ class ShoppingCart {
                         "address_order_po": "XIAORAN_" + Date.now()
                     },
                     "order_items": this.items.map(item => ({
-                        "product_order_po": "ITEM" + Math.floor(Math.random() * 10000),                        "product_qty": item.quantity,
-                        "product_sku": "5M175M37S6X12", // 先用固定值測試
+                        "product_order_po": "ITEM" + Math.floor(Math.random() * 10000),
+                        "product_qty": item.quantity,
+                        // FIXED: Use stored dimensions directly - no complex lookups needed!
+                        "product_sku": `5M210M37S${item.width_inches}X${item.height_inches}`,
                         "product_image": {
                             "pixel_width": 806,
                             "pixel_height": 1600,
-                            "product_url_file": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7cee-bc2d-85b83d7ced08_large.png",
-                            "product_url_thumbnail": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-7cee-bc2d-85b83d7ced08_thumb.png"
+                            "product_url_file": item.image,
+                            "product_url_thumbnail": item.image
                         },
                         "product_title": item.title,
                         "template": null,
@@ -773,7 +778,7 @@ class ShoppingCart {
                     "ship_by_date": null,
                     "customs_tax_info": null,
                     "gift_message": null,
-                    "test_mode": true,
+                    "test_mode": true, // Keep as test for now
                     "webhook_order_status_url": null,
                     "document_url": null,
                     "acct_number_ups": null,
@@ -782,10 +787,11 @@ class ShoppingCart {
                     "custom_data_2": null,
                     "custom_data_3": null
                 }],
-                "validate_only": true
+                // FIXED: Set to false to actually submit orders instead of just validating
+                "validate_only": false
             };
             
-            console.log('🚀 Submitting order for validation:', JSON.stringify(finerworksOrder, null, 2));
+            console.log('🚀 Submitting order:', JSON.stringify(finerworksOrder, null, 2));
             
             // Submit using your proven working API
             const response = await fetch('/.netlify/functions/finerworks-api', {
@@ -804,12 +810,12 @@ class ShoppingCart {
             console.log('📊 Response status:', response.status);
             
             if (response.ok) {
-                console.log('✅ Order validation successful!');
+                console.log('✅ Order submission successful!');
                 this.showOrderConfirmation(orderData);
                 this.clearCart();
                 this.closeCart();
             } else {
-                console.error('❌ Order validation failed:');
+                console.error('❌ Order submission failed:');
                 console.error('Status:', response.status);
                 console.error('Full response:', result);
                 

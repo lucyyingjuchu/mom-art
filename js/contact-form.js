@@ -1,5 +1,6 @@
 // contact-form.js - Enhanced Professional Contact Form System
 // Version: 2.0 - Clean implementation with smart phone input and autocomplete
+emailjs.init("pbE7j2fLMaqfGjb3_"); // Replace with your actual public key from EmailJS dashboard
 
 console.log('📋 Loading enhanced contact form system...');
 
@@ -613,52 +614,95 @@ function handleFormSubmit(e) {
 }
 
 // 提交詢價
+// Replace your submitInquiry() function with this:
+
 function submitInquiry(data) {
     const messageDiv = document.getElementById('formMessage');
     const submitBtn = document.querySelector('.btn-submit');
     
-    // 顯示提交中狀態
+    // Show submitting state
     submitBtn.textContent = '提交中...';
     submitBtn.disabled = true;
     
-    // 模擬提交（替換為實際的 API 調用）
-    setTimeout(() => {
-        // 模擬成功提交
-        showFormMessage(getContactText('contactForm.submitSuccess'), 'success');
+    // Prepare email template parameters
+    const templateParams = {
+        // Customer info
+        customer_name: data.customer.name,
+        customer_email: data.customer.email,
+        customer_phone: data.customer.phone,
+        customer_country: data.customer.country,
         
-        // 重置按鈕
-        submitBtn.textContent = getContactText('contactForm.submitButton');
-        submitBtn.disabled = false;
+        // Artwork info
+        artwork_title: data.artwork.title,
+        artwork_year: data.artwork.year,
+        artwork_size: data.artwork.size,
+        artwork_format: data.artwork.format,
+        artwork_id: data.artwork.id,
         
-        // 3秒後關閉表單
-        setTimeout(() => {
-            closeContactForm();
-        }, 3000);
+        // Shipping info
+        shipping_address: data.shipping.address,
+        shipping_method: data.shipping.method,
+        shipping_note: data.shipping.note || 'No additional notes',
         
-        // TODO: 實際實施時替換為真實的 API 調用
-        /*
-        fetch('/api/artwork-inquiry', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data)
-        })
-        .then(response => response.json())
-        .then(result => {
+        // Analytics (optional)
+        inquiry_language: data.analytics.language,
+        inquiry_timestamp: data.analytics.timestamp,
+        user_country: data.analytics.detected_country,
+        
+        // Email subject
+        email_subject: `Art Inquiry - ${data.artwork.title}`,
+        
+        // Combined message for email body
+        full_message: `
+新的作品詢價 / New Artwork Inquiry
+
+客戶資訊 / Customer Information:
+- 姓名 / Name: ${data.customer.name}
+- 電郵 / Email: ${data.customer.email}  
+- 電話 / Phone: ${data.customer.phone}
+- 國家 / Country: ${data.customer.country}
+
+作品資訊 / Artwork Information:
+- 作品名稱 / Title: ${data.artwork.title}
+- 創作年份 / Year: ${data.artwork.year}
+- 尺寸 / Size: ${data.artwork.size}
+- 裝裱 / Format: ${data.artwork.format}
+- 作品ID / Artwork ID: ${data.artwork.id}
+
+配送資訊 / Shipping Information:
+- 配送地址 / Address: ${data.shipping.address}
+- 配送方式 / Method: ${data.shipping.method}
+- 備註 / Notes: ${data.shipping.note || 'None'}
+
+查詢時間 / Inquiry Time: ${new Date(data.analytics.timestamp).toLocaleString()}
+        `
+    };
+    
+    console.log('Sending email with params:', templateParams);
+    
+    // Send email using EmailJS
+    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+        .then(function(response) {
+            console.log('Email sent successfully:', response.status, response.text);
             showFormMessage(getContactText('contactForm.submitSuccess'), 'success');
-            setTimeout(() => closeContactForm(), 3000);
-        })
-        .catch(error => {
-            console.error('Error:', error);
+            
+            // Reset button
+            submitBtn.textContent = getContactText('contactForm.submitButton');
+            submitBtn.disabled = false;
+            
+            // Close form after 3 seconds
+            setTimeout(() => {
+                closeContactForm();
+            }, 3000);
+            
+        }, function(error) {
+            console.error('Email send failed:', error);
             showFormMessage(getContactText('contactForm.submitError'), 'error');
-        })
-        .finally(() => {
+            
+            // Reset button
             submitBtn.textContent = getContactText('contactForm.submitButton');
             submitBtn.disabled = false;
         });
-        */
-    }, 1500);
 }
 
 // 顯示表單訊息
