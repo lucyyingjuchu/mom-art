@@ -890,7 +890,9 @@ class ShoppingCart {
         
         form.addEventListener('submit', (e) => {
             e.preventDefault();
-            
+            console.log('📝 Form submitted!');
+            console.log('📋 Form data:', new FormData(form));
+  
             submitBtn.disabled = true;
             submitBtn.style.background = '#6c757d';
             submitBtn.style.cursor = 'not-allowed';
@@ -911,6 +913,8 @@ class ShoppingCart {
     }
     
     async submitOrder(formData) {
+        console.log('🚀 submitOrder called with:', formData);
+        console.log('🛒 Cart items:', this.items);
         const orderData = {
             customer: {
                 firstName: formData.get('firstName'),
