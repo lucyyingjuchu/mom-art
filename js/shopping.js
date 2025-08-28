@@ -956,6 +956,36 @@ class ShoppingCart {
             });
             
             console.log('✅ Form event listener attached');
+
+            // Also add a direct click handler as backup
+            submitBtn.addEventListener('click', (e) => {
+                console.log('🖱️ Submit button CLICKED!');
+                console.log('🔍 Event type:', e.type);
+                console.log('🔍 Button type:', submitBtn.type);
+                
+                // Prevent any default behavior
+                e.preventDefault();
+                e.stopPropagation();
+                
+                console.log('📝 Direct click handler triggered!');
+                
+                // Check if form is valid
+                if (form.checkValidity()) {
+                    console.log('✅ Form is valid, proceeding...');
+                    
+                    submitBtn.disabled = true;
+                    submitBtn.style.background = '#6c757d';
+                    submitBtn.textContent = this.getText('shopping.processing');
+                    
+                    const formData = new FormData(form);
+                    console.log('🚀 About to call submitOrder from click handler...');
+                    this.submitOrder(formData);
+                    
+                } else {
+                    console.log('❌ Form validation failed');
+                    form.reportValidity(); // Show validation errors
+                }
+            });
             
         }, 100); // Small delay to ensure DOM is ready
     }
