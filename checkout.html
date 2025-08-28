@@ -791,12 +791,28 @@
 
                 try {
                     const formData = new FormData(form);
-                    // Handle state/province field
-                    const stateProvince = formData.get('address-level1');
-                    formData.set('stateProvince', stateProvince);
-
-                    // Call the shopping cart's submit method
-                    await submitOrderToFinerworks(formData);
+                    
+                    // Store order data for payment page
+                    const orderData = {
+                        customer: {
+                            firstName: formData.get('given-name'),
+                            lastName: formData.get('family-name'),
+                            email: formData.get('email'),
+                            phone: formData.get('tel'),
+                            address: formData.get('address-line1'),
+                            address2: formData.get('address-line2'),
+                            city: formData.get('address-level2'),
+                            postalCode: formData.get('postal-code'),
+                            country: formData.get('country'),
+                            stateProvince: formData.get('address-level1')
+                        }
+                    };
+                    
+                    // Pass data to payment page
+                    sessionStorage.setItem('orderData', JSON.stringify(orderData));
+                    
+                    // Redirect to payment page
+                    window.location.href = '/payment.html';
                     
                 } catch (error) {
                     console.error('Order submission error:', error);

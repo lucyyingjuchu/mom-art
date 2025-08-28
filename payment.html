@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - Artist Portfolio</title>
+    
+    <!-- Stripe.js -->
+    <script src="https://js.stripe.com/v3/"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: #f8f9fa;
+            color: #333;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .payment-header {
+            background: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: #2c3e50;
+        }
+
+        .back-link {
+            color: #2c3e50;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: #e9ecef;
+            text-decoration: none;
+        }
+
+        /* Main Container */
+        .payment-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem 3rem;
+        }
+
+        .payment-form {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .page-title {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        /* Order Summary */
+        .order-summary {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid #e9ecef;
+        }
+
+        .summary-title {
+            color: #2c3e50;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: #495057;
+        }
+
+        .summary-total {
+            border-top: 2px solid #2c3e50;
+            padding-top: 1rem;
+            margin-top: 1rem;
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        /* Payment Method Selection */
+        .payment-methods {
+            margin-bottom: 2rem;
+        }
+
+        .method-title {
+            color: #2c3e50;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .method-options {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .method-btn {
+            flex: 1;
+            padding: 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #495057;
+        }
+
+        .method-btn:hover {
+            border-color: #2c3e50;
+            background: #f8f9fa;
+        }
+
+        .method-btn.selected {
+            border-color: #2c3e50;
+            background: #f8f9fa;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        /* Stripe Elements Container */
+        .stripe-container {
+            display: none;
+        }
+
+        .stripe-container.active {
+            display: block;
+        }
+
+        #card-element {
+            padding: 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            background: white;
+            margin-bottom: 1rem;
+        }
+
+        #card-element.StripeElement--focus {
+            border-color: #2c3e50;
+            box-shadow: 0 0 0 3px rgba(44, 62, 80, 0.1);
+        }
+
+        #card-errors {
+            color: #e74c3c;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            min-height: 1.2rem;
+        }
+
+        /* PayPal Container */
+        .paypal-container {
+            display: none;
+        }
+
+        .paypal-container.active {
+            display: block;
+        }
+
+        .paypal-placeholder {
+            padding: 3rem;
+            text-align: center;
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            border-radius: 8px;
+            color: #6c757d;
+        }
+
+        /* Submit Button */
+        .payment-submit {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .payment-submit:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(39, 174, 96, 0.3);
+        }
+
+        .payment-submit:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Loading state */
+        .loading {
+            position: relative;
+        }
+
+        .loading::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            margin: -10px 0 0 -10px;
+            border: 2px solid transparent;
+            border-top: 2px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 0 1rem;
+            }
+            
+            .payment-container {
+                padding: 0 1rem 2rem;
+            }
+            
+            .payment-form {
+                padding: 1.5rem;
+            }
+            
+            .page-title {
+                font-size: 1.6rem;
+            }
+            
+            .method-options {
+                flex-direction: column;
+            }
+        }
+
+        /* Security indicator */
+        .security-notice {
+            background: #e8f5e8;
+            border: 1px solid #27ae60;
+            border-radius: 6px;
+            padding: 0.8rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: #155724;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="payment-header">
+        <div class="header-content">
+            <div class="logo">Artist Portfolio</div>
+            <a href="/checkout.html" class="back-link">
+                ← Back to Checkout
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="payment-container">
+        <div class="payment-form">
+            <h1 class="page-title">💳 Payment</h1>
+
+            <!-- Order Summary -->
+            <div class="order-summary">
+                <h3 class="summary-title">📦 Order Summary</h3>
+                <div id="orderSummaryItems">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+                <div class="summary-total">
+                    <span>Total</span>
+                    <span id="totalAmount">$0.00</span>
+                </div>
+            </div>
+
+            <!-- Security Notice -->
+            <div class="security-notice">
+                🔒 Your payment information is encrypted and secure. We use industry-standard SSL protection.
+            </div>
+
+            <!-- Payment Methods -->
+            <div class="payment-methods">
+                <h3 class="method-title">Choose Payment Method</h3>
+                <div class="method-options">
+                    <button type="button" class="method-btn selected" data-method="card">
+                        💳 Credit/Debit Card
+                    </button>
+                    <button type="button" class="method-btn" data-method="paypal" disabled>
+                        🟡 PayPal <small>(Coming Soon)</small>
+                    </button>
+                </div>
+
+                <!-- Stripe Card Payment -->
+                <div class="stripe-container active" id="stripeContainer">
+                    <form id="payment-form">
+                        <div id="card-element">
+                            <!-- Stripe Elements will create form elements here -->
+                        </div>
+                        <div id="card-errors" role="alert"></div>
+                        
+                        <button type="submit" class="payment-submit" id="submit-payment">
+                            Complete Payment
+                        </button>
+                    </form>
+                </div>
+
+                <!-- PayPal Payment (placeholder) -->
+                <div class="paypal-container" id="paypalContainer">
+                    <div class="paypal-placeholder">
+                        <h3>PayPal Integration</h3>
+                        <p>PayPal payment option coming soon!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get order data from previous page
+        const orderData = JSON.parse(sessionStorage.getItem('orderData') || '{}');
+        const cartItems = JSON.parse(localStorage.getItem('xiaoran_cart') || '[]');
+        
+        // Initialize Stripe
+        let stripe;
+        let elements;
+        let cardElement;
+
+        // Check if we have order data
+        if (!orderData.customer || cartItems.length === 0) {
+            alert('No order data found. Redirecting to checkout...');
+            window.location.href = '/checkout.html';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            loadOrderSummary();
+            initializeStripe();
+            setupPaymentMethods();
+        });
+
+        function loadOrderSummary() {
+            const summaryContainer = document.getElementById('orderSummaryItems');
+            const totalElement = document.getElementById('totalAmount');
+            
+            let total = 0;
+            
+            summaryContainer.innerHTML = cartItems.map(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                return `
+                    <div class="summary-item">
+                        <span>${item.title} (${item.size}) × ${item.quantity}</span>
+                        <span>$${itemTotal.toFixed(2)}</span>
+                    </div>
+                `;
+            }).join('');
+            
+            totalElement.textContent = `$${total.toFixed(2)}`;
+        }
+
+        async function initializeStripe() {
+            try {
+                // Get public key from your environment
+                const response = await fetch('/.netlify/functions/get-stripe-config');
+                const config = await response.json();
+                
+                stripe = Stripe(config.publishableKey);
+                elements = stripe.elements();
+
+                // Create card element
+                cardElement = elements.create('card', {
+                    style: {
+                        base: {
+                            fontSize: '16px',
+                            color: '#2c3e50',
+                            '::placeholder': {
+                                color: '#6c757d',
+                            },
+                        },
+                        invalid: {
+                            color: '#e74c3c',
+                            iconColor: '#e74c3c'
+                        }
+                    }
+                });
+
+                // Mount the card element
+                cardElement.mount('#card-element');
+
+                // Handle real-time validation errors from the card Element
+                cardElement.on('change', function(event) {
+                    const displayError = document.getElementById('card-errors');
+                    if (event.error) {
+                        displayError.textContent = event.error.message;
+                    } else {
+                        displayError.textContent = '';
+                    }
+                });
+
+                console.log('✅ Stripe initialized successfully');
+
+            } catch (error) {
+                console.error('❌ Stripe initialization failed:', error);
+                document.getElementById('card-errors').textContent = 
+                    'Payment system could not be loaded. Please refresh the page.';
+            }
+        }
+
+        function setupPaymentMethods() {
+            const methodButtons = document.querySelectorAll('.method-btn');
+            const stripeContainer = document.getElementById('stripeContainer');
+            const paypalContainer = document.getElementById('paypalContainer');
+
+            methodButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    if (this.disabled) return;
+                    
+                    // Update button states
+                    methodButtons.forEach(b => b.classList.remove('selected'));
+                    this.classList.add('selected');
+
+                    // Show appropriate container
+                    const method = this.dataset.method;
+                    if (method === 'card') {
+                        stripeContainer.classList.add('active');
+                        paypalContainer.classList.remove('active');
+                    } else if (method === 'paypal') {
+                        stripeContainer.classList.remove('active');
+                        paypalContainer.classList.add('active');
+                    }
+                });
+            });
+
+            // Setup Stripe form submission
+            document.getElementById('payment-form').addEventListener('submit', handleStripePayment);
+        }
+
+        async function handleStripePayment(event) {
+            event.preventDefault();
+
+            const submitButton = document.getElementById('submit-payment');
+            submitButton.disabled = true;
+            submitButton.classList.add('loading');
+            submitButton.textContent = 'Processing...';
+
+            try {
+                // Calculate total
+                const total = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+                // Create payment intent
+                const response = await fetch('/.netlify/functions/stripe-payment', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        action: 'create_payment_intent',
+                        data: {
+                            amount: total,
+                            currency: 'usd',
+                            customerInfo: orderData.customer,
+                            orderItems: cartItems
+                        }
+                    })
+                });
+
+                const { client_secret, payment_intent_id } = await response.json();
+
+                if (!client_secret) {
+                    throw new Error('Failed to create payment intent');
+                }
+
+                // Confirm payment with Stripe
+                const { error, paymentIntent } = await stripe.confirmCardPayment(client_secret, {
+                    payment_method: {
+                        card: cardElement,
+                        billing_details: {
+                            name: `${orderData.customer.firstName} ${orderData.customer.lastName}`,
+                            email: orderData.customer.email,
+                            phone: orderData.customer.phone,
+                            address: {
+                                line1: orderData.customer.address,
+                                city: orderData.customer.city,
+                                postal_code: orderData.customer.postalCode,
+                                country: 'US' // Make dynamic later
+                            }
+                        }
+                    }
+                });
+
+                if (error) {
+                    console.error('❌ Payment failed:', error);
+                    document.getElementById('card-errors').textContent = error.message;
+                } else {
+                    console.log('✅ Payment succeeded:', paymentIntent);
+                    
+                    // Payment successful - now submit to Finerworks
+                    await processOrderAfterPayment(paymentIntent);
+                }
+
+            } catch (error) {
+                console.error('❌ Payment processing error:', error);
+                document.getElementById('card-errors').textContent = 
+                    'Payment processing failed. Please try again.';
+            } finally {
+                submitButton.disabled = false;
+                submitButton.classList.remove('loading');
+                submitButton.textContent = 'Complete Payment';
+            }
+        }
+
+        async function processOrderAfterPayment(paymentIntent) {
+            console.log('🎯 Processing order after successful payment...');
+            
+            try {
+                // Now submit to Finerworks using your existing function
+                const finerworksOrder = {
+                    "orders": [{
+                        "order_po": "XIAORAN_" + Date.now(),
+                        "order_key": null,
+                        "recipient": {
+                            "first_name": orderData.customer.firstName,
+                            "last_name": orderData.customer.lastName,
+                            "company_name": "袁之靜曉然文化藝術工作室",
+                            "address_1": orderData.customer.address,
+                            "address_2": orderData.customer.address2 || null,
+                            "address_3": null,
+                            "city": orderData.customer.city,
+                            "state_code": "CA", // Make dynamic later
+                            "province": null,
+                            "zip_postal_code": orderData.customer.postalCode,
+                            "country_code": "us", // Make dynamic later
+                            "phone": orderData.customer.phone,
+                            "email": orderData.customer.email,
+                            "address_order_po": "XIAORAN_" + Date.now()
+                        },
+                        "order_items": cartItems.map(item => ({
+                            "product_order_po": "ITEM" + Math.floor(Math.random() * 10000),
+                            "product_qty": item.quantity,
+                            "product_sku": `5M210M37S${item.width_inches}X${item.height_inches}`,
+                            "product_image": {
+                                "pixel_width": 806,
+                                "pixel_height": 1600,
+                                "product_url_file": item.image,
+                                "product_url_thumbnail": item.image
+                            },
+                            "product_title": item.title,
+                            "template": null,
+                            "product_guid": "00000000-0000-0000-0000-000000000000",
+                            "custom_data_1": `stripe_payment_id:${paymentIntent.id}`,
+                            "custom_data_2": null,
+                            "custom_data_3": null
+                        })),
+                        "shipping_code": "SD",
+                        "test_mode": true, // Keep as test for now
+                        "validate_only": false
+                    }],
+                    "validate_only": false
+                };
+
+                console.log('🚀 Submitting paid order to Finerworks...');
+
+                const finerworksResponse = await fetch('/.netlify/functions/finerworks-api', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        endpoint: 'submit_orders',
+                        data: finerworksOrder
+                    })
+                });
+
+                const finerworksResult = await finerworksResponse.json();
+
+                if (finerworksResponse.ok) {
+                    console.log('✅ Order sent to Finerworks successfully!');
+                    
+                    // Clear cart and show success
+                    localStorage.removeItem('xiaoran_cart');
+                    sessionStorage.removeItem('orderData');
+                    
+                    showOrderSuccess(paymentIntent, finerworksResult);
+                    
+                } else {
+                    console.error('❌ Finerworks submission failed:', finerworksResult);
+                    
+                    // Payment succeeded but printing failed - need to handle this
+                    showOrderError('Payment successful, but order processing failed. We will contact you soon.');
+                }
+
+            } catch (error) {
+                console.error('❌ Order processing error:', error);
+                showOrderError('Payment successful, but order processing failed. We will contact you soon.');
+            }
+        }
+
+        function showOrderSuccess(paymentIntent, finerworksResult) {
+            document.body.innerHTML = `
+                <div style="display: flex; align-items: center; justify-content: center; min-height: 100vh; background: #f8f9fa; padding: 2rem;">
+                    <div style="background: white; border-radius: 12px; padding: 3rem; max-width: 600px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                        <div style="font-size: 4rem; margin-bottom: 1rem;">✅</div>
+                        <h1 style="color: #27ae60; margin-bottom: 1rem;">Payment Successful!</h1>
+                        <p style="color: #6c757d; margin-bottom: 2rem; line-height: 1.6;">
+                            Thank you for your purchase! Your payment has been processed and your artwork order has been submitted for printing.
+                        </p>
+                        <div style="background: #f8f9fa; padding: 1rem; border-radius: 6px; margin-bottom: 2rem; text-align: left;">
+                            <p><strong>Payment ID:</strong> ${paymentIntent.id}</p>
+                            <p><strong>Amount:</strong> $${(paymentIntent.amount / 100).toFixed(2)}</p>
+                            <p><strong>Order Number:</strong> #${Date.now().toString().slice(-6)}</p>
+                        </div>
+                        <p style="font-size: 0.9rem; color: #495057; margin-bottom: 2rem;">
+                            You will receive an email confirmation shortly with tracking information.
+                        </p>
+                        <a href="/" style="display: inline-block; padding: 1rem 2rem; background: #2c3e50; color: white; text-decoration: none; border-radius: 6px; transition: background 0.2s ease;">
+                            Continue Browsing
+                        </a>
+                    </div>
+                </div>
+            `;
+        }
+
+        function showOrderError(message) {
+            const errorDiv = document.createElement('div');
+            errorDiv.style.cssText = 'background: #f8d7da; border: 1px solid #f5c6cb; color: #721c24; padding: 1rem; border-radius: 6px; margin: 1rem 0;';
+            errorDiv.innerHTML = `<strong>Error:</strong> ${message}`;
+            document.querySelector('.payment-form').insertBefore(errorDiv, document.querySelector('.payment-methods'));
+        }
+    </script>
+</body>
+</html>
