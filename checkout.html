@@ -512,29 +512,29 @@
         <div class="checkout-form-container">
             <h1 class="page-title">Complete Your Order</h1>
 
-            <form id="checkoutForm">
+            <form id="checkoutForm" autocomplete="on">
                 <!-- Customer Information -->
                 <div class="form-section">
                     <h2 class="section-title">👤 Customer Information</h2>
                     <div class="form-grid two-col">
                         <div class="form-group">
-                            <label class="form-label required">First Name</label>
-                            <input type="text" name="fname" id="fname" class="form-input" 
+                            <label class="form-label required" for="firstName">First Name</label>
+                            <input type="text" name="given-name" id="firstName" class="form-input" 
                                    autocomplete="given-name" required>
                         </div>
                         <div class="form-group">
-                            <label class="form-label required">Last Name</label>
-                            <input type="text" name="lname" id="lname" class="form-input" 
+                            <label class="form-label required" for="lastName">Last Name</label>
+                            <input type="text" name="family-name" id="lastName" class="form-input" 
                                    autocomplete="family-name" required>
                         </div>
                         <div class="form-group full-width">
-                            <label class="form-label required">Email Address</label>
+                            <label class="form-label required" for="email">Email Address</label>
                             <input type="email" name="email" id="email" class="form-input" 
                                    autocomplete="email" required>
                         </div>
                         <div class="form-group full-width">
-                            <label class="form-label required">Phone Number</label>
-                            <input type="tel" name="tel" id="tel" class="form-input" 
+                            <label class="form-label required" for="phone">Phone Number</label>
+                            <input type="tel" name="tel" id="phone" class="form-input" 
                                    autocomplete="tel" required>
                         </div>
                     </div>
@@ -546,9 +546,9 @@
                     
                     <div class="form-grid">
                         <div class="form-group">
-                            <label class="form-label required">Country</label>
-                            <select name="country" class="form-select" autocomplete="country" 
-                                    required id="countrySelect">
+                            <label class="form-label required" for="country">Country</label>
+                            <select name="country" id="countrySelect" class="form-select" autocomplete="country" 
+                                    required>
                                 <option value="">Select Country</option>
                                 <option value="US">United States</option>
                                 <option value="CA">Canada</option>
@@ -569,15 +569,15 @@
                         </div>
                         
                         <div class="form-group">
-                            <label class="form-label required">Address Line 1</label>
-                            <input type="text" name="street-address" id="street-address" class="form-input" 
-                                   autocomplete="street-address" required 
+                            <label class="form-label required" for="address1">Address Line 1</label>
+                            <input type="text" name="address-line1" id="address1" class="form-input" 
+                                   autocomplete="address-line1" required 
                                    placeholder="Street address, P.O. box">
                         </div>
                         
                         <div class="form-group">
-                            <label class="form-label">Address Line 2</label>
-                            <input type="text" name="address-line2" id="address-line2" class="form-input" 
+                            <label class="form-label" for="address2">Address Line 2</label>
+                            <input type="text" name="address-line2" id="address2" class="form-input" 
                                    autocomplete="address-line2" 
                                    placeholder="Apartment, suite, unit (optional)">
                         </div>
@@ -585,28 +585,28 @@
                     
                     <div class="form-grid two-col">
                         <div class="form-group">
-                            <label class="form-label required">City</label>
-                            <input type="text" name="locality" id="locality" class="form-input" 
+                            <label class="form-label required" for="city">City</label>
+                            <input type="text" name="address-level2" id="city" class="form-input" 
                                    autocomplete="address-level2" required>
                         </div>
                         
                         <div class="form-group">
-                            <label class="form-label required" id="stateProvinceLabel">State/Province</label>
-                            <select name="stateProvince" class="form-select" 
-                                    id="stateProvinceSelect" style="display: none;">
+                            <label class="form-label required" id="stateProvinceLabel" for="stateProvince">State/Province</label>
+                            <select name="address-level1" id="stateProvinceSelect" class="form-select"
+                                    autocomplete="address-level1" style="display: none;">
                                 <option value="">Select State/Province</option>
                             </select>
-                            <input type="text" name="region" class="form-input" 
-                                   id="stateProvinceText" autocomplete="address-level1" 
+                            <input type="text" name="address-level1" id="stateProvinceText" class="form-input"
+                                   autocomplete="address-level1" 
                                    placeholder="State/Province">
                         </div>
                     </div>
                     
                     <div class="form-grid two-col">
                         <div class="form-group">
-                            <label class="form-label required" id="postalCodeLabel">Postal Code</label>
-                            <input type="text" name="postal-code" id="postal-code" class="form-input" 
-                                   autocomplete="postal-code" required id="postalCodeInput">
+                            <label class="form-label required" id="postalCodeLabel" for="postalCode">Postal Code</label>
+                            <input type="text" name="postal-code" id="postalCode" class="form-input" 
+                                   autocomplete="postal-code" required>
                         </div>
                     </div>
                 </div>
@@ -792,7 +792,7 @@
                 try {
                     const formData = new FormData(form);
                     // Handle state/province field
-                    const stateProvince = formData.get('stateProvince') || formData.get('region');
+                    const stateProvince = formData.get('address-level1');
                     formData.set('stateProvince', stateProvince);
 
                     // Call the shopping cart's submit method
@@ -818,12 +818,12 @@
 
             const orderData = {
                 customer: {
-                    firstName: formData.get('fname'),
-                    lastName: formData.get('lname'),
+                    firstName: formData.get('given-name'),
+                    lastName: formData.get('family-name'),
                     email: formData.get('email'),
                     phone: formData.get('tel'),
-                    address: formData.get('street-address'),
-                    city: formData.get('locality'),
+                    address: formData.get('address-line1'),
+                    city: formData.get('address-level2'),
                     postalCode: formData.get('postal-code')
                 },
                 items: cartItems,
