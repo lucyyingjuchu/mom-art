@@ -948,6 +948,29 @@
             }
         }
 
+        // Helper function to escape HTML to prevent XSS and quote issues
+        function escapeHtml(text) {
+            if (!text) return '';
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // New function to open lightbox from data attributes
+        function openLightboxFromData(img) {
+            const artworkId = img.dataset.artworkId;
+            const title = img.dataset.title;
+            const titleEn = img.dataset.titleEn;
+            const image = img.dataset.image;
+            const size = img.dataset.size;
+            const price = parseFloat(img.dataset.price);
+            const quantity = parseInt(img.dataset.quantity);
+            
+            console.log('🎨 Opening lightbox for:', { artworkId, title, titleEn, image, size, price, quantity });
+            
+            openLightbox(artworkId, title, titleEn, image, size, price, quantity);
+        }
+
         function openLightbox(artworkId, title, titleEn, image, size, price, quantity) {
             const lightbox = document.getElementById('checkoutLightbox');
             const lightboxImage = document.getElementById('lightboxImage');
