@@ -43,7 +43,7 @@
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 300;
             color: #2c3e50;
         }
@@ -126,8 +126,8 @@
         }
 
         .form-label {
-            font-weight: 500;
-            color: #495057;
+            font-weight: 600;
+            color: #2c3e50;
             margin-bottom: 0.5rem;
             font-size: 0.95rem;
         }
@@ -139,11 +139,12 @@
 
         .form-input, .form-select {
             padding: 0.8rem;
-            border: 2px solid #e9ecef;
-            border-radius: 8px;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
             font-size: 1rem;
             font-family: inherit;
             transition: all 0.2s ease;
+            background: white;
         }
 
         .form-input:focus, .form-select:focus {
@@ -387,22 +388,22 @@
                     <div class="form-grid two-col">
                         <div class="form-group">
                             <label class="form-label required">First Name</label>
-                            <input type="text" name="firstName" class="form-input" 
+                            <input type="text" name="fname" id="fname" class="form-input" 
                                    autocomplete="given-name" required>
                         </div>
                         <div class="form-group">
                             <label class="form-label required">Last Name</label>
-                            <input type="text" name="lastName" class="form-input" 
+                            <input type="text" name="lname" id="lname" class="form-input" 
                                    autocomplete="family-name" required>
                         </div>
                         <div class="form-group full-width">
                             <label class="form-label required">Email Address</label>
-                            <input type="email" name="email" class="form-input" 
+                            <input type="email" name="email" id="email" class="form-input" 
                                    autocomplete="email" required>
                         </div>
                         <div class="form-group full-width">
                             <label class="form-label required">Phone Number</label>
-                            <input type="tel" name="phone" class="form-input" 
+                            <input type="tel" name="tel" id="tel" class="form-input" 
                                    autocomplete="tel" required>
                         </div>
                     </div>
@@ -438,14 +439,14 @@
                         
                         <div class="form-group">
                             <label class="form-label required">Address Line 1</label>
-                            <input type="text" name="address1" class="form-input" 
-                                   autocomplete="address-line1" required 
+                            <input type="text" name="street-address" id="street-address" class="form-input" 
+                                   autocomplete="street-address" required 
                                    placeholder="Street address, P.O. box">
                         </div>
                         
                         <div class="form-group">
                             <label class="form-label">Address Line 2</label>
-                            <input type="text" name="address2" class="form-input" 
+                            <input type="text" name="address-line2" id="address-line2" class="form-input" 
                                    autocomplete="address-line2" 
                                    placeholder="Apartment, suite, unit (optional)">
                         </div>
@@ -454,7 +455,7 @@
                     <div class="form-grid two-col">
                         <div class="form-group">
                             <label class="form-label required">City</label>
-                            <input type="text" name="city" class="form-input" 
+                            <input type="text" name="locality" id="locality" class="form-input" 
                                    autocomplete="address-level2" required>
                         </div>
                         
@@ -464,7 +465,7 @@
                                     id="stateProvinceSelect" style="display: none;">
                                 <option value="">Select State/Province</option>
                             </select>
-                            <input type="text" name="stateProvinceText" class="form-input" 
+                            <input type="text" name="region" class="form-input" 
                                    id="stateProvinceText" autocomplete="address-level1" 
                                    placeholder="State/Province">
                         </div>
@@ -473,7 +474,7 @@
                     <div class="form-grid two-col">
                         <div class="form-group">
                             <label class="form-label required" id="postalCodeLabel">Postal Code</label>
-                            <input type="text" name="postalCode" class="form-input" 
+                            <input type="text" name="postal-code" id="postal-code" class="form-input" 
                                    autocomplete="postal-code" required id="postalCodeInput">
                         </div>
                     </div>
@@ -630,7 +631,7 @@
                 try {
                     const formData = new FormData(form);
                     // Handle state/province field
-                    const stateProvince = formData.get('stateProvince') || formData.get('stateProvinceText');
+                    const stateProvince = formData.get('stateProvince') || formData.get('region');
                     formData.set('stateProvince', stateProvince);
 
                     // Call the shopping cart's submit method
@@ -656,13 +657,13 @@
 
             const orderData = {
                 customer: {
-                    firstName: formData.get('firstName'),
-                    lastName: formData.get('lastName'),
+                    firstName: formData.get('fname'),
+                    lastName: formData.get('lname'),
                     email: formData.get('email'),
-                    phone: formData.get('phone'),
-                    address: formData.get('address1'),
-                    city: formData.get('city'),
-                    postalCode: formData.get('postalCode')
+                    phone: formData.get('tel'),
+                    address: formData.get('street-address'),
+                    city: formData.get('locality'),
+                    postalCode: formData.get('postal-code')
                 },
                 items: cartItems,
                 total: cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0),
@@ -679,7 +680,7 @@
                         "last_name": orderData.customer.lastName,
                         "company_name": "袁之靜曉然文化藝術工作室",
                         "address_1": orderData.customer.address,
-                        "address_2": formData.get('address2') || null,
+                        "address_2": formData.get('address-line2') || null,
                         "address_3": null,
                         "city": orderData.customer.city,
                         "state_code": "CA", // You may want to make this dynamic
