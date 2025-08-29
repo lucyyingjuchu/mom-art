@@ -238,18 +238,6 @@ function generateShippingInfoSection() {
             </div>
             <div class="form-row">
                 <div class="form-group">
-                    <label>${getContactText('contactForm.shippingMethod')} <span class="required">*</span></label>
-                    <select id="shippingMethod" required>
-                        <option value="">請選擇配送方式</option>
-                        <option value="homeDelivery">${getContactText('contactForm.shippingOptions.homeDelivery')}</option>
-                        <option value="storePickup">${getContactText('contactForm.shippingOptions.storePickup')}</option>
-                        <option value="courierDelivery">${getContactText('contactForm.shippingOptions.courierDelivery')}</option>
-                        <option value="registeredMail">${getContactText('contactForm.shippingOptions.registeredMail')}</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group">
                     <label>${getContactText('contactForm.shippingNote')}</label>
                     <textarea id="shippingNote" rows="3"></textarea>
                 </div>
@@ -287,10 +275,6 @@ function generateContactFormHTML() {
                             <div class="form-group">
                                 <label>${getContactText('contactForm.artworkSize')}</label>
                                 <input type="text" id="contactArtworkSize" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label>${getContactText('contactForm.artworkFormat')}</label>
-                                <input type="text" id="contactArtworkFormat" readonly>
                             </div>
                         </div>
                     </div>
@@ -440,13 +424,13 @@ function populateArtworkInfo() {
     const titleInput = document.getElementById('contactArtworkTitle');
     const yearInput = document.getElementById('contactArtworkYear');
     const sizeInput = document.getElementById('contactArtworkSize');
-    const formatInput = document.getElementById('contactArtworkFormat');
+    //const formatInput = document.getElementById('contactArtworkFormat');
     
     console.log('Form elements found:', {
         titleInput: !!titleInput,
         yearInput: !!yearInput,
         sizeInput: !!sizeInput,
-        formatInput: !!formatInput
+    //    formatInput: !!formatInput
     });
     
     if (!titleInput || !yearInput || !sizeInput || !formatInput) {
@@ -462,11 +446,11 @@ function populateArtworkInfo() {
     
     if (currentLang === 'zh') {
         title = artwork.title || '未命名作品';
-        format = artwork.format || '未指定';
+    //    format = artwork.format || '未指定';
         size = artwork.sizeCm || '未指定';
     } else {
         title = artwork.titleEn || artwork.title || 'Untitled';
-        format = artwork.formatEn || artwork.format || 'Not specified';
+    //    format = artwork.formatEn || artwork.format || 'Not specified';
         size = artwork.sizeCm || artwork.sizeInches || 'Not specified';
     }
     
@@ -474,13 +458,13 @@ function populateArtworkInfo() {
     titleInput.value = title;
     yearInput.value = artwork.year || '未指定';
     sizeInput.value = size;
-    formatInput.value = format;
+    //formatInput.value = format;
     
     console.log('Values set:', {
         title: titleInput.value,
         year: yearInput.value,
         size: sizeInput.value,
-        format: formatInput.value
+    //    format: formatInput.value
     });
 }
 
@@ -591,7 +575,6 @@ function handleFormSubmit(e) {
         },
         shipping: {
             address: document.getElementById('shippingAddress').value,
-            method: document.getElementById('shippingMethod').value,
             note: document.getElementById('shippingNote').value
         },
         analytics: {
@@ -614,7 +597,6 @@ function handleFormSubmit(e) {
 }
 
 // 提交詢價
-// Replace your submitInquiry() function with this:
 
 function submitInquiry(data) {
     const messageDiv = document.getElementById('formMessage');
@@ -636,7 +618,7 @@ function submitInquiry(data) {
         artwork_title: data.artwork.title,
         artwork_year: data.artwork.year,
         artwork_size: data.artwork.size,
-        artwork_format: data.artwork.format,
+        //artwork_format: data.artwork.format,
         artwork_id: data.artwork.id,
         
         // Shipping info
