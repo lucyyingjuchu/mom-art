@@ -787,40 +787,56 @@
                 
                 submitBtn.disabled = true;
                 submitBtn.classList.add('loading');
-                submitBtn.textContent = 'Processing...';
+                submitBtn.textContent = 'Redirecting to Payment...';
 
                 try {
                     const formData = new FormData(form);
+                    const cartItems = JSON.parse(localStorage.getItem('xiaoran_cart') || '[]');
                     
-                    // Store order data for payment page
-                    const orderData = {
-                        customer: {
-                            firstName: formData.get('given-name'),
-                            lastName: formData.get('family-name'),
-                            email: formData.get('email'),
-                            phone: formData.get('tel'),
-                            address: formData.get('address-line1'),
-                            address2: formData.get('address-line2'),
-                            city: formData.get('address-level2'),
-                            postalCode: formData.get('postal-code'),
-                            country: formData.get('country'),
-                            stateProvince: formData.get('address-level1')
-                        }
+                    // Prepare customer data
+                    const customerInfo = {
+                        firstName: formData.get('given-name'),
+                        lastName: formData.get('family-name'),
+                        email: formData.get('email'),
+                        phone: formData.get('tel'),
+                        address: formData.get('address-line1'),
+                        address2: formData.get('address-line2'),
+                        city: formData.get('address-level2'),
+                        postalCode: formData.get('postal-code'),
+                        country: formData.get('country'),
+                        stateProvince: formData.get('address-level1')
                     };
                     
-                    // Pass data to payment page
-                    sessionStorage.setItem('orderData', JSON.stringify(orderData));
+                    console.log('Creating Stripe checkout session...');
                     
-                    // Redirect to payment page
-                    window.location.href = '/payment.html';
+                    // Create Stripe Checkout session
+                    const response = await fetch('/.netlify/functions/create-checkout-session', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            customerInfo,
+                            cartItems
+                        })
+                    });
+
+                    const result = await response.json();
+                    
+                    if (!response.ok) {
+                        throw new Error(result.error || 'Failed to create checkout session');
+                    }
+
+                    console.log('Redirecting to Stripe Checkout:', result.checkout_url);
+                    
+                    // Redirect to Stripe Checkout
+                    window.location.href = result.checkout_url;
                     
                 } catch (error) {
-                    console.error('Order submission error:', error);
-                    alert('There was an error processing your order. Please try again.');
+                    console.error('Checkout error:', error);
+                    alert('There was an error starting the checkout process. Please try again.');
                 } finally {
                     submitBtn.disabled = false;
                     submitBtn.classList.remove('loading');
-                    submitBtn.textContent = 'Confirm Order';
+                    submitBtn.textContent = 'Proceed to Payment';
                 }
             });
         }

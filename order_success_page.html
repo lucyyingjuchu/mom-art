@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation - Artist Portfolio</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background: #f8f9fa;
+            margin: 0;
+            padding: 2rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .success-container {
+            background: white;
+            border-radius: 12px;
+            padding: 3rem;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .success-title {
+            color: #27ae60;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .success-message {
+            color: #6c757d;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        .order-details {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .detail-label {
+            color: #495057;
+            font-weight: 500;
+        }
+
+        .detail-value {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .continue-btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #2c3e50;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .continue-btn:hover {
+            background: #34495e;
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+
+        .processing-status {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+
+        .processing-status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .processing-status.processing {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+
+        .processing-status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            
+            .success-container {
+                padding: 2rem;
+            }
+            
+            .success-title {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="success-container">
+        <div class="success-icon">✅</div>
+        <h1 class="success-title">Payment Successful!</h1>
+        <p class="success-message">
+            Thank you for your purchase! Your payment has been processed successfully.
+        </p>
+        
+        <div class="processing-status processing" id="processingStatus">
+            <strong>Processing Order:</strong> We're now preparing your artwork for printing...
+        </div>
+        
+        <div class="order-details" id="orderDetails">
+            <!-- Order details will be populated by JavaScript -->
+        </div>
+        
+        <a href="/" class="continue-btn">Continue Browsing Gallery</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            // Get session ID from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const sessionId = urlParams.get('session_id');
+            
+            if (!sessionId) {
+                alert('Invalid order confirmation. Redirecting to gallery...');
+                window.location.href = '/';
+                return;
+            }
+
+            try {
+                // Retrieve session details from Stripe
+                const response = await fetch('/.netlify/functions/get-session-details', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ session_id: sessionId })
+                });
+
+                const sessionData = await response.json();
+                
+                if (!response.ok) {
+                    throw new Error(sessionData.error || 'Failed to retrieve order details');
+                }
+
+                // Display order details
+                displayOrderDetails(sessionData);
+                
+                // Submit to Finerworks
+                await submitToFinerworks(sessionData);
+                
+                // Clear cart since order is complete
+                localStorage.removeItem('xiaoran_cart');
+                
+            } catch (error) {
+                console.error('Order processing error:', error);
+                document.getElementById('processingStatus').innerHTML = 
+                    '<strong>Error:</strong> There was an issue processing your order. We will contact you soon.';
+                document.getElementById('processingStatus').className = 'processing-status error';
+            }
+        });
+
+        function displayOrderDetails(sessionData) {
+            const orderDetails = document.getElementById('orderDetails');
+            const customerData = JSON.parse(sessionData.metadata.customer_data);
+            const cartData = JSON.parse(sessionData.metadata.cart_data);
+            
+            orderDetails.innerHTML = `
+                <div class="detail-row">
+                    <span class="detail-label">Order Number:</span>
+                    <span class="detail-value">#${sessionData.metadata.order_id.slice(-6)}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Payment ID:</span>
+                    <span class="detail-value">${sessionData.payment_intent}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Amount Paid:</span>
+                    <span class="detail-value">$${(sessionData.amount_total / 100).toFixed(2)}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Customer:</span>
+                    <span class="detail-value">${customerData.firstName} ${customerData.lastName}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Email:</span>
+                    <span class="detail-value">${customerData.email}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Items:</span>
+                    <span class="detail-value">${cartData.length} artwork(s)</span>
+                </div>
+            `;
+        }
+
+        async function submitToFinerworks(sessionData) {
+            try {
+                console.log('Submitting paid order to Finerworks...');
+                
+                const customerData = JSON.parse(sessionData.metadata.customer_data);
+                const cartData = JSON.parse(sessionData.metadata.cart_data);
+                
+                // Create Finerworks order
+                const finerworksOrder = {
+                    "orders": [{
+                        "order_po": sessionData.metadata.order_id,
+                        "order_key": null,
+                        "recipient": {
+                            "first_name": customerData.firstName,
+                            "last_name": customerData.lastName,
+                            "company_name": "袁之靜曉然文化藝術工作室",
+                            "address_1": customerData.address,
+                            "address_2": customerData.address2 || null,
+                            "address_3": null,
+                            "city": customerData.city,
+                            "state_code": customerData.stateProvince || "CA",
+                            "province": null,
+                            "zip_postal_code": customerData.postalCode,
+                            "country_code": customerData.country?.toLowerCase() || "us",
+                            "phone": customerData.phone,
+                            "email": customerData.email,
+                            "address_order_po": sessionData.metadata.order_id
+                        },
+                        "order_items": cartData.map(item => ({
+                            "product_order_po": "ITEM" + Math.floor(Math.random() * 10000),
+                            "product_qty": item.quantity,
+                            "product_sku": `5M210M37S${item.width_inches}X${item.height_inches}`,
+                            "product_image": {
+                                "pixel_width": 806,
+                                "pixel_height": 1600,
+                                "product_url_file": item.image,
+                                "product_url_thumbnail": item.image
+                            },
+                            "product_title": item.title,
+                            "template": null,
+                            "product_guid": "00000000-0000-0000-0000-000000000000",
+                            "custom_data_1": `stripe_payment_id:${sessionData.payment_intent}`,
+                            "custom_data_2": `stripe_session_id:${sessionData.id}`,
+                            "custom_data_3": null
+                        })),
+                        "shipping_code": "SD",
+                        "test_mode": true, // Keep as test for now
+                        "validate_only": false
+                    }],
+                    "validate_only": false
+                };
+
+                const response = await fetch('/.netlify/functions/finerworks-api', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        endpoint: 'submit_orders',
+                        data: finerworksOrder
+                    })
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    console.log('Order sent to Finerworks successfully!');
+                    document.getElementById('processingStatus').innerHTML = 
+                        '<strong>Order Complete:</strong> Your artwork has been sent for printing and will ship soon!';
+                    document.getElementById('processingStatus').className = 'processing-status success';
+                } else {
+                    console.error('Finerworks submission failed:', result);
+                    document.getElementById('processingStatus').innerHTML = 
+                        '<strong>Payment Received:</strong> We received your payment but there was an issue with order processing. We will contact you soon.';
+                    document.getElementById('processingStatus').className = 'processing-status error';
+                }
+
+            } catch (error) {
+                console.error('Finerworks submission error:', error);
+                document.getElementById('processingStatus').innerHTML = 
+                    '<strong>Payment Received:</strong> We received your payment but there was an issue with order processing. We will contact you soon.';
+                document.getElementById('processingStatus').className = 'processing-status error';
+            }
+        }
+    </script>
+</body>
+</html>
