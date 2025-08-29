@@ -649,39 +649,17 @@ function submitInquiry(data) {
         inquiry_timestamp: data.analytics.timestamp,
         user_country: data.analytics.detected_country,
         
-        // Email subject
-        email_subject: `Art Inquiry - ${data.artwork.title}`,
-        
-        // Combined message for email body
-        full_message: `
-新的作品詢價 / New Artwork Inquiry
+        artwork_image: currentInquiryArtwork.imageHigh || currentInquiryArtwork.image,
+        artwork_title_en: currentInquiryArtwork.titleEn || currentInquiryArtwork.title,
 
-客戶資訊 / Customer Information:
-- 姓名 / Name: ${data.customer.name}
-- 電郵 / Email: ${data.customer.email}  
-- 電話 / Phone: ${data.customer.phone}
-- 國家 / Country: ${data.customer.country}
-
-作品資訊 / Artwork Information:
-- 作品名稱 / Title: ${data.artwork.title}
-- 創作年份 / Year: ${data.artwork.year}
-- 尺寸 / Size: ${data.artwork.size}
-- 裝裱 / Format: ${data.artwork.format}
-- 作品ID / Artwork ID: ${data.artwork.id}
-
-配送資訊 / Shipping Information:
-- 配送地址 / Address: ${data.shipping.address}
-- 配送方式 / Method: ${data.shipping.method}
-- 備註 / Notes: ${data.shipping.note || 'None'}
-
-查詢時間 / Inquiry Time: ${new Date(data.analytics.timestamp).toLocaleString()}
-        `
     };
     
     console.log('Sending email with params:', templateParams);
     
     // Send email using EmailJS
-    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+    const templateId = data.analytics.language === 'zh' ? 'artwork-inquiry-zh' : 'artwork-inquiry-en';
+    emailjs.send('YOUR_SERVICE_ID', templateId, templateParams)
+
         .then(function(response) {
             console.log('Email sent successfully:', response.status, response.text);
             showFormMessage(getContactText('contactForm.submitSuccess'), 'success');

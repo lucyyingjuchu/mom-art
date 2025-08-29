@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fefefe;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+      
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            font-weight: 300;
+        }
+        
+        .subtitle {
+            margin: 0.5rem 0 0 0;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        .subtitle a {
+            color: white;
+            text-decoration: none; 
+        }
+
+        .subtitle a:hover {
+            text-decoration: underline; 
+        }
+        .content {
+            padding: 2rem;
+        }
+        
+        .section {
+            margin-bottom: 2rem;
+            border-left: 4px solid #3498db;
+            padding-left: 1.5rem;
+        }
+        
+        .section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 0 0 1rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .info-grid {
+            display: table;
+            width: 100%;
+        }
+        
+        .info-row {
+            display: table-row;
+        }
+        
+        .info-label {
+            display: table-cell;
+            font-weight: 600;
+            color: #495057;
+            padding: 0.3rem 1rem 0.3rem 0;
+            vertical-align: top;
+            width: 100px;
+        }
+        
+        .info-value {
+            display: table-cell;
+            color: #2c3e50;
+            padding: 0.3rem 0;
+            vertical-align: top;
+        }
+        
+        .artwork-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border: 1px solid #dee2e6;
+        }
+        
+        .artwork-preview {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .artwork-image {
+            max-width: 200px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .address-block {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 3px solid #27ae60;
+            font-family: monospace;
+            margin: 0.5rem 0;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            color: #6c757d;
+            font-size: 0.9rem;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .footer a {
+        color: #6c757d;       /* same as footer text */
+        text-decoration: none; /* remove underline */
+        }
+
+        .footer a:hover {
+        text-decoration: underline; /* subtle underline on hover */
+        }
+
+    </style>
+</head>
+<body>  
+    <div class="email-container">
+        <div class="header">
+            <h1>Original Art Inquiry</h1>
+            <div class="subtitle">
+                <a href="https://xiaoranart.com" target="_blank" rel="noopener noreferrer">
+                    xiaoranart.com
+                </a>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <h2>Customer Information</h2>
+                <div class="info-grid">
+                    <div class="info-row">
+                        <div class="info-label">Name:</div>
+                        <div class="info-value">{{customer_name}}</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">Email:</div>
+                        <div class="info-value">{{customer_email}}</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">Phone:</div>
+                        <div class="info-value">{{customer_phone}}</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">Country:</div>
+                        <div class="info-value">{{user_country}}</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="artwork-section">
+                <div class="artwork-preview">
+                    <img src="{{artwork_image}}" alt="{{artwork_title_en}}" class="artwork-image">
+                </div>
+                <h2>Artwork Details</h2>
+                <div class="info-grid">
+                    <div class="info-row">
+                        <div class="info-label">Title:</div>
+                        <div class="info-value"><strong>{{artwork_title_en}}</strong></div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">Year:</div>
+                        <div class="info-value">{{artwork_year}}</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">Size:</div>
+                        <div class="info-value">{{artwork_size}}</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Shipping Information</h2>
+                <div class="info-row">
+                    <div class="info-label">Address:</div>
+                    <div class="info-value">
+                        <div class="address-block">{{shipping_address}}</div>
+                    </div>
+                </div>
+                <div class="info-grid">
+                    <div class="info-row">
+                        <div class="info-label">Notes:</div>
+                        <div class="info-value">{{shipping_note}}</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Inquiry Details</h2>
+                <div class="info-grid">
+                    <div class="info-row">
+                        <div class="info-label">Submitted:</div>
+                        <div class="info-value">{{inquiry_timestamp}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>    
+        <div class="footer">
+        This inquiry was submitted through the 
+        <a href="https://xiaoranart.com" target="_blank" rel="noopener noreferrer">
+            xiaoranart.com
+        </a> 
+        contact form
+        </div>
+    </div>
+</body>
+</html>
