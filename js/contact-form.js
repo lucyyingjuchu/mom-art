@@ -430,10 +430,9 @@ function populateArtworkInfo() {
         titleInput: !!titleInput,
         yearInput: !!yearInput,
         sizeInput: !!sizeInput,
-    //    formatInput: !!formatInput
     });
     
-    if (!titleInput || !yearInput || !sizeInput || !formatInput) {
+    if (!titleInput || !yearInput || !sizeInput) {
         console.error('Some form elements not found');
         return;
     }
@@ -442,15 +441,13 @@ function populateArtworkInfo() {
     const artwork = currentInquiryArtwork;
     
     // Get language-appropriate values
-    let title, format, size;
+    let title, size;
     
     if (currentLang === 'zh') {
         title = artwork.title || '未命名作品';
-    //    format = artwork.format || '未指定';
         size = artwork.sizeCm || '未指定';
     } else {
         title = artwork.titleEn || artwork.title || 'Untitled';
-    //    format = artwork.formatEn || artwork.format || 'Not specified';
         size = artwork.sizeCm || artwork.sizeInches || 'Not specified';
     }
     
@@ -458,13 +455,11 @@ function populateArtworkInfo() {
     titleInput.value = title;
     yearInput.value = artwork.year || '未指定';
     sizeInput.value = size;
-    //formatInput.value = format;
     
     console.log('Values set:', {
         title: titleInput.value,
         year: yearInput.value,
         size: sizeInput.value,
-    //    format: formatInput.value
     });
 }
 
@@ -618,7 +613,6 @@ function submitInquiry(data) {
         artwork_title: data.artwork.title,
         artwork_year: data.artwork.year,
         artwork_size: data.artwork.size,
-        //artwork_format: data.artwork.format,
         artwork_id: data.artwork.id,
         
         // Shipping info

@@ -573,15 +573,24 @@ window.navigateArtwork = function(direction) {
     populateLightbox(artworksData[currentArtworkIndex]);
 };
 
+// Modified zoomIn function - first click enters fullscreen, subsequent clicks zoom
+
 window.zoomIn = function() {
     console.log('🔍 Button zoom in');
+    
+    // If not in fullscreen mode and zoom is at 1, just enter fullscreen without zooming
+    if (!isFullscreenMode && zoomLevel === 1) {
+        console.log('📱 First zoom click - entering fullscreen at 1x');
+        enterImageFullscreen();
+        showFullscreenIndicator(true);
+        return; // Exit without changing zoom level
+    }
+    
+    // If already in fullscreen or zoom > 1, proceed with normal zoom
     const oldZoom = zoomLevel;
     zoomLevel = Math.min(zoomLevel + 0.5, maxZoom);
     
     if (oldZoom !== zoomLevel) {
-        if (zoomLevel > 1 && !isFullscreenMode) {
-            enterImageFullscreen();
-        }
         updateCursor();
         applyTransform();
         showCleanZoomIndicator();
@@ -627,9 +636,18 @@ window.resetZoomPan = function() {
 };
 
 window.toggleImageZoom = function() {
-    if (zoomLevel === 1) {
+    if (!isFullscreenMode && zoomLevel === 1) {
+        // First action: enter fullscreen at 1x
         window.zoomIn();
+    } else if (zoomLevel === 1) {
+        // If in fullscreen at 1x, zoom to 2x
+        zoomLevel = 2;
+        constrainPan();
+        applyTransform();
+        updateCursor();
+        showCleanZoomIndicator();
     } else {
+        // If zoomed, reset to 1x and exit fullscreen
         window.resetZoomPan();
         applyTransform();
         showCleanZoomIndicator();
@@ -863,36 +881,52 @@ function handleWheelZoom(e) {
     isZoomBlocked = true;
     console.log('✅ ZOOM ACCEPTED - IMMEDIATE RESPONSE');
     
-    const step = 0.3;
-    const oldZoom = zoomLevel;
-    
+    // Handle zoom-in (scroll up)
     if (e.deltaY < 0) {
-        console.log('📈 ZOOMING IN');
-        zoomLevel = Math.min(zoomLevel + step, maxZoom);
+        console.log('📈 WHEEL ZOOMING IN');
+        
+        // If not in fullscreen and at 1x zoom, enter fullscreen first without zooming
+        if (!isFullscreenMode && zoomLevel === 1) {
+            console.log('📱 First wheel zoom - entering fullscreen at 1x');
+            enterImageFullscreen();
+            showFullscreenIndicator(true);
+        } else {
+            // Normal zoom behavior
+            const step = 0.3;
+            const oldZoom = zoomLevel;
+            zoomLevel = Math.min(zoomLevel + step, maxZoom);
+            zoomLevel = Math.round(zoomLevel * 100) / 100;
+            
+            if (oldZoom !== zoomLevel) {
+                updateCursor();
+                applyTransform();
+                showCleanZoomIndicator();
+            }
+        }
     } else {
-        console.log('📉 ZOOMING OUT');
+        // Handle zoom-out (scroll down)
+        console.log('📉 WHEEL ZOOMING OUT');
+        const step = 0.3;
+        const oldZoom = zoomLevel;
         zoomLevel = Math.max(zoomLevel - step, minZoom);
+        
         if (zoomLevel <= minZoom) {
             panX = 0;
             panY = 0;
         }
-    }
-    
-    zoomLevel = Math.round(zoomLevel * 100) / 100;
-    console.log('ZOOM:', oldZoom, '→', zoomLevel);
-    
-    if (oldZoom !== zoomLevel) {
-        if (zoomLevel > 1 && !isFullscreenMode) {
-            console.log('🖥️ AUTO-FULLSCREEN on zoom');
-            enterImageFullscreen();
-        }
-        if (zoomLevel <= 1 && isFullscreenMode) {
-            exitImageFullscreen();
-        }
         
-        updateCursor();
-        applyTransform();
-        showCleanZoomIndicator();
+        zoomLevel = Math.round(zoomLevel * 100) / 100;
+        
+        if (oldZoom !== zoomLevel) {
+            if (zoomLevel <= 1 && isFullscreenMode) {
+                exitImageFullscreen();
+            }
+            
+            constrainPan();
+            updateCursor();
+            applyTransform();
+            showCleanZoomIndicator();
+        }
     }
     
     clearTimeout(zoomBlockTimeout);
@@ -901,6 +935,7 @@ function handleWheelZoom(e) {
         console.log('🔓 Ready for next zoom');
     }, BLOCK_DURATION);
 }
+
 
 function resetZoomPan() {
     if (isFullscreenMode) {
