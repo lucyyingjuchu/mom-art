@@ -190,7 +190,7 @@
 
         function displayOrderDetails(sessionData) {
             const orderDetails = document.getElementById('orderDetails');
-            const cartData = JSON.parse(sessionData.metadata.cart_data);
+            const minimalCartData = JSON.parse(sessionData.metadata.cart_data);
             
             // Extract customer info from Stripe session
             const customerName = sessionData.customer_details?.name || 
@@ -209,7 +209,7 @@
                 </div>
                 <div class="detail-row">
                     <span class="detail-label">Amount Paid:</span>
-                    <span class="detail-value">$${(sessionData.amount_total / 100).toFixed(2)}</span>
+                    <span class="detail-value">${(sessionData.amount_total / 100).toFixed(2)}</span>
                 </div>
                 <div class="detail-row">
                     <span class="detail-label">Customer:</span>
@@ -221,7 +221,7 @@
                 </div>
                 <div class="detail-row">
                     <span class="detail-label">Items:</span>
-                    <span class="detail-value">${cartData.length} artwork(s)</span>
+                    <span class="detail-value">${minimalCartData.length} artwork(s)</span>
                 </div>
             `;
         }
@@ -230,7 +230,9 @@
             try {
                 console.log('Submitting paid order to Finerworks...');
                 
-                const cartData = JSON.parse(sessionData.metadata.cart_data);
+                // Reconstruct full cart data from minimal metadata
+                const minimalCartData = JSON.parse(sessionData.metadata.cart_data);
+                const fullCartData = await reconstructCartData(minimalCartData);
                 
                 // Extract shipping address from Stripe session
                 const shipping = sessionData.shipping_details;
@@ -257,17 +259,17 @@
                             "email": sessionData.customer_email || '',
                             "address_order_po": sessionData.metadata.order_id
                         },
-                        "order_items": cartData.map(item => ({
+                        "order_items": fullCartData.map(item => ({
                             "product_order_po": "ITEM" + Math.floor(Math.random() * 10000),
-                            "product_qty": item.quantity,
-                            "product_sku": `5M210M37S${item.width_inches}X${item.height_inches}`,
+                            "product_qty": item.q,
+                            "product_sku": `5M210M37S${item.w}X${item.h}`,
                             "product_image": {
                                 "pixel_width": 806,
                                 "pixel_height": 1600,
-                                "product_url_file": item.image,
-                                "product_url_thumbnail": item.image
+                                "product_url_file": item.image || '',
+                                "product_url_thumbnail": item.image || ''
                             },
-                            "product_title": item.title,
+                            "product_title": item.title || 'Untitled',
                             "template": null,
                             "product_guid": "00000000-0000-0000-0000-000000000000",
                             "custom_data_1": `stripe_payment_id:${sessionData.payment_intent}`,
@@ -309,6 +311,48 @@
                 document.getElementById('processingStatus').innerHTML = 
                     '<strong>Payment Received:</strong> We received your payment but there was an issue with order processing. We will contact you soon.';
                 document.getElementById('processingStatus').className = 'processing-status error';
+            }
+        }
+
+        // New function to reconstruct full cart data
+        async function reconstructCartData(minimalCartData) {
+            try {
+                // Try to get full cart data from localStorage first
+                const localCart = JSON.parse(localStorage.getItem('xiaoran_cart') || '[]');
+                
+                if (localCart.length > 0) {
+                    return minimalCartData.map(minItem => {
+                        const fullItem = localCart.find(item => 
+                            item.artworkId === minItem.id && 
+                            item.width_inches === minItem.w && 
+                            item.height_inches === minItem.h
+                        );
+                        return {
+                            ...minItem,
+                            title: fullItem?.title || 'Untitled',
+                            image: fullItem?.image || ''
+                        };
+                    });
+                }
+
+                // Fallback: Load portfolio data to get titles and images
+                const response = await fetch('/js/portfolio.js');
+                const portfolioText = await response.text();
+                
+                // Extract artworks data (simplified approach)
+                return minimalCartData.map(item => ({
+                    ...item,
+                    title: `Artwork ${item.id.slice(-8)}`, // Fallback title
+                    image: `/images/paintings/thumbnails/${item.id}_thumb.jpg` // Fallback image
+                }));
+                
+            } catch (error) {
+                console.error('Failed to reconstruct cart data:', error);
+                return minimalCartData.map(item => ({
+                    ...item,
+                    title: 'Untitled',
+                    image: ''
+                }));
             }
         }
     </script>

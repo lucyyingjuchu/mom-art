@@ -43,6 +43,15 @@ exports.handler = async (event, context) => {
             quantity: item.quantity
         }));
 
+        // Create minimal cart data for metadata (under 500 chars)
+        const minimalCartData = cartItems.map(item => ({
+            id: item.artworkId,
+            q: item.quantity,
+            p: item.price,
+            w: item.width_inches,
+            h: item.height_inches
+        }));
+
         // Create checkout session - let Stripe collect all customer data
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ['card'],
@@ -54,10 +63,11 @@ exports.handler = async (event, context) => {
                 allowed_countries: ['US', 'CA', 'TW', 'GB', 'AU']
             },
             
-            // Store cart data in metadata
+            // Store minimal cart data in metadata
             metadata: {
-                cart_data: JSON.stringify(cartItems),
-                order_id: 'XIAORAN_' + Date.now()
+                cart_data: JSON.stringify(minimalCartData),
+                order_id: 'XIAORAN_' + Date.now(),
+                item_count: cartItems.length.toString()
             },
             
             // Success and cancel URLs
