@@ -190,8 +190,13 @@
 
         function displayOrderDetails(sessionData) {
             const orderDetails = document.getElementById('orderDetails');
-            const customerData = JSON.parse(sessionData.metadata.customer_data);
             const cartData = JSON.parse(sessionData.metadata.cart_data);
+            
+            // Extract customer info from Stripe session
+            const customerName = sessionData.customer_details?.name || 
+                                sessionData.shipping_details?.name || 
+                                'Customer';
+            const customerEmail = sessionData.customer_email;
             
             orderDetails.innerHTML = `
                 <div class="detail-row">
@@ -208,11 +213,11 @@
                 </div>
                 <div class="detail-row">
                     <span class="detail-label">Customer:</span>
-                    <span class="detail-value">${customerData.firstName} ${customerData.lastName}</span>
+                    <span class="detail-value">${customerName}</span>
                 </div>
                 <div class="detail-row">
                     <span class="detail-label">Email:</span>
-                    <span class="detail-value">${customerData.email}</span>
+                    <span class="detail-value">${customerEmail}</span>
                 </div>
                 <div class="detail-row">
                     <span class="detail-label">Items:</span>
@@ -225,28 +230,31 @@
             try {
                 console.log('Submitting paid order to Finerworks...');
                 
-                const customerData = JSON.parse(sessionData.metadata.customer_data);
                 const cartData = JSON.parse(sessionData.metadata.cart_data);
                 
-                // Create Finerworks order
+                // Extract shipping address from Stripe session
+                const shipping = sessionData.shipping_details;
+                const customer = sessionData.customer_details;
+                
+                // Create Finerworks order using Stripe's collected data
                 const finerworksOrder = {
                     "orders": [{
                         "order_po": sessionData.metadata.order_id,
                         "order_key": null,
                         "recipient": {
-                            "first_name": customerData.firstName,
-                            "last_name": customerData.lastName,
-                            "company_name": "袁之靜曉然文化藝術工作室",
-                            "address_1": customerData.address,
-                            "address_2": customerData.address2 || null,
+                            "first_name": shipping?.name?.split(' ')[0] || customer?.name?.split(' ')[0] || 'Customer',
+                            "last_name": shipping?.name?.split(' ').slice(1).join(' ') || customer?.name?.split(' ').slice(1).join(' ') || 'Name',
+                            "company_name": "袁之霖曉然文化藝術工作室",
+                            "address_1": shipping?.address?.line1 || '',
+                            "address_2": shipping?.address?.line2 || null,
                             "address_3": null,
-                            "city": customerData.city,
-                            "state_code": customerData.stateProvince || "CA",
+                            "city": shipping?.address?.city || '',
+                            "state_code": shipping?.address?.state || 'CA',
                             "province": null,
-                            "zip_postal_code": customerData.postalCode,
-                            "country_code": customerData.country?.toLowerCase() || "us",
-                            "phone": customerData.phone,
-                            "email": customerData.email,
+                            "zip_postal_code": shipping?.address?.postal_code || '',
+                            "country_code": shipping?.address?.country?.toLowerCase() || 'us',
+                            "phone": customer?.phone || '',
+                            "email": sessionData.customer_email || '',
                             "address_order_po": sessionData.metadata.order_id
                         },
                         "order_items": cartData.map(item => ({
@@ -267,7 +275,7 @@
                             "custom_data_3": null
                         })),
                         "shipping_code": "SD",
-                        "test_mode": true, // Keep as test for now
+                        "test_mode": true,
                         "validate_only": false
                     }],
                     "validate_only": false

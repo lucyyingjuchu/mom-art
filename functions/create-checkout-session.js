@@ -22,12 +22,12 @@ exports.handler = async (event, context) => {
     }
 
     try {
-        const { customerInfo, cartItems } = JSON.parse(event.body);
+        const { cartItems } = JSON.parse(event.body);
         
         // Calculate total
         const total = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
         
-        console.log('Creating checkout session for:', customerInfo.email, 'Total:', total);
+        console.log('Creating checkout session for cart total:', total);
 
         // Create line items for Stripe
         const lineItems = cartItems.map(item => ({
@@ -43,30 +43,26 @@ exports.handler = async (event, context) => {
             quantity: item.quantity
         }));
 
-        // Create checkout session with customer data pre-filled
+        // Create checkout session - let Stripe collect all customer data
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ['card'],
             line_items: lineItems,
             mode: 'payment',
             
-            // Pre-fill customer information
-            customer_email: customerInfo.email,
-            
-            // Collect shipping address (will be pre-filled from your form)
+            // Let Stripe collect shipping address
             shipping_address_collection: {
-                allowed_countries: ['US', 'CA', 'GB', 'AU', 'DE', 'FR', 'IT', 'ES', 'NL', 'SE', 'NO', 'SG', 'TW', 'JP', 'KR']
+                allowed_countries: ['US', 'CA', 'TW', 'GB', 'AU']
             },
             
-            // Store order data in metadata for fulfillment
+            // Store cart data in metadata
             metadata: {
-                customer_data: JSON.stringify(customerInfo),
                 cart_data: JSON.stringify(cartItems),
                 order_id: 'XIAORAN_' + Date.now()
             },
             
             // Success and cancel URLs
-            success_url: `${process.env.URL || 'https://xiaoranart.com'}/order-success.html?session_id={CHECKOUT_SESSION_ID}`,
-            cancel_url: `${process.env.URL || 'https://xiaoranart.com'}/checkout.html`
+            success_url: `${process.env.URL || 'https://xiaoranart.com'}/order_success_page.html?session_id={CHECKOUT_SESSION_ID}`,
+            cancel_url: `${process.env.URL || 'https://xiaoranart.com'}/#gallery`
         });
 
         return {

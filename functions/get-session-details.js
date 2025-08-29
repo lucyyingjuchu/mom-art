@@ -26,8 +26,10 @@ exports.handler = async (event, context) => {
         
         console.log('Retrieving session details for:', session_id);
 
-        // Retrieve the checkout session
-        const session = await stripe.checkout.sessions.retrieve(session_id);
+        // Retrieve the checkout session with expanded data
+        const session = await stripe.checkout.sessions.retrieve(session_id, {
+            expand: ['customer']
+        });
         
         if (session.payment_status !== 'paid') {
             throw new Error('Payment not completed');
@@ -43,6 +45,8 @@ exports.handler = async (event, context) => {
                 amount_total: session.amount_total,
                 currency: session.currency,
                 customer_email: session.customer_email,
+                customer_details: session.customer_details,  // Customer info from Stripe
+                shipping_details: session.shipping_details,  // Shipping address from Stripe
                 metadata: session.metadata
             })
         };

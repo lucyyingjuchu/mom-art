@@ -518,7 +518,7 @@ class ShoppingCart {
                     <div class="cart-item-details">
                         <div class="cart-item-title">${displayTitle}</div>
                         <div class="cart-item-size">${this.getText('lightbox.dimensionsLabel')}: ${item.size}</div>
-                        <div class="cart-item-price">$${(item.price * item.quantity).toFixed(2)}</div>
+                        <div class="cart-item-price">${(item.price * item.quantity).toFixed(2)}</div>
                         <div class="cart-item-quantity">
                             <button class="cart-qty-btn" onclick="shoppingCart.updateQuantity('${item.id}', ${item.quantity - 1})">−</button>
                             <input type="number" class="cart-qty-input" value="${item.quantity}" min="1" max="10" 
@@ -535,7 +535,7 @@ class ShoppingCart {
         const total = this.items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
         const cartTotalAmount = document.getElementById('cartTotalAmount');
         if (cartTotalAmount) {
-            cartTotalAmount.textContent = `$${total.toFixed(2)}`;
+            cartTotalAmount.textContent = `${total.toFixed(2)}`;
         }
         
         // Update footer text
@@ -584,151 +584,60 @@ class ShoppingCart {
         this.renderCartItems();
     }
     
+    // CLEANED UP: Simple checkout method - no submitOrder
     async checkout() {
         if (this.items.length === 0) {
             alert(this.getText('shopping.cartEmpty'));
             return;
         }
         
-        // Redirect to dedicated checkout page
-        window.location.href = '/checkout.html';
-    }
-    
-   
-    async submitOrder(formData) {
-        console.log('🚀 submitOrder called with:', formData);
-        console.log('🛒 Cart items:', this.items);
-        const orderData = {
-            customer: {
-                firstName: formData.get('firstName'),
-                lastName: formData.get('lastName'),
-                email: formData.get('email'),
-                phone: formData.get('phone'),
-                address: formData.get('address1'),
-                city: formData.get('city'),
-                postalCode: formData.get('postalCode')
-            },
-            items: this.items,
-            total: this.items.reduce((sum, item) => sum + (item.price * item.quantity), 0),
-            orderDate: new Date().toISOString(),
-            status: 'pending'
-        };
-        
         try {
-            // Convert to Finerworks Print-on-Demand format
-            const finerworksOrder = {
-                "orders": [{
-                    "order_po": "XIAORAN_" + Date.now(),
-                    "order_key": null,
-                    "recipient": {
-                        "first_name": orderData.customer.firstName,
-                        "last_name": orderData.customer.lastName,
-                        "company_name": "袁之靜曉然文化藝術工作室",
-                        "address_1": orderData.customer.address,
-                        "address_2": null,
-                        "address_3": null,
-                        "city": orderData.customer.city,
-                        "state_code": "CA",
-                        "province": null,
-                        "zip_postal_code": orderData.customer.postalCode,
-                        "country_code": "us",
-                        "phone": orderData.customer.phone,
-                        "email": orderData.customer.email,
-                        "address_order_po": "XIAORAN_" + Date.now()
-                    },
-                    "order_items": this.items.map(item => ({
-                        "product_order_po": "ITEM" + Math.floor(Math.random() * 10000),
-                        "product_qty": item.quantity,
-                        // FIXED: Use stored dimensions directly - no complex lookups needed!
-                        "product_sku": `5M210M37S${item.width_inches}X${item.height_inches}`,
-                        "product_image": {
-                            "pixel_width": 806,
-                            "pixel_height": 1600,
-                            "product_url_file": item.image,
-                            "product_url_thumbnail": item.image
-                        },
-                        "product_title": item.title,
-                        "template": null,
-                        "product_guid": "00000000-0000-0000-0000-000000000000",
-                        "custom_data_1": null,
-                        "custom_data_2": null,
-                        "custom_data_3": null
-                    })),
-                    "shipping_code": "SD",
-                    "ship_by_date": null,
-                    "customs_tax_info": null,
-                    "gift_message": null,
-                    "test_mode": true, // Keep as test for now
-                    "webhook_order_status_url": null,
-                    "document_url": null,
-                    "acct_number_ups": null,
-                    "acct_number_fedex": null,
-                    "custom_data_1": null,
-                    "custom_data_2": null,
-                    "custom_data_3": null
-                }],
-                // FIXED: Set to false to actually submit orders instead of just validating
-                "validate_only": false
-            };
+            console.log('Creating Stripe checkout session...');
             
-            console.log('🚀 Submitting order:', JSON.stringify(finerworksOrder, null, 2));
-            
-            // Submit using your proven working API
-            const response = await fetch('/.netlify/functions/finerworks-api', {
+            const response = await fetch('/.netlify/functions/create-checkout-session', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    endpoint: 'submit_orders',
-                    data: finerworksOrder
+                    cartItems: this.items
                 })
             });
-            
+
             const result = await response.json();
-            console.log('📥 Finerworks response:', result);
-            console.log('📊 Response status:', response.status);
             
-            if (response.ok) {
-                console.log('✅ Order submission successful!');
-                this.showOrderConfirmation(orderData);
-                this.clearCart();
-                this.closeCart();
-            } else {
-                console.error('❌ Order submission failed:');
-                console.error('Status:', response.status);
-                console.error('Full response:', result);
-                
-                const errorMsg = result.error || result.message || JSON.stringify(result) || 'Order submission failed';
-                throw new Error(errorMsg);
+            if (!response.ok) {
+                throw new Error(result.error || 'Failed to create checkout session');
             }
+
+            console.log('Redirecting to Stripe Checkout:', result.checkout_url);
+            
+            // Redirect directly to Stripe Checkout
+            window.location.href = result.checkout_url;
             
         } catch (error) {
-            console.error('💥 Order submission error:', error);
-            alert(this.getText('shopping.orderSubmitError'));
+            console.error('Checkout error:', error);
+            alert('There was an error starting the checkout process. Please try again.');
         }
     }
     
-
     openArtworkLightbox(artworkId) {
-    console.log('🎨 Opening lightbox for artwork:', artworkId);
-    
-    // 關閉購物車
-    this.closeCart();
-    
-    // 稍微延遲一下讓購物車關閉動畫完成
-    setTimeout(() => {
-        // 嘗試不同的全域函數名稱
-        if (typeof openLightbox === 'function') {
-            openLightbox(artworkId);
-        } else if (typeof window.openLightbox === 'function') {
-            window.openLightbox(artworkId);
-        } else {
-            console.error('❌ openLightbox function not found');
-            console.log('Available functions:', Object.keys(window).filter(key => key.includes('lightbox')));
-        }
-    }, 300);
-}
+        console.log('Opening lightbox for artwork:', artworkId);
+        
+        // Close shopping cart
+        this.closeCart();
+        
+        // Slight delay to let cart close animation complete
+        setTimeout(() => {
+            // Try different global function names
+            if (typeof openLightbox === 'function') {
+                openLightbox(artworkId);
+            } else if (typeof window.openLightbox === 'function') {
+                window.openLightbox(artworkId);
+            } else {
+                console.error('openLightbox function not found');
+                console.log('Available functions:', Object.keys(window).filter(key => key.includes('lightbox')));
+            }
+        }, 300);
+    }
 }
 
 // Initialize shopping cart when DOM is loaded
