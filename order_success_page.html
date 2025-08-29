@@ -146,6 +146,9 @@
     </div>
 
     <script>
+        // TESTING FLAG - Set to false for production
+        const TESTING_MODE = true;
+
         document.addEventListener('DOMContentLoaded', async function() {
             // Get session ID from URL
             const urlParams = new URLSearchParams(window.location.search);
@@ -171,10 +174,21 @@
                     throw new Error(sessionData.error || 'Failed to retrieve order details');
                 }
 
+                // CONSOLE TESTING - Log session data structure
+                console.log('=== SESSION DATA TESTING ===');
+                console.log('Customer email options:', {
+                    customer_email: sessionData.customer_email,
+                    'customer_details?.email': sessionData.customer_details?.email,
+                    'customer_details?.name': sessionData.customer_details?.name,
+                });
+                console.log('Shipping details:', sessionData.shipping_details);
+                console.log('Full session keys:', Object.keys(sessionData));
+                console.log('Full session data:', JSON.stringify(sessionData, null, 2));
+
                 // Display order details
                 displayOrderDetails(sessionData);
                 
-                // Submit to Finerworks
+                // Submit to Finerworks (or test mode)
                 await submitToFinerworks(sessionData);
                 
                 // Clear cart since order is complete
@@ -228,7 +242,29 @@
 
         async function submitToFinerworks(sessionData) {
             try {
-                console.log('Submitting paid order to Finerworks...');
+                console.log('=== FINERWORKS SUBMISSION TESTING ===');
+                
+                // TESTING MODE - Skip everything if testing
+                if (TESTING_MODE) {
+                    console.log('=== TEST MODE ENABLED - NO API CALLS ===');
+                    console.log('Session data received:', sessionData);
+                    
+                    const customerEmail = sessionData.customer_email || 
+                                         sessionData.customer_details?.email ||
+                                         'no-email@unknown.com';
+                    
+                    console.log('Would extract email:', customerEmail);
+                    console.log('Would extract shipping:', sessionData.shipping_details);
+                    console.log('Would extract customer:', sessionData.customer_details);
+                    
+                    document.getElementById('processingStatus').innerHTML = 
+                        '<strong>Test Mode:</strong> Order data extracted successfully. Check console for details.';
+                    document.getElementById('processingStatus').className = 'processing-status processing';
+                    return; // Exit early - no API calls
+                }
+
+                // PRODUCTION CODE BELOW - only runs if TESTING_MODE = false
+                console.log('Production mode - submitting to Finerworks...');
                 
                 // Reconstruct full cart data from minimal metadata
                 const minimalCartData = JSON.parse(sessionData.metadata.cart_data);
@@ -237,6 +273,18 @@
                 // Extract shipping address from Stripe session
                 const shipping = sessionData.shipping_details;
                 const customer = sessionData.customer_details;
+                
+                // Get customer email from multiple possible sources
+                const customerEmail = sessionData.customer_email || 
+                                     sessionData.customer_details?.email ||
+                                     'no-email@unknown.com';
+                
+                console.log('Extracted email:', customerEmail);
+                console.log('Shipping details:', shipping);
+                console.log('Customer details:', customer);
+                
+                // Generate user-friendly order number
+                const friendlyOrderNumber = `XR-${new Date().getFullYear()}-${sessionData.metadata.order_id.slice(-6)}`;
                 
                 // Create Finerworks order using Stripe's collected data
                 const finerworksOrder = {
@@ -256,7 +304,7 @@
                             "zip_postal_code": shipping?.address?.postal_code || '',
                             "country_code": shipping?.address?.country?.toLowerCase() || 'us',
                             "phone": customer?.phone || '',
-                            "email": sessionData.customer_email || '',
+                            "email": customerEmail,
                             "address_order_po": sessionData.metadata.order_id
                         },
                         "order_items": fullCartData.map(item => ({
@@ -272,9 +320,9 @@
                             "product_title": item.title || 'Untitled',
                             "template": null,
                             "product_guid": "00000000-0000-0000-0000-000000000000",
-                            "custom_data_1": `stripe_payment_id:${sessionData.payment_intent}`,
-                            "custom_data_2": `stripe_session_id:${sessionData.id}`,
-                            "custom_data_3": null
+                            "custom_data_1": `customer_order:${friendlyOrderNumber}`,
+                            "custom_data_2": `stripe_payment_id:${sessionData.payment_intent}`,
+                            "custom_data_3": `stripe_session_id:${sessionData.id}`
                         })),
                         "shipping_code": "SD",
                         "test_mode": true,
@@ -282,6 +330,8 @@
                     }],
                     "validate_only": false
                 };
+
+                console.log('Finerworks order payload:', JSON.stringify(finerworksOrder, null, 2));
 
                 const response = await fetch('/.netlify/functions/finerworks-api', {
                     method: 'POST',
@@ -293,12 +343,16 @@
                 });
 
                 const result = await response.json();
+                console.log('Finerworks API response:', result);
 
-                if (response.ok) {
+                if (response.ok && result.status === 'success') {
                     console.log('Order sent to Finerworks successfully!');
                     document.getElementById('processingStatus').innerHTML = 
-                        '<strong>Order Complete:</strong> Your artwork has been sent for printing and will ship soon!';
+                        '<strong>Order Received:</strong> We\'re processing your order and you\'ll receive a confirmation email shortly.';
                     document.getElementById('processingStatus').className = 'processing-status success';
+                    
+                    // TODO: Send confirmation email here using EmailJS
+                    
                 } else {
                     console.error('Finerworks submission failed:', result);
                     document.getElementById('processingStatus').innerHTML = 
