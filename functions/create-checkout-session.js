@@ -58,10 +58,23 @@ exports.handler = async (event, context) => {
             line_items: lineItems,
             mode: 'payment',
             
-            // Let Stripe collect shipping address
+            // Let Stripe collect shipping address and show shipping options
             shipping_address_collection: {
                 allowed_countries: ['US', 'CA', 'TW', 'GB', 'AU']
             },
+            
+            // Configure shipping options (you'll need to create these rates in Stripe Dashboard first)
+            shipping_options: [
+                {
+                    shipping_rate: 'shr_1S1cpp4OFXg8iiC4vaA3fYq5', // Replace with your actual Stripe shipping rate ID
+                },
+                {
+                    shipping_rate: 'shr_1S1cqW4OFXg8iiC4eIIuG3qH', // Replace with your actual Stripe shipping rate ID  
+                },
+                {
+                    shipping_rate: 'shr_1S1d8J4OFXg8iiC4uCdQakec', // Replace with your actual Stripe shipping rate ID
+                }
+            ],
             
             // Store minimal cart data in metadata
             metadata: {
