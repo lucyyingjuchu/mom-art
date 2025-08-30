@@ -1,5 +1,5 @@
 // Complete GitHub Admin - Fixed Large File Downloads and Thumbnail Generation
-// Version: 2.6 - Handles files >1MB, consistent PNG extensions, proper blob handling
+// Version: 2.7 - FIXED: Now properly collects form data including height/width fields
 
 // ================================
 // CONFIGURATION
@@ -14,29 +14,85 @@ const GITHUB_CONFIG = {
         large: 'images/paintings/large/'
     }
 };
+
 // ================================
 // UUIDv7 GENERATION
 // ================================
 
 function uuidv7() {
-// 48-bit UNIX ms timestamp + version + variant + randomness（簡化純 JS 實作）
-const ts = BigInt(Date.now()) & ((1n << 48n) - 1n);
-const randA = BigInt(Math.floor(Math.random() * 0x1000)); // 12 bits
-// 62 bits randomness：用兩次 31-bit 的隨機數拼起來
-const r1 = BigInt(Math.floor(Math.random() * 0x80000000));
-const r2 = BigInt(Math.floor(Math.random() * 0x80000000));
-const randB = (r1 << 31n) | r2; // 62 bits
+    const ts = BigInt(Date.now()) & ((1n << 48n) - 1n);
+    const randA = BigInt(Math.floor(Math.random() * 0x1000)); // 12 bits
+    const r1 = BigInt(Math.floor(Math.random() * 0x80000000));
+    const r2 = BigInt(Math.floor(Math.random() * 0x80000000));
+    const randB = (r1 << 31n) | r2; // 62 bits
 
-let n = (ts << 80n)                // 48 ts
-        | (0x7n << 76n)              // version 7
-        | (randA << 64n)             // 12 rand_a
-        | (0x2n << 62n)              // variant 10
-        | randB;                     // 62 rand_b
+    let n = (ts << 80n)                // 48 ts
+            | (0x7n << 76n)              // version 7
+            | (randA << 64n)             // 12 rand_a
+            | (0x2n << 62n)              // variant 10
+            | randB;                     // 62 rand_b
 
-const hex = n.toString(16).padStart(32, '0');
-return `${hex.slice(0,8)}-${hex.slice(8,12)}-${hex.slice(12,16)}-${hex.slice(16,20)}-${hex.slice(20)}`;
+    const hex = n.toString(16).padStart(32, '0');
+    return `${hex.slice(0,8)}-${hex.slice(8,12)}-${hex.slice(12,16)}-${hex.slice(16,20)}-${hex.slice(20)}`;
 }
 
+// ================================
+// FORM DATA COLLECTION HELPER
+// ================================
+
+function collectFormData(artworkId) {
+    // Collect all form fields - CRITICAL FIX: Now includes height/width
+    const title = document.getElementById('artworkTitle').value.trim();
+    const year = document.getElementById('artworkYear').value.trim();
+    const height = document.getElementById('artworkHeight').value.trim();
+    const width = document.getElementById('artworkWidth').value.trim();
+    
+    // Validate required fields
+    if (!title || !year || !height || !width) {
+        throw new Error('標題、年份、高度和寬度為必填欄位');
+    }
+    
+    // Validate dimensions are positive numbers
+    const heightNum = parseFloat(height);
+    const widthNum = parseFloat(width);
+    
+    if (isNaN(heightNum) || isNaN(widthNum) || heightNum <= 0 || widthNum <= 0) {
+        throw new Error('高度和寬度必須是有效的正數');
+    }
+    
+    return {
+        id: artworkId,
+        title: title,
+        titleEn: '', // 英文版本之後翻譯
+        category: 'paintings',
+        subcategory: document.getElementById('artworkSubcategory').value,
+        description: document.getElementById('artworkDescription').value.trim(),
+        descriptionEn: '', // 英文版本之後翻譯
+        curatorNote: document.getElementById('artworkCuratorNote').value.trim(),
+        curatorNoteEn: '', // 英文版本之後翻譯
+        format: document.getElementById('artworkFormat').value,
+        formatEn: '', // 英文版本之後翻譯
+        mediumEn: '', // 媒材英文版本之後翻譯
+        // NEW: Separate dimension fields
+        heightCm: heightNum,
+        widthCm: widthNum,
+        heightInches: parseFloat((heightNum / 2.54).toFixed(1)),
+        widthInches: parseFloat((widthNum / 2.54).toFixed(1)),
+        // LEGACY: For backward compatibility
+        sizeCm: `${heightNum}×${widthNum}`,
+        sizeInches: `${(heightNum / 2.54).toFixed(1)}×${(widthNum / 2.54).toFixed(1)}`,
+        year: year,
+        price: document.getElementById('artworkPrice').value.trim(),
+        available: document.getElementById('artworkAvailable').checked,
+        featured: document.getElementById('artworkFeatured').checked,
+        recent: parseInt(year) >= 2020,
+        exhibitions: [],
+        tags: [],
+        // Image paths will be set after upload
+        image: '',
+        imageHigh: ''
+    };
+}
 
 // ================================
 // MAIN GITHUB UPLOADER CLASS
@@ -93,8 +149,8 @@ class GitHubUploader {
         });
     }
 
-    // Upload artwork with thumbnail and large image (for new uploads)
-    async uploadArtwork(file, artwork, onProgress) {
+    // FIXED: Upload artwork with proper form data collection
+    async uploadArtwork(file, artworkData, onProgress) {
         try {
             onProgress?.('Creating optimized images...', 10);
             
@@ -108,28 +164,36 @@ class GitHubUploader {
             
             // Upload thumbnail
             const thumbnailBase64 = await this.blobToBase64(thumbnailBlob);
-            const thumbnailPath = `${this.config.paths.thumbnails}${artwork.id}_thumb.png`;
+            const thumbnailPath = `${this.config.paths.thumbnails}${artworkData.id}_thumb.png`;
             const thumbnailResult = await this.uploadFile(
                 thumbnailPath,
                 thumbnailBase64,
-                `Add thumbnail for ${artwork.title}`
+                `Add thumbnail for ${artworkData.title}`
             );
             onProgress?.('Thumbnail uploaded', 70);
             
             // Upload large image
             const largeBase64 = await this.blobToBase64(largeBlob);
-            const largePath = `${this.config.paths.large}${artwork.id}_large.png`;
+            const largePath = `${this.config.paths.large}${artworkData.id}_large.png`;
             const largeResult = await this.uploadFile(
                 largePath,
                 largeBase64,
-                `Add large image for ${artwork.title}`
+                `Add large image for ${artworkData.title}`
             );
             onProgress?.('Large image uploaded', 90);
             
             onProgress?.('Upload complete!', 100);
             
+            // Return complete artwork data with image paths
+            const completeArtworkData = {
+                ...artworkData,
+                image: `./images/paintings/thumbnails/${artworkData.id}_thumb.png`,
+                imageHigh: `./images/paintings/large/${artworkData.id}_large.png`
+            };
+            
             return {
                 success: true,
+                artworkData: completeArtworkData,
                 uploadResults: {
                     thumbnail: thumbnailResult,
                     large: largeResult
@@ -633,8 +697,7 @@ class GitHubUploader {
 // Initialize uploader
 const githubUploader = new GitHubUploader(GITHUB_CONFIG);
 
-
-// Upload new artwork
+// FIXED: Upload new artwork with complete form data
 async function handleImageUploadWithGitHub(event) {
     const file = event.target.files[0];
     if (!file) return;
@@ -649,15 +712,19 @@ async function handleImageUploadWithGitHub(event) {
         return;
     }
 
-    const artworkId = currentEditingId || uuidv7();    
+    const artworkId = currentEditingId || uuidv7();
     
     try {
+        // CRITICAL FIX: Collect complete form data including height/width
+        const completeFormData = collectFormData(artworkId);
+        console.log('🎯 Collected form data:', completeFormData);
+        
         const progressContainer = createProgressIndicator();
         document.querySelector('.upload-area').appendChild(progressContainer);
 
         const uploadResult = await githubUploader.uploadArtwork(
             file, 
-            { id: artworkId, title: document.getElementById('artworkTitle').value || 'New Artwork' },
+            completeFormData, // Use complete form data instead of basic object
             (message, percent) => updateProgress(progressContainer, message, percent)
         );
 
@@ -666,13 +733,7 @@ async function handleImageUploadWithGitHub(event) {
         
         // Store upload result with consistent PNG extensions
         uploadedImages[artworkId] = {
-            githubUpload: {
-                artworkData: {
-                    image: `./images/paintings/thumbnails/${artworkId}_thumb.png`,
-                    imageHigh: `./images/paintings/large/${artworkId}_large.png`
-                },
-                urls: uploadResult.urls
-            },
+            githubUpload: uploadResult, // Store complete upload result
             localPreview: URL.createObjectURL(file)
         };
 
@@ -687,6 +748,7 @@ async function handleImageUploadWithGitHub(event) {
                 ✅ 圖片上傳成功！<br>
                 📁 已建立縮圖和大圖<br>
                 🌐 圖片準備發布<br>
+                <small>尺寸: ${completeFormData.heightCm}×${completeFormData.widthCm}cm</small>
             </div>
         `;
 
@@ -700,8 +762,6 @@ async function handleImageUploadWithGitHub(event) {
         const progressContainer = document.querySelector('.upload-progress-container');
         if (progressContainer) progressContainer.remove();
         
-        // 不呼叫不存在的 handleBasicImageUpload
-        // 只顯示錯誤訊息
         showMessage(`圖片上傳失敗：${error.message}`, 'error');
         
         // 顯示失敗狀態
@@ -748,165 +808,4 @@ function createProgressIndicator() {
                 background: #e9ecef;
                 border-radius: 4px;
                 overflow: hidden;
-                margin-bottom: 0.5rem;
-            }
-            .progress-fill {
-                height: 100%;
-                background: linear-gradient(90deg, #28a745, #20c997);
-                transition: width 0.3s ease;
-            }
-            .progress-text {
-                font-size: 0.9rem;
-                color: #495057;
-                text-align: center;
-            }
-        `;
-        document.head.appendChild(style);
-    }
-    
-    return container;
-}
-
-// Update progress
-function updateProgress(container, message, percent) {
-    const fill = container.querySelector('.progress-fill');
-    const text = container.querySelector('.progress-text');
-    
-    fill.style.width = `${percent}%`;
-    text.textContent = message;
-}
-
-// ================================
-// ENHANCED FUNCTIONS
-// ================================
-
-// Enhanced test GitHub connection (no auto-deploy)
-async function testGitHubConnection() {
-    try {
-        showMessage('Testing GitHub connection...', 'info');
-        
-        // First try simple repository access
-        const result = await githubUploader.testConnection();
-        
-        const statusEl = document.getElementById('githubStatus');
-        if (statusEl) {
-            if (result.success) {
-                statusEl.className = 'github-status status-connected';
-                statusEl.textContent = `✅ Connected to ${result.repoName}`;
-                showMessage('GitHub connection successful!', 'success');
-                
-                // Optionally test write permissions (still no commits)
-                const writeTest = await githubUploader.testWritePermissions();
-                if (writeTest.success) {
-                    console.log('✅ Write permissions confirmed');
-                } else {
-                    console.warn('⚠️ Write permissions uncertain:', writeTest.error);
-                }
-                
-            } else {
-                statusEl.className = 'github-status status-disconnected';
-                statusEl.textContent = `❌ Connection failed`;
-                showMessage(`GitHub connection failed: ${result.error}`, 'error');
-            }
-        }
-        
-        return result.success;
-        
-    } catch (error) {
-        showMessage(`❌ Connection error: ${error.message}`, 'error');
-        return false;
-    }
-}
-
-// Enhanced deploy function with clear messaging
-async function exportAndDeployToGitHub() {
-    try {
-        if (!confirm('This will deploy your current artworks to the live website. Continue?')) {
-            return;
-        }
-        
-        showMessage('Deploying to GitHub...', 'info');
-        
-        const progressContainer = createProgressIndicator();
-        document.querySelector('.container').appendChild(progressContainer);
-        
-        await githubUploader.updateArtworksJson(
-            artworks,
-            (message, percent) => updateProgress(progressContainer, message, percent)
-        );
-        
-        showMessage('✅ Deployed! Your website will update in ~2 minutes.', 'success');
-        setTimeout(() => progressContainer.remove(), 3000);
-        
-    } catch (error) {
-        showMessage(`❌ Deployment failed: ${error.message}`, 'error');
-        
-        const progressContainer = document.querySelector('.upload-progress-container');
-        if (progressContainer) progressContainer.remove();
-    }
-}
-
-// ================================
-// TESTING/DEBUG FUNCTIONS
-// ================================
-
-// Test single thumbnail generation
-async function testSingleThumbnailGeneration(artworkId) {
-    console.log(`🧪 Testing thumbnail generation for ${artworkId}...`);
-    
-    try {
-        const result = await githubUploader.generateThumbnailFromLargeImage(
-            `images/paintings/large/${artworkId}_large.png`,
-            artworkId,
-            (message, percent) => {
-                console.log(`${percent}%: ${message}`);
-            }
-        );
-        
-        console.log('✅ Test successful:', result);
-        return result;
-        
-    } catch (error) {
-        console.error('❌ Test failed:', error);
-        return { success: false, error: error.message };
-    }
-}
-
-// ================================
-// INITIALIZATION
-// ================================
-document.addEventListener('DOMContentLoaded', function() {
-    // Replace image upload handler
-    const originalImageInput = document.getElementById('imageInput');
-    if (originalImageInput) {
-        originalImageInput.addEventListener('change', handleImageUploadWithGitHub);
-    }
-    
-    // Test connection on startup (NO auto-deploy)
-    setTimeout(async () => {
-        console.log('🔍 Testing GitHub connection...');
-        const connected = await githubUploader.testConnection();
-        
-        const statusEl = document.getElementById('githubStatus');
-        if (statusEl) {
-            if (connected.success) {
-                statusEl.className = 'github-status status-connected';
-                statusEl.textContent = `✅ Connected to ${connected.repoName}`;
-            } else {
-                statusEl.className = 'github-status status-disconnected';
-                statusEl.textContent = `❌ Connection failed`;
-            }
-        }
-    }, 2000);
-});
-
-// ================================
-// MAKE FUNCTIONS AVAILABLE GLOBALLY
-// ================================
-window.githubUploader = githubUploader;
-window.handleImageUploadWithGitHub = handleImageUploadWithGitHub;
-window.testGitHubConnection = testGitHubConnection;
-window.exportAndDeployToGitHub = exportAndDeployToGitHub;
-window.processArtworksForReorganization = processArtworksForReorganization;
-window.testSingleThumbnailGeneration = testSingleThumbnailGeneration;
-
+                margin-bottom: 

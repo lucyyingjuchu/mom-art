@@ -453,6 +453,14 @@ function updateLightboxUIText() {
             label.textContent = getLocalizedText(labelKeys[index]);
         }
     });
+    // Update spec labels
+    const specLabels = document.querySelectorAll('.spec-label');
+    const labelKeys = ['lightbox.yearLabel', 'lightbox.dimensionsLabel', 'lightbox.formatLabel'];
+    specLabels.forEach((label, index) => {
+        if (labelKeys[index]) {
+            label.textContent = getLocalizedText(labelKeys[index]);
+        }
+    });
     
     // Update zoom control tooltips if they exist
     const zoomInBtn = document.querySelector('.zoom-in-btn');

@@ -183,10 +183,10 @@ const LANGUAGE_DATA = {
         
         // Lightbox
         lightbox: {
-            availableStatus: "Original Art Available",
+            availableStatus: "Original Art Inquiry",
             soldStatus: "Original Art Sold",
             yearLabel: "Year",
-            dimensionsLabel: "Dimensions", 
+            dimensionsLabel: "Size(HxW cm)", 
             mediumLabel: "Medium",
             formatLabel: "Format",
             shareTitle: "Share Artwork",
@@ -507,10 +507,10 @@ const LANGUAGE_DATA = {
         
         // Lightbox
         lightbox: {
-            availableStatus: "原作可供購買",
+            availableStatus: "點此洽詢購買原作",
             soldStatus: "原作已售出",
             yearLabel: "年份",
-            dimensionsLabel: "尺寸",
+            dimensionsLabel: " 尺寸（高x寬 cm）",
             mediumLabel: "媒材", 
             formatLabel: "裝裱",
             shareTitle: "分享作品",
