@@ -75,6 +75,13 @@ exports.handler = async (event, context) => {
                     shipping_rate: 'shr_1S1d8J4OFXg8iiC4uCdQakec', // Replace with your actual Stripe shipping rate ID
                 }
             ],
+
+            // Add processing time message
+            custom_text: {
+                submit: {
+                    message: 'Processing time: Your artwork will be printed and prepared for shipping within 48 hours of order confirmation. Delivery time depends on your selected shipping method.'
+                }
+            },
             
             // Store minimal cart data in metadata
             metadata: {
