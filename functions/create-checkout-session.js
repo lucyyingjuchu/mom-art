@@ -54,7 +54,7 @@ exports.handler = async (event, context) => {
 
         // Create checkout session - let Stripe collect all customer data
         const session = await stripe.checkout.sessions.create({
-            payment_method_types: ['card', 'apple_pay', 'google_pay'],
+            payment_method_types: ['card'],
             line_items: lineItems,
             mode: 'payment',
             
@@ -73,6 +73,9 @@ exports.handler = async (event, context) => {
                 },
                 {
                     shipping_rate: 'shr_1S1d8J4OFXg8iiC4uCdQakec', // Replace with your actual Stripe shipping rate ID
+                },
+                {
+                    shipping_rate: 'shr_1S1vG44OFXg8iiC4pmBSa3zG', // Replace with your actual Stripe shipping rate ID
                 }
             ],
 
