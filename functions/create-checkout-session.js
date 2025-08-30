@@ -54,7 +54,7 @@ exports.handler = async (event, context) => {
 
         // Create checkout session - let Stripe collect all customer data
         const session = await stripe.checkout.sessions.create({
-            payment_method_types: ['card'],
+            payment_method_types: ['card', 'apple_pay', 'google_pay'],
             line_items: lineItems,
             mode: 'payment',
             
@@ -78,8 +78,8 @@ exports.handler = async (event, context) => {
 
             // Add processing time message
             custom_text: {
-                submit: {
-                    message: 'Processing time: Your artwork will be printed and prepared for shipping within 48 hours of order confirmation. Delivery time depends on your selected shipping method.'
+                shipping_address: {
+                    message: 'Processing time: Your artwork will be printed within 48 hours, then shipped via your selected method.'
                 }
             },
             

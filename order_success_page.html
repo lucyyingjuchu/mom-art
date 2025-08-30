@@ -294,12 +294,10 @@
                         "recipient": {
                             "first_name": shipping?.name?.split(' ')[0] || customer?.name?.split(' ')[0] || 'Customer',
                             "last_name": shipping?.name?.split(' ').slice(1).join(' ') || customer?.name?.split(' ').slice(1).join(' ') || 'Name',
-                            "company_name": "袁之霖曉然文化藝術工作室",
+                            "company_name": "Xiaoran Art Studio",
                             "address_1": shipping?.address?.line1 || '',
-                            "address_2": shipping?.address?.line2 || null,
-                            "address_3": null,
                             "city": shipping?.address?.city || '',
-                            "state_code": shipping?.address?.state || 'CA',
+                            "state_code": shipping?.address?.state || '',
                             "province": null,
                             "zip_postal_code": shipping?.address?.postal_code || '',
                             "country_code": shipping?.address?.country?.toLowerCase() || 'us',
@@ -324,11 +322,10 @@
                             "custom_data_2": `stripe_payment_id:${sessionData.payment_intent}`,
                             "custom_data_3": `stripe_session_id:${sessionData.id}`
                         })),
-                        "shipping_code": "SD",
+                        "shipping_code": selectedShippingCode,
                         "test_mode": true,
-                        "validate_only": false
+                        "validate_only": true
                     }],
-                    "validate_only": false
                 };
 
                 console.log('Finerworks order payload:', JSON.stringify(finerworksOrder, null, 2));
@@ -368,6 +365,20 @@
             }
         }
 
+        function mapShippingRateToFinerworksCode(shippingCost) {
+            if (!shippingCost || !shippingCost.shipping_rate) {
+                return 'SD'; // Default to standard
+            }
+            
+            const shippingMap = {
+                'shr_1S1cpp4OFXg8iiC4vaA3fYq5': 'EC',   // US Economy
+                'shr_1S1cqW4OFXg8iiC4eIIuG3qH': 'SD',   // US Standard  
+                'shr_1S1d8J4OFXg8iiC4uCdQakec': 'EX',   // US Express
+                'shr_1S1vG44OFXg8iiC4pmBSa3zG': 'SD'            // International Standard (also maps to SD)
+            };
+            
+            return shippingMap[shippingCost.shipping_rate] || 'SD';
+        }
         // New function to reconstruct full cart data
         async function reconstructCartData(minimalCartData) {
             try {
