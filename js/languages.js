@@ -198,9 +198,6 @@ const LANGUAGE_DATA = {
             originalDescription: 'High-resolution original details',
             roomDescription: 'Decorative effect in home',
             viewIndicator: 'Multiple Views',
-            // 🆕 新增購買按鈕
-            purchaseInquiry: "Purchase Inquiry",
-            inquireButton: "I'm Interested"
         },
         
         // 🆕 新增聯絡表單文字
@@ -522,8 +519,6 @@ const LANGUAGE_DATA = {
             originalDescription: '高清原作細節',
             roomDescription: '在家中的裝飾效果',
             viewIndicator: '多視圖',
-            purchaseInquiry: "購買詢價",
-            inquireButton: "我有興趣"
         },
 
         // 🆕 新增聯絡表單文字

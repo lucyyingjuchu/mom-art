@@ -445,14 +445,7 @@ function updateLightboxUIText() {
     const closeBtn = document.querySelector('.control-btn[onclick="closeLightbox()"]');
     if (closeBtn) closeBtn.title = getLocalizedText('lightbox.closeTitle');
     
-    // Update spec labels
-    const specLabels = document.querySelectorAll('.spec-label');
-    const labelKeys = ['lightbox.yearLabel', 'lightbox.dimensionsLabel', 'lightbox.formatLabel'];
-    specLabels.forEach((label, index) => {
-        if (labelKeys[index]) {
-            label.textContent = getLocalizedText(labelKeys[index]);
-        }
-    });
+
     // Update spec labels
     const specLabels = document.querySelectorAll('.spec-label');
     const labelKeys = ['lightbox.yearLabel', 'lightbox.dimensionsLabel', 'lightbox.formatLabel'];

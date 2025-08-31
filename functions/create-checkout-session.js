@@ -57,6 +57,17 @@ exports.handler = async (event, context) => {
             payment_method_types: ['card'],
             line_items: lineItems,
             mode: 'payment',
+
+            ui_mode: 'hosted',
+            appearance: {
+                theme: 'stripe',
+                variables: {
+                    fontSizeBase: '16px',        // Default is 14px
+                    fontSizeSm: '14px',          // Default is 12px  
+                    fontSizeLg: '18px',          // Default is 16px
+                    fontSizeXl: '20px'           // Default is 18px
+                }
+            },
             
             // Let Stripe collect shipping address and show shipping options
             shipping_address_collection: {

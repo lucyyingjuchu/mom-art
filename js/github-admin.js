@@ -65,7 +65,8 @@ function collectFormData(artworkId) {
         title: title,
         titleEn: '', // 英文版本之後翻譯
         category: 'paintings',
-        subcategory: document.getElementById('artworkSubcategory').value,
+        subcategory: (window.manualCategories || []).join(', '), // Use manual categories
+        manualCategories: window.manualCategories || [], // Store the array separately
         description: document.getElementById('artworkDescription').value.trim(),
         descriptionEn: '', // 英文版本之後翻譯
         curatorNote: document.getElementById('artworkCuratorNote').value.trim(),
@@ -88,6 +89,9 @@ function collectFormData(artworkId) {
         recent: parseInt(year) >= 2020,
         exhibitions: [],
         tags: [],
+        // NEW: Auto-categorization support
+        categories: [], // Will be populated by admin.html logic
+        autoCategories: { subjects: [], locations: [] }, // Will be populated by admin.html logic
         // Image paths will be set after upload
         image: '',
         imageHigh: ''
@@ -716,7 +720,14 @@ async function handleImageUploadWithGitHub(event) {
     
     try {
         // CRITICAL FIX: Collect complete form data including height/width
-        const completeFormData = collectFormData(artworkId);
+        // Use the admin.html form collection instead of github-admin.js
+        const completeFormData = {
+            id: artworkId,
+            title: document.getElementById('artworkTitle').value.trim(),
+            year: document.getElementById('artworkYear').value.trim(),
+            heightCm: parseFloat(document.getElementById('artworkHeight').value.trim()),
+            widthCm: parseFloat(document.getElementById('artworkWidth').value.trim())
+        };        
         console.log('🎯 Collected form data:', completeFormData);
         
         const progressContainer = createProgressIndicator();
