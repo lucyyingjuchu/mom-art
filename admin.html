@@ -311,11 +311,33 @@
             cursor: pointer;
             transition: all 0.3s ease;
             background: #f8f9fa;
+            position: relative;
         }
 
         .upload-area:hover {
             border-color: #3498db;
             background: #e3f2fd;
+        }
+
+        .upload-area.drag-over {
+            border-color: #27ae60;
+            background: #d4f7d4;
+            transform: scale(1.02);
+            box-shadow: 0 4px 20px rgba(39, 174, 96, 0.3);
+        }
+
+        .upload-area.drag-over::before {
+            content: "📁 放開以上傳圖片";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(39, 174, 96, 0.9);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: bold;
+            z-index: 10;
         }
 
         .preview-image {
@@ -1560,11 +1582,79 @@
         // Image upload handling - LOCAL PREVIEW ONLY (upload happens during publish)
         function setupImageUpload() {
             const imageInput = document.getElementById('imageInput');
+            const uploadArea = document.querySelector('.upload-area');
             
             // Use GitHub upload with immediate upload
             imageInput.addEventListener('change', handleImageUploadWithGitHub);
-            console.log('✅ 使用 GitHub 圖片上傳');
+            
+            // Add drag and drop functionality
+            setupDragAndDrop(uploadArea, imageInput);
+            
+            console.log('✅ 使用 GitHub 圖片上傳 + 拖放功能');
+        }
 
+        // Drag and Drop functionality
+        function setupDragAndDrop(uploadArea, fileInput) {
+            // Prevent default drag behaviors
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                uploadArea.addEventListener(eventName, preventDefaults, false);
+                document.body.addEventListener(eventName, preventDefaults, false);
+            });
+
+            // Highlight drop area when item is dragged over it
+            ['dragenter', 'dragover'].forEach(eventName => {
+                uploadArea.addEventListener(eventName, highlight, false);
+            });
+
+            ['dragleave', 'drop'].forEach(eventName => {
+                uploadArea.addEventListener(eventName, unhighlight, false);
+            });
+
+            // Handle dropped files
+            uploadArea.addEventListener('drop', handleDrop, false);
+
+            function preventDefaults(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+
+            function highlight(e) {
+                uploadArea.classList.add('drag-over');
+            }
+
+            function unhighlight(e) {
+                uploadArea.classList.remove('drag-over');
+            }
+
+            function handleDrop(e) {
+                const dt = e.dataTransfer;
+                const files = dt.files;
+
+                if (files.length > 0) {
+                    const file = files[0];
+                    
+                    // Validate file type
+                    if (!file.type.startsWith('image/')) {
+                        showMessage('請拖放圖片檔案！', 'warning');
+                        return;
+                    }
+
+                    // Validate file size
+                    if (file.size > 50 * 1024 * 1024) {
+                        showMessage('圖片太大，請使用 50MB 以下的圖片。', 'error');
+                        return;
+                    }
+
+                    // Create a file input event and trigger the existing handler
+                    const mockEvent = {
+                        target: {
+                            files: [file]
+                        }
+                    };
+
+                    handleImageUploadWithGitHub(mockEvent);
+                }
+            }
         }
 
         // Form submission
