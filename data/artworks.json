@@ -525,26 +525,43 @@
   {
     "id": "019891b0-f39c-7839-9ec1-f0013b25f208",
     "title": "雪壩煙雲",
-    "titleEn": "Snowy Dunes and Misty Clouds",
-    "image": "",
-    "imageHigh": "",
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "",
+    "manualCategories": [],
+    "categories": [
+      "landscape",
+      "flowingclouds"
+    ],
+    "autoCategories": {
+      "subjects": [
+        "landscape",
+        "flowingclouds"
+      ],
+      "locations": []
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7839-9ec1-f0013b25f208_thumb.png",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7839-9ec1-f0013b25f208_large.png",
     "description": "紛紛風雪遍茫茫，山徑登臨曲且長；行健乾坤常惠物，歲寒古柏漫留香。",
-    "descriptionEn": "In swirling winds and snow so vast, The mountain path winds long and cast; With steadfast strength, the world bestows, The ancient cypress scents the snows.",
-    "format": "軸",
-    "mediumEn": "",
-    "sizeCm": "135 × 70",
-    "sizeInches": "53.1×27.6 inches",
-    "year": "2011",
-    "price": "",
-    "available": "",
-    "featured": "",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll",
+    "format": "軸",
+    "formatEn": "",
+    "mediumEn": "",
     "heightCm": 135,
     "widthCm": 70,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "sizeCm": "135×70",
+    "sizeInches": "53.1×27.6",
+    "year": "2011",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "recent": false,
+    "exhibitions": [],
+    "tags": []
   },
   {
     "id": "019891b0-f39c-76d4-86ba-1ec281b83433",
