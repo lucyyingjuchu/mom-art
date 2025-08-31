@@ -525,15 +525,7 @@
             </div>
         </div>
 
-        <!-- Toolbar -->
-        <div class="toolbar">
-            <button class="btn btn-success" onclick="openAddModal()">
-                ➕ 新增作品
-            </button>
-            <div class="search-box">
-                <input type="text" id="searchInput" placeholder="搜尋作品..." onkeyup="filterArtworks()">
-            </div>
-        </div>
+
 
         <!-- Stats -->
         <div class="stats">
@@ -567,6 +559,19 @@
                     <h4>🗺️ 地點分類</h4>
                     <div class="secondary-filters" id="locationFilters">
                         <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Featured Filter (NEW) -->
+                <div class="filter-section">
+                    <h4>⭐ 精選狀態</h4>
+                    <div class="secondary-filters">
+                        <button class="filter-btn" data-filter-type="featured" data-filter-value="true">
+                            精選作品
+                        </button>
+                        <button class="filter-btn" data-filter-type="featured" data-filter-value="false">
+                            一般作品
+                        </button>
                     </div>
                 </div>
 
@@ -769,7 +774,8 @@
         let activeAdminFilters = {
             subject: [],
             location: [],
-            availability: []
+            availability: [],
+            featured: []
         };
         let allArtworks = []; // Keep original unfiltered list
                 
@@ -939,6 +945,17 @@
                 });
             }
         }
+
+        function generateSequentialId() {
+            // Generate a simple incremental ID based on existing artworks
+            const existingIds = allArtworks.map(a => {
+                const match = a.id.match(/(\d+)$/);
+                return match ? parseInt(match[1]) : 0;
+            });
+            const maxId = Math.max(...existingIds, 0);
+            return `artwork-${maxId + 1}`;
+        }
+
         // Check if editing should be disabled
         function checkEditingPermission() {
             if (!isConnected) {
@@ -953,6 +970,7 @@
             if (!checkEditingPermission()) return;
             
             currentEditingId = null;
+            manualCategories = []; // NEW: Clear manual categories
             document.getElementById('modalTitle').textContent = '新增作品';
             document.getElementById('artworkForm').reset();
             document.getElementById('artworkAvailable').checked = true;
@@ -1027,7 +1045,8 @@
             // Populate form fields
             document.getElementById('artworkTitle').value = artwork.title || '';
             document.getElementById('artworkYear').value = artwork.year || '';
-            document.getElementById('artworkSize').value = artwork.sizeCm || artwork.size || '';
+            document.getElementById('artworkHeight').value = artwork.heightCm || '';
+            document.getElementById('artworkWidth').value = artwork.widthCm || '';
             document.getElementById('artworkFormat').value = artwork.format || '';
             document.getElementById('artworkDescription').value = artwork.description || '';
             document.getElementById('artworkCuratorNote').value = artwork.curatorNote || '';
@@ -1035,7 +1054,16 @@
             document.getElementById('artworkFeatured').checked = artwork.featured === true || artwork.featured === 'true';
             document.getElementById('artworkAvailable').checked = artwork.available !== false && artwork.available !== 'false';
             document.getElementById('artworkPrice').value = artwork.price || '';
-            
+
+            // Populate manual categories if they exist
+            if (artwork.manualCategories && Array.isArray(artwork.manualCategories)) {
+                manualCategories = [...artwork.manualCategories];
+            } else {
+                manualCategories = [];
+            }
+            updateManualCategoriesDisplay();
+            updateCategoryPreview();
+
             // Show existing image
             const previewImg = document.getElementById('previewImage');
             const uploadText = document.getElementById('uploadText');
@@ -1388,11 +1416,11 @@
 
         // Utility functions
 
-        function renderArtworks() {
+        function renderArtworks(artworksToShow = artworks) {
             const grid = document.getElementById('artworksGrid');
             const searchTerm = document.getElementById('searchInput').value.toLowerCase();
             
-            const filteredArtworks = artworks.filter(artwork => {
+            const filteredArtworks = artworksToShow.filter(artwork => {
                 const title = (artwork.title || '').toLowerCase();
                 const description = (artwork.description || '').toLowerCase();
                 const year = (artwork.year || '').toString();
@@ -1440,10 +1468,10 @@
             }).join('');
         }
 
-        function updateStats() {
-            const total = artworks.length;
-            const featured = artworks.filter(a => a.featured === 'true' || a.featured === true).length;
-            const recent = artworks.filter(a => parseInt(a.year) >= 2020).length;
+        function updateStats(artworksToShow = allArtworks) {
+            const total = artworksToShow.length;
+            const featured = artworksToShow.filter(a => a.featured === 'true' || a.featured === true).length;
+            const recent = artworksToShow.filter(a => parseInt(a.year) >= 2020).length;
             
             document.getElementById('totalArtworks').textContent = total;
             document.getElementById('featuredCount').textContent = featured;
@@ -1543,7 +1571,13 @@
         document.addEventListener('DOMContentLoaded', function() {
             loadArtworks();
             setupImageUpload();
-            
+            setupCategoryInput(); // ADD THIS LINE
+
+            const titleInput = document.getElementById('artworkTitle');
+            if (titleInput) {
+                titleInput.addEventListener('input', updateCategoryPreview);
+            }
+
             // Check GitHub connection on startup
             setTimeout(checkGitHubConnection, 1000);
             
@@ -1668,7 +1702,18 @@
                     closeModal();
                 }
             }
+            // NEW: Add title change listener for auto-categorization preview
+            document.getElementById('artworkTitle').addEventListener('input', updateCategoryPreview);
+
+            // Modal close on outside click
+            window.onclick = function(event) {
+                const modal = document.getElementById('artworkModal');
+                if (event.target === modal) {
+                    closeModal();
+                }
+            }
         });
+
 
         // ADMIN FILTERING FUNCTIONS
         function generateAdminFilters() {
@@ -1789,6 +1834,16 @@
                 });
             }
 
+            // Apply featured filters
+            if (activeAdminFilters.featured.length > 0) {
+                filteredArtworks = filteredArtworks.filter(artwork => {
+                    return activeAdminFilters.featured.some(filter => {
+                        const featured = artwork.featured === true || artwork.featured === 'true';
+                        return filter === 'true' ? featured : !featured;
+                    });
+                });
+            }
+
             // Apply availability filters
             if (activeAdminFilters.availability.length > 0) {
                 filteredArtworks = filteredArtworks.filter(artwork => {
@@ -1805,9 +1860,9 @@
             }
 
             // Update the displayed artworks
-            artworks = filteredArtworks;
-            renderArtworks();
-            updateStats();
+            let displayArtworks = filteredArtworks;
+            renderArtworks(displayArtworks);
+            updateStats(displayArtworks);
 
             // Update results info
             const activeFilterCount = Object.values(activeAdminFilters).flat().length;
@@ -1833,7 +1888,8 @@
             activeAdminFilters = {
                 subject: [],
                 location: [],
-                availability: []
+                availability: [],
+                featured: [] 
             };
             artworks = [...allArtworks];
             renderArtworks();
