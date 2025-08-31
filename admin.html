@@ -547,8 +547,6 @@
             </div>
         </div>
 
-
-
         <!-- Stats -->
         <div class="stats">
             <div class="stat-card">
@@ -783,9 +781,9 @@
     <script src="./js/github-admin.js"></script>
 
     <script>
-        
-        // Global variables
-        let artworks = [];
+        // CRITICAL FIX: Global variables - Maintain data integrity
+        let allArtworks = []; // MASTER DATA - Never filter this array directly
+        let artworks = []; // DISPLAY DATA - Filtered version for UI
         let currentEditingId = null;
         let uploadedImages = {};
         let localDrafts = {}; // Store local drafts
@@ -799,9 +797,48 @@
             availability: [],
             featured: []
         };
-        let allArtworks = []; // Keep original unfiltered list
                 
         let manualCategories = [];// Track manual categories
+
+        // CRITICAL SAFETY FUNCTION: Always use this for GitHub updates
+        function getMasterArtworksArray() {
+            return allArtworks; // Always return the complete unfiltered array
+        }
+
+        // CRITICAL SAFETY FUNCTION: Update artwork in master array
+        function updateArtworkInMasterArray(artworkData) {
+            const index = allArtworks.findIndex(a => a.id === artworkData.id);
+            if (index !== -1) {
+                // Update existing artwork
+                allArtworks[index] = { ...artworkData };
+                console.log(`✅ Updated artwork ${artworkData.id} in master array`);
+            } else {
+                // Add new artwork
+                allArtworks.push({ ...artworkData });
+                console.log(`✅ Added new artwork ${artworkData.id} to master array`);
+            }
+            
+            // Update display array
+            artworks = [...allArtworks];
+            applyAdminFilters(); // Reapply current filters to display
+        }
+
+        // CRITICAL SAFETY FUNCTION: Remove artwork from master array
+        function removeArtworkFromMasterArray(artworkId) {
+            const originalLength = allArtworks.length;
+            allArtworks = allArtworks.filter(a => a.id !== artworkId);
+            
+            if (allArtworks.length < originalLength) {
+                console.log(`✅ Removed artwork ${artworkId} from master array`);
+                // Update display array
+                artworks = [...allArtworks];
+                applyAdminFilters(); // Reapply current filters to display
+                return true;
+            } else {
+                console.warn(`⚠️ Artwork ${artworkId} not found in master array`);
+                return false;
+            }
+        }
 
         // AUTO-CATEGORIZATION SYSTEM (same as portfolio.js)
         const CATEGORIZATION_RULES = {
@@ -1049,13 +1086,10 @@
             renderArtworks();
         }
 
-        // GitHub functions - NO LOCAL DEFINITIONS to avoid recursion
-        // These buttons will call window.functions directly via onclick handlers
-
         function editArtwork(id) {
             if (!checkEditingPermission()) return;
             
-            const artwork = artworks.find(a => a.id === id);
+            const artwork = allArtworks.find(a => a.id === id); // CRITICAL: Use master array
             if (!artwork) {
                 showMessage('找不到作品！', 'error');
                 return;
@@ -1118,10 +1152,10 @@
         }
 
         function showDeleteWithUndo(id) {
-            const artwork = artworks.find(a => a.id === id);
+            const artwork = allArtworks.find(a => a.id === id);
             if (!artwork) return;
 
-            // Remove from local array immediately
+            // Remove from display array immediately  
             artworks = artworks.filter(a => a.id !== id);
             renderArtworks();
             updateStats();
@@ -1151,7 +1185,8 @@
                 if (timeLeft <= 0) {
                     clearInterval(timer);
                     messageDiv.remove();
-                    // Actually delete from GitHub
+                    // Actually delete from GitHub - CRITICAL: Remove from master array
+                    removeArtworkFromMasterArray(id);
                     actuallyDeleteArtwork(id, artwork);
                     delete window.deletedArtwork;
                 }
@@ -1160,12 +1195,14 @@
 
         function undoDelete(id) {
             if (window.deletedArtwork && window.deletedArtwork.id === id) {
-                // Restore artwork
-                artworks.push(window.deletedArtwork.artwork);
+                // Restore artwork to master array
+                allArtworks.push(window.deletedArtwork.artwork);
                 window.deletedArtwork.messageDiv.remove();
                 delete window.deletedArtwork;
                 
-                renderArtworks();
+                // Update display
+                artworks = [...allArtworks];
+                applyAdminFilters(); // Reapply current filters
                 updateStats();
                 showMessage('刪除已取消，作品已復原。', 'success');
             }
@@ -1207,22 +1244,34 @@
                     // 等待所有刪除操作
                     await Promise.all(promises);
 
-                    // Update JSON - 這是最重要的步驟
-                    await window.githubUploader.updateArtworksJson(artworks);
+                    // CRITICAL FIX: Update JSON with master array
+                    const masterArray = getMasterArtworksArray();
+                    console.log(`🔒 SAFETY CHECK: Updating GitHub with ${masterArray.length} artworks (was: ${allArtworks.length})`);
+                    await window.githubUploader.updateArtworksJson(masterArray);
                     
                     showMessage(`作品「${artwork.title}」已永久刪除。網站將在 2-3 分鐘內更新。`, 'success');
                 } else {
                     showMessage('作品已在本地刪除。', 'info');
                 }
                 
-                // Sync with window
-                window.artworks = artworks;
+                // Sync with window - CRITICAL: Use master array
+                window.artworks = getMasterArtworksArray();
                 
             } catch (error) {
                 console.error('Failed to delete artwork:', error);
                 showMessage(`刪除作品失敗：${error.message || '未知錯誤'}`, 'error');
+                
+                // CRITICAL: Restore artwork to master array on error
+                if (artwork) {
+                    allArtworks.push(artwork);
+                    artworks = [...allArtworks];
+                    renderArtworks();
+                    updateStats();
+                    showMessage('刪除失敗，作品已恢復。', 'warning');
+                }
             }
         }
+
         // NEW: Check Netlify deployment status
         async function checkDeploymentStatus(startTime, artworkTitle) {
             const maxAttempts = 60;
@@ -1300,10 +1349,11 @@
                 }
             };
     
-    // 等待 10 秒後開始檢查（讓 Netlify 有時間開始部署）
-    setTimeout(checkStatus, 10000);
-}
-        // NEW: Publish function for individual artworks
+            // 等待 10 秒後開始檢查（讓 Netlify 有時間開始部署）
+            setTimeout(checkStatus, 10000);
+        }
+
+        // NEW: Publish function for individual artworks - CRITICAL FIX
         async function publishArtwork() {
             if (!checkEditingPermission()) return;
             
@@ -1356,21 +1406,16 @@
                 }
                 // else: keep existing image paths (no change)
 
-                // Update local artworks array
-                if (currentEditingId) {
-                    const index = artworks.findIndex(a => a.id === currentEditingId);
-                    if (index !== -1) {
-                        artworks[index] = draft;
-                    }
-                } else {
-                    artworks.push(draft);
-                }
+                // CRITICAL FIX: Update master array properly
+                updateArtworkInMasterArray(draft);
 
-                // Deploy to GitHub
+                // Deploy to GitHub - CRITICAL: Use master array
                 saveStatus.innerHTML = '🌐 更新網站中...';
                 
                 try {
-                    await window.githubUploader.updateArtworksJson(artworks);
+                    const masterArray = getMasterArtworksArray();
+                    console.log(`🔒 SAFETY CHECK: Publishing ${masterArray.length} artworks to GitHub`);
+                    await window.githubUploader.updateArtworksJson(masterArray);
                     
                     // Record deployment start time
                     const deployStartTime = Date.now();
@@ -1420,7 +1465,7 @@
                 }
                 
                 // Update displays
-                window.artworks = artworks;
+                window.artworks = getMasterArtworksArray();
                 renderArtworks();
                 updateStats();
                 
@@ -1449,12 +1494,12 @@
                 return title.includes(searchTerm) || description.includes(searchTerm) || year.includes(searchTerm);
             });
 
-            if (filteredArtworks.length === 0 && artworks.length === 0) {
+            if (filteredArtworks.length === 0 && allArtworks.length === 0) {
                 grid.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 3rem; color: #7f8c8d;"><h3>尚無作品</h3><p>點擊「新增作品」開始！</p></div>';
                 return;
             }
 
-            if (filteredArtworks.length === 0 && artworks.length > 0) {
+            if (filteredArtworks.length === 0 && allArtworks.length > 0) {
                 grid.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 3rem; color: #7f8c8d;"><h3>沒有符合的作品</h3><p>請嘗試其他搜尋關鍵字。</p></div>';
                 return;
             }
@@ -1521,17 +1566,20 @@
             }, 5000);
         }
 
-        // Load artworks and check GitHub connection
+        // Load artworks and check GitHub connection - CRITICAL FIX
         async function loadArtworks() {
             try {
                 const response = await fetch('./data/artworks.json');
                 const data = await response.json();
-                artworks = Array.isArray(data) ? data : [];
-                allArtworks = [...artworks]; // Keep unfiltered copy
+                
+                // CRITICAL: Set both arrays properly
+                allArtworks = Array.isArray(data) ? data : []; // Master data
+                artworks = [...allArtworks]; // Display data (copy)
                 
                 // Sync to window object for GitHub integration
-                window.artworks = artworks;
-                console.log(`✅ 載入並同步了 ${artworks.length} 件作品`);
+                window.artworks = getMasterArtworksArray();
+                console.log(`✅ 載入並同步了 ${allArtworks.length} 件作品到主陣列`);
+                console.log(`✅ 顯示陣列包含 ${artworks.length} 件作品`);
                 
                 renderArtworks();
                 updateStats();
@@ -1539,9 +1587,13 @@
             } catch (error) {
                 console.error('Error loading artworks:', error);
                 showMessage(`載入作品失敗：${error.message}`, 'error');
+                
+                // Initialize empty arrays on error
+                allArtworks = [];
+                artworks = [];
+                window.artworks = [];
             }
         }
-
 
         // Check GitHub connection and update UI
         async function checkGitHubConnection() {
@@ -1657,154 +1709,6 @@
             }
         }
 
-        // Form submission
-        document.addEventListener('DOMContentLoaded', function() {
-            loadArtworks();
-            setupImageUpload();
-            setupCategoryInput(); // ADD THIS LINE
-
-            const titleInput = document.getElementById('artworkTitle');
-            if (titleInput) {
-                titleInput.addEventListener('input', updateCategoryPreview);
-            }
-
-            // Check GitHub connection on startup
-            setTimeout(checkGitHubConnection, 1000);
-            
-            // Re-check connection every 30 seconds
-            setInterval(checkGitHubConnection, 30000);
-
-            // Form handler - NOW SAVES DRAFT LOCALLY
-            document.getElementById('artworkForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                if (!checkEditingPermission()) return;
-                
-                const title = document.getElementById('artworkTitle').value.trim();
-                const year = document.getElementById('artworkYear').value.trim();
-                const height = document.getElementById('artworkHeight').value.trim();
-                const width = document.getElementById('artworkWidth').value.trim();
-
-                if (!title || !year || !height || !width) {
-                    showMessage('標題、年份、高度和寬度為必填欄位！', 'error');
-                    return;
-                }
-                
-                const artworkId = currentEditingId || generateSequentialId();
-                
-                // Update uploaded image key if it was stored as 'pending'
-                if (uploadedImages['pending']) {
-                    uploadedImages[artworkId] = uploadedImages['pending'];
-                    delete uploadedImages['pending'];
-                }
-                
-                // Get existing artwork data if editing
-                let existingImagePath = '';
-                let existingImageHighPath = '';
-                if (currentEditingId) {
-                    const existingArtwork = artworks.find(a => a.id === currentEditingId);
-                    if (existingArtwork) {
-                        // Check if image was cleared
-                        if (uploadedImages[currentEditingId] && uploadedImages[currentEditingId].cleared) {
-                            existingImagePath = '';
-                            existingImageHighPath = '';
-                        } else {
-                            existingImagePath = existingArtwork.image || '';
-                            existingImageHighPath = existingArtwork.imageHigh || '';
-                        }
-                    }
-                }
-                
-                // AUTO-CATEGORIZATION: Get categories from title
-                const autoCategories = getAutoCategories(title);
-                const allCategories = [...autoCategories.subjects, ...autoCategories.locations];
-
-                // Add manual categories from the array
-                manualCategories.forEach(manualCategory => {
-                    if (!allCategories.includes(manualCategory)) {
-                        allCategories.push(manualCategory);
-                    }
-                });
-
-                const heightNum = parseFloat(height);
-                const widthNum = parseFloat(width);
-
-                const formData = {
-                    id: artworkId,
-                    title: title,
-                    titleEn: '', // 英文版本之後翻譯
-                    category: 'paintings',
-                    subcategory: manualCategories.join(', '), // Keep for backward compatibility
-                    manualCategories: manualCategories, // NEW: Store manual categories separately
-                    categories: allCategories, // NEW: Auto + manual categories
-                    autoCategories: autoCategories, // NEW: Keep breakdown for reference
-                    image: existingImagePath, // 保留原有圖片路徑
-                    imageHigh: existingImageHighPath, // 保留原有大圖路徑
-                    description: document.getElementById('artworkDescription').value.trim(),
-                    descriptionEn: '', // 英文版本之後翻譯
-                    curatorNote: document.getElementById('artworkCuratorNote').value.trim(),
-                    curatorNoteEn: '', // 英文版本之後翻譯
-                    format: document.getElementById('artworkFormat').value,
-                    formatEn: '', // 英文版本之後翻譯
-                    mediumEn: '', // 媒材英文版本之後翻譯
-                    // NEW: Separate dimension fields
-                    heightCm: heightNum,
-                    widthCm: widthNum,
-                    heightInches: parseFloat((heightNum / 2.54).toFixed(1)),
-                    widthInches: parseFloat((widthNum / 2.54).toFixed(1)),
-                    // LEGACY: For backward compatibility
-                    sizeCm: `${heightNum}×${widthNum}`,
-                    sizeInches: `${(heightNum / 2.54).toFixed(1)}×${(widthNum / 2.54).toFixed(1)}`,
-                    year: year,
-                    price: document.getElementById('artworkPrice').value.trim(),
-                    available: document.getElementById('artworkAvailable').checked,
-                    featured: document.getElementById('artworkFeatured').checked,
-                    recent: parseInt(year) >= 2020,
-                    exhibitions: [],
-                    tags: []
-                };
-                                
-                // 🔴 關鍵修正：檢查是否有已上傳的圖片路徑
-                if (uploadedImages[artworkId] && uploadedImages[artworkId].githubUpload) {
-                    formData.image = uploadedImages[artworkId].githubUpload.artworkData.image;
-                    formData.imageHigh = uploadedImages[artworkId].githubUpload.artworkData.imageHigh;
-                    console.log('使用已上傳的圖片路徑:', formData.image, formData.imageHigh);
-                }
-                
-                // Save as local draft
-                const draftId = currentEditingId || 'new';
-                localDrafts[draftId] = formData;
-                
-                console.log('草稿已保存:', draftId, formData);
-                
-                // Update UI
-                const publishBtn = document.getElementById('publishBtn');
-                const saveStatus = document.getElementById('saveStatus');
-                
-                publishBtn.disabled = false;
-                saveStatus.innerHTML = '⚠️ 草稿已儲存在本地 - 瀏覽器關閉將會遺失';
-                
-                showMessage(`草稿已儲存！包含 ${allCategories.length} 個分類標籤。點擊「發布」使其生效。`, 'success');            });
-            // Modal close on outside click
-            window.onclick = function(event) {
-                const modal = document.getElementById('artworkModal');
-                if (event.target === modal) {
-                    closeModal();
-                }
-            }
-            // NEW: Add title change listener for auto-categorization preview
-            document.getElementById('artworkTitle').addEventListener('input', updateCategoryPreview);
-
-            // Modal close on outside click
-            window.onclick = function(event) {
-                const modal = document.getElementById('artworkModal');
-                if (event.target === modal) {
-                    closeModal();
-                }
-            }
-        });
-
-
         // ADMIN FILTERING FUNCTIONS
         function generateAdminFilters() {
             if (!allArtworks.length) return;
@@ -1906,7 +1810,7 @@
         }
 
         function applyAdminFilters() {
-            let filteredArtworks = [...allArtworks];
+            let filteredArtworks = [...allArtworks]; // CRITICAL: Always start from master array
 
             // Apply subject filters
             if (activeAdminFilters.subject.length > 0) {
@@ -1949,14 +1853,14 @@
                 });
             }
 
-            // Update the displayed artworks
-            let displayArtworks = filteredArtworks;
-            renderArtworks(displayArtworks);
-            updateStats(displayArtworks);
+            // CRITICAL: Update ONLY the display array, never the master array
+            artworks = filteredArtworks;
+            renderArtworks(artworks);
+            updateStats(artworks);
 
             // Update results info
             const activeFilterCount = Object.values(activeAdminFilters).flat().length;
-            console.log(`🔍 Applied ${activeFilterCount} filters, showing ${filteredArtworks.length}/${allArtworks.length} artworks`);
+            console.log(`🔍 Applied ${activeFilterCount} filters, showing ${artworks.length}/${allArtworks.length} artworks`);
         }
 
         function updateAdminFilterUI() {
@@ -1981,6 +1885,8 @@
                 availability: [],
                 featured: [] 
             };
+            
+            // CRITICAL: Reset display array from master array
             artworks = [...allArtworks];
             renderArtworks();
             updateStats();
@@ -1997,7 +1903,7 @@
                 return;
             }
 
-            // Start from filtered results, then apply search
+            // CRITICAL: Start from master array, then apply filters
             let searchBase = [...allArtworks];
             
             // Apply existing filters first
@@ -2046,6 +1952,7 @@
                     sizeCm.includes(query);
             });
 
+            // CRITICAL: Update only display array
             artworks = searchResults;
             renderArtworks();
             updateStats();
@@ -2053,8 +1960,155 @@
             console.log(`🔍 Search "${query}": ${searchResults.length} results from ${searchBase.length} filtered artworks`);
         }
 
-        // Make functions globally available for integration
-        window.artworks = artworks;
+        // Form submission
+        document.addEventListener('DOMContentLoaded', function() {
+            loadArtworks();
+            setupImageUpload();
+            setupCategoryInput(); // ADD THIS LINE
+
+            const titleInput = document.getElementById('artworkTitle');
+            if (titleInput) {
+                titleInput.addEventListener('input', updateCategoryPreview);
+            }
+
+            // Check GitHub connection on startup
+            setTimeout(checkGitHubConnection, 1000);
+            
+            // Re-check connection every 30 seconds
+            setInterval(checkGitHubConnection, 30000);
+
+            // Form handler - NOW SAVES DRAFT LOCALLY
+            document.getElementById('artworkForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                if (!checkEditingPermission()) return;
+                
+                const title = document.getElementById('artworkTitle').value.trim();
+                const year = document.getElementById('artworkYear').value.trim();
+                const height = document.getElementById('artworkHeight').value.trim();
+                const width = document.getElementById('artworkWidth').value.trim();
+
+                if (!title || !year || !height || !width) {
+                    showMessage('標題、年份、高度和寬度為必填欄位！', 'error');
+                    return;
+                }
+                
+                const artworkId = currentEditingId || generateSequentialId();
+                
+                // Update uploaded image key if it was stored as 'pending'
+                if (uploadedImages['pending']) {
+                    uploadedImages[artworkId] = uploadedImages['pending'];
+                    delete uploadedImages['pending'];
+                }
+                
+                // Get existing artwork data if editing
+                let existingImagePath = '';
+                let existingImageHighPath = '';
+                if (currentEditingId) {
+                    const existingArtwork = allArtworks.find(a => a.id === currentEditingId);
+                    if (existingArtwork) {
+                        // Check if image was cleared
+                        if (uploadedImages[currentEditingId] && uploadedImages[currentEditingId].cleared) {
+                            existingImagePath = '';
+                            existingImageHighPath = '';
+                        } else {
+                            existingImagePath = existingArtwork.image || '';
+                            existingImageHighPath = existingArtwork.imageHigh || '';
+                        }
+                    }
+                }
+                
+                // AUTO-CATEGORIZATION: Get categories from title
+                const autoCategories = getAutoCategories(title);
+                const allCategories = [...autoCategories.subjects, ...autoCategories.locations];
+
+                // Add manual categories from the array
+                manualCategories.forEach(manualCategory => {
+                    if (!allCategories.includes(manualCategory)) {
+                        allCategories.push(manualCategory);
+                    }
+                });
+
+                const heightNum = parseFloat(height);
+                const widthNum = parseFloat(width);
+
+                const formData = {
+                    id: artworkId,
+                    title: title,
+                    titleEn: '', // 英文版本之後翻譯
+                    category: 'paintings',
+                    subcategory: manualCategories.join(', '), // Keep for backward compatibility
+                    manualCategories: manualCategories, // NEW: Store manual categories separately
+                    categories: allCategories, // NEW: Auto + manual categories
+                    autoCategories: autoCategories, // NEW: Keep breakdown for reference
+                    image: existingImagePath, // 保留原有圖片路徑
+                    imageHigh: existingImageHighPath, // 保留原有大圖路徑
+                    description: document.getElementById('artworkDescription').value.trim(),
+                    descriptionEn: '', // 英文版本之後翻譯
+                    curatorNote: document.getElementById('artworkCuratorNote').value.trim(),
+                    curatorNoteEn: '', // 英文版本之後翻譯
+                    format: document.getElementById('artworkFormat').value,
+                    formatEn: '', // 英文版本之後翻譯
+                    mediumEn: '', // 媒材英文版本之後翻譯
+                    // NEW: Separate dimension fields
+                    heightCm: heightNum,
+                    widthCm: widthNum,
+                    heightInches: parseFloat((heightNum / 2.54).toFixed(1)),
+                    widthInches: parseFloat((widthNum / 2.54).toFixed(1)),
+                    // LEGACY: For backward compatibility
+                    sizeCm: `${heightNum}×${widthNum}`,
+                    sizeInches: `${(heightNum / 2.54).toFixed(1)}×${(widthNum / 2.54).toFixed(1)}`,
+                    year: year,
+                    price: document.getElementById('artworkPrice').value.trim(),
+                    available: document.getElementById('artworkAvailable').checked,
+                    featured: document.getElementById('artworkFeatured').checked,
+                    recent: parseInt(year) >= 2020,
+                    exhibitions: [],
+                    tags: []
+                };
+                                
+                // 🔴 關鍵修正：檢查是否有已上傳的圖片路徑
+                if (uploadedImages[artworkId] && uploadedImages[artworkId].githubUpload) {
+                    formData.image = uploadedImages[artworkId].githubUpload.artworkData.image;
+                    formData.imageHigh = uploadedImages[artworkId].githubUpload.artworkData.imageHigh;
+                    console.log('使用已上傳的圖片路徑:', formData.image, formData.imageHigh);
+                }
+                
+                // Save as local draft
+                const draftId = currentEditingId || 'new';
+                localDrafts[draftId] = formData;
+                
+                console.log('草稿已保存:', draftId, formData);
+                
+                // Update UI
+                const publishBtn = document.getElementById('publishBtn');
+                const saveStatus = document.getElementById('saveStatus');
+                
+                publishBtn.disabled = false;
+                saveStatus.innerHTML = '⚠️ 草稿已儲存在本地 - 瀏覽器關閉將會遺失';
+                
+                showMessage(`草稿已儲存！包含 ${allCategories.length} 個分類標籤。點擊「發布」使其生效。`, 'success');            });
+            // Modal close on outside click
+            window.onclick = function(event) {
+                const modal = document.getElementById('artworkModal');
+                if (event.target === modal) {
+                    closeModal();
+                }
+            }
+            // NEW: Add title change listener for auto-categorization preview
+            document.getElementById('artworkTitle').addEventListener('input', updateCategoryPreview);
+
+            // Modal close on outside click
+            window.onclick = function(event) {
+                const modal = document.getElementById('artworkModal');
+                if (event.target === modal) {
+                    closeModal();
+                }
+            }
+        });
+
+        // Make functions globally available for integration - CRITICAL: Use safe functions
+        window.artworks = getMasterArtworksArray; // Return function, not array
         window.renderArtworks = renderArtworks;
         window.updateStats = updateStats;
         window.showMessage = showMessage;
