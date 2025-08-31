@@ -18,6 +18,23 @@
     "descriptionEn": "In the dance of water and moonlight, chaos unfolds, As heaven and earth in myriad forms behold. What essence do the seasons’ winds convey? Amidst the chill, the lone plum blossoms sway.",
     "formatEn": "Hanging Scroll",
     "sizeInches": "53.1×27.6 inches",
+    "heightCm": 135.0,
+    "widthCm": 70.0,
+    "heightInches": 53.1,
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowers",
+      "traditional"
+    ],
     "productViews": [
       {
         "type": "original",
@@ -34,24 +51,17 @@
         "description": "135×70cm 原作在客廳的效果"
       },
       {
-        "type": "print",
+        "type": "print-size1",
         "title": "限量版畫",
         "icon": "📄",
         "image": "./images/prints/019891b0-f39c-7cee-bc2d-85b83d7ced08_print.jpg",
         "description": "高品質藝術微噴版畫"
       },
       {
-        "type": "print-mockup",
+        "type": "print-size2",
         "icon": "🏠",
         "image": "./images/mockups/prints/019891b0-f39c-7cee-bc2d-85b83d7ced08_living.jpg",
         "description": "50×35cm 版畫在書房的效果"
-      },
-      {
-        "type": "packaging",
-        "title": "精美包裝",
-        "icon": "📦",
-        "image": "./images/packaging/019891b0-f39c-7cee-bc2d-85b83d7ced08_box.jpg",
-        "description": "專業裝裱與包裝"
       },
       {
         "type": "detail",
@@ -60,40 +70,7 @@
         "image": "./images/details/019891b0-f39c-7cee-bc2d-85b83d7ced08_detail.jpg",
         "description": "紙張質感與簽名細節"
       }
-    ],
-    "products": [
-      {
-        "type": "original",
-        "name": "原作",
-        "price": 45000,
-        "currency": "TWD",
-        "size": "135×70 cm",
-        "available": true,
-        "unique": true
-      },
-      {
-        "type": "print-large",
-        "name": "大尺寸限量版畫",
-        "price": 8000,
-        "currency": "TWD",
-        "size": "70×50 cm",
-        "edition": 20,
-        "available": true
-      },
-      {
-        "type": "print-medium",
-        "name": "中尺寸版畫",
-        "price": 4500,
-        "currency": "TWD",
-        "size": "50×35 cm",
-        "edition": 50,
-        "available": true
-      }
-    ],
-    "heightCm": 135,
-    "widthCm": 70,
-    "heightInches": 53.1,
-    "widthInches": 27.6
+    ]
   },
   {
     "id": "019891b0-f39c-752c-bde4-db1ef1f5529c",
@@ -118,8 +95,21 @@
     "recent": false,
     "exhibitions": [],
     "tags": [],
-    "heightCm": 70,
-    "widthCm": 135
+    "heightCm": 70.0,
+    "widthCm": 135.0,
+    "autoCategories": {
+      "subjects": [
+        "waterfall"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "waterfall",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-73f8-9534-0b7d90737bde",
@@ -140,10 +130,28 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
-    "heightCm": 180,
-    "widthCm": 90,
+    "heightCm": 180.0,
+    "widthCm": 90.0,
     "heightInches": 70.9,
-    "widthInches": 35.4
+    "widthInches": 35.4,
+    "autoCategories": {
+      "subjects": [
+        "landscape",
+        "flowingclouds"
+      ],
+      "locations": [
+        "huangshan"
+      ],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "flowingclouds",
+      "huangshan",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-70ac-a3d9-618efed1747a",
@@ -151,7 +159,7 @@
     "titleEn": "Ink Bamboo (Vertical)",
     "image": "",
     "imageHigh": "",
-    "description": null,
+    "description": "",
     "descriptionEn": "",
     "format": "軸",
     "mediumEn": "",
@@ -164,10 +172,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
-    "heightCm": 135,
-    "widthCm": 70,
+    "heightCm": 135.0,
+    "widthCm": 70.0,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "bamboo"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "bamboo",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-760d-a955-60c68a66d5be",
@@ -188,10 +209,30 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
-    "heightCm": 180,
-    "widthCm": 90,
+    "heightCm": 180.0,
+    "widthCm": 90.0,
     "heightInches": 70.9,
-    "widthInches": 35.4
+    "widthInches": 35.4,
+    "autoCategories": {
+      "subjects": [
+        "landscape",
+        "flowingclouds",
+        "flowers"
+      ],
+      "locations": [
+        "huangshan"
+      ],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "flowingclouds",
+      "flowers",
+      "huangshan",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7192-92e6-0e1d7d4a52dc",
@@ -212,10 +253,26 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 70,
-    "widthCm": 135,
+    "heightCm": 70.0,
+    "widthCm": 135.0,
     "heightInches": 27.6,
-    "widthInches": 53.1
+    "widthInches": 53.1,
+    "autoCategories": {
+      "subjects": [
+        "landscape"
+      ],
+      "locations": [
+        "grandcanyon"
+      ],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "grandcanyon",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7036-9ac1-cbed9f6f03e5",
@@ -236,10 +293,25 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
-    "heightCm": 135,
-    "widthCm": 70,
+    "heightCm": 135.0,
+    "widthCm": 70.0,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "flowingclouds",
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowingclouds",
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7692-b225-e725fef10f3e",
@@ -260,10 +332,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
-    "heightCm": 135,
-    "widthCm": 70,
+    "heightCm": 135.0,
+    "widthCm": 70.0,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "landscape"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7b65-ab7f-c36ec9a747df",
@@ -284,10 +369,25 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 90,
-    "widthCm": 180,
+    "heightCm": 90.0,
+    "widthCm": 180.0,
     "heightInches": 35.4,
-    "widthInches": 70.9
+    "widthInches": 70.9,
+    "autoCategories": {
+      "subjects": [
+        "landscape",
+        "flowingclouds"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "flowingclouds",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7186-94bc-b7109c05f639",
@@ -307,10 +407,25 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 135,
-    "widthCm": 70,
+    "heightCm": 135.0,
+    "widthCm": 70.0,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "waterfall",
+        "flowingclouds"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "waterfall",
+      "flowingclouds",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7f2c-96ed-160ad3c22a3f",
@@ -331,10 +446,25 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 95,
-    "widthCm": 65,
+    "heightCm": 95.0,
+    "widthCm": 65.0,
     "heightInches": 37.4,
-    "widthInches": 25.6
+    "widthInches": 25.6,
+    "autoCategories": {
+      "subjects": [
+        "landscape",
+        "flowingclouds"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "flowingclouds",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7bae-8206-f4788f507776",
@@ -355,10 +485,25 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
-    "heightCm": 135,
-    "widthCm": 70,
+    "heightCm": 135.0,
+    "widthCm": 70.0,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "flowingclouds",
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowingclouds",
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7a52-b635-427bdcdca491",
@@ -379,10 +524,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
-    "heightCm": 210,
-    "widthCm": 90,
+    "heightCm": 210.0,
+    "widthCm": 90.0,
     "heightInches": 82.7,
-    "widthInches": 35.4
+    "widthInches": 35.4,
+    "autoCategories": {
+      "subjects": [
+        "flowingclouds"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowingclouds",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7cc4-ae49-d25008e1409d",
@@ -403,10 +561,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 90,
-    "widthCm": 80,
+    "heightCm": 90.0,
+    "widthCm": 80.0,
     "heightInches": 35.4,
-    "widthInches": 31.5
+    "widthInches": 31.5,
+    "autoCategories": {
+      "subjects": [
+        "flowingclouds"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowingclouds",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-79f7-8cab-78ad04b8b05d",
@@ -427,10 +598,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
-    "heightCm": 135,
-    "widthCm": 70,
+    "heightCm": 135.0,
+    "widthCm": 70.0,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7a23-a18f-085445820f6c",
@@ -451,10 +635,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
-    "heightCm": 135,
-    "widthCm": 70,
+    "heightCm": 135.0,
+    "widthCm": 70.0,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7e69-8910-34d57c0a6589",
@@ -475,10 +672,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
-    "heightCm": 135,
-    "widthCm": 70,
+    "heightCm": 135.0,
+    "widthCm": 70.0,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-777e-98f4-ccdf31977c1d",
@@ -499,10 +709,25 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
-    "heightCm": 135,
-    "widthCm": 70,
+    "heightCm": 135.0,
+    "widthCm": 70.0,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "landscape",
+        "flowingclouds"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "flowingclouds",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7839-9ec1-f0013b25f208",
@@ -523,10 +748,25 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
-    "heightCm": 135,
-    "widthCm": 70,
+    "heightCm": 135.0,
+    "widthCm": 70.0,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "landscape",
+        "flowingclouds"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "flowingclouds",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-76d4-86ba-1ec281b83433",
@@ -547,10 +787,28 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
-    "heightCm": 180,
-    "widthCm": 90,
+    "heightCm": 180.0,
+    "widthCm": 90.0,
     "heightInches": 70.9,
-    "widthInches": 35.4
+    "widthInches": 35.4,
+    "autoCategories": {
+      "subjects": [
+        "landscape",
+        "flowingclouds"
+      ],
+      "locations": [
+        "alishan"
+      ],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "flowingclouds",
+      "alishan",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7bc8-ae41-7e14d730d294",
@@ -571,10 +829,25 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 23,
-    "widthCm": 35,
+    "heightCm": 23.0,
+    "widthCm": 35.0,
     "heightInches": 9.1,
-    "widthInches": 13.8
+    "widthInches": 13.8,
+    "autoCategories": {
+      "subjects": [
+        "flowingclouds",
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowingclouds",
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7e66-b993-7dabeab00451",
@@ -595,10 +868,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 35,
-    "widthCm": 23,
+    "heightCm": 35.0,
+    "widthCm": 23.0,
     "heightInches": 13.8,
-    "widthInches": 9.1
+    "widthInches": 9.1,
+    "autoCategories": {
+      "subjects": [
+        "waterfall"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "waterfall",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-77c9-85f0-4b4cc1b1ac5d",
@@ -618,10 +904,22 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 70,
-    "widthCm": 135,
+    "heightCm": 70.0,
+    "widthCm": 135.0,
     "heightInches": 27.6,
-    "widthInches": 53.1
+    "widthInches": 53.1,
+    "autoCategories": {
+      "subjects": [
+        "traditional"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-791c-b684-feeffacfd83b",
@@ -642,10 +940,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 70,
-    "widthCm": 70,
+    "heightCm": 70.0,
+    "widthCm": 70.0,
     "heightInches": 27.6,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "landscape"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7834-8476-a918927593ab",
@@ -666,10 +977,25 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 90,
-    "widthCm": 75,
+    "heightCm": 90.0,
+    "widthCm": 75.0,
     "heightInches": 35.4,
-    "widthInches": 29.5
+    "widthInches": 29.5,
+    "autoCategories": {
+      "subjects": [
+        "traditional"
+      ],
+      "locations": [
+        "longdong"
+      ],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "traditional",
+      "longdong"
+    ]
   },
   {
     "id": "019891b0-f39c-7220-b00b-be8e9249f911",
@@ -690,87 +1016,95 @@
     "descriptionEn": "In the garden of gourds, where leisure blooms, Serenity and grace unveil the innocence of the heart.",
     "formatEn": "Framed",
     "sizeInches": "27.6×10.6 inches",
-    "heightCm": 70,
-    "widthCm": 27,
+    "heightCm": 70.0,
+    "widthCm": 27.0,
     "heightInches": 27.6,
-    "widthInches": 10.6
+    "widthInches": 10.6,
+    "autoCategories": {
+      "subjects": [
+        "traditional"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-748f-a906-1de3f9f5b3b6",
     "title": "萬縷紫煙飛自在",
-    "titleEn": "",
-    "category": "paintings",
-    "subcategory": "花鳥",
-    "manualCategories": [
-      "花鳥"
-    ],
-    "categories": [
-      "flowingclouds",
-      "花鳥"
-    ],
+    "titleEn": "A Myriad of Violet Wisps in Free Flight",
+    "image": "",
+    "imageHigh": "",
+    "description": "萬縷紫煙飛自在，一枝藤影繫深情。",
+    "descriptionEn": "A myriad of violet wisps soar freely, While a single vine's shadow binds deep affection.",
+    "format": "軸",
+    "mediumEn": "",
+    "sizeCm": "70x70",
+    "sizeInches": "27.6×27.6 inches",
+    "year": "2017",
+    "price": "",
+    "available": "",
+    "featured": "",
+    "curatorNote": "",
+    "curatorNoteEn": "",
+    "formatEn": "Hanging Scroll",
+    "heightCm": 70.0,
+    "widthCm": 70.0,
+    "heightInches": 27.6,
+    "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
         "flowingclouds"
       ],
-      "locations": []
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
     },
-    "image": "./images/paintings/thumbnails/019891b0-f39c-748f-a906-1de3f9f5b3b6_thumb.png",
-    "imageHigh": "./images/paintings/large/019891b0-f39c-748f-a906-1de3f9f5b3b6_large.png",
-    "description": "萬縷紫煙飛自在，一枝藤影繫深情。",
-    "descriptionEn": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "format": "軸",
-    "formatEn": "",
-    "mediumEn": "",
-    "heightCm": 70,
-    "widthCm": 70,
-    "heightInches": 27.6,
-    "widthInches": 27.6,
-    "sizeCm": "70×70",
-    "sizeInches": "27.6×27.6",
-    "year": "2017",
-    "price": "",
-    "available": true,
-    "featured": false,
-    "recent": false,
-    "exhibitions": [],
-    "tags": []
+    "categories": [
+      "flowingclouds",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-76be-93c8-cf4233295e95",
     "title": "頌母恩",
-    "titleEn": "",
-    "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [],
-    "autoCategories": {
-      "subjects": [],
-      "locations": []
-    },
-    "image": "./images/paintings/thumbnails/019891b0-f39c-76be-93c8-cf4233295e95_thumb.png",
-    "imageHigh": "./images/paintings/large/019891b0-f39c-76be-93c8-cf4233295e95_large.png",
+    "titleEn": "Ode to Maternal Grace",
+    "image": "",
+    "imageHigh": "",
     "description": "誰言寸草心，報得三春暉。",
-    "descriptionEn": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
+    "descriptionEn": "The heart of a blade of grass, who would say, Can repay the warmth of spring's embrace?",
     "format": "框",
-    "formatEn": "",
     "mediumEn": "",
-    "heightCm": 45,
-    "widthCm": 70,
-    "heightInches": 17.7,
-    "widthInches": 27.6,
-    "sizeCm": "45×70",
-    "sizeInches": "17.7×27.6",
+    "sizeCm": "45x70",
+    "sizeInches": "17.7×27.6 inches",
     "year": "2017",
     "price": "",
-    "available": true,
-    "featured": false,
-    "recent": false,
-    "exhibitions": [],
-    "tags": []
+    "available": "",
+    "featured": "",
+    "curatorNote": "",
+    "curatorNoteEn": "",
+    "formatEn": "Framed",
+    "heightCm": 45.0,
+    "widthCm": 70.0,
+    "heightInches": 17.7,
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "traditional"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7a7e-b0e7-4bce5225a761",
@@ -791,10 +1125,22 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 75,
-    "widthCm": 140,
+    "heightCm": 75.0,
+    "widthCm": 140.0,
     "heightInches": 29.5,
-    "widthInches": 55.1
+    "widthInches": 55.1,
+    "autoCategories": {
+      "subjects": [
+        "traditional"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7a5f-a6de-f1a8172971f6",
@@ -815,10 +1161,30 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 140,
-    "widthCm": 75,
+    "heightCm": 140.0,
+    "widthCm": 75.0,
     "heightInches": 55.1,
-    "widthInches": 29.5
+    "widthInches": 29.5,
+    "autoCategories": {
+      "subjects": [
+        "landscape",
+        "flowingclouds",
+        "flowers"
+      ],
+      "locations": [
+        "hehuanshan"
+      ],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "flowingclouds",
+      "flowers",
+      "hehuanshan",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-74e9-9011-76112f5b97a4",
@@ -839,10 +1205,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
-    "heightCm": 135,
-    "widthCm": 70,
+    "heightCm": 135.0,
+    "widthCm": 70.0,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "bamboo"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "bamboo",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7b9e-bb65-6852f393b302",
@@ -863,10 +1242,26 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 68,
-    "widthCm": 40,
+    "heightCm": 68.0,
+    "widthCm": 40.0,
     "heightInches": 26.8,
-    "widthInches": 15.7
+    "widthInches": 15.7,
+    "autoCategories": {
+      "subjects": [
+        "landscape"
+      ],
+      "locations": [
+        "taroko"
+      ],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "taroko",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-78c6-9e86-b1be74fe48eb",
@@ -887,10 +1282,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 50,
-    "widthCm": 50,
+    "heightCm": 50.0,
+    "widthCm": 50.0,
     "heightInches": 19.7,
-    "widthInches": 19.7
+    "widthInches": 19.7,
+    "autoCategories": {
+      "subjects": [
+        "landscape"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7b84-a80e-a928e6c46860",
@@ -911,10 +1319,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 64,
-    "widthCm": 62,
+    "heightCm": 64.0,
+    "widthCm": 62.0,
     "heightInches": 25.2,
-    "widthInches": 24.4
+    "widthInches": 24.4,
+    "autoCategories": {
+      "subjects": [
+        "landscape"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-78c1-b44e-ae82a4e2d985",
@@ -935,10 +1356,25 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
-    "heightCm": 138,
-    "widthCm": 74,
+    "heightCm": 138.0,
+    "widthCm": 74.0,
     "heightInches": 54.3,
-    "widthInches": 29.1
+    "widthInches": 29.1,
+    "autoCategories": {
+      "subjects": [
+        "traditional"
+      ],
+      "locations": [
+        "huangshan"
+      ],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "traditional",
+      "huangshan"
+    ]
   },
   {
     "id": "019891b0-f39c-7507-aa0e-43acd4db1f68",
@@ -959,10 +1395,26 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 140,
-    "widthCm": 70,
+    "heightCm": 140.0,
+    "widthCm": 70.0,
     "heightInches": 55.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "landscape"
+      ],
+      "locations": [
+        "liushidanshan"
+      ],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "liushidanshan",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7136-84bc-3625d99f8651",
@@ -983,10 +1435,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 45,
-    "widthCm": 70,
+    "heightCm": 45.0,
+    "widthCm": 70.0,
     "heightInches": 17.7,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-745a-b6ad-58e4e8545268",
@@ -1007,10 +1472,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
-    "heightCm": 140,
-    "widthCm": 75,
+    "heightCm": 140.0,
+    "widthCm": 75.0,
     "heightInches": 55.1,
-    "widthInches": 29.5
+    "widthInches": 29.5,
+    "autoCategories": {
+      "subjects": [
+        "waterfall"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "waterfall",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7e85-8f83-fd90bbaf222d",
@@ -1031,10 +1509,22 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 45,
-    "widthCm": 70,
+    "heightCm": 45.0,
+    "widthCm": 70.0,
     "heightInches": 17.7,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "traditional"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-787c-a46f-62905fa86f16",
@@ -1055,10 +1545,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 70,
-    "widthCm": 45,
+    "heightCm": 70.0,
+    "widthCm": 45.0,
     "heightInches": 27.6,
-    "widthInches": 17.7
+    "widthInches": 17.7,
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-794f-912a-d6417dbb78df",
@@ -1079,10 +1582,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 70,
-    "widthCm": 70,
+    "heightCm": 70.0,
+    "widthCm": 70.0,
     "heightInches": 27.6,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "waterfall"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "waterfall",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-762f-9eff-b51334b7bf49",
@@ -1103,10 +1619,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 46,
-    "widthCm": 49,
+    "heightCm": 46.0,
+    "widthCm": 49.0,
     "heightInches": 18.1,
-    "widthInches": 19.3
+    "widthInches": 19.3,
+    "autoCategories": {
+      "subjects": [
+        "landscape"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-743e-911c-4c2ab5461afb",
@@ -1127,52 +1656,62 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 50,
-    "widthCm": 50,
+    "heightCm": 50.0,
+    "widthCm": 50.0,
     "heightInches": 19.7,
-    "widthInches": 19.7
+    "widthInches": 19.7,
+    "autoCategories": {
+      "subjects": [
+        "traditional"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7c93-99be-4338883f37f7",
     "title": "煙擁合歡－合歡梯田",
-    "titleEn": "",
-    "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "flowingclouds",
-      "hehuanshan"
-    ],
+    "titleEn": "Mist-Kissed Harmony: The Joyful Terraces",
+    "image": "",
+    "imageHigh": "",
+    "description": "煙擁合歡，霧潤良疇，碧山含笑，雲凝翠黛，天然節奏，有象文章，風光綿延，機趣無窮。",
+    "descriptionEn": "Embraced by mist, the joyful blooms unite, Dew-kissed fields in gentle light. Emerald hills wear a smiling grace, Clouds gather, painting nature's face. With rhythms born of nature's art, In every form, a tale to impart. Scenic vistas stretch far and wide, Endless charm in the world's tide.",
+    "format": "框",
+    "mediumEn": "",
+    "sizeCm": "135x70",
+    "sizeInches": "53.1×27.6 inches",
+    "year": "2018",
+    "price": "",
+    "available": "",
+    "featured": "",
+    "curatorNote": "",
+    "curatorNoteEn": "",
+    "formatEn": "Framed",
+    "heightCm": 135.0,
+    "widthCm": 70.0,
+    "heightInches": 53.1,
+    "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
         "flowingclouds"
       ],
       "locations": [
         "hehuanshan"
+      ],
+      "styles": [
+        "traditional"
       ]
     },
-    "image": "./images/paintings/thumbnails/019891b0-f39c-7c93-99be-4338883f37f7_thumb.png",
-    "imageHigh": "./images/paintings/large/019891b0-f39c-7c93-99be-4338883f37f7_large.png",
-    "description": "煙擁合歡，霧潤良疇，碧山含笑，雲凝翠黛，天然節奏，有象文章，風光綿延，機趣無窮。",
-    "descriptionEn": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "format": "框",
-    "formatEn": "",
-    "mediumEn": "",
-    "heightCm": 135,
-    "widthCm": 70,
-    "heightInches": 53.1,
-    "widthInches": 27.6,
-    "sizeCm": "135×70",
-    "sizeInches": "53.1×27.6",
-    "year": "2018",
-    "price": "",
-    "available": true,
-    "featured": false,
-    "recent": false,
-    "exhibitions": [],
-    "tags": []
+    "categories": [
+      "flowingclouds",
+      "hehuanshan",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-74e5-8201-1f0276798b75",
@@ -1193,10 +1732,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 30,
-    "widthCm": 70,
+    "heightCm": 30.0,
+    "widthCm": 70.0,
     "heightInches": 11.8,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "flowingclouds"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowingclouds",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7a34-89ac-966e1e93eb42",
@@ -1217,10 +1769,28 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 75,
-    "widthCm": 70,
+    "heightCm": 75.0,
+    "widthCm": 70.0,
     "heightInches": 29.5,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "landscape",
+        "flowingclouds"
+      ],
+      "locations": [
+        "yushan"
+      ],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "flowingclouds",
+      "yushan",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7694-879a-47c9954a100b",
@@ -1241,23 +1811,47 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 35,
-    "widthCm": 73,
+    "heightCm": 35.0,
+    "widthCm": 73.0,
     "heightInches": 13.8,
-    "widthInches": 28.7
+    "widthInches": 28.7,
+    "autoCategories": {
+      "subjects": [
+        "landscape"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7c9a-9ae8-6dccaca82b5f",
     "title": "穹蒼萬頃，是我家鄉。(黃山煙雲)",
-    "titleEn": "",
-    "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "landscape",
-      "flowingclouds",
-      "huangshan"
-    ],
+    "titleEn": "Vast Skies, My Homeland",
+    "image": "",
+    "imageHigh": "",
+    "description": "江山嬌麗，質樸蘊寓，法象流長，滋生不息，煙波勁湧，凌空無盡，古松盎然，造物機心；心與物遊，依仁由藝，筆寫天地，墨染雲霞，大鵬展翅，自在翱翔，穹蒼萬頃，是我家鄉。",
+    "descriptionEn": "The landscape is enchanting, rich in simplicity and depth, A legacy of form that flows endlessly, nurturing life anew. Waves rise fiercely, soaring into the boundless sky, Ancient pines flourish, a testament to nature's craft. With heart and matter in harmony, guided by virtue and art, I inscribe the universe with my brush, Inked with the hues of clouds at dusk. The great roc spreads its wings, soaring freely, The vast expanse of heaven is my homeland.",
+    "format": "鏡片",
+    "mediumEn": "",
+    "sizeCm": "360x150",
+    "sizeInches": "141.7×59.1 inches",
+    "year": "2018",
+    "price": "",
+    "available": "",
+    "featured": "",
+    "curatorNote": "",
+    "curatorNoteEn": "",
+    "formatEn": "Mounted Panel",
+    "heightCm": 360.0,
+    "widthCm": 150.0,
+    "heightInches": 141.7,
+    "widthInches": 59.1,
     "autoCategories": {
       "subjects": [
         "landscape",
@@ -1265,71 +1859,56 @@
       ],
       "locations": [
         "huangshan"
+      ],
+      "styles": [
+        "traditional"
       ]
     },
-    "image": "./images/paintings/thumbnails/019891b0-f39c-7c9a-9ae8-6dccaca82b5f_thumb.png",
-    "imageHigh": "./images/paintings/large/019891b0-f39c-7c9a-9ae8-6dccaca82b5f_large.png",
-    "description": "江山嬌麗，質樸蘊寓，法象流長，滋生不息，煙波勁湧，凌空無盡，古松盎然，造物機心；心與物遊，依仁由藝，筆寫天地，墨染雲霞，大鵬展翅，自在翱翔，穹蒼萬頃，是我家鄉。",
-    "descriptionEn": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "format": "鏡片",
-    "formatEn": "",
-    "mediumEn": "",
-    "heightCm": 360,
-    "widthCm": 150,
-    "heightInches": 141.7,
-    "widthInches": 59.1,
-    "sizeCm": "360×150",
-    "sizeInches": "141.7×59.1",
-    "year": "2018",
-    "price": "",
-    "available": true,
-    "featured": false,
-    "recent": false,
-    "exhibitions": [],
-    "tags": []
+    "categories": [
+      "landscape",
+      "flowingclouds",
+      "huangshan",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7f16-a8d3-c83d48beb81e",
     "title": "筆走雷霆萬壑鳴－夏瀑",
-    "titleEn": "",
-    "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "waterfall",
-      "landscape"
-    ],
+    "titleEn": "Thunderous Brushstrokes over Summer Falls",
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7f16-a8d3-c83d48beb81e_thumb.jpg",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7f16-a8d3-c83d48beb81e_large.jpg",
+    "description": "墨潑飛瀑三千尺，筆走雷霆萬壑鳴。",
+    "descriptionEn": "Inky splashes cascade three thousand feet, As the brush dances, thunder echoes through the valleys deep.",
+    "format": "軸",
+    "mediumEn": "",
+    "sizeCm": "140x75",
+    "sizeInches": "55.1×29.5 inches",
+    "year": "2018",
+    "price": "",
+    "available": "",
+    "featured": "true",
+    "curatorNote": "",
+    "curatorNoteEn": "",
+    "formatEn": "Hanging Scroll",
+    "heightCm": 140.0,
+    "widthCm": 75.0,
+    "heightInches": 55.1,
+    "widthInches": 29.5,
     "autoCategories": {
       "subjects": [
         "waterfall",
         "landscape"
       ],
-      "locations": []
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
     },
-    "image": "./images/paintings/thumbnails/019891b0-f39c-7f16-a8d3-c83d48beb81e_thumb.jpg",
-    "imageHigh": "./images/paintings/large/019891b0-f39c-7f16-a8d3-c83d48beb81e_large.jpg",
-    "description": "墨潑飛瀑三千尺，筆走雷霆萬壑鳴。",
-    "descriptionEn": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "format": "軸",
-    "formatEn": "",
-    "mediumEn": "",
-    "heightCm": 140,
-    "widthCm": 75,
-    "heightInches": 55.1,
-    "widthInches": 29.5,
-    "sizeCm": "140×75",
-    "sizeInches": "55.1×29.5",
-    "year": "2018",
-    "price": "",
-    "available": true,
-    "featured": false,
-    "recent": false,
-    "exhibitions": [],
-    "tags": []
+    "categories": [
+      "waterfall",
+      "landscape",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7643-8153-14cf32b528bc",
@@ -1350,10 +1929,25 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 90,
-    "widthCm": 180,
+    "heightCm": 90.0,
+    "widthCm": 180.0,
     "heightInches": 35.4,
-    "widthInches": 70.9
+    "widthInches": 70.9,
+    "autoCategories": {
+      "subjects": [
+        "flowingclouds",
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowingclouds",
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7a2d-b50f-e9e6ec2e46b7",
@@ -1374,10 +1968,28 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 75,
-    "widthCm": 140,
+    "heightCm": 75.0,
+    "widthCm": 140.0,
     "heightInches": 29.5,
-    "widthInches": 55.1
+    "widthInches": 55.1,
+    "autoCategories": {
+      "subjects": [
+        "landscape",
+        "flowers"
+      ],
+      "locations": [
+        "guishandao"
+      ],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "flowers",
+      "guishandao",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-77f0-b10f-4fece05d42ba",
@@ -1397,10 +2009,25 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 140,
-    "widthCm": 75,
+    "heightCm": 140.0,
+    "widthCm": 75.0,
     "heightInches": 55.1,
-    "widthInches": 29.5
+    "widthInches": 29.5,
+    "autoCategories": {
+      "subjects": [
+        "waterfall",
+        "flowingclouds"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "waterfall",
+      "flowingclouds",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7f1a-99db-36b8e31758cb",
@@ -1421,10 +2048,22 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 68,
-    "widthCm": 68,
+    "heightCm": 68.0,
+    "widthCm": 68.0,
     "heightInches": 26.8,
-    "widthInches": 26.8
+    "widthInches": 26.8,
+    "autoCategories": {
+      "subjects": [
+        "traditional"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7e21-ae47-81a6092c5a54",
@@ -1445,10 +2084,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 70,
-    "widthCm": 70,
+    "heightCm": 70.0,
+    "widthCm": 70.0,
     "heightInches": 27.6,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7cd6-a030-0406121e5164",
@@ -1469,49 +2121,134 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
-    "heightCm": 180,
-    "widthCm": 90,
+    "heightCm": 180.0,
+    "widthCm": 90.0,
     "heightInches": 70.9,
-    "widthInches": 35.4
+    "widthInches": 35.4,
+    "autoCategories": {
+      "subjects": [
+        "landscape",
+        "flowingclouds"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "flowingclouds",
+      "traditional"
+    ]
+  },
+  {
+    "id": "019891b0-f39c-75ab-8723-7343f4a21f61",
+    "title": "雲煙萬頃，飛瀑千潯。―筆寫深心師造化",
+    "titleEn": "Vast Clouds and Cascading Falls: A Heartfelt Tribute to Nature",
+    "image": "",
+    "imageHigh": "",
+    "description": "雲煙萬頃春山好，飛瀑千潯落曉天；筆寫深心師造化，悠悠流水向人間。",
+    "descriptionEn": "In the vast expanse of spring mountains, clouds and mist weave a splendid scene; As waterfalls cascade in myriad streams, they greet the dawn's gentle embrace. With pen, I inscribe the depths of my heart, shaped by nature's hand; While the flowing waters meander softly, carrying whispers to the world of men.",
+    "format": "軸",
+    "mediumEn": "",
+    "sizeCm": "180x90",
+    "sizeInches": "70.9×35.4 inches",
+    "year": "2019",
+    "price": "",
+    "available": "",
+    "featured": "",
+    "curatorNote": "",
+    "curatorNoteEn": "",
+    "formatEn": "Hanging Scroll",
+    "heightCm": 180.0,
+    "widthCm": 90.0,
+    "heightInches": 70.9,
+    "widthInches": 35.4,
+    "autoCategories": {
+      "subjects": [
+        "waterfall",
+        "flowingclouds"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "waterfall",
+      "flowingclouds",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7614-95c9-2db8260fcc98",
     "title": "臨懷仁集王羲之聖教序",
-    "titleEn": "",
-    "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "calligraphy"
-    ],
+    "titleEn": "Homage to Wang Xizhi: The Sacred Teachings",
+    "image": "",
+    "imageHigh": "",
+    "description": null,
+    "descriptionEn": "",
+    "format": "軸",
+    "mediumEn": "",
+    "sizeCm": "180x90",
+    "sizeInches": "70.9×35.4 inches",
+    "year": "2020",
+    "price": "",
+    "available": "",
+    "featured": "",
+    "curatorNote": "",
+    "curatorNoteEn": "",
+    "formatEn": "Hanging Scroll",
+    "heightCm": 180.0,
+    "widthCm": 90.0,
+    "heightInches": 70.9,
+    "widthInches": 35.4,
     "autoCategories": {
       "subjects": [
         "calligraphy"
       ],
-      "locations": []
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
     },
-    "image": "./images/paintings/thumbnails/019891b0-f39c-7614-95c9-2db8260fcc98_thumb.png",
-    "imageHigh": "./images/paintings/large/019891b0-f39c-7614-95c9-2db8260fcc98_large.png",
-    "description": "",
-    "descriptionEn": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "format": "軸",
-    "formatEn": "",
+    "categories": [
+      "calligraphy",
+      "traditional"
+    ]
+  },
+  {
+    "id": "019891b0-f39c-78e0-88f5-2567b5518c8b",
+    "title": "菩提花開照眼明",
+    "titleEn": "Bodhi Blossoms Illuminate",
+    "image": "./images/paintings/thumbnails/019891b0-f39c-78e0-88f5-2567b5518c8b_thumb.jpg",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-78e0-88f5-2567b5518c8b_large.jpg",
+    "description": "菩提花開照眼明",
+    "descriptionEn": "The Bodhi blossoms bloom, illuminating the eyes.",
+    "format": "框",
     "mediumEn": "",
-    "heightCm": 180,
-    "widthCm": 90,
-    "heightInches": 70.9,
-    "widthInches": 35.4,
-    "sizeCm": "180×90",
-    "sizeInches": "70.9×35.4",
+    "sizeCm": null,
+    "sizeInches": "",
     "year": "2020",
     "price": "",
-    "available": true,
-    "featured": false,
-    "recent": true,
-    "exhibitions": [],
-    "tags": []
+    "available": "",
+    "featured": "",
+    "curatorNote": "",
+    "curatorNoteEn": "",
+    "formatEn": "Framed",
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7f2c-b8af-cbff485e10a5",
@@ -1532,10 +2269,26 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
-    "heightCm": 140,
-    "widthCm": 75,
+    "heightCm": 140.0,
+    "widthCm": 75.0,
     "heightInches": 55.1,
-    "widthInches": 29.5
+    "widthInches": 29.5,
+    "autoCategories": {
+      "subjects": [
+        "waterfall"
+      ],
+      "locations": [
+        "iguazu"
+      ],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "waterfall",
+      "iguazu",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-728f-a1de-1b6a07cf80ff",
@@ -1556,10 +2309,22 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 45,
-    "widthCm": 72,
+    "heightCm": 45.0,
+    "widthCm": 72.0,
     "heightInches": 17.7,
-    "widthInches": 28.3
+    "widthInches": 28.3,
+    "autoCategories": {
+      "subjects": [
+        "traditional"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7c2c-ab3a-8f771d7ff31d",
@@ -1580,10 +2345,25 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
-    "heightCm": 140,
-    "widthCm": 75,
+    "heightCm": 140.0,
+    "widthCm": 75.0,
     "heightInches": 55.1,
-    "widthInches": 29.5
+    "widthInches": 29.5,
+    "autoCategories": {
+      "subjects": [
+        "traditional"
+      ],
+      "locations": [
+        "hehuanshan"
+      ],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "traditional",
+      "hehuanshan"
+    ]
   },
   {
     "id": "019891b0-f39c-73e0-a9c8-0c6ccf4ed87d",
@@ -1604,10 +2384,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Circular Frame",
-    "heightCm": 70,
-    "widthCm": 70,
+    "heightCm": 70.0,
+    "widthCm": 70.0,
     "heightInches": 27.6,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "landscape"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-707a-916d-101340f43f14",
@@ -1628,10 +2421,22 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 68,
-    "widthCm": 68,
+    "heightCm": 68.0,
+    "widthCm": 68.0,
     "heightInches": 26.8,
-    "widthInches": 26.8
+    "widthInches": 26.8,
+    "autoCategories": {
+      "subjects": [
+        "traditional"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7d35-bec5-bd039ad8684f",
@@ -1652,10 +2457,62 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 45,
-    "widthCm": 72,
+    "heightCm": 45.0,
+    "widthCm": 72.0,
     "heightInches": 17.7,
-    "widthInches": 28.3
+    "widthInches": 28.3,
+    "autoCategories": {
+      "subjects": [
+        "landscape",
+        "flowingclouds"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "flowingclouds",
+      "traditional"
+    ]
+  },
+  {
+    "id": "019891b0-f39c-709e-9b48-d9ee6677ac10",
+    "title": "墨染雲山參造化-桃花源",
+    "titleEn": "Inky Peaks and the Peach Blossom Spring",
+    "image": "",
+    "imageHigh": "",
+    "description": "墨染雲山參造化，桃江兩岸正逢春。",
+    "descriptionEn": "Inky hues stain the cloud-kissed peaks, While spring graces both banks of Peach River.",
+    "format": "框",
+    "mediumEn": "",
+    "sizeCm": null,
+    "sizeInches": "",
+    "year": "2021",
+    "price": "",
+    "available": "",
+    "featured": "",
+    "curatorNote": "",
+    "curatorNoteEn": "",
+    "formatEn": "Framed",
+    "autoCategories": {
+      "subjects": [
+        "landscape",
+        "flowingclouds",
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "flowingclouds",
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7691-bb11-877c6b6634e9",
@@ -1676,10 +2533,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 70,
-    "widthCm": 70,
+    "heightCm": 70.0,
+    "widthCm": 70.0,
     "heightInches": 27.6,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7817-98ab-ec870aa5b2aa",
@@ -1700,10 +2570,28 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 153,
-    "widthCm": 263,
+    "heightCm": 153.0,
+    "widthCm": 263.0,
     "heightInches": 60.2,
-    "widthInches": 103.5
+    "widthInches": 103.5,
+    "autoCategories": {
+      "subjects": [
+        "waterfall",
+        "calligraphy"
+      ],
+      "locations": [
+        "iguazu"
+      ],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "waterfall",
+      "calligraphy",
+      "iguazu",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7e9f-b136-621667022a8e",
@@ -1724,10 +2612,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 68,
-    "widthCm": 68,
+    "heightCm": 68.0,
+    "widthCm": 68.0,
     "heightInches": 26.8,
-    "widthInches": 26.8
+    "widthInches": 26.8,
+    "autoCategories": {
+      "subjects": [
+        "landscape"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-770a-b647-6b0a8efdc639",
@@ -1748,10 +2649,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 70,
-    "widthCm": 70,
+    "heightCm": 70.0,
+    "widthCm": 70.0,
     "heightInches": 27.6,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7b7d-8e54-83ae4f652136",
@@ -1772,10 +2686,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
-    "heightCm": 135,
-    "widthCm": 70,
+    "heightCm": 135.0,
+    "widthCm": 70.0,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-78da-b5ed-b11a0a0e8bb1",
@@ -1796,10 +2723,26 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 60,
-    "widthCm": 90,
+    "heightCm": 60.0,
+    "widthCm": 90.0,
     "heightInches": 23.6,
-    "widthInches": 35.4
+    "widthInches": 35.4,
+    "autoCategories": {
+      "subjects": [
+        "landscape"
+      ],
+      "locations": [
+        "longdong"
+      ],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "longdong",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7eb1-abf3-a892d0a3a655",
@@ -1820,10 +2763,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 70,
-    "widthCm": 45,
+    "heightCm": 70.0,
+    "widthCm": 45.0,
     "heightInches": 27.6,
-    "widthInches": 17.7
+    "widthInches": 17.7,
+    "autoCategories": {
+      "subjects": [
+        "calligraphy"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "calligraphy",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-75cd-bee9-3e517cf83161",
@@ -1844,10 +2800,22 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 70,
-    "widthCm": 45,
+    "heightCm": 70.0,
+    "widthCm": 45.0,
     "heightInches": 27.6,
-    "widthInches": 17.7
+    "widthInches": 17.7,
+    "autoCategories": {
+      "subjects": [
+        "traditional"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7038-a32d-0f2d0cb36be8",
@@ -1868,10 +2836,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 70,
-    "widthCm": 45,
+    "heightCm": 70.0,
+    "widthCm": 45.0,
     "heightInches": 27.6,
-    "widthInches": 17.7
+    "widthInches": 17.7,
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-755d-a7dc-fb045eb4ef1c",
@@ -1891,10 +2872,25 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 70,
-    "widthCm": 70,
+    "heightCm": 70.0,
+    "widthCm": 70.0,
     "heightInches": 27.6,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "traditional"
+      ],
+      "locations": [
+        "zhangjiajie"
+      ],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "traditional",
+      "zhangjiajie"
+    ]
   },
   {
     "id": "019891b0-f39c-7bfb-9266-f832146002dd",
@@ -1915,10 +2911,25 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 70,
-    "widthCm": 70,
+    "heightCm": 70.0,
+    "widthCm": 70.0,
     "heightInches": 27.6,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "traditional"
+      ],
+      "locations": [
+        "zhangjiajie"
+      ],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "traditional",
+      "zhangjiajie"
+    ]
   },
   {
     "id": "019891b0-f39c-7e6a-a74c-8f5ec5c50381",
@@ -1939,10 +2950,25 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
-    "heightCm": 135,
-    "widthCm": 70,
+    "heightCm": 135.0,
+    "widthCm": 70.0,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "flowers",
+        "calligraphy"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowers",
+      "calligraphy",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7fd8-9336-d5c9897af012",
@@ -1963,10 +2989,22 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 70,
-    "widthCm": 70,
+    "heightCm": 70.0,
+    "widthCm": 70.0,
     "heightInches": 27.6,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "traditional"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7aff-a45f-54ed6d61069b",
@@ -1987,10 +3025,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
-    "heightCm": 140,
-    "widthCm": 75,
+    "heightCm": 140.0,
+    "widthCm": 75.0,
     "heightInches": 55.1,
-    "widthInches": 29.5
+    "widthInches": 29.5,
+    "autoCategories": {
+      "subjects": [
+        "waterfall"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "waterfall",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7af0-82e2-2e72570b0aa1",
@@ -2011,10 +3062,22 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 70,
-    "widthCm": 45,
+    "heightCm": 70.0,
+    "widthCm": 45.0,
     "heightInches": 27.6,
-    "widthInches": 17.7
+    "widthInches": 17.7,
+    "autoCategories": {
+      "subjects": [
+        "traditional"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-78dc-adb1-0aa1b3b74a00",
@@ -2035,10 +3098,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 46,
-    "widthCm": 93,
+    "heightCm": 46.0,
+    "widthCm": 93.0,
     "heightInches": 18.1,
-    "widthInches": 36.6
+    "widthInches": 36.6,
+    "autoCategories": {
+      "subjects": [
+        "flowingclouds"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowingclouds",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7597-8177-ccdf69e29071",
@@ -2059,10 +3135,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 63,
-    "widthCm": 93,
+    "heightCm": 63.0,
+    "widthCm": 93.0,
     "heightInches": 24.8,
-    "widthInches": 36.6
+    "widthInches": 36.6,
+    "autoCategories": {
+      "subjects": [
+        "landscape"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7823-8592-e3871b17c028",
@@ -2083,10 +3172,60 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 70,
-    "widthCm": 70,
+    "heightCm": 70.0,
+    "widthCm": 70.0,
     "heightInches": 27.6,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowers",
+      "traditional"
+    ]
+  },
+  {
+    "id": "019891b0-f39c-79cc-97f9-db3f878f6bed",
+    "title": "牡丹-雍容華滋舞清和",
+    "titleEn": "Peony - Graceful Elegance in Serene Harmony",
+    "image": "",
+    "imageHigh": "",
+    "description": "雍容華滋舞清和",
+    "descriptionEn": "The graceful elegance dances in serene harmony.",
+    "format": "框",
+    "mediumEn": "",
+    "sizeCm": "70x45",
+    "sizeInches": "27.6×17.7 inches",
+    "year": "2021",
+    "price": "",
+    "available": "",
+    "featured": "",
+    "curatorNote": "",
+    "curatorNoteEn": "",
+    "formatEn": "Framed",
+    "heightCm": 70.0,
+    "widthCm": 45.0,
+    "heightInches": 27.6,
+    "widthInches": 17.7,
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7edc-9801-8bc9199124f3",
@@ -2105,7 +3244,20 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "autoCategories": {
+      "subjects": [
+        "flowingclouds"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowingclouds",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7c4a-a8f5-77fdf9b0873a",
@@ -2126,10 +3278,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 70,
-    "widthCm": 45,
+    "heightCm": 70.0,
+    "widthCm": 45.0,
     "heightInches": 27.6,
-    "widthInches": 17.7
+    "widthInches": 17.7,
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-793d-819d-6c57e1716730",
@@ -2150,10 +3315,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
-    "heightCm": 135,
-    "widthCm": 70,
+    "heightCm": 135.0,
+    "widthCm": 70.0,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7c00-a038-c6c7bb860cbf",
@@ -2174,10 +3352,22 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
-    "heightCm": 135,
-    "widthCm": 70,
+    "heightCm": 135.0,
+    "widthCm": 70.0,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "traditional"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-73b5-88ac-2d98332bfd68",
@@ -2198,10 +3388,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 70,
-    "widthCm": 135,
+    "heightCm": 70.0,
+    "widthCm": 135.0,
     "heightInches": 27.6,
-    "widthInches": 53.1
+    "widthInches": 53.1,
+    "autoCategories": {
+      "subjects": [
+        "calligraphy"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "calligraphy",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7841-9423-b51b365a7b9c",
@@ -2222,10 +3425,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 70,
-    "widthCm": 70,
+    "heightCm": 70.0,
+    "widthCm": 70.0,
     "heightInches": 27.6,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7df5-a02e-1cc15d22bb57",
@@ -2246,10 +3462,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
-    "heightCm": 190,
-    "widthCm": 140,
+    "heightCm": 190.0,
+    "widthCm": 140.0,
     "heightInches": 74.8,
-    "widthInches": 55.1
+    "widthInches": 55.1,
+    "autoCategories": {
+      "subjects": [
+        "landscape"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7871-b204-09fa520d0d23",
@@ -2274,8 +3503,21 @@
     "recent": true,
     "exhibitions": [],
     "tags": [],
-    "heightCm": 70,
-    "widthCm": 45
+    "heightCm": 70.0,
+    "widthCm": 45.0,
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-79ee-915a-34d3aa1decd1",
@@ -2296,10 +3538,27 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Mounted Panel",
-    "heightCm": 135,
-    "widthCm": 70,
+    "heightCm": 135.0,
+    "widthCm": 70.0,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "landscape",
+        "flowingclouds",
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "flowingclouds",
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-78a1-8300-94cb02dbf7bc",
@@ -2320,10 +3579,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
-    "heightCm": 135,
-    "widthCm": 70,
+    "heightCm": 135.0,
+    "widthCm": 70.0,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "landscape"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7d61-9f3a-c5847a00bde5",
@@ -2344,10 +3616,27 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 75,
-    "widthCm": 140,
+    "heightCm": 75.0,
+    "widthCm": 140.0,
     "heightInches": 29.5,
-    "widthInches": 55.1
+    "widthInches": 55.1,
+    "autoCategories": {
+      "subjects": [
+        "waterfall",
+        "landscape",
+        "flowingclouds"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "waterfall",
+      "landscape",
+      "flowingclouds",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7904-960b-4b52cf3fe52e",
@@ -2368,10 +3657,26 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Mounted Panel",
-    "heightCm": 120,
-    "widthCm": 240,
+    "heightCm": 120.0,
+    "widthCm": 240.0,
     "heightInches": 47.2,
-    "widthInches": 94.5
+    "widthInches": 94.5,
+    "autoCategories": {
+      "subjects": [
+        "landscape"
+      ],
+      "locations": [
+        "iguazu"
+      ],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "iguazu",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-71be-8987-5f3e69224ab5",
@@ -2392,10 +3697,28 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Horizontal Scroll",
-    "heightCm": 90,
-    "widthCm": 210,
+    "heightCm": 90.0,
+    "widthCm": 210.0,
     "heightInches": 35.4,
-    "widthInches": 82.7
+    "widthInches": 82.7,
+    "autoCategories": {
+      "subjects": [
+        "landscape",
+        "flowers"
+      ],
+      "locations": [
+        "hehuanshan"
+      ],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "flowers",
+      "hehuanshan",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7a96-8e1b-28d8310e36dd",
@@ -2416,10 +3739,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 75,
-    "widthCm": 75,
+    "heightCm": 75.0,
+    "widthCm": 75.0,
     "heightInches": 29.5,
-    "widthInches": 29.5
+    "widthInches": 29.5,
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-78e8-be37-c859eb030659",
@@ -2440,10 +3776,91 @@
     "descriptionEn": "The tranquil mountains hold myriad delights, While the pure waters whisper a clear melody.",
     "formatEn": "Framed",
     "sizeInches": "29.5×17.7 inches",
-    "heightCm": 75,
-    "widthCm": 45,
+    "heightCm": 75.0,
+    "widthCm": 45.0,
     "heightInches": 29.5,
-    "widthInches": 17.7
+    "widthInches": 17.7,
+    "autoCategories": {
+      "subjects": [
+        "traditional"
+      ],
+      "locations": [
+        "taroko"
+      ],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "traditional",
+      "taroko"
+    ]
+  },
+  {
+    "id": "019891b0-f39c-7cc5-a5a0-3dd4f7622f0d",
+    "title": "小楷心經-楷書",
+    "titleEn": "Delicate Heart Sutra in Small Script",
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7cc5-a5a0-3dd4f7622f0d_thumb.jpg",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7cc5-a5a0-3dd4f7622f0d_large.jpg",
+    "description": null,
+    "descriptionEn": "",
+    "format": "框",
+    "mediumEn": "",
+    "sizeCm": null,
+    "sizeInches": "",
+    "year": "2022",
+    "price": "",
+    "available": "",
+    "featured": "",
+    "curatorNote": "",
+    "curatorNoteEn": "",
+    "formatEn": "Framed",
+    "autoCategories": {
+      "subjects": [
+        "calligraphy"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "calligraphy",
+      "traditional"
+    ]
+  },
+  {
+    "id": "019891b0-f39c-7359-bb22-291a6b33c28a",
+    "title": "小楷心經-隸書",
+    "titleEn": "Heart Sutra in Small Script - Clerical Style",
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7359-bb22-291a6b33c28a_thumb.jpg",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7359-bb22-291a6b33c28a_large.jpg",
+    "description": null,
+    "descriptionEn": "",
+    "format": "框",
+    "mediumEn": "",
+    "sizeCm": null,
+    "sizeInches": "",
+    "year": "2022",
+    "price": "",
+    "available": "",
+    "featured": "",
+    "curatorNote": "",
+    "curatorNoteEn": "",
+    "formatEn": "Framed",
+    "autoCategories": {
+      "subjects": [
+        "calligraphy"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "calligraphy",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7190-9005-95da13ac1ad1",
@@ -2464,10 +3881,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 70,
-    "widthCm": 45,
+    "heightCm": 70.0,
+    "widthCm": 45.0,
     "heightInches": 27.6,
-    "widthInches": 17.7
+    "widthInches": 17.7,
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-72a2-ae2f-04a06f5a0c75",
@@ -2492,8 +3922,21 @@
     "recent": true,
     "exhibitions": [],
     "tags": [],
-    "heightCm": 70,
-    "widthCm": 45
+    "heightCm": 70.0,
+    "widthCm": 45.0,
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-73d5-ae97-3d296dba78a1",
@@ -2514,10 +3957,26 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 60,
-    "widthCm": 90,
+    "heightCm": 60.0,
+    "widthCm": 90.0,
     "heightInches": 23.6,
-    "widthInches": 35.4
+    "widthInches": 35.4,
+    "autoCategories": {
+      "subjects": [
+        "landscape"
+      ],
+      "locations": [
+        "longdong"
+      ],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "longdong",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7939-897c-cc57bc9b4a35",
@@ -2538,51 +3997,61 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 24,
-    "widthCm": 70,
+    "heightCm": 24.0,
+    "widthCm": 70.0,
     "heightInches": 9.4,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "traditional"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7e36-872a-d88bb9d03b07",
     "title": "春山飛瀑",
-    "titleEn": "",
-    "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "waterfall",
-      "landscape"
-    ],
+    "titleEn": "Spring Mountains and Flying Waterfalls",
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7e36-872a-d88bb9d03b07_thumb.jpg",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7e36-872a-d88bb9d03b07_large.jpg",
+    "description": "飛瀑凌空舞，春山萬縷風；深心師造化，一笑水雲中。",
+    "descriptionEn": "The cascading waterfall dances in the air, While spring mountains whisper with myriad winds; In the depths of my heart, I learn from nature's art, A smile emerges amidst the water and clouds.",
+    "format": "框",
+    "mediumEn": "",
+    "sizeCm": "75x140",
+    "sizeInches": "29.5×55.1 inches",
+    "year": "2022",
+    "price": "",
+    "available": "",
+    "featured": true,
+    "curatorNote": "",
+    "curatorNoteEn": "",
+    "formatEn": "Framed",
+    "heightCm": 75.0,
+    "widthCm": 140.0,
+    "heightInches": 29.5,
+    "widthInches": 55.1,
     "autoCategories": {
       "subjects": [
         "waterfall",
         "landscape"
       ],
-      "locations": []
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
     },
-    "image": "./images/paintings/thumbnails/019891b0-f39c-7e36-872a-d88bb9d03b07_thumb.jpg",
-    "imageHigh": "./images/paintings/large/019891b0-f39c-7e36-872a-d88bb9d03b07_large.jpg",
-    "description": "飛瀑凌空舞，春山萬縷風；深心師造化，一笑水雲中。",
-    "descriptionEn": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "format": "框",
-    "formatEn": "",
-    "mediumEn": "",
-    "heightCm": 75,
-    "widthCm": 140,
-    "heightInches": 29.5,
-    "widthInches": 55.1,
-    "sizeCm": "75×140",
-    "sizeInches": "29.5×55.1",
-    "year": "2022",
-    "price": "",
-    "available": true,
-    "featured": false,
-    "recent": true,
-    "exhibitions": [],
-    "tags": []
+    "categories": [
+      "waterfall",
+      "landscape",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7f63-87fd-b7a8a860889f",
@@ -2603,10 +4072,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 68,
-    "widthCm": 45,
+    "heightCm": 68.0,
+    "widthCm": 45.0,
     "heightInches": 26.8,
-    "widthInches": 17.7
+    "widthInches": 17.7,
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7403-80d4-4da1440b7976",
@@ -2627,10 +4109,27 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
-    "heightCm": 140,
-    "widthCm": 75,
+    "heightCm": 140.0,
+    "widthCm": 75.0,
     "heightInches": 55.1,
-    "widthInches": 29.5
+    "widthInches": 29.5,
+    "autoCategories": {
+      "subjects": [
+        "landscape",
+        "flowingclouds",
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "flowingclouds",
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-792d-b5e8-b80ef8754ca2",
@@ -2651,10 +4150,22 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 70,
-    "widthCm": 45,
+    "heightCm": 70.0,
+    "widthCm": 45.0,
     "heightInches": 27.6,
-    "widthInches": 17.7
+    "widthInches": 17.7,
+    "autoCategories": {
+      "subjects": [
+        "traditional"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-71dd-be15-f32291c15cc6",
@@ -2675,10 +4186,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
-    "heightCm": 76,
-    "widthCm": 35,
+    "heightCm": 76.0,
+    "widthCm": 35.0,
     "heightInches": 29.9,
-    "widthInches": 13.8
+    "widthInches": 13.8,
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7b75-910e-8ef8046a7bb9",
@@ -2699,10 +4223,26 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 90,
-    "widthCm": 180,
+    "heightCm": 90.0,
+    "widthCm": 180.0,
     "heightInches": 35.4,
-    "widthInches": 70.9
+    "widthInches": 70.9,
+    "autoCategories": {
+      "subjects": [
+        "waterfall"
+      ],
+      "locations": [
+        "niagara"
+      ],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "waterfall",
+      "niagara",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-721b-b645-0e2a1c090d9b",
@@ -2723,10 +4263,22 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 75,
-    "widthCm": 22,
+    "heightCm": 75.0,
+    "widthCm": 22.0,
     "heightInches": 29.5,
-    "widthInches": 8.7
+    "widthInches": 8.7,
+    "autoCategories": {
+      "subjects": [
+        "traditional"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7539-8543-c9a7de487cca",
@@ -2746,7 +4298,19 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "autoCategories": {
+      "subjects": [
+        "traditional"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7fb1-9331-58595bfdef27",
@@ -2767,10 +4331,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
-    "heightCm": 135,
-    "widthCm": 70,
+    "heightCm": 135.0,
+    "widthCm": 70.0,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "bamboo"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "bamboo",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7995-bcb5-8b510d734e53",
@@ -2791,10 +4368,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
-    "heightCm": 136,
-    "widthCm": 70,
+    "heightCm": 136.0,
+    "widthCm": 70.0,
     "heightInches": 53.5,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "bamboo"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "bamboo",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-71f0-bd5c-b448f22ef5f4",
@@ -2815,10 +4405,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Mounted Panel",
-    "heightCm": 90,
-    "widthCm": 180,
+    "heightCm": 90.0,
+    "widthCm": 180.0,
     "heightInches": 35.4,
-    "widthInches": 70.9
+    "widthInches": 70.9,
+    "autoCategories": {
+      "subjects": [
+        "bamboo"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "bamboo",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7e7e-ab7e-4b6efd6d2dfa",
@@ -2839,10 +4442,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Mounted Panel",
-    "heightCm": 90,
-    "widthCm": 181,
+    "heightCm": 90.0,
+    "widthCm": 181.0,
     "heightInches": 35.4,
-    "widthInches": 71.3
+    "widthInches": 71.3,
+    "autoCategories": {
+      "subjects": [
+        "bamboo"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "bamboo",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7a31-8759-95a350b1e45b",
@@ -2863,10 +4479,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 75,
-    "widthCm": 75,
+    "heightCm": 75.0,
+    "widthCm": 75.0,
     "heightInches": 29.5,
-    "widthInches": 29.5
+    "widthInches": 29.5,
+    "autoCategories": {
+      "subjects": [
+        "traditional"
+      ],
+      "locations": [],
+      "styles": [
+        "abstract"
+      ]
+    },
+    "categories": [
+      "traditional",
+      "abstract"
+    ]
   },
   {
     "id": "019891b0-f39c-7b15-9621-9861ba359745",
@@ -2887,10 +4516,22 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 75,
-    "widthCm": 75,
+    "heightCm": 75.0,
+    "widthCm": 75.0,
     "heightInches": 29.5,
-    "widthInches": 29.5
+    "widthInches": 29.5,
+    "autoCategories": {
+      "subjects": [
+        "traditional"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-73f5-98b1-d68da1664faf",
@@ -2911,10 +4552,22 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
-    "heightCm": 137,
-    "widthCm": 35,
+    "heightCm": 137.0,
+    "widthCm": 35.0,
     "heightInches": 53.9,
-    "widthInches": 13.8
+    "widthInches": 13.8,
+    "autoCategories": {
+      "subjects": [
+        "traditional"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7674-b4b9-056c567df90a",
@@ -2935,10 +4588,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 70,
-    "widthCm": 70,
+    "heightCm": 70.0,
+    "widthCm": 70.0,
     "heightInches": 27.6,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7562-bbed-32c024cd6676",
@@ -2959,10 +4625,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 17,
-    "widthCm": 92,
+    "heightCm": 17.0,
+    "widthCm": 92.0,
     "heightInches": 6.7,
-    "widthInches": 36.2
+    "widthInches": 36.2,
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-706e-bdb9-c752dc8bcf1f",
@@ -2983,10 +4662,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
-    "heightCm": 135,
-    "widthCm": 70,
+    "heightCm": 135.0,
+    "widthCm": 70.0,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "bamboo"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "bamboo",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-721e-8576-4e3f61c0e800",
@@ -3007,10 +4699,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
-    "heightCm": 136,
-    "widthCm": 70,
+    "heightCm": 136.0,
+    "widthCm": 70.0,
     "heightInches": 53.5,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "bamboo"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "bamboo",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-71b7-918f-b55fd4fbca35",
@@ -3031,10 +4736,22 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 70,
-    "widthCm": 70,
+    "heightCm": 70.0,
+    "widthCm": 70.0,
     "heightInches": 27.6,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "traditional"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7b83-902a-1f7f7bc72183",
@@ -3055,10 +4772,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Mounted Panel",
-    "heightCm": 97,
-    "widthCm": 180,
+    "heightCm": 97.0,
+    "widthCm": 180.0,
     "heightInches": 38.2,
-    "widthInches": 70.9
+    "widthInches": 70.9,
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7809-a063-80f25d10a396",
@@ -3079,10 +4809,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 70,
-    "widthCm": 70,
+    "heightCm": 70.0,
+    "widthCm": 70.0,
     "heightInches": 27.6,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "calligraphy"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "calligraphy",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-763c-819c-62b3e41136e1",
@@ -3103,10 +4846,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 70,
-    "widthCm": 70,
+    "heightCm": 70.0,
+    "widthCm": 70.0,
     "heightInches": 27.6,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "calligraphy"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "calligraphy",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7455-9267-14eb33bed415",
@@ -3127,10 +4883,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 68,
-    "widthCm": 45,
+    "heightCm": 68.0,
+    "widthCm": 45.0,
     "heightInches": 26.8,
-    "widthInches": 17.7
+    "widthInches": 17.7,
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-70a8-aa76-019cadc5409d",
@@ -3155,8 +4924,20 @@
     "recent": true,
     "exhibitions": [],
     "tags": [],
-    "heightCm": 75,
-    "widthCm": 22
+    "heightCm": 75.0,
+    "widthCm": 22.0,
+    "autoCategories": {
+      "subjects": [
+        "traditional"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-729c-bef5-b90e2cafb77e",
@@ -3177,10 +4958,28 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Horizontal Scroll",
-    "heightCm": 90,
-    "widthCm": 210,
+    "heightCm": 90.0,
+    "widthCm": 210.0,
     "heightInches": 35.4,
-    "widthInches": 82.7
+    "widthInches": 82.7,
+    "autoCategories": {
+      "subjects": [
+        "landscape",
+        "flowers"
+      ],
+      "locations": [
+        "liushidanshan"
+      ],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "flowers",
+      "liushidanshan",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7cf8-86a3-61f2f44df76f",
@@ -3201,10 +5000,26 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
-    "heightCm": 142,
-    "widthCm": 73,
+    "heightCm": 142.0,
+    "widthCm": 73.0,
     "heightInches": 55.9,
-    "widthInches": 28.7
+    "widthInches": 28.7,
+    "autoCategories": {
+      "subjects": [
+        "waterfall"
+      ],
+      "locations": [
+        "iguazu"
+      ],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "waterfall",
+      "iguazu",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-719e-a185-2f66d722d5ea",
@@ -3225,10 +5040,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
-    "heightCm": 137,
-    "widthCm": 35,
+    "heightCm": 137.0,
+    "widthCm": 35.0,
     "heightInches": 53.9,
-    "widthInches": 13.8
+    "widthInches": 13.8,
+    "autoCategories": {
+      "subjects": [
+        "landscape"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7102-a694-48bd9ef009c1",
@@ -3248,10 +5076,22 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 135,
-    "widthCm": 70,
+    "heightCm": 135.0,
+    "widthCm": 70.0,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "traditional"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7840-a59b-6347f70b1e3f",
@@ -3271,51 +5111,60 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 46,
-    "widthCm": 45,
+    "heightCm": 46.0,
+    "widthCm": 45.0,
     "heightInches": 18.1,
-    "widthInches": 17.7
+    "widthInches": 17.7,
+    "autoCategories": {
+      "subjects": [
+        "traditional"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7a90-ab98-022c8b72668e",
-    "title": "古月",
-    "titleEn": "",
-    "category": "paintings",
-    "subcategory": "潑墨, 山水",
-    "manualCategories": [
-      "潑墨",
-      "山水"
-    ],
-    "categories": [
-      "潑墨",
-      "山水"
-    ],
-    "autoCategories": {
-      "subjects": [],
-      "locations": []
-    },
-    "image": "./images/paintings/thumbnails/019891b0-f39c-7a90-ab98-022c8b72668e_thumb.png",
-    "imageHigh": "./images/paintings/large/019891b0-f39c-7a90-ab98-022c8b72668e_large.png",
-    "description": "青梅超象外，古月照今塵。",
-    "descriptionEn": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "format": "",
-    "formatEn": "",
+    "title": "古月－潑墨山水",
+    "titleEn": "Ancient Moon - Ink Splash Landscapes",
+    "image": "",
+    "imageHigh": "",
+    "description": "古月－青梅超象外，古月照今塵。",
+    "descriptionEn": "Ancient Moon - The green plums transcend the mundane, While the ancient moon illuminates the dust of today.",
+    "format": null,
     "mediumEn": "",
-    "heightCm": 70,
-    "widthCm": 45,
-    "heightInches": 27.6,
-    "widthInches": 17.7,
-    "sizeCm": "70×45",
-    "sizeInches": "27.6×17.7",
+    "sizeCm": "70 × 45",
+    "sizeInches": "27.6×17.7 inches",
     "year": "unknown",
     "price": "",
-    "available": true,
-    "featured": false,
-    "recent": false,
-    "exhibitions": [],
-    "tags": []
+    "available": 0,
+    "featured": "",
+    "curatorNote": "",
+    "curatorNoteEn": "",
+    "heightCm": 70.0,
+    "widthCm": 45.0,
+    "heightInches": 27.6,
+    "widthInches": 17.7,
+    "autoCategories": {
+      "subjects": [
+        "landscape"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional",
+        "abstract"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "traditional",
+      "abstract"
+    ]
   },
   {
     "id": "019891b0-f39c-728a-b3ca-313cab5b59d0",
@@ -3335,10 +5184,23 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 180,
-    "widthCm": 90,
+    "heightCm": 180.0,
+    "widthCm": 90.0,
     "heightInches": 70.9,
-    "widthInches": 35.4
+    "widthInches": 35.4,
+    "autoCategories": {
+      "subjects": [
+        "calligraphy"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "calligraphy",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7311-beee-463de4a1fb57",
@@ -3358,7 +5220,20 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Fan"
+    "formatEn": "Fan",
+    "autoCategories": {
+      "subjects": [
+        "landscape"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7972-b2d2-06fc3c573914",
@@ -3378,10 +5253,22 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 75,
-    "widthCm": 70,
+    "heightCm": 75.0,
+    "widthCm": 70.0,
     "heightInches": 29.5,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "traditional"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-749a-a0e7-de471740115b",
@@ -3401,10 +5288,23 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 135,
-    "widthCm": 70,
+    "heightCm": 135.0,
+    "widthCm": 70.0,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "calligraphy"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "calligraphy",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7441-a5a7-dc968e455d98",
@@ -3424,10 +5324,23 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 135,
-    "widthCm": 70,
+    "heightCm": 135.0,
+    "widthCm": 70.0,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "flowingclouds"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowingclouds",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7a2f-aafa-2e77fa258551",
@@ -3447,10 +5360,23 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 153,
-    "widthCm": 263,
+    "heightCm": 153.0,
+    "widthCm": 263.0,
     "heightInches": 60.2,
-    "widthInches": 103.5
+    "widthInches": 103.5,
+    "autoCategories": {
+      "subjects": [
+        "calligraphy"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "calligraphy",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-714c-be36-6f1486418c72",
@@ -3470,10 +5396,23 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 135,
-    "widthCm": 70,
+    "heightCm": 135.0,
+    "widthCm": 70.0,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "bamboo"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "bamboo",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-76d0-830d-e1a84734c35b",
@@ -3493,10 +5432,22 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 135,
-    "widthCm": 35,
+    "heightCm": 135.0,
+    "widthCm": 35.0,
     "heightInches": 53.1,
-    "widthInches": 13.8
+    "widthInches": 13.8,
+    "autoCategories": {
+      "subjects": [
+        "traditional"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7201-bdba-6943519e8862",
@@ -3516,10 +5467,23 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 70,
-    "widthCm": 135,
+    "heightCm": 70.0,
+    "widthCm": 135.0,
     "heightInches": 27.6,
-    "widthInches": 53.1
+    "widthInches": 53.1,
+    "autoCategories": {
+      "subjects": [
+        "flowingclouds"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowingclouds",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7aa8-90f8-b40422109aad",
@@ -3539,10 +5503,23 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 70,
-    "widthCm": 135,
+    "heightCm": 70.0,
+    "widthCm": 135.0,
     "heightInches": 27.6,
-    "widthInches": 53.1
+    "widthInches": 53.1,
+    "autoCategories": {
+      "subjects": [
+        "landscape"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7eb7-918f-81e80f086d63",
@@ -3562,10 +5539,23 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 70,
-    "widthCm": 70,
+    "heightCm": 70.0,
+    "widthCm": 70.0,
     "heightInches": 27.6,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "landscape"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7cf5-8391-dde492517606",
@@ -3585,10 +5575,25 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 138,
-    "widthCm": 74,
+    "heightCm": 138.0,
+    "widthCm": 74.0,
     "heightInches": 54.3,
-    "widthInches": 29.1
+    "widthInches": 29.1,
+    "autoCategories": {
+      "subjects": [
+        "traditional"
+      ],
+      "locations": [
+        "huangshan"
+      ],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "traditional",
+      "huangshan"
+    ]
   },
   {
     "id": "019891b0-f39c-7f23-bcbb-b87134f4f667",
@@ -3609,10 +5614,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
-    "heightCm": 70,
-    "widthCm": 70,
+    "heightCm": 70.0,
+    "widthCm": 70.0,
     "heightInches": 27.6,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "calligraphy"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "calligraphy",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7fa4-834c-dfc205acfee3",
@@ -3632,10 +5650,23 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 135,
-    "widthCm": 70,
+    "heightCm": 135.0,
+    "widthCm": 70.0,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7386-a86e-60369bb2ecd5",
@@ -3655,10 +5686,23 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 135,
-    "widthCm": 70,
+    "heightCm": 135.0,
+    "widthCm": 70.0,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7a10-8ea8-7399764b770b",
@@ -3678,10 +5722,23 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 135,
-    "widthCm": 70,
+    "heightCm": 135.0,
+    "widthCm": 70.0,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "landscape"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7489-928b-ccc89bfe45cd",
@@ -3701,10 +5758,23 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 135,
-    "widthCm": 70,
+    "heightCm": 135.0,
+    "widthCm": 70.0,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7384-be98-8e564547c934",
@@ -3724,10 +5794,23 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 70,
-    "widthCm": 80,
+    "heightCm": 70.0,
+    "widthCm": 80.0,
     "heightInches": 27.6,
-    "widthInches": 31.5
+    "widthInches": 31.5,
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7127-92b7-784bb454984e",
@@ -3747,10 +5830,25 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 135,
-    "widthCm": 70,
+    "heightCm": 135.0,
+    "widthCm": 70.0,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "flowers",
+        "bamboo"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowers",
+      "bamboo",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-71d1-9a64-3e6a4cea8efb",
@@ -3770,10 +5868,23 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 45,
-    "widthCm": 70,
+    "heightCm": 45.0,
+    "widthCm": 70.0,
     "heightInches": 17.7,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7530-ace8-fffa8fead53e",
@@ -3793,10 +5904,23 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 70,
-    "widthCm": 70,
+    "heightCm": 70.0,
+    "widthCm": 70.0,
     "heightInches": 27.6,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7605-8810-2ec32c05d109",
@@ -3816,10 +5940,23 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 140,
-    "widthCm": 75,
+    "heightCm": 140.0,
+    "widthCm": 75.0,
     "heightInches": 55.1,
-    "widthInches": 29.5
+    "widthInches": 29.5,
+    "autoCategories": {
+      "subjects": [
+        "waterfall"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "waterfall",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-79d8-9ef1-3daa601bdab9",
@@ -3839,10 +5976,22 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 180,
-    "widthCm": 90,
+    "heightCm": 180.0,
+    "widthCm": 90.0,
     "heightInches": 70.9,
-    "widthInches": 35.4
+    "widthInches": 35.4,
+    "autoCategories": {
+      "subjects": [
+        "traditional"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-701a-8549-8acb24ecf588",
@@ -3863,10 +6012,22 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
-    "heightCm": 180,
-    "widthCm": 90,
+    "heightCm": 180.0,
+    "widthCm": 90.0,
     "heightInches": 70.9,
-    "widthInches": 35.4
+    "widthInches": 35.4,
+    "autoCategories": {
+      "subjects": [
+        "traditional"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7e3e-ae29-6cf7e37cc717",
@@ -3891,8 +6052,21 @@
     "recent": false,
     "exhibitions": [],
     "tags": [],
-    "heightCm": 70,
-    "widthCm": 135
+    "heightCm": 70.0,
+    "widthCm": 135.0,
+    "autoCategories": {
+      "subjects": [
+        "landscape"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7b8d-9017-a3c20acb6a5e",
@@ -3912,10 +6086,23 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 135,
-    "widthCm": 35,
+    "heightCm": 135.0,
+    "widthCm": 35.0,
     "heightInches": 53.1,
-    "widthInches": 13.8
+    "widthInches": 13.8,
+    "autoCategories": {
+      "subjects": [
+        "calligraphy"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "calligraphy",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-753a-ab69-48d8ee21bd58",
@@ -3934,7 +6121,20 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "autoCategories": {
+      "subjects": [
+        "calligraphy"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "calligraphy",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7d02-a8aa-91e063b359cd",
@@ -3955,10 +6155,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
-    "heightCm": 135,
-    "widthCm": 70,
+    "heightCm": 135.0,
+    "widthCm": 70.0,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "calligraphy"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "calligraphy",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-70a9-9b91-b5a11b16a4e5",
@@ -3978,10 +6191,23 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 70,
-    "widthCm": 135,
+    "heightCm": 70.0,
+    "widthCm": 135.0,
     "heightInches": 27.6,
-    "widthInches": 53.1
+    "widthInches": 53.1,
+    "autoCategories": {
+      "subjects": [
+        "waterfall"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "waterfall",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-71ca-b2c1-0ccf8cbe55e2",
@@ -4001,51 +6227,102 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 135,
-    "widthCm": 70,
+    "heightCm": 135.0,
+    "widthCm": 70.0,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "landscape",
+        "flowingclouds"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "flowingclouds",
+      "traditional"
+    ]
+  },
+  {
+    "id": "019891b0-f39c-71bb-95b7-a3be087e6a25",
+    "title": "煙擁合歡",
+    "titleEn": "Lotus Embraced by Mist",
+    "image": "",
+    "imageHigh": "",
+    "description": "煙擁合歡，霧潤良疇，碧山含笑，雲凝翠黛，天然節奏，有象文章，風光綿延，機趣無窮。",
+    "descriptionEn": "Embraced by mist, the lotus blooms, Dew graces the fertile fields, Emerald hills wear a smile, Clouds gather in verdant hues. Nature's rhythm flows with ease, In every image, words take form, Scenery stretches, endless and grand, With boundless charm and playful grace.",
+    "format": null,
+    "mediumEn": "",
+    "sizeCm": "135 x 70",
+    "sizeInches": "53.1×27.6 inches",
+    "year": "unknown",
+    "price": "",
+    "available": "",
+    "featured": "",
+    "curatorNote": "",
+    "curatorNoteEn": "",
+    "heightCm": 135.0,
+    "widthCm": 70.0,
+    "heightInches": 53.1,
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "flowingclouds"
+      ],
+      "locations": [
+        "hehuanshan"
+      ],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowingclouds",
+      "hehuanshan",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7b5a-9017-6de6a497f059",
     "title": "煙聲一縷一塵埃-大瀑布",
-    "titleEn": "",
-    "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "waterfall",
-      "flowingclouds"
-    ],
+    "titleEn": "Whispers of Mist and Dust: The Great Waterfall",
+    "image": "",
+    "imageHigh": "",
+    "description": "放眼大千境始開，烟聲一縷一塵埃；飛天素染無盡意，流水行雲去復來。",
+    "descriptionEn": "With a gaze that embraces the vast expanse, the world unfolds; A whisper of mist carries a trace of dust. In the boundless essence of the heavens, pure and serene, The flowing waters and drifting clouds come and go.",
+    "format": null,
+    "mediumEn": "",
+    "sizeCm": "120x240",
+    "sizeInches": "47.2×94.5 inches",
+    "year": "unknown",
+    "price": "",
+    "available": "",
+    "featured": "",
+    "curatorNote": "",
+    "curatorNoteEn": "",
+    "heightCm": 120.0,
+    "widthCm": 240.0,
+    "heightInches": 47.2,
+    "widthInches": 94.5,
     "autoCategories": {
       "subjects": [
         "waterfall",
         "flowingclouds"
       ],
-      "locations": []
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
     },
-    "image": "./images/paintings/thumbnails/019891b0-f39c-7b5a-9017-6de6a497f059_thumb.png",
-    "imageHigh": "./images/paintings/large/019891b0-f39c-7b5a-9017-6de6a497f059_large.png",
-    "description": "放眼大千境始開，烟聲一縷一塵埃；飛天素染無盡意，流水行雲去復來。",
-    "descriptionEn": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "format": "",
-    "formatEn": "",
-    "mediumEn": "",
-    "heightCm": 120,
-    "widthCm": 240,
-    "heightInches": 47.2,
-    "widthInches": 94.5,
-    "sizeCm": "120×240",
-    "sizeInches": "47.2×94.5",
-    "year": "2018",
-    "price": "",
-    "available": true,
-    "featured": true,
-    "recent": false,
-    "exhibitions": [],
-    "tags": []
+    "categories": [
+      "waterfall",
+      "flowingclouds",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7535-8938-34b23c8840cd",
@@ -4065,10 +6342,23 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 70,
-    "widthCm": 135,
+    "heightCm": 70.0,
+    "widthCm": 135.0,
     "heightInches": 27.6,
-    "widthInches": 53.1
+    "widthInches": 53.1,
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-754c-b2f3-0042b0f1eda6",
@@ -4088,10 +6378,23 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 70,
-    "widthCm": 135,
+    "heightCm": 70.0,
+    "widthCm": 135.0,
     "heightInches": 27.6,
-    "widthInches": 53.1
+    "widthInches": 53.1,
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-737c-ab58-5e7f6585cf58",
@@ -4110,7 +6413,19 @@
     "available": 0,
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "autoCategories": {
+      "subjects": [
+        "traditional"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-773e-ba71-581478e868c3",
@@ -4130,10 +6445,22 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 135,
-    "widthCm": 35,
+    "heightCm": 135.0,
+    "widthCm": 35.0,
     "heightInches": 53.1,
-    "widthInches": 13.8
+    "widthInches": 13.8,
+    "autoCategories": {
+      "subjects": [
+        "traditional"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7d79-aa2f-4fa671975bd7",
@@ -4153,10 +6480,23 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 60,
-    "widthCm": 135,
+    "heightCm": 60.0,
+    "widthCm": 135.0,
     "heightInches": 23.6,
-    "widthInches": 53.1
+    "widthInches": 53.1,
+    "autoCategories": {
+      "subjects": [
+        "landscape"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7b3a-a7ae-03eba18e8809",
@@ -4176,10 +6516,23 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 180,
-    "widthCm": 90,
+    "heightCm": 180.0,
+    "widthCm": 90.0,
     "heightInches": 70.9,
-    "widthInches": 35.4
+    "widthInches": 35.4,
+    "autoCategories": {
+      "subjects": [
+        "calligraphy"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "calligraphy",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7ddc-877a-b2a51cb0032a",
@@ -4200,10 +6553,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
-    "heightCm": 180,
-    "widthCm": 90,
+    "heightCm": 180.0,
+    "widthCm": 90.0,
     "heightInches": 70.9,
-    "widthInches": 35.4
+    "widthInches": 35.4,
+    "autoCategories": {
+      "subjects": [
+        "calligraphy"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "calligraphy",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7972-9fe7-988683c4167b",
@@ -4223,10 +6589,23 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 70,
-    "widthCm": 70,
+    "heightCm": 70.0,
+    "widthCm": 70.0,
     "heightInches": 27.6,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "waterfall"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "waterfall",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-799a-8b24-69278cd05a54",
@@ -4246,10 +6625,23 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 135,
-    "widthCm": 70,
+    "heightCm": 135.0,
+    "widthCm": 70.0,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "bamboo"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "bamboo",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-78de-981c-5938a5bfa32f",
@@ -4269,10 +6661,23 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 135,
-    "widthCm": 70,
+    "heightCm": 135.0,
+    "widthCm": 70.0,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "calligraphy"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "calligraphy",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7986-b69d-df98c6926fd8",
@@ -4292,10 +6697,23 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 122,
-    "widthCm": 78,
-    "heightInches": 48,
-    "widthInches": 30.7
+    "heightCm": 122.0,
+    "widthCm": 78.0,
+    "heightInches": 48.0,
+    "widthInches": 30.7,
+    "autoCategories": {
+      "subjects": [
+        "flowingclouds"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowingclouds",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7b93-be63-f32d5ec6c96e",
@@ -4316,10 +6734,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
-    "heightCm": 122,
-    "widthCm": 78,
-    "heightInches": 48,
-    "widthInches": 30.7
+    "heightCm": 122.0,
+    "widthCm": 78.0,
+    "heightInches": 48.0,
+    "widthInches": 30.7,
+    "autoCategories": {
+      "subjects": [
+        "flowingclouds"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowingclouds",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7b52-bc2d-c8ae2282e7bb",
@@ -4339,10 +6770,23 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 135,
-    "widthCm": 70,
+    "heightCm": 135.0,
+    "widthCm": 70.0,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7e2c-aab1-3c1bd010b1f7",
@@ -4362,10 +6806,23 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 180,
-    "widthCm": 90,
+    "heightCm": 180.0,
+    "widthCm": 90.0,
     "heightInches": 70.9,
-    "widthInches": 35.4
+    "widthInches": 35.4,
+    "autoCategories": {
+      "subjects": [
+        "calligraphy"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "calligraphy",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7353-828e-07b6ae7b5e06",
@@ -4385,10 +6842,22 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 140,
-    "widthCm": 140,
+    "heightCm": 140.0,
+    "widthCm": 140.0,
     "heightInches": 55.1,
-    "widthInches": 55.1
+    "widthInches": 55.1,
+    "autoCategories": {
+      "subjects": [
+        "traditional"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-74ce-98d6-18e6c467339f",
@@ -4408,10 +6877,23 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 135,
-    "widthCm": 70,
+    "heightCm": 135.0,
+    "widthCm": 70.0,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-708b-8c6c-ce2da0902915",
@@ -4431,10 +6913,22 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 70,
-    "widthCm": 20,
+    "heightCm": 70.0,
+    "widthCm": 20.0,
     "heightInches": 27.6,
-    "widthInches": 7.9
+    "widthInches": 7.9,
+    "autoCategories": {
+      "subjects": [
+        "traditional"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7fba-9bd9-0c91d42c5658",
@@ -4454,10 +6948,23 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 90,
-    "widthCm": 90,
+    "heightCm": 90.0,
+    "widthCm": 90.0,
     "heightInches": 35.4,
-    "widthInches": 35.4
+    "widthInches": 35.4,
+    "autoCategories": {
+      "subjects": [
+        "calligraphy"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "calligraphy",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7a15-8cec-bbe1bff8ba7e",
@@ -4478,10 +6985,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Framed",
-    "heightCm": 70,
-    "widthCm": 135,
+    "heightCm": 70.0,
+    "widthCm": 135.0,
     "heightInches": 27.6,
-    "widthInches": 53.1
+    "widthInches": 53.1,
+    "autoCategories": {
+      "subjects": [
+        "calligraphy"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "calligraphy",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7aed-9fac-21a5e94b8c1f",
@@ -4501,10 +7021,23 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 135,
-    "widthCm": 70,
+    "heightCm": 135.0,
+    "widthCm": 70.0,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-744e-b30c-7599d6a173be",
@@ -4524,10 +7057,23 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 135,
-    "widthCm": 35,
+    "heightCm": 135.0,
+    "widthCm": 35.0,
     "heightInches": 53.1,
-    "widthInches": 13.8
+    "widthInches": 13.8,
+    "autoCategories": {
+      "subjects": [
+        "calligraphy"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "calligraphy",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7d2a-983e-2173b9553625",
@@ -4547,10 +7093,23 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 135,
-    "widthCm": 35,
+    "heightCm": 135.0,
+    "widthCm": 35.0,
     "heightInches": 53.1,
-    "widthInches": 13.8
+    "widthInches": 13.8,
+    "autoCategories": {
+      "subjects": [
+        "calligraphy"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "calligraphy",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7e9f-b88d-0fe3639ee835",
@@ -4570,10 +7129,23 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 75,
-    "widthCm": 14,
+    "heightCm": 75.0,
+    "widthCm": 14.0,
     "heightInches": 29.5,
-    "widthInches": 5.5
+    "widthInches": 5.5,
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7574-a231-f0777acb01f3",
@@ -4593,10 +7165,23 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 120,
-    "widthCm": 240,
+    "heightCm": 120.0,
+    "widthCm": 240.0,
     "heightInches": 47.2,
-    "widthInches": 94.5
+    "widthInches": 94.5,
+    "autoCategories": {
+      "subjects": [
+        "waterfall"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "waterfall",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7ac8-8ba9-462a13f7d56f",
@@ -4616,10 +7201,62 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 90,
-    "widthCm": 90,
+    "heightCm": 90.0,
+    "widthCm": 90.0,
     "heightInches": 35.4,
-    "widthInches": 35.4
+    "widthInches": 35.4,
+    "autoCategories": {
+      "subjects": [
+        "flowingclouds",
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowingclouds",
+      "flowers",
+      "traditional"
+    ]
+  },
+  {
+    "id": "019891b0-f39c-797e-9291-51094658f022",
+    "title": "行草中堂-聖教序",
+    "titleEn": "Running Script in the Hall - Ode to the Sacred Teachings",
+    "image": "",
+    "imageHigh": "",
+    "description": null,
+    "descriptionEn": "",
+    "format": "軸",
+    "mediumEn": "",
+    "sizeCm": "180x90",
+    "sizeInches": "70.9×35.4 inches",
+    "year": "unknown",
+    "price": "",
+    "available": "",
+    "featured": "",
+    "curatorNote": "",
+    "curatorNoteEn": "",
+    "formatEn": "Hanging Scroll",
+    "heightCm": 180.0,
+    "widthCm": 90.0,
+    "heightInches": 70.9,
+    "widthInches": 35.4,
+    "autoCategories": {
+      "subjects": [
+        "calligraphy"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "calligraphy",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7fb1-a33d-91b7825cf41d",
@@ -4639,49 +7276,59 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 135,
-    "widthCm": 70,
+    "heightCm": 135.0,
+    "widthCm": 70.0,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "flowers",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7764-a468-4f7ad6140df2",
     "title": "赤壁賦(行草)",
-    "titleEn": "",
-    "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "calligraphy"
-    ],
+    "titleEn": "Ode to the Red Cliffs (Xingcao)",
+    "image": "",
+    "imageHigh": "",
+    "description": null,
+    "descriptionEn": "",
+    "format": null,
+    "mediumEn": "",
+    "sizeCm": "135 × 60",
+    "sizeInches": "53.1×23.6 inches",
+    "year": "unknown",
+    "price": "",
+    "available": "",
+    "featured": "",
+    "curatorNote": "",
+    "curatorNoteEn": "",
+    "heightCm": 135.0,
+    "widthCm": 60.0,
+    "heightInches": 53.1,
+    "widthInches": 23.6,
     "autoCategories": {
       "subjects": [
         "calligraphy"
       ],
-      "locations": []
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
     },
-    "image": "./images/paintings/thumbnails/019891b0-f39c-7764-a468-4f7ad6140df2_thumb.png",
-    "imageHigh": "./images/paintings/large/019891b0-f39c-7764-a468-4f7ad6140df2_large.png",
-    "description": "",
-    "descriptionEn": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "format": "",
-    "formatEn": "",
-    "mediumEn": "",
-    "heightCm": 135,
-    "widthCm": 60,
-    "heightInches": 53.1,
-    "widthInches": 23.6,
-    "sizeCm": "135×60",
-    "sizeInches": "53.1×23.6",
-    "year": "unknown",
-    "price": "",
-    "available": true,
-    "featured": false,
-    "recent": false,
-    "exhibitions": [],
-    "tags": []
+    "categories": [
+      "calligraphy",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7ec8-a85c-a9c9c25cf4b5",
@@ -4701,10 +7348,22 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 70,
-    "widthCm": 135,
+    "heightCm": 70.0,
+    "widthCm": 135.0,
     "heightInches": 27.6,
-    "widthInches": 53.1
+    "widthInches": 53.1,
+    "autoCategories": {
+      "subjects": [
+        "traditional"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7296-b1fe-00c0dc5bac9e",
@@ -4724,10 +7383,23 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 70,
-    "widthCm": 135,
+    "heightCm": 70.0,
+    "widthCm": 135.0,
     "heightInches": 27.6,
-    "widthInches": 53.1
+    "widthInches": 53.1,
+    "autoCategories": {
+      "subjects": [
+        "waterfall"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "waterfall",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7531-92cc-99a987218838",
@@ -4747,10 +7419,23 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 180,
-    "widthCm": 90,
+    "heightCm": 180.0,
+    "widthCm": 90.0,
     "heightInches": 70.9,
-    "widthInches": 35.4
+    "widthInches": 35.4,
+    "autoCategories": {
+      "subjects": [
+        "calligraphy"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "calligraphy",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-76fc-82e8-c3b479340c2e",
@@ -4771,10 +7456,23 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
-    "heightCm": 135,
-    "widthCm": 70,
+    "heightCm": 135.0,
+    "widthCm": 70.0,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "calligraphy"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "calligraphy",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-74ff-a4b2-e9f3107748f4",
@@ -4794,10 +7492,23 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 135,
-    "widthCm": 35,
+    "heightCm": 135.0,
+    "widthCm": 35.0,
     "heightInches": 53.1,
-    "widthInches": 13.8
+    "widthInches": 13.8,
+    "autoCategories": {
+      "subjects": [
+        "calligraphy"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "calligraphy",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7c6b-8a23-82f2cfce7c6a",
@@ -4817,10 +7528,25 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 135,
-    "widthCm": 70,
+    "heightCm": 135.0,
+    "widthCm": 70.0,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "landscape",
+        "flowingclouds"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "flowingclouds",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-79c6-bfe0-4790c6114ae9",
@@ -4840,10 +7566,30 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 90,
-    "widthCm": 180,
+    "heightCm": 90.0,
+    "widthCm": 180.0,
     "heightInches": 35.4,
-    "widthInches": 70.9
+    "widthInches": 70.9,
+    "autoCategories": {
+      "subjects": [
+        "waterfall",
+        "landscape",
+        "flowingclouds"
+      ],
+      "locations": [
+        "huangshan"
+      ],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "waterfall",
+      "landscape",
+      "flowingclouds",
+      "huangshan",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7109-bdf7-2aff4e78b0ee",
@@ -4863,10 +7609,28 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 70,
-    "widthCm": 80,
+    "heightCm": 70.0,
+    "widthCm": 80.0,
     "heightInches": 27.6,
-    "widthInches": 31.5
+    "widthInches": 31.5,
+    "autoCategories": {
+      "subjects": [
+        "landscape",
+        "flowingclouds"
+      ],
+      "locations": [
+        "yushan"
+      ],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "flowingclouds",
+      "yushan",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7d34-8e2a-501c01f3627d",
@@ -4886,10 +7650,25 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 75,
-    "widthCm": 70,
+    "heightCm": 75.0,
+    "widthCm": 70.0,
     "heightInches": 29.5,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "landscape",
+        "flowingclouds"
+      ],
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "flowingclouds",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-7c4e-b473-973fecc8171d",
@@ -4909,10 +7688,30 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 135,
-    "widthCm": 70,
+    "heightCm": 135.0,
+    "widthCm": 70.0,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "autoCategories": {
+      "subjects": [
+        "landscape",
+        "flowingclouds",
+        "flowers"
+      ],
+      "locations": [
+        "yushan"
+      ],
+      "styles": [
+        "traditional"
+      ]
+    },
+    "categories": [
+      "landscape",
+      "flowingclouds",
+      "flowers",
+      "yushan",
+      "traditional"
+    ]
   },
   {
     "id": "019891b0-f39c-757c-afd8-62401715ca08",
@@ -4932,51 +7731,21 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "heightCm": 135,
-    "widthCm": 70,
+    "heightCm": 135.0,
+    "widthCm": 70.0,
     "heightInches": 53.1,
-    "widthInches": 27.6
-  },
-  {
-    "id": "artwork-987218839",
-    "title": "江山如此多好",
-    "titleEn": "",
-    "category": "paintings",
-    "subcategory": "煙雲",
-    "manualCategories": [
-      "煙雲"
-    ],
-    "categories": [
-      "landscape",
-      "煙雲"
-    ],
+    "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
-        "landscape"
+        "traditional"
       ],
-      "locations": []
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
     },
-    "image": "./images/paintings/thumbnails/artwork-987218839_thumb.png",
-    "imageHigh": "./images/paintings/large/artwork-987218839_large.png",
-    "description": "江山如此多好",
-    "descriptionEn": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "format": "",
-    "formatEn": "",
-    "mediumEn": "",
-    "heightCm": 70,
-    "widthCm": 135,
-    "heightInches": 27.6,
-    "widthInches": 53.1,
-    "sizeCm": "70×135",
-    "sizeInches": "27.6×53.1",
-    "year": "2017",
-    "price": "",
-    "available": false,
-    "featured": false,
-    "recent": false,
-    "exhibitions": [],
-    "tags": []
+    "categories": [
+      "traditional"
+    ]
   }
 ]

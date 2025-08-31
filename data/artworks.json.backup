@@ -89,7 +89,11 @@
         "edition": 50,
         "available": true
       }
-    ]
+    ],
+    "heightCm": 135,
+    "widthCm": 70,
+    "heightInches": 53.1,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-752c-bde4-db1ef1f5529c",
@@ -113,7 +117,9 @@
     "featured": false,
     "recent": false,
     "exhibitions": [],
-    "tags": []
+    "tags": [],
+    "heightCm": 70,
+    "widthCm": 135
   },
   {
     "id": "019891b0-f39c-73f8-9534-0b7d90737bde",
@@ -133,7 +139,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "formatEn": "Hanging Scroll",
+    "heightCm": 180,
+    "widthCm": 90,
+    "heightInches": 70.9,
+    "widthInches": 35.4
   },
   {
     "id": "019891b0-f39c-70ac-a3d9-618efed1747a",
@@ -153,7 +163,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "formatEn": "Hanging Scroll",
+    "heightCm": 135,
+    "widthCm": 70,
+    "heightInches": 53.1,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-760d-a955-60c68a66d5be",
@@ -173,7 +187,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "formatEn": "Hanging Scroll",
+    "heightCm": 180,
+    "widthCm": 90,
+    "heightInches": 70.9,
+    "widthInches": 35.4
   },
   {
     "id": "019891b0-f39c-7192-92e6-0e1d7d4a52dc",
@@ -193,7 +211,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 70,
+    "widthCm": 135,
+    "heightInches": 27.6,
+    "widthInches": 53.1
   },
   {
     "id": "019891b0-f39c-7036-9ac1-cbed9f6f03e5",
@@ -213,7 +235,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "formatEn": "Hanging Scroll",
+    "heightCm": 135,
+    "widthCm": 70,
+    "heightInches": 53.1,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7692-b225-e725fef10f3e",
@@ -233,7 +259,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "formatEn": "Hanging Scroll",
+    "heightCm": 135,
+    "widthCm": 70,
+    "heightInches": 53.1,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7b65-ab7f-c36ec9a747df",
@@ -253,7 +283,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 90,
+    "widthCm": 180,
+    "heightInches": 35.4,
+    "widthInches": 70.9
   },
   {
     "id": "019891b0-f39c-7186-94bc-b7109c05f639",
@@ -272,7 +306,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 135,
+    "widthCm": 70,
+    "heightInches": 53.1,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7f2c-96ed-160ad3c22a3f",
@@ -292,7 +330,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 95,
+    "widthCm": 65,
+    "heightInches": 37.4,
+    "widthInches": 25.6
   },
   {
     "id": "019891b0-f39c-7bae-8206-f4788f507776",
@@ -312,7 +354,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "formatEn": "Hanging Scroll",
+    "heightCm": 135,
+    "widthCm": 70,
+    "heightInches": 53.1,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7a52-b635-427bdcdca491",
@@ -332,7 +378,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "formatEn": "Hanging Scroll",
+    "heightCm": 210,
+    "widthCm": 90,
+    "heightInches": 82.7,
+    "widthInches": 35.4
   },
   {
     "id": "019891b0-f39c-7cc4-ae49-d25008e1409d",
@@ -352,7 +402,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 90,
+    "widthCm": 80,
+    "heightInches": 35.4,
+    "widthInches": 31.5
   },
   {
     "id": "019891b0-f39c-79f7-8cab-78ad04b8b05d",
@@ -372,7 +426,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "formatEn": "Hanging Scroll",
+    "heightCm": 135,
+    "widthCm": 70,
+    "heightInches": 53.1,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7a23-a18f-085445820f6c",
@@ -392,7 +450,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "formatEn": "Hanging Scroll",
+    "heightCm": 135,
+    "widthCm": 70,
+    "heightInches": 53.1,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7e69-8910-34d57c0a6589",
@@ -412,7 +474,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "formatEn": "Hanging Scroll",
+    "heightCm": 135,
+    "widthCm": 70,
+    "heightInches": 53.1,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-777e-98f4-ccdf31977c1d",
@@ -432,7 +498,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "formatEn": "Hanging Scroll",
+    "heightCm": 135,
+    "widthCm": 70,
+    "heightInches": 53.1,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7839-9ec1-f0013b25f208",
@@ -452,7 +522,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "formatEn": "Hanging Scroll",
+    "heightCm": 135,
+    "widthCm": 70,
+    "heightInches": 53.1,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-76d4-86ba-1ec281b83433",
@@ -472,7 +546,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "formatEn": "Hanging Scroll",
+    "heightCm": 180,
+    "widthCm": 90,
+    "heightInches": 70.9,
+    "widthInches": 35.4
   },
   {
     "id": "019891b0-f39c-7bc8-ae41-7e14d730d294",
@@ -492,7 +570,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 23,
+    "widthCm": 35,
+    "heightInches": 9.1,
+    "widthInches": 13.8
   },
   {
     "id": "019891b0-f39c-7e66-b993-7dabeab00451",
@@ -512,7 +594,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 35,
+    "widthCm": 23,
+    "heightInches": 13.8,
+    "widthInches": 9.1
   },
   {
     "id": "019891b0-f39c-77c9-85f0-4b4cc1b1ac5d",
@@ -531,7 +617,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 70,
+    "widthCm": 135,
+    "heightInches": 27.6,
+    "widthInches": 53.1
   },
   {
     "id": "019891b0-f39c-791c-b684-feeffacfd83b",
@@ -551,7 +641,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 70,
+    "widthCm": 70,
+    "heightInches": 27.6,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7834-8476-a918927593ab",
@@ -571,7 +665,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 90,
+    "widthCm": 75,
+    "heightInches": 35.4,
+    "widthInches": 29.5
   },
   {
     "id": "019891b0-f39c-7220-b00b-be8e9249f911",
@@ -591,47 +689,88 @@
     "curatorNoteEn": "",
     "descriptionEn": "In the garden of gourds, where leisure blooms, Serenity and grace unveil the innocence of the heart.",
     "formatEn": "Framed",
-    "sizeInches": "27.6×10.6 inches"
+    "sizeInches": "27.6×10.6 inches",
+    "heightCm": 70,
+    "widthCm": 27,
+    "heightInches": 27.6,
+    "widthInches": 10.6
   },
   {
     "id": "019891b0-f39c-748f-a906-1de3f9f5b3b6",
     "title": "萬縷紫煙飛自在",
-    "titleEn": "A Myriad of Violet Wisps in Free Flight",
-    "image": "",
-    "imageHigh": "",
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "花鳥",
+    "manualCategories": [
+      "花鳥"
+    ],
+    "categories": [
+      "flowingclouds",
+      "花鳥"
+    ],
+    "autoCategories": {
+      "subjects": [
+        "flowingclouds"
+      ],
+      "locations": []
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-748f-a906-1de3f9f5b3b6_thumb.png",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-748f-a906-1de3f9f5b3b6_large.png",
     "description": "萬縷紫煙飛自在，一枝藤影繫深情。",
-    "descriptionEn": "A myriad of violet wisps soar freely, While a single vine's shadow binds deep affection.",
-    "format": "軸",
-    "mediumEn": "",
-    "sizeCm": "70x70",
-    "sizeInches": "27.6×27.6 inches",
-    "year": "2017",
-    "price": "",
-    "available": "",
-    "featured": "",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "format": "軸",
+    "formatEn": "",
+    "mediumEn": "",
+    "heightCm": 70,
+    "widthCm": 70,
+    "heightInches": 27.6,
+    "widthInches": 27.6,
+    "sizeCm": "70×70",
+    "sizeInches": "27.6×27.6",
+    "year": "2017",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "recent": false,
+    "exhibitions": [],
+    "tags": []
   },
   {
     "id": "019891b0-f39c-76be-93c8-cf4233295e95",
     "title": "頌母恩",
-    "titleEn": "Ode to Maternal Grace",
-    "image": "",
-    "imageHigh": "",
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "",
+    "manualCategories": [],
+    "categories": [],
+    "autoCategories": {
+      "subjects": [],
+      "locations": []
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-76be-93c8-cf4233295e95_thumb.png",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-76be-93c8-cf4233295e95_large.png",
     "description": "誰言寸草心，報得三春暉。",
-    "descriptionEn": "The heart of a blade of grass, who would say, Can repay the warmth of spring's embrace?",
-    "format": "框",
-    "mediumEn": "",
-    "sizeCm": "45x70",
-    "sizeInches": "17.7×27.6 inches",
-    "year": "2017",
-    "price": "",
-    "available": "",
-    "featured": "",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "format": "框",
+    "formatEn": "",
+    "mediumEn": "",
+    "heightCm": 45,
+    "widthCm": 70,
+    "heightInches": 17.7,
+    "widthInches": 27.6,
+    "sizeCm": "45×70",
+    "sizeInches": "17.7×27.6",
+    "year": "2017",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "recent": false,
+    "exhibitions": [],
+    "tags": []
   },
   {
     "id": "019891b0-f39c-7a7e-b0e7-4bce5225a761",
@@ -651,7 +790,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 75,
+    "widthCm": 140,
+    "heightInches": 29.5,
+    "widthInches": 55.1
   },
   {
     "id": "019891b0-f39c-7a5f-a6de-f1a8172971f6",
@@ -671,7 +814,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 140,
+    "widthCm": 75,
+    "heightInches": 55.1,
+    "widthInches": 29.5
   },
   {
     "id": "019891b0-f39c-74e9-9011-76112f5b97a4",
@@ -691,7 +838,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "formatEn": "Hanging Scroll",
+    "heightCm": 135,
+    "widthCm": 70,
+    "heightInches": 53.1,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7b9e-bb65-6852f393b302",
@@ -711,7 +862,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 68,
+    "widthCm": 40,
+    "heightInches": 26.8,
+    "widthInches": 15.7
   },
   {
     "id": "019891b0-f39c-78c6-9e86-b1be74fe48eb",
@@ -731,7 +886,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 50,
+    "widthCm": 50,
+    "heightInches": 19.7,
+    "widthInches": 19.7
   },
   {
     "id": "019891b0-f39c-7b84-a80e-a928e6c46860",
@@ -751,7 +910,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 64,
+    "widthCm": 62,
+    "heightInches": 25.2,
+    "widthInches": 24.4
   },
   {
     "id": "019891b0-f39c-78c1-b44e-ae82a4e2d985",
@@ -771,7 +934,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "formatEn": "Hanging Scroll",
+    "heightCm": 138,
+    "widthCm": 74,
+    "heightInches": 54.3,
+    "widthInches": 29.1
   },
   {
     "id": "019891b0-f39c-7507-aa0e-43acd4db1f68",
@@ -791,7 +958,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 140,
+    "widthCm": 70,
+    "heightInches": 55.1,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7136-84bc-3625d99f8651",
@@ -811,7 +982,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 45,
+    "widthCm": 70,
+    "heightInches": 17.7,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-745a-b6ad-58e4e8545268",
@@ -831,7 +1006,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "formatEn": "Hanging Scroll",
+    "heightCm": 140,
+    "widthCm": 75,
+    "heightInches": 55.1,
+    "widthInches": 29.5
   },
   {
     "id": "019891b0-f39c-7e85-8f83-fd90bbaf222d",
@@ -851,7 +1030,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 45,
+    "widthCm": 70,
+    "heightInches": 17.7,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-787c-a46f-62905fa86f16",
@@ -871,7 +1054,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 70,
+    "widthCm": 45,
+    "heightInches": 27.6,
+    "widthInches": 17.7
   },
   {
     "id": "019891b0-f39c-794f-912a-d6417dbb78df",
@@ -891,7 +1078,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 70,
+    "widthCm": 70,
+    "heightInches": 27.6,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-762f-9eff-b51334b7bf49",
@@ -911,7 +1102,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 46,
+    "widthCm": 49,
+    "heightInches": 18.1,
+    "widthInches": 19.3
   },
   {
     "id": "019891b0-f39c-743e-911c-4c2ab5461afb",
@@ -931,27 +1126,53 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 50,
+    "widthCm": 50,
+    "heightInches": 19.7,
+    "widthInches": 19.7
   },
   {
     "id": "019891b0-f39c-7c93-99be-4338883f37f7",
     "title": "煙擁合歡－合歡梯田",
-    "titleEn": "Mist-Kissed Harmony: The Joyful Terraces",
-    "image": "",
-    "imageHigh": "",
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "",
+    "manualCategories": [],
+    "categories": [
+      "flowingclouds",
+      "hehuanshan"
+    ],
+    "autoCategories": {
+      "subjects": [
+        "flowingclouds"
+      ],
+      "locations": [
+        "hehuanshan"
+      ]
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7c93-99be-4338883f37f7_thumb.png",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7c93-99be-4338883f37f7_large.png",
     "description": "煙擁合歡，霧潤良疇，碧山含笑，雲凝翠黛，天然節奏，有象文章，風光綿延，機趣無窮。",
-    "descriptionEn": "Embraced by mist, the joyful blooms unite, Dew-kissed fields in gentle light. Emerald hills wear a smiling grace, Clouds gather, painting nature's face. With rhythms born of nature's art, In every form, a tale to impart. Scenic vistas stretch far and wide, Endless charm in the world's tide.",
-    "format": "框",
-    "mediumEn": "",
-    "sizeCm": "135x70",
-    "sizeInches": "53.1×27.6 inches",
-    "year": "2018",
-    "price": "",
-    "available": "",
-    "featured": "",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "format": "框",
+    "formatEn": "",
+    "mediumEn": "",
+    "heightCm": 135,
+    "widthCm": 70,
+    "heightInches": 53.1,
+    "widthInches": 27.6,
+    "sizeCm": "135×70",
+    "sizeInches": "53.1×27.6",
+    "year": "2018",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "recent": false,
+    "exhibitions": [],
+    "tags": []
   },
   {
     "id": "019891b0-f39c-74e5-8201-1f0276798b75",
@@ -971,7 +1192,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 30,
+    "widthCm": 70,
+    "heightInches": 11.8,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7a34-89ac-966e1e93eb42",
@@ -991,7 +1216,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 75,
+    "widthCm": 70,
+    "heightInches": 29.5,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7694-879a-47c9954a100b",
@@ -1011,47 +1240,96 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 35,
+    "widthCm": 73,
+    "heightInches": 13.8,
+    "widthInches": 28.7
   },
   {
     "id": "019891b0-f39c-7c9a-9ae8-6dccaca82b5f",
     "title": "穹蒼萬頃，是我家鄉。(黃山煙雲)",
-    "titleEn": "Vast Skies, My Homeland",
-    "image": "",
-    "imageHigh": "",
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "",
+    "manualCategories": [],
+    "categories": [
+      "landscape",
+      "flowingclouds",
+      "huangshan"
+    ],
+    "autoCategories": {
+      "subjects": [
+        "landscape",
+        "flowingclouds"
+      ],
+      "locations": [
+        "huangshan"
+      ]
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7c9a-9ae8-6dccaca82b5f_thumb.png",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7c9a-9ae8-6dccaca82b5f_large.png",
     "description": "江山嬌麗，質樸蘊寓，法象流長，滋生不息，煙波勁湧，凌空無盡，古松盎然，造物機心；心與物遊，依仁由藝，筆寫天地，墨染雲霞，大鵬展翅，自在翱翔，穹蒼萬頃，是我家鄉。",
-    "descriptionEn": "The landscape is enchanting, rich in simplicity and depth, A legacy of form that flows endlessly, nurturing life anew. Waves rise fiercely, soaring into the boundless sky, Ancient pines flourish, a testament to nature's craft. With heart and matter in harmony, guided by virtue and art, I inscribe the universe with my brush, Inked with the hues of clouds at dusk. The great roc spreads its wings, soaring freely, The vast expanse of heaven is my homeland.",
-    "format": "鏡片",
-    "mediumEn": "",
-    "sizeCm": "360x150",
-    "sizeInches": "141.7×59.1 inches",
-    "year": "2018",
-    "price": "",
-    "available": "",
-    "featured": "",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Mounted Panel"
+    "format": "鏡片",
+    "formatEn": "",
+    "mediumEn": "",
+    "heightCm": 360,
+    "widthCm": 150,
+    "heightInches": 141.7,
+    "widthInches": 59.1,
+    "sizeCm": "360×150",
+    "sizeInches": "141.7×59.1",
+    "year": "2018",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "recent": false,
+    "exhibitions": [],
+    "tags": []
   },
   {
     "id": "019891b0-f39c-7f16-a8d3-c83d48beb81e",
     "title": "筆走雷霆萬壑鳴－夏瀑",
-    "titleEn": "Thunderous Brushstrokes over Summer Falls",
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "",
+    "manualCategories": [],
+    "categories": [
+      "waterfall",
+      "landscape"
+    ],
+    "autoCategories": {
+      "subjects": [
+        "waterfall",
+        "landscape"
+      ],
+      "locations": []
+    },
     "image": "./images/paintings/thumbnails/019891b0-f39c-7f16-a8d3-c83d48beb81e_thumb.jpg",
     "imageHigh": "./images/paintings/large/019891b0-f39c-7f16-a8d3-c83d48beb81e_large.jpg",
     "description": "墨潑飛瀑三千尺，筆走雷霆萬壑鳴。",
-    "descriptionEn": "Inky splashes cascade three thousand feet, As the brush dances, thunder echoes through the valleys deep.",
-    "format": "軸",
-    "mediumEn": "",
-    "sizeCm": "140x75",
-    "sizeInches": "55.1×29.5 inches",
-    "year": "2018",
-    "price": "",
-    "available": "",
-    "featured": "true",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "format": "軸",
+    "formatEn": "",
+    "mediumEn": "",
+    "heightCm": 140,
+    "widthCm": 75,
+    "heightInches": 55.1,
+    "widthInches": 29.5,
+    "sizeCm": "140×75",
+    "sizeInches": "55.1×29.5",
+    "year": "2018",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "recent": false,
+    "exhibitions": [],
+    "tags": []
   },
   {
     "id": "019891b0-f39c-7643-8153-14cf32b528bc",
@@ -1071,7 +1349,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 90,
+    "widthCm": 180,
+    "heightInches": 35.4,
+    "widthInches": 70.9
   },
   {
     "id": "019891b0-f39c-7a2d-b50f-e9e6ec2e46b7",
@@ -1091,7 +1373,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 75,
+    "widthCm": 140,
+    "heightInches": 29.5,
+    "widthInches": 55.1
   },
   {
     "id": "019891b0-f39c-77f0-b10f-4fece05d42ba",
@@ -1110,7 +1396,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 140,
+    "widthCm": 75,
+    "heightInches": 55.1,
+    "widthInches": 29.5
   },
   {
     "id": "019891b0-f39c-7f1a-99db-36b8e31758cb",
@@ -1130,7 +1420,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 68,
+    "widthCm": 68,
+    "heightInches": 26.8,
+    "widthInches": 26.8
   },
   {
     "id": "019891b0-f39c-7e21-ae47-81a6092c5a54",
@@ -1150,7 +1444,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 70,
+    "widthCm": 70,
+    "heightInches": 27.6,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7cd6-a030-0406121e5164",
@@ -1170,67 +1468,50 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
-  },
-  {
-    "id": "019891b0-f39c-75ab-8723-7343f4a21f61",
-    "title": "雲煙萬頃，飛瀑千潯。―筆寫深心師造化",
-    "titleEn": "Vast Clouds and Cascading Falls: A Heartfelt Tribute to Nature",
-    "image": "",
-    "imageHigh": "",
-    "description": "雲煙萬頃春山好，飛瀑千潯落曉天；筆寫深心師造化，悠悠流水向人間。",
-    "descriptionEn": "In the vast expanse of spring mountains, clouds and mist weave a splendid scene; As waterfalls cascade in myriad streams, they greet the dawn's gentle embrace. With pen, I inscribe the depths of my heart, shaped by nature's hand; While the flowing waters meander softly, carrying whispers to the world of men.",
-    "format": "軸",
-    "mediumEn": "",
-    "sizeCm": "180x90",
-    "sizeInches": "70.9×35.4 inches",
-    "year": "2019",
-    "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "formatEn": "Hanging Scroll",
+    "heightCm": 180,
+    "widthCm": 90,
+    "heightInches": 70.9,
+    "widthInches": 35.4
   },
   {
     "id": "019891b0-f39c-7614-95c9-2db8260fcc98",
     "title": "臨懷仁集王羲之聖教序",
-    "titleEn": "Homage to Wang Xizhi: The Sacred Teachings",
-    "image": "",
-    "imageHigh": "",
-    "description": null,
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "",
+    "manualCategories": [],
+    "categories": [
+      "calligraphy"
+    ],
+    "autoCategories": {
+      "subjects": [
+        "calligraphy"
+      ],
+      "locations": []
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7614-95c9-2db8260fcc98_thumb.png",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7614-95c9-2db8260fcc98_large.png",
+    "description": "",
     "descriptionEn": "",
+    "curatorNote": "",
+    "curatorNoteEn": "",
     "format": "軸",
+    "formatEn": "",
     "mediumEn": "",
-    "sizeCm": "180x90",
-    "sizeInches": "70.9×35.4 inches",
+    "heightCm": 180,
+    "widthCm": 90,
+    "heightInches": 70.9,
+    "widthInches": 35.4,
+    "sizeCm": "180×90",
+    "sizeInches": "70.9×35.4",
     "year": "2020",
     "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
-  },
-  {
-    "id": "019891b0-f39c-78e0-88f5-2567b5518c8b",
-    "title": "菩提花開照眼明",
-    "titleEn": "Bodhi Blossoms Illuminate",
-    "image": "./images/paintings/thumbnails/019891b0-f39c-78e0-88f5-2567b5518c8b_thumb.jpg",
-    "imageHigh": "./images/paintings/large/019891b0-f39c-78e0-88f5-2567b5518c8b_large.jpg",
-    "description": "菩提花開照眼明",
-    "descriptionEn": "The Bodhi blossoms bloom, illuminating the eyes.",
-    "format": "框",
-    "mediumEn": "",
-    "sizeCm": null,
-    "sizeInches": "",
-    "year": "2020",
-    "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "available": true,
+    "featured": false,
+    "recent": true,
+    "exhibitions": [],
+    "tags": []
   },
   {
     "id": "019891b0-f39c-7f2c-b8af-cbff485e10a5",
@@ -1250,7 +1531,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "formatEn": "Hanging Scroll",
+    "heightCm": 140,
+    "widthCm": 75,
+    "heightInches": 55.1,
+    "widthInches": 29.5
   },
   {
     "id": "019891b0-f39c-728f-a1de-1b6a07cf80ff",
@@ -1270,7 +1555,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 45,
+    "widthCm": 72,
+    "heightInches": 17.7,
+    "widthInches": 28.3
   },
   {
     "id": "019891b0-f39c-7c2c-ab3a-8f771d7ff31d",
@@ -1290,7 +1579,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "formatEn": "Hanging Scroll",
+    "heightCm": 140,
+    "widthCm": 75,
+    "heightInches": 55.1,
+    "widthInches": 29.5
   },
   {
     "id": "019891b0-f39c-73e0-a9c8-0c6ccf4ed87d",
@@ -1310,7 +1603,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Circular Frame"
+    "formatEn": "Circular Frame",
+    "heightCm": 70,
+    "widthCm": 70,
+    "heightInches": 27.6,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-707a-916d-101340f43f14",
@@ -1330,7 +1627,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 68,
+    "widthCm": 68,
+    "heightInches": 26.8,
+    "widthInches": 26.8
   },
   {
     "id": "019891b0-f39c-7d35-bec5-bd039ad8684f",
@@ -1350,27 +1651,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
-  },
-  {
-    "id": "019891b0-f39c-709e-9b48-d9ee6677ac10",
-    "title": "墨染雲山參造化-桃花源",
-    "titleEn": "Inky Peaks and the Peach Blossom Spring",
-    "image": "",
-    "imageHigh": "",
-    "description": "墨染雲山參造化，桃江兩岸正逢春。",
-    "descriptionEn": "Inky hues stain the cloud-kissed peaks, While spring graces both banks of Peach River.",
-    "format": "框",
-    "mediumEn": "",
-    "sizeCm": null,
-    "sizeInches": "",
-    "year": "2021",
-    "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 45,
+    "widthCm": 72,
+    "heightInches": 17.7,
+    "widthInches": 28.3
   },
   {
     "id": "019891b0-f39c-7691-bb11-877c6b6634e9",
@@ -1390,7 +1675,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 70,
+    "widthCm": 70,
+    "heightInches": 27.6,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7817-98ab-ec870aa5b2aa",
@@ -1410,7 +1699,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 153,
+    "widthCm": 263,
+    "heightInches": 60.2,
+    "widthInches": 103.5
   },
   {
     "id": "019891b0-f39c-7e9f-b136-621667022a8e",
@@ -1430,7 +1723,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 68,
+    "widthCm": 68,
+    "heightInches": 26.8,
+    "widthInches": 26.8
   },
   {
     "id": "019891b0-f39c-770a-b647-6b0a8efdc639",
@@ -1450,7 +1747,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 70,
+    "widthCm": 70,
+    "heightInches": 27.6,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7b7d-8e54-83ae4f652136",
@@ -1470,7 +1771,11 @@
     "featured": "true",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "formatEn": "Hanging Scroll",
+    "heightCm": 135,
+    "widthCm": 70,
+    "heightInches": 53.1,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-78da-b5ed-b11a0a0e8bb1",
@@ -1490,7 +1795,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 60,
+    "widthCm": 90,
+    "heightInches": 23.6,
+    "widthInches": 35.4
   },
   {
     "id": "019891b0-f39c-7eb1-abf3-a892d0a3a655",
@@ -1510,7 +1819,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 70,
+    "widthCm": 45,
+    "heightInches": 27.6,
+    "widthInches": 17.7
   },
   {
     "id": "019891b0-f39c-75cd-bee9-3e517cf83161",
@@ -1530,7 +1843,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 70,
+    "widthCm": 45,
+    "heightInches": 27.6,
+    "widthInches": 17.7
   },
   {
     "id": "019891b0-f39c-7038-a32d-0f2d0cb36be8",
@@ -1550,7 +1867,11 @@
     "featured": "true",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 70,
+    "widthCm": 45,
+    "heightInches": 27.6,
+    "widthInches": 17.7
   },
   {
     "id": "019891b0-f39c-755d-a7dc-fb045eb4ef1c",
@@ -1569,7 +1890,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 70,
+    "widthCm": 70,
+    "heightInches": 27.6,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7bfb-9266-f832146002dd",
@@ -1589,7 +1914,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 70,
+    "widthCm": 70,
+    "heightInches": 27.6,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7e6a-a74c-8f5ec5c50381",
@@ -1609,7 +1938,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "formatEn": "Hanging Scroll",
+    "heightCm": 135,
+    "widthCm": 70,
+    "heightInches": 53.1,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7fd8-9336-d5c9897af012",
@@ -1629,7 +1962,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 70,
+    "widthCm": 70,
+    "heightInches": 27.6,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7aff-a45f-54ed6d61069b",
@@ -1649,7 +1986,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "formatEn": "Hanging Scroll",
+    "heightCm": 140,
+    "widthCm": 75,
+    "heightInches": 55.1,
+    "widthInches": 29.5
   },
   {
     "id": "019891b0-f39c-7af0-82e2-2e72570b0aa1",
@@ -1669,7 +2010,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 70,
+    "widthCm": 45,
+    "heightInches": 27.6,
+    "widthInches": 17.7
   },
   {
     "id": "019891b0-f39c-78dc-adb1-0aa1b3b74a00",
@@ -1689,7 +2034,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 46,
+    "widthCm": 93,
+    "heightInches": 18.1,
+    "widthInches": 36.6
   },
   {
     "id": "019891b0-f39c-7597-8177-ccdf69e29071",
@@ -1709,7 +2058,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 63,
+    "widthCm": 93,
+    "heightInches": 24.8,
+    "widthInches": 36.6
   },
   {
     "id": "019891b0-f39c-7823-8592-e3871b17c028",
@@ -1729,27 +2082,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
-  },
-  {
-    "id": "019891b0-f39c-79cc-97f9-db3f878f6bed",
-    "title": "牡丹-雍容華滋舞清和",
-    "titleEn": "Peony - Graceful Elegance in Serene Harmony",
-    "image": "",
-    "imageHigh": "",
-    "description": "雍容華滋舞清和",
-    "descriptionEn": "The graceful elegance dances in serene harmony.",
-    "format": "框",
-    "mediumEn": "",
-    "sizeCm": "70x45",
-    "sizeInches": "27.6×17.7 inches",
-    "year": "2021",
-    "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 70,
+    "widthCm": 70,
+    "heightInches": 27.6,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7edc-9801-8bc9199124f3",
@@ -1788,7 +2125,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 70,
+    "widthCm": 45,
+    "heightInches": 27.6,
+    "widthInches": 17.7
   },
   {
     "id": "019891b0-f39c-793d-819d-6c57e1716730",
@@ -1808,7 +2149,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "formatEn": "Hanging Scroll",
+    "heightCm": 135,
+    "widthCm": 70,
+    "heightInches": 53.1,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7c00-a038-c6c7bb860cbf",
@@ -1828,7 +2173,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "formatEn": "Hanging Scroll",
+    "heightCm": 135,
+    "widthCm": 70,
+    "heightInches": 53.1,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-73b5-88ac-2d98332bfd68",
@@ -1848,7 +2197,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 70,
+    "widthCm": 135,
+    "heightInches": 27.6,
+    "widthInches": 53.1
   },
   {
     "id": "019891b0-f39c-7841-9423-b51b365a7b9c",
@@ -1868,7 +2221,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 70,
+    "widthCm": 70,
+    "heightInches": 27.6,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7df5-a02e-1cc15d22bb57",
@@ -1888,7 +2245,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "formatEn": "Hanging Scroll",
+    "heightCm": 190,
+    "widthCm": 140,
+    "heightInches": 74.8,
+    "widthInches": 55.1
   },
   {
     "id": "019891b0-f39c-7871-b204-09fa520d0d23",
@@ -1912,7 +2273,9 @@
     "featured": false,
     "recent": true,
     "exhibitions": [],
-    "tags": []
+    "tags": [],
+    "heightCm": 70,
+    "widthCm": 45
   },
   {
     "id": "019891b0-f39c-79ee-915a-34d3aa1decd1",
@@ -1932,7 +2295,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Mounted Panel"
+    "formatEn": "Mounted Panel",
+    "heightCm": 135,
+    "widthCm": 70,
+    "heightInches": 53.1,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-78a1-8300-94cb02dbf7bc",
@@ -1952,7 +2319,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "formatEn": "Hanging Scroll",
+    "heightCm": 135,
+    "widthCm": 70,
+    "heightInches": 53.1,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7d61-9f3a-c5847a00bde5",
@@ -1972,7 +2343,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 75,
+    "widthCm": 140,
+    "heightInches": 29.5,
+    "widthInches": 55.1
   },
   {
     "id": "019891b0-f39c-7904-960b-4b52cf3fe52e",
@@ -1992,7 +2367,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Mounted Panel"
+    "formatEn": "Mounted Panel",
+    "heightCm": 120,
+    "widthCm": 240,
+    "heightInches": 47.2,
+    "widthInches": 94.5
   },
   {
     "id": "019891b0-f39c-71be-8987-5f3e69224ab5",
@@ -2012,7 +2391,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Horizontal Scroll"
+    "formatEn": "Horizontal Scroll",
+    "heightCm": 90,
+    "widthCm": 210,
+    "heightInches": 35.4,
+    "widthInches": 82.7
   },
   {
     "id": "019891b0-f39c-7a96-8e1b-28d8310e36dd",
@@ -2032,7 +2415,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 75,
+    "widthCm": 75,
+    "heightInches": 29.5,
+    "widthInches": 29.5
   },
   {
     "id": "019891b0-f39c-78e8-be37-c859eb030659",
@@ -2052,47 +2439,11 @@
     "curatorNoteEn": "",
     "descriptionEn": "The tranquil mountains hold myriad delights, While the pure waters whisper a clear melody.",
     "formatEn": "Framed",
-    "sizeInches": "29.5×17.7 inches"
-  },
-  {
-    "id": "019891b0-f39c-7cc5-a5a0-3dd4f7622f0d",
-    "title": "小楷心經-楷書",
-    "titleEn": "Delicate Heart Sutra in Small Script",
-    "image": "./images/paintings/thumbnails/019891b0-f39c-7cc5-a5a0-3dd4f7622f0d_thumb.jpg",
-    "imageHigh": "./images/paintings/large/019891b0-f39c-7cc5-a5a0-3dd4f7622f0d_large.jpg",
-    "description": null,
-    "descriptionEn": "",
-    "format": "框",
-    "mediumEn": "",
-    "sizeCm": null,
-    "sizeInches": "",
-    "year": "2022",
-    "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "formatEn": "Framed"
-  },
-  {
-    "id": "019891b0-f39c-7359-bb22-291a6b33c28a",
-    "title": "小楷心經-隸書",
-    "titleEn": "Heart Sutra in Small Script - Clerical Style",
-    "image": "./images/paintings/thumbnails/019891b0-f39c-7359-bb22-291a6b33c28a_thumb.jpg",
-    "imageHigh": "./images/paintings/large/019891b0-f39c-7359-bb22-291a6b33c28a_large.jpg",
-    "description": null,
-    "descriptionEn": "",
-    "format": "框",
-    "mediumEn": "",
-    "sizeCm": null,
-    "sizeInches": "",
-    "year": "2022",
-    "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "sizeInches": "29.5×17.7 inches",
+    "heightCm": 75,
+    "widthCm": 45,
+    "heightInches": 29.5,
+    "widthInches": 17.7
   },
   {
     "id": "019891b0-f39c-7190-9005-95da13ac1ad1",
@@ -2112,7 +2463,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 70,
+    "widthCm": 45,
+    "heightInches": 27.6,
+    "widthInches": 17.7
   },
   {
     "id": "019891b0-f39c-72a2-ae2f-04a06f5a0c75",
@@ -2136,7 +2491,9 @@
     "featured": true,
     "recent": true,
     "exhibitions": [],
-    "tags": []
+    "tags": [],
+    "heightCm": 70,
+    "widthCm": 45
   },
   {
     "id": "019891b0-f39c-73d5-ae97-3d296dba78a1",
@@ -2156,7 +2513,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 60,
+    "widthCm": 90,
+    "heightInches": 23.6,
+    "widthInches": 35.4
   },
   {
     "id": "019891b0-f39c-7939-897c-cc57bc9b4a35",
@@ -2176,27 +2537,52 @@
     "featured": "true",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 24,
+    "widthCm": 70,
+    "heightInches": 9.4,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7e36-872a-d88bb9d03b07",
     "title": "春山飛瀑",
-    "titleEn": "Spring Mountains and Flying Waterfalls",
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "",
+    "manualCategories": [],
+    "categories": [
+      "waterfall",
+      "landscape"
+    ],
+    "autoCategories": {
+      "subjects": [
+        "waterfall",
+        "landscape"
+      ],
+      "locations": []
+    },
     "image": "./images/paintings/thumbnails/019891b0-f39c-7e36-872a-d88bb9d03b07_thumb.jpg",
     "imageHigh": "./images/paintings/large/019891b0-f39c-7e36-872a-d88bb9d03b07_large.jpg",
     "description": "飛瀑凌空舞，春山萬縷風；深心師造化，一笑水雲中。",
-    "descriptionEn": "The cascading waterfall dances in the air, While spring mountains whisper with myriad winds; In the depths of my heart, I learn from nature's art, A smile emerges amidst the water and clouds.",
-    "format": "框",
-    "mediumEn": "",
-    "sizeCm": "75x140",
-    "sizeInches": "29.5×55.1 inches",
-    "year": "2022",
-    "price": "",
-    "available": "",
-    "featured": true,
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "format": "框",
+    "formatEn": "",
+    "mediumEn": "",
+    "heightCm": 75,
+    "widthCm": 140,
+    "heightInches": 29.5,
+    "widthInches": 55.1,
+    "sizeCm": "75×140",
+    "sizeInches": "29.5×55.1",
+    "year": "2022",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "recent": true,
+    "exhibitions": [],
+    "tags": []
   },
   {
     "id": "019891b0-f39c-7f63-87fd-b7a8a860889f",
@@ -2216,7 +2602,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 68,
+    "widthCm": 45,
+    "heightInches": 26.8,
+    "widthInches": 17.7
   },
   {
     "id": "019891b0-f39c-7403-80d4-4da1440b7976",
@@ -2236,7 +2626,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "formatEn": "Hanging Scroll",
+    "heightCm": 140,
+    "widthCm": 75,
+    "heightInches": 55.1,
+    "widthInches": 29.5
   },
   {
     "id": "019891b0-f39c-792d-b5e8-b80ef8754ca2",
@@ -2256,7 +2650,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 70,
+    "widthCm": 45,
+    "heightInches": 27.6,
+    "widthInches": 17.7
   },
   {
     "id": "019891b0-f39c-71dd-be15-f32291c15cc6",
@@ -2276,7 +2674,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "formatEn": "Hanging Scroll",
+    "heightCm": 76,
+    "widthCm": 35,
+    "heightInches": 29.9,
+    "widthInches": 13.8
   },
   {
     "id": "019891b0-f39c-7b75-910e-8ef8046a7bb9",
@@ -2296,7 +2698,11 @@
     "featured": "true",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 90,
+    "widthCm": 180,
+    "heightInches": 35.4,
+    "widthInches": 70.9
   },
   {
     "id": "019891b0-f39c-721b-b645-0e2a1c090d9b",
@@ -2316,7 +2722,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 75,
+    "widthCm": 22,
+    "heightInches": 29.5,
+    "widthInches": 8.7
   },
   {
     "id": "019891b0-f39c-7539-8543-c9a7de487cca",
@@ -2356,7 +2766,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "formatEn": "Hanging Scroll",
+    "heightCm": 135,
+    "widthCm": 70,
+    "heightInches": 53.1,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7995-bcb5-8b510d734e53",
@@ -2376,7 +2790,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "formatEn": "Hanging Scroll",
+    "heightCm": 136,
+    "widthCm": 70,
+    "heightInches": 53.5,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-71f0-bd5c-b448f22ef5f4",
@@ -2396,7 +2814,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Mounted Panel"
+    "formatEn": "Mounted Panel",
+    "heightCm": 90,
+    "widthCm": 180,
+    "heightInches": 35.4,
+    "widthInches": 70.9
   },
   {
     "id": "019891b0-f39c-7e7e-ab7e-4b6efd6d2dfa",
@@ -2416,7 +2838,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Mounted Panel"
+    "formatEn": "Mounted Panel",
+    "heightCm": 90,
+    "widthCm": 181,
+    "heightInches": 35.4,
+    "widthInches": 71.3
   },
   {
     "id": "019891b0-f39c-7a31-8759-95a350b1e45b",
@@ -2436,7 +2862,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 75,
+    "widthCm": 75,
+    "heightInches": 29.5,
+    "widthInches": 29.5
   },
   {
     "id": "019891b0-f39c-7b15-9621-9861ba359745",
@@ -2456,7 +2886,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 75,
+    "widthCm": 75,
+    "heightInches": 29.5,
+    "widthInches": 29.5
   },
   {
     "id": "019891b0-f39c-73f5-98b1-d68da1664faf",
@@ -2476,7 +2910,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "formatEn": "Hanging Scroll",
+    "heightCm": 137,
+    "widthCm": 35,
+    "heightInches": 53.9,
+    "widthInches": 13.8
   },
   {
     "id": "019891b0-f39c-7674-b4b9-056c567df90a",
@@ -2496,7 +2934,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 70,
+    "widthCm": 70,
+    "heightInches": 27.6,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7562-bbed-32c024cd6676",
@@ -2516,7 +2958,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 17,
+    "widthCm": 92,
+    "heightInches": 6.7,
+    "widthInches": 36.2
   },
   {
     "id": "019891b0-f39c-706e-bdb9-c752dc8bcf1f",
@@ -2536,7 +2982,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "formatEn": "Hanging Scroll",
+    "heightCm": 135,
+    "widthCm": 70,
+    "heightInches": 53.1,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-721e-8576-4e3f61c0e800",
@@ -2556,7 +3006,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "formatEn": "Hanging Scroll",
+    "heightCm": 136,
+    "widthCm": 70,
+    "heightInches": 53.5,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-71b7-918f-b55fd4fbca35",
@@ -2576,7 +3030,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 70,
+    "widthCm": 70,
+    "heightInches": 27.6,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7b83-902a-1f7f7bc72183",
@@ -2596,7 +3054,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Mounted Panel"
+    "formatEn": "Mounted Panel",
+    "heightCm": 97,
+    "widthCm": 180,
+    "heightInches": 38.2,
+    "widthInches": 70.9
   },
   {
     "id": "019891b0-f39c-7809-a063-80f25d10a396",
@@ -2616,7 +3078,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 70,
+    "widthCm": 70,
+    "heightInches": 27.6,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-763c-819c-62b3e41136e1",
@@ -2636,7 +3102,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 70,
+    "widthCm": 70,
+    "heightInches": 27.6,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7455-9267-14eb33bed415",
@@ -2656,7 +3126,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 68,
+    "widthCm": 45,
+    "heightInches": 26.8,
+    "widthInches": 17.7
   },
   {
     "id": "019891b0-f39c-70a8-aa76-019cadc5409d",
@@ -2680,7 +3154,9 @@
     "featured": false,
     "recent": true,
     "exhibitions": [],
-    "tags": []
+    "tags": [],
+    "heightCm": 75,
+    "widthCm": 22
   },
   {
     "id": "019891b0-f39c-729c-bef5-b90e2cafb77e",
@@ -2700,7 +3176,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Horizontal Scroll"
+    "formatEn": "Horizontal Scroll",
+    "heightCm": 90,
+    "widthCm": 210,
+    "heightInches": 35.4,
+    "widthInches": 82.7
   },
   {
     "id": "019891b0-f39c-7cf8-86a3-61f2f44df76f",
@@ -2720,7 +3200,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "formatEn": "Hanging Scroll",
+    "heightCm": 142,
+    "widthCm": 73,
+    "heightInches": 55.9,
+    "widthInches": 28.7
   },
   {
     "id": "019891b0-f39c-719e-a185-2f66d722d5ea",
@@ -2740,7 +3224,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "formatEn": "Hanging Scroll",
+    "heightCm": 137,
+    "widthCm": 35,
+    "heightInches": 53.9,
+    "widthInches": 13.8
   },
   {
     "id": "019891b0-f39c-7102-a694-48bd9ef009c1",
@@ -2759,7 +3247,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 135,
+    "widthCm": 70,
+    "heightInches": 53.1,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7840-a59b-6347f70b1e3f",
@@ -2778,26 +3270,52 @@
     "available": 0,
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 46,
+    "widthCm": 45,
+    "heightInches": 18.1,
+    "widthInches": 17.7
   },
   {
     "id": "019891b0-f39c-7a90-ab98-022c8b72668e",
-    "title": "古月－潑墨山水",
-    "titleEn": "Ancient Moon - Ink Splash Landscapes",
-    "image": "",
-    "imageHigh": "",
-    "description": "古月－青梅超象外，古月照今塵。",
-    "descriptionEn": "Ancient Moon - The green plums transcend the mundane, While the ancient moon illuminates the dust of today.",
-    "format": null,
+    "title": "古月",
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "潑墨, 山水",
+    "manualCategories": [
+      "潑墨",
+      "山水"
+    ],
+    "categories": [
+      "潑墨",
+      "山水"
+    ],
+    "autoCategories": {
+      "subjects": [],
+      "locations": []
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7a90-ab98-022c8b72668e_thumb.png",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7a90-ab98-022c8b72668e_large.png",
+    "description": "青梅超象外，古月照今塵。",
+    "descriptionEn": "",
+    "curatorNote": "",
+    "curatorNoteEn": "",
+    "format": "",
+    "formatEn": "",
     "mediumEn": "",
-    "sizeCm": "70 × 45",
-    "sizeInches": "27.6×17.7 inches",
+    "heightCm": 70,
+    "widthCm": 45,
+    "heightInches": 27.6,
+    "widthInches": 17.7,
+    "sizeCm": "70×45",
+    "sizeInches": "27.6×17.7",
     "year": "unknown",
     "price": "",
-    "available": 0,
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": ""
+    "available": true,
+    "featured": false,
+    "recent": false,
+    "exhibitions": [],
+    "tags": []
   },
   {
     "id": "019891b0-f39c-728a-b3ca-313cab5b59d0",
@@ -2816,7 +3334,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 180,
+    "widthCm": 90,
+    "heightInches": 70.9,
+    "widthInches": 35.4
   },
   {
     "id": "019891b0-f39c-7311-beee-463de4a1fb57",
@@ -2855,7 +3377,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 75,
+    "widthCm": 70,
+    "heightInches": 29.5,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-749a-a0e7-de471740115b",
@@ -2874,7 +3400,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 135,
+    "widthCm": 70,
+    "heightInches": 53.1,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7441-a5a7-dc968e455d98",
@@ -2893,7 +3423,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 135,
+    "widthCm": 70,
+    "heightInches": 53.1,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7a2f-aafa-2e77fa258551",
@@ -2912,7 +3446,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 153,
+    "widthCm": 263,
+    "heightInches": 60.2,
+    "widthInches": 103.5
   },
   {
     "id": "019891b0-f39c-714c-be36-6f1486418c72",
@@ -2931,7 +3469,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 135,
+    "widthCm": 70,
+    "heightInches": 53.1,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-76d0-830d-e1a84734c35b",
@@ -2950,7 +3492,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 135,
+    "widthCm": 35,
+    "heightInches": 53.1,
+    "widthInches": 13.8
   },
   {
     "id": "019891b0-f39c-7201-bdba-6943519e8862",
@@ -2969,7 +3515,11 @@
     "available": 0,
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 70,
+    "widthCm": 135,
+    "heightInches": 27.6,
+    "widthInches": 53.1
   },
   {
     "id": "019891b0-f39c-7aa8-90f8-b40422109aad",
@@ -2988,7 +3538,11 @@
     "available": 0,
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 70,
+    "widthCm": 135,
+    "heightInches": 27.6,
+    "widthInches": 53.1
   },
   {
     "id": "019891b0-f39c-7eb7-918f-81e80f086d63",
@@ -3007,7 +3561,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 70,
+    "widthCm": 70,
+    "heightInches": 27.6,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7cf5-8391-dde492517606",
@@ -3026,7 +3584,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 138,
+    "widthCm": 74,
+    "heightInches": 54.3,
+    "widthInches": 29.1
   },
   {
     "id": "019891b0-f39c-7f23-bcbb-b87134f4f667",
@@ -3046,7 +3608,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "formatEn": "Hanging Scroll",
+    "heightCm": 70,
+    "widthCm": 70,
+    "heightInches": 27.6,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7fa4-834c-dfc205acfee3",
@@ -3065,7 +3631,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 135,
+    "widthCm": 70,
+    "heightInches": 53.1,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7386-a86e-60369bb2ecd5",
@@ -3084,7 +3654,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 135,
+    "widthCm": 70,
+    "heightInches": 53.1,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7a10-8ea8-7399764b770b",
@@ -3103,7 +3677,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 135,
+    "widthCm": 70,
+    "heightInches": 53.1,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7489-928b-ccc89bfe45cd",
@@ -3122,7 +3700,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 135,
+    "widthCm": 70,
+    "heightInches": 53.1,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7384-be98-8e564547c934",
@@ -3141,7 +3723,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 70,
+    "widthCm": 80,
+    "heightInches": 27.6,
+    "widthInches": 31.5
   },
   {
     "id": "019891b0-f39c-7127-92b7-784bb454984e",
@@ -3160,7 +3746,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 135,
+    "widthCm": 70,
+    "heightInches": 53.1,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-71d1-9a64-3e6a4cea8efb",
@@ -3179,7 +3769,11 @@
     "available": 0,
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 45,
+    "widthCm": 70,
+    "heightInches": 17.7,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7530-ace8-fffa8fead53e",
@@ -3198,7 +3792,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 70,
+    "widthCm": 70,
+    "heightInches": 27.6,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7605-8810-2ec32c05d109",
@@ -3217,7 +3815,11 @@
     "available": 0,
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 140,
+    "widthCm": 75,
+    "heightInches": 55.1,
+    "widthInches": 29.5
   },
   {
     "id": "019891b0-f39c-79d8-9ef1-3daa601bdab9",
@@ -3236,7 +3838,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 180,
+    "widthCm": 90,
+    "heightInches": 70.9,
+    "widthInches": 35.4
   },
   {
     "id": "019891b0-f39c-701a-8549-8acb24ecf588",
@@ -3256,7 +3862,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "formatEn": "Hanging Scroll",
+    "heightCm": 180,
+    "widthCm": 90,
+    "heightInches": 70.9,
+    "widthInches": 35.4
   },
   {
     "id": "019891b0-f39c-7e3e-ae29-6cf7e37cc717",
@@ -3280,7 +3890,9 @@
     "featured": false,
     "recent": false,
     "exhibitions": [],
-    "tags": []
+    "tags": [],
+    "heightCm": 70,
+    "widthCm": 135
   },
   {
     "id": "019891b0-f39c-7b8d-9017-a3c20acb6a5e",
@@ -3299,7 +3911,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 135,
+    "widthCm": 35,
+    "heightInches": 53.1,
+    "widthInches": 13.8
   },
   {
     "id": "019891b0-f39c-753a-ab69-48d8ee21bd58",
@@ -3338,7 +3954,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "formatEn": "Hanging Scroll",
+    "heightCm": 135,
+    "widthCm": 70,
+    "heightInches": 53.1,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-70a9-9b91-b5a11b16a4e5",
@@ -3357,7 +3977,11 @@
     "available": 0,
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 70,
+    "widthCm": 135,
+    "heightInches": 27.6,
+    "widthInches": 53.1
   },
   {
     "id": "019891b0-f39c-71ca-b2c1-0ccf8cbe55e2",
@@ -3376,45 +4000,52 @@
     "available": 0,
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
-  },
-  {
-    "id": "019891b0-f39c-71bb-95b7-a3be087e6a25",
-    "title": "煙擁合歡",
-    "titleEn": "Lotus Embraced by Mist",
-    "image": "",
-    "imageHigh": "",
-    "description": "煙擁合歡，霧潤良疇，碧山含笑，雲凝翠黛，天然節奏，有象文章，風光綿延，機趣無窮。",
-    "descriptionEn": "Embraced by mist, the lotus blooms, Dew graces the fertile fields, Emerald hills wear a smile, Clouds gather in verdant hues. Nature's rhythm flows with ease, In every image, words take form, Scenery stretches, endless and grand, With boundless charm and playful grace.",
-    "format": null,
-    "mediumEn": "",
-    "sizeCm": "135 x 70",
-    "sizeInches": "53.1×27.6 inches",
-    "year": "unknown",
-    "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 135,
+    "widthCm": 70,
+    "heightInches": 53.1,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7b5a-9017-6de6a497f059",
     "title": "煙聲一縷一塵埃-大瀑布",
-    "titleEn": "Whispers of Mist and Dust: The Great Waterfall",
-    "image": "",
-    "imageHigh": "",
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "",
+    "manualCategories": [],
+    "categories": [
+      "waterfall",
+      "flowingclouds"
+    ],
+    "autoCategories": {
+      "subjects": [
+        "waterfall",
+        "flowingclouds"
+      ],
+      "locations": []
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7b5a-9017-6de6a497f059_thumb.png",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7b5a-9017-6de6a497f059_large.png",
     "description": "放眼大千境始開，烟聲一縷一塵埃；飛天素染無盡意，流水行雲去復來。",
-    "descriptionEn": "With a gaze that embraces the vast expanse, the world unfolds; A whisper of mist carries a trace of dust. In the boundless essence of the heavens, pure and serene, The flowing waters and drifting clouds come and go.",
-    "format": null,
-    "mediumEn": "",
-    "sizeCm": "120x240",
-    "sizeInches": "47.2×94.5 inches",
-    "year": "unknown",
-    "price": "",
-    "available": "",
-    "featured": "",
+    "descriptionEn": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "format": "",
+    "formatEn": "",
+    "mediumEn": "",
+    "heightCm": 120,
+    "widthCm": 240,
+    "heightInches": 47.2,
+    "widthInches": 94.5,
+    "sizeCm": "120×240",
+    "sizeInches": "47.2×94.5",
+    "year": "2018",
+    "price": "",
+    "available": true,
+    "featured": true,
+    "recent": false,
+    "exhibitions": [],
+    "tags": []
   },
   {
     "id": "019891b0-f39c-7535-8938-34b23c8840cd",
@@ -3433,7 +4064,11 @@
     "available": 0,
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 70,
+    "widthCm": 135,
+    "heightInches": 27.6,
+    "widthInches": 53.1
   },
   {
     "id": "019891b0-f39c-754c-b2f3-0042b0f1eda6",
@@ -3452,7 +4087,11 @@
     "available": 0,
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 70,
+    "widthCm": 135,
+    "heightInches": 27.6,
+    "widthInches": 53.1
   },
   {
     "id": "019891b0-f39c-737c-ab58-5e7f6585cf58",
@@ -3490,7 +4129,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 135,
+    "widthCm": 35,
+    "heightInches": 53.1,
+    "widthInches": 13.8
   },
   {
     "id": "019891b0-f39c-7d79-aa2f-4fa671975bd7",
@@ -3509,7 +4152,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 60,
+    "widthCm": 135,
+    "heightInches": 23.6,
+    "widthInches": 53.1
   },
   {
     "id": "019891b0-f39c-7b3a-a7ae-03eba18e8809",
@@ -3528,7 +4175,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 180,
+    "widthCm": 90,
+    "heightInches": 70.9,
+    "widthInches": 35.4
   },
   {
     "id": "019891b0-f39c-7ddc-877a-b2a51cb0032a",
@@ -3548,7 +4199,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "formatEn": "Hanging Scroll",
+    "heightCm": 180,
+    "widthCm": 90,
+    "heightInches": 70.9,
+    "widthInches": 35.4
   },
   {
     "id": "019891b0-f39c-7972-9fe7-988683c4167b",
@@ -3567,7 +4222,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 70,
+    "widthCm": 70,
+    "heightInches": 27.6,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-799a-8b24-69278cd05a54",
@@ -3586,7 +4245,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 135,
+    "widthCm": 70,
+    "heightInches": 53.1,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-78de-981c-5938a5bfa32f",
@@ -3605,7 +4268,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 135,
+    "widthCm": 70,
+    "heightInches": 53.1,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7986-b69d-df98c6926fd8",
@@ -3624,7 +4291,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 122,
+    "widthCm": 78,
+    "heightInches": 48,
+    "widthInches": 30.7
   },
   {
     "id": "019891b0-f39c-7b93-be63-f32d5ec6c96e",
@@ -3644,7 +4315,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "formatEn": "Hanging Scroll",
+    "heightCm": 122,
+    "widthCm": 78,
+    "heightInches": 48,
+    "widthInches": 30.7
   },
   {
     "id": "019891b0-f39c-7b52-bc2d-c8ae2282e7bb",
@@ -3663,7 +4338,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 135,
+    "widthCm": 70,
+    "heightInches": 53.1,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7e2c-aab1-3c1bd010b1f7",
@@ -3682,7 +4361,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 180,
+    "widthCm": 90,
+    "heightInches": 70.9,
+    "widthInches": 35.4
   },
   {
     "id": "019891b0-f39c-7353-828e-07b6ae7b5e06",
@@ -3701,7 +4384,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 140,
+    "widthCm": 140,
+    "heightInches": 55.1,
+    "widthInches": 55.1
   },
   {
     "id": "019891b0-f39c-74ce-98d6-18e6c467339f",
@@ -3720,7 +4407,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 135,
+    "widthCm": 70,
+    "heightInches": 53.1,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-708b-8c6c-ce2da0902915",
@@ -3739,7 +4430,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 70,
+    "widthCm": 20,
+    "heightInches": 27.6,
+    "widthInches": 7.9
   },
   {
     "id": "019891b0-f39c-7fba-9bd9-0c91d42c5658",
@@ -3758,7 +4453,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 90,
+    "widthCm": 90,
+    "heightInches": 35.4,
+    "widthInches": 35.4
   },
   {
     "id": "019891b0-f39c-7a15-8cec-bbe1bff8ba7e",
@@ -3778,7 +4477,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed"
+    "formatEn": "Framed",
+    "heightCm": 70,
+    "widthCm": 135,
+    "heightInches": 27.6,
+    "widthInches": 53.1
   },
   {
     "id": "019891b0-f39c-7aed-9fac-21a5e94b8c1f",
@@ -3797,7 +4500,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 135,
+    "widthCm": 70,
+    "heightInches": 53.1,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-744e-b30c-7599d6a173be",
@@ -3816,7 +4523,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 135,
+    "widthCm": 35,
+    "heightInches": 53.1,
+    "widthInches": 13.8
   },
   {
     "id": "019891b0-f39c-7d2a-983e-2173b9553625",
@@ -3835,7 +4546,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 135,
+    "widthCm": 35,
+    "heightInches": 53.1,
+    "widthInches": 13.8
   },
   {
     "id": "019891b0-f39c-7e9f-b88d-0fe3639ee835",
@@ -3854,7 +4569,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 75,
+    "widthCm": 14,
+    "heightInches": 29.5,
+    "widthInches": 5.5
   },
   {
     "id": "019891b0-f39c-7574-a231-f0777acb01f3",
@@ -3873,7 +4592,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 120,
+    "widthCm": 240,
+    "heightInches": 47.2,
+    "widthInches": 94.5
   },
   {
     "id": "019891b0-f39c-7ac8-8ba9-462a13f7d56f",
@@ -3892,27 +4615,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
-  },
-  {
-    "id": "019891b0-f39c-797e-9291-51094658f022",
-    "title": "行草中堂-聖教序",
-    "titleEn": "Running Script in the Hall - Ode to the Sacred Teachings",
-    "image": "",
-    "imageHigh": "",
-    "description": null,
-    "descriptionEn": "",
-    "format": "軸",
-    "mediumEn": "",
-    "sizeCm": "180x90",
-    "sizeInches": "70.9×35.4 inches",
-    "year": "unknown",
-    "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "heightCm": 90,
+    "widthCm": 90,
+    "heightInches": 35.4,
+    "widthInches": 35.4
   },
   {
     "id": "019891b0-f39c-7fb1-a33d-91b7825cf41d",
@@ -3931,26 +4638,50 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 135,
+    "widthCm": 70,
+    "heightInches": 53.1,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7764-a468-4f7ad6140df2",
     "title": "赤壁賦(行草)",
-    "titleEn": "Ode to the Red Cliffs (Xingcao)",
-    "image": "",
-    "imageHigh": "",
-    "description": null,
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "",
+    "manualCategories": [],
+    "categories": [
+      "calligraphy"
+    ],
+    "autoCategories": {
+      "subjects": [
+        "calligraphy"
+      ],
+      "locations": []
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7764-a468-4f7ad6140df2_thumb.png",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7764-a468-4f7ad6140df2_large.png",
+    "description": "",
     "descriptionEn": "",
-    "format": null,
+    "curatorNote": "",
+    "curatorNoteEn": "",
+    "format": "",
+    "formatEn": "",
     "mediumEn": "",
-    "sizeCm": "135 × 60",
-    "sizeInches": "53.1×23.6 inches",
+    "heightCm": 135,
+    "widthCm": 60,
+    "heightInches": 53.1,
+    "widthInches": 23.6,
+    "sizeCm": "135×60",
+    "sizeInches": "53.1×23.6",
     "year": "unknown",
     "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": ""
+    "available": true,
+    "featured": false,
+    "recent": false,
+    "exhibitions": [],
+    "tags": []
   },
   {
     "id": "019891b0-f39c-7ec8-a85c-a9c9c25cf4b5",
@@ -3969,7 +4700,11 @@
     "available": 0,
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 70,
+    "widthCm": 135,
+    "heightInches": 27.6,
+    "widthInches": 53.1
   },
   {
     "id": "019891b0-f39c-7296-b1fe-00c0dc5bac9e",
@@ -3988,7 +4723,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 70,
+    "widthCm": 135,
+    "heightInches": 27.6,
+    "widthInches": 53.1
   },
   {
     "id": "019891b0-f39c-7531-92cc-99a987218838",
@@ -4007,7 +4746,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 180,
+    "widthCm": 90,
+    "heightInches": 70.9,
+    "widthInches": 35.4
   },
   {
     "id": "019891b0-f39c-76fc-82e8-c3b479340c2e",
@@ -4027,7 +4770,11 @@
     "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll"
+    "formatEn": "Hanging Scroll",
+    "heightCm": 135,
+    "widthCm": 70,
+    "heightInches": 53.1,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-74ff-a4b2-e9f3107748f4",
@@ -4046,7 +4793,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 135,
+    "widthCm": 35,
+    "heightInches": 53.1,
+    "widthInches": 13.8
   },
   {
     "id": "019891b0-f39c-7c6b-8a23-82f2cfce7c6a",
@@ -4065,7 +4816,11 @@
     "available": 0,
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 135,
+    "widthCm": 70,
+    "heightInches": 53.1,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-79c6-bfe0-4790c6114ae9",
@@ -4084,7 +4839,11 @@
     "available": 0,
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 90,
+    "widthCm": 180,
+    "heightInches": 35.4,
+    "widthInches": 70.9
   },
   {
     "id": "019891b0-f39c-7109-bdf7-2aff4e78b0ee",
@@ -4103,7 +4862,11 @@
     "available": 0,
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 70,
+    "widthCm": 80,
+    "heightInches": 27.6,
+    "widthInches": 31.5
   },
   {
     "id": "019891b0-f39c-7d34-8e2a-501c01f3627d",
@@ -4122,7 +4885,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 75,
+    "widthCm": 70,
+    "heightInches": 29.5,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7c4e-b473-973fecc8171d",
@@ -4141,7 +4908,11 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 135,
+    "widthCm": 70,
+    "heightInches": 53.1,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-757c-afd8-62401715ca08",
@@ -4160,6 +4931,52 @@
     "available": "",
     "featured": "",
     "curatorNote": "",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "heightCm": 135,
+    "widthCm": 70,
+    "heightInches": 53.1,
+    "widthInches": 27.6
+  },
+  {
+    "id": "artwork-987218839",
+    "title": "江山如此多好",
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "煙雲",
+    "manualCategories": [
+      "煙雲"
+    ],
+    "categories": [
+      "landscape",
+      "煙雲"
+    ],
+    "autoCategories": {
+      "subjects": [
+        "landscape"
+      ],
+      "locations": []
+    },
+    "image": "./images/paintings/thumbnails/artwork-987218839_thumb.png",
+    "imageHigh": "./images/paintings/large/artwork-987218839_large.png",
+    "description": "江山如此多好",
+    "descriptionEn": "",
+    "curatorNote": "",
+    "curatorNoteEn": "",
+    "format": "",
+    "formatEn": "",
+    "mediumEn": "",
+    "heightCm": 70,
+    "widthCm": 135,
+    "heightInches": 27.6,
+    "widthInches": 53.1,
+    "sizeCm": "70×135",
+    "sizeInches": "27.6×53.1",
+    "year": "2017",
+    "price": "",
+    "available": false,
+    "featured": false,
+    "recent": false,
+    "exhibitions": [],
+    "tags": []
   }
 ]
