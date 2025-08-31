@@ -1452,26 +1452,41 @@
   {
     "id": "019891b0-f39c-7614-95c9-2db8260fcc98",
     "title": "臨懷仁集王羲之聖教序",
-    "titleEn": "Homage to Wang Xizhi: The Sacred Teachings",
-    "image": "",
-    "imageHigh": "",
-    "description": null,
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "",
+    "manualCategories": [],
+    "categories": [
+      "calligraphy"
+    ],
+    "autoCategories": {
+      "subjects": [
+        "calligraphy"
+      ],
+      "locations": []
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7614-95c9-2db8260fcc98_thumb.png",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7614-95c9-2db8260fcc98_large.png",
+    "description": "",
     "descriptionEn": "",
-    "format": "軸",
-    "mediumEn": "",
-    "sizeCm": "180x90",
-    "sizeInches": "70.9×35.4 inches",
-    "year": "2020",
-    "price": "",
-    "available": "",
-    "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll",
+    "format": "軸",
+    "formatEn": "",
+    "mediumEn": "",
     "heightCm": 180,
     "widthCm": 90,
     "heightInches": 70.9,
-    "widthInches": 35.4
+    "widthInches": 35.4,
+    "sizeCm": "180×90",
+    "sizeInches": "70.9×35.4",
+    "year": "2020",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "recent": true,
+    "exhibitions": [],
+    "tags": []
   },
   {
     "id": "019891b0-f39c-78e0-88f5-2567b5518c8b",
