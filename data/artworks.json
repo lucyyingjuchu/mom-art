@@ -698,26 +698,44 @@
   {
     "id": "019891b0-f39c-748f-a906-1de3f9f5b3b6",
     "title": "萬縷紫煙飛自在",
-    "titleEn": "A Myriad of Violet Wisps in Free Flight",
-    "image": "",
-    "imageHigh": "",
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "花鳥",
+    "manualCategories": [
+      "花鳥"
+    ],
+    "categories": [
+      "flowingclouds",
+      "花鳥"
+    ],
+    "autoCategories": {
+      "subjects": [
+        "flowingclouds"
+      ],
+      "locations": []
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-748f-a906-1de3f9f5b3b6_thumb.png",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-748f-a906-1de3f9f5b3b6_large.png",
     "description": "萬縷紫煙飛自在，一枝藤影繫深情。",
-    "descriptionEn": "A myriad of violet wisps soar freely, While a single vine's shadow binds deep affection.",
-    "format": "軸",
-    "mediumEn": "",
-    "sizeCm": "70x70",
-    "sizeInches": "27.6×27.6 inches",
-    "year": "2017",
-    "price": "",
-    "available": "",
-    "featured": "",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll",
+    "format": "軸",
+    "formatEn": "",
+    "mediumEn": "",
     "heightCm": 70,
     "widthCm": 70,
     "heightInches": 27.6,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "sizeCm": "70×70",
+    "sizeInches": "27.6×27.6",
+    "year": "2017",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "recent": false,
+    "exhibitions": [],
+    "tags": []
   },
   {
     "id": "019891b0-f39c-76be-93c8-cf4233295e95",
