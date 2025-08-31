@@ -3421,25 +3421,41 @@
   {
     "id": "019891b0-f39c-7441-a5a7-dc968e455d98",
     "title": "天光雲影共徘徊─新中橫夫妻樹",
-    "titleEn": "Heavenly Light and Cloud Shadows in Harmony: The Couple's Tree",
-    "image": "",
-    "imageHigh": "",
-    "description": "夫妻情長意綿延，雲海靈動常為伴；天光穿空來相映，清風有心去復還。　",
-    "descriptionEn": "In love, our bond stretches far and wide, With the ethereal clouds as our constant guide; Heaven's light breaks through, a radiant embrace, While the gentle breeze returns with grace.",
-    "format": null,
-    "mediumEn": "",
-    "sizeCm": "135 × 70 ",
-    "sizeInches": "53.1×27.6 inches",
-    "year": "unknown",
-    "price": "",
-    "available": "",
-    "featured": "",
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "",
+    "manualCategories": [],
+    "categories": [
+      "flowingclouds"
+    ],
+    "autoCategories": {
+      "subjects": [
+        "flowingclouds"
+      ],
+      "locations": []
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7441-a5a7-dc968e455d98_thumb.png",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7441-a5a7-dc968e455d98_large.png",
+    "description": "夫妻情長意綿延，雲海靈動常為伴；天光穿空來相映，清風有心去復還。",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
+    "format": "",
+    "formatEn": "",
+    "mediumEn": "",
     "heightCm": 135,
     "widthCm": 70,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "sizeCm": "135×70",
+    "sizeInches": "53.1×27.6",
+    "year": "unknown",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "recent": false,
+    "exhibitions": [],
+    "tags": []
   },
   {
     "id": "019891b0-f39c-714c-be36-6f1486418c72",
