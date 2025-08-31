@@ -147,10 +147,13 @@
     "title": "姑蘇寒霧繞雲村",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
+    "subcategory": "山水",
+    "manualCategories": [
+      "山水"
+    ],
     "categories": [
-      "flowingclouds"
+      "flowingclouds",
+      "山水"
     ],
     "autoCategories": {
       "subjects": [
@@ -160,7 +163,7 @@
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-7201-bdba-6943519e8862_thumb.png",
     "imageHigh": "./images/paintings/large/019891b0-f39c-7201-bdba-6943519e8862_large.png",
-    "description": "姑蘇寒霧繞雲村，涓涓江流溪邊石；仙瀑飛傾映遠岫，玄靜碧翠畫古詩。",
+    "description": "姑蘇寒霧繞雲村，涓涓江流溪邊石；仙瀑飛傾映遠岫，玄靜碧翠畫古詩。104",
     "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
@@ -173,7 +176,7 @@
     "widthInches": 53.1,
     "sizeCm": "70×135",
     "sizeInches": "27.6×53.1",
-    "year": "unknown",
+    "year": "2014",
     "price": "",
     "available": true,
     "featured": false,
