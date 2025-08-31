@@ -1419,39 +1419,30 @@
   {
     "id": "019891b0-f39c-7136-84bc-3625d99f8651",
     "title": "梅花－筆寫冰魂，風清月白。",
-    "titleEn": "Plum Blossoms – Inscribing the Soul of Ice, in the Clarity of Wind and Brightness of Moon",
-    "image": "",
-    "imageHigh": "",
-    "description": "非暗之香，是疏之影；筆寫冰魂，風清月白。",
-    "descriptionEn": "Not the fragrance of darkness, but the shadow of elegance; With a brush, I inscribe the soul of ice, as the wind is pure and the moon is bright.",
-    "format": "框",
-    "mediumEn": "",
-    "sizeCm": "45x70",
-    "sizeInches": "17.7×27.6 inches",
-    "year": "2018",
-    "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "formatEn": "Framed",
-    "heightCm": 45.0,
-    "widthCm": 70.0,
-    "heightInches": 17.7,
-    "widthInches": 27.6,
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "",
+    "manualCategories": [],
+    "categories": [
+      "flowers"
+    ],
     "autoCategories": {
       "subjects": [
         "flowers"
       ],
-      "locations": [],
-      "styles": [
-        "traditional"
-      ]
+      "locations": []
     },
-    "categories": [
-      "flowers",
-      "traditional"
-    ]
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7136-84bc-3625d99f8651_thumb.png",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7136-84bc-3625d99f8651_large.png",
+    "description": "非暗之香，是疏之影；筆寫冰魂，風清月白。",
+    "descriptionEn": "",
+    "curatorNote": "",
+    "curatorNoteEn": "",
+    "formatEn": "Framed",
+    "heightCm": 45,
+    "widthCm": 70,
+    "heightInches": 17.7,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-745a-b6ad-58e4e8545268",
@@ -5671,38 +5662,29 @@
   {
     "id": "019891b0-f39c-7386-a86e-60369bb2ecd5",
     "title": "月梅圖-形影神",
-    "titleEn": "Moonlit Plum Blossoms: Spirit and Shadow",
-    "image": "",
-    "imageHigh": "",
-    "description": "陶淵明形影神詩",
-    "descriptionEn": "The Poem of the Spirit and Shadow of Tao Yuanming",
-    "format": null,
-    "mediumEn": "",
-    "sizeCm": "135x70",
-    "sizeInches": "53.1×27.6 inches",
-    "year": "unknown",
-    "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "heightCm": 135.0,
-    "widthCm": 70.0,
-    "heightInches": 53.1,
-    "widthInches": 27.6,
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "",
+    "manualCategories": [],
+    "categories": [
+      "flowers"
+    ],
     "autoCategories": {
       "subjects": [
         "flowers"
       ],
-      "locations": [],
-      "styles": [
-        "traditional"
-      ]
+      "locations": []
     },
-    "categories": [
-      "flowers",
-      "traditional"
-    ]
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7386-a86e-60369bb2ecd5_thumb.png",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7386-a86e-60369bb2ecd5_large.png",
+    "description": "陶淵明形影神詩",
+    "descriptionEn": "",
+    "curatorNote": "",
+    "curatorNoteEn": "",
+    "heightCm": 135,
+    "widthCm": 70,
+    "heightInches": 53.1,
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7a10-8ea8-7399764b770b",
