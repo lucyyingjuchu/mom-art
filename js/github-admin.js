@@ -120,9 +120,21 @@ class GitHubUploader {
                     branch: this.config.branch
                 })
             });
+            // ADD THIS DEBUG CODE:
+            console.log('Response status:', response.status);
+            console.log('Response headers:', [...response.headers.entries()]);
 
             if (!response.ok) {
-                const errorData = await response.json();
+                const responseText = await response.text(); // Get as text first
+                console.log('🚨 RAW ERROR RESPONSE:', responseText); // This will show us what's actually returned
+                
+                let errorData;
+                try {
+                    errorData = JSON.parse(responseText);
+                } catch (parseError) {
+                    console.log('❌ Response is not JSON, raw content:', responseText);
+                    throw new Error(`Server returned HTML instead of JSON: ${responseText.substring(0, 200)}`);
+                }
                 throw new Error(`GitHub upload failed: ${errorData.message}`);
             }
 
@@ -954,6 +966,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Test connection on startup (NO auto-deploy)
+
     setTimeout(async () => {
         console.log('🔍 Testing GitHub connection...');
         const connected = await githubUploader.testConnection();
