@@ -2597,47 +2597,6 @@
     "widthInches": 27.6
   },
   {
-    "id": "019891b0-f39c-7e36-872a-d88bb9d03b07",
-    "title": "春山飛瀑",
-    "titleEn": "",
-    "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "waterfall",
-      "landscape"
-    ],
-    "autoCategories": {
-      "subjects": [
-        "waterfall",
-        "landscape"
-      ],
-      "locations": []
-    },
-    "image": "./images/paintings/thumbnails/019891b0-f39c-7e36-872a-d88bb9d03b07_thumb.jpg",
-    "imageHigh": "./images/paintings/large/019891b0-f39c-7e36-872a-d88bb9d03b07_large.jpg",
-    "description": "飛瀑凌空舞，春山萬縷風；深心師造化，一笑水雲中。",
-    "descriptionEn": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "format": "框",
-    "formatEn": "",
-    "mediumEn": "",
-    "heightCm": 75,
-    "widthCm": 140,
-    "heightInches": 29.5,
-    "widthInches": 55.1,
-    "sizeCm": "75×140",
-    "sizeInches": "29.5×55.1",
-    "year": "2022",
-    "price": "",
-    "available": true,
-    "featured": false,
-    "recent": true,
-    "exhibitions": [],
-    "tags": []
-  },
-  {
     "id": "019891b0-f39c-7f63-87fd-b7a8a860889f",
     "title": "枝頭小鳥迎風立-櫻花",
     "titleEn": "Little Birds on the Branches: A Dance in the Wind",
