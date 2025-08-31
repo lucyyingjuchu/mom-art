@@ -1106,26 +1106,44 @@
   {
     "id": "019891b0-f39c-7c93-99be-4338883f37f7",
     "title": "煙擁合歡－合歡梯田",
-    "titleEn": "Mist-Kissed Harmony: The Joyful Terraces",
-    "image": "",
-    "imageHigh": "",
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "",
+    "manualCategories": [],
+    "categories": [
+      "flowingclouds",
+      "hehuanshan"
+    ],
+    "autoCategories": {
+      "subjects": [
+        "flowingclouds"
+      ],
+      "locations": [
+        "hehuanshan"
+      ]
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7c93-99be-4338883f37f7_thumb.png",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7c93-99be-4338883f37f7_large.png",
     "description": "煙擁合歡，霧潤良疇，碧山含笑，雲凝翠黛，天然節奏，有象文章，風光綿延，機趣無窮。",
-    "descriptionEn": "Embraced by mist, the joyful blooms unite, Dew-kissed fields in gentle light. Emerald hills wear a smiling grace, Clouds gather, painting nature's face. With rhythms born of nature's art, In every form, a tale to impart. Scenic vistas stretch far and wide, Endless charm in the world's tide.",
-    "format": "框",
-    "mediumEn": "",
-    "sizeCm": "135x70",
-    "sizeInches": "53.1×27.6 inches",
-    "year": "2018",
-    "price": "",
-    "available": "",
-    "featured": "",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed",
+    "format": "框",
+    "formatEn": "",
+    "mediumEn": "",
     "heightCm": 135,
     "widthCm": 70,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "sizeCm": "135×70",
+    "sizeInches": "53.1×27.6",
+    "year": "2018",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "recent": false,
+    "exhibitions": [],
+    "tags": []
   },
   {
     "id": "019891b0-f39c-74e5-8201-1f0276798b75",
