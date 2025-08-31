@@ -4009,25 +4009,43 @@
   {
     "id": "019891b0-f39c-7b5a-9017-6de6a497f059",
     "title": "煙聲一縷一塵埃-大瀑布",
-    "titleEn": "Whispers of Mist and Dust: The Great Waterfall",
-    "image": "",
-    "imageHigh": "",
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "",
+    "manualCategories": [],
+    "categories": [
+      "waterfall",
+      "flowingclouds"
+    ],
+    "autoCategories": {
+      "subjects": [
+        "waterfall",
+        "flowingclouds"
+      ],
+      "locations": []
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7b5a-9017-6de6a497f059_thumb.png",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7b5a-9017-6de6a497f059_large.png",
     "description": "放眼大千境始開，烟聲一縷一塵埃；飛天素染無盡意，流水行雲去復來。",
-    "descriptionEn": "With a gaze that embraces the vast expanse, the world unfolds; A whisper of mist carries a trace of dust. In the boundless essence of the heavens, pure and serene, The flowing waters and drifting clouds come and go.",
-    "format": null,
-    "mediumEn": "",
-    "sizeCm": "120x240",
-    "sizeInches": "47.2×94.5 inches",
-    "year": "unknown",
-    "price": "",
-    "available": "",
-    "featured": "",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
+    "format": "",
+    "formatEn": "",
+    "mediumEn": "",
     "heightCm": 120,
     "widthCm": 240,
     "heightInches": 47.2,
-    "widthInches": 94.5
+    "widthInches": 94.5,
+    "sizeCm": "120×240",
+    "sizeInches": "47.2×94.5",
+    "year": "2018",
+    "price": "",
+    "available": true,
+    "featured": true,
+    "recent": false,
+    "exhibitions": [],
+    "tags": []
   },
   {
     "id": "019891b0-f39c-7535-8938-34b23c8840cd",
