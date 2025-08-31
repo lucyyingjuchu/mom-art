@@ -1424,13 +1424,17 @@
     "subcategory": "",
     "manualCategories": [],
     "categories": [
-      "flowers"
+      "flowers",
+      "traditional"
     ],
     "autoCategories": {
       "subjects": [
         "flowers"
       ],
-      "locations": []
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-7136-84bc-3625d99f8651_thumb.png",
     "imageHigh": "./images/paintings/large/019891b0-f39c-7136-84bc-3625d99f8651_large.png",
@@ -5667,13 +5671,17 @@
     "subcategory": "",
     "manualCategories": [],
     "categories": [
-      "flowers"
+      "flowers",
+      "traditional"
     ],
     "autoCategories": {
       "subjects": [
         "flowers"
       ],
-      "locations": []
+      "locations": [],
+      "styles": [
+        "traditional"
+      ]
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-7386-a86e-60369bb2ecd5_thumb.png",
     "imageHigh": "./images/paintings/large/019891b0-f39c-7386-a86e-60369bb2ecd5_large.png",
