@@ -4639,25 +4639,41 @@
   {
     "id": "019891b0-f39c-7764-a468-4f7ad6140df2",
     "title": "赤壁賦(行草)",
-    "titleEn": "Ode to the Red Cliffs (Xingcao)",
-    "image": "",
-    "imageHigh": "",
-    "description": null,
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "",
+    "manualCategories": [],
+    "categories": [
+      "calligraphy"
+    ],
+    "autoCategories": {
+      "subjects": [
+        "calligraphy"
+      ],
+      "locations": []
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7764-a468-4f7ad6140df2_thumb.png",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7764-a468-4f7ad6140df2_large.png",
+    "description": "",
     "descriptionEn": "",
-    "format": null,
-    "mediumEn": "",
-    "sizeCm": "135 × 60",
-    "sizeInches": "53.1×23.6 inches",
-    "year": "unknown",
-    "price": "",
-    "available": "",
-    "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
+    "format": "",
+    "formatEn": "",
+    "mediumEn": "",
     "heightCm": 135,
     "widthCm": 60,
     "heightInches": 53.1,
-    "widthInches": 23.6
+    "widthInches": 23.6,
+    "sizeCm": "135×60",
+    "sizeInches": "53.1×23.6",
+    "year": "unknown",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "recent": false,
+    "exhibitions": [],
+    "tags": []
   },
   {
     "id": "019891b0-f39c-7ec8-a85c-a9c9c25cf4b5",
