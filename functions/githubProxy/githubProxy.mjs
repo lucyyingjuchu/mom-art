@@ -1,7 +1,7 @@
 export default async (req, context) => {
-  // Only allow POST requests
-  if (req.method !== 'POST') {
-    return new Response(JSON.stringify({ error: 'Method not allowed' }), {
+  // Allow POST and DELETE requests
+  if (req.method !== 'POST' && req.method !== 'DELETE') {
+    return new Response(JSON.stringify({ message: 'Method not allowed' }), {
       status: 405,
       headers: {
         'Access-Control-Allow-Origin': '*',
@@ -11,11 +11,10 @@ export default async (req, context) => {
   }
 
   try {
-  //  const GITHUB_TOKEN = Netlify.env.get('GITHUB_TOKEN');
     const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
   
     if (!GITHUB_TOKEN) {
-      return new Response(JSON.stringify({ error: 'GitHub token not configured' }), {
+      return new Response(JSON.stringify({ message: 'GitHub token not configured' }), {
         status: 500,
         headers: {
           'Access-Control-Allow-Origin': '*',
@@ -25,10 +24,92 @@ export default async (req, context) => {
     }
 
     // Parse the request body
-    const { path, content, message, branch = 'main' } = await req.json();
+    const { path, content, message, branch = 'main', sha } = await req.json();
     
+    // Your GitHub repo configuration
+    const GITHUB_OWNER = 'lucyyingjuchu';
+    const GITHUB_REPO = 'mom-art';
+
+    // Handle DELETE requests
+    if (req.method === 'DELETE') {
+      if (!path || !message || !sha) {
+        return new Response(JSON.stringify({ 
+          message: 'Missing required fields for delete: path, message, sha' 
+        }), {
+          status: 400,
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json'
+          }
+        });
+      }
+
+      console.log(`Deleting file: ${path} with SHA: ${sha}`);
+
+      const deleteResponse = await fetch(
+        `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${path}`,
+        {
+          method: 'DELETE',
+          headers: {
+            'Authorization': `Bearer ${GITHUB_TOKEN}`,
+            'Accept': 'application/vnd.github+json',
+            'Content-Type': 'application/json',
+            'User-Agent': 'netlify-function'
+          },
+          body: JSON.stringify({
+            message: message,
+            sha: sha,
+            branch: branch
+          })
+        }
+      );
+
+      if (!deleteResponse.ok) {
+        let errorMessage = 'GitHub API delete error';
+        let errorDetails = '';
+        
+        try {
+          // Try to get JSON error first
+          const errorData = await deleteResponse.json();
+          errorMessage = errorData.message || errorMessage;
+          errorDetails = JSON.stringify(errorData);
+        } catch (e) {
+          // If not JSON, get as text
+          errorDetails = await deleteResponse.text();
+        }
+        
+        console.error(`Delete failed for ${path}:`, errorDetails);
+        
+        return new Response(JSON.stringify({ 
+          message: `${errorMessage}: ${errorDetails}`
+        }), {
+          status: deleteResponse.status,
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json'
+          }
+        });
+      }
+
+      console.log(`Successfully deleted: ${path}`);
+      
+      return new Response(JSON.stringify({ 
+        success: true, 
+        message: 'File deleted successfully' 
+      }), {
+        status: 200,
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Headers': 'Content-Type',
+          'Access-Control-Allow-Methods': 'POST, DELETE, OPTIONS',
+          'Content-Type': 'application/json'
+        }
+      });
+    }
+
+    // Handle POST requests (original upload logic)
     if (!path || !content || !message) {
-      return new Response(JSON.stringify({ error: 'Missing required fields: path, content, message' }), {
+      return new Response(JSON.stringify({ message: 'Missing required fields: path, content, message' }), {
         status: 400,
         headers: {
           'Access-Control-Allow-Origin': '*',
@@ -36,13 +117,9 @@ export default async (req, context) => {
         }
       });
     }
-
-    // Your GitHub repo configuration
-    const GITHUB_OWNER = 'lucyyingjuchu';
-    const GITHUB_REPO = 'mom-art';
     
     // Check if file exists first (to get SHA for updates)
-    let sha = null;
+    let existingSha = null;
     try {
       const checkResponse = await fetch(
         `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${path}`,
@@ -57,7 +134,7 @@ export default async (req, context) => {
       
       if (checkResponse.ok) {
         const fileData = await checkResponse.json();
-        sha = fileData.sha;
+        existingSha = fileData.sha;
       }
     } catch (error) {
       // File doesn't exist, which is fine for new files
@@ -71,8 +148,8 @@ export default async (req, context) => {
     };
     
     // Add SHA if file exists (for updates)
-    if (sha) {
-      uploadBody.sha = sha;
+    if (existingSha) {
+      uploadBody.sha = existingSha;
     }
 
     const uploadResponse = await fetch(
@@ -90,10 +167,19 @@ export default async (req, context) => {
     );
 
     if (!uploadResponse.ok) {
-      const errorText = await uploadResponse.text();
+      let errorMessage = 'GitHub API error';
+      let errorDetails = '';
+      
+      try {
+        const errorData = await uploadResponse.json();
+        errorMessage = errorData.message || errorMessage;
+        errorDetails = JSON.stringify(errorData);
+      } catch (e) {
+        errorDetails = await uploadResponse.text();
+      }
+      
       return new Response(JSON.stringify({ 
-        error: 'GitHub API error', 
-        details: errorText 
+        message: `${errorMessage}: ${errorDetails}`
       }), {
         status: uploadResponse.status,
         headers: {
@@ -110,7 +196,7 @@ export default async (req, context) => {
       headers: {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Headers': 'Content-Type',
-        'Access-Control-Allow-Methods': 'POST, OPTIONS',
+        'Access-Control-Allow-Methods': 'POST, DELETE, OPTIONS',
         'Content-Type': 'application/json'
       }
     });
@@ -118,8 +204,7 @@ export default async (req, context) => {
   } catch (error) {
     console.error('GitHub proxy error:', error);
     return new Response(JSON.stringify({ 
-      error: 'Internal server error', 
-      message: error.message 
+      message: `Internal server error: ${error.message}`
     }), {
       status: 500,
       headers: {
