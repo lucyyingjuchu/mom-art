@@ -196,26 +196,44 @@
   {
     "id": "019891b0-f39c-7192-92e6-0e1d7d4a52dc",
     "title": "天地有大美－美國大峽谷",
-    "titleEn": "The Grandeur of Nature: The American Grand Canyon",
-    "image": "",
-    "imageHigh": "",
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "",
+    "manualCategories": [],
+    "categories": [
+      "landscape",
+      "grandcanyon"
+    ],
+    "autoCategories": {
+      "subjects": [
+        "landscape"
+      ],
+      "locations": [
+        "grandcanyon"
+      ]
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7192-92e6-0e1d7d4a52dc_thumb.png",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7192-92e6-0e1d7d4a52dc_large.png",
     "description": "雲煙無去住，天地有大美。",
-    "descriptionEn": "Clouds and mist drift without a trace, In the vastness of heaven and earth, beauty reigns supreme.",
-    "format": "框",
-    "mediumEn": "",
-    "sizeCm": "70 × 135",
-    "sizeInches": "27.6×53.1 inches",
-    "year": "2011",
-    "price": "",
-    "available": "",
-    "featured": "",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed",
+    "format": "框",
+    "formatEn": "",
+    "mediumEn": "",
     "heightCm": 70,
     "widthCm": 135,
     "heightInches": 27.6,
-    "widthInches": 53.1
+    "widthInches": 53.1,
+    "sizeCm": "70×135",
+    "sizeInches": "27.6×53.1",
+    "year": "2011",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "recent": false,
+    "exhibitions": [],
+    "tags": []
   },
   {
     "id": "019891b0-f39c-7036-9ac1-cbed9f6f03e5",
