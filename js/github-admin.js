@@ -819,4 +819,164 @@ function createProgressIndicator() {
                 background: #e9ecef;
                 border-radius: 4px;
                 overflow: hidden;
-                margin-bottom: 
+                margin-bottom: 0.5rem;
+            }
+            .progress-fill {
+                height: 100%;
+                background: linear-gradient(90deg, #28a745, #20c997);
+                transition: width 0.3s ease;
+            }
+            .progress-text {
+                font-size: 0.9rem;
+                color: #495057;
+                text-align: center;
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    return container;
+}
+
+// Update progress
+function updateProgress(container, message, percent) {
+    const fill = container.querySelector('.progress-fill');
+    const text = container.querySelector('.progress-text');
+    
+    fill.style.width = `${percent}%`;
+    text.textContent = message;
+}
+
+// ================================
+// ENHANCED FUNCTIONS
+// ================================
+
+// Enhanced test GitHub connection (no auto-deploy)
+async function testGitHubConnection() {
+    try {
+        showMessage('Testing GitHub connection...', 'info');
+        
+        // First try simple repository access
+        const result = await githubUploader.testConnection();
+        
+        const statusEl = document.getElementById('githubStatus');
+        if (statusEl) {
+            if (result.success) {
+                statusEl.className = 'github-status status-connected';
+                statusEl.textContent = `✅ Connected to ${result.repoName}`;
+                showMessage('GitHub connection successful!', 'success');
+                
+                // Optionally test write permissions (still no commits)
+                const writeTest = await githubUploader.testWritePermissions();
+                if (writeTest.success) {
+                    console.log('✅ Write permissions confirmed');
+                } else {
+                    console.warn('⚠️ Write permissions uncertain:', writeTest.error);
+                }
+                
+            } else {
+                statusEl.className = 'github-status status-disconnected';
+                statusEl.textContent = `❌ Connection failed`;
+                showMessage(`GitHub connection failed: ${result.error}`, 'error');
+            }
+        }
+        
+        return result.success;
+        
+    } catch (error) {
+        showMessage(`❌ Connection error: ${error.message}`, 'error');
+        return false;
+    }
+}
+
+// Enhanced deploy function with clear messaging
+async function exportAndDeployToGitHub() {
+    try {
+        if (!confirm('This will deploy your current artworks to the live website. Continue?')) {
+            return;
+        }
+        
+        showMessage('Deploying to GitHub...', 'info');
+        
+        const progressContainer = createProgressIndicator();
+        document.querySelector('.container').appendChild(progressContainer);
+        
+        await githubUploader.updateArtworksJson(
+            artworks,
+            (message, percent) => updateProgress(progressContainer, message, percent)
+        );
+        
+        showMessage('✅ Deployed! Your website will update in ~2 minutes.', 'success');
+        setTimeout(() => progressContainer.remove(), 3000);
+        
+    } catch (error) {
+        showMessage(`❌ Deployment failed: ${error.message}`, 'error');
+        
+        const progressContainer = document.querySelector('.upload-progress-container');
+        if (progressContainer) progressContainer.remove();
+    }
+}
+
+// ================================
+// TESTING/DEBUG FUNCTIONS
+// ================================
+
+// Test single thumbnail generation
+async function testSingleThumbnailGeneration(artworkId) {
+    console.log(`🧪 Testing thumbnail generation for ${artworkId}...`);
+    
+    try {
+        const result = await githubUploader.generateThumbnailFromLargeImage(
+            `images/paintings/large/${artworkId}_large.png`,
+            artworkId,
+            (message, percent) => {
+                console.log(`${percent}%: ${message}`);
+            }
+        );
+        
+        console.log('✅ Test successful:', result);
+        return result;
+        
+    } catch (error) {
+        console.error('❌ Test failed:', error);
+        return { success: false, error: error.message };
+    }
+}
+
+// ================================
+// INITIALIZATION
+// ================================
+document.addEventListener('DOMContentLoaded', function() {
+    // Replace image upload handler
+    const originalImageInput = document.getElementById('imageInput');
+    if (originalImageInput) {
+        originalImageInput.addEventListener('change', handleImageUploadWithGitHub);
+    }
+    
+    // Test connection on startup (NO auto-deploy)
+    setTimeout(async () => {
+        console.log('🔍 Testing GitHub connection...');
+        const connected = await githubUploader.testConnection();
+        
+        const statusEl = document.getElementById('githubStatus');
+        if (statusEl) {
+            if (connected.success) {
+                statusEl.className = 'github-status status-connected';
+                statusEl.textContent = `✅ Connected to ${connected.repoName}`;
+            } else {
+                statusEl.className = 'github-status status-disconnected';
+                statusEl.textContent = `❌ Connection failed`;
+            }
+        }
+    }, 2000);
+});
+
+// ================================
+// MAKE FUNCTIONS AVAILABLE GLOBALLY
+// ================================
+window.githubUploader = githubUploader;
+window.handleImageUploadWithGitHub = handleImageUploadWithGitHub;
+window.testGitHubConnection = testGitHubConnection;
+window.exportAndDeployToGitHub = exportAndDeployToGitHub;
+window.processArtworksForReorganization = processArtworksForReorganization;
+window.testSingleThumbnailGeneration = testSingleThumbnailGeneration;
