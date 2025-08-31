@@ -27,9 +27,13 @@ exports.handler = async (event, context) => {
             if (!path || !message || !sha) {
                 return {
                     statusCode: 400,
-                    body: JSON.stringify({ error: 'Missing required fields for delete: path, message, sha' })
+                    body: JSON.stringify({ 
+                        message: 'Missing required fields for delete: path, message, sha' 
+                    })
                 };
             }
+
+            console.log(`Deleting file: ${path} with SHA: ${sha}`);
 
             const deleteResponse = await fetch(
                 `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${path}`,
@@ -50,16 +54,31 @@ exports.handler = async (event, context) => {
             );
 
             if (!deleteResponse.ok) {
-                const errorData = await deleteResponse.text();
+                let errorMessage = 'GitHub API delete error';
+                let errorDetails = '';
+                
+                try {
+                    // Try to get JSON error first
+                    const errorData = await deleteResponse.json();
+                    errorMessage = errorData.message || errorMessage;
+                    errorDetails = JSON.stringify(errorData);
+                } catch (e) {
+                    // If not JSON, get as text
+                    errorDetails = await deleteResponse.text();
+                }
+                
+                console.error(`Delete failed for ${path}:`, errorDetails);
+                
                 return {
                     statusCode: deleteResponse.status,
                     body: JSON.stringify({ 
-                        error: 'GitHub API delete error', 
-                        details: errorData 
+                        message: `${errorMessage}: ${errorDetails}`
                     })
                 };
             }
 
+            console.log(`Successfully deleted: ${path}`);
+            
             return {
                 statusCode: 200,
                 headers: {
@@ -67,7 +86,10 @@ exports.handler = async (event, context) => {
                     'Access-Control-Allow-Headers': 'Content-Type',
                     'Access-Control-Allow-Methods': 'POST, DELETE, OPTIONS'
                 },
-                body: JSON.stringify({ success: true, message: 'File deleted successfully' })
+                body: JSON.stringify({ 
+                    success: true, 
+                    message: 'File deleted successfully' 
+                })
             };
         }
 
@@ -75,14 +97,12 @@ exports.handler = async (event, context) => {
         if (!path || !content || !message) {
             return {
                 statusCode: 400,
-                body: JSON.stringify({ error: 'Missing required fields: path, content, message' })
+                body: JSON.stringify({ message: 'Missing required fields: path, content, message' })
             };
         }
 
-        // ... 其餘的 POST 處理邏輯保持不變 ...
-        
         // Check if file exists first (to get SHA for updates)
-        let sha = null;
+        let existingSha = null;
         try {
             const checkResponse = await fetch(
                 `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${path}`,
@@ -97,7 +117,7 @@ exports.handler = async (event, context) => {
             
             if (checkResponse.ok) {
                 const fileData = await checkResponse.json();
-                sha = fileData.sha;
+                existingSha = fileData.sha;
             }
         } catch (error) {
             // File doesn't exist, which is fine for new files
@@ -111,8 +131,8 @@ exports.handler = async (event, context) => {
         };
         
         // Add SHA if file exists (for updates)
-        if (sha) {
-            uploadBody.sha = sha;
+        if (existingSha) {
+            uploadBody.sha = existingSha;
         }
 
         const uploadResponse = await fetch(
@@ -130,12 +150,21 @@ exports.handler = async (event, context) => {
         );
 
         if (!uploadResponse.ok) {
-            const errorData = await uploadResponse.text();
+            let errorMessage = 'GitHub API error';
+            let errorDetails = '';
+            
+            try {
+                const errorData = await uploadResponse.json();
+                errorMessage = errorData.message || errorMessage;
+                errorDetails = JSON.stringify(errorData);
+            } catch (e) {
+                errorDetails = await uploadResponse.text();
+            }
+            
             return {
                 statusCode: uploadResponse.status,
                 body: JSON.stringify({ 
-                    error: 'GitHub API error', 
-                    details: errorData 
+                    message: `${errorMessage}: ${errorDetails}`
                 })
             };
         }
@@ -157,8 +186,7 @@ exports.handler = async (event, context) => {
         return {
             statusCode: 500,
             body: JSON.stringify({ 
-                error: 'Internal server error', 
-                message: error.message 
+                message: `Internal server error: ${error.message}`
             })
         };
     }
