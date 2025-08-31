@@ -698,50 +698,79 @@
   {
     "id": "019891b0-f39c-748f-a906-1de3f9f5b3b6",
     "title": "萬縷紫煙飛自在",
-    "titleEn": "A Myriad of Violet Wisps in Free Flight",
-    "image": "",
-    "imageHigh": "",
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "花鳥",
+    "manualCategories": [
+      "花鳥"
+    ],
+    "categories": [
+      "flowingclouds",
+      "花鳥"
+    ],
+    "autoCategories": {
+      "subjects": [
+        "flowingclouds"
+      ],
+      "locations": []
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-748f-a906-1de3f9f5b3b6_thumb.png",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-748f-a906-1de3f9f5b3b6_large.png",
     "description": "萬縷紫煙飛自在，一枝藤影繫深情。",
-    "descriptionEn": "A myriad of violet wisps soar freely, While a single vine's shadow binds deep affection.",
-    "format": "軸",
-    "mediumEn": "",
-    "sizeCm": "70x70",
-    "sizeInches": "27.6×27.6 inches",
-    "year": "2017",
-    "price": "",
-    "available": "",
-    "featured": "",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll",
+    "format": "軸",
+    "formatEn": "",
+    "mediumEn": "",
     "heightCm": 70,
     "widthCm": 70,
     "heightInches": 27.6,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "sizeCm": "70×70",
+    "sizeInches": "27.6×27.6",
+    "year": "2017",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "recent": false,
+    "exhibitions": [],
+    "tags": []
   },
   {
     "id": "019891b0-f39c-76be-93c8-cf4233295e95",
     "title": "頌母恩",
-    "titleEn": "Ode to Maternal Grace",
-    "image": "",
-    "imageHigh": "",
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "",
+    "manualCategories": [],
+    "categories": [],
+    "autoCategories": {
+      "subjects": [],
+      "locations": []
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-76be-93c8-cf4233295e95_thumb.png",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-76be-93c8-cf4233295e95_large.png",
     "description": "誰言寸草心，報得三春暉。",
-    "descriptionEn": "The heart of a blade of grass, who would say, Can repay the warmth of spring's embrace?",
-    "format": "框",
-    "mediumEn": "",
-    "sizeCm": "45x70",
-    "sizeInches": "17.7×27.6 inches",
-    "year": "2017",
-    "price": "",
-    "available": "",
-    "featured": "",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed",
+    "format": "框",
+    "formatEn": "",
+    "mediumEn": "",
     "heightCm": 45,
     "widthCm": 70,
     "heightInches": 17.7,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "sizeCm": "45×70",
+    "sizeInches": "17.7×27.6",
+    "year": "2017",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "recent": false,
+    "exhibitions": [],
+    "tags": []
   },
   {
     "id": "019891b0-f39c-7a7e-b0e7-4bce5225a761",
@@ -1220,26 +1249,46 @@
   {
     "id": "019891b0-f39c-7c9a-9ae8-6dccaca82b5f",
     "title": "穹蒼萬頃，是我家鄉。(黃山煙雲)",
-    "titleEn": "Vast Skies, My Homeland",
-    "image": "",
-    "imageHigh": "",
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "",
+    "manualCategories": [],
+    "categories": [
+      "landscape",
+      "flowingclouds",
+      "huangshan"
+    ],
+    "autoCategories": {
+      "subjects": [
+        "landscape",
+        "flowingclouds"
+      ],
+      "locations": [
+        "huangshan"
+      ]
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7c9a-9ae8-6dccaca82b5f_thumb.png",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7c9a-9ae8-6dccaca82b5f_large.png",
     "description": "江山嬌麗，質樸蘊寓，法象流長，滋生不息，煙波勁湧，凌空無盡，古松盎然，造物機心；心與物遊，依仁由藝，筆寫天地，墨染雲霞，大鵬展翅，自在翱翔，穹蒼萬頃，是我家鄉。",
-    "descriptionEn": "The landscape is enchanting, rich in simplicity and depth, A legacy of form that flows endlessly, nurturing life anew. Waves rise fiercely, soaring into the boundless sky, Ancient pines flourish, a testament to nature's craft. With heart and matter in harmony, guided by virtue and art, I inscribe the universe with my brush, Inked with the hues of clouds at dusk. The great roc spreads its wings, soaring freely, The vast expanse of heaven is my homeland.",
-    "format": "鏡片",
-    "mediumEn": "",
-    "sizeCm": "360x150",
-    "sizeInches": "141.7×59.1 inches",
-    "year": "2018",
-    "price": "",
-    "available": "",
-    "featured": "",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Mounted Panel",
+    "format": "鏡片",
+    "formatEn": "",
+    "mediumEn": "",
     "heightCm": 360,
     "widthCm": 150,
     "heightInches": 141.7,
-    "widthInches": 59.1
+    "widthInches": 59.1,
+    "sizeCm": "360×150",
+    "sizeInches": "141.7×59.1",
+    "year": "2018",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "recent": false,
+    "exhibitions": [],
+    "tags": []
   },
   {
     "id": "019891b0-f39c-7f16-a8d3-c83d48beb81e",
@@ -1426,30 +1475,6 @@
     "widthInches": 35.4
   },
   {
-    "id": "019891b0-f39c-75ab-8723-7343f4a21f61",
-    "title": "雲煙萬頃，飛瀑千潯。―筆寫深心師造化",
-    "titleEn": "Vast Clouds and Cascading Falls: A Heartfelt Tribute to Nature",
-    "image": "",
-    "imageHigh": "",
-    "description": "雲煙萬頃春山好，飛瀑千潯落曉天；筆寫深心師造化，悠悠流水向人間。",
-    "descriptionEn": "In the vast expanse of spring mountains, clouds and mist weave a splendid scene; As waterfalls cascade in myriad streams, they greet the dawn's gentle embrace. With pen, I inscribe the depths of my heart, shaped by nature's hand; While the flowing waters meander softly, carrying whispers to the world of men.",
-    "format": "軸",
-    "mediumEn": "",
-    "sizeCm": "180x90",
-    "sizeInches": "70.9×35.4 inches",
-    "year": "2019",
-    "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll",
-    "heightCm": 180,
-    "widthCm": 90,
-    "heightInches": 70.9,
-    "widthInches": 35.4
-  },
-  {
     "id": "019891b0-f39c-7614-95c9-2db8260fcc98",
     "title": "臨懷仁集王羲之聖教序",
     "titleEn": "",
@@ -1487,26 +1512,6 @@
     "recent": true,
     "exhibitions": [],
     "tags": []
-  },
-  {
-    "id": "019891b0-f39c-78e0-88f5-2567b5518c8b",
-    "title": "菩提花開照眼明",
-    "titleEn": "Bodhi Blossoms Illuminate",
-    "image": "./images/paintings/thumbnails/019891b0-f39c-78e0-88f5-2567b5518c8b_thumb.jpg",
-    "imageHigh": "./images/paintings/large/019891b0-f39c-78e0-88f5-2567b5518c8b_large.jpg",
-    "description": "菩提花開照眼明",
-    "descriptionEn": "The Bodhi blossoms bloom, illuminating the eyes.",
-    "format": "框",
-    "mediumEn": "",
-    "sizeCm": null,
-    "sizeInches": "",
-    "year": "2020",
-    "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "formatEn": "Framed"
   },
   {
     "id": "019891b0-f39c-7f2c-b8af-cbff485e10a5",
@@ -4004,25 +4009,43 @@
   {
     "id": "019891b0-f39c-7b5a-9017-6de6a497f059",
     "title": "煙聲一縷一塵埃-大瀑布",
-    "titleEn": "Whispers of Mist and Dust: The Great Waterfall",
-    "image": "",
-    "imageHigh": "",
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "",
+    "manualCategories": [],
+    "categories": [
+      "waterfall",
+      "flowingclouds"
+    ],
+    "autoCategories": {
+      "subjects": [
+        "waterfall",
+        "flowingclouds"
+      ],
+      "locations": []
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7b5a-9017-6de6a497f059_thumb.png",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7b5a-9017-6de6a497f059_large.png",
     "description": "放眼大千境始開，烟聲一縷一塵埃；飛天素染無盡意，流水行雲去復來。",
-    "descriptionEn": "With a gaze that embraces the vast expanse, the world unfolds; A whisper of mist carries a trace of dust. In the boundless essence of the heavens, pure and serene, The flowing waters and drifting clouds come and go.",
-    "format": null,
-    "mediumEn": "",
-    "sizeCm": "120x240",
-    "sizeInches": "47.2×94.5 inches",
-    "year": "unknown",
-    "price": "",
-    "available": "",
-    "featured": "",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
+    "format": "",
+    "formatEn": "",
+    "mediumEn": "",
     "heightCm": 120,
     "widthCm": 240,
     "heightInches": 47.2,
-    "widthInches": 94.5
+    "widthInches": 94.5,
+    "sizeCm": "120×240",
+    "sizeInches": "47.2×94.5",
+    "year": "2018",
+    "price": "",
+    "available": true,
+    "featured": true,
+    "recent": false,
+    "exhibitions": [],
+    "tags": []
   },
   {
     "id": "019891b0-f39c-7535-8938-34b23c8840cd",
@@ -4913,5 +4936,47 @@
     "widthCm": 70,
     "heightInches": 53.1,
     "widthInches": 27.6
+  },
+  {
+    "id": "artwork-987218839",
+    "title": "江山如此多好",
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "煙雲",
+    "manualCategories": [
+      "煙雲"
+    ],
+    "categories": [
+      "landscape",
+      "煙雲"
+    ],
+    "autoCategories": {
+      "subjects": [
+        "landscape"
+      ],
+      "locations": []
+    },
+    "image": "./images/paintings/thumbnails/artwork-987218839_thumb.png",
+    "imageHigh": "./images/paintings/large/artwork-987218839_large.png",
+    "description": "江山如此多好",
+    "descriptionEn": "",
+    "curatorNote": "",
+    "curatorNoteEn": "",
+    "format": "",
+    "formatEn": "",
+    "mediumEn": "",
+    "heightCm": 70,
+    "widthCm": 135,
+    "heightInches": 27.6,
+    "widthInches": 53.1,
+    "sizeCm": "70×135",
+    "sizeInches": "27.6×53.1",
+    "year": "2017",
+    "price": "",
+    "available": false,
+    "featured": false,
+    "recent": false,
+    "exhibitions": [],
+    "tags": []
   }
 ]
