@@ -525,6 +525,26 @@
             background: rgba(255, 255, 255, 0.2) !important;
             border-radius: 50%;
         }
+
+        /* Available labels styling */
+        .available-label {
+            display: inline-block;
+            background: #e9ecef;
+            color: #495057;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            margin: 1px 2px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid #dee2e6;
+        }
+
+        .available-label:hover {
+            background: #007bff;
+            color: white;
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body>
@@ -700,14 +720,24 @@
                             </div>
                             
                             <div class="form-group">
-                                <label for="artworkSubcategory">自動分類標籤</label>
-                                <div id="categoryLabels" style="margin-bottom: 0.5rem; font-size: 0.9rem; color: #6c757d;">
+                                <label for="artworkSubcategory">分類標籤管理</label>
+                                
+                                <!-- Available Labels Section -->
+                                <div style="margin-bottom: 1rem;">
+                                    <h5 style="font-size: 0.9rem; color: #495057; margin-bottom: 0.5rem;">📋 可用標籤 (點擊新增)</h5>
+                                    <div id="availableLabels" style="padding: 0.5rem; background: #f8f9fa; border-radius: 4px; border: 1px solid #e9ecef; max-height: 120px; overflow-y: auto;">
+                                        <!-- Will be populated by JavaScript -->
+                                    </div>
+                                </div>
+                                
+                                <!-- Auto-generated Labels with X buttons -->
+                                <div id="categoryLabels" style="margin-bottom: 0.5rem; font-size: 0.9rem; color: #6c757d; min-height: 1.2rem; padding: 0.5rem; background: #f8f9fa; border-radius: 8px; border: 1px solid #e9ecef;">
                                     <!-- Auto-generated category labels will appear here -->
                                 </div>
                                 
                                 <!-- Manual Category Input -->
                                 <div style="display: flex; gap: 0.5rem; align-items: center;">
-                                    <input type="text" id="artworkSubcategory" placeholder="手動新增額外分類標籤..." 
+                                    <input type="text" id="artworkSubcategory" placeholder="手動新增自定義標籤..." 
                                         style="flex: 1;" oninput="updateCategoryPreview()">
                                     <button type="button" class="btn btn-small" onclick="addManualCategory()" 
                                             style="background: #17a2b8; color: white; padding: 0.4rem 0.8rem; font-size: 0.8rem;">
@@ -721,7 +751,7 @@
                                 </div>
                                 
                                 <small style="color: #6c757d; margin-top: 0.25rem; display: block;">
-                                    💡 系統會根據標題自動分類，您也可以手動新增自定義分類標籤
+                                    💡 系統會根據標題自動分類，您可以移除錯誤標籤或手動新增自定義標籤
                                 </small>
                             </div>
                             
@@ -799,6 +829,7 @@
         };
                 
         let manualCategories = [];// Track manual categories
+        let autoCategories = { subjects: [], locations: [] }; // Track auto categories separately
 
         // CRITICAL SAFETY FUNCTION: Always use this for GitHub updates
         function getMasterArtworksArray() {
@@ -887,6 +918,63 @@
             'niagara': '尼加拉'
         };
 
+        // Populate available labels when page loads
+        function populateAvailableLabels() {
+            const availableLabelsDiv = document.getElementById('availableLabels');
+            if (!availableLabelsDiv) return;
+
+            const allLabels = Object.entries(CATEGORY_LABELS).map(([key, label]) => ({
+                key,
+                label,
+                type: CATEGORIZATION_RULES.subject[key] ? 'subject' : 'location'
+            }));
+
+            // Group by type
+            const subjects = allLabels.filter(item => item.type === 'subject');
+            const locations = allLabels.filter(item => item.type === 'location');
+
+            const subjectHtml = subjects.map(item => 
+                `<span class="available-label" data-key="${item.key}" onclick="addAvailableLabel('${item.key}', '${item.label}')">${item.label}</span>`
+            ).join(' ');
+
+            const locationHtml = locations.map(item => 
+                `<span class="available-label" data-key="${item.key}" onclick="addAvailableLabel('${item.key}', '${item.label}')">${item.label}</span>`
+            ).join(' ');
+
+            availableLabelsDiv.innerHTML = `
+                <div style="margin-bottom: 0.5rem;">
+                    <strong style="font-size: 0.8rem; color: #6c757d;">題材:</strong> ${subjectHtml}
+                </div>
+                <div>
+                    <strong style="font-size: 0.8rem; color: #6c757d;">地點:</strong> ${locationHtml}
+                </div>
+            `;
+        }
+
+        // Add available label to manual categories
+        function addAvailableLabel(key, label) {
+            // Check if already exists in any category
+            const allCurrentCategories = [...autoCategories.subjects, ...autoCategories.locations, ...manualCategories];
+            if (allCurrentCategories.includes(key)) {
+                showMessage(`標籤「${label}」已存在`, 'warning');
+                return;
+            }
+
+            manualCategories.push(key);
+            updateManualCategoriesDisplay();
+            showMessage(`已新增標籤「${label}」`, 'success');
+        }
+
+        // Remove auto category (when user clicks X on auto-generated tags)
+        function removeAutoCategory(categoryKey) {
+            // Remove from auto categories
+            autoCategories.subjects = autoCategories.subjects.filter(cat => cat !== categoryKey);
+            autoCategories.locations = autoCategories.locations.filter(cat => cat !== categoryKey);
+            
+            updateCategoryPreview();
+            showMessage(`已移除自動標籤「${CATEGORY_LABELS[categoryKey] || categoryKey}」`, 'info');
+        }
+
         function getAutoCategories(title) {
             const categories = {
                 subjects: [],
@@ -924,20 +1012,28 @@
             const categoryLabelsDiv = document.getElementById('categoryLabels');
             
             if (title) {
-                const autoCategories = getAutoCategories(title);
-                const allCategories = [...autoCategories.subjects, ...autoCategories.locations];
+                // Get fresh auto categories
+                autoCategories = getAutoCategories(title);
+                const allAutoCategories = [...autoCategories.subjects, ...autoCategories.locations];
                 
-                if (allCategories.length > 0) {
-                    const labelHtml = allCategories.map(cat => {
+                if (allAutoCategories.length > 0) {
+                    const labelHtml = allAutoCategories.map(cat => {
                         const label = CATEGORY_LABELS[cat] || cat;
-                        return `<span style="background: #e3f2fd; color: #1976d2; padding: 2px 8px; border-radius: 12px; margin-right: 4px; font-size: 0.8rem;">🏷️ ${label}</span>`;
+                        return `<span style="background: #e3f2fd; color: #1976d2; padding: 3px 8px; border-radius: 12px; margin-right: 4px; margin-bottom: 2px; font-size: 0.8rem; display: inline-flex; align-items: center;">
+                            🏷️ ${label}
+                            <button type="button" onclick="removeAutoCategory('${cat}')" 
+                                    style="background: none; border: none; color: #1976d2; margin-left: 4px; cursor: pointer; font-size: 0.7rem; padding: 0;">
+                                ✕
+                            </button>
+                        </span>`;
                     }).join('');
-                    categoryLabelsDiv.innerHTML = `自動分類: ${labelHtml}`;
+                    categoryLabelsDiv.innerHTML = `<strong style="font-size: 0.8rem;">自動分類:</strong> ${labelHtml}`;
                 } else {
-                    categoryLabelsDiv.innerHTML = '<span style="color: #6c757d;">系統無法自動分類此標題</span>';
+                    categoryLabelsDiv.innerHTML = '<span style="color: #6c757d; font-size: 0.8rem;">系統無法自動分類此標題</span>';
                 }
             } else {
-                categoryLabelsDiv.innerHTML = '<span style="color: #6c757d;">輸入標題後顯示自動分類預覽</span>';
+                categoryLabelsDiv.innerHTML = '<span style="color: #6c757d; font-size: 0.8rem;">輸入標題後顯示自動分類預覽</span>';
+                autoCategories = { subjects: [], locations: [] }; // Reset
             }
             
             // Update manual categories display
@@ -1029,7 +1125,8 @@
             if (!checkEditingPermission()) return;
             
             currentEditingId = null;
-            manualCategories = []; // NEW: Clear manual categories
+            manualCategories = []; // Clear manual categories
+            autoCategories = { subjects: [], locations: [] }; // Clear auto categories
             document.getElementById('modalTitle').textContent = '新增作品';
             document.getElementById('artworkForm').reset();
             document.getElementById('artworkAvailable').checked = true;
@@ -1038,6 +1135,11 @@
             document.getElementById('publishBtn').disabled = true;
             document.getElementById('saveStatus').textContent = '';
             document.getElementById('imageControls').style.display = 'none';
+            
+            // Populate available labels
+            populateAvailableLabels();
+            updateCategoryPreview();
+            
             document.getElementById('artworkModal').style.display = 'block';
         }
 
