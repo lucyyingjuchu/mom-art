@@ -578,26 +578,41 @@
   {
     "id": "019891b0-f39c-7e69-8910-34d57c0a6589",
     "title": "自在飛花輕似夢－雨中紫藤",
-    "titleEn": "Dreamlike Blossoms in the Rain – Wisteria's Whisper",
-    "image": "",
-    "imageHigh": "",
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "",
+    "manualCategories": [],
+    "categories": [
+      "flowers"
+    ],
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": []
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7e69-8910-34d57c0a6589_thumb.png",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7e69-8910-34d57c0a6589_large.png",
     "description": "自在飛花輕似夢，無邊絲雨細如愁。",
-    "descriptionEn": "Carefree, the flying blossoms drift like dreams, Endless, the fine rain falls, delicate as sorrow.",
-    "format": "軸",
-    "mediumEn": "",
-    "sizeCm": "135 × 70",
-    "sizeInches": "53.1×27.6 inches",
-    "year": "2011",
-    "price": "",
-    "available": "",
-    "featured": "",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll",
+    "format": "軸",
+    "formatEn": "",
+    "mediumEn": "",
     "heightCm": 135,
     "widthCm": 70,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "sizeCm": "135×70",
+    "sizeInches": "53.1×27.6",
+    "year": "2011",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "recent": false,
+    "exhibitions": [],
+    "tags": []
   },
   {
     "id": "019891b0-f39c-777e-98f4-ccdf31977c1d",
