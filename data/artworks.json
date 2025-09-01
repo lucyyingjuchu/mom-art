@@ -238,26 +238,43 @@
   {
     "id": "019891b0-f39c-7036-9ac1-cbed9f6f03e5",
     "title": "梅嶺如雲－風櫃斗梅花林",
-    "titleEn": "Clouds Over Plum Ridge",
-    "image": "",
-    "imageHigh": "",
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "",
+    "manualCategories": [],
+    "categories": [
+      "flowingclouds",
+      "flowers"
+    ],
+    "autoCategories": {
+      "subjects": [
+        "flowingclouds",
+        "flowers"
+      ],
+      "locations": []
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7036-9ac1-cbed9f6f03e5_thumb.png",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7036-9ac1-cbed9f6f03e5_large.png",
     "description": "盡日尋春不見春，芒鞋踏遍隴頭雲。歸來笑拈梅花嗅，春在枝頭已十分。",
-    "descriptionEn": "All day I seek for spring, yet spring eludes my sight, With straw sandals I tread the clouds atop the hills in flight. Returning, I smile as I pluck the plum blossoms to inhale, For spring is already blooming, abundant on the boughs so frail.",
-    "format": "軸",
-    "mediumEn": "",
-    "sizeCm": "135 × 70",
-    "sizeInches": "53.1×27.6 inches",
-    "year": "2011",
-    "price": "",
-    "available": "",
-    "featured": "",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll",
+    "format": "軸",
+    "formatEn": "",
+    "mediumEn": "",
     "heightCm": 135,
     "widthCm": 70,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "sizeCm": "135×70",
+    "sizeInches": "53.1×27.6",
+    "year": "2011",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "recent": false,
+    "exhibitions": [],
+    "tags": []
   },
   {
     "id": "019891b0-f39c-7692-b225-e725fef10f3e",
