@@ -3416,25 +3416,41 @@
   {
     "id": "019891b0-f39c-728a-b3ca-313cab5b59d0",
     "title": "吾心似秋月(漢隸)",
-    "titleEn": "My Heart Like the Autumn Moon",
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "",
+    "manualCategories": [],
+    "categories": [
+      "calligraphy"
+    ],
+    "autoCategories": {
+      "subjects": [
+        "calligraphy"
+      ],
+      "locations": []
+    },
     "image": "",
     "imageHigh": "",
-    "description": "己丑唐寒山子禪詩吾心似秋月南投縣玉山美展入選",
-    "descriptionEn": "In the Year of the Earth Ox, By the hand of Tang Han Shan, A Zen poem: My heart resembles the autumn moon. Selected for the Yushan Art Exhibition, Nantou County.",
-    "format": null,
-    "mediumEn": "",
-    "sizeCm": "180 ×90",
-    "sizeInches": "70.9×35.4 inches",
-    "year": "unknown",
-    "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
+    "description": "己丑唐寒山子禪詩吾心似秋月",
+    "descriptionEn": "",
+    "curatorNote": "南投縣玉山美展入選",
     "curatorNoteEn": "",
+    "format": "",
+    "formatEn": "",
+    "mediumEn": "",
     "heightCm": 180,
     "widthCm": 90,
     "heightInches": 70.9,
-    "widthInches": 35.4
+    "widthInches": 35.4,
+    "sizeCm": "180×90",
+    "sizeInches": "70.9×35.4",
+    "year": "unknown",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "recent": false,
+    "exhibitions": [],
+    "tags": []
   },
   {
     "id": "019891b0-f39c-7311-beee-463de4a1fb57",
