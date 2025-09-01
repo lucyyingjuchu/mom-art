@@ -367,26 +367,43 @@
   {
     "id": "019891b0-f39c-7f2c-96ed-160ad3c22a3f",
     "title": "煙雲情境",
-    "titleEn": "Veils of Mist and Emotion",
-    "image": "",
-    "imageHigh": "",
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "",
+    "manualCategories": [],
+    "categories": [
+      "landscape",
+      "flowingclouds"
+    ],
+    "autoCategories": {
+      "subjects": [
+        "landscape",
+        "flowingclouds"
+      ],
+      "locations": []
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7f2c-96ed-160ad3c22a3f_thumb.png",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7f2c-96ed-160ad3c22a3f_large.png",
     "description": "道之為物，惟恍惟惚。惚兮恍兮，其中有象。恍兮惚兮，其中有物。窈兮冥兮，其中有精。（老子‧道德經）",
-    "descriptionEn": "The essence of the Dao is elusive and indistinct; In its vagueness, there lies a form. In its obscurity, there exists substance. Profound and mysterious, it harbors the essence. (Laozi, Dao De Jing)",
-    "format": "框",
-    "mediumEn": "",
-    "sizeCm": "95 × 65",
-    "sizeInches": "37.4×25.6 inches",
-    "year": "2011",
-    "price": "",
-    "available": "",
-    "featured": "",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed",
+    "format": "框",
+    "formatEn": "",
+    "mediumEn": "",
     "heightCm": 95,
     "widthCm": 65,
     "heightInches": 37.4,
-    "widthInches": 25.6
+    "widthInches": 25.6,
+    "sizeCm": "95×65",
+    "sizeInches": "37.4×25.6",
+    "year": "2011",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "recent": false,
+    "exhibitions": [],
+    "tags": []
   },
   {
     "id": "019891b0-f39c-7bae-8206-f4788f507776",
