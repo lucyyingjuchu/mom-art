@@ -1,193 +1,264 @@
+// File: netlify/functions/githubProxy.js
+// Updated version with better error handling and memory management
+
+const GITHUB_API_BASE = 'https://api.github.com';
+const MAX_FILE_SIZE = 100 * 1024 * 1024; // 100MB limit
+const TIMEOUT = 25000; // 25 seconds (less than Netlify's 30s limit)
+
 exports.handler = async (event, context) => {
-    // 允許 POST 和 DELETE
-    if (event.httpMethod !== 'POST' && event.httpMethod !== 'DELETE') {
-        return {
-            statusCode: 405,
-            body: JSON.stringify({ error: 'Method not allowed' })
-        };
-    }
+    // Set timeout for the entire function
+    const timeout = setTimeout(() => {
+        console.error('⏰ Function timeout reached');
+        throw new Error('Function timeout - file too large or processing too slow');
+    }, TIMEOUT);
 
     try {
-        const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
-        
-        if (!GITHUB_TOKEN) {
+        // Only handle POST and DELETE methods
+        if (event.httpMethod !== 'POST' && event.httpMethod !== 'DELETE') {
+            clearTimeout(timeout);
             return {
-                statusCode: 500,
-                body: JSON.stringify({ error: 'GitHub token not configured' })
+                statusCode: 405,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Methods': 'POST, DELETE, OPTIONS',
+                    'Access-Control-Allow-Headers': 'Content-Type'
+                },
+                body: JSON.stringify({ error: 'Method not allowed' })
             };
         }
 
-        const { path, content, message, branch = 'main', sha } = JSON.parse(event.body);
-        
-        const GITHUB_OWNER = 'lucyyingjuchu';
-        const GITHUB_REPO = 'mom-art';
-
-        // 處理 DELETE 請求
-        if (event.httpMethod === 'DELETE') {
-            if (!path || !message || !sha) {
-                return {
-                    statusCode: 400,
-                    body: JSON.stringify({ 
-                        message: 'Missing required fields for delete: path, message, sha' 
-                    })
-                };
-            }
-
-            console.log(`Deleting file: ${path} with SHA: ${sha}`);
-
-            const deleteResponse = await fetch(
-                `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${path}`,
-                {
-                    method: 'DELETE',
-                    headers: {
-                        'Authorization': `Bearer ${GITHUB_TOKEN}`,
-                        'Accept': 'application/vnd.github+json',
-                        'Content-Type': 'application/json',
-                        'User-Agent': 'netlify-function'
-                    },
-                    body: JSON.stringify({
-                        message: message,
-                        sha: sha,
-                        branch: branch
-                    })
-                }
-            );
-
-            if (!deleteResponse.ok) {
-                let errorMessage = 'GitHub API delete error';
-                let errorDetails = '';
-                
-                try {
-                    // Try to get JSON error first
-                    const errorData = await deleteResponse.json();
-                    errorMessage = errorData.message || errorMessage;
-                    errorDetails = JSON.stringify(errorData);
-                } catch (e) {
-                    // If not JSON, get as text
-                    errorDetails = await deleteResponse.text();
-                }
-                
-                console.error(`Delete failed for ${path}:`, errorDetails);
-                
-                return {
-                    statusCode: deleteResponse.status,
-                    body: JSON.stringify({ 
-                        message: `${errorMessage}: ${errorDetails}`
-                    })
-                };
-            }
-
-            console.log(`Successfully deleted: ${path}`);
-            
+        // Handle OPTIONS for CORS
+        if (event.httpMethod === 'OPTIONS') {
+            clearTimeout(timeout);
             return {
                 statusCode: 200,
                 headers: {
                     'Access-Control-Allow-Origin': '*',
-                    'Access-Control-Allow-Headers': 'Content-Type',
-                    'Access-Control-Allow-Methods': 'POST, DELETE, OPTIONS'
-                },
-                body: JSON.stringify({ 
-                    success: true, 
-                    message: 'File deleted successfully' 
-                })
+                    'Access-Control-Allow-Methods': 'POST, DELETE, OPTIONS',
+                    'Access-Control-Allow-Headers': 'Content-Type'
+                }
             };
         }
 
-        // 原本的 POST 處理（上傳/更新檔案）
-        if (!path || !content || !message) {
+        // Parse request body
+        let requestBody;
+        try {
+            requestBody = JSON.parse(event.body);
+        } catch (parseError) {
+            clearTimeout(timeout);
+            console.error('❌ JSON parse error:', parseError);
             return {
                 statusCode: 400,
-                body: JSON.stringify({ message: 'Missing required fields: path, content, message' })
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*'
+                },
+                body: JSON.stringify({ error: 'Invalid JSON in request body' })
             };
         }
 
-        // Check if file exists first (to get SHA for updates)
-        let existingSha = null;
-        try {
-            const checkResponse = await fetch(
-                `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${path}`,
-                {
-                    headers: {
-                        'Authorization': `Bearer ${GITHUB_TOKEN}`,
-                        'Accept': 'application/vnd.github+json',
-                        'User-Agent': 'netlify-function'
-                    }
-                }
-            );
-            
-            if (checkResponse.ok) {
-                const fileData = await checkResponse.json();
-                existingSha = fileData.sha;
-            }
-        } catch (error) {
-            // File doesn't exist, which is fine for new files
-        }
+        const { path, content, message, sha, branch = 'main' } = requestBody;
 
-        // Upload or update the file
-        const uploadBody = {
-            message: message,
-            content: content,
-            branch: branch
-        };
-        
-        // Add SHA if file exists (for updates)
-        if (existingSha) {
-            uploadBody.sha = existingSha;
-        }
-
-        const uploadResponse = await fetch(
-            `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${path}`,
-            {
-                method: 'PUT',
-                headers: {
-                    'Authorization': `Bearer ${GITHUB_TOKEN}`,
-                    'Accept': 'application/vnd.github+json',
-                    'Content-Type': 'application/json',
-                    'User-Agent': 'netlify-function'
-                },
-                body: JSON.stringify(uploadBody)
-            }
-        );
-
-        if (!uploadResponse.ok) {
-            let errorMessage = 'GitHub API error';
-            let errorDetails = '';
-            
-            try {
-                const errorData = await uploadResponse.json();
-                errorMessage = errorData.message || errorMessage;
-                errorDetails = JSON.stringify(errorData);
-            } catch (e) {
-                errorDetails = await uploadResponse.text();
-            }
-            
+        // Validate required fields
+        if (!path || !message) {
+            clearTimeout(timeout);
             return {
-                statusCode: uploadResponse.status,
+                statusCode: 400,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*'
+                },
+                body: JSON.stringify({ error: 'Missing required fields: path, message' })
+            };
+        }
+
+        // Check content size for uploads
+        if (event.httpMethod === 'POST' && content) {
+            const contentSize = Buffer.byteLength(content, 'base64');
+            console.log(`📊 Content size: ${Math.round(contentSize / 1024 / 1024 * 100) / 100}MB`);
+            
+            if (contentSize > MAX_FILE_SIZE) {
+                clearTimeout(timeout);
+                return {
+                    statusCode: 413,
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Access-Control-Allow-Origin': '*'
+                    },
+                    body: JSON.stringify({ 
+                        error: `File too large. Maximum size is ${MAX_FILE_SIZE / 1024 / 1024}MB` 
+                    })
+                };
+            }
+        }
+
+        // GitHub API configuration
+        const REPO_OWNER = process.env.GITHUB_OWNER || 'lucyyingjuchu';
+        const REPO_NAME = process.env.GITHUB_REPO || 'mom-art';
+        const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
+
+        if (!GITHUB_TOKEN) {
+            clearTimeout(timeout);
+            console.error('❌ Missing GitHub token');
+            return {
+                statusCode: 500,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*'
+                },
+                body: JSON.stringify({ error: 'GitHub token not configured' })
+            };
+        }
+
+        // Prepare GitHub API request
+        const githubUrl = `${GITHUB_API_BASE}/repos/${REPO_OWNER}/${REPO_NAME}/contents/${path}`;
+        const githubHeaders = {
+            'Authorization': `Bearer ${GITHUB_TOKEN}`,
+            'Accept': 'application/vnd.github.v3+json',
+            'Content-Type': 'application/json',
+            'User-Agent': 'Netlify-Function-GitHubProxy/1.0'
+        };
+
+        let githubBody;
+        let method;
+
+        if (event.httpMethod === 'POST') {
+            // Upload/Update file
+            method = 'PUT';
+            githubBody = {
+                message,
+                content,
+                branch
+            };
+            
+            // Add SHA if provided (for updates)
+            if (sha) {
+                githubBody.sha = sha;
+            }
+            
+            console.log(`📤 ${sha ? 'Updating' : 'Creating'} file: ${path}`);
+            
+        } else if (event.httpMethod === 'DELETE') {
+            // Delete file
+            method = 'DELETE';
+            githubBody = {
+                message,
+                sha, // Required for deletion
+                branch
+            };
+            
+            if (!sha) {
+                clearTimeout(timeout);
+                return {
+                    statusCode: 400,
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Access-Control-Allow-Origin': '*'
+                    },
+                    body: JSON.stringify({ error: 'SHA required for file deletion' })
+                };
+            }
+            
+            console.log(`🗑️ Deleting file: ${path}`);
+        }
+
+        // Make GitHub API request with timeout
+        const controller = new AbortController();
+        const githubTimeout = setTimeout(() => controller.abort(), TIMEOUT - 2000);
+
+        try {
+            const response = await fetch(githubUrl, {
+                method,
+                headers: githubHeaders,
+                body: JSON.stringify(githubBody),
+                signal: controller.signal
+            });
+
+            clearTimeout(githubTimeout);
+            clearTimeout(timeout);
+
+            // Handle GitHub API response
+            const responseData = await response.json();
+
+            if (!response.ok) {
+                console.error('❌ GitHub API error:', response.status, responseData);
+                
+                // Provide helpful error messages
+                let errorMessage = responseData.message || `GitHub API error: ${response.status}`;
+                
+                if (response.status === 403) {
+                    errorMessage = 'GitHub API rate limit exceeded or insufficient permissions';
+                } else if (response.status === 404) {
+                    errorMessage = 'Repository or file not found';
+                } else if (response.status === 422) {
+                    errorMessage = 'Invalid request data or file already exists';
+                } else if (response.status >= 500) {
+                    errorMessage = 'GitHub server error - please try again later';
+                }
+
+                return {
+                    statusCode: response.status,
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Access-Control-Allow-Origin': '*'
+                    },
+                    body: JSON.stringify({ 
+                        error: errorMessage,
+                        details: responseData
+                    })
+                };
+            }
+
+            // Success response
+            console.log(`✅ GitHub operation successful: ${path}`);
+            return {
+                statusCode: 200,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*'
+                },
+                body: JSON.stringify(responseData)
+            };
+
+        } catch (fetchError) {
+            clearTimeout(githubTimeout);
+            clearTimeout(timeout);
+            
+            console.error('❌ Fetch error:', fetchError);
+            
+            let errorMessage = 'Network error communicating with GitHub';
+            if (fetchError.name === 'AbortError') {
+                errorMessage = 'Request timeout - file may be too large';
+            }
+
+            return {
+                statusCode: 500,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*'
+                },
                 body: JSON.stringify({ 
-                    message: `${errorMessage}: ${errorDetails}`
+                    error: errorMessage,
+                    details: fetchError.message
                 })
             };
         }
 
-        const result = await uploadResponse.json();
+    } catch (error) {
+        clearTimeout(timeout);
+        console.error('❌ Function error:', error);
         
         return {
-            statusCode: 200,
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Headers': 'Content-Type',
-                'Access-Control-Allow-Methods': 'POST, DELETE, OPTIONS'
-            },
-            body: JSON.stringify(result)
-        };
-
-    } catch (error) {
-        console.error('GitHub proxy error:', error);
-        return {
             statusCode: 500,
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            },
             body: JSON.stringify({ 
-                message: `Internal server error: ${error.message}`
+                error: 'Internal server error',
+                details: error.message
             })
         };
     }
-}
+};

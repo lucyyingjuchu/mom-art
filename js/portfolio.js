@@ -180,28 +180,66 @@ class ArtworkCategorizer {
             styles: {},
             years: { recent: 0, '2010s': 0, earlier: 0 }
         };
+        
+        let uncategorizedCount = 0;
 
         artworks.forEach(artwork => {
             const categories = this.categorizeArtwork(artwork);
+            let hasAnyCategory = false;
             
-            // Count subjects (prioritize manual subcategory)
+            // Count subjects (prioritize manual subcategory, then stored categories, then auto-categories)
+            let subjectCategories = [];
+            
             if (artwork.subcategory) {
-                stats.subjects[artwork.subcategory] = (stats.subjects[artwork.subcategory] || 0) + 1;
-            } else {
-                categories.subjects.forEach(subject => {
-                    stats.subjects[subject] = (stats.subjects[subject] || 0) + 1;
+                subjectCategories.push(artwork.subcategory);
+                hasAnyCategory = true;
+            } else if (artwork.categories) {
+                // Filter categories to get only subjects (not locations)
+                subjectCategories = artwork.categories.filter(cat => {
+                    // Check if it's a subject category (exists in CATEGORIZATION_RULES.subject or is Chinese)
+                    return this.categorizer.rules.subject[cat] || this.containsChinese(cat) || 
+                        !this.categorizer.rules.location[cat]; // Not a location = probably subject
                 });
+                if (subjectCategories.length > 0) hasAnyCategory = true;
             }
             
-            // Count locations
-            categories.locations.forEach(location => {
+            if (subjectCategories.length === 0) {
+                subjectCategories = categories.subjects;
+                if (subjectCategories.length > 0) hasAnyCategory = true;
+            }
+            
+            subjectCategories.forEach(subject => {
+                stats.subjects[subject] = (stats.subjects[subject] || 0) + 1;
+            });
+            
+            // Count locations (from stored categories or auto-categorized)
+            let locationCategories = [];
+            if (artwork.categories) {
+                locationCategories = artwork.categories.filter(cat => 
+                    this.categorizer.rules.location[cat]
+                );
+                if (locationCategories.length > 0) hasAnyCategory = true;
+            }
+            
+            if (locationCategories.length === 0) {
+                locationCategories = categories.locations;
+                if (locationCategories.length > 0) hasAnyCategory = true;
+            }
+            
+            locationCategories.forEach(location => {
                 stats.locations[location] = (stats.locations[location] || 0) + 1;
             });
             
             // Count styles
             categories.styles.forEach(style => {
                 stats.styles[style] = (stats.styles[style] || 0) + 1;
+                hasAnyCategory = true;
             });
+            
+            // Count uncategorized
+            if (!hasAnyCategory) {
+                uncategorizedCount++;
+            }
             
             // Count years
             const year = parseInt(artwork.year);
@@ -209,6 +247,11 @@ class ArtworkCategorizer {
             else if (year >= 2010) stats.years['2010s']++;
             else if (!isNaN(year)) stats.years.earlier++;
         });
+        
+        // Add uncategorized to subjects if there are any
+        if (uncategorizedCount > 0) {
+            stats.subjects['uncategorized'] = uncategorizedCount;
+        }
 
         return stats;
     }
@@ -753,6 +796,7 @@ class ChineseArtPortfolio {
     }
 
     // Generate dynamic filter menu with multi-select capability
+    // UPDATE: Enhanced generateFilterMenu to handle uncategorized
     generateFilterMenu() {
         const stats = this.filterStats;
         
@@ -767,7 +811,7 @@ class ChineseArtPortfolio {
                                 <button class="filter-btn" 
                                         data-filter-type="subject" 
                                         data-filter-value="${subject}">
-                                    ${this.getSubjectLabel(subject)} (${count})
+                                    ${this.getSubjectLabelWithUncategorized(subject)} (${count})
                                 </button>
                             `).join('')}
                         </div>
@@ -832,13 +876,54 @@ class ChineseArtPortfolio {
         `;
     }
 
-    // Label mapping for display
+    // Helper method for subject labels including uncategorized
+    getSubjectLabelWithUncategorized(subject) {
+        if (subject === 'uncategorized') {
+            return this.t('filters.uncategorized');
+        }
+        return this.getSubjectLabel(subject);
+    }
+
+    // Helper method to detect Chinese characters
+    containsChinese(text) {
+        return /[\u4e00-\u9fff]/.test(text);
+    }
+
+    // Enhanced label mapping that handles both English keys and direct Chinese labels
     getSubjectLabel(subject) {
-       return this.t(`subjects.${subject}`);
+        // First, check if it's already a Chinese label (contains Chinese characters)
+        if (this.containsChinese(subject)) {
+            return subject; // Return as-is if already Chinese
+        }
+        
+        // Try to get translation for English key
+        const translated = this.t(`subjects.${subject}`);
+        
+        // If translation returns the key itself (meaning not found), return the original
+        if (translated === `subjects.${subject}`) {
+            console.warn(`Missing translation for subject: ${subject}`);
+            return subject; // Fallback to English key
+        }
+        
+        return translated;
     }
 
     getLocationLabel(location) {
-        return this.t(`locations.${location}`);
+        // First, check if it's already a Chinese label
+        if (this.containsChinese(location)) {
+            return location; // Return as-is if already Chinese
+        }
+        
+        // Try to get translation for English key
+        const translated = this.t(`locations.${location}`);
+        
+        // If translation returns the key itself (meaning not found), return the original
+        if (translated === `locations.${location}`) {
+            console.warn(`Missing translation for location: ${location}`);
+            return location; // Fallback to English key
+        }
+        
+        return translated;
     }
 
     // Initialize gallery and event listeners

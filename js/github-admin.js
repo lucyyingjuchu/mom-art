@@ -168,37 +168,68 @@ class GitHubUploader {
     // FIXED: Upload artwork with proper form data collection
     async uploadArtwork(file, artworkData, onProgress) {
         try {
-            onProgress?.('Creating optimized images...', 10);
+            onProgress?.('Validating file...', 5);
             
-            // Create thumbnail (PNG format for consistency)
-            const thumbnailBlob = await this.createImageFromFile(file, 800, 'thumbnail');
-            onProgress?.('Thumbnail created', 30);
+            // Enhanced file validation
+            if (file.size > 50 * 1024 * 1024) {
+                throw new Error('File too large. Maximum size is 50MB.');
+            }
             
-            // Create large version (PNG format for consistency)
-            const largeBlob = await this.createImageFromFile(file, 1600, 'large');
-            onProgress?.('Large image created', 50);
+            // Pre-process image to reduce memory usage for very large files
+            let processedFile = file;
+            if (file.size > 10 * 1024 * 1024) {
+                onProgress?.('Pre-processing large file...', 10);
+                console.log(`🔧 Large file detected (${Math.round(file.size/1024/1024)}MB), pre-processing...`);
+                
+                // Create a smaller intermediate version first to reduce memory pressure
+                const intermediateBlob = await this.createImageFromFile(file, 2400, 'intermediate');
+                processedFile = new File([intermediateBlob], file.name, { type: 'image/png' });
+                console.log(`✅ Pre-processed to ${Math.round(processedFile.size/1024/1024)}MB`);
+            }
             
-            // Upload thumbnail
+            onProgress?.('Creating thumbnail...', 20);
+            
+            // Create thumbnail with retry logic
+            const thumbnailBlob = await this.createImageWithRetry(processedFile, 800, 'thumbnail');
+            onProgress?.('Thumbnail created', 40);
+            
+            // Create large version with retry logic
+            onProgress?.('Creating large image...', 50);
+            const largeBlob = await this.createImageWithRetry(processedFile, 1600, 'large');
+            onProgress?.('Large image created', 60);
+            
+            // Upload thumbnail with retry
+            onProgress?.('Uploading thumbnail...', 70);
             const thumbnailBase64 = await this.blobToBase64(thumbnailBlob);
             const thumbnailPath = `${this.config.paths.thumbnails}${artworkData.id}_thumb.png`;
-            const thumbnailResult = await this.uploadFile(
+            
+            console.log(`📤 Uploading thumbnail: ${Math.round(thumbnailBlob.size/1024)}KB`);
+            const thumbnailResult = await this.uploadFileWithRetry(
                 thumbnailPath,
                 thumbnailBase64,
                 `Add thumbnail for ${artworkData.title}`
             );
-            onProgress?.('Thumbnail uploaded', 70);
             
-            // Upload large image
+            onProgress?.('Thumbnail uploaded', 80);
+            
+            // Upload large image with retry
+            onProgress?.('Uploading large image...', 85);
             const largeBase64 = await this.blobToBase64(largeBlob);
             const largePath = `${this.config.paths.large}${artworkData.id}_large.png`;
-            const largeResult = await this.uploadFile(
+            
+            console.log(`📤 Uploading large image: ${Math.round(largeBlob.size/1024)}KB`);
+            const largeResult = await this.uploadFileWithRetry(
                 largePath,
                 largeBase64,
                 `Add large image for ${artworkData.title}`
             );
-            onProgress?.('Large image uploaded', 90);
             
             onProgress?.('Upload complete!', 100);
+            
+            // Clean up processed file if different from original
+            if (processedFile !== file) {
+                URL.revokeObjectURL(URL.createObjectURL(processedFile));
+            }
             
             // Return complete artwork data with image paths
             const completeArtworkData = {
@@ -222,50 +253,151 @@ class GitHubUploader {
 
         } catch (error) {
             console.error('Artwork upload failed:', error);
+            
+            // Enhanced error messages
+            if (error.message.includes('Internal Error')) {
+                throw new Error('Server processing error. This usually means the file is too complex to process. Try reducing the image size or complexity.');
+            } else if (error.message.includes('timeout')) {
+                throw new Error('Upload timeout. Please try with a smaller file or retry later.');
+            } else if (error.message.includes('memory')) {
+                throw new Error('Processing error due to file size. Please reduce image dimensions or file size.');
+            }
+            
             throw error;
         }
     }
 
-    // Create optimized image from file (handles both thumbnails and large images)
-    async createImageFromFile(file, maxSize, type = 'thumbnail') {
-        return new Promise((resolve, reject) => {
-            const img = new Image();
-            
-            img.onload = () => {
-                try {
-                    const canvas = document.createElement('canvas');
-                    const ctx = canvas.getContext('2d');
-                    
-                    let { width, height } = img;
-                    
-                    // Resize if needed
-                    if (Math.max(width, height) > maxSize) {
-                        const ratio = maxSize / Math.max(width, height);
-                        width = Math.round(width * ratio);
-                        height = Math.round(height * ratio);
-                    }
-                    
-                    canvas.width = width;
-                    canvas.height = height;
-                    
-                    // High quality settings
-                    ctx.imageSmoothingEnabled = true;
-                    ctx.imageSmoothingQuality = 'high';
-                    ctx.drawImage(img, 0, 0, width, height);
-                    
-                    // Convert to PNG with appropriate quality
-                    const quality = type === 'thumbnail' ? 0.8 : 0.9;
-                    canvas.toBlob(resolve, 'image/png', quality);
-                    
-                } catch (error) {
-                    reject(error);
+    // NEW: Upload with retry logic
+    async uploadFileWithRetry(path, content, message, maxRetries = 2) {
+        let lastError;
+        
+        for (let attempt = 1; attempt <= maxRetries; attempt++) {
+            try {
+                console.log(`📤 Upload attempt ${attempt}/${maxRetries} for ${path}`);
+                
+                // Add delay between retries
+                if (attempt > 1) {
+                    await new Promise(resolve => setTimeout(resolve, 2000 * attempt));
+                    console.log(`⏳ Waited ${2 * attempt} seconds before retry`);
                 }
-            };
-            
-            img.onerror = reject;
-            img.src = URL.createObjectURL(file);
-        });
+                
+                const result = await this.uploadFile(path, content, message);
+                
+                if (attempt > 1) {
+                    console.log(`✅ Upload succeeded on attempt ${attempt}`);
+                }
+                
+                return result;
+                
+            } catch (error) {
+                lastError = error;
+                console.warn(`❌ Upload attempt ${attempt} failed:`, error.message);
+                
+                // Don't retry certain errors
+                if (error.message.includes('already exists') || 
+                    error.message.includes('Invalid request') ||
+                    attempt === maxRetries) {
+                    break;
+                }
+            }
+        }
+        
+        throw lastError;
     }
+
+    // NEW: Create image with retry and memory management
+    async createImageWithRetry(file, maxSize, type, maxRetries = 2) {
+        let lastError;
+        
+        for (let attempt = 1; attempt <= maxRetries; attempt++) {
+            try {
+                // Reduce quality on retries to use less memory
+                const quality = attempt === 1 ? 0.9 : 0.7;
+                
+                return await this.createImageFromFile(file, maxSize, type, quality);
+                
+            } catch (error) {
+                lastError = error;
+                console.warn(`Image processing attempt ${attempt} failed:`, error.message);
+                
+                // Force garbage collection between attempts
+                if (window.gc) window.gc();
+                
+                // Wait before retry
+                if (attempt < maxRetries) {
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+                }
+            }
+        }
+        
+        throw new Error(`Image processing failed after ${maxRetries} attempts: ${lastError.message}`);
+    }
+
+
+    async createImageFromFile(file, maxSize, type = 'thumbnail', quality = 0.9) {
+    return new Promise((resolve, reject) => {
+        const img = new Image();
+        
+        img.onload = () => {
+            try {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                
+                let { width, height } = img;
+                console.log(`📏 Original dimensions: ${width}x${height}`);
+                
+                // Resize if needed
+                if (Math.max(width, height) > maxSize) {
+                    const ratio = maxSize / Math.max(width, height);
+                    width = Math.round(width * ratio);
+                    height = Math.round(height * ratio);
+                    console.log(`📐 Resized to: ${width}x${height}`);
+                }
+                
+                canvas.width = width;
+                canvas.height = height;
+                
+                // Memory optimization settings
+                ctx.imageSmoothingEnabled = true;
+                ctx.imageSmoothingQuality = quality > 0.8 ? 'high' : 'medium';
+                
+                // Draw image
+                ctx.drawImage(img, 0, 0, width, height);
+                
+                // Convert to blob with appropriate quality
+                canvas.toBlob(
+                    (blob) => {
+                        if (blob) {
+                            console.log(`✅ Created ${type}: ${Math.round(blob.size/1024)}KB (quality: ${quality})`);
+                            resolve(blob);
+                        } else {
+                            reject(new Error('Failed to create blob'));
+                        }
+                        
+                        // Clean up
+                        canvas.width = canvas.height = 0;
+                        URL.revokeObjectURL(img.src);
+                    },
+                    'image/png',
+                    quality
+                );
+                
+            } catch (error) {
+                URL.revokeObjectURL(img.src);
+                reject(error);
+            }
+        };
+        
+        img.onerror = (error) => {
+            URL.revokeObjectURL(img.src);
+            reject(new Error('Failed to load image for processing'));
+        };
+        
+        img.src = URL.createObjectURL(file);
+    });
+}
+
+
 
     // Create optimized image from blob (for generating thumbnails from existing large images)
     async createImageFromBlob(blob, maxSize, type = 'thumbnail') {

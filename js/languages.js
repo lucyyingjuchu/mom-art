@@ -50,7 +50,8 @@ const LANGUAGE_DATA = {
             calligraphy: "Calligraphy",
             flowingclouds: "Flowing Clouds",
             abstract: "Abstract",
-            traditional: "Uncategorized" 
+            traditional: "Traditional",
+            uncategorized: "Uncategorized"  // ADD THIS LINE
         },
         
         // Location labels  
