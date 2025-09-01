@@ -4908,25 +4908,48 @@
   {
     "id": "019891b0-f39c-79c6-bfe0-4790c6114ae9",
     "title": "雲濤萬頃舞穹蒼（黃山雲瀑）",
-    "titleEn": "Dancing Clouds Over Vast Waters",
-    "image": "",
-    "imageHigh": "",
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "",
+    "manualCategories": [],
+    "categories": [
+      "waterfall",
+      "landscape",
+      "flowingclouds",
+      "huangshan"
+    ],
+    "autoCategories": {
+      "subjects": [
+        "waterfall",
+        "landscape",
+        "flowingclouds"
+      ],
+      "locations": [
+        "huangshan"
+      ]
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-79c6-bfe0-4790c6114ae9_thumb.png",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-79c6-bfe0-4790c6114ae9_large.png",
     "description": "雲瀑騰奔去，砥根立圖間；古今豈增減？大化自循環。",
-    "descriptionEn": "The clouds cascade and soar away, While steadfast roots uphold the scene; What of the past and present's sway? Great transformations flow unseen.",
-    "format": null,
-    "mediumEn": "",
-    "sizeCm": "90 × 180",
-    "sizeInches": "35.4×70.9 inches",
-    "year": "unknown",
-    "price": "",
-    "available": 0,
-    "featured": "",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
+    "format": "",
+    "formatEn": "",
+    "mediumEn": "",
     "heightCm": 90,
     "widthCm": 180,
     "heightInches": 35.4,
-    "widthInches": 70.9
+    "widthInches": 70.9,
+    "sizeCm": "90×180",
+    "sizeInches": "35.4×70.9",
+    "year": "unknown",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "recent": false,
+    "exhibitions": [],
+    "tags": []
   },
   {
     "id": "019891b0-f39c-7109-bdf7-2aff4e78b0ee",
