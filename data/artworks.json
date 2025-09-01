@@ -2828,26 +2828,44 @@
   {
     "id": "019891b0-f39c-7b75-910e-8ef8046a7bb9",
     "title": "江流浩蕩-尼加拉瀑布金秋",
-    "titleEn": "Majestic Currents: Autumn at Niagara Falls",
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "",
+    "manualCategories": [],
+    "categories": [
+      "waterfall",
+      "niagara"
+    ],
+    "autoCategories": {
+      "subjects": [
+        "waterfall"
+      ],
+      "locations": [
+        "niagara"
+      ]
+    },
     "image": "./images/paintings/thumbnails/019891b0-f39c-7b75-910e-8ef8046a7bb9_thumb.jpg",
     "imageHigh": "./images/paintings/large/019891b0-f39c-7b75-910e-8ef8046a7bb9_large.jpg",
     "description": "江流化飛瀑，浩蕩育群生。",
-    "descriptionEn": "The river flows, transforming into a cascading waterfall, Majestic and vast, nurturing all living beings.",
-    "format": "框",
-    "mediumEn": "",
-    "sizeCm": "90x180",
-    "sizeInches": "35.4×70.9 inches",
-    "year": "2022",
-    "price": "",
-    "available": "",
-    "featured": "true",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed",
+    "format": "框",
+    "formatEn": "",
+    "mediumEn": "",
     "heightCm": 90,
     "widthCm": 180,
     "heightInches": 35.4,
-    "widthInches": 70.9
+    "widthInches": 70.9,
+    "sizeCm": "90×180",
+    "sizeInches": "35.4×70.9",
+    "year": "2022",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "recent": true,
+    "exhibitions": [],
+    "tags": []
   },
   {
     "id": "019891b0-f39c-721b-b645-0e2a1c090d9b",
