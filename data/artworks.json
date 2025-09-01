@@ -5172,25 +5172,46 @@
   {
     "id": "019891b0-f39c-7109-bdf7-2aff4e78b0ee",
     "title": "雲白任舒卷－玉山白木林",
-    "titleEn": "Clouds Unfurl in White - Mt. Jade's Whitewood Grove",
-    "image": "",
-    "imageHigh": "",
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "",
+    "manualCategories": [],
+    "categories": [
+      "landscape",
+      "flowingclouds",
+      "yushan"
+    ],
+    "autoCategories": {
+      "subjects": [
+        "landscape",
+        "flowingclouds"
+      ],
+      "locations": [
+        "yushan"
+      ]
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7109-bdf7-2aff4e78b0ee_thumb.png",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7109-bdf7-2aff4e78b0ee_large.png",
     "description": "雲白任舒卷，林深霜葉紅；乍疑方外好，不與世間同。",
-    "descriptionEn": "Clouds drift freely, white and unbound, In deep woods, frost-kissed leaves turn red; For a moment, I ponder the joys beyond, Choosing not to dwell with the world's tread.",
-    "format": null,
-    "mediumEn": "",
-    "sizeCm": "70 × 80",
-    "sizeInches": "27.6×31.5 inches",
-    "year": "unknown",
-    "price": "",
-    "available": 0,
-    "featured": "",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
+    "format": "",
+    "formatEn": "",
+    "mediumEn": "",
     "heightCm": 70,
     "widthCm": 80,
     "heightInches": 27.6,
-    "widthInches": 31.5
+    "widthInches": 31.5,
+    "sizeCm": "70×80",
+    "sizeInches": "27.6×31.5",
+    "year": "unknown",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "recent": false,
+    "exhibitions": [],
+    "tags": []
   },
   {
     "id": "019891b0-f39c-7c4e-b473-973fecc8171d",
