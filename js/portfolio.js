@@ -173,6 +173,8 @@ class ArtworkCategorizer {
     }
 
     // Generate filter statistics
+    // This version merges categories that translate to the same label
+
     getFilterStats(artworks) {
         const stats = {
             subjects: {},
@@ -180,6 +182,27 @@ class ArtworkCategorizer {
             styles: {},
             years: { recent: 0, '2010s': 0, earlier: 0 }
         };
+        
+        // Create reverse mapping: Chinese label -> English key
+        const chineseToEnglish = {};
+        
+        // Map subject translations
+        for (const [englishKey, _] of Object.entries(this.rules.subject)) {
+            const chineseLabel = this.getChineseLabel('subject', englishKey);
+            if (chineseLabel !== englishKey) { // Only if translation exists
+                chineseToEnglish[chineseLabel] = englishKey;
+            }
+        }
+        
+        // Map location translations  
+        for (const [englishKey, _] of Object.entries(this.rules.location)) {
+            const chineseLabel = this.getChineseLabel('location', englishKey);
+            if (chineseLabel !== englishKey) { // Only if translation exists
+                chineseToEnglish[chineseLabel] = englishKey;
+            }
+        }
+        
+        console.log('🗺️ Chinese to English mapping:', chineseToEnglish);
         
         let uncategorizedCount = 0;
 
@@ -196,7 +219,6 @@ class ArtworkCategorizer {
             } else if (artwork.categories) {
                 // Filter categories to get only subjects (not locations)
                 subjectCategories = artwork.categories.filter(cat => {
-                    // FIXED: Use this.rules instead of this.categorizer.rules
                     return this.rules.subject[cat] || this.containsChinese(cat) || 
                         !this.rules.location[cat]; // Not a location = probably subject
                 });
@@ -208,15 +230,17 @@ class ArtworkCategorizer {
                 if (subjectCategories.length > 0) hasAnyCategory = true;
             }
             
+            // MERGE LOGIC: Convert categories to canonical English keys
             subjectCategories.forEach(subject => {
-                stats.subjects[subject] = (stats.subjects[subject] || 0) + 1;
+                // Check if it's a Chinese category that should be merged with English key
+                const canonicalKey = chineseToEnglish[subject] || subject;
+                stats.subjects[canonicalKey] = (stats.subjects[canonicalKey] || 0) + 1;
             });
             
             // Count locations (from stored categories or auto-categorized)
             let locationCategories = [];
             if (artwork.categories) {
                 locationCategories = artwork.categories.filter(cat => 
-                    // FIXED: Use this.rules instead of this.categorizer.rules
                     this.rules.location[cat]
                 );
                 if (locationCategories.length > 0) hasAnyCategory = true;
@@ -227,8 +251,10 @@ class ArtworkCategorizer {
                 if (locationCategories.length > 0) hasAnyCategory = true;
             }
             
+            // MERGE LOGIC: Convert location categories to canonical English keys
             locationCategories.forEach(location => {
-                stats.locations[location] = (stats.locations[location] || 0) + 1;
+                const canonicalKey = chineseToEnglish[location] || location;
+                stats.locations[canonicalKey] = (stats.locations[canonicalKey] || 0) + 1;
             });
             
             // Count styles
@@ -254,7 +280,41 @@ class ArtworkCategorizer {
             stats.subjects['uncategorized'] = uncategorizedCount;
         }
 
+        console.log('📊 Final merged stats:', stats);
         return stats;
+    }
+
+    // ADD this helper method to ArtworkCategorizer class
+    getChineseLabel(type, englishKey) {
+        // This is a simple mapping - you might want to use the full translation system later
+        const translations = {
+            subject: {
+                'waterfall': '瀑布',
+                'landscape': '山水',
+                'flowers': '花鳥', 
+                'bamboo': '墨竹',
+                'calligraphy': '書法',
+                'flowingclouds': '煙雲',
+                'abstract': '抽象',
+                'traditional': '傳統'
+            },
+            location: {
+                'huangshan': '黃山',
+                'alishan': '阿里山',
+                'taroko': '太魯閣',
+                'hehuanshan': '合歡山',
+                'yushan': '玉山',
+                'liushidanshan': '六十石山',
+                'guishandao': '龜山島',
+                'longdong': '龍洞',
+                'zhangjiajie': '張家界',
+                'grandcanyon': '大峽谷',
+                'iguazu': '伊瓜蘇',
+                'niagara': '尼加拉'
+            }
+        };
+        
+        return translations[type]?.[englishKey] || englishKey;
     }
 
     // ALSO ADD this missing method to the ArtworkCategorizer class:
