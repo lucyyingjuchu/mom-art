@@ -2352,26 +2352,41 @@
   {
     "id": "019891b0-f39c-7df5-a02e-1cc15d22bb57",
     "title": "萬壑松風圖",
-    "titleEn": "Pine Winds in a Thousand Valleys",
-    "image": "",
-    "imageHigh": "",
-    "description": null,
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "",
+    "manualCategories": [],
+    "categories": [
+      "landscape"
+    ],
+    "autoCategories": {
+      "subjects": [
+        "landscape"
+      ],
+      "locations": []
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7df5-a02e-1cc15d22bb57_thumb.png",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7df5-a02e-1cc15d22bb57_large.png",
+    "description": "",
     "descriptionEn": "",
-    "format": "軸",
-    "mediumEn": "",
-    "sizeCm": "190x140",
-    "sizeInches": "74.8×55.1 inches",
-    "year": "2021",
-    "price": "",
-    "available": "",
-    "featured": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll",
+    "format": "軸",
+    "formatEn": "",
+    "mediumEn": "",
     "heightCm": 190,
     "widthCm": 140,
     "heightInches": 74.8,
-    "widthInches": 55.1
+    "widthInches": 55.1,
+    "sizeCm": "190×140",
+    "sizeInches": "74.8×55.1",
+    "year": "2021",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "recent": true,
+    "exhibitions": [],
+    "tags": []
   },
   {
     "id": "019891b0-f39c-7871-b204-09fa520d0d23",
