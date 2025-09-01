@@ -1123,5 +1123,4 @@ window.githubUploader = githubUploader;
 window.handleImageUploadWithGitHub = handleImageUploadWithGitHub;
 window.testGitHubConnection = testGitHubConnection;
 window.exportAndDeployToGitHub = exportAndDeployToGitHub;
-window.processArtworksForReorganization = processArtworksForReorganization;
 window.testSingleThumbnailGeneration = testSingleThumbnailGeneration;

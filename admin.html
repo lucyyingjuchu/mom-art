@@ -923,6 +923,7 @@
             const availableLabelsDiv = document.getElementById('availableLabels');
             if (!availableLabelsDiv) return;
 
+            // Use the same categorization rules as defined earlier
             const allLabels = Object.entries(CATEGORY_LABELS).map(([key, label]) => ({
                 key,
                 label,
@@ -949,18 +950,28 @@
                     <strong style="font-size: 0.8rem; color: #6c757d;">地點:</strong> ${locationHtml}
                 </div>
             `;
+            
+            console.log('✅ Available labels populated:', subjects.length + locations.length, 'labels');
         }
-
+        
         // Add available label to manual categories
         function addAvailableLabel(key, label) {
             // Check if already exists in any category
-            const allCurrentCategories = [...autoCategories.subjects, ...autoCategories.locations, ...manualCategories];
+            const allCurrentCategories = [...(window.autoCategories?.subjects || []), 
+                                        ...(window.autoCategories?.locations || []), 
+                                        ...(window.manualCategories || [])];
+            
             if (allCurrentCategories.includes(key)) {
                 showMessage(`標籤「${label}」已存在`, 'warning');
                 return;
             }
 
-            manualCategories.push(key);
+            // Initialize manualCategories if it doesn't exist
+            if (!window.manualCategories) {
+                window.manualCategories = [];
+            }
+
+            window.manualCategories.push(key);
             updateManualCategoriesDisplay();
             showMessage(`已新增標籤「${label}」`, 'success');
         }
