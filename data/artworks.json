@@ -522,26 +522,41 @@
   {
     "id": "019891b0-f39c-7a23-a18f-085445820f6c",
     "title": "聚葉潑成千點墨－畫菊",
-    "titleEn": "Splashes of Ink from Gathered Leaves – Painting Chrysanthemums",
-    "image": "",
-    "imageHigh": "",
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "",
+    "manualCategories": [],
+    "categories": [
+      "flowers"
+    ],
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": []
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7a23-a18f-085445820f6c_thumb.png",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7a23-a18f-085445820f6c_large.png",
     "description": "詩餘戲筆不知狂，豈是丹青費較量？聚葉潑成千點墨，攢花染出幾痕霜。淡濃神會風前影，跳脫秋生腕底香。莫認東籬閑采掇，黏屏聊以慰重陽。",
-    "descriptionEn": "After the verses, I playfully wield my brush, unaware of my own fervor; Is it truly worth comparing to the artistry of ink and color? Gathering leaves, I splash a thousand dots of ink, While clustering flowers, I dye a few traces of frost. In the subtle interplay of light and shade, I grasp the shadows before the wind, Escaping the fragrance of autumn that lingers beneath my wrist. Do not mistake the idle gathering at the eastern fence, For I cling to the screen, seeking solace on the Double Ninth Festival.",
-    "format": "軸",
-    "mediumEn": "",
-    "sizeCm": "135 × 70",
-    "sizeInches": "53.1×27.6 inches",
-    "year": "2011",
-    "price": "",
-    "available": "",
-    "featured": "",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll",
+    "format": "軸",
+    "formatEn": "",
+    "mediumEn": "",
     "heightCm": 135,
     "widthCm": 70,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "sizeCm": "135×70",
+    "sizeInches": "53.1×27.6",
+    "year": "2011",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "recent": false,
+    "exhibitions": [],
+    "tags": []
   },
   {
     "id": "019891b0-f39c-7e69-8910-34d57c0a6589",
