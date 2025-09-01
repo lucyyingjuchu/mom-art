@@ -238,26 +238,43 @@
   {
     "id": "019891b0-f39c-7036-9ac1-cbed9f6f03e5",
     "title": "梅嶺如雲－風櫃斗梅花林",
-    "titleEn": "Clouds Over Plum Ridge",
-    "image": "",
-    "imageHigh": "",
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "",
+    "manualCategories": [],
+    "categories": [
+      "flowingclouds",
+      "flowers"
+    ],
+    "autoCategories": {
+      "subjects": [
+        "flowingclouds",
+        "flowers"
+      ],
+      "locations": []
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7036-9ac1-cbed9f6f03e5_thumb.png",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7036-9ac1-cbed9f6f03e5_large.png",
     "description": "盡日尋春不見春，芒鞋踏遍隴頭雲。歸來笑拈梅花嗅，春在枝頭已十分。",
-    "descriptionEn": "All day I seek for spring, yet spring eludes my sight, With straw sandals I tread the clouds atop the hills in flight. Returning, I smile as I pluck the plum blossoms to inhale, For spring is already blooming, abundant on the boughs so frail.",
-    "format": "軸",
-    "mediumEn": "",
-    "sizeCm": "135 × 70",
-    "sizeInches": "53.1×27.6 inches",
-    "year": "2011",
-    "price": "",
-    "available": "",
-    "featured": "",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll",
+    "format": "軸",
+    "formatEn": "",
+    "mediumEn": "",
     "heightCm": 135,
     "widthCm": 70,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "sizeCm": "135×70",
+    "sizeInches": "53.1×27.6",
+    "year": "2011",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "recent": false,
+    "exhibitions": [],
+    "tags": []
   },
   {
     "id": "019891b0-f39c-7692-b225-e725fef10f3e",
@@ -286,26 +303,43 @@
   {
     "id": "019891b0-f39c-7b65-ab7f-c36ec9a747df",
     "title": "無心任始終—雲海(金宣)",
-    "titleEn": "Unfettered Through Time",
-    "image": "",
-    "imageHigh": "",
-    "description": "白雲生遠岫，搖曳入晴空。乘化隨舒卷，無心任始終。",
-    "descriptionEn": "White clouds rise from distant peaks, Swaying gently into the clear sky. Riding the winds of change, Unconcerned, I drift through beginnings and ends.",
-    "format": "框",
-    "mediumEn": "",
-    "sizeCm": "90 × 180",
-    "sizeInches": "35.4×70.9 inches",
-    "year": "2011",
-    "price": "",
-    "available": "",
-    "featured": "",
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "",
+    "manualCategories": [],
+    "categories": [
+      "landscape",
+      "flowingclouds"
+    ],
+    "autoCategories": {
+      "subjects": [
+        "landscape",
+        "flowingclouds"
+      ],
+      "locations": []
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7b65-ab7f-c36ec9a747df_thumb.png",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7b65-ab7f-c36ec9a747df_large.png",
+    "description": "黃霞生遠岫，搖曳往西東。乘化隨舒卷，無心任始終。",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed",
+    "format": "框",
+    "formatEn": "",
+    "mediumEn": "",
     "heightCm": 90,
     "widthCm": 180,
     "heightInches": 35.4,
-    "widthInches": 70.9
+    "widthInches": 70.9,
+    "sizeCm": "90×180",
+    "sizeInches": "35.4×70.9",
+    "year": "2011",
+    "price": "",
+    "available": true,
+    "featured": true,
+    "recent": false,
+    "exhibitions": [],
+    "tags": []
   },
   {
     "id": "019891b0-f39c-7186-94bc-b7109c05f639",
@@ -405,26 +439,44 @@
   {
     "id": "019891b0-f39c-7cc4-ae49-d25008e1409d",
     "title": "秋波千萬情－天光雲影",
-    "titleEn": "Autumn's Waves of Endless Emotion – Light and Shadow",
-    "image": "",
-    "imageHigh": "",
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "山水",
+    "manualCategories": [
+      "山水"
+    ],
+    "categories": [
+      "flowingclouds",
+      "山水"
+    ],
+    "autoCategories": {
+      "subjects": [
+        "flowingclouds"
+      ],
+      "locations": []
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7cc4-ae49-d25008e1409d_thumb.png",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7cc4-ae49-d25008e1409d_large.png",
     "description": "雲藏出塵心，煙戲眾樹影；窩居堪逍遙，秋波千萬情。",
-    "descriptionEn": "Clouds conceal a heart untainted, Smoke dances with the shadows of many trees; In my cozy retreat, I find blissful ease, As autumn's waves whisper countless feelings.",
-    "format": "框",
-    "mediumEn": "",
-    "sizeCm": "90×80",
-    "sizeInches": "35.4×31.5 inches",
-    "year": "2011",
-    "price": "",
-    "available": "",
-    "featured": "",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed",
+    "format": "框",
+    "formatEn": "",
+    "mediumEn": "",
     "heightCm": 90,
     "widthCm": 80,
     "heightInches": 35.4,
-    "widthInches": 31.5
+    "widthInches": 31.5,
+    "sizeCm": "90×80",
+    "sizeInches": "35.4×31.5",
+    "year": "2011",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "recent": false,
+    "exhibitions": [],
+    "tags": []
   },
   {
     "id": "019891b0-f39c-79f7-8cab-78ad04b8b05d",
