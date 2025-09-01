@@ -196,9 +196,9 @@ class ArtworkCategorizer {
             } else if (artwork.categories) {
                 // Filter categories to get only subjects (not locations)
                 subjectCategories = artwork.categories.filter(cat => {
-                    // Check if it's a subject category (exists in CATEGORIZATION_RULES.subject or is Chinese)
-                    return this.categorizer.rules.subject[cat] || this.containsChinese(cat) || 
-                        !this.categorizer.rules.location[cat]; // Not a location = probably subject
+                    // FIXED: Use this.rules instead of this.categorizer.rules
+                    return this.rules.subject[cat] || this.containsChinese(cat) || 
+                        !this.rules.location[cat]; // Not a location = probably subject
                 });
                 if (subjectCategories.length > 0) hasAnyCategory = true;
             }
@@ -216,7 +216,8 @@ class ArtworkCategorizer {
             let locationCategories = [];
             if (artwork.categories) {
                 locationCategories = artwork.categories.filter(cat => 
-                    this.categorizer.rules.location[cat]
+                    // FIXED: Use this.rules instead of this.categorizer.rules
+                    this.rules.location[cat]
                 );
                 if (locationCategories.length > 0) hasAnyCategory = true;
             }
@@ -254,6 +255,11 @@ class ArtworkCategorizer {
         }
 
         return stats;
+    }
+
+    // ALSO ADD this missing method to the ArtworkCategorizer class:
+    containsChinese(text) {
+    return /[\u4e00-\u9fff]/.test(text);
     }
 }
 
