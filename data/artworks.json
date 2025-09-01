@@ -408,26 +408,43 @@
   {
     "id": "019891b0-f39c-7bae-8206-f4788f507776",
     "title": "煙霧中的花影－阿勃勒",
-    "titleEn": "Floral Shadows in the Mist – The Yellow Trumpet",
-    "image": "",
-    "imageHigh": "",
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "",
+    "manualCategories": [],
+    "categories": [
+      "flowingclouds",
+      "flowers"
+    ],
+    "autoCategories": {
+      "subjects": [
+        "flowingclouds",
+        "flowers"
+      ],
+      "locations": []
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7bae-8206-f4788f507776_thumb.png",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7bae-8206-f4788f507776_large.png",
     "description": "黃花舞煙蘊，天地成大美；盈盈無去住，淡中有真味。",
-    "descriptionEn": "In the dance of yellow blooms, the mist conceals their grace; In the embrace of heaven and earth, true beauty finds its place. With gentle presence, ever flowing, neither here nor there, In subtlety, the essence lingers, a taste beyond compare.",
-    "format": "軸",
-    "mediumEn": "",
-    "sizeCm": "135 × 70",
-    "sizeInches": "53.1×27.6 inches",
-    "year": "2011",
-    "price": "",
-    "available": "",
-    "featured": "",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll",
+    "format": "軸",
+    "formatEn": "",
+    "mediumEn": "",
     "heightCm": 135,
     "widthCm": 70,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "sizeCm": "135×70",
+    "sizeInches": "53.1×27.6",
+    "year": "2011",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "recent": false,
+    "exhibitions": [],
+    "tags": []
   },
   {
     "id": "019891b0-f39c-7a52-b635-427bdcdca491",
