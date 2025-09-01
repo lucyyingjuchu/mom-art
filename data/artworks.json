@@ -682,26 +682,46 @@
   {
     "id": "019891b0-f39c-76d4-86ba-1ec281b83433",
     "title": "雲蒸霞蔚－雲揚阿里山",
-    "titleEn": "Clouds Ascend, Dawn Glows – The Majesty of Alishan",
-    "image": "",
-    "imageHigh": "",
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "",
+    "manualCategories": [],
+    "categories": [
+      "landscape",
+      "flowingclouds",
+      "alishan"
+    ],
+    "autoCategories": {
+      "subjects": [
+        "landscape",
+        "flowingclouds"
+      ],
+      "locations": [
+        "alishan"
+      ]
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-76d4-86ba-1ec281b83433_thumb.png",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-76d4-86ba-1ec281b83433_large.png",
     "description": "雲蒸霞蔚、神采飛揚，眾美所赴、萬妙所歸，無為無形、有情有信，參贊化育、天人合一。",
-    "descriptionEn": "Clouds rise and mist gathers, spirits soar high; To the gathering of beauty, to the essence of all wonders. Formless and effortless, yet filled with emotion and trust; In harmony with nature, the unity of heaven and humanity.",
-    "format": "軸",
-    "mediumEn": "",
-    "sizeCm": "180×90",
-    "sizeInches": "70.9×35.4 inches",
-    "year": "2011",
-    "price": "",
-    "available": "",
-    "featured": "",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll",
+    "format": "軸",
+    "formatEn": "",
+    "mediumEn": "",
     "heightCm": 180,
     "widthCm": 90,
     "heightInches": 70.9,
-    "widthInches": 35.4
+    "widthInches": 35.4,
+    "sizeCm": "180×90",
+    "sizeInches": "70.9×35.4",
+    "year": "2011",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "recent": false,
+    "exhibitions": [],
+    "tags": []
   },
   {
     "id": "019891b0-f39c-7bc8-ae41-7e14d730d294",
