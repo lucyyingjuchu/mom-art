@@ -918,22 +918,40 @@
             'niagara': '尼加拉'
         };
 
-        // Populate available labels when page loads
+        // STEP 3: REPLACE your populateAvailableLabels function with this working version:
         function populateAvailableLabels() {
+            console.log('🏷️ populateAvailableLabels() called');
+            
             const availableLabelsDiv = document.getElementById('availableLabels');
-            if (!availableLabelsDiv) return;
-
-            // Use the same categorization rules as defined earlier
-            const allLabels = Object.entries(CATEGORY_LABELS).map(([key, label]) => ({
-                key,
-                label,
-                type: CATEGORIZATION_RULES.subject[key] ? 'subject' : 'location'
-            }));
-
+            if (!availableLabelsDiv) {
+                console.error('❌ availableLabels div not found!');
+                return;
+            }
+            
+            // Clear existing content
+            availableLabelsDiv.innerHTML = '';
+            
+            console.log('✅ Found availableLabels div, populating...');
+            
+            // Create labels array
+            const allLabels = Object.entries(CATEGORY_LABELS).map(([key, label]) => {
+                const isSubject = !!CATEGORIZATION_RULES.subject[key];
+                const isLocation = !!CATEGORIZATION_RULES.location[key]; 
+                
+                return {
+                    key,
+                    label,
+                    type: isSubject ? 'subject' : (isLocation ? 'location' : 'unknown')
+                };
+            });
+            
             // Group by type
             const subjects = allLabels.filter(item => item.type === 'subject');
             const locations = allLabels.filter(item => item.type === 'location');
-
+            
+            console.log(`📂 Found ${subjects.length} subjects, ${locations.length} locations`);
+            
+            // Generate HTML
             const subjectHtml = subjects.map(item => 
                 `<span class="available-label" data-key="${item.key}" onclick="addAvailableLabel('${item.key}', '${item.label}')">${item.label}</span>`
             ).join(' ');
@@ -941,8 +959,8 @@
             const locationHtml = locations.map(item => 
                 `<span class="available-label" data-key="${item.key}" onclick="addAvailableLabel('${item.key}', '${item.label}')">${item.label}</span>`
             ).join(' ');
-
-            availableLabelsDiv.innerHTML = `
+            
+            const finalHtml = `
                 <div style="margin-bottom: 0.5rem;">
                     <strong style="font-size: 0.8rem; color: #6c757d;">題材:</strong> ${subjectHtml}
                 </div>
@@ -951,72 +969,95 @@
                 </div>
             `;
             
-            console.log('✅ Available labels populated:', subjects.length + locations.length, 'labels');
+            availableLabelsDiv.innerHTML = finalHtml;
+            console.log('✅ Available labels populated successfully');
         }
-        
-        // Add available label to manual categories
+
+        // STEP 4: Fix the addAvailableLabel function
         function addAvailableLabel(key, label) {
-            // Check if already exists in any category
-            const allCurrentCategories = [...(window.autoCategories?.subjects || []), 
-                                        ...(window.autoCategories?.locations || []), 
-                                        ...(window.manualCategories || [])];
+            console.log('➕ Adding available label:', key, label);
+            
+            // Ensure manualCategories is an array
+            if (!Array.isArray(window.manualCategories)) {
+                window.manualCategories = [];
+            }
+            
+            // Check if already exists
+            const allCurrentCategories = [
+                ...(window.autoCategories?.subjects || []), 
+                ...(window.autoCategories?.locations || []), 
+                ...window.manualCategories
+            ];
             
             if (allCurrentCategories.includes(key)) {
                 showMessage(`標籤「${label}」已存在`, 'warning');
                 return;
             }
 
-            // Initialize manualCategories if it doesn't exist
-            if (!window.manualCategories) {
-                window.manualCategories = [];
-            }
-
             window.manualCategories.push(key);
             updateManualCategoriesDisplay();
             showMessage(`已新增標籤「${label}」`, 'success');
+            
+            console.log('✅ Manual categories now:', window.manualCategories);
         }
 
         // Remove auto category (when user clicks X on auto-generated tags)
         function removeAutoCategory(categoryKey) {
-            // Remove from auto categories
-            autoCategories.subjects = autoCategories.subjects.filter(cat => cat !== categoryKey);
-            autoCategories.locations = autoCategories.locations.filter(cat => cat !== categoryKey);
+            console.log('🗑️ Removing auto category:', categoryKey);
+            
+            // Ensure autoCategories is properly initialized
+            if (!window.autoCategories || typeof window.autoCategories !== 'object') {
+                window.autoCategories = { subjects: [], locations: [] };
+            }
+            
+            const beforeSubjects = window.autoCategories.subjects.length;
+            const beforeLocations = window.autoCategories.locations.length;
+            
+            window.autoCategories.subjects = window.autoCategories.subjects.filter(cat => cat !== categoryKey);
+            window.autoCategories.locations = window.autoCategories.locations.filter(cat => cat !== categoryKey);
+            
+            const afterSubjects = window.autoCategories.subjects.length;
+            const afterLocations = window.autoCategories.locations.length;
+            
+            console.log(`📊 Subjects: ${beforeSubjects} → ${afterSubjects}, Locations: ${beforeLocations} → ${afterLocations}`);
             
             updateCategoryPreview();
-            showMessage(`已移除自動標籤「${CATEGORY_LABELS[categoryKey] || categoryKey}」`, 'info');
+            
+            const label = CATEGORY_LABELS[categoryKey] || categoryKey;
+            showMessage(`已移除自動標籤「${label}」`, 'info');
         }
 
-        function getAutoCategories(title) {
-            const categories = {
-                subjects: [],
-                locations: []
-            };
+                function getAutoCategories(title) {
+                    const categories = {
+                        subjects: [],
+                        locations: []
+                    };
 
-            // Check subjects
-            for (const [category, keywords] of Object.entries(CATEGORIZATION_RULES.subject)) {
-                if (keywords.some(keyword => title.includes(keyword))) {
-                    categories.subjects.push(category);
+                    // Check subjects
+                    for (const [category, keywords] of Object.entries(CATEGORIZATION_RULES.subject)) {
+                        if (keywords.some(keyword => title.includes(keyword))) {
+                            categories.subjects.push(category);
+                        }
+                    }
+
+                    // Check locations
+                    for (const [location, keywords] of Object.entries(CATEGORIZATION_RULES.location)) {
+                        if (keywords.some(keyword => title.includes(keyword))) {
+                            categories.locations.push(location);
+                        }
+                    }
+
+                    // Default fallback
+                    if (categories.subjects.length === 0) {
+                        if (title.includes('山') || title.includes('雲') || title.includes('水')) {
+                            categories.subjects.push('landscape');
+                        } else if (title.includes('書') || title.includes('經') || title.includes('詩')) {
+                            categories.subjects.push('calligraphy');
+                        }
+                    }
+
+                    return categories;
                 }
-            }
-
-            // Check locations
-            for (const [location, keywords] of Object.entries(CATEGORIZATION_RULES.location)) {
-                if (keywords.some(keyword => title.includes(keyword))) {
-                    categories.locations.push(location);
-                }
-            }
-
-            // Default fallback
-            if (categories.subjects.length === 0) {
-                if (title.includes('山') || title.includes('雲') || title.includes('水')) {
-                    categories.subjects.push('landscape');
-                } else if (title.includes('書') || title.includes('經') || title.includes('詩')) {
-                    categories.subjects.push('calligraphy');
-                }
-            }
-
-            return categories;
-        }
 
         function updateCategoryPreview() {
             const title = document.getElementById('artworkTitle').value.trim();
@@ -1075,7 +1116,19 @@
         }
 
         function removeManualCategory(categoryToRemove) {
-            manualCategories = manualCategories.filter(cat => cat !== categoryToRemove);
+            console.log('🗑️ Removing manual category:', categoryToRemove);
+            
+            // Ensure manualCategories is an array
+            if (!Array.isArray(window.manualCategories)) {
+                window.manualCategories = [];
+            }
+            
+            const beforeLength = window.manualCategories.length;
+            window.manualCategories = window.manualCategories.filter(cat => cat !== categoryToRemove);
+            const afterLength = window.manualCategories.length;
+            
+            console.log(`📊 Manual categories: ${beforeLength} → ${afterLength}`);
+            
             updateManualCategoriesDisplay();
             showMessage(`已移除分類標籤「${categoryToRemove}」`, 'info');
         }
@@ -1136,8 +1189,9 @@
             if (!checkEditingPermission()) return;
             
             currentEditingId = null;
-            manualCategories = []; // Clear manual categories
-            autoCategories = { subjects: [], locations: [] }; // Clear auto categories
+            window.manualCategories = []; // Reset manual categories
+            window.autoCategories = { subjects: [], locations: [] }; // Reset auto categories
+            
             document.getElementById('modalTitle').textContent = '新增作品';
             document.getElementById('artworkForm').reset();
             document.getElementById('artworkAvailable').checked = true;
@@ -1147,13 +1201,14 @@
             document.getElementById('saveStatus').textContent = '';
             document.getElementById('imageControls').style.display = 'none';
             
-            // Populate available labels
+            // CRITICAL: Call populateAvailableLabels here
             populateAvailableLabels();
             updateCategoryPreview();
             
             document.getElementById('artworkModal').style.display = 'block';
+            
+            console.log('✅ Modal opened, labels should be populated');
         }
-
         function closeModal() {
             document.getElementById('artworkModal').style.display = 'none';
             // Clear any local draft for this artwork
@@ -1230,6 +1285,8 @@
             } else {
                 manualCategories = [];
             }
+
+            populateAvailableLabels();
             updateManualCategoriesDisplay();
             updateCategoryPreview();
 
@@ -1252,9 +1309,20 @@
             // Reset publish state
             document.getElementById('publishBtn').disabled = true;
             document.getElementById('saveStatus').textContent = '';
-            
+          
             document.getElementById('artworkModal').style.display = 'block';
         }
+
+        function testLabelSystem() {
+            console.log('🧪 Testing label system...');
+            console.log('manualCategories type:', typeof window.manualCategories, window.manualCategories);
+            console.log('autoCategories type:', typeof window.autoCategories, window.autoCategories);
+            console.log('CATEGORY_LABELS keys:', Object.keys(CATEGORY_LABELS));
+            
+            populateAvailableLabels();
+            console.log('✅ Test complete');
+        }
+
 
         function deleteArtwork(id) {
             if (!checkEditingPermission()) return;
@@ -2228,6 +2296,9 @@
         window.publishArtwork = publishArtwork;
         window.undoDelete = undoDelete;
         window.clearImage = clearImage;
+        window.manualCategories = window.manualCategories || [];
+        window.autoCategories = window.autoCategories || { subjects: [], locations: [] };
+        window.testLabelSystem = testLabelSystem;
 
         console.log('✅ 管理介面載入成功！');
     </script>
