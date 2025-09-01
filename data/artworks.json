@@ -5111,25 +5111,48 @@
   {
     "id": "019891b0-f39c-7c4e-b473-973fecc8171d",
     "title": "雲自來去花自紅─玉山‧杜鵑‧雲海",
-    "titleEn": "Clouds Come and Go, Flowers Bloom in Their Time: Yushan, Azalea, Sea of Clouds",
-    "image": "",
-    "imageHigh": "",
-    "description": "無限江山千里外，雲自來去花自紅。 　",
-    "descriptionEn": "Beyond the boundless rivers and mountains, a thousand miles away, Clouds drift in and out, while flowers bloom in their own time.",
-    "format": null,
-    "mediumEn": "",
-    "sizeCm": "135 × 70 ",
-    "sizeInches": "53.1×27.6 inches",
-    "year": "unknown",
-    "price": "",
-    "available": "",
-    "featured": "",
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "",
+    "manualCategories": [],
+    "categories": [
+      "landscape",
+      "flowingclouds",
+      "flowers",
+      "yushan"
+    ],
+    "autoCategories": {
+      "subjects": [
+        "landscape",
+        "flowingclouds",
+        "flowers"
+      ],
+      "locations": [
+        "yushan"
+      ]
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7c4e-b473-973fecc8171d_thumb.png",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7c4e-b473-973fecc8171d_large.png",
+    "description": "無限江山千里外，雲自來去花自紅。",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
+    "format": "",
+    "formatEn": "",
+    "mediumEn": "",
     "heightCm": 135,
     "widthCm": 70,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "sizeCm": "135×70",
+    "sizeInches": "53.1×27.6",
+    "year": "unknown",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "recent": false,
+    "exhibitions": [],
+    "tags": []
   },
   {
     "id": "019891b0-f39c-757c-afd8-62401715ca08",
