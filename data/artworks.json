@@ -4275,25 +4275,41 @@
   {
     "id": "019891b0-f39c-7b3a-a7ae-03eba18e8809",
     "title": "秋月月偏明(漢隸)",
-    "titleEn": "The Autumn Moon's Gentle Glow",
-    "image": "",
-    "imageHigh": "",
-    "description": "唐張南史和崔中丞中秋月詩台中縣美展入選",
-    "descriptionEn": "Selected for the Autumn Moon Poem Exhibition in Taichung County, by Zhang Nanshi of the Tang Dynasty and Cui Zhongcheng.",
-    "format": null,
-    "mediumEn": "",
-    "sizeCm": "180 ×90",
-    "sizeInches": "70.9×35.4 inches",
-    "year": "unknown",
-    "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "",
+    "manualCategories": [],
+    "categories": [
+      "calligraphy"
+    ],
+    "autoCategories": {
+      "subjects": [
+        "calligraphy"
+      ],
+      "locations": []
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7b3a-a7ae-03eba18e8809_thumb.png",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7b3a-a7ae-03eba18e8809_large.png",
+    "description": "唐張南史和崔中丞中秋月詩",
+    "descriptionEn": "",
+    "curatorNote": "台中縣美展入選",
     "curatorNoteEn": "",
+    "format": "",
+    "formatEn": "",
+    "mediumEn": "",
     "heightCm": 180,
     "widthCm": 90,
     "heightInches": 70.9,
-    "widthInches": 35.4
+    "widthInches": 35.4,
+    "sizeCm": "180×90",
+    "sizeInches": "70.9×35.4",
+    "year": "unknown",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "recent": false,
+    "exhibitions": [],
+    "tags": []
   },
   {
     "id": "019891b0-f39c-7ddc-877a-b2a51cb0032a",
