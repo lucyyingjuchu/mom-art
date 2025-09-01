@@ -398,26 +398,41 @@
   {
     "id": "019891b0-f39c-7a52-b635-427bdcdca491",
     "title": "白雲慈母心－北極熊",
-    "titleEn": "A Mother's Heart Beneath White Clouds – Polar Bear",
-    "image": "",
-    "imageHigh": "",
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "",
+    "manualCategories": [],
+    "categories": [
+      "flowingclouds"
+    ],
+    "autoCategories": {
+      "subjects": [
+        "flowingclouds"
+      ],
+      "locations": []
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7a52-b635-427bdcdca491_thumb.png",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7a52-b635-427bdcdca491_large.png",
     "description": "極目長望白雲深，天地無私慈母心。",
-    "descriptionEn": "Gazing far into the depths of white clouds, Heaven and earth share a mother's boundless love.",
-    "format": "軸",
-    "mediumEn": "",
-    "sizeCm": "210×90",
-    "sizeInches": "82.7×35.4 inches",
-    "year": "2011",
-    "price": "",
-    "available": "",
-    "featured": "",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll",
+    "format": "軸",
+    "formatEn": "",
+    "mediumEn": "",
     "heightCm": 210,
     "widthCm": 90,
     "heightInches": 82.7,
-    "widthInches": 35.4
+    "widthInches": 35.4,
+    "sizeCm": "210×90",
+    "sizeInches": "82.7×35.4",
+    "year": "2011",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "recent": false,
+    "exhibitions": [],
+    "tags": []
   },
   {
     "id": "019891b0-f39c-7cc4-ae49-d25008e1409d",
