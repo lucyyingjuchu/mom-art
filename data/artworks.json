@@ -4592,25 +4592,41 @@
   {
     "id": "019891b0-f39c-7aed-9fac-21a5e94b8c1f",
     "title": "花能解語－問菊",
-    "titleEn": "Whispers of Blossoms – Inquiring of the Chrysanthemum",
-    "image": "",
-    "imageHigh": "",
-    "description": "欲訊秋情眾莫知，喃喃負手扣東籬：孤標傲世偕誰隱？一樣開花為底遲？圃露庭霜何寂寞？雁歸蝨病可相思？莫言舉世無談者，解語何妨話片時。",
-    "descriptionEn": "To inquire of autumn's feelings, few can comprehend, Murmuring softly, hands clasped, I lean on the eastern fence. Who shares this solitary pride, hidden from the world? Yet blooms alike, why must they delay in their time? In the garden, dew and frost bring such solitude, As the wild geese return, can longing ease the ache? Do not say there are none to converse in this world, What harm is there in sharing a few words for a while?",
-    "format": null,
-    "mediumEn": "",
-    "sizeCm": "135 × 70",
-    "sizeInches": "53.1×27.6 inches",
-    "year": "unknown",
-    "price": "",
-    "available": "",
-    "featured": "",
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "",
+    "manualCategories": [],
+    "categories": [
+      "flowers"
+    ],
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": []
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7aed-9fac-21a5e94b8c1f_thumb.png",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7aed-9fac-21a5e94b8c1f_large.png",
+    "description": "欲問秋情眾莫知，喃喃負手扣東籬：孤標傲世偕誰隱？一樣花開為底遲？圃露庭霜何寂寞？雁歸蝨病可相思？莫言舉世無談者，解語何妨話片時。",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
+    "format": "",
+    "formatEn": "",
+    "mediumEn": "",
     "heightCm": 135,
     "widthCm": 70,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "sizeCm": "135×70",
+    "sizeInches": "53.1×27.6",
+    "year": "2004",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "recent": false,
+    "exhibitions": [],
+    "tags": []
   },
   {
     "id": "019891b0-f39c-744e-b30c-7599d6a173be",
