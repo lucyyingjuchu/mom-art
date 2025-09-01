@@ -4066,25 +4066,41 @@
   {
     "id": "019891b0-f39c-7605-8810-2ec32c05d109",
     "title": "活水潤物天地春-春瀑",
-    "titleEn": "Spring Cascade: Waters of Renewal",
-    "image": "",
-    "imageHigh": "",
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "",
+    "manualCategories": [],
+    "categories": [
+      "waterfall"
+    ],
+    "autoCategories": {
+      "subjects": [
+        "waterfall"
+      ],
+      "locations": []
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7605-8810-2ec32c05d109_thumb.png",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7605-8810-2ec32c05d109_large.png",
     "description": "江流白雲花經眼，活水潤物天地春。",
-    "descriptionEn": "The river flows, white clouds drift by, Flowers dance before the eye. Living waters nourish all, In springtime's embrace, the world stands tall.",
-    "format": null,
-    "mediumEn": "",
-    "sizeCm": "140x75",
-    "sizeInches": "55.1×29.5 inches",
-    "year": "unknown",
-    "price": "",
-    "available": 0,
-    "featured": "",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
+    "format": "",
+    "formatEn": "",
+    "mediumEn": "",
     "heightCm": 140,
     "widthCm": 75,
     "heightInches": 55.1,
-    "widthInches": 29.5
+    "widthInches": 29.5,
+    "sizeCm": "140×75",
+    "sizeInches": "55.1×29.5",
+    "year": "unknown",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "recent": false,
+    "exhibitions": [],
+    "tags": []
   },
   {
     "id": "019891b0-f39c-79d8-9ef1-3daa601bdab9",
