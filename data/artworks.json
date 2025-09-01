@@ -537,26 +537,41 @@
   {
     "id": "019891b0-f39c-79f7-8cab-78ad04b8b05d",
     "title": "紫藤雙燕",
-    "titleEn": "Wisteria and Twin Swallows",
-    "image": "",
-    "imageHigh": "",
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "",
+    "manualCategories": [],
+    "categories": [
+      "flowers"
+    ],
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": []
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-79f7-8cab-78ad04b8b05d_thumb.png",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-79f7-8cab-78ad04b8b05d_large.png",
     "description": "一雙好鳥飛自在，萬縷紫煙舞韶華。",
-    "descriptionEn": "A pair of fine birds soar with ease, As myriad strands of purple smoke dance through the springtime's grace.",
-    "format": "軸",
-    "mediumEn": "",
-    "sizeCm": "135 × 70",
-    "sizeInches": "53.1×27.6 inches",
-    "year": "2011",
-    "price": "",
-    "available": "",
-    "featured": "",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll",
+    "format": "軸",
+    "formatEn": "",
+    "mediumEn": "",
     "heightCm": 135,
     "widthCm": 70,
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "sizeCm": "135×70",
+    "sizeInches": "53.1×27.6",
+    "year": "2011",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "recent": false,
+    "exhibitions": [],
+    "tags": []
   },
   {
     "id": "019891b0-f39c-7a23-a18f-085445820f6c",
