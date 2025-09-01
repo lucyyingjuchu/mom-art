@@ -4453,25 +4453,41 @@
   {
     "id": "019891b0-f39c-7e2c-aab1-3c1bd010b1f7",
     "title": "結廬人境外(漢隸)",
-    "titleEn": "Cottage Beyond the Human Realm",
-    "image": "",
-    "imageHigh": "",
-    "description": "清敬安禪師住山吟為與了上人作詩中縣美展第二名",
-    "descriptionEn": "Composed by Master Qingjing'an in the Mountain Retreat, in honor of the esteemed Laoshang, awarded second place in the County Art Exhibition.",
-    "format": null,
-    "mediumEn": "",
-    "sizeCm": "180 ×90",
-    "sizeInches": "70.9×35.4 inches",
-    "year": "unknown",
-    "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
+    "titleEn": "",
+    "category": "paintings",
+    "subcategory": "",
+    "manualCategories": [],
+    "categories": [
+      "calligraphy"
+    ],
+    "autoCategories": {
+      "subjects": [
+        "calligraphy"
+      ],
+      "locations": []
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7e2c-aab1-3c1bd010b1f7_thumb.png",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7e2c-aab1-3c1bd010b1f7_large.png",
+    "description": "清敬安禪師住山吟為與了上人作詩",
+    "descriptionEn": "",
+    "curatorNote": "中縣美展第二名",
     "curatorNoteEn": "",
+    "format": "",
+    "formatEn": "",
+    "mediumEn": "",
     "heightCm": 180,
     "widthCm": 90,
     "heightInches": 70.9,
-    "widthInches": 35.4
+    "widthInches": 35.4,
+    "sizeCm": "180×90",
+    "sizeInches": "70.9×35.4",
+    "year": "2010",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "recent": false,
+    "exhibitions": [],
+    "tags": []
   },
   {
     "id": "019891b0-f39c-7353-828e-07b6ae7b5e06",
