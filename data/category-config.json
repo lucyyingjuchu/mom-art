@@ -1,0 +1,81 @@
+{
+  "categories": {
+    "subjects": [
+      "waterfall", "landscape", "flowingclouds", "flowers", 
+      "bamboo", "calligraphy", "abstract", "traditional"
+    ],
+    "locations": [
+      "huangshan", "alishan", "taroko", "hehuanshan", "yushan",
+      "liushidanshan", "guishandao", "longdong", "zhangjiajie", 
+      "grandcanyon", "iguazu", "niagara"
+    ]
+  },
+  "categoryMapping": {
+    "chineseToEnglish": {
+      "瀑布": "waterfall",
+      "山水": "landscape", 
+      "煙雲": "flowingclouds",
+      "花鳥": "flowers",
+      "墨竹": "bamboo",
+      "書法": "calligraphy",
+      "抽象": "abstract",
+      "傳統": "traditional",
+      "黃山": "huangshan",
+      "阿里山": "alishan",
+      "太魯閣": "taroko",
+      "合歡山": "hehuanshan",
+      "玉山": "yushan",
+      "六十石山": "liushidanshan",
+      "龜山島": "guishandao",
+      "龍洞": "longdong",
+      "張家界": "zhangjiajie",
+      "大峽谷": "grandcanyon",
+      "伊瓜蘇": "iguazu",
+      "尼加拉": "niagara"
+    },
+    "englishToChinese": {
+      "waterfall": "瀑布",
+      "landscape": "山水",
+      "flowingclouds": "煙雲", 
+      "flowers": "花鳥",
+      "bamboo": "墨竹",
+      "calligraphy": "書法",
+      "abstract": "抽象",
+      "traditional": "傳統",
+      "huangshan": "黃山",
+      "alishan": "阿里山",
+      "taroko": "太魯閣",
+      "hehuanshan": "合歡山",
+      "yushan": "玉山",
+      "liushidanshan": "六十石山",
+      "guishandao": "龜山島",
+      "longdong": "龍洞",
+      "zhangjiajie": "張家界",
+      "grandcanyon": "大峽谷",
+      "iguazu": "伊瓜蘇",
+      "niagara": "尼加拉"
+    }
+  },
+  "autoDetectionKeywords": {
+    "waterfall": ["瀑布", "waterfall", "falls", "cascade"],
+    "landscape": ["山水", "landscape", "mountain", "scenery", "風景"],
+    "flowingclouds": ["煙雲", "雲", "flowingclouds", "clouds", "mist", "vapor"],
+    "flowers": ["花鳥", "flowers", "birds", "floral", "botanical", "花卉"],
+    "bamboo": ["墨竹", "竹", "bamboo", "ink bamboo"],
+    "calligraphy": ["書法", "calligraphy", "書", "writing", "script"],
+    "abstract": ["抽象", "abstract", "modern", "contemporary"],
+    "traditional": ["傳統", "traditional", "classical", "古典"],
+    "huangshan": ["黃山", "huangshan", "yellow mountain"],
+    "alishan": ["阿里山", "alishan", "ali mountain"],
+    "taroko": ["太魯閣", "taroko", "gorge"],
+    "hehuanshan": ["合歡山", "hehuanshan", "hehuan"],
+    "yushan": ["玉山", "yushan", "jade mountain"],
+    "liushidanshan": ["六十石山", "liushidanshan", "sixty stone"],
+    "guishandao": ["龜山島", "guishandao", "turtle island"],
+    "longdong": ["龍洞", "longdong", "dragon cave"],
+    "zhangjiajie": ["張家界", "zhangjiajie"],
+    "grandcanyon": ["大峽谷", "grandcanyon", "grand canyon"],
+    "iguazu": ["伊瓜蘇", "iguazu", "iguassu"],
+    "niagara": ["尼加拉", "niagara"]
+  }
+}
