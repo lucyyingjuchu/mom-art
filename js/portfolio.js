@@ -1,348 +1,24 @@
-// Content Management System for Chinese Art Portfolio with Multi-Select Filters
-class ArtworkCategorizer {
-    constructor() {
-        // Define categorization rules based on title keywords
-        this.rules = {
-            // By Subject
-            subject: {
-                'waterfall': ['瀑布', '瀑', '飛瀑', '銀瀑', '煙聲'],
-                'landscape': ['山水', '山', '峰', '雲海', '煙雲', '嵐', '壑', '石','木','谷'],
-                'flowingclouds': ['煙', '雲', '煙雲', '雲海', '霧'],
-                'flowers': ['花', '梅', '菊', '藤', '紫藤', '杜鵑', '桃花', '荷', '蓮', '牡丹', '阿勃勒', '金針', '櫻花', '凌霄'],
-                'bamboo': ['竹', '墨竹', '疏竹', '翠竹'],
-                'calligraphy': ['心經', '書法', '經', '愛蓮說','序','書','隸', '楷', '行', '草', '隸書', '楷書', '草書','詩','聯'],
-            },
-            
-            // By Location  
-            location: {
-                'huangshan': ['黃山', '北海', '夢筆'],
-                'alishan': ['阿里山', '雲揚'],
-                'taroko': ['太魯閣', '太魯峽'],
-                'hehuanshan': ['合歡', '合歡山'],
-                'yushan': ['玉山', '玉山北峰'],
-                'liushidanshan': ['六十石山', '六十石'],
-                'guishandao': ['龜山島'],
-                'longdong': ['龍洞'],
-                'zhangjiajie': ['張家界'],
-                'grandcanyon': ['大峽谷'],
-                'iguazu': ['伊瓜蘇'],
-                'niagara': ['尼加拉']
-            },
-            
-            // By Style 
-            style: {
-                'traditional': ['水墨', '墨', '古', '傳統'],
-                'abstract': ['抽象', '潑墨', '無題'],
-                'modern': ['現代', '當代']
-            }
-        };
-    }
-
-    // Auto-categorize artwork based on title
-    categorizeArtwork(artwork) {
-        const title = artwork.title || '';
-        const categories = {
-            subjects: [],
-            locations: [],
-            styles: []
-        };
-
-        // Check subject categories
-        for (const [category, keywords] of Object.entries(this.rules.subject)) {
-            if (keywords.some(keyword => title.includes(keyword))) {
-                categories.subjects.push(category);
-            }
-        }
-
-        // Check location categories  
-        for (const [location, keywords] of Object.entries(this.rules.location)) {
-            if (keywords.some(keyword => title.includes(keyword))) {
-                categories.locations.push(location);
-            }
-        }
-
-        // Check style categories
-        for (const [style, keywords] of Object.entries(this.rules.style)) {
-            if (keywords.some(keyword => title.includes(keyword))) {
-                categories.styles.push(style);
-            }
-        }
-
-        // Default fallback categories
-        if (categories.subjects.length === 0) {
-            if (title.includes('山') || title.includes('雲') || title.includes('水')) {
-                categories.subjects.push('landscape');
-            } else if (artwork.category === 'calligraphy') {
-                categories.subjects.push('calligraphy');
-            } else {
-                categories.subjects.push('traditional');
-            }
-        }
-
-        return categories;
-    }
-
-    // Enhanced filter system for single filter
-    getFilteredArtworks(filterType, filterValue, artworks) {
-        return artworks.filter(artwork => {
-            // First check manual subcategory (if exists)
-            if (artwork.subcategory === filterValue) {
-                return true;
-            }
-
-            // Then check auto-categorization
-            const autoCategories = this.categorizeArtwork(artwork);
-            
-            switch(filterType) {
-                case 'subject':
-                    return autoCategories.subjects.includes(filterValue);
-                case 'location':
-                    return autoCategories.locations.includes(filterValue);
-                case 'style':
-                    return autoCategories.styles.includes(filterValue);
-                case 'year':
-                    return this.checkYearFilter(artwork.year, filterValue);
-                default:
-                    return false;
-            }
-        });
-    }
-
-    // NEW: Multi-select filter system for complex combinations
-    getMultiFilteredArtworks(activeFilters, artworks) {
-        if (Object.keys(activeFilters).length === 0 || 
-            Object.values(activeFilters).every(arr => arr.length === 0)) {
-            return artworks;
-        }
-
-        return artworks.filter(artwork => {
-            const autoCategories = this.categorizeArtwork(artwork);
-            
-            // Check each filter type - ALL must match if specified
-            for (const [filterType, filterValues] of Object.entries(activeFilters)) {
-                if (filterValues.length === 0) continue; // Skip empty filter types
-                
-                let matches = false;
-                
-                switch(filterType) {
-                    case 'subject':
-                        matches = filterValues.some(value => 
-                            artwork.subcategory === value || 
-                            autoCategories.subjects.includes(value)
-                        );
-                        break;
-                    case 'location':
-                        matches = filterValues.some(value => 
-                            autoCategories.locations.includes(value)
-                        );
-                        break;
-                    case 'year':
-                        matches = filterValues.some(value => 
-                            this.checkYearFilter(artwork.year, value)
-                        );
-                        break;
-                    default:
-                        matches = true;
-                }
-                
-                // If any active filter type doesn't match, exclude this artwork
-                if (!matches) {
-                    return false;
-                }
-            }
-            
-            return true;
-        });
-    }
-
-    // Year-based filtering
-    checkYearFilter(artworkYear, filterValue) {
-        const year = parseInt(artworkYear);
-        if (isNaN(year)) return false;
-
-        switch(filterValue) {
-            case 'recent':
-                return year >= 2020;
-            case '2010s':
-                return year >= 2010 && year < 2020;
-            case 'earlier':
-                return year < 2010;
-            default:
-                return false;
-        }
-    }
-
-    // Generate filter statistics
-    // This version merges categories that translate to the same label
-
-    getFilterStats(artworks) {
-        const stats = {
-            subjects: {},
-            locations: {},
-            styles: {},
-            years: { recent: 0, '2010s': 0, earlier: 0 }
-        };
-        
-        // Create reverse mapping: Chinese label -> English key
-        const chineseToEnglish = {};
-        
-        // Map subject translations
-        for (const [englishKey, _] of Object.entries(this.rules.subject)) {
-            const chineseLabel = this.getChineseLabel('subject', englishKey);
-            if (chineseLabel !== englishKey) { // Only if translation exists
-                chineseToEnglish[chineseLabel] = englishKey;
-            }
-        }
-        
-        // Map location translations  
-        for (const [englishKey, _] of Object.entries(this.rules.location)) {
-            const chineseLabel = this.getChineseLabel('location', englishKey);
-            if (chineseLabel !== englishKey) { // Only if translation exists
-                chineseToEnglish[chineseLabel] = englishKey;
-            }
-        }
-        
-        console.log('🗺️ Chinese to English mapping:', chineseToEnglish);
-        
-        let uncategorizedCount = 0;
-
-        artworks.forEach(artwork => {
-            const categories = this.categorizeArtwork(artwork);
-            let hasAnyCategory = false;
-            
-            // Count subjects (prioritize manual subcategory, then stored categories, then auto-categories)
-            let subjectCategories = [];
-            
-            if (artwork.subcategory) {
-                subjectCategories.push(artwork.subcategory);
-                hasAnyCategory = true;
-            } else if (artwork.categories) {
-                // Filter categories to get only subjects (not locations)
-                subjectCategories = artwork.categories.filter(cat => {
-                    return this.rules.subject[cat] || this.containsChinese(cat) || 
-                        !this.rules.location[cat]; // Not a location = probably subject
-                });
-                if (subjectCategories.length > 0) hasAnyCategory = true;
-            }
-            
-            if (subjectCategories.length === 0) {
-                subjectCategories = categories.subjects;
-                if (subjectCategories.length > 0) hasAnyCategory = true;
-            }
-            
-            // MERGE LOGIC: Convert categories to canonical English keys
-            subjectCategories.forEach(subject => {
-                // Check if it's a Chinese category that should be merged with English key
-                const canonicalKey = chineseToEnglish[subject] || subject;
-                stats.subjects[canonicalKey] = (stats.subjects[canonicalKey] || 0) + 1;
-            });
-            
-            // Count locations (from stored categories or auto-categorized)
-            let locationCategories = [];
-            if (artwork.categories) {
-                locationCategories = artwork.categories.filter(cat => 
-                    this.rules.location[cat]
-                );
-                if (locationCategories.length > 0) hasAnyCategory = true;
-            }
-            
-            if (locationCategories.length === 0) {
-                locationCategories = categories.locations;
-                if (locationCategories.length > 0) hasAnyCategory = true;
-            }
-            
-            // MERGE LOGIC: Convert location categories to canonical English keys
-            locationCategories.forEach(location => {
-                const canonicalKey = chineseToEnglish[location] || location;
-                stats.locations[canonicalKey] = (stats.locations[canonicalKey] || 0) + 1;
-            });
-            
-            // Count styles
-            categories.styles.forEach(style => {
-                stats.styles[style] = (stats.styles[style] || 0) + 1;
-                hasAnyCategory = true;
-            });
-            
-            // Count uncategorized
-            if (!hasAnyCategory) {
-                uncategorizedCount++;
-            }
-            
-            // Count years
-            const year = parseInt(artwork.year);
-            if (year >= 2020) stats.years.recent++;
-            else if (year >= 2010) stats.years['2010s']++;
-            else if (!isNaN(year)) stats.years.earlier++;
-        });
-        
-        // Add uncategorized to subjects if there are any
-        if (uncategorizedCount > 0) {
-            stats.subjects['uncategorized'] = uncategorizedCount;
-        }
-
-        console.log('📊 Final merged stats:', stats);
-        return stats;
-    }
-
-    // ADD this helper method to ArtworkCategorizer class
-    getChineseLabel(type, englishKey) {
-        // This is a simple mapping - you might want to use the full translation system later
-        const translations = {
-            subject: {
-                'waterfall': '瀑布',
-                'landscape': '山水',
-                'flowers': '花鳥', 
-                'bamboo': '墨竹',
-                'calligraphy': '書法',
-                'flowingclouds': '煙雲',
-                'abstract': '抽象',
-                'traditional': '傳統'
-            },
-            location: {
-                'huangshan': '黃山',
-                'alishan': '阿里山',
-                'taroko': '太魯閣',
-                'hehuanshan': '合歡山',
-                'yushan': '玉山',
-                'liushidanshan': '六十石山',
-                'guishandao': '龜山島',
-                'longdong': '龍洞',
-                'zhangjiajie': '張家界',
-                'grandcanyon': '大峽谷',
-                'iguazu': '伊瓜蘇',
-                'niagara': '尼加拉'
-            }
-        };
-        
-        return translations[type]?.[englishKey] || englishKey;
-    }
-
-    // ALSO ADD this missing method to the ArtworkCategorizer class:
-    containsChinese(text) {
-    return /[\u4e00-\u9fff]/.test(text);
-    }
-}
-
+// Content Management System for Chinese Art Portfolio - CLEANED VERSION
+// Removed all auto-categorization logic - relies on categories from JSON data
 
 class ChineseArtPortfolio {
     constructor() {
         this.artworks = [];
         this.categories = {};
         this.currentLanguage = 'zh'; // Default to Chinese
-        this.categorizer = new ArtworkCategorizer();
         this.filterStats = {};
         
-        // Track active multi-select filters
+        // Track active multi-select filters - UPDATED for customer-friendly filters
         this.activeFilters = {
             subject: [],
             location: [],
-            year: []
+            availability: [] // NEW: availability filter for customers
         };
         
         this.loadArtworks();
     }
 
-    // NEW: Get localized text from language dictionary
+    // Get localized text from language dictionary
     t(path, params = {}) {
         const keys = path.split('.');
         let value = LANGUAGE_DATA[this.currentLanguage];
@@ -364,12 +40,14 @@ class ChineseArtPortfolio {
         
         return result;
     }
+
     // Get localized placeholder image
-        getPlaceholderImage() {
-    return this.currentLanguage === 'zh' ? 
-        './images/placeholder/artwork-placeholder-zh.svg' : 
-        './images/placeholder/artwork-placeholder-en.svg';
-}
+    getPlaceholderImage() {
+        return this.currentLanguage === 'zh' ? 
+            './images/placeholder/artwork-placeholder-zh.svg' : 
+            './images/placeholder/artwork-placeholder-en.svg';
+    }
+
     // Load artworks from JSON file
     async loadArtworks() {
         try {
@@ -388,8 +66,8 @@ class ChineseArtPortfolio {
             this.scripts = data.scripts || {};
             this.techniques = data.techniques || {};
             
-            // Generate filter statistics after loading
-            this.filterStats = this.categorizer.getFilterStats(this.artworks);
+            // Generate filter statistics after loading - CLEANED VERSION
+            this.filterStats = this.getFilterStats(this.artworks);
             
             // Initialize the gallery after loading data
             this.initializeGallery();
@@ -475,7 +153,7 @@ class ChineseArtPortfolio {
         this.activeFilters = {
             subject: [],
             location: [],
-            year: []
+            availability: []
         };
         this.renderGallery();
         this.updateFilterUI();
@@ -497,27 +175,51 @@ class ChineseArtPortfolio {
         });
     }
 
-    // Enhanced filter method using categorizer
-    filterArtworks(filterType, filterValue) {
-        if (filterValue === 'all') return this.artworks;
-        
-        // Handle special cases
-        if (filterType === 'category') {
-            if (filterValue === 'recent') {
-                return this.getRecentArtworks();
-            } else if (filterValue === 'featured') {
-                return this.getFeaturedArtworks();
-            } else {
-                return this.artworks.filter(artwork => artwork.category === filterValue);
-            }
+    // CLEANED: Multi-select filter system using existing categories from JSON
+    getMultiFilteredArtworks(activeFilters, artworks) {
+        if (Object.keys(activeFilters).length === 0 || 
+            Object.values(activeFilters).every(arr => arr.length === 0)) {
+            return artworks;
         }
-        
-        return this.categorizer.getFilteredArtworks(filterType, filterValue, this.artworks);
-    }
 
-    // Filter recent artworks
-    getRecentArtworks() {
-        return this.artworks.filter(artwork => this.getBooleanValue(artwork, 'recent', false));
+        return artworks.filter(artwork => {
+            // Check each filter type - ALL must match if specified
+            for (const [filterType, filterValues] of Object.entries(activeFilters)) {
+                if (filterValues.length === 0) continue; // Skip empty filter types
+                
+                let matches = false;
+                
+                switch(filterType) {
+                    case 'subject':
+                    case 'location':
+                        // Use existing categories from JSON
+                        const categories = artwork.categories || [];
+                        matches = filterValues.some(value => categories.includes(value));
+                        break;
+                        
+                    case 'availability':
+                        matches = filterValues.some(value => {
+                            const available = this.getBooleanValue(artwork, 'available', true);
+                            switch(value) {
+                                case 'available': return available === true;
+                                case 'sold': return available === false;
+                                default: return false;
+                            }
+                        });
+                        break;
+                        
+                    default:
+                        matches = true;
+                }
+                
+                // If any active filter type doesn't match, exclude this artwork
+                if (!matches) {
+                    return false;
+                }
+            }
+            
+            return true;
+        });
     }
 
     // Get featured artworks
@@ -525,21 +227,80 @@ class ChineseArtPortfolio {
         return this.artworks.filter(artwork => this.getBooleanValue(artwork, 'featured', false));
     }
 
-    // Search artworks
+    // CLEANED: Generate filter statistics from existing categories
+    getFilterStats(artworks) {
+        const stats = {
+            subjects: {},
+            locations: {},
+            availability: { available: 0, sold: 0 }
+        };
+        
+        let uncategorizedCount = 0;
+
+        artworks.forEach(artwork => {
+            const categories = artwork.categories || [];
+            let hasAnyCategory = false;
+            
+            // Count categories based on content patterns (simple heuristics)
+            categories.forEach(category => {
+                hasAnyCategory = true;
+                
+                // Simple heuristic to separate subjects from locations
+                if (category.includes('山') && category.length <= 4) {
+                    // Short names with 山 are likely locations (黃山, 玉山)
+                    stats.locations[category] = (stats.locations[category] || 0) + 1;
+                } else if (category.includes('峽谷') || category.includes('瀑布') || 
+                          category.includes('島') || category.includes('洞')) {
+                    // Geographic features are locations
+                    stats.locations[category] = (stats.locations[category] || 0) + 1;
+                } else {
+                    // Everything else is subject matter
+                    stats.subjects[category] = (stats.subjects[category] || 0) + 1;
+                }
+            });
+            
+            // Count availability
+            const available = this.getBooleanValue(artwork, 'available', true);
+            if (available) {
+                stats.availability.available++;
+            } else {
+                stats.availability.sold++;
+            }
+            
+            // Count uncategorized
+            if (!hasAnyCategory) {
+                uncategorizedCount++;
+            }
+        });
+        
+        // Add uncategorized to subjects if there are any
+        if (uncategorizedCount > 0) {
+            stats.subjects['uncategorized'] = uncategorizedCount;
+        }
+
+        console.log('📊 Filter stats generated:', stats);
+        return stats;
+    }
+
+    // Search artworks - FIXED VERSION
     searchArtworks(query) {
-        const searchTerm = query.toLowerCase();
+        const searchTerm = query.toLowerCase().trim();
+        if (!searchTerm) return this.artworks; // Return all if empty search
+        
         return this.artworks.filter(artwork => {
             const title = (artwork.title || '').toLowerCase();
             const titleEn = (artwork.titleEn || '').toLowerCase();
             const description = (artwork.description || '').toLowerCase();
             const descriptionEn = (artwork.descriptionEn || '').toLowerCase();
-            const tags = artwork.tags || [];
+            const year = (artwork.year || '').toString();
+            const size = (artwork.sizeCm || '').toLowerCase();
             
             return title.includes(searchTerm) ||
                    titleEn.includes(searchTerm) ||
                    description.includes(searchTerm) ||
                    descriptionEn.includes(searchTerm) ||
-                   tags.some(tag => tag.toLowerCase().includes(searchTerm));
+                   year.includes(searchTerm) ||
+                   size.includes(searchTerm);
         });
     }
 
@@ -555,15 +316,15 @@ class ChineseArtPortfolio {
     toggleLanguage() {
         this.currentLanguage = this.currentLanguage === 'en' ? 'zh' : 'en';
         this.updateAllUI();
-            // BILINGUAL UPDATE: Update lightbox if it's open
+        // Update lightbox if it's open
         if (typeof window.updateLightboxLanguage === 'function') {
-        window.updateLightboxLanguage();
+            window.updateLightboxLanguage();
         }
-            // NEW: Notify shopping cart of language change
+        // Notify shopping cart of language change
         document.dispatchEvent(new CustomEvent('languageChanged'));
     }
 
-    // NEW: Update all UI elements when language changes
+    // Update all UI elements when language changes
     updateAllUI() {
         this.updateStaticText();
         this.renderGallery();
@@ -572,14 +333,11 @@ class ChineseArtPortfolio {
         this.updateLanguageToggle();
     }
 
-    // NEW: Update static text elements
-
+    // Update static text elements
     updateStaticText() {
-        console.log('🚀 updateStaticText() started'); // 添加這行
+        console.log('🚀 updateStaticText() started');
 
-        // ================================
         // NAVIGATION
-        // ================================
         const navButtons = document.querySelectorAll('.nav-btn');
         if (navButtons.length >= 4) {
             navButtons[0].textContent = this.t('nav.featured');
@@ -588,38 +346,27 @@ class ChineseArtPortfolio {
             navButtons[3].textContent = this.t('nav.connect');
         }
         
-        // ================================
         // HEADER
-        // ================================
         const logoElement = document.querySelector('.logo');
         const subtitleElement = document.querySelector('.subtitle');
         
         if (logoElement) logoElement.textContent = this.t('header.title');
         if (subtitleElement) subtitleElement.textContent = this.t('header.subtitle');
 
-        // ================================
         // HOME PAGE
-        // ================================
         const heroTitle = document.querySelector('.hero h1');
         const heroDesc = document.querySelector('.hero p');
         
         if (heroTitle) heroTitle.textContent = this.t('home.heroTitle');
         if (heroDesc) heroDesc.innerHTML = this.t('home.heroDescription');
         
-        // ================================
         // ABOUT PAGE
-        // ================================
-        
-        // About page main title
         const aboutTitle = document.querySelector('.artist-intro h2');
         if (aboutTitle) aboutTitle.textContent = this.t('about.mainTitle');
         
-        // Video section title
         const videoTitle = document.querySelector('.featured-video h3');
         if (videoTitle) videoTitle.textContent = this.t('about.videoTitle');
         
-        console.log('🎯 About to update bio paragraphs'); // 添加這行
-
         // Artist introduction paragraphs
         const artistBioP1 = document.getElementById('artistBioP1');
         const artistBioP2 = document.getElementById('artistBioP2');
@@ -659,9 +406,7 @@ class ChineseArtPortfolio {
         this.updateAboutListContent('exhibitions', this.t('about.exhibitions'));
         this.updateAboutListContent('group-shows', this.t('about.groupShows'));
         
-        // ================================
         // CONNECT PAGE
-        // ================================
         const connectTitle = document.querySelector('#connect h2');
         if (connectTitle) connectTitle.textContent = this.t('connect.title');
         
@@ -681,15 +426,12 @@ class ChineseArtPortfolio {
         const facebookDesc = document.querySelector('#connect .connect-item:last-child p');
         if (facebookDesc) facebookDesc.textContent = this.t('connect.facebookDesc');
 
-        // Location text - MAKE SURE THIS IS HERE
+        // Location text
         const locationText = document.getElementById('locationText');
         if (locationText) {
             locationText.textContent = this.t('connect.locationText');
-            console.log('🔄 Updated location text to:', locationText.textContent);
-        } else {
-            console.log('❌ Location text element not found');
         }
-        // Location text
+        
         const locationMap = document.getElementById('locationMap');
         if (locationMap) {
             if (this.currentLanguage === 'en') {
@@ -699,18 +441,12 @@ class ChineseArtPortfolio {
             }
         }
 
-        // ================================
         // LIGHTBOX ELEMENTS
-        // ================================
         this.updateLightboxText();
     }
 
-    // ================================
-    // HELPER METHOD FOR ABOUT SECTION LISTS
-    // ================================
-    // UNIVERSAL FIX - Replace updateAboutListContent with this:
+    // Helper method for about section lists
     updateAboutListContent(sectionId, items) {
-        // Find the section by ID
         const section = document.getElementById(sectionId);
         
         if (!section) {
@@ -718,7 +454,6 @@ class ChineseArtPortfolio {
             return;
         }
         
-        // Validate that items is an array
         if (!Array.isArray(items)) {
             console.warn(`Items is not an array for section: ${sectionId}`, items);
             return;
@@ -727,37 +462,21 @@ class ChineseArtPortfolio {
         // Try to find section content in different structures
         let contentContainer;
         
-        // Method 1: Check if the section itself has class 'section-content' (Education & Awards)
         if (section.classList.contains('section-content')) {
             contentContainer = section;
-            console.log(`📍 Found direct section-content for ${sectionId}`);
-        }
-        // Method 2: Look for nested .section-content (Collapsible sections)
-        else {
+        } else {
             contentContainer = section.querySelector('.section-content');
-            if (contentContainer) {
-                console.log(`📍 Found nested section-content for ${sectionId}`);
-            }
         }
         
-        // If still not found, try the section itself as last resort
         if (!contentContainer) {
             contentContainer = section;
-            console.log(`📍 Using section itself as container for ${sectionId}`);
         }
         
         // Create the list content
         contentContainer.innerHTML = `<ul>${items.map(item => `<li>${item}</li>`).join('')}</ul>`;
-        
-        console.log(`✅ Updated ${sectionId} with ${items.length} items`);
-    }
-    // Also add this helper method to handle mixed content types:
-    updateAboutSection(sectionId, content) {
-        // This method can handle both arrays and strings
-        this.updateAboutListContent(sectionId, content);
     }
 
-    // NEW: Update lightbox text
+    // Update lightbox text
     updateLightboxText() {
         const shareBtn = document.querySelector('.control-btn[onclick="shareArtwork()"]');
         if (shareBtn) shareBtn.title = this.t('lightbox.shareTitle');
@@ -780,13 +499,13 @@ class ChineseArtPortfolio {
         }
     }
 
-    // Updated renderGallery method with image prioritization and randomization
+    // CLEANED: renderGallery method without auto-categorization
     renderGallery() {
         const galleryGrid = document.getElementById('galleryGrid');
         if (!galleryGrid) return;
 
-        // Use multi-select filtering
-        const filteredArtworks = this.categorizer.getMultiFilteredArtworks(this.activeFilters, this.artworks);
+        // Use multi-select filtering with existing categories only
+        const filteredArtworks = this.getMultiFilteredArtworks(this.activeFilters, this.artworks);
 
         // Separate artworks with real images from those without
         const artworksWithImages = filteredArtworks.filter(artwork => this.hasRealImage(artwork));
@@ -799,7 +518,7 @@ class ChineseArtPortfolio {
         // Combine: images first, then placeholders
         const prioritizedArtworks = [...randomizedWithImages, ...randomizedWithoutImages];
 
-        // Calculate counts OUTSIDE the if block so they're available everywhere
+        // Calculate counts
         const activeFilterCount = Object.values(this.activeFilters).flat().length;
         const imageCount = artworksWithImages.length;
         const totalCount = filteredArtworks.length;
@@ -861,8 +580,7 @@ class ChineseArtPortfolio {
         `;
     }
 
-    // Generate dynamic filter menu with multi-select capability
-    // UPDATE: Enhanced generateFilterMenu to handle uncategorized
+    // CLEANED: Generate dynamic filter menu with customer-friendly filters
     generateFilterMenu() {
         const stats = this.filterStats;
         
@@ -892,25 +610,22 @@ class ChineseArtPortfolio {
                                 <button class="filter-btn" 
                                         data-filter-type="location" 
                                         data-filter-value="${location}">
-                                    ${this.getLocationLabel(location)} (${count})
+                                    ${location} (${count})
                                 </button>
                             `).join('')}
                         </div>
                     </div>
                     ` : ''}
 
-                    <!-- Multi-Select Year Filters -->
+                    <!-- NEW: Availability Filter for Customers -->
                     <div class="filter-section">
-                        <h4>${this.t('filters.byYear')}</h4>
+                        <h4>${this.t('filters.byAvailability')}</h4>
                         <div class="secondary-filters">
-                            <button class="filter-btn" data-filter-type="year" data-filter-value="recent">
-                                ${this.t('years.recent')} (${stats.years.recent})
+                            <button class="filter-btn" data-filter-type="availability" data-filter-value="available">
+                                ${this.t('common.available')} (${stats.availability.available})
                             </button>
-                            <button class="filter-btn" data-filter-type="year" data-filter-value="2010s">
-                                ${this.t('years.2010s')} (${stats.years['2010s']})
-                            </button>
-                            <button class="filter-btn" data-filter-type="year" data-filter-value="earlier">
-                                ${this.t('years.earlier')} (${stats.years.earlier})
+                            <button class="filter-btn" data-filter-type="availability" data-filter-value="sold">
+                                ${this.t('common.sold')} (${stats.availability.sold})
                             </button>
                         </div>
                     </div>
@@ -924,7 +639,7 @@ class ChineseArtPortfolio {
                         </div>
                     </div>
 
-                    <!-- Search and Sort -->
+                    <!-- FIXED: Search and Sort -->
                     <div class="search-sort-container">
                         <div class="search-box">
                             <span class="search-icon">🔍</span>
@@ -947,49 +662,12 @@ class ChineseArtPortfolio {
         if (subject === 'uncategorized') {
             return this.t('filters.uncategorized');
         }
-        return this.getSubjectLabel(subject);
+        return subject; // Use the category as-is from JSON
     }
 
     // Helper method to detect Chinese characters
     containsChinese(text) {
         return /[\u4e00-\u9fff]/.test(text);
-    }
-
-    // Enhanced label mapping that handles both English keys and direct Chinese labels
-    getSubjectLabel(subject) {
-        // First, check if it's already a Chinese label (contains Chinese characters)
-        if (this.containsChinese(subject)) {
-            return subject; // Return as-is if already Chinese
-        }
-        
-        // Try to get translation for English key
-        const translated = this.t(`subjects.${subject}`);
-        
-        // If translation returns the key itself (meaning not found), return the original
-        if (translated === `subjects.${subject}`) {
-            console.warn(`Missing translation for subject: ${subject}`);
-            return subject; // Fallback to English key
-        }
-        
-        return translated;
-    }
-
-    getLocationLabel(location) {
-        // First, check if it's already a Chinese label
-        if (this.containsChinese(location)) {
-            return location; // Return as-is if already Chinese
-        }
-        
-        // Try to get translation for English key
-        const translated = this.t(`locations.${location}`);
-        
-        // If translation returns the key itself (meaning not found), return the original
-        if (translated === `locations.${location}`) {
-            console.warn(`Missing translation for location: ${location}`);
-            return location; // Fallback to English key
-        }
-        
-        return translated;
     }
 
     // Initialize gallery and event listeners
@@ -1172,7 +850,7 @@ class ChineseArtPortfolio {
         grid.innerHTML = rowsHTML;
     }
 
-   // Fixed createFeaturedItemHTML method - replace the existing one in your portfolio.js
+    // Create featured item HTML
     createFeaturedItemHTML(item) {
         const { artwork, span } = item;
         const title = this.getText(artwork, 'title') || this.t('common.untitled');
@@ -1515,7 +1193,7 @@ class ChineseArtPortfolio {
         document.head.appendChild(style);
     }
 
-    // Setup event listeners
+    // FIXED: Setup event listeners with working search
     setupEventListeners() {
         // Language toggle
         const langToggle = document.getElementById('languageToggle');
@@ -1523,14 +1201,54 @@ class ChineseArtPortfolio {
             langToggle.addEventListener('click', () => this.toggleLanguage());
         }
 
-        // Search functionality
+        // FIXED: Search functionality that actually works
         const searchInput = document.getElementById('searchInput');
         if (searchInput) {
             searchInput.addEventListener('input', (e) => {
-                const results = this.searchArtworks(e.target.value);
-                this.renderSearchResults(results);
+                this.performSearch(e.target.value);
             });
         }
+    }
+
+    // FIXED: Search and render results
+    performSearch(query) {
+        const searchTerm = query.trim();
+        
+        if (searchTerm === '') {
+            // No search query, show filtered results
+            this.renderGallery();
+            return;
+        }
+
+        // Get search results
+        const searchResults = this.searchArtworks(searchTerm);
+        
+        // Apply current filters to search results
+        const filteredResults = this.getMultiFilteredArtworks(this.activeFilters, searchResults);
+
+        // Update results info
+        const resultsInfo = document.getElementById('resultsInfo');
+        if (resultsInfo) {
+            const activeFilterCount = Object.values(this.activeFilters).flat().length;
+            
+            if (activeFilterCount > 0) {
+                resultsInfo.textContent = this.t('filters.searchWithFilters', {
+                    query: searchTerm,
+                    count: filteredResults.length,
+                    total: this.artworks.length,
+                    filters: activeFilterCount
+                }) || `Found ${filteredResults.length} results for "${searchTerm}" (${activeFilterCount} filters applied)`;
+            } else {
+                resultsInfo.textContent = this.t('filters.searchResults', {
+                    query: searchTerm,
+                    count: filteredResults.length,
+                    total: this.artworks.length
+                }) || `Found ${filteredResults.length} results for "${searchTerm}"`;
+            }
+        }
+
+        // Render search results
+        this.renderSearchResults(filteredResults);
     }
 
     // Render search results
@@ -1538,18 +1256,19 @@ class ChineseArtPortfolio {
         const galleryGrid = document.getElementById('galleryGrid');
         if (!galleryGrid) return;
 
-        const resultsInfo = document.getElementById('resultsInfo');
-        if (resultsInfo) {
-            resultsInfo.textContent = this.t('filters.showingResults', {
-                count: results.length,
-                total: this.artworks.length
-            });
-        }
+        // Separate results with and without images
+        const resultsWithImages = results.filter(artwork => this.hasRealImage(artwork));
+        const resultsWithoutImages = results.filter(artwork => !this.hasRealImage(artwork));
 
-        galleryGrid.innerHTML = results.map(artwork => this.createArtworkCard(artwork)).join('');
+        // Prioritize images first
+        const prioritizedResults = [...resultsWithImages, ...resultsWithoutImages];
+
+        galleryGrid.innerHTML = prioritizedResults.map(artwork => this.createArtworkCard(artwork)).join('');
+        
+        console.log(`🔍 Search results rendered: ${resultsWithImages.length} with images, ${resultsWithoutImages.length} with placeholders`);
     }
 
-        // Helper method to check if artwork has a real image
+    // Helper method to check if artwork has a real image
     hasRealImage(artwork) {
         // Check if artwork has non-empty image paths
         const hasImagePath = (artwork.image && artwork.image.trim() !== '') || 
@@ -1573,66 +1292,56 @@ class ChineseArtPortfolio {
         return shuffled;
     }
 
-    //To add multi-view for each artwork
-
+    // Multi-view artwork support
     setupArtworkViews(artwork) {
-    // 這個方法主要是為了保持一致性，實際邏輯在 lightbox.js 中
-    console.log('🎨 Setting up artwork views for:', this.getText(artwork, 'title'));
-    
-    // 檢查作品是否有多視圖
-    if (artwork.productViews && artwork.productViews.length > 0) {
-        console.log(`📸 Found ${artwork.productViews.length} product views`);
-        return artwork.productViews;
-    }
-    
-    // 向後兼容檢查
-    const views = [];
-    
-    // 添加原作視圖
-    views.push({
-        type: 'original',
-        title: this.t('lightbox.originalView') || '原作',
-        icon: '🖼️',
-        image: artwork.imageHigh || artwork.image || this.getPlaceholderImage(),
-        description: this.t('lightbox.originalDescription') || '高清原作細節'
-    });
-    
-    // 檢查舊的房間展示欄位
-    if (artwork.roomDisplay) {
+        console.log('🎨 Setting up artwork views for:', this.getText(artwork, 'title'));
+        
+        if (artwork.productViews && artwork.productViews.length > 0) {
+            console.log(`📸 Found ${artwork.productViews.length} product views`);
+            return artwork.productViews;
+        }
+        
+        // Backwards compatibility
+        const views = [];
+        
         views.push({
-            type: 'room-display',
-            title: this.t('lightbox.roomView') || '房間展示',
-            icon: '🏠',
-            image: artwork.roomDisplay,
-            description: this.t('lightbox.roomDescription') || '在家中的裝飾效果'
+            type: 'original',
+            title: this.t('lightbox.originalView') || '原作',
+            icon: '🖼️',
+            image: artwork.imageHigh || artwork.image || this.getPlaceholderImage(),
+            description: this.t('lightbox.originalDescription') || '高清原作細節'
         });
-    }
-    
-    return views;
+        
+        if (artwork.roomDisplay) {
+            views.push({
+                type: 'room-display',
+                title: this.t('lightbox.roomView') || '房間展示',
+                icon: '🏠',
+                image: artwork.roomDisplay,
+                description: this.t('lightbox.roomDescription') || '在家中的裝飾效果'
+            });
+        }
+        
+        return views;
     }
 
-    // 檢查作品是否有多視圖
     hasMultipleViews(artwork) {
         if (artwork.productViews && artwork.productViews.length > 1) {
             return true;
         }
         
-        // 檢查舊的數據結構
         const viewCount = 1 + (artwork.roomDisplay ? 1 : 0);
         return viewCount > 1;
     }
 
-    // 獲取作品的視圖數量
     getViewCount(artwork) {
         if (artwork.productViews) {
             return artwork.productViews.length;
         }
         
-        // 向後兼容
         return 1 + (artwork.roomDisplay ? 1 : 0);
     }
 
-    // 驗證作品視圖數據
     validateArtworkViews(artwork) {
         if (!artwork.productViews) {
             return { valid: true, message: 'No product views (using legacy mode)' };
@@ -1658,6 +1367,7 @@ class ChineseArtPortfolio {
             issues: issues
         };  
     }
+
     debugArtworkViews(artworkId) {
         const artwork = this.getArtwork(artworkId);
         if (!artwork) {
@@ -1680,7 +1390,6 @@ class ChineseArtPortfolio {
         }
     }
 }
-
 
 // Initialize portfolio
 const portfolio = new ChineseArtPortfolio();
@@ -1710,4 +1419,4 @@ window.debugArtworkViews = function(artworkId) {
     }
 };
 
-console.log('✅ Multi-view system loaded for portfolio');
+console.log('✅ Cleaned portfolio system loaded - no auto-categorization');

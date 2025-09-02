@@ -556,7 +556,7 @@
     <div class="container">
         <!-- GitHub Integration Section -->
         <div class="github-section">
-            <h3>🐙 GitHub 連線狀態</h3>
+            <h3>🙙 GitHub 連線狀態</h3>
             <div class="github-controls">
                 <div class="github-status status-disconnected" id="githubStatus" style="margin-left: 0;">
                     正在檢查連線...
@@ -722,23 +722,15 @@
                             <div class="form-group">
                                 <label for="artworkSubcategory">分類標籤管理</label>
                                 
-                                <!-- Available Labels Section -->
-                                <div style="margin-bottom: 1rem;">
-                                    <h5 style="font-size: 0.9rem; color: #495057; margin-bottom: 0.5rem;">📋 可用標籤 (點擊新增)</h5>
-                                    <div id="availableLabels" style="padding: 0.5rem; background: #f8f9fa; border-radius: 4px; border: 1px solid #e9ecef; max-height: 120px; overflow-y: auto;">
-                                        <!-- Will be populated by JavaScript -->
-                                    </div>
-                                </div>
-                                
-                                <!-- Auto-generated Labels with X buttons -->
+                                <!-- Existing Categories Display -->
                                 <div id="categoryLabels" style="margin-bottom: 0.5rem; font-size: 0.9rem; color: #6c757d; min-height: 1.2rem; padding: 0.5rem; background: #f8f9fa; border-radius: 8px; border: 1px solid #e9ecef;">
-                                    <!-- Auto-generated category labels will appear here -->
+                                    <!-- Existing category labels will appear here -->
                                 </div>
                                 
                                 <!-- Manual Category Input -->
                                 <div style="display: flex; gap: 0.5rem; align-items: center;">
-                                    <input type="text" id="artworkSubcategory" placeholder="手動新增自定義標籤..." 
-                                        style="flex: 1;" oninput="updateCategoryPreview()">
+                                    <input type="text" id="artworkSubcategory" placeholder="手動新增分類標籤..." 
+                                        style="flex: 1;">
                                     <button type="button" class="btn btn-small" onclick="addManualCategory()" 
                                             style="background: #17a2b8; color: white; padding: 0.4rem 0.8rem; font-size: 0.8rem;">
                                         ➕ 新增
@@ -751,7 +743,7 @@
                                 </div>
                                 
                                 <small style="color: #6c757d; margin-top: 0.25rem; display: block;">
-                                    💡 系統會根據標題自動分類，您可以移除錯誤標籤或手動新增自定義標籤
+                                    💡 您可以移除現有標籤或手動新增新的分類標籤
                                 </small>
                             </div>
                             
@@ -782,7 +774,7 @@
                             <input type="file" id="imageInput" accept="image/*" style="display: none;">
                             <div id="uploadText">
                                 📸 點擊上傳圖片或拖放檔案<br>
-                                <small>支援 JPG、PNG、WebP 格式，最大 50MB</small>
+                                <small>支持 JPG、PNG、WebP 格式，最大 50MB</small>
                             </div>
                             <img id="previewImage" class="preview-image" style="display: none;">
                         </div>
@@ -828,8 +820,7 @@
             featured: []
         };
                 
-        let manualCategories = [];// Track manual categories
-        let autoCategories = { subjects: [], locations: [] }; // Track auto categories separately
+        let manualCategories = []; // Track manual categories
 
         // CRITICAL SAFETY FUNCTION: Always use this for GitHub updates
         function getMasterArtworksArray() {
@@ -871,227 +862,74 @@
             }
         }
 
-        // AUTO-CATEGORIZATION SYSTEM (same as portfolio.js)
-        const CATEGORIZATION_RULES = {
-            subject: {
-                'waterfall': ['瀑布', '瀑', '飛瀑', '銀瀑', '煙聲'],
-                'landscape': ['山水', '山', '峰', '雲海', '煙雲', '嵐', '壑', '石', '木', '谷', '峽', '溪'],
-                'flowingclouds': ['煙', '雲', '煙雲', '雲海', '霧', '嵐'],
-                'flowers': ['花', '梅', '菊', '藤', '紫藤', '杜鵑', '桃花', '荷', '蓮', '牡丹', '阿勃勒', '金針', '櫻花', '凌霄'],
-                'bamboo': ['竹', '墨竹', '疏竹', '翠竹'],
-                'calligraphy': ['心經', '書法', '經', '愛蓮說', '序', '書', '隸', '楷', '行', '草', '隸書', '楷書', '草書', '詩', '聯'],
-            },
-            location: {
-                'huangshan': ['黃山'],
-                'alishan': ['阿里山'],
-                'taroko': ['太魯閣', '太魯'],
-                'hehuanshan': ['合歡', '合歡山'],
-                'yushan': ['玉山', '玉山北峰'],
-                'liushidanshan': ['六十石山', '六十石'],
-                'guishandao': ['龜山島'],
-                'longdong': ['龍洞'],
-                'zhangjiajie': ['張家界'],
-                'grandcanyon': ['大峽谷'],
-                'iguazu': ['伊瓜蘇'],
-                'niagara': ['尼加拉']
-            }
-        };
-
-        const CATEGORY_LABELS = {
-            'waterfall': '瀑布',
-            'landscape': '山水',
-            'flowingclouds': '煙雲',
-            'flowers': '花鳥',
-            'bamboo': '墨竹',
-            'calligraphy': '書法',
-            'huangshan': '黃山',
-            'alishan': '阿里山',
-            'taroko': '太魯閣',
-            'hehuanshan': '合歡山',
-            'yushan': '玉山',
-            'liushidanshan': '六十石山',
-            'guishandao': '龜山島',
-            'longdong': '龍洞',
-            'zhangjiajie': '張家界',
-            'grandcanyon': '大峽谷',
-            'iguazu': '伊瓜蘇',
-            'niagara': '尼加拉'
-        };
-
-        // STEP 3: REPLACE your populateAvailableLabels function with this working version:
-        function populateAvailableLabels() {
-            console.log('🏷️ populateAvailableLabels() called');
-            
-            const availableLabelsDiv = document.getElementById('availableLabels');
-            if (!availableLabelsDiv) {
-                console.error('❌ availableLabels div not found!');
-                return;
-            }
-            
-            // Clear existing content
-            availableLabelsDiv.innerHTML = '';
-            
-            console.log('✅ Found availableLabels div, populating...');
-            
-            // Create labels array
-            const allLabels = Object.entries(CATEGORY_LABELS).map(([key, label]) => {
-                const isSubject = !!CATEGORIZATION_RULES.subject[key];
-                const isLocation = !!CATEGORIZATION_RULES.location[key]; 
-                
-                return {
-                    key,
-                    label,
-                    type: isSubject ? 'subject' : (isLocation ? 'location' : 'unknown')
-                };
-            });
-            
-            // Group by type
-            const subjects = allLabels.filter(item => item.type === 'subject');
-            const locations = allLabels.filter(item => item.type === 'location');
-            
-            console.log(`📂 Found ${subjects.length} subjects, ${locations.length} locations`);
-            
-            // Generate HTML
-            const subjectHtml = subjects.map(item => 
-                `<span class="available-label" data-key="${item.key}" onclick="addAvailableLabel('${item.key}', '${item.label}')">${item.label}</span>`
-            ).join(' ');
-
-            const locationHtml = locations.map(item => 
-                `<span class="available-label" data-key="${item.key}" onclick="addAvailableLabel('${item.key}', '${item.label}')">${item.label}</span>`
-            ).join(' ');
-            
-            const finalHtml = `
-                <div style="margin-bottom: 0.5rem;">
-                    <strong style="font-size: 0.8rem; color: #6c757d;">題材:</strong> ${subjectHtml}
-                </div>
-                <div>
-                    <strong style="font-size: 0.8rem; color: #6c757d;">地點:</strong> ${locationHtml}
-                </div>
-            `;
-            
-            availableLabelsDiv.innerHTML = finalHtml;
-            console.log('✅ Available labels populated successfully');
-        }
-
-        // STEP 4: Fix the addAvailableLabel function
-        function addAvailableLabel(key, label) {
-            console.log('➕ Adding available label:', key, label);
-            
-            // Ensure manualCategories is an array
-            if (!Array.isArray(window.manualCategories)) {
-                window.manualCategories = [];
-            }
-            
-            // Check if already exists
-            const allCurrentCategories = [
-                ...(window.autoCategories?.subjects || []), 
-                ...(window.autoCategories?.locations || []), 
-                ...window.manualCategories
-            ];
-            
-            if (allCurrentCategories.includes(key)) {
-                showMessage(`標籤「${label}」已存在`, 'warning');
-                return;
-            }
-
-            window.manualCategories.push(key);
-            updateManualCategoriesDisplay();
-            showMessage(`已新增標籤「${label}」`, 'success');
-            
-            console.log('✅ Manual categories now:', window.manualCategories);
-        }
-
-        // Remove auto category (when user clicks X on auto-generated tags)
-        function removeAutoCategory(categoryKey) {
-            console.log('🗑️ Removing auto category:', categoryKey);
-            
-            // Ensure autoCategories is properly initialized
-            if (!window.autoCategories || typeof window.autoCategories !== 'object') {
-                window.autoCategories = { subjects: [], locations: [] };
-            }
-            
-            const beforeSubjects = window.autoCategories.subjects.length;
-            const beforeLocations = window.autoCategories.locations.length;
-            
-            window.autoCategories.subjects = window.autoCategories.subjects.filter(cat => cat !== categoryKey);
-            window.autoCategories.locations = window.autoCategories.locations.filter(cat => cat !== categoryKey);
-            
-            const afterSubjects = window.autoCategories.subjects.length;
-            const afterLocations = window.autoCategories.locations.length;
-            
-            console.log(`📊 Subjects: ${beforeSubjects} → ${afterSubjects}, Locations: ${beforeLocations} → ${afterLocations}`);
-            
-            updateCategoryPreview();
-            
-            const label = CATEGORY_LABELS[categoryKey] || categoryKey;
-            showMessage(`已移除自動標籤「${label}」`, 'info');
-        }
-
-                function getAutoCategories(title) {
-                    const categories = {
-                        subjects: [],
-                        locations: []
-                    };
-
-                    // Check subjects
-                    for (const [category, keywords] of Object.entries(CATEGORIZATION_RULES.subject)) {
-                        if (keywords.some(keyword => title.includes(keyword))) {
-                            categories.subjects.push(category);
-                        }
-                    }
-
-                    // Check locations
-                    for (const [location, keywords] of Object.entries(CATEGORIZATION_RULES.location)) {
-                        if (keywords.some(keyword => title.includes(keyword))) {
-                            categories.locations.push(location);
-                        }
-                    }
-
-                    // Default fallback
-                    if (categories.subjects.length === 0) {
-                        if (title.includes('山') || title.includes('雲') || title.includes('水')) {
-                            categories.subjects.push('landscape');
-                        } else if (title.includes('書') || title.includes('經') || title.includes('詩')) {
-                            categories.subjects.push('calligraphy');
-                        }
-                    }
-
-                    return categories;
-                }
-
+        // CLEANED: Remove all auto-categorization - use existing categories from JSON
         function updateCategoryPreview() {
-            const title = document.getElementById('artworkTitle').value.trim();
             const categoryLabelsDiv = document.getElementById('categoryLabels');
             
-            if (title) {
-                // Get fresh auto categories
-                autoCategories = getAutoCategories(title);
-                const allAutoCategories = [...autoCategories.subjects, ...autoCategories.locations];
-                
-                if (allAutoCategories.length > 0) {
-                    const labelHtml = allAutoCategories.map(cat => {
-                        const label = CATEGORY_LABELS[cat] || cat;
+            // Show existing categories from the artwork (if editing)
+            if (currentEditingId) {
+                const artwork = allArtworks.find(a => a.id === currentEditingId);
+                if (artwork && artwork.categories && artwork.categories.length > 0) {
+                    const existingHtml = artwork.categories.map(cat => {
                         return `<span style="background: #e3f2fd; color: #1976d2; padding: 3px 8px; border-radius: 12px; margin-right: 4px; margin-bottom: 2px; font-size: 0.8rem; display: inline-flex; align-items: center;">
-                            🏷️ ${label}
-                            <button type="button" onclick="removeAutoCategory('${cat}')" 
+                            🏷️ ${cat}
+                            <button type="button" onclick="removeExistingCategory('${cat}')" 
                                     style="background: none; border: none; color: #1976d2; margin-left: 4px; cursor: pointer; font-size: 0.7rem; padding: 0;">
                                 ✕
                             </button>
                         </span>`;
                     }).join('');
-                    categoryLabelsDiv.innerHTML = `<strong style="font-size: 0.8rem;">自動分類:</strong> ${labelHtml}`;
+                    categoryLabelsDiv.innerHTML = `<strong style="font-size: 0.8rem;">現有分類:</strong> ${existingHtml}`;
                 } else {
-                    categoryLabelsDiv.innerHTML = '<span style="color: #6c757d; font-size: 0.8rem;">系統無法自動分類此標題</span>';
+                    categoryLabelsDiv.innerHTML = '<span style="color: #6c757d; font-size: 0.8rem;">此作品尚無分類標籤</span>';
                 }
             } else {
-                categoryLabelsDiv.innerHTML = '<span style="color: #6c757d; font-size: 0.8rem;">輸入標題後顯示自動分類預覽</span>';
-                autoCategories = { subjects: [], locations: [] }; // Reset
+                categoryLabelsDiv.innerHTML = '<span style="color: #6c757d; font-size: 0.8rem;">儲存後可管理分類標籤</span>';
             }
             
-            // Update manual categories display
+            // Always show manual categories
             updateManualCategoriesDisplay();
         }
 
+        // Remove existing category from artwork
+        function removeExistingCategory(categoryKey) {
+            if (!currentEditingId) return;
+            
+            const artwork = allArtworks.find(a => a.id === currentEditingId);
+            if (!artwork) return;
+            
+            console.log('🗑️ Removing existing category:', categoryKey);
+            
+            // Remove from categories array
+            if (artwork.categories) {
+                const index = artwork.categories.indexOf(categoryKey);
+                if (index > -1) {
+                    artwork.categories.splice(index, 1);
+                    console.log('✅ Removed from categories array');
+                }
+            }
+            
+            // Remove from autoCategories if it exists there
+            if (artwork.autoCategories) {
+                if (artwork.autoCategories.subjects) {
+                    const subIndex = artwork.autoCategories.subjects.indexOf(categoryKey);
+                    if (subIndex > -1) {
+                        artwork.autoCategories.subjects.splice(subIndex, 1);
+                    }
+                }
+                if (artwork.autoCategories.locations) {
+                    const locIndex = artwork.autoCategories.locations.indexOf(categoryKey);
+                    if (locIndex > -1) {
+                        artwork.autoCategories.locations.splice(locIndex, 1);
+                    }
+                }
+            }
+            
+            updateCategoryPreview();
+            showMessage(`已移除分類標籤「${categoryKey}」`, 'info');
+        }
+
+        // Simplified add manual category
         function addManualCategory() {
             const input = document.getElementById('artworkSubcategory');
             const categoryText = input.value.trim();
@@ -1101,38 +939,42 @@
                 return;
             }
             
-            // Check if already exists (case-insensitive)
+            // Check if already exists in existing categories (for editing mode)
+            if (currentEditingId) {
+                const artwork = allArtworks.find(a => a.id === currentEditingId);
+                if (artwork && artwork.categories && artwork.categories.includes(categoryText)) {
+                    showMessage('此分類標籤已存在於現有分類中', 'warning');
+                    return;
+                }
+            }
+            
+            // Check if already in manual categories
             if (manualCategories.some(cat => cat.toLowerCase() === categoryText.toLowerCase())) {
-                showMessage('此分類標籤已存在', 'warning');
+                showMessage('此分類標籤已存在於手動分類中', 'warning');
                 return;
             }
             
             // Add to manual categories
             manualCategories.push(categoryText);
-            input.value = ''; // Clear input
+            input.value = '';
             
             updateManualCategoriesDisplay();
             showMessage(`已新增分類標籤「${categoryText}」`, 'success');
         }
 
+        // Simplified remove manual category
         function removeManualCategory(categoryToRemove) {
             console.log('🗑️ Removing manual category:', categoryToRemove);
             
-            // Ensure manualCategories is an array
-            if (!Array.isArray(window.manualCategories)) {
-                window.manualCategories = [];
+            const index = manualCategories.findIndex(cat => cat === categoryToRemove);
+            if (index > -1) {
+                manualCategories.splice(index, 1);
+                updateManualCategoriesDisplay();
+                showMessage(`已移除手動分類標籤「${categoryToRemove}」`, 'info');
             }
-            
-            const beforeLength = window.manualCategories.length;
-            window.manualCategories = window.manualCategories.filter(cat => cat !== categoryToRemove);
-            const afterLength = window.manualCategories.length;
-            
-            console.log(`📊 Manual categories: ${beforeLength} → ${afterLength}`);
-            
-            updateManualCategoriesDisplay();
-            showMessage(`已移除分類標籤「${categoryToRemove}」`, 'info');
         }
 
+        // Clean manual categories display
         function updateManualCategoriesDisplay() {
             const manualCategoriesDiv = document.getElementById('manualCategories');
             
@@ -1146,23 +988,88 @@
                         </button>
                     </span>
                 `).join('');
-                manualCategoriesDiv.innerHTML = `手動標籤: ${manualHtml}`;
+                manualCategoriesDiv.innerHTML = `手動新增: ${manualHtml}`;
             } else {
                 manualCategoriesDiv.innerHTML = '<span style="color: #6c757d; font-size: 0.8rem;">尚無手動新增的分類標籤</span>';
             }
         }
 
-        // Add keyboard support for Enter key
-        function setupCategoryInput() {
-            const input = document.getElementById('artworkSubcategory');
-            if (input) {
-                input.addEventListener('keypress', function(e) {
-                    if (e.key === 'Enter') {
-                        e.preventDefault(); // Prevent form submission
-                        addManualCategory();
-                    }
-                });
+        // Clean form data collection for publishing
+        function collectArtworkFormData(artworkId) {
+            // Collect basic form data
+            const title = document.getElementById('artworkTitle').value.trim();
+            const year = document.getElementById('artworkYear').value.trim();
+            const height = document.getElementById('artworkHeight').value.trim();
+            const width = document.getElementById('artworkWidth').value.trim();
+            
+            if (!title || !year || !height || !width) {
+                throw new Error('標題、年份、高度和寬度為必填欄位');
             }
+            
+            const heightNum = parseFloat(height);
+            const widthNum = parseFloat(width);
+            
+            // Get existing artwork if editing
+            let existingCategories = [];
+            if (currentEditingId) {
+                const existingArtwork = allArtworks.find(a => a.id === currentEditingId);
+                if (existingArtwork && existingArtwork.categories) {
+                    existingCategories = [...existingArtwork.categories];
+                }
+            }
+            
+            // Combine existing categories with manual categories
+            const allCategories = [...existingCategories, ...manualCategories];
+            
+            // Remove duplicates
+            const uniqueCategories = [...new Set(allCategories)];
+            
+            const formData = {
+                id: artworkId,
+                title: title,
+                titleEn: '',
+                category: 'paintings',
+                subcategory: manualCategories.join(', '), // For backward compatibility
+                manualCategories: manualCategories,
+                categories: uniqueCategories, // Combined existing + manual
+                // Keep autoCategories for reference but don't auto-generate
+                autoCategories: currentEditingId ? 
+                    (allArtworks.find(a => a.id === currentEditingId)?.autoCategories || { subjects: [], locations: [] }) :
+                    { subjects: [], locations: [] },
+                image: '', // Will be set during upload
+                imageHigh: '', // Will be set during upload
+                description: document.getElementById('artworkDescription').value.trim(),
+                descriptionEn: '',
+                curatorNote: document.getElementById('artworkCuratorNote').value.trim(),
+                curatorNoteEn: '',
+                format: document.getElementById('artworkFormat').value,
+                formatEn: '',
+                mediumEn: '',
+                heightCm: heightNum,
+                widthCm: widthNum,
+                heightInches: parseFloat((heightNum / 2.54).toFixed(1)),
+                widthInches: parseFloat((widthNum / 2.54).toFixed(1)),
+                sizeCm: `${heightNum}×${widthNum}`,
+                sizeInches: `${(heightNum / 2.54).toFixed(1)}×${(widthNum / 2.54).toFixed(1)}`,
+                year: year,
+                price: document.getElementById('artworkPrice').value.trim(),
+                available: document.getElementById('artworkAvailable').checked,
+                featured: document.getElementById('artworkFeatured').checked,
+                recent: parseInt(year) >= 2020,
+                exhibitions: [],
+                tags: []
+            };
+            
+            console.log(`📋 Collected categories: ${uniqueCategories.length} total (${existingCategories.length} existing + ${manualCategories.length} manual)`);
+            
+            return formData;
+        }
+
+        // Reset category management when opening modal
+        function resetCategoryManagement() {
+            manualCategories = [];
+            updateCategoryPreview();
+            updateManualCategoriesDisplay();
         }
 
         function generateSequentialId() {
@@ -1189,26 +1096,22 @@
             if (!checkEditingPermission()) return;
             
             currentEditingId = null;
-            window.manualCategories = []; // Reset manual categories
-            window.autoCategories = { subjects: [], locations: [] }; // Reset auto categories
+            resetCategoryManagement(); // Clean reset
             
             document.getElementById('modalTitle').textContent = '新增作品';
             document.getElementById('artworkForm').reset();
             document.getElementById('artworkAvailable').checked = true;
             document.getElementById('previewImage').style.display = 'none';
-            document.getElementById('uploadText').innerHTML = '📸 點擊上傳圖片或拖放檔案<br><small>支援 JPG、PNG、WebP 格式，最大 50MB</small>';
+            document.getElementById('uploadText').innerHTML = '📸 點擊上傳圖片或拖放檔案<br><small>支持 JPG、PNG、WebP 格式，最大 50MB</small>';
             document.getElementById('publishBtn').disabled = true;
             document.getElementById('saveStatus').textContent = '';
             document.getElementById('imageControls').style.display = 'none';
             
-            // CRITICAL: Call populateAvailableLabels here
-            populateAvailableLabels();
-            updateCategoryPreview();
+            updateCategoryPreview(); // This will show "儲存後可管理分類標籤" for new artworks
             
             document.getElementById('artworkModal').style.display = 'block';
-            
-            console.log('✅ Modal opened, labels should be populated');
         }
+
         function closeModal() {
             document.getElementById('artworkModal').style.display = 'none';
             // Clear any local draft for this artwork
@@ -1254,16 +1157,19 @@
             renderArtworks();
         }
 
+        // Updated editArtwork function
         function editArtwork(id) {
             if (!checkEditingPermission()) return;
             
-            const artwork = allArtworks.find(a => a.id === id); // CRITICAL: Use master array
+            const artwork = allArtworks.find(a => a.id === id);
             if (!artwork) {
                 showMessage('找不到作品！', 'error');
                 return;
             }
 
             currentEditingId = id;
+            resetCategoryManagement(); // Clean reset
+            
             document.getElementById('modalTitle').textContent = '編輯作品';
             
             // Populate form fields
@@ -1274,23 +1180,20 @@
             document.getElementById('artworkFormat').value = artwork.format || '';
             document.getElementById('artworkDescription').value = artwork.description || '';
             document.getElementById('artworkCuratorNote').value = artwork.curatorNote || '';
-            document.getElementById('artworkSubcategory').value = artwork.subcategory || '';
+            document.getElementById('artworkSubcategory').value = '';
             document.getElementById('artworkFeatured').checked = artwork.featured === true || artwork.featured === 'true';
             document.getElementById('artworkAvailable').checked = artwork.available !== false && artwork.available !== 'false';
             document.getElementById('artworkPrice').value = artwork.price || '';
 
-            // Populate manual categories if they exist
+            // Load existing manual categories if they exist
             if (artwork.manualCategories && Array.isArray(artwork.manualCategories)) {
                 manualCategories = [...artwork.manualCategories];
-            } else {
-                manualCategories = [];
             }
 
-            populateAvailableLabels();
+            updateCategoryPreview(); // This will show existing categories with remove buttons
             updateManualCategoriesDisplay();
-            updateCategoryPreview();
 
-            // Show existing image
+            // Handle existing image
             const previewImg = document.getElementById('previewImage');
             const uploadText = document.getElementById('uploadText');
             const imageControls = document.getElementById('imageControls');
@@ -1306,23 +1209,11 @@
                 imageControls.style.display = 'none';
             }
             
-            // Reset publish state
             document.getElementById('publishBtn').disabled = true;
             document.getElementById('saveStatus').textContent = '';
-          
+        
             document.getElementById('artworkModal').style.display = 'block';
         }
-
-        function testLabelSystem() {
-            console.log('🧪 Testing label system...');
-            console.log('manualCategories type:', typeof window.manualCategories, window.manualCategories);
-            console.log('autoCategories type:', typeof window.autoCategories, window.autoCategories);
-            console.log('CATEGORY_LABELS keys:', Object.keys(CATEGORY_LABELS));
-            
-            populateAvailableLabels();
-            console.log('✅ Test complete');
-        }
-
 
         function deleteArtwork(id) {
             if (!checkEditingPermission()) return;
@@ -1663,7 +1554,6 @@
         }
 
         // Utility functions
-
         function renderArtworks(artworksToShow = artworks) {
             const grid = document.getElementById('artworksGrid');
             const searchTerm = document.getElementById('searchInput').value.toLowerCase();
@@ -1890,7 +1780,7 @@
             }
         }
 
-        // ADMIN FILTERING FUNCTIONS
+        // ADMIN FILTERING FUNCTIONS (CLEANED - no auto-categorization)
         function generateAdminFilters() {
             if (!allArtworks.length) return;
 
@@ -1900,20 +1790,23 @@
                 availability: { available: 0, sold: 0, unknown: 0 }
             };
 
-            // Calculate statistics
+            // Calculate statistics from existing categories only
             allArtworks.forEach(artwork => {
-                // Use existing categories if available, otherwise auto-categorize
-                let categories = artwork.categories || [];
-                if (categories.length === 0) {
-                    const auto = getAutoCategories(artwork.title || '');
-                    categories = [...auto.subjects, ...auto.locations];
-                }
+                // Use existing categories from JSON (no auto-categorization)
+                const categories = artwork.categories || [];
 
                 categories.forEach(cat => {
-                    if (CATEGORIZATION_RULES.subject[cat]) {
+                    // Simple categorization based on common patterns
+                    if (cat.includes('山') || cat.includes('水') || cat.includes('landscape') || 
+                        cat.includes('花') || cat.includes('竹') || cat.includes('書法') || 
+                        cat.includes('瀑布') || cat.includes('雲')) {
                         stats.subjects[cat] = (stats.subjects[cat] || 0) + 1;
-                    } else if (CATEGORIZATION_RULES.location[cat]) {
+                    } else if (cat.includes('山') && (cat.length <= 4)) {
+                        // Likely a location if it's short and contains 山
                         stats.locations[cat] = (stats.locations[cat] || 0) + 1;
+                    } else {
+                        // Default to subject
+                        stats.subjects[cat] = (stats.subjects[cat] || 0) + 1;
                     }
                 });
 
@@ -1933,7 +1826,7 @@
             if (subjectFilters) {
                 subjectFilters.innerHTML = Object.entries(stats.subjects).map(([subject, count]) => `
                     <button class="secondary-filter-btn" data-filter-type="subject" data-filter-value="${subject}">
-                        ${CATEGORY_LABELS[subject] || subject} (${count})
+                        ${subject} (${count})
                     </button>
                 `).join('');
             }
@@ -1944,7 +1837,7 @@
             if (locationFilters && Object.keys(stats.locations).length > 0) {
                 locationFilters.innerHTML = Object.entries(stats.locations).map(([location, count]) => `
                     <button class="secondary-filter-btn" data-filter-type="location" data-filter-value="${location}">
-                        ${CATEGORY_LABELS[location] || location} (${count})
+                        ${location} (${count})
                     </button>
                 `).join('');
                 locationSection.style.display = 'block';
@@ -1996,7 +1889,7 @@
             // Apply subject filters
             if (activeAdminFilters.subject.length > 0) {
                 filteredArtworks = filteredArtworks.filter(artwork => {
-                    const categories = artwork.categories || getAutoCategories(artwork.title || '').subjects;
+                    const categories = artwork.categories || [];
                     return activeAdminFilters.subject.some(filter => categories.includes(filter));
                 });
             }
@@ -2004,7 +1897,7 @@
             // Apply location filters  
             if (activeAdminFilters.location.length > 0) {
                 filteredArtworks = filteredArtworks.filter(artwork => {
-                    const categories = artwork.categories || getAutoCategories(artwork.title || '').locations;
+                    const categories = artwork.categories || [];
                     return activeAdminFilters.location.some(filter => categories.includes(filter));
                 });
             }
@@ -2093,14 +1986,14 @@
                 // Apply the same filtering logic as applyAdminFilters but without updating UI
                 if (activeAdminFilters.subject.length > 0) {
                     searchBase = searchBase.filter(artwork => {
-                        const categories = artwork.categories || getAutoCategories(artwork.title || '').subjects;
+                        const categories = artwork.categories || [];
                         return activeAdminFilters.subject.some(filter => categories.includes(filter));
                     });
                 }
                 
                 if (activeAdminFilters.location.length > 0) {
                     searchBase = searchBase.filter(artwork => {
-                        const categories = artwork.categories || getAutoCategories(artwork.title || '').locations;
+                        const categories = artwork.categories || [];
                         return activeAdminFilters.location.some(filter => categories.includes(filter));
                     });
                 }
@@ -2141,16 +2034,24 @@
             console.log(`🔍 Search "${query}": ${searchResults.length} results from ${searchBase.length} filtered artworks`);
         }
 
+        // Add keyboard support for Enter key
+        function setupCategoryInput() {
+            const input = document.getElementById('artworkSubcategory');
+            if (input) {
+                input.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault(); // Prevent form submission
+                        addManualCategory();
+                    }
+                });
+            }
+        }
+
         // Form submission
         document.addEventListener('DOMContentLoaded', function() {
             loadArtworks();
             setupImageUpload();
-            setupCategoryInput(); // ADD THIS LINE
-
-            const titleInput = document.getElementById('artworkTitle');
-            if (titleInput) {
-                titleInput.addEventListener('input', updateCategoryPreview);
-            }
+            setupCategoryInput();
 
             // Check GitHub connection on startup
             setTimeout(checkGitHubConnection, 1000);
@@ -2158,126 +2059,57 @@
             // Re-check connection every 30 seconds
             setInterval(checkGitHubConnection, 30000);
 
-            // Form handler - NOW SAVES DRAFT LOCALLY
+            // Form handler - SAVES DRAFT LOCALLY
             document.getElementById('artworkForm').addEventListener('submit', function(e) {
                 e.preventDefault();
                 
                 if (!checkEditingPermission()) return;
                 
-                const title = document.getElementById('artworkTitle').value.trim();
-                const year = document.getElementById('artworkYear').value.trim();
-                const height = document.getElementById('artworkHeight').value.trim();
-                const width = document.getElementById('artworkWidth').value.trim();
-
-                if (!title || !year || !height || !width) {
-                    showMessage('標題、年份、高度和寬度為必填欄位！', 'error');
-                    return;
-                }
-                
                 const artworkId = currentEditingId || generateSequentialId();
                 
-                // Update uploaded image key if it was stored as 'pending'
-                if (uploadedImages['pending']) {
-                    uploadedImages[artworkId] = uploadedImages['pending'];
-                    delete uploadedImages['pending'];
-                }
-                
-                // Get existing artwork data if editing
-                let existingImagePath = '';
-                let existingImageHighPath = '';
-                if (currentEditingId) {
-                    const existingArtwork = allArtworks.find(a => a.id === currentEditingId);
-                    if (existingArtwork) {
-                        // Check if image was cleared
-                        if (uploadedImages[currentEditingId] && uploadedImages[currentEditingId].cleared) {
-                            existingImagePath = '';
-                            existingImageHighPath = '';
-                        } else {
-                            existingImagePath = existingArtwork.image || '';
-                            existingImageHighPath = existingArtwork.imageHigh || '';
+                try {
+                    // Use the clean form data collection
+                    const formData = collectArtworkFormData(artworkId);
+                    
+                    // Handle image paths for existing artwork
+                    if (currentEditingId) {
+                        const existingArtwork = allArtworks.find(a => a.id === currentEditingId);
+                        if (existingArtwork) {
+                            // Check if image was cleared
+                            if (uploadedImages[currentEditingId] && uploadedImages[currentEditingId].cleared) {
+                                formData.image = '';
+                                formData.imageHigh = '';
+                            } else if (!uploadedImages[artworkId] || !uploadedImages[artworkId].file) {
+                                // No new image, keep existing paths
+                                formData.image = existingArtwork.image || '';
+                                formData.imageHigh = existingArtwork.imageHigh || '';
+                            }
                         }
                     }
-                }
-                
-                // AUTO-CATEGORIZATION: Get categories from title
-                const autoCategories = getAutoCategories(title);
-                const allCategories = [...autoCategories.subjects, ...autoCategories.locations];
-
-                // Add manual categories from the array
-                manualCategories.forEach(manualCategory => {
-                    if (!allCategories.includes(manualCategory)) {
-                        allCategories.push(manualCategory);
+                    
+                    // Check for uploaded image paths
+                    if (uploadedImages[artworkId] && uploadedImages[artworkId].githubUpload) {
+                        formData.image = uploadedImages[artworkId].githubUpload.artworkData.image;
+                        formData.imageHigh = uploadedImages[artworkId].githubUpload.artworkData.imageHigh;
                     }
-                });
-
-                const heightNum = parseFloat(height);
-                const widthNum = parseFloat(width);
-
-                const formData = {
-                    id: artworkId,
-                    title: title,
-                    titleEn: '', // 英文版本之後翻譯
-                    category: 'paintings',
-                    subcategory: manualCategories.join(', '), // Keep for backward compatibility
-                    manualCategories: manualCategories, // NEW: Store manual categories separately
-                    categories: allCategories, // NEW: Auto + manual categories
-                    autoCategories: autoCategories, // NEW: Keep breakdown for reference
-                    image: existingImagePath, // 保留原有圖片路徑
-                    imageHigh: existingImageHighPath, // 保留原有大圖路徑
-                    description: document.getElementById('artworkDescription').value.trim(),
-                    descriptionEn: '', // 英文版本之後翻譯
-                    curatorNote: document.getElementById('artworkCuratorNote').value.trim(),
-                    curatorNoteEn: '', // 英文版本之後翻譯
-                    format: document.getElementById('artworkFormat').value,
-                    formatEn: '', // 英文版本之後翻譯
-                    mediumEn: '', // 媒材英文版本之後翻譯
-                    // NEW: Separate dimension fields
-                    heightCm: heightNum,
-                    widthCm: widthNum,
-                    heightInches: parseFloat((heightNum / 2.54).toFixed(1)),
-                    widthInches: parseFloat((widthNum / 2.54).toFixed(1)),
-                    // LEGACY: For backward compatibility
-                    sizeCm: `${heightNum}×${widthNum}`,
-                    sizeInches: `${(heightNum / 2.54).toFixed(1)}×${(widthNum / 2.54).toFixed(1)}`,
-                    year: year,
-                    price: document.getElementById('artworkPrice').value.trim(),
-                    available: document.getElementById('artworkAvailable').checked,
-                    featured: document.getElementById('artworkFeatured').checked,
-                    recent: parseInt(year) >= 2020,
-                    exhibitions: [],
-                    tags: []
-                };
-                                
-                // 🔴 關鍵修正：檢查是否有已上傳的圖片路徑
-                if (uploadedImages[artworkId] && uploadedImages[artworkId].githubUpload) {
-                    formData.image = uploadedImages[artworkId].githubUpload.artworkData.image;
-                    formData.imageHigh = uploadedImages[artworkId].githubUpload.artworkData.imageHigh;
-                    console.log('使用已上傳的圖片路徑:', formData.image, formData.imageHigh);
+                    
+                    // Save as local draft
+                    const draftId = currentEditingId || 'new';
+                    localDrafts[draftId] = formData;
+                    
+                    // Update UI
+                    const publishBtn = document.getElementById('publishBtn');
+                    const saveStatus = document.getElementById('saveStatus');
+                    
+                    publishBtn.disabled = false;
+                    saveStatus.innerHTML = '⚠️ 草稿已儲存在本地 - 瀏覽器關閉將會遺失';
+                    
+                    showMessage(`草稿已儲存！包含 ${formData.categories.length} 個分類標籤。點擊「發布」使其生效。`, 'success');
+                    
+                } catch (error) {
+                    showMessage(error.message, 'error');
                 }
-                
-                // Save as local draft
-                const draftId = currentEditingId || 'new';
-                localDrafts[draftId] = formData;
-                
-                console.log('草稿已保存:', draftId, formData);
-                
-                // Update UI
-                const publishBtn = document.getElementById('publishBtn');
-                const saveStatus = document.getElementById('saveStatus');
-                
-                publishBtn.disabled = false;
-                saveStatus.innerHTML = '⚠️ 草稿已儲存在本地 - 瀏覽器關閉將會遺失';
-                
-                showMessage(`草稿已儲存！包含 ${allCategories.length} 個分類標籤。點擊「發布」使其生效。`, 'success');            });
-            // Modal close on outside click
-            window.onclick = function(event) {
-                const modal = document.getElementById('artworkModal');
-                if (event.target === modal) {
-                    closeModal();
-                }
-            }
-            // NEW: Add title change listener for auto-categorization preview
-            document.getElementById('artworkTitle').addEventListener('input', updateCategoryPreview);
+            });
 
             // Modal close on outside click
             window.onclick = function(event) {
@@ -2288,7 +2120,7 @@
             }
         });
 
-        // Make functions globally available for integration - CRITICAL: Use safe functions
+        // Make functions globally available for integration
         window.artworks = getMasterArtworksArray; // Return function, not array
         window.renderArtworks = renderArtworks;
         window.updateStats = updateStats;
@@ -2297,9 +2129,7 @@
         window.undoDelete = undoDelete;
         window.clearImage = clearImage;
         window.manualCategories = window.manualCategories || [];
-        window.autoCategories = window.autoCategories || { subjects: [], locations: [] };
-        window.testLabelSystem = testLabelSystem;
-
+        
         console.log('✅ 管理介面載入成功！');
     </script>
 </body>

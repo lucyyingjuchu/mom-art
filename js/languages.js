@@ -76,6 +76,21 @@ const LANGUAGE_DATA = {
             "2010s": "2010s", 
             earlier: "Earlier"
         },
+
+        // In the 'en' section, add to filters:
+        filters: {
+            bySubject: "By Subject",
+            byLocation: "By Location",
+            byAvailability: "By Availability", // NEW  
+            clearAll: "Clear All Filters",
+            searchPlaceholder: "Search artworks, descriptions...",
+            showingAll: "Showing all {total} artworks",
+            showingFiltered: "Showing {count} / {total} artworks ({filters} filters)",
+            showingResults: "Found {count} / {total} artworks", 
+            searchResults: "Found {count} results for \"{query}\"", // NEW
+            searchWithFilters: "Found {count} results for \"{query}\" ({filters} filters applied)", // NEW
+            uncategorized: "Uncategorized"
+        },
         
         // About page
         about: {
@@ -352,14 +367,17 @@ const LANGUAGE_DATA = {
         
         // Gallery filters
         filters: {
-            bySubject: "題材",
-            byLocation: "地點", 
-            byYear: "年代",
+            bySubject: "題材分類",
+            byLocation: "地點分類", 
+            byAvailability: "販售狀態", // NEW
             clearAll: "清除所有篩選",
-            searchPlaceholder: "搜尋作品...",
-            showingResults: "顯示 {count} 件，共 {total} 件作品",
-            showingFiltered: "顯示 {count} 件，共 {total} 件作品（{filters} 個篩選條件）",
-            showingAll: "顯示全部 {total} 件作品"
+            searchPlaceholder: "搜尋作品標題、描述...",
+            showingAll: "顯示全部 {total} 件作品",
+            showingFiltered: "顯示 {count} / {total} 件作品 ({filters} 個篩選條件)",
+            showingResults: "找到 {count} / {total} 件作品",
+            searchResults: "搜尋 \"{query}\" 找到 {count} 件作品", // NEW
+            searchWithFilters: "搜尋 \"{query}\" 找到 {count} 件作品 ({filters} 個篩選條件)", // NEW
+            uncategorized: "未分類"
         },
         
         // Subject labels
@@ -371,7 +389,8 @@ const LANGUAGE_DATA = {
             calligraphy: "書法",
             flowingclouds: "煙雲",
             abstract: "抽象",
-            traditional: "未分類"  // Change this
+            traditional: "傳統",
+            uncategorized: "未分類"  // ADD THIS LINE
         },
         
         // Location labels
@@ -397,6 +416,19 @@ const LANGUAGE_DATA = {
             earlier: "更早期"
         },
         
+
+        // ZH filters section, add:
+        filters: {
+            bySubject: "題材",
+            byLocation: "地點", 
+            byYear: "年代",
+            clearAll: "清除所有篩選",
+            searchPlaceholder: "搜尋作品...",
+            showingResults: "顯示 {count} 件，共 {total} 件作品",
+            showingFiltered: "顯示 {count} 件，共 {total} 件作品（{filters} 個篩選條件）",
+            showingAll: "顯示全部 {total} 件作品",
+            uncategorized: "未分類"  // ADD THIS LINE
+        },
         // About page
         about: {
             mainTitle: "藝術家袁之靜（號曉然）｜書畫創作與教育者",
