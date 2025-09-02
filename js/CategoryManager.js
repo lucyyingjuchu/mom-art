@@ -462,12 +462,14 @@ window.CategoryManager = CategoryManager;
 // CRITICAL FIX: Create global instance with better error handling
 console.log('🔧 Creating CategoryManager instance...');
 try {
-    const categoryManager = new CategoryManager();
-    console.log('✅ CategoryManager instance created');
-    
-    // Make sure it's globally available
-    window.categoryManager = categoryManager;
-    console.log('✅ CategoryManager assigned to window');
+    if (!window.categoryManager) {
+        const categoryManager = new CategoryManager();
+        console.log('✅ CategoryManager instance created');
+        
+        // Make sure it's globally available
+        window.categoryManager = categoryManager;
+        console.log('✅ CategoryManager assigned to window');
+    }
 } catch (error) {
     console.error('❌ Failed to create CategoryManager:', error);
 }
