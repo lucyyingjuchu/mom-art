@@ -1,6 +1,9 @@
 // Content Management System for Chinese Art Portfolio - UPDATED WITH CATEGORY MANAGER
 // Now uses centralized category configuration instead of hardcoded lists
 
+// Content Management System for Chinese Art Portfolio - UPDATED WITH CATEGORY MANAGER
+// Now uses centralized category configuration instead of hardcoded lists
+
 class ChineseArtPortfolio {
     constructor() {
         this.artworks = [];
@@ -18,14 +21,51 @@ class ChineseArtPortfolio {
         this.initializeAsync();
     }
 
-    // Initialize with async category loading
+    // FIXED: Initialize with proper async category loading and error handling
     async initializeAsync() {
-        // Load category configuration first
-        await categoryManager.loadConfig();
-        console.log('✅ Category manager initialized');
+        try {
+            // Wait for CategoryManager to be available
+            await this.waitForCategoryManager();
+            
+            // Load category configuration first
+            await categoryManager.loadConfig();
+            console.log('✅ Category manager initialized');
+            
+            // Then load artworks
+            await this.loadArtworks();
+        } catch (error) {
+            console.error('❌ Failed to initialize portfolio:', error);
+            // Fallback initialization without CategoryManager
+            this.initializeFallback();
+        }
+    }
+
+    // NEW: Wait for CategoryManager to be available
+    async waitForCategoryManager(maxAttempts = 50) {
+        for (let i = 0; i < maxAttempts; i++) {
+            if (typeof categoryManager !== 'undefined') {
+                console.log('✅ CategoryManager found after', i, 'attempts');
+                return true;
+            }
+            await new Promise(resolve => setTimeout(resolve, 100)); // Wait 100ms
+        }
+        throw new Error('CategoryManager not available after 5 seconds');
+    }
+
+    // NEW: Fallback initialization if CategoryManager fails
+    initializeFallback() {
+        console.warn('⚠️ Running in fallback mode without CategoryManager');
         
-        // Then load artworks
-        await this.loadArtworks();
+        // Create a minimal category manager fallback
+        window.categoryManager = {
+            loaded: true,
+            calculateStats: () => ({ subjects: {}, locations: {}, availability: { available: 0, sold: 0, unknown: 0 } }),
+            getCategoryLabel: (key) => key,
+            generateFilterHTML: () => '<div>Filters temporarily unavailable</div>',
+            artworkMatchesFilters: () => true
+        };
+        
+        this.loadArtworks();
     }
 
     // Get localized text from language dictionary
