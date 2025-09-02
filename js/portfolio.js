@@ -191,12 +191,33 @@ class ChineseArtPortfolio {
                 
                 switch(filterType) {
                     case 'subject':
-                    case 'location':
-                        // Use existing categories from JSON
-                        const categories = artwork.categories || [];
-                        matches = filterValues.some(value => categories.includes(value));
+                        // First try autoCategories.subjects
+                        if (artwork.autoCategories?.subjects) {
+                            matches = filterValues.some(value => 
+                                artwork.autoCategories.subjects.includes(value)
+                            );
+                        }
+                        // Fallback: check flat categories array
+                        if (!matches) {
+                            const categories = artwork.categories || [];
+                            matches = filterValues.some(value => categories.includes(value));
+                        }
                         break;
                         
+                    case 'location':
+                        // First try autoCategories.locations
+                        if (artwork.autoCategories?.locations) {
+                            matches = filterValues.some(value => 
+                                artwork.autoCategories.locations.includes(value)
+                            );
+                        }
+                        // Fallback: check flat categories array
+                        if (!matches) {
+                            const categories = artwork.categories || [];
+                            matches = filterValues.some(value => categories.includes(value));
+                        }
+                        break;
+                            
                     case 'availability':
                         matches = filterValues.some(value => {
                             const available = this.getBooleanValue(artwork, 'available', true);
@@ -235,29 +256,62 @@ class ChineseArtPortfolio {
             availability: { available: 0, sold: 0 }
         };
         
+        // Define which categories are subjects vs locations
+        const SUBJECT_CATEGORIES = [
+            'waterfall', 'landscape', 'flowingclouds', 'flowers', 'bamboo', 
+            'calligraphy', 'abstract', 'traditional'
+        ];
+        
+        const LOCATION_CATEGORIES = [
+            'huangshan', 'alishan', 'taroko', 'hehuanshan', 'yushan', 
+            'liushidanshan', 'guishandao', 'longdong', 'zhangjiajie', 
+            'grandcanyon', 'iguazu', 'niagara'
+        ];
+        
         let uncategorizedCount = 0;
 
         artworks.forEach(artwork => {
-            const categories = artwork.categories || [];
-            let hasAnyCategory = false;
+            let hasSubjects = false;
+            let hasLocations = false;
             
-            // Count categories based on content patterns (simple heuristics)
-            categories.forEach(category => {
-                hasAnyCategory = true;
-                
-                // Simple heuristic to separate subjects from locations
-                if (category.includes('山') && category.length <= 4) {
-                    // Short names with 山 are likely locations (黃山, 玉山)
-                    stats.locations[category] = (stats.locations[category] || 0) + 1;
-                } else if (category.includes('峽谷') || category.includes('瀑布') || 
-                          category.includes('島') || category.includes('洞')) {
-                    // Geographic features are locations
-                    stats.locations[category] = (stats.locations[category] || 0) + 1;
-                } else {
-                    // Everything else is subject matter
-                    stats.subjects[category] = (stats.subjects[category] || 0) + 1;
+            // Method 1: Use autoCategories if available (preferred)
+            if (artwork.autoCategories) {
+                if (artwork.autoCategories.subjects) {
+                    artwork.autoCategories.subjects.forEach(subject => {
+                        stats.subjects[subject] = (stats.subjects[subject] || 0) + 1;
+                        hasSubjects = true;
+                    });
                 }
-            });
+                if (artwork.autoCategories.locations) {
+                    artwork.autoCategories.locations.forEach(location => {
+                        stats.locations[location] = (stats.locations[location] || 0) + 1;
+                        hasLocations = true;
+                    });
+                }
+            }
+            
+            // Method 2: Fallback to manual categorization from flat categories array
+            if (!hasSubjects || !hasLocations) {
+                const categories = artwork.categories || [];
+                
+                categories.forEach(category => {
+                    if (SUBJECT_CATEGORIES.includes(category)) {
+                        if (!hasSubjects || !artwork.autoCategories?.subjects?.includes(category)) {
+                            stats.subjects[category] = (stats.subjects[category] || 0) + 1;
+                            hasSubjects = true;
+                        }
+                    } else if (LOCATION_CATEGORIES.includes(category)) {
+                        if (!hasLocations || !artwork.autoCategories?.locations?.includes(category)) {
+                            stats.locations[category] = (stats.locations[category] || 0) + 1;
+                            hasLocations = true;
+                        }
+                    } else {
+                        // Unknown category - treat as subject
+                        stats.subjects[category] = (stats.subjects[category] || 0) + 1;
+                        hasSubjects = true;
+                    }
+                });
+            }
             
             // Count availability
             const available = this.getBooleanValue(artwork, 'available', true);
@@ -267,8 +321,8 @@ class ChineseArtPortfolio {
                 stats.availability.sold++;
             }
             
-            // Count uncategorized
-            if (!hasAnyCategory) {
+            // Count uncategorized (no subjects)
+            if (!hasSubjects) {
                 uncategorizedCount++;
             }
         });
@@ -278,7 +332,12 @@ class ChineseArtPortfolio {
             stats.subjects['uncategorized'] = uncategorizedCount;
         }
 
-        console.log('📊 Filter stats generated:', stats);
+        console.log('Separated filter stats:', {
+            subjects: Object.keys(stats.subjects).length,
+            locations: Object.keys(stats.locations).length,
+            availability: stats.availability
+        });
+        
         return stats;
     }
 
@@ -587,7 +646,8 @@ class ChineseArtPortfolio {
         return `
             <div class="filter-container">
                 <div class="filter-menu">
-                    <!-- Multi-Select Subject Filters -->
+                    <!-- PROPERLY SEPARATED: Subject Filters -->
+                    ${Object.keys(stats.subjects).length > 0 ? `
                     <div class="filter-section">
                         <h4>${this.t('filters.bySubject')}</h4>
                         <div class="secondary-filters">
@@ -595,13 +655,14 @@ class ChineseArtPortfolio {
                                 <button class="filter-btn" 
                                         data-filter-type="subject" 
                                         data-filter-value="${subject}">
-                                    ${this.getSubjectLabelWithUncategorized(subject)} (${count})
+                                    ${this.getSubjectLabel(subject)} (${count})
                                 </button>
                             `).join('')}
                         </div>
                     </div>
+                    ` : ''}
 
-                    <!-- Multi-Select Location Filters -->
+                    <!-- PROPERLY SEPARATED: Location Filters -->
                     ${Object.keys(stats.locations).length > 0 ? `
                     <div class="filter-section">
                         <h4>${this.t('filters.byLocation')}</h4>
@@ -610,14 +671,14 @@ class ChineseArtPortfolio {
                                 <button class="filter-btn" 
                                         data-filter-type="location" 
                                         data-filter-value="${location}">
-                                    ${location} (${count})
+                                    ${this.getLocationLabel(location)} (${count})
                                 </button>
                             `).join('')}
                         </div>
                     </div>
                     ` : ''}
 
-                    <!-- NEW: Availability Filter for Customers -->
+                    <!-- Availability Filter -->
                     <div class="filter-section">
                         <h4>${this.t('filters.byAvailability')}</h4>
                         <div class="secondary-filters">
@@ -639,7 +700,7 @@ class ChineseArtPortfolio {
                         </div>
                     </div>
 
-                    <!-- FIXED: Search and Sort -->
+                    <!-- Search and Sort -->
                     <div class="search-sort-container">
                         <div class="search-box">
                             <span class="search-icon">🔍</span>
@@ -656,7 +717,58 @@ class ChineseArtPortfolio {
             </div>
         `;
     }
+    // ADD these new helper methods to the class
+    getSubjectLabel(subject) {
+        // Use translations if available
+        const translated = this.t(`subjects.${subject}`);
+        if (translated !== `subjects.${subject}`) {
+            return translated;
+        }
+        
+        // Fallback to manual mapping for common subjects
+        const subjectLabels = {
+            'waterfall': this.currentLanguage === 'zh' ? '瀑布' : 'Waterfalls',
+            'landscape': this.currentLanguage === 'zh' ? '山水' : 'Landscape',
+            'flowers': this.currentLanguage === 'zh' ? '花鳥' : 'Flowers & Birds',
+            'bamboo': this.currentLanguage === 'zh' ? '墨竹' : 'Bamboo',
+            'calligraphy': this.currentLanguage === 'zh' ? '書法' : 'Calligraphy',
+            'flowingclouds': this.currentLanguage === 'zh' ? '煙雲' : 'Flowing Clouds',
+            'uncategorized': this.currentLanguage === 'zh' ? '未分類' : 'Uncategorized'
+        };
+        
+        return subjectLabels[subject] || subject;
+    }
 
+    getLocationLabel(location) {
+        // Use translations if available
+        const translated = this.t(`locations.${location}`);
+        if (translated !== `locations.${location}`) {
+            return translated;
+        }
+        
+        // Fallback to manual mapping for common locations
+        const locationLabels = {
+            'huangshan': this.currentLanguage === 'zh' ? '黃山' : 'HuangShan',
+            'alishan': this.currentLanguage === 'zh' ? '阿里山' : 'AliShan',
+            'taroko': this.currentLanguage === 'zh' ? '太魯閣' : 'Taroko',
+            'hehuanshan': this.currentLanguage === 'zh' ? '合歡山' : 'Mt. HeHuan',
+            'yushan': this.currentLanguage === 'zh' ? '玉山' : 'Mt. Jade',
+            'liushidanshan': this.currentLanguage === 'zh' ? '六十石山' : 'Mt. Sixty Stone',
+            'guishandao': this.currentLanguage === 'zh' ? '龜山島' : 'GuiShan Island',
+            'longdong': this.currentLanguage === 'zh' ? '龍洞' : 'Dragon Cave',
+            'zhangjiajie': this.currentLanguage === 'zh' ? '張家界' : 'Zhangjiajie',
+            'grandcanyon': this.currentLanguage === 'zh' ? '大峽谷' : 'Grand Canyon',
+            'iguazu': this.currentLanguage === 'zh' ? '伊瓜蘇' : 'Iguazu Falls',
+            'niagara': this.currentLanguage === 'zh' ? '尼加拉' : 'Niagara Falls'
+        };
+        
+        return locationLabels[location] || location;
+    }
+
+    // UPDATE the existing getSubjectLabelWithUncategorized method
+    getSubjectLabelWithUncategorized(subject) {
+        return this.getSubjectLabel(subject);
+    }
     // Helper method for subject labels including uncategorized
     getSubjectLabelWithUncategorized(subject) {
         if (subject === 'uncategorized') {

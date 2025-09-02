@@ -1779,7 +1779,41 @@
                 }
             }
         }
+        // FIXED: Helper functions for proper labels
+        function getSubjectLabel(subject) {
+            const subjectLabels = {
+                'waterfall': '瀑布',
+                'landscape': '山水',
+                'flowers': '花鳥',
+                'bamboo': '墨竹',
+                'calligraphy': '書法',
+                'flowingclouds': '煙雲',
+                'abstract': '抽象',
+                'traditional': '傳統',
+                'uncategorized': '未分類'
+            };
+            
+            return subjectLabels[subject] || subject;
+        }
 
+        function getLocationLabel(location) {
+            const locationLabels = {
+                'huangshan': '黃山',
+                'alishan': '阿里山',
+                'taroko': '太魯閣',
+                'hehuanshan': '合歡山',
+                'yushan': '玉山',
+                'liushidanshan': '六十石山',
+                'guishandao': '龜山島',
+                'longdong': '龍洞',
+                'zhangjiajie': '張家界',
+                'grandcanyon': '大峽谷',
+                'iguazu': '伊瓜蘇',
+                'niagara': '尼加拉'
+            };
+            
+            return locationLabels[location] || location;
+        }
         // ADMIN FILTERING FUNCTIONS (CLEANED - no auto-categorization)
         function generateAdminFilters() {
             if (!allArtworks.length) return;
@@ -1790,25 +1824,61 @@
                 availability: { available: 0, sold: 0, unknown: 0 }
             };
 
-            // Calculate statistics from existing categories only
-            allArtworks.forEach(artwork => {
-                // Use existing categories from JSON (no auto-categorization)
-                const categories = artwork.categories || [];
+            // Define which categories are subjects vs locations
+            const SUBJECT_CATEGORIES = [
+                'waterfall', 'landscape', 'flowingclouds', 'flowers', 'bamboo', 
+                'calligraphy', 'abstract', 'traditional'
+            ];
+            
+            const LOCATION_CATEGORIES = [
+                'huangshan', 'alishan', 'taroko', 'hehuanshan', 'yushan', 
+                'liushidanshan', 'guishandao', 'longdong', 'zhangjiajie', 
+                'grandcanyon', 'iguazu', 'niagara'
+            ];
 
-                categories.forEach(cat => {
-                    // Simple categorization based on common patterns
-                    if (cat.includes('山') || cat.includes('水') || cat.includes('landscape') || 
-                        cat.includes('花') || cat.includes('竹') || cat.includes('書法') || 
-                        cat.includes('瀑布') || cat.includes('雲')) {
-                        stats.subjects[cat] = (stats.subjects[cat] || 0) + 1;
-                    } else if (cat.includes('山') && (cat.length <= 4)) {
-                        // Likely a location if it's short and contains 山
-                        stats.locations[cat] = (stats.locations[cat] || 0) + 1;
-                    } else {
-                        // Default to subject
-                        stats.subjects[cat] = (stats.subjects[cat] || 0) + 1;
+            // Calculate statistics with proper separation
+            allArtworks.forEach(artwork => {
+                let hasSubjects = false;
+                let hasLocations = false;
+                
+                // Method 1: Use autoCategories if available (preferred)
+                if (artwork.autoCategories) {
+                    if (artwork.autoCategories.subjects) {
+                        artwork.autoCategories.subjects.forEach(subject => {
+                            stats.subjects[subject] = (stats.subjects[subject] || 0) + 1;
+                            hasSubjects = true;
+                        });
                     }
-                });
+                    if (artwork.autoCategories.locations) {
+                        artwork.autoCategories.locations.forEach(location => {
+                            stats.locations[location] = (stats.locations[location] || 0) + 1;
+                            hasLocations = true;
+                        });
+                    }
+                }
+                
+                // Method 2: Fallback to manual categorization from flat categories array
+                if (!hasSubjects || !hasLocations) {
+                    const categories = artwork.categories || [];
+                    
+                    categories.forEach(category => {
+                        if (SUBJECT_CATEGORIES.includes(category)) {
+                            if (!hasSubjects || !artwork.autoCategories?.subjects?.includes(category)) {
+                                stats.subjects[category] = (stats.subjects[category] || 0) + 1;
+                                hasSubjects = true;
+                            }
+                        } else if (LOCATION_CATEGORIES.includes(category)) {
+                            if (!hasLocations || !artwork.autoCategories?.locations?.includes(category)) {
+                                stats.locations[category] = (stats.locations[category] || 0) + 1;
+                                hasLocations = true;
+                            }
+                        } else {
+                            // Unknown category - treat as subject
+                            stats.subjects[category] = (stats.subjects[category] || 0) + 1;
+                            hasSubjects = true;
+                        }
+                    });
+                }
 
                 // Availability stats
                 const available = artwork.available;
@@ -1826,7 +1896,7 @@
             if (subjectFilters) {
                 subjectFilters.innerHTML = Object.entries(stats.subjects).map(([subject, count]) => `
                     <button class="secondary-filter-btn" data-filter-type="subject" data-filter-value="${subject}">
-                        ${subject} (${count})
+                        ${getSubjectLabel(subject)} (${count})
                     </button>
                 `).join('');
             }
@@ -1837,10 +1907,12 @@
             if (locationFilters && Object.keys(stats.locations).length > 0) {
                 locationFilters.innerHTML = Object.entries(stats.locations).map(([location, count]) => `
                     <button class="secondary-filter-btn" data-filter-type="location" data-filter-value="${location}">
-                        ${location} (${count})
+                        ${getLocationLabel(location)} (${count})
                     </button>
                 `).join('');
                 locationSection.style.display = 'block';
+            } else if (locationSection) {
+                locationSection.style.display = 'none';
             }
 
             // Update availability filter counts
@@ -1883,12 +1955,21 @@
             updateAdminFilterUI();
         }
 
+        // FIXED: Apply admin filters with proper subject/location separation
         function applyAdminFilters() {
             let filteredArtworks = [...allArtworks]; // CRITICAL: Always start from master array
 
             // Apply subject filters
             if (activeAdminFilters.subject.length > 0) {
                 filteredArtworks = filteredArtworks.filter(artwork => {
+                    // First try autoCategories.subjects
+                    if (artwork.autoCategories?.subjects) {
+                        if (activeAdminFilters.subject.some(filter => artwork.autoCategories.subjects.includes(filter))) {
+                            return true;
+                        }
+                    }
+                    
+                    // Fallback: check flat categories array
                     const categories = artwork.categories || [];
                     return activeAdminFilters.subject.some(filter => categories.includes(filter));
                 });
@@ -1897,6 +1978,14 @@
             // Apply location filters  
             if (activeAdminFilters.location.length > 0) {
                 filteredArtworks = filteredArtworks.filter(artwork => {
+                    // First try autoCategories.locations
+                    if (artwork.autoCategories?.locations) {
+                        if (activeAdminFilters.location.some(filter => artwork.autoCategories.locations.includes(filter))) {
+                            return true;
+                        }
+                    }
+                    
+                    // Fallback: check flat categories array
                     const categories = artwork.categories || [];
                     return activeAdminFilters.location.some(filter => categories.includes(filter));
                 });
@@ -1934,8 +2023,9 @@
 
             // Update results info
             const activeFilterCount = Object.values(activeAdminFilters).flat().length;
-            console.log(`🔍 Applied ${activeFilterCount} filters, showing ${artworks.length}/${allArtworks.length} artworks`);
+            console.log(`Applied ${activeFilterCount} filters, showing ${artworks.length}/${allArtworks.length} artworks`);
         }
+
 
         function updateAdminFilterUI() {
             document.querySelectorAll('.secondary-filter-btn, .filter-btn[data-filter-type]').forEach(btn => {
@@ -1969,6 +2059,7 @@
             showMessage('已清除所有篩選條件', 'info');
         }
 
+        // FIXED: Search with proper subject/location separation
         function performSearch() {
             const query = document.getElementById('searchInput').value.toLowerCase().trim();
             
@@ -1980,12 +2071,18 @@
             // CRITICAL: Start from master array, then apply filters
             let searchBase = [...allArtworks];
             
-            // Apply existing filters first
+            // Apply existing filters first with proper separation
             const hasActiveFilters = Object.values(activeAdminFilters).some(arr => arr.length > 0);
             if (hasActiveFilters) {
-                // Apply the same filtering logic as applyAdminFilters but without updating UI
                 if (activeAdminFilters.subject.length > 0) {
                     searchBase = searchBase.filter(artwork => {
+                        // Check autoCategories.subjects first
+                        if (artwork.autoCategories?.subjects) {
+                            if (activeAdminFilters.subject.some(filter => artwork.autoCategories.subjects.includes(filter))) {
+                                return true;
+                            }
+                        }
+                        // Fallback to flat categories
                         const categories = artwork.categories || [];
                         return activeAdminFilters.subject.some(filter => categories.includes(filter));
                     });
@@ -1993,6 +2090,13 @@
                 
                 if (activeAdminFilters.location.length > 0) {
                     searchBase = searchBase.filter(artwork => {
+                        // Check autoCategories.locations first
+                        if (artwork.autoCategories?.locations) {
+                            if (activeAdminFilters.location.some(filter => artwork.autoCategories.locations.includes(filter))) {
+                                return true;
+                            }
+                        }
+                        // Fallback to flat categories
                         const categories = artwork.categories || [];
                         return activeAdminFilters.location.some(filter => categories.includes(filter));
                     });
@@ -2031,7 +2135,7 @@
             renderArtworks();
             updateStats();
             
-            console.log(`🔍 Search "${query}": ${searchResults.length} results from ${searchBase.length} filtered artworks`);
+            console.log(`Search "${query}": ${searchResults.length} results from ${searchBase.length} filtered artworks`);
         }
 
         // Add keyboard support for Enter key
