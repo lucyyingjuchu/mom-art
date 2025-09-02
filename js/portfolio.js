@@ -56,13 +56,46 @@ class ChineseArtPortfolio {
     initializeFallback() {
         console.warn('⚠️ Running in fallback mode without CategoryManager');
         
-        // Create a minimal category manager fallback
+        // Create a complete category manager fallback
         window.categoryManager = {
             loaded: true,
-            calculateStats: () => ({ subjects: {}, locations: {}, availability: { available: 0, sold: 0, unknown: 0 } }),
+            config: {
+                categories: { subjects: [], locations: [] },
+                categoryMapping: { chineseToEnglish: {}, englishToChinese: {} }
+            },
+            calculateStats: (artworks) => {
+                // Simple fallback stats calculation
+                const stats = { subjects: {}, locations: {}, availability: { available: 0, sold: 0, unknown: 0 } };
+                if (Array.isArray(artworks)) {
+                    artworks.forEach(artwork => {
+                        if (artwork.available === true || artwork.available === 'true') stats.availability.available++;
+                        else if (artwork.available === false || artwork.available === 'false') stats.availability.sold++;
+                        else stats.availability.unknown++;
+                    });
+                }
+                return stats;
+            },
             getCategoryLabel: (key) => key,
-            generateFilterHTML: () => '<div>Filters temporarily unavailable</div>',
-            artworkMatchesFilters: () => true
+            generateFilterHTML: () => '<div class="filter-section"><p>分類功能暫時無法使用</p></div>',
+            artworkMatchesFilters: () => true,
+            getArtworkCategories: (artwork) => {
+                // Simple fallback - just return existing categories
+                const categories = [];
+                if (artwork.categories) categories.push(...artwork.categories);
+                if (artwork.manualCategories) categories.push(...artwork.manualCategories);
+                return categories;
+            },
+            separateCategories: (categories) => ({ subjects: categories || [], locations: [], unknown: [] }),
+            getArtworkAvailability: (artwork) => {
+                const available = artwork.available;
+                if (available === true || available === 'true') return 'available';
+                if (available === false || available === 'false') return 'sold';
+                return 'unknown';
+            },
+            artworkMatchesFilters: (artwork, activeFilters) => {
+                // Simple fallback - show all artworks
+                return true;
+            }
         };
         
         this.loadArtworks();
