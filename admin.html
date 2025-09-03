@@ -887,7 +887,6 @@
         }
 
         function displayCategoryTags(autoCategories, manualCategories) {
-            // Get DOM elements
             const autoSubjectTags = document.getElementById('autoSubjectTags');
             const autoLocationTags = document.getElementById('autoLocationTags');
             const noAutoCategories = document.getElementById('noAutoCategories');
@@ -895,84 +894,99 @@
             const manualLocationTags = document.getElementById('manualLocationTags');
             const noManualCategories = document.getElementById('noManualCategories');
             
-            // Helper function to get category label with fallback
             function getCategoryLabel(category) {
                 if (categoryManager && categoryManager.getCategoryLabel) {
                     return categoryManager.getCategoryLabel(category, 'zh');
                 }
-                
-                // Fallback labels
                 const fallbackLabels = {
                     "waterfall": "瀑布", "landscape": "山水", "flowers": "花鳥", 
                     "calligraphy": "書法", "huangshan": "黃山", "alishan": "阿里山"
                 };
-                
                 return fallbackLabels[category] || category;
             }
             
-            // Display auto subjects
+            // Auto categories - 分成題材和地點兩個區塊
+            let autoSubjectsHtml = '';
+            let autoLocationsHtml = '';
+            
             if (autoCategories.subjects && autoCategories.subjects.length > 0) {
-                autoSubjectTags.innerHTML = autoCategories.subjects.map(subject => `
-                    <span class="category-tag">
-                        📂 ${getCategoryLabel(subject)}
-                        <button type="button" onclick="removeAutoCategory('subjects', '${subject}')">✕</button>
-                    </span>
-                `).join('');
-            } else {
-                autoSubjectTags.innerHTML = '';
+                autoSubjectsHtml = `
+                    <div style="margin-bottom: 0.5rem;">
+                        <strong style="font-size: 0.8rem; color: #495057;">題材分類：</strong><br>
+                        ${autoCategories.subjects.map(subject => `
+                            <span class="category-tag">
+                                📂 ${getCategoryLabel(subject)}
+                                <button type="button" onclick="removeAutoCategory('subjects', '${subject}')">✕</button>
+                            </span>
+                        `).join('')}
+                    </div>
+                `;
             }
             
-            // Display auto locations
             if (autoCategories.locations && autoCategories.locations.length > 0) {
-                autoLocationTags.innerHTML = autoCategories.locations.map(location => `
-                    <span class="category-tag location">
-                        🗺️ ${getCategoryLabel(location)}
-                        <button type="button" onclick="removeAutoCategory('locations', '${location}')">✕</button>
-                    </span>
-                `).join('');
-            } else {
-                autoLocationTags.innerHTML = '';
+                autoLocationsHtml = `
+                    <div style="margin-bottom: 0.5rem;">
+                        <strong style="font-size: 0.8rem; color: #495057;">地點分類：</strong><br>
+                        ${autoCategories.locations.map(location => `
+                            <span class="category-tag location">
+                                🗺️ ${getCategoryLabel(location)}
+                                <button type="button" onclick="removeAutoCategory('locations', '${location}')">✕</button>
+                            </span>
+                        `).join('')}
+                    </div>
+                `;
             }
             
-            // Show/hide "no auto categories" message
-            const hasAutoCategories = (autoCategories.subjects && autoCategories.subjects.length > 0) || 
-                                    (autoCategories.locations && autoCategories.locations.length > 0);
+            autoSubjectTags.innerHTML = autoSubjectsHtml;
+            autoLocationTags.innerHTML = autoLocationsHtml;
+            
+            // Manual categories - 同樣分成題材和地點
+            let manualSubjectsHtml = '';
+            let manualLocationsHtml = '';
+            
+            if (manualCategories.subjects && manualCategories.subjects.length > 0) {
+                manualSubjectsHtml = `
+                    <div style="margin-bottom: 0.5rem;">
+                        <strong style="font-size: 0.8rem; color: #495057;">題材分類：</strong><br>
+                        ${manualCategories.subjects.map(subject => `
+                            <span class="category-tag manual">
+                                📂 ${getCategoryLabel(subject)}
+                                <button type="button" onclick="removeManualCategory('subjects', '${subject}')">✕</button>
+                            </span>
+                        `).join('')}
+                    </div>
+                `;
+            }
+            
+            if (manualCategories.locations && manualCategories.locations.length > 0) {
+                manualLocationsHtml = `
+                    <div style="margin-bottom: 0.5rem;">
+                        <strong style="font-size: 0.8rem; color: #495057;">地點分類：</strong><br>
+                        ${manualCategories.locations.map(location => `
+                            <span class="category-tag manual location">
+                                🗺️ ${getCategoryLabel(location)}
+                                <button type="button" onclick="removeManualCategory('locations', '${location}')">✕</button>
+                            </span>
+                        `).join('')}
+                    </div>
+                `;
+            }
+            
+            manualSubjectTags.innerHTML = manualSubjectsHtml;
+            manualLocationTags.innerHTML = manualLocationsHtml;
+            
+            // Show/hide empty state messages
+            const hasAutoCategories = autoSubjectsHtml || autoLocationsHtml;
+            const hasManualCategories = manualSubjectsHtml || manualLocationsHtml;
+            
             if (noAutoCategories) {
                 noAutoCategories.style.display = hasAutoCategories ? 'none' : 'block';
             }
-            
-            // Display manual subjects
-            if (manualCategories.subjects && manualCategories.subjects.length > 0) {
-                manualSubjectTags.innerHTML = manualCategories.subjects.map(subject => `
-                    <span class="category-tag manual">
-                        📂 ${getCategoryLabel(subject)}
-                        <button type="button" onclick="removeManualCategory('subjects', '${subject}')">✕</button>
-                    </span>
-                `).join('');
-            } else {
-                manualSubjectTags.innerHTML = '';
-            }
-            
-            // Display manual locations
-            if (manualCategories.locations && manualCategories.locations.length > 0) {
-                manualLocationTags.innerHTML = manualCategories.locations.map(location => `
-                    <span class="category-tag manual location">
-                        🗺️ ${getCategoryLabel(location)}
-                        <button type="button" onclick="removeManualCategory('locations', '${location}')">✕</button>
-                    </span>
-                `).join('');
-            } else {
-                manualLocationTags.innerHTML = '';
-            }
-            
-            // Show/hide "no manual categories" message
-            const hasManualCategories = (manualCategories.subjects && manualCategories.subjects.length > 0) || 
-                                      (manualCategories.locations && manualCategories.locations.length > 0);
             if (noManualCategories) {
                 noManualCategories.style.display = hasManualCategories ? 'none' : 'block';
             }
         }
-
+                
         // Remove auto category
         function removeAutoCategory(categoryType, categoryKey) {
             if (!currentArtworkCategories.autoCategories[categoryType]) return;
