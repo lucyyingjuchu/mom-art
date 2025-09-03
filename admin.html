@@ -408,7 +408,7 @@
             }
         }
 
-        /* ADMIN FILTER STYLES - ADD THESE */
+        /* CLEANED UP FILTER STYLES - Now using CategoryManager */
         .filter-container {
             background: white;
             padding: 1.5rem;
@@ -463,14 +463,6 @@
             border-color: #495057;
         }
 
-        #categoryLabels {
-            min-height: 1.2rem;
-            padding: 0.5rem;
-            background: #f8f9fa;
-            border-radius: 8px;
-            border: 1px solid #e9ecef;
-        }
-
         .search-sort-container {
             display: flex;
             justify-content: center;
@@ -495,55 +487,76 @@
             }
         }
 
-        /* Manual category input styling */
-        #artworkSubcategory {
-            border: 1px solid #dee2e6;
-            border-radius: 4px;
-            padding: 0.5rem;
+        /* Category Management Styling - CLEANED UP */
+        .category-section {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .category-section h5 {
+            color: #495057;
+            margin-bottom: 0.5rem;
             font-size: 0.9rem;
         }
 
-        #artworkSubcategory:focus {
-            border-color: #17a2b8;
-            outline: none;
-            box-shadow: 0 0 0 2px rgba(23, 162, 184, 0.25);
+        .category-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
         }
 
-        #manualCategories {
-            padding: 0.5rem;
-            background: #f8f9fa;
-            border-radius: 4px;
-            border: 1px solid #e9ecef;
+        .category-tag {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
         }
 
-        /* Category tag hover effects */
-        #manualCategories span:hover {
-            background: #c3e6cb !important;
+        .category-tag.location {
+            background: #cce5ff;
+            color: #004085;
         }
 
-        #manualCategories button:hover {
-            background: rgba(255, 255, 255, 0.2) !important;
-            border-radius: 50%;
+        .category-tag.manual {
+            background: #d4edda;
+            color: #155724;
         }
 
-        /* Available labels styling */
-        .available-label {
-            display: inline-block;
-            background: #e9ecef;
-            color: #495057;
-            padding: 2px 6px;
-            border-radius: 10px;
-            font-size: 0.75rem;
-            margin: 1px 2px;
+        .category-tag button {
+            background: none;
+            border: none;
+            color: inherit;
             cursor: pointer;
-            transition: all 0.2s ease;
-            border: 1px solid #dee2e6;
+            font-size: 0.7rem;
+            padding: 0;
+            margin-left: 4px;
         }
 
-        .available-label:hover {
-            background: #007bff;
-            color: white;
-            transform: scale(1.05);
+        .category-input-row {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            margin-top: 0.5rem;
+        }
+
+        .category-input-row input {
+            flex: 1;
+            padding: 0.4rem 0.8rem;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        .category-input-row button {
+            padding: 0.4rem 0.8rem;
+            font-size: 0.8rem;
         }
     </style>
 </head>
@@ -556,7 +569,7 @@
     <div class="container">
         <!-- GitHub Integration Section -->
         <div class="github-section">
-            <h3>🙙 GitHub 連線狀態</h3>
+            <h3>📱 GitHub 連線狀態</h3>
             <div class="github-controls">
                 <div class="github-status status-disconnected" id="githubStatus" style="margin-left: 0;">
                     正在檢查連線...
@@ -581,75 +594,16 @@
                 <span class="stat-number" id="recentCount">0</span>
                 <div class="stat-label">近期作品 (2020+)</div>
             </div>
+            <div class="stat-card">
+                <span class="stat-number" id="availableCount">0</span>
+                <div class="stat-label">可售作品</div>
+            </div>
         </div>
 
-        <!-- Filter Menu (Same as Gallery) -->
+        <!-- Filter Menu - NOW USING CATEGORYMANAGER -->
         <div class="filter-container">
-            <div class="filter-menu">
-                <!-- Multi-Select Subject Filters -->
-                <div class="filter-section">
-                    <h4>📂 題材分類</h4>
-                    <div class="secondary-filters" id="subjectFilters">
-                        <!-- Will be populated by JavaScript -->
-                    </div>
-                </div>
-
-                <!-- Multi-Select Location Filters -->
-                <div class="filter-section" id="locationFiltersSection" style="display: none;">
-                    <h4>🗺️ 地點分類</h4>
-                    <div class="secondary-filters" id="locationFilters">
-                        <!-- Will be populated by JavaScript -->
-                    </div>
-                </div>
-
-                <!-- Featured Filter (NEW) -->
-                <div class="filter-section">
-                    <h4>⭐ 精選狀態</h4>
-                    <div class="secondary-filters">
-                        <button class="filter-btn" data-filter-type="featured" data-filter-value="true">
-                            精選作品
-                        </button>
-                        <button class="filter-btn" data-filter-type="featured" data-filter-value="false">
-                            一般作品
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Availability Filter (NEW) -->
-                <div class="filter-section">
-                    <h4>💰 販售狀態</h4>
-                    <div class="secondary-filters">
-                        <button class="filter-btn" data-filter-type="availability" data-filter-value="available">
-                            可售作品
-                        </button>
-                        <button class="filter-btn" data-filter-type="availability" data-filter-value="sold">
-                            已售作品
-                        </button>
-                        <button class="filter-btn" data-filter-type="availability" data-filter-value="unknown">
-                            狀態未明
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Clear Filters Button -->
-                <div class="filter-section">
-                    <div class="secondary-filters">
-                        <button class="btn" onclick="clearAllAdminFilters()" style="background: #6c757d;">
-                            🗑️ 清除所有篩選
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Search and Controls -->
-                <div class="search-sort-container">
-                    <div class="search-box">
-                        <span class="search-icon">🔍</span>
-                        <input type="text" id="searchInput" placeholder="搜尋作品標題、描述..." onkeyup="performSearch()">
-                    </div>
-                    <button class="btn btn-success" onclick="openAddModal()">
-                        ➕ 新增作品
-                    </button>
-                </div>
+            <div class="filter-menu" id="adminFilterMenu">
+                <!-- Filters will be generated by CategoryManager -->
             </div>
         </div>
 
@@ -719,32 +673,38 @@
                                 <textarea id="artworkCuratorNote" placeholder="請輸入策展人筆記或評論..."></textarea>
                             </div>
                             
+                            <!-- CLEANED UP CATEGORY MANAGEMENT -->
                             <div class="form-group">
-                                <label for="artworkSubcategory">分類標籤管理</label>
+                                <label>分類標籤管理</label>
                                 
-                                <!-- Existing Categories Display -->
-                                <div id="categoryLabels" style="margin-bottom: 0.5rem; font-size: 0.9rem; color: #6c757d; min-height: 1.2rem; padding: 0.5rem; background: #f8f9fa; border-radius: 8px; border: 1px solid #e9ecef;">
-                                    <!-- Existing category labels will appear here -->
+                                <!-- Auto Categories Section -->
+                                <div class="category-section" id="autoCategoriesSection">
+                                    <h5>🤖 自動分類（可移除）</h5>
+                                    <div class="category-tags" id="autoSubjectTags"></div>
+                                    <div class="category-tags" id="autoLocationTags"></div>
+                                    <div id="noAutoCategories" style="color: #6c757d; font-size: 0.8rem; display: none;">
+                                        目前無自動分類
+                                    </div>
                                 </div>
                                 
-                                <!-- Manual Category Input -->
-                                <div style="display: flex; gap: 0.5rem; align-items: center;">
-                                    <input type="text" id="artworkSubcategory" placeholder="手動新增分類標籤..." 
-                                        style="flex: 1;">
-                                    <button type="button" class="btn btn-small" onclick="addManualCategory()" 
-                                            style="background: #17a2b8; color: white; padding: 0.4rem 0.8rem; font-size: 0.8rem;">
-                                        ➕ 新增
-                                    </button>
+                                <!-- Manual Categories Section -->
+                                <div class="category-section">
+                                    <h5>✏️ 手動分類</h5>
+                                    <div class="category-tags" id="manualSubjectTags"></div>
+                                    <div class="category-tags" id="manualLocationTags"></div>
+                                    
+                                    <div class="category-input-row">
+                                        <input type="text" id="manualCategoryInput" placeholder="新增分類標籤..." 
+                                               onkeypress="handleCategoryInputKeypress(event)">
+                                        <button type="button" class="btn btn-small" onclick="addManualCategory()">
+                                            ➕ 新增
+                                        </button>
+                                    </div>
+                                    
+                                    <div id="noManualCategories" style="color: #6c757d; font-size: 0.8rem; margin-top: 0.5rem;">
+                                        尚無手動分類標籤
+                                    </div>
                                 </div>
-                                
-                                <!-- Manual Categories Display -->
-                                <div id="manualCategories" style="margin-top: 0.5rem; min-height: 1.2rem;">
-                                    <!-- Manual category tags will appear here -->
-                                </div>
-                                
-                                <small style="color: #6c757d; margin-top: 0.25rem; display: block;">
-                                    💡 您可以移除現有標籤或手動新增新的分類標籤
-                                </small>
                             </div>
                             
                             <div class="form-group">
@@ -799,10 +759,19 @@
         </div>
     </div>
 
-    <!-- Load JavaScript Files -->
+    <!-- CLEANED UP JAVASCRIPT LOADING - Same as index.html -->
+    <!-- 1. Load languages first -->
+    <script src="./js/languages.js"></script>
+
+    <!-- 2. Load CategoryManager second (depends on LANGUAGE_DATA) -->
+    <script src="./js/CategoryManager.js"></script>
+
+    <!-- 3. Load GitHub admin functionality -->
     <script src="./js/github-admin.js"></script>
 
     <script>
+        // CLEANED UP ADMIN JAVASCRIPT - Using CategoryManager
+        
         // CRITICAL FIX: Global variables - Maintain data integrity
         let allArtworks = []; // MASTER DATA - Never filter this array directly
         let artworks = []; // DISPLAY DATA - Filtered version for UI
@@ -812,18 +781,18 @@
         let pendingPublications = []; // Track what needs publishing
         let isConnected = false; // Track GitHub connection status
         
-        // NEW: Filter tracking (same as gallery)
+        // CLEANED UP: Filter tracking using CategoryManager structure
         let activeAdminFilters = {
             subject: [],
             location: [],
             availability: [],
-            featured: []
+            featured: [] // NEW: Added featured filter for admin
         };
-                
-        // UPDATED: Global variables - ensure proper initialization
-        let manualCategories = {
-            subjects: [],
-            locations: []
+        
+        // CLEANED UP: Category management - no more hardcoded categories
+        let currentArtworkCategories = {
+            autoCategories: { subjects: [], locations: [] },
+            manualCategories: { subjects: [], locations: [] }
         };
 
         // CRITICAL SAFETY FUNCTION: Always use this for GitHub updates
@@ -844,9 +813,9 @@
                 console.log(`✅ Added new artwork ${artworkData.id} to master array`);
             }
             
-            // Update display array
+            // Update display array and reapply filters
             artworks = [...allArtworks];
-            applyAdminFilters(); // Reapply current filters to display
+            applyAdminFilters();
         }
 
         // CRITICAL SAFETY FUNCTION: Remove artwork from master array
@@ -856,9 +825,9 @@
             
             if (allArtworks.length < originalLength) {
                 console.log(`✅ Removed artwork ${artworkId} from master array`);
-                // Update display array
+                // Update display array and reapply filters
                 artworks = [...allArtworks];
-                applyAdminFilters(); // Reapply current filters to display
+                applyAdminFilters();
                 return true;
             } else {
                 console.warn(`⚠️ Artwork ${artworkId} not found in master array`);
@@ -866,76 +835,139 @@
             }
         }
 
-        // CLEANED: Remove all auto-categorization - use existing categories from JSON
-        function updateCategoryPreview() {
-            const categoryLabelsDiv = document.getElementById('categoryLabels');
-            
-            // Show existing categories from the artwork (if editing)
-            if (currentEditingId) {
-                const artwork = allArtworks.find(a => a.id === currentEditingId);
-                if (artwork && artwork.categories && artwork.categories.length > 0) {
-                    const existingHtml = artwork.categories.map(cat => {
-                        return `<span style="background: #e3f2fd; color: #1976d2; padding: 3px 8px; border-radius: 12px; margin-right: 4px; margin-bottom: 2px; font-size: 0.8rem; display: inline-flex; align-items: center;">
-                            🏷️ ${cat}
-                            <button type="button" onclick="removeExistingCategory('${cat}')" 
-                                    style="background: none; border: none; color: #1976d2; margin-left: 4px; cursor: pointer; font-size: 0.7rem; padding: 0;">
-                                ✕
-                            </button>
-                        </span>`;
-                    }).join('');
-                    categoryLabelsDiv.innerHTML = `<strong style="font-size: 0.8rem;">現有分類:</strong> ${existingHtml}`;
-                } else {
-                    categoryLabelsDiv.innerHTML = '<span style="color: #6c757d; font-size: 0.8rem;">此作品尚無分類標籤</span>';
+        // CLEANED UP: Wait for CategoryManager to be available
+        async function waitForCategoryManager(maxAttempts = 50) {
+            for (let i = 0; i < maxAttempts; i++) {
+                if (typeof categoryManager !== 'undefined' && categoryManager.loaded) {
+                    console.log('✅ CategoryManager ready after', i, 'attempts');
+                    return true;
                 }
-            } else {
-                categoryLabelsDiv.innerHTML = '<span style="color: #6c757d; font-size: 0.8rem;">儲存後可管理分類標籤</span>';
+                await new Promise(resolve => setTimeout(resolve, 100));
             }
-            
-            // Always show manual categories
-            updateManualCategoriesDisplay();
+            throw new Error('CategoryManager not ready after 5 seconds');
         }
 
-        // Remove existing category from artwork
-        function removeExistingCategory(categoryKey) {
-            if (!currentEditingId) return;
+        // CLEANED UP: Category management functions using CategoryManager
+        function updateCategoryDisplay() {
+            if (!currentEditingId) {
+                // New artwork - show empty state
+                displayCategoryTags({ subjects: [], locations: [] }, { subjects: [], locations: [] });
+                return;
+            }
             
             const artwork = allArtworks.find(a => a.id === currentEditingId);
             if (!artwork) return;
             
-            console.log('🗑️ Removing existing category:', categoryKey);
+            // Extract categories using CategoryManager
+            const autoCategories = artwork.autoCategories || { subjects: [], locations: [] };
+            const manualCategories = artwork.manualCategories || { subjects: [], locations: [] };
             
-            // Remove from categories array
-            if (artwork.categories) {
-                const index = artwork.categories.indexOf(categoryKey);
-                if (index > -1) {
-                    artwork.categories.splice(index, 1);
-                    console.log('✅ Removed from categories array');
-                }
-            }
+            // Update current working categories
+            currentArtworkCategories = {
+                autoCategories: JSON.parse(JSON.stringify(autoCategories)),
+                manualCategories: JSON.parse(JSON.stringify(manualCategories))
+            };
             
-            // Remove from autoCategories if it exists there
-            if (artwork.autoCategories) {
-                if (artwork.autoCategories.subjects) {
-                    const subIndex = artwork.autoCategories.subjects.indexOf(categoryKey);
-                    if (subIndex > -1) {
-                        artwork.autoCategories.subjects.splice(subIndex, 1);
-                    }
-                }
-                if (artwork.autoCategories.locations) {
-                    const locIndex = artwork.autoCategories.locations.indexOf(categoryKey);
-                    if (locIndex > -1) {
-                        artwork.autoCategories.locations.splice(locIndex, 1);
-                    }
-                }
-            }
-            
-            updateCategoryPreview();
-            showMessage(`已移除分類標籤「${categoryKey}」`, 'info');
+            displayCategoryTags(autoCategories, manualCategories);
         }
 
-        // FIXED: Add manual category with proper structure and error handling
+        function displayCategoryTags(autoCategories, manualCategories) {
+            // Auto categories display
+            const autoSubjectTags = document.getElementById('autoSubjectTags');
+            const autoLocationTags = document.getElementById('autoLocationTags');
+            const noAutoCategories = document.getElementById('noAutoCategories');
+            
+            // Manual categories display  
+            const manualSubjectTags = document.getElementById('manualSubjectTags');
+            const manualLocationTags = document.getElementById('manualLocationTags');
+            const noManualCategories = document.getElementById('noManualCategories');
+            
+            // Display auto subjects
+            if (autoCategories.subjects && autoCategories.subjects.length > 0) {
+                autoSubjectTags.innerHTML = autoCategories.subjects.map(subject => `
+                    <span class="category-tag">
+                        📂 ${categoryManager.getCategoryLabel(subject, 'zh')}
+                        <button type="button" onclick="removeAutoCategory('subjects', '${subject}')">✕</button>
+                    </span>
+                `).join('');
+            } else {
+                autoSubjectTags.innerHTML = '';
+            }
+            
+            // Display auto locations
+            if (autoCategories.locations && autoCategories.locations.length > 0) {
+                autoLocationTags.innerHTML = autoCategories.locations.map(location => `
+                    <span class="category-tag location">
+                        🗺️ ${categoryManager.getCategoryLabel(location, 'zh')}
+                        <button type="button" onclick="removeAutoCategory('locations', '${location}')">✕</button>
+                    </span>
+                `).join('');
+            } else {
+                autoLocationTags.innerHTML = '';
+            }
+            
+            // Show/hide "no auto categories" message
+            const hasAutoCategories = (autoCategories.subjects && autoCategories.subjects.length > 0) || 
+                                    (autoCategories.locations && autoCategories.locations.length > 0);
+            noAutoCategories.style.display = hasAutoCategories ? 'none' : 'block';
+            
+            // Display manual subjects
+            if (manualCategories.subjects && manualCategories.subjects.length > 0) {
+                manualSubjectTags.innerHTML = manualCategories.subjects.map(subject => `
+                    <span class="category-tag manual">
+                        📂 ${categoryManager.getCategoryLabel(subject, 'zh')}
+                        <button type="button" onclick="removeManualCategory('subjects', '${subject}')">✕</button>
+                    </span>
+                `).join('');
+            } else {
+                manualSubjectTags.innerHTML = '';
+            }
+            
+            // Display manual locations
+            if (manualCategories.locations && manualCategories.locations.length > 0) {
+                manualLocationTags.innerHTML = manualCategories.locations.map(location => `
+                    <span class="category-tag manual location">
+                        🗺️ ${categoryManager.getCategoryLabel(location, 'zh')}
+                        <button type="button" onclick="removeManualCategory('locations', '${location}')">✕</button>
+                    </span>
+                `).join('');
+            } else {
+                manualLocationTags.innerHTML = '';
+            }
+            
+            // Show/hide "no manual categories" message
+            const hasManualCategories = (manualCategories.subjects && manualCategories.subjects.length > 0) || 
+                                      (manualCategories.locations && manualCategories.locations.length > 0);
+            noManualCategories.style.display = hasManualCategories ? 'none' : 'block';
+        }
+
+        // Remove auto category
+        function removeAutoCategory(categoryType, categoryKey) {
+            if (!currentArtworkCategories.autoCategories[categoryType]) return;
+            
+            const index = currentArtworkCategories.autoCategories[categoryType].indexOf(categoryKey);
+            if (index > -1) {
+                currentArtworkCategories.autoCategories[categoryType].splice(index, 1);
+                updateCategoryDisplay();
+                showMessage(`已移除自動${categoryType === 'subjects' ? '題材' : '地點'}分類「${categoryManager.getCategoryLabel(categoryKey, 'zh')}」`, 'info');
+            }
+        }
+
+        // Remove manual category
+        function removeManualCategory(categoryType, categoryKey) {
+            if (!currentArtworkCategories.manualCategories[categoryType]) return;
+            
+            const index = currentArtworkCategories.manualCategories[categoryType].indexOf(categoryKey);
+            if (index > -1) {
+                currentArtworkCategories.manualCategories[categoryType].splice(index, 1);
+                updateCategoryDisplay();
+                showMessage(`已移除手動${categoryType === 'subjects' ? '題材' : '地點'}分類「${categoryManager.getCategoryLabel(categoryKey, 'zh')}」`, 'info');
+            }
+        }
+
+        // Add manual category
         function addManualCategory() {
-            const input = document.getElementById('artworkSubcategory');
+            const input = document.getElementById('manualCategoryInput');
             const categoryText = input.value.trim();
             
             if (!categoryText) {
@@ -943,161 +975,243 @@
                 return;
             }
             
-            // Ensure manualCategories is properly initialized
-            if (!manualCategories || typeof manualCategories !== 'object') {
-                manualCategories = { subjects: [], locations: [] };
-            }
-            if (!manualCategories.subjects) manualCategories.subjects = [];
-            if (!manualCategories.locations) manualCategories.locations = [];
+            // Use CategoryManager to normalize and classify
+            const normalizedKey = categoryManager.chineseToEnglish ? 
+                                categoryManager.chineseToEnglish(categoryText) : categoryText;
             
-            // Convert Chinese to English if possible (fallback if categoryManager not available)
-            let englishKey = categoryText;
-            if (typeof categoryManager !== 'undefined' && categoryManager.chineseToEnglish) {
-                englishKey = categoryManager.chineseToEnglish(categoryText);
-            }
-            
-            // Determine if it's a subject or location
-            let categoryType = 'subjects'; // Default to subjects
-            if (typeof categoryManager !== 'undefined' && categoryManager.isLocation && categoryManager.isLocation(englishKey)) {
+            // Determine if it's a subject or location using CategoryManager
+            let categoryType = 'subjects'; // Default
+            if (categoryManager.isLocation && categoryManager.isLocation(normalizedKey)) {
                 categoryType = 'locations';
             }
             
             // Check if already exists
-            if (manualCategories[categoryType].includes(englishKey)) {
+            const allExistingCategories = [
+                ...(currentArtworkCategories.autoCategories[categoryType] || []),
+                ...(currentArtworkCategories.manualCategories[categoryType] || [])
+            ];
+            
+            if (allExistingCategories.includes(normalizedKey)) {
                 showMessage('此分類標籤已存在', 'warning');
                 return;
             }
             
             // Add to manual categories
-            manualCategories[categoryType].push(englishKey);
-            input.value = '';
+            if (!currentArtworkCategories.manualCategories[categoryType]) {
+                currentArtworkCategories.manualCategories[categoryType] = [];
+            }
+            currentArtworkCategories.manualCategories[categoryType].push(normalizedKey);
             
-            updateManualCategoriesDisplay();
-            showMessage(`已新增${categoryType === 'subjects' ? '題材' : '地點'}分類「${categoryText}」`, 'success');
+            input.value = '';
+            updateCategoryDisplay();
+            showMessage(`已新增${categoryType === 'subjects' ? '題材' : '地點'}分類「${categoryManager.getCategoryLabel(normalizedKey, 'zh')}」`, 'success');
         }
 
-        // FIXED: Remove manual category with proper error handling
-        function removeManualCategory(categoryType, categoryToRemove) {
-            if (!manualCategories || !manualCategories[categoryType]) {
-                console.warn('manualCategories not properly initialized');
+        // Handle Enter key in category input
+        function handleCategoryInputKeypress(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                addManualCategory();
+            }
+        }
+
+        // CLEANED UP: Generate admin filter menu using CategoryManager
+        function generateAdminFilters() {
+            if (!categoryManager.loaded || !allArtworks.length) {
+                document.getElementById('adminFilterMenu').innerHTML = '<p>正在載入篩選器...</p>';
                 return;
             }
-            
-            const index = manualCategories[categoryType].findIndex(cat => cat === categoryToRemove);
-            if (index > -1) {
-                manualCategories[categoryType].splice(index, 1);
-                updateManualCategoriesDisplay();
-                showMessage(`已移除${categoryType === 'subjects' ? '題材' : '地點'}分類「${categoryToRemove}」`, 'info');
-            }
-        }
 
-        // UPDATED: Display manual categories in structured format
-        function updateManualCategoriesDisplay() {
-            const manualCategoriesDiv = document.getElementById('manualCategories');
-            if (!manualCategoriesDiv) return;
+            // Use CategoryManager to calculate statistics
+            const stats = categoryManager.calculateStats(allArtworks);
             
-            // Ensure manualCategories is properly initialized
-            if (!manualCategories || typeof manualCategories !== 'object') {
-                manualCategories = { subjects: [], locations: [] };
-            }
-            if (!manualCategories.subjects) manualCategories.subjects = [];
-            if (!manualCategories.locations) manualCategories.locations = [];
-            
-            let html = '';
-            
-            // Display manual subjects
-            if (manualCategories.subjects.length > 0) {
-                const subjectsHtml = manualCategories.subjects.map(cat => {
-                    const label = (typeof categoryManager !== 'undefined' && categoryManager.getCategoryLabel) ? 
-                                categoryManager.getCategoryLabel(cat, 'zh') : cat;
-                    return `
-                        <span style="background: #d4edda; color: #155724; padding: 3px 8px; border-radius: 12px; margin-right: 4px; font-size: 0.8rem; display: inline-flex; align-items: center; margin-bottom: 2px;">
-                            📂 ${label}
-                            <button type="button" onclick="removeManualCategory('subjects', '${cat}')" 
-                                    style="background: none; border: none; color: #155724; margin-left: 4px; cursor: pointer; font-size: 0.7rem; padding: 0;">
-                                ✕
-                            </button>
-                        </span>
-                    `;
-                }).join('');
-                html += `<div style="margin-bottom: 0.5rem;"><strong>手動題材:</strong> ${subjectsHtml}</div>`;
-            }
-            
-            // Display manual locations
-            if (manualCategories.locations.length > 0) {
-                const locationsHtml = manualCategories.locations.map(cat => {
-                    const label = (typeof categoryManager !== 'undefined' && categoryManager.getCategoryLabel) ? 
-                                categoryManager.getCategoryLabel(cat, 'zh') : cat;
-                    return `
-                        <span style="background: #cce5ff; color: #004085; padding: 3px 8px; border-radius: 12px; margin-right: 4px; font-size: 0.8rem; display: inline-flex; align-items: center; margin-bottom: 2px;">
-                            🗺️ ${label}
-                            <button type="button" onclick="removeManualCategory('locations', '${cat}')" 
-                                    style="background: none; border: none; color: #004085; margin-left: 4px; cursor: pointer; font-size: 0.7rem; padding: 0;">
-                                ✕
-                            </button>
-                        </span>
-                    `;
-                }).join('');
-                html += `<div style="margin-bottom: 0.5rem;"><strong>手動地點:</strong> ${locationsHtml}</div>`;
-            }
-            
-            if (html === '') {
-                html = '<span style="color: #6c757d; font-size: 0.8rem;">尚無手動新增的分類標籤</span>';
-            }
-            
-            manualCategoriesDiv.innerHTML = html;
-        }
-        // UPDATED: Collect form data in new structured format
-        function collectArtworkFormData(artworkId) {
-            // ... existing form validation code ...
-            
-            // Get existing artwork if editing
-            let existingAutoCategories = { subjects: [], locations: [] };
-            if (currentEditingId) {
-                const existingArtwork = allArtworks.find(a => a.id === currentEditingId);
-                if (existingArtwork && existingArtwork.autoCategories) {
-                    existingAutoCategories = existingArtwork.autoCategories;
-                }
-            }
-            
-            const formData = {
-                id: artworkId,
-                title: title,
-                // ... other fields ...
-                
-                // NEW STRUCTURED FORMAT:
-                autoCategories: existingAutoCategories, // Keep existing auto categories
-                manualCategories: {
-                    subjects: [...manualCategories.subjects],
-                    locations: [...manualCategories.locations]
-                },
-                
-                // ... rest of form data ...
+            // Add featured statistics manually (not handled by CategoryManager)
+            stats.featured = { 
+                true: allArtworks.filter(a => a.featured === true || a.featured === 'true').length,
+                false: allArtworks.filter(a => !(a.featured === true || a.featured === 'true')).length
             };
             
-            console.log(`📋 Manual categories: ${manualCategories.subjects.length} subjects, ${manualCategories.locations.length} locations`);
+            console.log('📊 Admin filter stats:', stats);
             
-            return formData;
+            let html = categoryManager.generateFilterHTML(stats, 'zh');
+            
+            // Add featured filter section
+            html += `
+                <div class="filter-section">
+                    <h4>⭐ 精選狀態</h4>
+                    <div class="secondary-filters">
+                        <button class="secondary-filter-btn" data-filter-type="featured" data-filter-value="true">
+                            精選作品 (${stats.featured.true})
+                        </button>
+                        <button class="secondary-filter-btn" data-filter-type="featured" data-filter-value="false">
+                            一般作品 (${stats.featured.false})
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            // Add clear filters and search
+            html += `
+                <div class="filter-section">
+                    <div class="secondary-filters">
+                        <button class="btn" onclick="clearAllAdminFilters()" style="background: #6c757d;">
+                            🗑️ 清除所有篩選
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="search-sort-container">
+                    <div class="search-box">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" id="searchInput" placeholder="搜尋作品標題、描述..." onkeyup="performSearch()">
+                    </div>
+                    <button class="btn btn-success" onclick="openAddModal()">
+                        ➕ 新增作品
+                    </button>
+                </div>
+            `;
+            
+            document.getElementById('adminFilterMenu').innerHTML = html;
+            setupAdminFilterListeners();
         }
 
-        // Reset category management when opening modal
-        function resetCategoryManagement() {
-            manualCategories = {
-                subjects: [],
-                locations: []
-            };
-            updateCategoryPreview();
-            updateManualCategoriesDisplay();
-        }
-
-        function generateSequentialId() {
-            // Generate a simple incremental ID based on existing artworks
-            const existingIds = allArtworks.map(a => {
-                const match = a.id.match(/(\d+)$/);
-                return match ? parseInt(match[1]) : 0;
+        // Setup filter event listeners
+        function setupAdminFilterListeners() {
+            document.querySelectorAll('.secondary-filter-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const filterType = e.target.dataset.filterType;
+                    const filterValue = e.target.dataset.filterValue;
+                    
+                    if (filterType && filterValue) {
+                        toggleAdminFilter(filterType, filterValue);
+                    }
+                });
             });
-            const maxId = Math.max(...existingIds, 0);
-            return `artwork-${maxId + 1}`;
+        }
+
+        // Toggle admin filter
+        function toggleAdminFilter(filterType, filterValue) {
+            if (!activeAdminFilters[filterType]) {
+                activeAdminFilters[filterType] = [];
+            }
+            
+            const index = activeAdminFilters[filterType].indexOf(filterValue);
+            if (index === -1) {
+                activeAdminFilters[filterType].push(filterValue);
+            } else {
+                activeAdminFilters[filterType].splice(index, 1);
+            }
+            
+            applyAdminFilters();
+            updateAdminFilterUI();
+        }
+
+        // CLEANED UP: Apply admin filters using CategoryManager
+        function applyAdminFilters() {
+            let filteredArtworks = [...allArtworks]; // CRITICAL: Always start from master array
+
+            // Use CategoryManager for filtering
+            if (categoryManager.loaded && categoryManager.artworkMatchesFilters) {
+                filteredArtworks = allArtworks.filter(artwork => {
+                    return categoryManager.artworkMatchesFilters(artwork, activeAdminFilters);
+                });
+            } else {
+                // Fallback filtering if CategoryManager not ready
+                console.warn('⚠️ CategoryManager not ready, using fallback filtering');
+                // Apply basic filtering logic here if needed
+            }
+
+            // Apply featured filter (not handled by CategoryManager)
+            if (activeAdminFilters.featured && activeAdminFilters.featured.length > 0) {
+                filteredArtworks = filteredArtworks.filter(artwork => {
+                    return activeAdminFilters.featured.some(filter => {
+                        const featured = artwork.featured === true || artwork.featured === 'true';
+                        return filter === 'true' ? featured : !featured;
+                    });
+                });
+            }
+
+            // CRITICAL: Update ONLY the display array, never the master array
+            artworks = filteredArtworks;
+            renderArtworks(artworks);
+            updateStats(artworks);
+
+            // Update results info
+            const activeFilterCount = Object.values(activeAdminFilters).flat().length;
+            console.log(`Applied ${activeFilterCount} filters, showing ${artworks.length}/${allArtworks.length} artworks`);
+        }
+
+        function updateAdminFilterUI() {
+            document.querySelectorAll('.secondary-filter-btn').forEach(btn => {
+                const filterType = btn.dataset.filterType;
+                const filterValue = btn.dataset.filterValue;
+                
+                if (filterType && filterValue && activeAdminFilters[filterType]) {
+                    if (activeAdminFilters[filterType].includes(filterValue)) {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                }
+            });
+        }
+
+        function clearAllAdminFilters() {
+            activeAdminFilters = {
+                subject: [],
+                location: [],
+                availability: [],
+                featured: []
+            };
+            
+            // CRITICAL: Reset display array from master array
+            artworks = [...allArtworks];
+            renderArtworks();
+            updateStats();
+            updateAdminFilterUI();
+            document.getElementById('searchInput').value = '';
+            showMessage('已清除所有篩選條件', 'info');
+        }
+
+        // CLEANED UP: Search function
+        function performSearch() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            
+            if (query === '') {
+                applyAdminFilters(); // Show filtered results without search
+                return;
+            }
+
+            // CRITICAL: Start from master array, then apply filters
+            let searchBase = [...allArtworks];
+            
+            // Apply existing filters first
+            const hasActiveFilters = Object.values(activeAdminFilters).some(arr => arr.length > 0);
+            if (hasActiveFilters && categoryManager.loaded) {
+                searchBase = searchBase.filter(artwork => {
+                    return categoryManager.artworkMatchesFilters(artwork, activeAdminFilters);
+                });
+            }
+
+            // Then apply search query
+            const searchResults = searchBase.filter(artwork => {
+                const title = (artwork.title || '').toLowerCase();
+                const description = (artwork.description || '').toLowerCase();
+                const year = (artwork.year || '').toString();
+                const sizeCm = (artwork.sizeCm || '').toLowerCase();
+                
+                return title.includes(query) || 
+                    description.includes(query) || 
+                    year.includes(query) ||
+                    sizeCm.includes(query);
+            });
+
+            // CRITICAL: Update only display array
+            artworks = searchResults;
+            renderArtworks();
+            updateStats();
+            
+            console.log(`Search "${query}": ${searchResults.length} results from ${searchBase.length} filtered artworks`);
         }
 
         // Check if editing should be disabled
@@ -1109,12 +1223,24 @@
             return true;
         }
 
-        // Core admin functions that DON'T conflict with github-admin.js
+        function generateSequentialId() {
+            const existingIds = allArtworks.map(a => {
+                const match = a.id.match(/(\d+)$/);
+                return match ? parseInt(match[1]) : 0;
+            });
+            const maxId = Math.max(...existingIds, 0);
+            return `artwork-${maxId + 1}`;
+        }
+
+        // Core admin functions
         function openAddModal() {
             if (!checkEditingPermission()) return;
             
             currentEditingId = null;
-            resetCategoryManagement(); // Clean reset
+            currentArtworkCategories = {
+                autoCategories: { subjects: [], locations: [] },
+                manualCategories: { subjects: [], locations: [] }
+            };
             
             document.getElementById('modalTitle').textContent = '新增作品';
             document.getElementById('artworkForm').reset();
@@ -1125,57 +1251,17 @@
             document.getElementById('saveStatus').textContent = '';
             document.getElementById('imageControls').style.display = 'none';
             
-            updateCategoryPreview(); // This will show "儲存後可管理分類標籤" for new artworks
-            
+            updateCategoryDisplay();
             document.getElementById('artworkModal').style.display = 'block';
         }
 
         function closeModal() {
             document.getElementById('artworkModal').style.display = 'none';
-            // Clear any local draft for this artwork
             if (currentEditingId && localDrafts[currentEditingId]) {
                 delete localDrafts[currentEditingId];
             }
         }
 
-        // Clear image function
-        function clearImage() {
-            const artworkId = currentEditingId || 'pending';
-            
-            // Clear the file input
-            document.getElementById('imageInput').value = '';
-            
-            // Clear preview
-            document.getElementById('previewImage').style.display = 'none';
-            document.getElementById('previewImage').src = '';
-            
-            // Update upload text
-            document.getElementById('uploadText').innerHTML = '<div style="color: #f39c12;">⚠️ 圖片已清除<br><small>請上傳新圖片</small></div>';
-            
-            // Hide image controls
-            document.getElementById('imageControls').style.display = 'none';
-            
-            // Clear from uploadedImages
-            if (uploadedImages[artworkId]) {
-                if (uploadedImages[artworkId].localPreview) {
-                    URL.revokeObjectURL(uploadedImages[artworkId].localPreview);
-                }
-                delete uploadedImages[artworkId];
-            }
-            
-            // Mark that image should be cleared (for existing artworks)
-            if (currentEditingId) {
-                uploadedImages[currentEditingId] = { cleared: true };
-            }
-            
-            showMessage('圖片已清除。儲存後生效。', 'info');
-        }
-
-        function filterArtworks() {
-            renderArtworks();
-        }
-
-        // Updated editArtwork function
         function editArtwork(id) {
             if (!checkEditingPermission()) return;
             
@@ -1186,7 +1272,6 @@
             }
 
             currentEditingId = id;
-            resetCategoryManagement(); // Clean reset
             
             document.getElementById('modalTitle').textContent = '編輯作品';
             
@@ -1198,39 +1283,12 @@
             document.getElementById('artworkFormat').value = artwork.format || '';
             document.getElementById('artworkDescription').value = artwork.description || '';
             document.getElementById('artworkCuratorNote').value = artwork.curatorNote || '';
-            document.getElementById('artworkSubcategory').value = '';
             document.getElementById('artworkFeatured').checked = artwork.featured === true || artwork.featured === 'true';
             document.getElementById('artworkAvailable').checked = artwork.available !== false && artwork.available !== 'false';
             document.getElementById('artworkPrice').value = artwork.price || '';
 
-            // FIXED: Load existing manual categories in new structure
-            if (artwork.manualCategories) {
-                if (typeof artwork.manualCategories === 'object' && !Array.isArray(artwork.manualCategories)) {
-                    // New structure: {subjects: [...], locations: [...]}
-                    manualCategories = {
-                        subjects: [...(artwork.manualCategories.subjects || [])],
-                        locations: [...(artwork.manualCategories.locations || [])]
-                    };
-                } else if (Array.isArray(artwork.manualCategories)) {
-                    // Old structure: ["花鳥", "黃山"] - need to classify
-                    manualCategories = { subjects: [], locations: [] };
-                    
-                    artwork.manualCategories.forEach(cat => {
-                        // Convert Chinese to English and classify
-                        const englishKey = (typeof categoryManager !== 'undefined' && categoryManager.chineseToEnglish) ? 
-                                        categoryManager.chineseToEnglish(cat) : cat;
-                        
-                        if (typeof categoryManager !== 'undefined' && categoryManager.isLocation && categoryManager.isLocation(englishKey)) {
-                            manualCategories.locations.push(englishKey);
-                        } else {
-                            manualCategories.subjects.push(englishKey);
-                        }
-                    });
-                }
-            }
-
-            updateCategoryPreview(); // This will show existing categories with remove buttons
-            updateManualCategoriesDisplay();
+            // Load categories
+            updateCategoryDisplay();
 
             // Handle existing image
             const previewImg = document.getElementById('previewImage');
@@ -1250,9 +1308,9 @@
             
             document.getElementById('publishBtn').disabled = true;
             document.getElementById('saveStatus').textContent = '';
-
             document.getElementById('artworkModal').style.display = 'block';
         }
+
         function deleteArtwork(id) {
             if (!checkEditingPermission()) return;
             
@@ -1295,7 +1353,7 @@
                 if (timeLeft <= 0) {
                     clearInterval(timer);
                     messageDiv.remove();
-                    // Actually delete from GitHub - CRITICAL: Remove from master array
+                    // Actually delete from GitHub
                     removeArtworkFromMasterArray(id);
                     actuallyDeleteArtwork(id, artwork);
                     delete window.deletedArtwork;
@@ -1312,7 +1370,7 @@
                 
                 // Update display
                 artworks = [...allArtworks];
-                applyAdminFilters(); // Reapply current filters
+                applyAdminFilters();
                 updateStats();
                 showMessage('刪除已取消，作品已復原。', 'success');
             }
@@ -1320,16 +1378,13 @@
 
         async function actuallyDeleteArtwork(id, artwork) {
             try {
-                // Delete images and update JSON
                 if (window.githubUploader) {
-                    // 修正圖片路徑（確保格式正確）
                     const promises = [];
                     
-                    // Delete thumbnail - 使用正確的路徑格式
                     if (artwork.image) {
                         const thumbnailPath = artwork.image
                             .replace('./images/paintings/', 'images/paintings/')
-                            .replace('images/paintings/images/paintings/', 'images/paintings/'); // 避免重複
+                            .replace('images/paintings/images/paintings/', 'images/paintings/');
                             
                         console.log('刪除縮圖:', thumbnailPath);
                         promises.push(
@@ -1338,11 +1393,10 @@
                         );
                     }
                     
-                    // Delete large image - 使用正確的路徑格式
                     if (artwork.imageHigh) {
                         const largePath = artwork.imageHigh
                             .replace('./images/paintings/', 'images/paintings/')
-                            .replace('images/paintings/images/paintings/', 'images/paintings/'); // 避免重複
+                            .replace('images/paintings/images/paintings/', 'images/paintings/');
                             
                         console.log('刪除大圖:', largePath);
                         promises.push(
@@ -1351,12 +1405,10 @@
                         );
                     }
                     
-                    // 等待所有刪除操作
                     await Promise.all(promises);
-
-                    // CRITICAL FIX: Update JSON with master array
+                    
                     const masterArray = getMasterArtworksArray();
-                    console.log(`🔒 SAFETY CHECK: Updating GitHub with ${masterArray.length} artworks (was: ${allArtworks.length})`);
+                    console.log(`🔒 SAFETY CHECK: Updating GitHub with ${masterArray.length} artworks`);
                     await window.githubUploader.updateArtworksJson(masterArray);
                     
                     showMessage(`作品「${artwork.title}」已永久刪除。網站將在 2-3 分鐘內更新。`, 'success');
@@ -1364,14 +1416,12 @@
                     showMessage('作品已在本地刪除。', 'info');
                 }
                 
-                // Sync with window - CRITICAL: Use master array
                 window.artworks = getMasterArtworksArray();
                 
             } catch (error) {
                 console.error('Failed to delete artwork:', error);
                 showMessage(`刪除作品失敗：${error.message || '未知錯誤'}`, 'error');
                 
-                // CRITICAL: Restore artwork to master array on error
                 if (artwork) {
                     allArtworks.push(artwork);
                     artworks = [...allArtworks];
@@ -1382,13 +1432,36 @@
             }
         }
 
+        // Clear image function
+        function clearImage() {
+            const artworkId = currentEditingId || 'pending';
+            
+            document.getElementById('imageInput').value = '';
+            document.getElementById('previewImage').style.display = 'none';
+            document.getElementById('previewImage').src = '';
+            document.getElementById('uploadText').innerHTML = '<div style="color: #f39c12;">⚠️ 圖片已清除<br><small>請上傳新圖片</small></div>';
+            document.getElementById('imageControls').style.display = 'none';
+            
+            if (uploadedImages[artworkId]) {
+                if (uploadedImages[artworkId].localPreview) {
+                    URL.revokeObjectURL(uploadedImages[artworkId].localPreview);
+                }
+                delete uploadedImages[artworkId];
+            }
+            
+            if (currentEditingId) {
+                uploadedImages[currentEditingId] = { cleared: true };
+            }
+            
+            showMessage('圖片已清除。儲存後生效。', 'info');
+        }
+
         // NEW: Check Netlify deployment status
         async function checkDeploymentStatus(startTime, artworkTitle) {
             const maxAttempts = 60;
             let attempts = 0;
             let initialDeployId = null;
             
-            // 先取得目前的部署 ID
             try {
                 const initResponse = await fetch('/.netlify/functions/deployStatus');
                 if (initResponse.ok) {
@@ -1411,21 +1484,17 @@
                     
                     const data = await response.json();
                     
-                    // 檢查是否是新的部署（比較 deploy ID 而不是時間）
                     if (initialDeployId && data.deployId !== initialDeployId) {
                         console.log('偵測到新部署！', data.deployId);
                         
                         if (data.status === 'ready') {
-                            // 部署成功！
                             showMessage(`✅ 作品「${artworkTitle}」已成功發布到網站！`, 'success');
                             
-                            // 移除部署通知
                             const deployNotice = document.querySelector('.deployment-notice');
                             if (deployNotice) {
                                 deployNotice.remove();
                             }
                             
-                            // 顯示成功通知
                             const successNotice = document.createElement('div');
                             successNotice.className = 'success-message';
                             successNotice.innerHTML = `
@@ -1437,14 +1506,13 @@
                             container.insertBefore(successNotice, container.firstChild.nextSibling);
                             
                             setTimeout(() => successNotice.remove(), 10000);
-                            return; // 停止檢查
+                            return;
                             
                         } else if (data.status === 'building' || data.status === 'processing') {
                             console.log('還在建構中...');
                         }
                     }
                     
-                    // 繼續檢查
                     if (attempts < maxAttempts) {
                         setTimeout(checkStatus, 5000);
                     } else {
@@ -1459,11 +1527,10 @@
                 }
             };
     
-            // 等待 10 秒後開始檢查（讓 Netlify 有時間開始部署）
             setTimeout(checkStatus, 10000);
         }
 
-        // NEW: Publish function for individual artworks - CRITICAL FIX
+        // Publish function
         async function publishArtwork() {
             if (!checkEditingPermission()) return;
             
@@ -1482,18 +1549,14 @@
                 publishBtn.disabled = true;
                 saveStatus.innerHTML = '🚀 發布中...';
 
-                // Handle image upload during publish
                 const pendingImageKey = currentEditingId || 'pending';
                 
-                // Check if image was cleared
                 if (uploadedImages[pendingImageKey] && uploadedImages[pendingImageKey].cleared) {
-                    // Image was cleared - ensure empty strings for image paths
                     draft.image = '';
                     draft.imageHigh = '';
                     console.log('圖片已清除，設定為空字串');
                     
                 } else if (uploadedImages[pendingImageKey] && uploadedImages[pendingImageKey].file) {
-                    // New image uploaded
                     saveStatus.innerHTML = '📤 上傳圖片至 GitHub...';
                     
                     try {
@@ -1502,11 +1565,9 @@
                             { id: draft.id, title: draft.title }
                         );
 
-                        // Update draft with uploaded image paths - 只有在上傳新圖片時才更新路徑
                         draft.image = `./images/paintings/thumbnails/${draft.id}_thumb.png`;
                         draft.imageHigh = `./images/paintings/large/${draft.id}_large.png`;
                         
-                        // Clean up local file reference
                         URL.revokeObjectURL(uploadedImages[pendingImageKey].localPreview);
                         delete uploadedImages[pendingImageKey];
                     } catch (uploadError) {
@@ -1514,12 +1575,9 @@
                         showMessage('圖片上傳失敗，但會繼續儲存其他資料', 'warning');
                     }
                 }
-                // else: keep existing image paths (no change)
 
-                // CRITICAL FIX: Update master array properly
                 updateArtworkInMasterArray(draft);
 
-                // Deploy to GitHub - CRITICAL: Use master array
                 saveStatus.innerHTML = '🌐 更新網站中...';
                 
                 try {
@@ -1527,17 +1585,12 @@
                     console.log(`🔒 SAFETY CHECK: Publishing ${masterArray.length} artworks to GitHub`);
                     await window.githubUploader.updateArtworksJson(masterArray);
                     
-                    // Record deployment start time
                     const deployStartTime = Date.now();
-                    
-                    // Success with deployment notice
                     saveStatus.innerHTML = '✅ 已提交更新';
                     publishBtn.disabled = false;
                     
-                    // Show deployment tracking message
                     showMessage(`作品「${draft.title}」已成功提交！正在監控部署狀態...`, 'success');
                     
-                    // Add deployment status notice
                     const deploymentNotice = document.createElement('div');
                     deploymentNotice.className = 'info-message deployment-notice';
                     deploymentNotice.innerHTML = `
@@ -1550,7 +1603,6 @@
                     const container = document.querySelector('.container');
                     container.insertBefore(deploymentNotice, container.firstChild.nextSibling);
                     
-                    // Start checking deployment status
                     checkDeploymentStatus(deployStartTime, draft.title);
                     
                 } catch (deployError) {
@@ -1558,23 +1610,20 @@
                     saveStatus.innerHTML = '❌ 發佈失敗';
                     publishBtn.disabled = false;
                     
-                    // 更詳細的錯誤訊息
                     if (deployError.message.includes('JSON')) {
                         showMessage('發佈失敗：伺服器回應格式錯誤，可能是檔案太大或網路問題。請稍後再試。', 'error');
                     } else {
                         showMessage(`發佈失敗：${deployError.message}`, 'error');
                     }
                     
-                    return; // 停止執行
+                    return;
                 }
                 
-                // Clean up
                 delete localDrafts[draftId];
                 if (uploadedImages[draft.id]) {
                     delete uploadedImages[draft.id];
                 }
                 
-                // Update displays
                 window.artworks = getMasterArtworksArray();
                 renderArtworks();
                 updateStats();
@@ -1591,12 +1640,78 @@
             }
         }
 
+        // CLEANED UP: Collect form data function
+        function collectArtworkFormData(artworkId) {
+            // Validate required fields
+            const title = document.getElementById('artworkTitle').value.trim();
+            const year = document.getElementById('artworkYear').value.trim();
+            const height = document.getElementById('artworkHeight').value.trim();
+            const width = document.getElementById('artworkWidth').value.trim();
+            
+            if (!title) throw new Error('請填寫作品標題');
+            if (!year) throw new Error('請填寫創作年份');
+            if (!height) throw new Error('請填寫作品高度');
+            if (!width) throw new Error('請填寫作品寬度');
+            
+            // Get existing artwork if editing
+            let existingArtwork = {};
+            if (currentEditingId) {
+                existingArtwork = allArtworks.find(a => a.id === currentEditingId) || {};
+            }
+            
+            const formData = {
+                id: artworkId,
+                title: title,
+                year: year,
+                heightCm: parseFloat(height),
+                widthCm: parseFloat(width),
+                sizeCm: `${height} × ${width} cm`,
+                format: document.getElementById('artworkFormat').value.trim(),
+                description: document.getElementById('artworkDescription').value.trim(),
+                curatorNote: document.getElementById('artworkCuratorNote').value.trim(),
+                featured: document.getElementById('artworkFeatured').checked,
+                available: document.getElementById('artworkAvailable').checked,
+                price: document.getElementById('artworkPrice').value.trim(),
+                
+                // CLEANED UP: Use current category structure
+                autoCategories: {
+                    subjects: [...(currentArtworkCategories.autoCategories.subjects || [])],
+                    locations: [...(currentArtworkCategories.autoCategories.locations || [])]
+                },
+                manualCategories: {
+                    subjects: [...(currentArtworkCategories.manualCategories.subjects || [])],
+                    locations: [...(currentArtworkCategories.manualCategories.locations || [])]
+                },
+                
+                // Preserve existing image paths if no new image
+                image: existingArtwork.image || '',
+                imageHigh: existingArtwork.imageHigh || ''
+            };
+            
+            // Generate flat categories array for backward compatibility
+            const allCategories = [
+                ...formData.autoCategories.subjects,
+                ...formData.autoCategories.locations,
+                ...formData.manualCategories.subjects,
+                ...formData.manualCategories.locations
+            ];
+            formData.categories = [...new Set(allCategories)]; // Remove duplicates
+            
+            console.log(`📋 Form data collected: ${formData.categories.length} total categories`);
+            console.log(`   Auto: ${formData.autoCategories.subjects.length} subjects, ${formData.autoCategories.locations.length} locations`);
+            console.log(`   Manual: ${formData.manualCategories.subjects.length} subjects, ${formData.manualCategories.locations.length} locations`);
+            
+            return formData;
+        }
+
         // Utility functions
         function renderArtworks(artworksToShow = artworks) {
             const grid = document.getElementById('artworksGrid');
-            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const searchTerm = document.getElementById('searchInput')?.value?.toLowerCase() || '';
             
             const filteredArtworks = artworksToShow.filter(artwork => {
+                if (!searchTerm) return true;
+                
                 const title = (artwork.title || '').toLowerCase();
                 const description = (artwork.description || '').toLowerCase();
                 const year = (artwork.year || '').toString();
@@ -1619,6 +1734,7 @@
                 const year = artwork.year || '年份不詳';
                 const size = artwork.sizeCm || artwork.size || '尺寸未註明';
                 const featured = artwork.featured === 'true' || artwork.featured === true;
+                const available = artwork.available !== false && artwork.available !== 'false';
                 
                 return `
                     <div class="artwork-card">
@@ -1629,6 +1745,7 @@
                             <div class="artwork-meta">
                                 ${year} • ${size}
                                 ${featured ? ' • ⭐ 精選' : ''}
+                                ${available ? ' • 💰 可售' : ' • ❌ 已售'}
                             </div>
                             <div class="artwork-actions">
                                 <button class="btn btn-small" onclick="editArtwork('${artwork.id}')">
@@ -1648,10 +1765,12 @@
             const total = artworksToShow.length;
             const featured = artworksToShow.filter(a => a.featured === 'true' || a.featured === true).length;
             const recent = artworksToShow.filter(a => parseInt(a.year) >= 2020).length;
+            const available = artworksToShow.filter(a => a.available !== false && a.available !== 'false').length;
             
             document.getElementById('totalArtworks').textContent = total;
             document.getElementById('featuredCount').textContent = featured;
             document.getElementById('recentCount').textContent = recent;
+            document.getElementById('availableCount').textContent = available;
         }
 
         function showMessage(message, type) {
@@ -1675,9 +1794,14 @@
             }, 5000);
         }
 
-        // Load artworks and check GitHub connection - CRITICAL FIX
+        // CLEANED UP: Load artworks function
         async function loadArtworks() {
             try {
+                // Wait for CategoryManager to be ready
+                await waitForCategoryManager();
+                await categoryManager.loadConfig();
+                console.log('✅ CategoryManager ready for admin');
+                
                 const response = await fetch('./data/artworks.json');
                 const data = await response.json();
                 
@@ -1688,11 +1812,10 @@
                 // Sync to window object for GitHub integration
                 window.artworks = getMasterArtworksArray();
                 console.log(`✅ 載入並同步了 ${allArtworks.length} 件作品到主陣列`);
-                console.log(`✅ 顯示陣列包含 ${artworks.length} 件作品`);
                 
                 renderArtworks();
                 updateStats();
-                generateAdminFilters(); // NEW: Generate filter UI
+                generateAdminFilters(); // Use CategoryManager for filtering
             } catch (error) {
                 console.error('Error loading artworks:', error);
                 showMessage(`載入作品失敗：${error.message}`, 'error');
@@ -1727,7 +1850,6 @@
                         if (addButton) addButton.disabled = true;
                     }
                 } else {
-                    // GitHub uploader not loaded yet, try again later
                     setTimeout(checkGitHubConnection, 1000);
                 }
             } catch (error) {
@@ -1740,29 +1862,23 @@
             }
         }
 
-        // Image upload handling - LOCAL PREVIEW ONLY (upload happens during publish)
+        // Image upload handling
         function setupImageUpload() {
             const imageInput = document.getElementById('imageInput');
             const uploadArea = document.querySelector('.upload-area');
             
-            // Use GitHub upload with immediate upload
             imageInput.addEventListener('change', handleImageUploadWithGitHub);
-            
-            // Add drag and drop functionality
             setupDragAndDrop(uploadArea, imageInput);
             
             console.log('✅ 使用 GitHub 圖片上傳 + 拖放功能');
         }
 
-        // Drag and Drop functionality
         function setupDragAndDrop(uploadArea, fileInput) {
-            // Prevent default drag behaviors
             ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
                 uploadArea.addEventListener(eventName, preventDefaults, false);
                 document.body.addEventListener(eventName, preventDefaults, false);
             });
 
-            // Highlight drop area when item is dragged over it
             ['dragenter', 'dragover'].forEach(eventName => {
                 uploadArea.addEventListener(eventName, highlight, false);
             });
@@ -1771,7 +1887,6 @@
                 uploadArea.addEventListener(eventName, unhighlight, false);
             });
 
-            // Handle dropped files
             uploadArea.addEventListener('drop', handleDrop, false);
 
             function preventDefaults(e) {
@@ -1794,19 +1909,16 @@
                 if (files.length > 0) {
                     const file = files[0];
                     
-                    // Validate file type
                     if (!file.type.startsWith('image/')) {
                         showMessage('請拖放圖片檔案！', 'warning');
                         return;
                     }
 
-                    // Validate file size
                     if (file.size > 50 * 1024 * 1024) {
                         showMessage('圖片太大，請使用 50MB 以下的圖片。', 'error');
                         return;
                     }
 
-                    // Create a file input event and trigger the existing handler
                     const mockEvent = {
                         target: {
                             files: [file]
@@ -1817,383 +1929,11 @@
                 }
             }
         }
-        // FIXED: Helper functions for proper labels
-        function getSubjectLabel(subject) {
-            const subjectLabels = {
-                'waterfall': '瀑布',
-                'landscape': '山水',
-                'flowers': '花鳥',
-                'bamboo': '墨竹',
-                'calligraphy': '書法',
-                'flowingclouds': '煙雲',
-                'abstract': '抽象',
-                'traditional': '傳統',
-                'uncategorized': '未分類'
-            };
-            
-            return subjectLabels[subject] || subject;
-        }
 
-        function getLocationLabel(location) {
-            const locationLabels = {
-                'huangshan': '黃山',
-                'alishan': '阿里山',
-                'taroko': '太魯閣',
-                'hehuanshan': '合歡山',
-                'yushan': '玉山',
-                'liushidanshan': '六十石山',
-                'guishandao': '龜山島',
-                'longdong': '龍洞',
-                'zhangjiajie': '張家界',
-                'grandcanyon': '大峽谷',
-                'iguazu': '伊瓜蘇',
-                'niagara': '尼加拉'
-            };
-            
-            return locationLabels[location] || location;
-        }
-        // ADMIN FILTERING FUNCTIONS (CLEANED - no auto-categorization)
-        function generateAdminFilters() {
-            if (!allArtworks.length) return;
-
-            const stats = {
-                subjects: {},
-                locations: {},
-                availability: { available: 0, sold: 0, unknown: 0 }
-            };
-
-            // Define which categories are subjects vs locations
-            const SUBJECT_CATEGORIES = [
-                'waterfall', 'landscape', 'flowingclouds', 'flowers', 'bamboo', 
-                'calligraphy', 'abstract', 'traditional'
-            ];
-            
-            const LOCATION_CATEGORIES = [
-                'huangshan', 'alishan', 'taroko', 'hehuanshan', 'yushan', 
-                'liushidanshan', 'guishandao', 'longdong', 'zhangjiajie', 
-                'grandcanyon', 'iguazu', 'niagara'
-            ];
-
-            // Calculate statistics with proper separation
-            allArtworks.forEach(artwork => {
-                let hasSubjects = false;
-                let hasLocations = false;
-                
-                // Method 1: Use autoCategories if available (preferred)
-                if (artwork.autoCategories) {
-                    if (artwork.autoCategories.subjects) {
-                        artwork.autoCategories.subjects.forEach(subject => {
-                            stats.subjects[subject] = (stats.subjects[subject] || 0) + 1;
-                            hasSubjects = true;
-                        });
-                    }
-                    if (artwork.autoCategories.locations) {
-                        artwork.autoCategories.locations.forEach(location => {
-                            stats.locations[location] = (stats.locations[location] || 0) + 1;
-                            hasLocations = true;
-                        });
-                    }
-                }
-                
-                // Method 2: Fallback to manual categorization from flat categories array
-                if (!hasSubjects || !hasLocations) {
-                    const categories = artwork.categories || [];
-                    
-                    categories.forEach(category => {
-                        if (SUBJECT_CATEGORIES.includes(category)) {
-                            if (!hasSubjects || !artwork.autoCategories?.subjects?.includes(category)) {
-                                stats.subjects[category] = (stats.subjects[category] || 0) + 1;
-                                hasSubjects = true;
-                            }
-                        } else if (LOCATION_CATEGORIES.includes(category)) {
-                            if (!hasLocations || !artwork.autoCategories?.locations?.includes(category)) {
-                                stats.locations[category] = (stats.locations[category] || 0) + 1;
-                                hasLocations = true;
-                            }
-                        } else {
-                            // Unknown category - treat as subject
-                            stats.subjects[category] = (stats.subjects[category] || 0) + 1;
-                            hasSubjects = true;
-                        }
-                    });
-                }
-
-                // Availability stats
-                const available = artwork.available;
-                if (available === true || available === 'true') {
-                    stats.availability.available++;
-                } else if (available === false || available === 'false') {
-                    stats.availability.sold++;
-                } else {
-                    stats.availability.unknown++;
-                }
-            });
-
-            // Generate subject filters
-            const subjectFilters = document.getElementById('subjectFilters');
-            if (subjectFilters) {
-                subjectFilters.innerHTML = Object.entries(stats.subjects).map(([subject, count]) => `
-                    <button class="secondary-filter-btn" data-filter-type="subject" data-filter-value="${subject}">
-                        ${getSubjectLabel(subject)} (${count})
-                    </button>
-                `).join('');
-            }
-
-            // Generate location filters (if any)
-            const locationFilters = document.getElementById('locationFilters');
-            const locationSection = document.getElementById('locationFiltersSection');
-            if (locationFilters && Object.keys(stats.locations).length > 0) {
-                locationFilters.innerHTML = Object.entries(stats.locations).map(([location, count]) => `
-                    <button class="secondary-filter-btn" data-filter-type="location" data-filter-value="${location}">
-                        ${getLocationLabel(location)} (${count})
-                    </button>
-                `).join('');
-                locationSection.style.display = 'block';
-            } else if (locationSection) {
-                locationSection.style.display = 'none';
-            }
-
-            // Update availability filter counts
-            document.querySelectorAll('[data-filter-type="availability"]').forEach(btn => {
-                const value = btn.dataset.filterValue;
-                const count = stats.availability[value] || 0;
-                btn.textContent = btn.textContent.replace(/\(\d+\)/, '') + ` (${count})`;
-            });
-
-            // Setup filter listeners
-            setupAdminFilterListeners();
-        }
-
-        function setupAdminFilterListeners() {
-            document.querySelectorAll('.secondary-filter-btn, .filter-btn[data-filter-type]').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    const filterType = e.target.dataset.filterType;
-                    const filterValue = e.target.dataset.filterValue;
-                    
-                    if (filterType && filterValue) {
-                        toggleAdminFilter(filterType, filterValue);
-                    }
-                });
-            });
-        }
-
-        function toggleAdminFilter(filterType, filterValue) {
-            if (!activeAdminFilters[filterType]) {
-                activeAdminFilters[filterType] = [];
-            }
-            
-            const index = activeAdminFilters[filterType].indexOf(filterValue);
-            if (index === -1) {
-                activeAdminFilters[filterType].push(filterValue);
-            } else {
-                activeAdminFilters[filterType].splice(index, 1);
-            }
-            
-            applyAdminFilters();
-            updateAdminFilterUI();
-        }
-
-        // FIXED: Apply admin filters with proper subject/location separation
-        function applyAdminFilters() {
-            let filteredArtworks = [...allArtworks]; // CRITICAL: Always start from master array
-
-            // Apply subject filters
-            if (activeAdminFilters.subject.length > 0) {
-                filteredArtworks = filteredArtworks.filter(artwork => {
-                    // First try autoCategories.subjects
-                    if (artwork.autoCategories?.subjects) {
-                        if (activeAdminFilters.subject.some(filter => artwork.autoCategories.subjects.includes(filter))) {
-                            return true;
-                        }
-                    }
-                    
-                    // Fallback: check flat categories array
-                    const categories = artwork.categories || [];
-                    return activeAdminFilters.subject.some(filter => categories.includes(filter));
-                });
-            }
-
-            // Apply location filters  
-            if (activeAdminFilters.location.length > 0) {
-                filteredArtworks = filteredArtworks.filter(artwork => {
-                    // First try autoCategories.locations
-                    if (artwork.autoCategories?.locations) {
-                        if (activeAdminFilters.location.some(filter => artwork.autoCategories.locations.includes(filter))) {
-                            return true;
-                        }
-                    }
-                    
-                    // Fallback: check flat categories array
-                    const categories = artwork.categories || [];
-                    return activeAdminFilters.location.some(filter => categories.includes(filter));
-                });
-            }
-
-            // Apply featured filters
-            if (activeAdminFilters.featured.length > 0) {
-                filteredArtworks = filteredArtworks.filter(artwork => {
-                    return activeAdminFilters.featured.some(filter => {
-                        const featured = artwork.featured === true || artwork.featured === 'true';
-                        return filter === 'true' ? featured : !featured;
-                    });
-                });
-            }
-
-            // Apply availability filters
-            if (activeAdminFilters.availability.length > 0) {
-                filteredArtworks = filteredArtworks.filter(artwork => {
-                    return activeAdminFilters.availability.some(filter => {
-                        const available = artwork.available;
-                        switch(filter) {
-                            case 'available': return available === true || available === 'true';
-                            case 'sold': return available === false || available === 'false';
-                            case 'unknown': return available === '' || available === null || available === undefined;
-                            default: return false;
-                        }
-                    });
-                });
-            }
-
-            // CRITICAL: Update ONLY the display array, never the master array
-            artworks = filteredArtworks;
-            renderArtworks(artworks);
-            updateStats(artworks);
-
-            // Update results info
-            const activeFilterCount = Object.values(activeAdminFilters).flat().length;
-            console.log(`Applied ${activeFilterCount} filters, showing ${artworks.length}/${allArtworks.length} artworks`);
-        }
-
-
-        function updateAdminFilterUI() {
-            document.querySelectorAll('.secondary-filter-btn, .filter-btn[data-filter-type]').forEach(btn => {
-                const filterType = btn.dataset.filterType;
-                const filterValue = btn.dataset.filterValue;
-                
-                if (filterType && filterValue && activeAdminFilters[filterType]) {
-                    if (activeAdminFilters[filterType].includes(filterValue)) {
-                        btn.classList.add('active');
-                    } else {
-                        btn.classList.remove('active');
-                    }
-                }
-            });
-        }
-
-        function clearAllAdminFilters() {
-            activeAdminFilters = {
-                subject: [],
-                location: [],
-                availability: [],
-                featured: [] 
-            };
-            
-            // CRITICAL: Reset display array from master array
-            artworks = [...allArtworks];
-            renderArtworks();
-            updateStats();
-            updateAdminFilterUI();
-            document.getElementById('searchInput').value = '';
-            showMessage('已清除所有篩選條件', 'info');
-        }
-
-        // FIXED: Search with proper subject/location separation
-        function performSearch() {
-            const query = document.getElementById('searchInput').value.toLowerCase().trim();
-            
-            if (query === '') {
-                applyAdminFilters(); // Show filtered results without search
-                return;
-            }
-
-            // CRITICAL: Start from master array, then apply filters
-            let searchBase = [...allArtworks];
-            
-            // Apply existing filters first with proper separation
-            const hasActiveFilters = Object.values(activeAdminFilters).some(arr => arr.length > 0);
-            if (hasActiveFilters) {
-                if (activeAdminFilters.subject.length > 0) {
-                    searchBase = searchBase.filter(artwork => {
-                        // Check autoCategories.subjects first
-                        if (artwork.autoCategories?.subjects) {
-                            if (activeAdminFilters.subject.some(filter => artwork.autoCategories.subjects.includes(filter))) {
-                                return true;
-                            }
-                        }
-                        // Fallback to flat categories
-                        const categories = artwork.categories || [];
-                        return activeAdminFilters.subject.some(filter => categories.includes(filter));
-                    });
-                }
-                
-                if (activeAdminFilters.location.length > 0) {
-                    searchBase = searchBase.filter(artwork => {
-                        // Check autoCategories.locations first
-                        if (artwork.autoCategories?.locations) {
-                            if (activeAdminFilters.location.some(filter => artwork.autoCategories.locations.includes(filter))) {
-                                return true;
-                            }
-                        }
-                        // Fallback to flat categories
-                        const categories = artwork.categories || [];
-                        return activeAdminFilters.location.some(filter => categories.includes(filter));
-                    });
-                }
-                
-                if (activeAdminFilters.availability.length > 0) {
-                    searchBase = searchBase.filter(artwork => {
-                        return activeAdminFilters.availability.some(filter => {
-                            const available = artwork.available;
-                            switch(filter) {
-                                case 'available': return available === true || available === 'true';
-                                case 'sold': return available === false || available === 'false';
-                                case 'unknown': return available === '' || available === null || available === undefined;
-                                default: return false;
-                            }
-                        });
-                    });
-                }
-            }
-
-            // Then apply search query
-            const searchResults = searchBase.filter(artwork => {
-                const title = (artwork.title || '').toLowerCase();
-                const description = (artwork.description || '').toLowerCase();
-                const year = (artwork.year || '').toString();
-                const sizeCm = (artwork.sizeCm || '').toLowerCase();
-                
-                return title.includes(query) || 
-                    description.includes(query) || 
-                    year.includes(query) ||
-                    sizeCm.includes(query);
-            });
-
-            // CRITICAL: Update only display array
-            artworks = searchResults;
-            renderArtworks();
-            updateStats();
-            
-            console.log(`Search "${query}": ${searchResults.length} results from ${searchBase.length} filtered artworks`);
-        }
-
-        // Add keyboard support for Enter key
-        function setupCategoryInput() {
-            const input = document.getElementById('artworkSubcategory');
-            if (input) {
-                input.addEventListener('keypress', function(e) {
-                    if (e.key === 'Enter') {
-                        e.preventDefault(); // Prevent form submission
-                        addManualCategory();
-                    }
-                });
-            }
-        }
-
-        // Form submission
+        // CLEANED UP: Initialize everything
         document.addEventListener('DOMContentLoaded', function() {
             loadArtworks();
             setupImageUpload();
-            setupCategoryInput();
 
             // Check GitHub connection on startup
             setTimeout(checkGitHubConnection, 1000);
@@ -2210,26 +1950,22 @@
                 const artworkId = currentEditingId || generateSequentialId();
                 
                 try {
-                    // Use the clean form data collection
                     const formData = collectArtworkFormData(artworkId);
                     
                     // Handle image paths for existing artwork
                     if (currentEditingId) {
                         const existingArtwork = allArtworks.find(a => a.id === currentEditingId);
                         if (existingArtwork) {
-                            // Check if image was cleared
                             if (uploadedImages[currentEditingId] && uploadedImages[currentEditingId].cleared) {
                                 formData.image = '';
                                 formData.imageHigh = '';
                             } else if (!uploadedImages[artworkId] || !uploadedImages[artworkId].file) {
-                                // No new image, keep existing paths
                                 formData.image = existingArtwork.image || '';
                                 formData.imageHigh = existingArtwork.imageHigh || '';
                             }
                         }
                     }
                     
-                    // Check for uploaded image paths
                     if (uploadedImages[artworkId] && uploadedImages[artworkId].githubUpload) {
                         formData.image = uploadedImages[artworkId].githubUpload.artworkData.image;
                         formData.imageHigh = uploadedImages[artworkId].githubUpload.artworkData.imageHigh;
@@ -2262,17 +1998,16 @@
             }
         });
 
-        // Make functions globally available for integration
-        window.artworks = getMasterArtworksArray; // Return function, not array
+        // Make functions globally available
+        window.artworks = getMasterArtworksArray;
         window.renderArtworks = renderArtworks;
         window.updateStats = updateStats;
         window.showMessage = showMessage;
         window.publishArtwork = publishArtwork;
         window.undoDelete = undoDelete;
         window.clearImage = clearImage;
-        window.manualCategories = window.manualCategories || [];
         
-        console.log('✅ 管理介面載入成功！');
+        console.log('✅ 管理介面載入成功 - 使用 CategoryManager 進行分類管理！');
     </script>
 </body>
 </html>
