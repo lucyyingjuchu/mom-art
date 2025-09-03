@@ -820,7 +820,11 @@
             featured: []
         };
                 
-        let manualCategories = []; // Track manual categories
+        // UPDATED: Global variables - ensure proper initialization
+        let manualCategories = {
+            subjects: [],
+            locations: []
+        };
 
         // CRITICAL SAFETY FUNCTION: Always use this for GitHub updates
         function getMasterArtworksArray() {
@@ -929,6 +933,7 @@
             showMessage(`已移除分類標籤「${categoryKey}」`, 'info');
         }
 
+        // FIXED: Add manual category with proper structure and error handling
         function addManualCategory() {
             const input = document.getElementById('artworkSubcategory');
             const categoryText = input.value.trim();
@@ -938,12 +943,22 @@
                 return;
             }
             
-            // Convert Chinese to English if possible
-            const englishKey = categoryManager.chineseToEnglish(categoryText);
+            // Ensure manualCategories is properly initialized
+            if (!manualCategories || typeof manualCategories !== 'object') {
+                manualCategories = { subjects: [], locations: [] };
+            }
+            if (!manualCategories.subjects) manualCategories.subjects = [];
+            if (!manualCategories.locations) manualCategories.locations = [];
+            
+            // Convert Chinese to English if possible (fallback if categoryManager not available)
+            let englishKey = categoryText;
+            if (typeof categoryManager !== 'undefined' && categoryManager.chineseToEnglish) {
+                englishKey = categoryManager.chineseToEnglish(categoryText);
+            }
             
             // Determine if it's a subject or location
             let categoryType = 'subjects'; // Default to subjects
-            if (categoryManager.isLocation(englishKey)) {
+            if (typeof categoryManager !== 'undefined' && categoryManager.isLocation && categoryManager.isLocation(englishKey)) {
                 categoryType = 'locations';
             }
             
@@ -961,8 +976,13 @@
             showMessage(`已新增${categoryType === 'subjects' ? '題材' : '地點'}分類「${categoryText}」`, 'success');
         }
 
-        // UPDATED: Remove manual category with proper structure
+        // FIXED: Remove manual category with proper error handling
         function removeManualCategory(categoryType, categoryToRemove) {
+            if (!manualCategories || !manualCategories[categoryType]) {
+                console.warn('manualCategories not properly initialized');
+                return;
+            }
+            
             const index = manualCategories[categoryType].findIndex(cat => cat === categoryToRemove);
             if (index > -1) {
                 manualCategories[categoryType].splice(index, 1);
@@ -974,34 +994,50 @@
         // UPDATED: Display manual categories in structured format
         function updateManualCategoriesDisplay() {
             const manualCategoriesDiv = document.getElementById('manualCategories');
+            if (!manualCategoriesDiv) return;
+            
+            // Ensure manualCategories is properly initialized
+            if (!manualCategories || typeof manualCategories !== 'object') {
+                manualCategories = { subjects: [], locations: [] };
+            }
+            if (!manualCategories.subjects) manualCategories.subjects = [];
+            if (!manualCategories.locations) manualCategories.locations = [];
             
             let html = '';
             
             // Display manual subjects
             if (manualCategories.subjects.length > 0) {
-                const subjectsHtml = manualCategories.subjects.map(cat => `
-                    <span style="background: #d4edda; color: #155724; padding: 3px 8px; border-radius: 12px; margin-right: 4px; font-size: 0.8rem; display: inline-flex; align-items: center; margin-bottom: 2px;">
-                        📂 ${categoryManager.getCategoryLabel(cat, 'zh')}
-                        <button type="button" onclick="removeManualCategory('subjects', '${cat}')" 
-                                style="background: none; border: none; color: #155724; margin-left: 4px; cursor: pointer; font-size: 0.7rem; padding: 0;">
-                            ✕
-                        </button>
-                    </span>
-                `).join('');
+                const subjectsHtml = manualCategories.subjects.map(cat => {
+                    const label = (typeof categoryManager !== 'undefined' && categoryManager.getCategoryLabel) ? 
+                                categoryManager.getCategoryLabel(cat, 'zh') : cat;
+                    return `
+                        <span style="background: #d4edda; color: #155724; padding: 3px 8px; border-radius: 12px; margin-right: 4px; font-size: 0.8rem; display: inline-flex; align-items: center; margin-bottom: 2px;">
+                            📂 ${label}
+                            <button type="button" onclick="removeManualCategory('subjects', '${cat}')" 
+                                    style="background: none; border: none; color: #155724; margin-left: 4px; cursor: pointer; font-size: 0.7rem; padding: 0;">
+                                ✕
+                            </button>
+                        </span>
+                    `;
+                }).join('');
                 html += `<div style="margin-bottom: 0.5rem;"><strong>手動題材:</strong> ${subjectsHtml}</div>`;
             }
             
             // Display manual locations
             if (manualCategories.locations.length > 0) {
-                const locationsHtml = manualCategories.locations.map(cat => `
-                    <span style="background: #cce5ff; color: #004085; padding: 3px 8px; border-radius: 12px; margin-right: 4px; font-size: 0.8rem; display: inline-flex; align-items: center; margin-bottom: 2px;">
-                        🗺️ ${categoryManager.getCategoryLabel(cat, 'zh')}
-                        <button type="button" onclick="removeManualCategory('locations', '${cat}')" 
-                                style="background: none; border: none; color: #004085; margin-left: 4px; cursor: pointer; font-size: 0.7rem; padding: 0;">
-                            ✕
-                        </button>
-                    </span>
-                `).join('');
+                const locationsHtml = manualCategories.locations.map(cat => {
+                    const label = (typeof categoryManager !== 'undefined' && categoryManager.getCategoryLabel) ? 
+                                categoryManager.getCategoryLabel(cat, 'zh') : cat;
+                    return `
+                        <span style="background: #cce5ff; color: #004085; padding: 3px 8px; border-radius: 12px; margin-right: 4px; font-size: 0.8rem; display: inline-flex; align-items: center; margin-bottom: 2px;">
+                            🗺️ ${label}
+                            <button type="button" onclick="removeManualCategory('locations', '${cat}')" 
+                                    style="background: none; border: none; color: #004085; margin-left: 4px; cursor: pointer; font-size: 0.7rem; padding: 0;">
+                                ✕
+                            </button>
+                        </span>
+                    `;
+                }).join('');
                 html += `<div style="margin-bottom: 0.5rem;"><strong>手動地點:</strong> ${locationsHtml}</div>`;
             }
             
@@ -1011,7 +1047,6 @@
             
             manualCategoriesDiv.innerHTML = html;
         }
-
         // UPDATED: Collect form data in new structured format
         function collectArtworkFormData(artworkId) {
             // ... existing form validation code ...
@@ -1168,9 +1203,30 @@
             document.getElementById('artworkAvailable').checked = artwork.available !== false && artwork.available !== 'false';
             document.getElementById('artworkPrice').value = artwork.price || '';
 
-            // Load existing manual categories if they exist
-            if (artwork.manualCategories && Array.isArray(artwork.manualCategories)) {
-                manualCategories = [...artwork.manualCategories];
+            // FIXED: Load existing manual categories in new structure
+            if (artwork.manualCategories) {
+                if (typeof artwork.manualCategories === 'object' && !Array.isArray(artwork.manualCategories)) {
+                    // New structure: {subjects: [...], locations: [...]}
+                    manualCategories = {
+                        subjects: [...(artwork.manualCategories.subjects || [])],
+                        locations: [...(artwork.manualCategories.locations || [])]
+                    };
+                } else if (Array.isArray(artwork.manualCategories)) {
+                    // Old structure: ["花鳥", "黃山"] - need to classify
+                    manualCategories = { subjects: [], locations: [] };
+                    
+                    artwork.manualCategories.forEach(cat => {
+                        // Convert Chinese to English and classify
+                        const englishKey = (typeof categoryManager !== 'undefined' && categoryManager.chineseToEnglish) ? 
+                                        categoryManager.chineseToEnglish(cat) : cat;
+                        
+                        if (typeof categoryManager !== 'undefined' && categoryManager.isLocation && categoryManager.isLocation(englishKey)) {
+                            manualCategories.locations.push(englishKey);
+                        } else {
+                            manualCategories.subjects.push(englishKey);
+                        }
+                    });
+                }
             }
 
             updateCategoryPreview(); // This will show existing categories with remove buttons
@@ -1194,10 +1250,9 @@
             
             document.getElementById('publishBtn').disabled = true;
             document.getElementById('saveStatus').textContent = '';
-        
+
             document.getElementById('artworkModal').style.display = 'block';
         }
-
         function deleteArtwork(id) {
             if (!checkEditingPermission()) return;
             
