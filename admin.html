@@ -871,22 +871,94 @@
             displayCategoryTags(autoCategories, manualCategories);
         }
 
+        // ROBUST: Category management with fallback support
+        function updateCategoryDisplay() {
+            if (!currentEditingId) {
+                // New artwork - show empty state
+                displayCategoryTags({ subjects: [], locations: [] }, { subjects: [], locations: [] });
+                return;
+            }
+            
+            const artwork = allArtworks.find(a => a.id === currentEditingId);
+            if (!artwork) return;
+            
+            // Extract categories - handle both new and old formats
+            let autoCategories = { subjects: [], locations: [] };
+            let manualCategories = { subjects: [], locations: [] };
+            
+            // New structured format
+            if (artwork.autoCategories) {
+                autoCategories = artwork.autoCategories;
+            }
+            if (artwork.manualCategories) {
+                if (typeof artwork.manualCategories === 'object' && !Array.isArray(artwork.manualCategories)) {
+                    // New format: {subjects: [], locations: []}
+                    manualCategories = artwork.manualCategories;
+                } else if (Array.isArray(artwork.manualCategories)) {
+                    // Old format: ["category1", "category2"] - classify them
+                    artwork.manualCategories.forEach(cat => {
+                        if (categoryManager && categoryManager.isLocation && categoryManager.isLocation(cat)) {
+                            manualCategories.locations.push(cat);
+                        } else {
+                            manualCategories.subjects.push(cat);
+                        }
+                    });
+                }
+            }
+            
+            // Fallback: try to extract from flat categories array
+            if (artwork.categories && Array.isArray(artwork.categories) && 
+                (!autoCategories.subjects.length && !autoCategories.locations.length && 
+                 !manualCategories.subjects.length && !manualCategories.locations.length)) {
+                
+                console.log('📦 Using fallback category extraction from flat array');
+                artwork.categories.forEach(cat => {
+                    if (categoryManager && categoryManager.isLocation && categoryManager.isLocation(cat)) {
+                        autoCategories.locations.push(cat);
+                    } else {
+                        autoCategories.subjects.push(cat);
+                    }
+                });
+            }
+            
+            // Update current working categories
+            currentArtworkCategories = {
+                autoCategories: JSON.parse(JSON.stringify(autoCategories)),
+                manualCategories: JSON.parse(JSON.stringify(manualCategories))
+            };
+            
+            displayCategoryTags(autoCategories, manualCategories);
+        }
+
         function displayCategoryTags(autoCategories, manualCategories) {
-            // Auto categories display
+            // Get DOM elements
             const autoSubjectTags = document.getElementById('autoSubjectTags');
             const autoLocationTags = document.getElementById('autoLocationTags');
             const noAutoCategories = document.getElementById('noAutoCategories');
-            
-            // Manual categories display  
             const manualSubjectTags = document.getElementById('manualSubjectTags');
             const manualLocationTags = document.getElementById('manualLocationTags');
             const noManualCategories = document.getElementById('noManualCategories');
+            
+            // Helper function to get category label with fallback
+            function getCategoryLabel(category) {
+                if (categoryManager && categoryManager.getCategoryLabel) {
+                    return categoryManager.getCategoryLabel(category, 'zh');
+                }
+                
+                // Fallback labels
+                const fallbackLabels = {
+                    "waterfall": "瀑布", "landscape": "山水", "flowers": "花鳥", 
+                    "calligraphy": "書法", "huangshan": "黃山", "alishan": "阿里山"
+                };
+                
+                return fallbackLabels[category] || category;
+            }
             
             // Display auto subjects
             if (autoCategories.subjects && autoCategories.subjects.length > 0) {
                 autoSubjectTags.innerHTML = autoCategories.subjects.map(subject => `
                     <span class="category-tag">
-                        📂 ${categoryManager.getCategoryLabel(subject, 'zh')}
+                        📂 ${getCategoryLabel(subject)}
                         <button type="button" onclick="removeAutoCategory('subjects', '${subject}')">✕</button>
                     </span>
                 `).join('');
@@ -898,7 +970,7 @@
             if (autoCategories.locations && autoCategories.locations.length > 0) {
                 autoLocationTags.innerHTML = autoCategories.locations.map(location => `
                     <span class="category-tag location">
-                        🗺️ ${categoryManager.getCategoryLabel(location, 'zh')}
+                        🗺️ ${getCategoryLabel(location)}
                         <button type="button" onclick="removeAutoCategory('locations', '${location}')">✕</button>
                     </span>
                 `).join('');
@@ -909,13 +981,15 @@
             // Show/hide "no auto categories" message
             const hasAutoCategories = (autoCategories.subjects && autoCategories.subjects.length > 0) || 
                                     (autoCategories.locations && autoCategories.locations.length > 0);
-            noAutoCategories.style.display = hasAutoCategories ? 'none' : 'block';
+            if (noAutoCategories) {
+                noAutoCategories.style.display = hasAutoCategories ? 'none' : 'block';
+            }
             
             // Display manual subjects
             if (manualCategories.subjects && manualCategories.subjects.length > 0) {
                 manualSubjectTags.innerHTML = manualCategories.subjects.map(subject => `
                     <span class="category-tag manual">
-                        📂 ${categoryManager.getCategoryLabel(subject, 'zh')}
+                        📂 ${getCategoryLabel(subject)}
                         <button type="button" onclick="removeManualCategory('subjects', '${subject}')">✕</button>
                     </span>
                 `).join('');
@@ -927,7 +1001,7 @@
             if (manualCategories.locations && manualCategories.locations.length > 0) {
                 manualLocationTags.innerHTML = manualCategories.locations.map(location => `
                     <span class="category-tag manual location">
-                        🗺️ ${categoryManager.getCategoryLabel(location, 'zh')}
+                        🗺️ ${getCategoryLabel(location)}
                         <button type="button" onclick="removeManualCategory('locations', '${location}')">✕</button>
                     </span>
                 `).join('');
@@ -938,7 +1012,9 @@
             // Show/hide "no manual categories" message
             const hasManualCategories = (manualCategories.subjects && manualCategories.subjects.length > 0) || 
                                       (manualCategories.locations && manualCategories.locations.length > 0);
-            noManualCategories.style.display = hasManualCategories ? 'none' : 'block';
+            if (noManualCategories) {
+                noManualCategories.style.display = hasManualCategories ? 'none' : 'block';
+            }
         }
 
         // Remove auto category
