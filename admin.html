@@ -850,7 +850,6 @@
         // CLEANED UP: Category management functions using CategoryManager
         function updateCategoryDisplay() {
             if (!currentEditingId) {
-                // New artwork - show empty state
                 displayCategoryTags({ subjects: [], locations: [] }, { subjects: [], locations: [] });
                 return;
             }
@@ -858,70 +857,19 @@
             const artwork = allArtworks.find(a => a.id === currentEditingId);
             if (!artwork) return;
             
-            // Extract categories using CategoryManager
-            const autoCategories = artwork.autoCategories || { subjects: [], locations: [] };
-            const manualCategories = artwork.manualCategories || { subjects: [], locations: [] };
-            
-            // Update current working categories
-            currentArtworkCategories = {
-                autoCategories: JSON.parse(JSON.stringify(autoCategories)),
-                manualCategories: JSON.parse(JSON.stringify(manualCategories))
-            };
-            
-            displayCategoryTags(autoCategories, manualCategories);
-        }
-
-        // ROBUST: Category management with fallback support
-        function updateCategoryDisplay() {
-            if (!currentEditingId) {
-                // New artwork - show empty state
-                displayCategoryTags({ subjects: [], locations: [] }, { subjects: [], locations: [] });
-                return;
-            }
-            
-            const artwork = allArtworks.find(a => a.id === currentEditingId);
-            if (!artwork) return;
-            
-            // Extract categories - handle both new and old formats
+            // Extract categories with fallback support
             let autoCategories = { subjects: [], locations: [] };
             let manualCategories = { subjects: [], locations: [] };
             
-            // New structured format
             if (artwork.autoCategories) {
                 autoCategories = artwork.autoCategories;
             }
             if (artwork.manualCategories) {
                 if (typeof artwork.manualCategories === 'object' && !Array.isArray(artwork.manualCategories)) {
-                    // New format: {subjects: [], locations: []}
                     manualCategories = artwork.manualCategories;
-                } else if (Array.isArray(artwork.manualCategories)) {
-                    // Old format: ["category1", "category2"] - classify them
-                    artwork.manualCategories.forEach(cat => {
-                        if (categoryManager && categoryManager.isLocation && categoryManager.isLocation(cat)) {
-                            manualCategories.locations.push(cat);
-                        } else {
-                            manualCategories.subjects.push(cat);
-                        }
-                    });
                 }
             }
             
-            // Fallback: try to extract from flat categories array
-            if (artwork.categories && Array.isArray(artwork.categories) && 
-                (!autoCategories.subjects.length && !autoCategories.locations.length && 
-                 !manualCategories.subjects.length && !manualCategories.locations.length)) {
-                
-                console.log('📦 Using fallback category extraction from flat array');
-                artwork.categories.forEach(cat => {
-                    if (categoryManager && categoryManager.isLocation && categoryManager.isLocation(cat)) {
-                        autoCategories.locations.push(cat);
-                    } else {
-                        autoCategories.subjects.push(cat);
-                    }
-                });
-            }
-            
-            // Update current working categories
             currentArtworkCategories = {
                 autoCategories: JSON.parse(JSON.stringify(autoCategories)),
                 manualCategories: JSON.parse(JSON.stringify(manualCategories))
@@ -1873,36 +1821,53 @@
         // CLEANED UP: Load artworks function
         async function loadArtworks() {
             try {
-                // Wait for CategoryManager to be ready
-                await waitForCategoryManager();
-                await categoryManager.loadConfig();
-                console.log('✅ CategoryManager ready for admin');
+                console.log('🚀 Starting loadArtworks()...');
+                
+                // Don't wait for CategoryManager - proceed with or without it
+                let categoryManagerReady = false;
+                if (typeof categoryManager !== 'undefined' && categoryManager.loadConfig) {
+                    try {
+                        await categoryManager.loadConfig();
+                        categoryManagerReady = true;
+                        console.log('✅ CategoryManager ready');
+                    } catch (error) {
+                        console.warn('⚠️ CategoryManager not ready, continuing without it');
+                    }
+                }
                 
                 const response = await fetch('./data/artworks.json');
                 const data = await response.json();
                 
-                // CRITICAL: Set both arrays properly
-                allArtworks = Array.isArray(data) ? data : []; // Master data
-                artworks = [...allArtworks]; // Display data (copy)
-                
-                // Sync to window object for GitHub integration
+                allArtworks = Array.isArray(data) ? data : [];
+                artworks = [...allArtworks];
                 window.artworks = getMasterArtworksArray();
-                console.log(`✅ 載入並同步了 ${allArtworks.length} 件作品到主陣列`);
                 
                 renderArtworks();
                 updateStats();
-                generateAdminFilters(); // Use CategoryManager for filtering
+                
+                if (categoryManagerReady) {
+                    generateAdminFilters();
+                } else {
+                    // Simple fallback filter menu
+                    document.getElementById('adminFilterMenu').innerHTML = `
+                        <div class="search-sort-container">
+                            <div class="search-box">
+                                <span class="search-icon">🔍</span>
+                                <input type="text" id="searchInput" placeholder="搜尋作品標題、描述..." onkeyup="performSearch()">
+                            </div>
+                            <button class="btn btn-success" onclick="openAddModal()">➕ 新增作品</button>
+                        </div>
+                    `;
+                }
+                
             } catch (error) {
                 console.error('Error loading artworks:', error);
                 showMessage(`載入作品失敗：${error.message}`, 'error');
-                
-                // Initialize empty arrays on error
                 allArtworks = [];
                 artworks = [];
                 window.artworks = [];
             }
         }
-
         // Check GitHub connection and update UI
         async function checkGitHubConnection() {
             try {
