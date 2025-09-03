@@ -677,6 +677,14 @@
                             <div class="form-group">
                                 <label>分類標籤管理</label>
                                 
+                                <!-- Available Category Labels Display -->
+                                <div class="category-section">
+                                    <h5>🏷️ 可用分類標籤參考</h5>
+                                    <div id="availableCategoryLabels" style="max-height: 100px; overflow-y: auto; font-size: 0.8rem; color: #6c757d;">
+                                        載入中...
+                                    </div>
+                                </div>
+
                                 <!-- Auto Categories Section -->
                                 <div class="category-section" id="autoCategoriesSection">
                                     <h5>🤖 自動分類（可移除）</h5>
@@ -973,10 +981,16 @@
             if (index > -1) {
                 currentArtworkCategories.autoCategories[categoryType].splice(index, 1);
                 updateCategoryDisplay();
-                showMessage(`已移除自動${categoryType === 'subjects' ? '題材' : '地點'}分類「${categoryManager.getCategoryLabel(categoryKey, 'zh')}」`, 'info');
+                
+                // Fix the label display with fallback
+                let label = categoryKey;
+                if (typeof categoryManager !== 'undefined' && categoryManager.getCategoryLabel) {
+                    label = categoryManager.getCategoryLabel(categoryKey, 'zh');
+                }
+                
+                showMessage(`已移除自動${categoryType === 'subjects' ? '題材' : '地點'}分類「${label}」`, 'info');
             }
         }
-
         // Remove manual category
         function removeManualCategory(categoryType, categoryKey) {
             if (!currentArtworkCategories.manualCategories[categoryType]) return;
@@ -985,7 +999,14 @@
             if (index > -1) {
                 currentArtworkCategories.manualCategories[categoryType].splice(index, 1);
                 updateCategoryDisplay();
-                showMessage(`已移除手動${categoryType === 'subjects' ? '題材' : '地點'}分類「${categoryManager.getCategoryLabel(categoryKey, 'zh')}」`, 'info');
+                
+                // Fix the label display with fallback
+                let label = categoryKey;
+                if (typeof categoryManager !== 'undefined' && categoryManager.getCategoryLabel) {
+                    label = categoryManager.getCategoryLabel(categoryKey, 'zh');
+                }
+                
+                showMessage(`已移除手動${categoryType === 'subjects' ? '題材' : '地點'}分類「${label}」`, 'info');
             }
         }
 
@@ -1097,6 +1118,69 @@
             
             document.getElementById('adminFilterMenu').innerHTML = html;
             setupAdminFilterListeners();
+        }
+
+        function displayAvailableCategoryLabels() {
+            const container = document.getElementById('availableCategoryLabels');
+            if (!container) return;
+            
+            let html = '';
+            
+            // Display available subjects
+            if (typeof categoryManager !== 'undefined' && categoryManager.getAllSubjects) {
+                const subjects = categoryManager.getAllSubjects();
+                if (subjects.length > 0) {
+                    const subjectLabels = subjects.map(subject => {
+                        const label = categoryManager.getCategoryLabel ? categoryManager.getCategoryLabel(subject, 'zh') : subject;
+                        return `<span class="available-label" onclick="quickAddCategory('subjects', '${subject}')" title="點擊快速加入">📂 ${label}</span>`;
+                    }).join(' ');
+                    html += `<div style="margin-bottom: 0.5rem;"><strong>題材：</strong> ${subjectLabels}</div>`;
+                }
+            }
+            
+            // Display available locations
+            if (typeof categoryManager !== 'undefined' && categoryManager.getAllLocations) {
+                const locations = categoryManager.getAllLocations();
+                if (locations.length > 0) {
+                    const locationLabels = locations.map(location => {
+                        const label = categoryManager.getCategoryLabel ? categoryManager.getCategoryLabel(location, 'zh') : location;
+                        return `<span class="available-label" onclick="quickAddCategory('locations', '${location}')" title="點擊快速加入">🗺️ ${label}</span>`;
+                    }).join(' ');
+                    html += `<div><strong>地點：</strong> ${locationLabels}</div>`;
+                }
+            }
+            
+            if (html === '') {
+                html = '<span style="color: #6c757d;">CategoryManager 未載入，無法顯示可用標籤</span>';
+            }
+            
+            container.innerHTML = html;
+        }
+
+        // Quick add category function
+        function quickAddCategory(categoryType, categoryKey) {
+            // Check if already exists
+            const allExisting = [
+                ...(currentArtworkCategories.autoCategories[categoryType] || []),
+                ...(currentArtworkCategories.manualCategories[categoryType] || [])
+            ];
+            
+            if (allExisting.includes(categoryKey)) {
+                showMessage('此分類已存在', 'warning');
+                return;
+            }
+            
+            // Add to manual categories
+            if (!currentArtworkCategories.manualCategories[categoryType]) {
+                currentArtworkCategories.manualCategories[categoryType] = [];
+            }
+            currentArtworkCategories.manualCategories[categoryType].push(categoryKey);
+            
+            updateCategoryDisplay();
+            
+            const label = (typeof categoryManager !== 'undefined' && categoryManager.getCategoryLabel) ? 
+                        categoryManager.getCategoryLabel(categoryKey, 'zh') : categoryKey;
+            showMessage(`已快速添加${categoryType === 'subjects' ? '題材' : '地點'}分類「${label}」`, 'success');
         }
 
         // Setup filter event listeners
@@ -1276,6 +1360,8 @@
             document.getElementById('imageControls').style.display = 'none';
             
             updateCategoryDisplay();
+            displayAvailableCategoryLabels();
+
             document.getElementById('artworkModal').style.display = 'block';
         }
 
@@ -1353,7 +1439,7 @@
             updateStats();
 
             // Show undo message
-            let timeLeft = 30;
+            let timeLeft = 60;
             const messageDiv = document.createElement('div');
             messageDiv.className = 'info-message';
             messageDiv.innerHTML = `
