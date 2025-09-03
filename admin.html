@@ -1372,11 +1372,12 @@
             document.getElementById('publishBtn').disabled = true;
             document.getElementById('saveStatus').textContent = '';
             document.getElementById('imageControls').style.display = 'none';
-            
+            document.getElementById('artworkModal').style.display = 'block';
+         
             updateCategoryDisplay();
             displayAvailableCategoryLabels();
 
-            document.getElementById('artworkModal').style.display = 'block';
+
         }
 
         function closeModal() {
@@ -1410,9 +1411,11 @@
             document.getElementById('artworkFeatured').checked = artwork.featured === true || artwork.featured === 'true';
             document.getElementById('artworkAvailable').checked = artwork.available !== false && artwork.available !== 'false';
             document.getElementById('artworkPrice').value = artwork.price || '';
+            document.getElementById('artworkModal').style.display = 'block';
 
             // Load categories
             updateCategoryDisplay();
+            displayAvailableCategoryLabels();
 
             // Handle existing image
             const previewImg = document.getElementById('previewImage');
