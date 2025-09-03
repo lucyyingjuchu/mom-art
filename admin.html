@@ -898,14 +898,10 @@
                 if (categoryManager && categoryManager.getCategoryLabel) {
                     return categoryManager.getCategoryLabel(category, 'zh');
                 }
-                const fallbackLabels = {
-                    "waterfall": "瀑布", "landscape": "山水", "flowers": "花鳥", 
-                    "calligraphy": "書法", "huangshan": "黃山", "alishan": "阿里山"
-                };
-                return fallbackLabels[category] || category;
+                return category;
             }
             
-            // Auto categories - 分成題材和地點兩個區塊
+            // Auto categories - 分成題材和地點
             let autoSubjectsHtml = '';
             let autoLocationsHtml = '';
             
@@ -937,10 +933,10 @@
                 `;
             }
             
-            autoSubjectTags.innerHTML = autoSubjectsHtml;
-            autoLocationTags.innerHTML = autoLocationsHtml;
+            if (autoSubjectTags) autoSubjectTags.innerHTML = autoSubjectsHtml;
+            if (autoLocationTags) autoLocationTags.innerHTML = autoLocationsHtml;
             
-            // Manual categories - 同樣分成題材和地點
+            // Manual categories - 分成題材和地點
             let manualSubjectsHtml = '';
             let manualLocationsHtml = '';
             
@@ -972,8 +968,8 @@
                 `;
             }
             
-            manualSubjectTags.innerHTML = manualSubjectsHtml;
-            manualLocationTags.innerHTML = manualLocationsHtml;
+            if (manualSubjectTags) manualSubjectTags.innerHTML = manualSubjectsHtml;
+            if (manualLocationTags) manualLocationTags.innerHTML = manualLocationsHtml;
             
             // Show/hide empty state messages
             const hasAutoCategories = autoSubjectsHtml || autoLocationsHtml;
@@ -985,41 +981,36 @@
             if (noManualCategories) {
                 noManualCategories.style.display = hasManualCategories ? 'none' : 'block';
             }
-        }
-                
-        // Remove auto category
+        }  
+
         function removeAutoCategory(categoryType, categoryKey) {
             if (!currentArtworkCategories.autoCategories[categoryType]) return;
             
             const index = currentArtworkCategories.autoCategories[categoryType].indexOf(categoryKey);
             if (index > -1) {
                 currentArtworkCategories.autoCategories[categoryType].splice(index, 1);
-                updateCategoryDisplay();
+                displayCategoryTags(currentArtworkCategories.autoCategories, currentArtworkCategories.manualCategories);
                 
-                // Fix the label display with fallback
                 let label = categoryKey;
                 if (typeof categoryManager !== 'undefined' && categoryManager.getCategoryLabel) {
                     label = categoryManager.getCategoryLabel(categoryKey, 'zh');
                 }
-                
                 showMessage(`已移除自動${categoryType === 'subjects' ? '題材' : '地點'}分類「${label}」`, 'info');
             }
         }
-        // Remove manual category
+
         function removeManualCategory(categoryType, categoryKey) {
             if (!currentArtworkCategories.manualCategories[categoryType]) return;
             
             const index = currentArtworkCategories.manualCategories[categoryType].indexOf(categoryKey);
             if (index > -1) {
                 currentArtworkCategories.manualCategories[categoryType].splice(index, 1);
-                updateCategoryDisplay();
+                displayCategoryTags(currentArtworkCategories.autoCategories, currentArtworkCategories.manualCategories);
                 
-                // Fix the label display with fallback
                 let label = categoryKey;
                 if (typeof categoryManager !== 'undefined' && categoryManager.getCategoryLabel) {
                     label = categoryManager.getCategoryLabel(categoryKey, 'zh');
                 }
-                
                 showMessage(`已移除手動${categoryType === 'subjects' ? '題材' : '地點'}分類「${label}」`, 'info');
             }
         }
