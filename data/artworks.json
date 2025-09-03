@@ -803,34 +803,31 @@
   {
     "id": "019891b0-f39c-7bc8-ae41-7e14d730d294",
     "title": "墨荷-青煙裊裊冷香飄",
-    "titleEn": "Ink Lotus - Cool Fragrance in Wisps of Azure Smoke",
-    "image": "",
-    "imageHigh": "",
-    "description": null,
-    "descriptionEn": "",
-    "format": "框",
-    "mediumEn": "",
-    "sizeCm": "23x35",
-    "sizeInches": "9.1×13.8 inches",
     "year": "2016",
-    "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "formatEn": "Framed",
     "heightCm": 23,
     "widthCm": 35,
-    "heightInches": 9.1,
-    "widthInches": 13.8,
+    "sizeCm": "23 × 35 cm",
+    "format": "框",
+    "description": "",
+    "curatorNote": "",
+    "featured": false,
+    "available": true,
+    "price": "",
     "autoCategories": {
       "subjects": [],
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
-    }
+    },
+    "image": "",
+    "imageHigh": "",
+    "categories": [
+      "flowers"
+    ]
   },
   {
     "id": "019891b0-f39c-7e66-b993-7dabeab00451",
