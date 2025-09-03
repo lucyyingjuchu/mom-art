@@ -96,20 +96,20 @@
     "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
-        "flowers"
+        "landscape"
       ],
       "locations": []
     },
-    "categories": [
-      "flowers"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-752c-bde4-db1ef1f5529c",
     "title": "源頭應是天上來─瀑布",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "",
     "image": "",
     "imageHigh": "",
     "description": "歲歲朝朝萬斛流，濺花滌盡古今愁；源頭應是天上來，沾溉群生永不休。",
@@ -135,9 +135,10 @@
       ],
       "locations": []
     },
-    "categories": [
-      "waterfall"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-73f8-9534-0b7d90737bde",
@@ -164,18 +165,16 @@
     "widthInches": 35.4,
     "autoCategories": {
       "subjects": [
-        "landscape",
         "flowingclouds"
       ],
       "locations": [
         "huangshan"
       ]
     },
-    "categories": [
-      "landscape",
-      "flowingclouds",
-      "huangshan"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-70ac-a3d9-618efed1747a",
@@ -206,28 +205,23 @@
       ],
       "locations": []
     },
-    "categories": [
-      "bamboo"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-760d-a955-60c68a66d5be",
     "title": "夢筆插花山為盆－黃山煙雲",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "landscape",
-      "flowingclouds",
-      "flowers",
-      "huangshan"
-    ],
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    },
     "autoCategories": {
       "subjects": [
-        "landscape",
-        "flowingclouds",
-        "flowers"
+        "flowingclouds"
       ],
       "locations": [
         "huangshan"
@@ -261,15 +255,13 @@
     "title": "天地有大美－美國大峽谷",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "landscape",
-      "grandcanyon"
-    ],
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    },
     "autoCategories": {
       "subjects": [
-        "landscape"
+        "flowingclouds"
       ],
       "locations": [
         "grandcanyon"
@@ -303,16 +295,13 @@
     "title": "梅嶺如雲－風櫃斗梅花林",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "flowingclouds",
-      "flowers"
-    ],
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    },
     "autoCategories": {
       "subjects": [
-        "flowingclouds",
-        "flowers"
+        "flowingclouds"
       ],
       "locations": []
     },
@@ -364,28 +353,26 @@
     "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
-        "landscape"
+        "flowingclouds"
       ],
       "locations": []
     },
-    "categories": [
-      "landscape"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7b65-ab7f-c36ec9a747df",
     "title": "無心任始終—雲海(金宣)",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "landscape",
-      "flowingclouds"
-    ],
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    },
     "autoCategories": {
       "subjects": [
-        "landscape",
         "flowingclouds"
       ],
       "locations": []
@@ -437,30 +424,26 @@
     "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
-        "waterfall",
-        "flowingclouds"
+        "waterfall"
       ],
       "locations": []
     },
-    "categories": [
-      "waterfall",
-      "flowingclouds"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7f2c-96ed-160ad3c22a3f",
     "title": "煙雲情境",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "landscape",
-      "flowingclouds"
-    ],
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    },
     "autoCategories": {
       "subjects": [
-        "landscape",
         "flowingclouds"
       ],
       "locations": []
@@ -493,17 +476,12 @@
     "title": "煙霧中的花影－阿勃勒",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "flowingclouds",
-      "flowers"
-    ],
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    },
     "autoCategories": {
-      "subjects": [
-        "flowingclouds",
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-7bae-8206-f4788f507776_thumb.png",
@@ -534,11 +512,10 @@
     "title": "白雲慈母心－北極熊",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "flowingclouds"
-    ],
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    },
     "autoCategories": {
       "subjects": [
         "flowingclouds"
@@ -573,14 +550,12 @@
     "title": "秋波千萬情－天光雲影",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "山水",
-    "manualCategories": [
-      "山水"
-    ],
-    "categories": [
-      "flowingclouds",
-      "山水"
-    ],
+    "manualCategories": {
+      "subjects": [
+        "山水"
+      ],
+      "locations": []
+    },
     "autoCategories": {
       "subjects": [
         "flowingclouds"
@@ -615,15 +590,12 @@
     "title": "紫藤雙燕",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "flowers"
-    ],
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    },
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-79f7-8cab-78ad04b8b05d_thumb.png",
@@ -654,14 +626,13 @@
     "title": "聚葉潑成千點墨－畫菊",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "flowers"
-    ],
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    },
     "autoCategories": {
       "subjects": [
-        "flowers"
+        "calligraphy"
       ],
       "locations": []
     },
@@ -693,15 +664,12 @@
     "title": "自在飛花輕似夢－雨中紫藤",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "flowers"
-    ],
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    },
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-7e69-8910-34d57c0a6589_thumb.png",
@@ -752,30 +720,26 @@
     "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
-        "landscape",
         "flowingclouds"
       ],
       "locations": []
     },
-    "categories": [
-      "landscape",
-      "flowingclouds"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7839-9ec1-f0013b25f208",
     "title": "雪壩煙雲",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "landscape",
-      "flowingclouds"
-    ],
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    },
     "autoCategories": {
       "subjects": [
-        "landscape",
         "flowingclouds"
       ],
       "locations": []
@@ -808,16 +772,12 @@
     "title": "雲蒸霞蔚－雲揚阿里山",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "landscape",
-      "flowingclouds",
-      "alishan"
-    ],
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    },
     "autoCategories": {
       "subjects": [
-        "landscape",
         "flowingclouds"
       ],
       "locations": [
@@ -871,16 +831,13 @@
     "heightInches": 9.1,
     "widthInches": 13.8,
     "autoCategories": {
-      "subjects": [
-        "flowingclouds",
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "flowingclouds",
-      "flowers"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7e66-b993-7dabeab00451",
@@ -907,13 +864,14 @@
     "widthInches": 9.1,
     "autoCategories": {
       "subjects": [
-        "waterfall"
+        "flowingclouds"
       ],
       "locations": []
     },
-    "categories": [
-      "waterfall"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-77c9-85f0-4b4cc1b1ac5d",
@@ -939,13 +897,14 @@
     "widthInches": 53.1,
     "autoCategories": {
       "subjects": [
-        "traditional"
+        "landscape"
       ],
       "locations": []
     },
-    "categories": [
-      "traditional"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-791c-b684-feeffacfd83b",
@@ -976,9 +935,10 @@
       ],
       "locations": []
     },
-    "categories": [
-      "landscape"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7834-8476-a918927593ab",
@@ -1005,16 +965,16 @@
     "widthInches": 29.5,
     "autoCategories": {
       "subjects": [
-        "traditional"
+        "flowingclouds"
       ],
       "locations": [
         "longdong"
       ]
     },
-    "categories": [
-      "traditional",
-      "longdong"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7220-b00b-be8e9249f911",
@@ -1040,32 +1000,27 @@
     "heightInches": 27.6,
     "widthInches": 10.6,
     "autoCategories": {
-      "subjects": [
-        "traditional"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "traditional"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-748f-a906-1de3f9f5b3b6",
     "title": "萬縷紫煙飛自在",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "花鳥",
-    "manualCategories": [
-      "花鳥"
-    ],
-    "categories": [
-      "flowingclouds",
-      "花鳥"
-    ],
-    "autoCategories": {
+    "manualCategories": {
       "subjects": [
-        "flowingclouds"
+        "花鳥"
       ],
+      "locations": []
+    },
+    "autoCategories": {
+      "subjects": [],
       "locations": []
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-748f-a906-1de3f9f5b3b6_thumb.png",
@@ -1096,15 +1051,12 @@
     "title": "頌母恩",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "traditional"
-    ],
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    },
     "autoCategories": {
-      "subjects": [
-        "traditional"
-      ],
+      "subjects": [],
       "locations": []
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-76be-93c8-cf4233295e95_thumb.png",
@@ -1155,13 +1107,14 @@
     "widthInches": 55.1,
     "autoCategories": {
       "subjects": [
-        "traditional"
+        "landscape"
       ],
       "locations": []
     },
-    "categories": [
-      "traditional"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7a5f-a6de-f1a8172971f6",
@@ -1188,20 +1141,14 @@
     "widthInches": 29.5,
     "autoCategories": {
       "subjects": [
-        "landscape",
-        "flowingclouds",
-        "flowers"
+        "flowingclouds"
       ],
-      "locations": [
-        "hehuanshan"
-      ]
+      "locations": []
     },
-    "categories": [
-      "landscape",
-      "flowingclouds",
-      "flowers",
-      "hehuanshan"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-74e9-9011-76112f5b97a4",
@@ -1228,13 +1175,15 @@
     "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
+        "flowingclouds",
         "bamboo"
       ],
       "locations": []
     },
-    "categories": [
-      "bamboo"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7b9e-bb65-6852f393b302",
@@ -1263,14 +1212,12 @@
       "subjects": [
         "landscape"
       ],
-      "locations": [
-        "taroko"
-      ]
+      "locations": []
     },
-    "categories": [
-      "landscape",
-      "taroko"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-78c6-9e86-b1be74fe48eb",
@@ -1297,13 +1244,14 @@
     "widthInches": 19.7,
     "autoCategories": {
       "subjects": [
-        "landscape"
+        "flowingclouds"
       ],
       "locations": []
     },
-    "categories": [
-      "landscape"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7b84-a80e-a928e6c46860",
@@ -1334,9 +1282,10 @@
       ],
       "locations": []
     },
-    "categories": [
-      "landscape"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-78c1-b44e-ae82a4e2d985",
@@ -1362,17 +1311,13 @@
     "heightInches": 54.3,
     "widthInches": 29.1,
     "autoCategories": {
-      "subjects": [
-        "traditional"
-      ],
-      "locations": [
-        "huangshan"
-      ]
+      "subjects": [],
+      "locations": []
     },
-    "categories": [
-      "traditional",
-      "huangshan"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7507-aa0e-43acd4db1f68",
@@ -1405,25 +1350,22 @@
         "liushidanshan"
       ]
     },
-    "categories": [
-      "landscape",
-      "liushidanshan"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7136-84bc-3625d99f8651",
     "title": "梅花－筆寫冰魂，風清月白。",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "flowers"
-    ],
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    },
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-7136-84bc-3625d99f8651_thumb.png",
@@ -1473,14 +1415,13 @@
     "heightInches": 55.1,
     "widthInches": 29.5,
     "autoCategories": {
-      "subjects": [
-        "waterfall"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "waterfall"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7e85-8f83-fd90bbaf222d",
@@ -1506,14 +1447,13 @@
     "heightInches": 17.7,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [
-        "traditional"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "traditional"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-787c-a46f-62905fa86f16",
@@ -1540,13 +1480,14 @@
     "widthInches": 17.7,
     "autoCategories": {
       "subjects": [
-        "flowers"
+        "flowingclouds"
       ],
       "locations": []
     },
-    "categories": [
-      "flowers"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-794f-912a-d6417dbb78df",
@@ -1573,13 +1514,14 @@
     "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
-        "waterfall"
+        "landscape"
       ],
       "locations": []
     },
-    "categories": [
-      "waterfall"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-762f-9eff-b51334b7bf49",
@@ -1605,14 +1547,13 @@
     "heightInches": 18.1,
     "widthInches": 19.3,
     "autoCategories": {
-      "subjects": [
-        "landscape"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "landscape"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-743e-911c-4c2ab5461afb",
@@ -1639,32 +1580,29 @@
     "widthInches": 19.7,
     "autoCategories": {
       "subjects": [
-        "traditional"
+        "landscape"
       ],
       "locations": []
     },
-    "categories": [
-      "traditional"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7c93-99be-4338883f37f7",
     "title": "煙擁合歡－合歡梯田",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "flowingclouds",
-      "hehuanshan"
-    ],
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    },
     "autoCategories": {
       "subjects": [
         "flowingclouds"
       ],
-      "locations": [
-        "hehuanshan"
-      ]
+      "locations": []
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-7c93-99be-4338883f37f7_thumb.png",
     "imageHigh": "./images/paintings/large/019891b0-f39c-7c93-99be-4338883f37f7_large.png",
@@ -1713,14 +1651,13 @@
     "heightInches": 11.8,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [
-        "flowingclouds"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "flowingclouds"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7a34-89ac-966e1e93eb42",
@@ -1747,18 +1684,16 @@
     "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
-        "landscape",
         "flowingclouds"
       ],
       "locations": [
         "yushan"
       ]
     },
-    "categories": [
-      "landscape",
-      "flowingclouds",
-      "yushan"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7694-879a-47c9954a100b",
@@ -1785,29 +1720,26 @@
     "widthInches": 28.7,
     "autoCategories": {
       "subjects": [
-        "landscape"
+        "flowingclouds"
       ],
       "locations": []
     },
-    "categories": [
-      "landscape"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7c9a-9ae8-6dccaca82b5f",
     "title": "穹蒼萬頃，是我家鄉。(黃山煙雲)",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "landscape",
-      "flowingclouds",
-      "huangshan"
-    ],
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    },
     "autoCategories": {
       "subjects": [
-        "landscape",
         "flowingclouds"
       ],
       "locations": [
@@ -1842,17 +1774,12 @@
     "title": "筆走雷霆萬壑鳴－夏瀑",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "waterfall",
-      "landscape"
-    ],
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    },
     "autoCategories": {
-      "subjects": [
-        "waterfall",
-        "landscape"
-      ],
+      "subjects": [],
       "locations": []
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-7f16-a8d3-c83d48beb81e_thumb.jpg",
@@ -1903,15 +1830,14 @@
     "widthInches": 70.9,
     "autoCategories": {
       "subjects": [
-        "flowingclouds",
-        "flowers"
+        "flowingclouds"
       ],
       "locations": []
     },
-    "categories": [
-      "flowingclouds",
-      "flowers"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7a2d-b50f-e9e6ec2e46b7",
@@ -1938,18 +1864,16 @@
     "widthInches": 55.1,
     "autoCategories": {
       "subjects": [
-        "landscape",
-        "flowers"
+        "flowingclouds"
       ],
       "locations": [
         "guishandao"
       ]
     },
-    "categories": [
-      "landscape",
-      "flowers",
-      "guishandao"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-77f0-b10f-4fece05d42ba",
@@ -1974,16 +1898,13 @@
     "heightInches": 55.1,
     "widthInches": 29.5,
     "autoCategories": {
-      "subjects": [
-        "waterfall",
-        "flowingclouds"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "waterfall",
-      "flowingclouds"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7f1a-99db-36b8e31758cb",
@@ -2009,14 +1930,13 @@
     "heightInches": 26.8,
     "widthInches": 26.8,
     "autoCategories": {
-      "subjects": [
-        "traditional"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "traditional"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7e21-ae47-81a6092c5a54",
@@ -2042,14 +1962,13 @@
     "heightInches": 27.6,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "flowers"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7cd6-a030-0406121e5164",
@@ -2076,30 +1995,26 @@
     "widthInches": 35.4,
     "autoCategories": {
       "subjects": [
-        "landscape",
         "flowingclouds"
       ],
       "locations": []
     },
-    "categories": [
-      "landscape",
-      "flowingclouds"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7614-95c9-2db8260fcc98",
     "title": "臨懷仁集王羲之聖教序",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "calligraphy"
-    ],
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    },
     "autoCategories": {
-      "subjects": [
-        "calligraphy"
-      ],
+      "subjects": [],
       "locations": []
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-7614-95c9-2db8260fcc98_thumb.png",
@@ -2156,10 +2071,10 @@
         "iguazu"
       ]
     },
-    "categories": [
-      "waterfall",
-      "iguazu"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-728f-a1de-1b6a07cf80ff",
@@ -2186,13 +2101,14 @@
     "widthInches": 28.3,
     "autoCategories": {
       "subjects": [
-        "traditional"
+        "flowingclouds"
       ],
       "locations": []
     },
-    "categories": [
-      "traditional"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7c2c-ab3a-8f771d7ff31d",
@@ -2219,16 +2135,14 @@
     "widthInches": 29.5,
     "autoCategories": {
       "subjects": [
-        "traditional"
+        "flowingclouds"
       ],
-      "locations": [
-        "hehuanshan"
-      ]
+      "locations": []
     },
-    "categories": [
-      "traditional",
-      "hehuanshan"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-73e0-a9c8-0c6ccf4ed87d",
@@ -2259,9 +2173,10 @@
       ],
       "locations": []
     },
-    "categories": [
-      "landscape"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7d35-bec5-bd039ad8684f",
@@ -2288,15 +2203,14 @@
     "widthInches": 28.3,
     "autoCategories": {
       "subjects": [
-        "landscape",
         "flowingclouds"
       ],
       "locations": []
     },
-    "categories": [
-      "landscape",
-      "flowingclouds"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7691-bb11-877c6b6634e9",
@@ -2322,31 +2236,26 @@
     "heightInches": 27.6,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "flowers"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7817-98ab-ec870aa5b2aa",
     "title": "天行健君子以自強不息―伊瓜蘇瀑布",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "waterfall",
-      "calligraphy",
-      "iguazu"
-    ],
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    },
     "autoCategories": {
       "subjects": [
-        "waterfall",
-        "calligraphy"
+        "waterfall"
       ],
       "locations": [
         "iguazu"
@@ -2399,14 +2308,13 @@
     "heightInches": 26.8,
     "widthInches": 26.8,
     "autoCategories": {
-      "subjects": [
-        "landscape"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "landscape"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-770a-b647-6b0a8efdc639",
@@ -2432,14 +2340,13 @@
     "heightInches": 27.6,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "flowers"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7b7d-8e54-83ae4f652136",
@@ -2465,14 +2372,13 @@
     "heightInches": 53.1,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "flowers"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-78da-b5ed-b11a0a0e8bb1",
@@ -2505,10 +2411,10 @@
         "longdong"
       ]
     },
-    "categories": [
-      "landscape",
-      "longdong"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7eb1-abf3-a892d0a3a655",
@@ -2534,14 +2440,13 @@
     "heightInches": 27.6,
     "widthInches": 17.7,
     "autoCategories": {
-      "subjects": [
-        "calligraphy"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "calligraphy"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-75cd-bee9-3e517cf83161",
@@ -2567,14 +2472,13 @@
     "heightInches": 27.6,
     "widthInches": 17.7,
     "autoCategories": {
-      "subjects": [
-        "traditional"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "traditional"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7038-a32d-0f2d0cb36be8",
@@ -2600,14 +2504,13 @@
     "heightInches": 27.6,
     "widthInches": 17.7,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "flowers"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-755d-a7dc-fb045eb4ef1c",
@@ -2633,16 +2536,16 @@
     "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
-        "traditional"
+        "landscape"
       ],
       "locations": [
         "zhangjiajie"
       ]
     },
-    "categories": [
-      "traditional",
-      "zhangjiajie"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7bfb-9266-f832146002dd",
@@ -2669,16 +2572,16 @@
     "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
-        "traditional"
+        "flowingclouds"
       ],
       "locations": [
         "zhangjiajie"
       ]
     },
-    "categories": [
-      "traditional",
-      "zhangjiajie"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7e6a-a74c-8f5ec5c50381",
@@ -2704,16 +2607,13 @@
     "heightInches": 53.1,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [
-        "flowers",
-        "calligraphy"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "flowers",
-      "calligraphy"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7fd8-9336-d5c9897af012",
@@ -2739,14 +2639,13 @@
     "heightInches": 27.6,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [
-        "traditional"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "traditional"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7aff-a45f-54ed6d61069b",
@@ -2772,14 +2671,13 @@
     "heightInches": 55.1,
     "widthInches": 29.5,
     "autoCategories": {
-      "subjects": [
-        "waterfall"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "waterfall"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7af0-82e2-2e72570b0aa1",
@@ -2805,14 +2703,13 @@
     "heightInches": 27.6,
     "widthInches": 17.7,
     "autoCategories": {
-      "subjects": [
-        "traditional"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "traditional"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-78dc-adb1-0aa1b3b74a00",
@@ -2843,9 +2740,10 @@
       ],
       "locations": []
     },
-    "categories": [
-      "flowingclouds"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7597-8177-ccdf69e29071",
@@ -2871,14 +2769,13 @@
     "heightInches": 24.8,
     "widthInches": 36.6,
     "autoCategories": {
-      "subjects": [
-        "landscape"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "landscape"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7823-8592-e3871b17c028",
@@ -2904,14 +2801,13 @@
     "heightInches": 27.6,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "flowers"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7edc-9801-8bc9199124f3",
@@ -2937,9 +2833,10 @@
       ],
       "locations": []
     },
-    "categories": [
-      "flowingclouds"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7c4a-a8f5-77fdf9b0873a",
@@ -2965,14 +2862,13 @@
     "heightInches": 27.6,
     "widthInches": 17.7,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "flowers"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-793d-819d-6c57e1716730",
@@ -2998,14 +2894,13 @@
     "heightInches": 53.1,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "flowers"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7c00-a038-c6c7bb860cbf",
@@ -3031,14 +2926,13 @@
     "heightInches": 53.1,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [
-        "traditional"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "traditional"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-73b5-88ac-2d98332bfd68",
@@ -3069,9 +2963,10 @@
       ],
       "locations": []
     },
-    "categories": [
-      "calligraphy"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7841-9423-b51b365a7b9c",
@@ -3097,29 +2992,25 @@
     "heightInches": 27.6,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "flowers"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7df5-a02e-1cc15d22bb57",
     "title": "萬壑松風圖",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "landscape"
-    ],
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    },
     "autoCategories": {
-      "subjects": [
-        "landscape"
-      ],
+      "subjects": [],
       "locations": []
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-7df5-a02e-1cc15d22bb57_thumb.png",
@@ -3150,7 +3041,6 @@
     "title": "雍容華滋舞清和-牡丹",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "",
     "image": "./images/paintings/thumbnails/019891b0-f39c-7871-b204-09fa520d0d23_thumb.jpg",
     "imageHigh": "./images/paintings/large/019891b0-f39c-7871-b204-09fa520d0d23_large.jpg",
     "description": "雍容華滋舞清和",
@@ -3171,14 +3061,13 @@
     "heightCm": 70,
     "widthCm": 45,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "flowers"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-79ee-915a-34d3aa1decd1",
@@ -3205,17 +3094,14 @@
     "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
-        "landscape",
-        "flowingclouds",
-        "flowers"
+        "landscape"
       ],
       "locations": []
     },
-    "categories": [
-      "landscape",
-      "flowingclouds",
-      "flowers"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-78a1-8300-94cb02dbf7bc",
@@ -3242,13 +3128,14 @@
     "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
-        "landscape"
+        "bamboo"
       ],
       "locations": []
     },
-    "categories": [
-      "landscape"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7d61-9f3a-c5847a00bde5",
@@ -3275,17 +3162,14 @@
     "widthInches": 55.1,
     "autoCategories": {
       "subjects": [
-        "waterfall",
-        "landscape",
         "flowingclouds"
       ],
       "locations": []
     },
-    "categories": [
-      "waterfall",
-      "landscape",
-      "flowingclouds"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7904-960b-4b52cf3fe52e",
@@ -3318,10 +3202,10 @@
         "iguazu"
       ]
     },
-    "categories": [
-      "landscape",
-      "iguazu"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-71be-8987-5f3e69224ab5",
@@ -3348,18 +3232,16 @@
     "widthInches": 82.7,
     "autoCategories": {
       "subjects": [
-        "landscape",
-        "flowers"
+        "flowingclouds"
       ],
       "locations": [
         "hehuanshan"
       ]
     },
-    "categories": [
-      "landscape",
-      "flowers",
-      "hehuanshan"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7a96-8e1b-28d8310e36dd",
@@ -3385,14 +3267,13 @@
     "heightInches": 29.5,
     "widthInches": 29.5,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "flowers"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-78e8-be37-c859eb030659",
@@ -3419,16 +3300,16 @@
     "widthInches": 17.7,
     "autoCategories": {
       "subjects": [
-        "traditional"
+        "landscape"
       ],
       "locations": [
         "taroko"
       ]
     },
-    "categories": [
-      "traditional",
-      "taroko"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7190-9005-95da13ac1ad1",
@@ -3454,21 +3335,19 @@
     "heightInches": 27.6,
     "widthInches": 17.7,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "flowers"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-72a2-ae2f-04a06f5a0c75",
     "title": "忘形-紫藤",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "",
     "image": "./images/paintings/thumbnails/019891b0-f39c-72a2-ae2f-04a06f5a0c75_thumb.jpg",
     "imageHigh": "./images/paintings/large/019891b0-f39c-72a2-ae2f-04a06f5a0c75_large.jpg",
     "description": "忘形",
@@ -3489,14 +3368,13 @@
     "heightCm": 70,
     "widthCm": 45,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "flowers"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-73d5-ae97-3d296dba78a1",
@@ -3529,10 +3407,10 @@
         "longdong"
       ]
     },
-    "categories": [
-      "landscape",
-      "longdong"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7939-897c-cc57bc9b4a35",
@@ -3558,14 +3436,13 @@
     "heightInches": 9.4,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [
-        "traditional"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "traditional"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7f63-87fd-b7a8a860889f",
@@ -3591,14 +3468,13 @@
     "heightInches": 26.8,
     "widthInches": 17.7,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "flowers"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7403-80d4-4da1440b7976",
@@ -3625,17 +3501,14 @@
     "widthInches": 29.5,
     "autoCategories": {
       "subjects": [
-        "landscape",
-        "flowingclouds",
-        "flowers"
+        "landscape"
       ],
       "locations": []
     },
-    "categories": [
-      "landscape",
-      "flowingclouds",
-      "flowers"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-792d-b5e8-b80ef8754ca2",
@@ -3661,14 +3534,13 @@
     "heightInches": 27.6,
     "widthInches": 17.7,
     "autoCategories": {
-      "subjects": [
-        "traditional"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "traditional"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-71dd-be15-f32291c15cc6",
@@ -3695,25 +3567,24 @@
     "widthInches": 13.8,
     "autoCategories": {
       "subjects": [
-        "flowers"
+        "landscape"
       ],
       "locations": []
     },
-    "categories": [
-      "flowers"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7b75-910e-8ef8046a7bb9",
     "title": "江流浩蕩-尼加拉瀑布金秋",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "waterfall",
-      "niagara"
-    ],
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    },
     "autoCategories": {
       "subjects": [
         "waterfall"
@@ -3769,14 +3640,13 @@
     "heightInches": 29.5,
     "widthInches": 8.7,
     "autoCategories": {
-      "subjects": [
-        "traditional"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "traditional"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7539-8543-c9a7de487cca",
@@ -3798,14 +3668,13 @@
     "curatorNoteEn": "",
     "formatEn": "Framed",
     "autoCategories": {
-      "subjects": [
-        "traditional"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "traditional"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7fb1-9331-58595bfdef27",
@@ -3836,9 +3705,10 @@
       ],
       "locations": []
     },
-    "categories": [
-      "bamboo"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7995-bcb5-8b510d734e53",
@@ -3869,9 +3739,10 @@
       ],
       "locations": []
     },
-    "categories": [
-      "bamboo"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-71f0-bd5c-b448f22ef5f4",
@@ -3902,9 +3773,10 @@
       ],
       "locations": []
     },
-    "categories": [
-      "bamboo"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7e7e-ab7e-4b6efd6d2dfa",
@@ -3931,13 +3803,15 @@
     "widthInches": 71.3,
     "autoCategories": {
       "subjects": [
+        "flowingclouds",
         "bamboo"
       ],
       "locations": []
     },
-    "categories": [
-      "bamboo"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7a31-8759-95a350b1e45b",
@@ -3963,14 +3837,13 @@
     "heightInches": 29.5,
     "widthInches": 29.5,
     "autoCategories": {
-      "subjects": [
-        "traditional"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "traditional"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7b15-9621-9861ba359745",
@@ -3996,14 +3869,13 @@
     "heightInches": 29.5,
     "widthInches": 29.5,
     "autoCategories": {
-      "subjects": [
-        "traditional"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "traditional"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-73f5-98b1-d68da1664faf",
@@ -4029,14 +3901,13 @@
     "heightInches": 53.9,
     "widthInches": 13.8,
     "autoCategories": {
-      "subjects": [
-        "traditional"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "traditional"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7674-b4b9-056c567df90a",
@@ -4062,14 +3933,13 @@
     "heightInches": 27.6,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "flowers"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7562-bbed-32c024cd6676",
@@ -4095,14 +3965,13 @@
     "heightInches": 6.7,
     "widthInches": 36.2,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "flowers"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-706e-bdb9-c752dc8bcf1f",
@@ -4133,9 +4002,10 @@
       ],
       "locations": []
     },
-    "categories": [
-      "bamboo"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-721e-8576-4e3f61c0e800",
@@ -4166,9 +4036,10 @@
       ],
       "locations": []
     },
-    "categories": [
-      "bamboo"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-71b7-918f-b55fd4fbca35",
@@ -4194,14 +4065,13 @@
     "heightInches": 27.6,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [
-        "traditional"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "traditional"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7b83-902a-1f7f7bc72183",
@@ -4227,14 +4097,13 @@
     "heightInches": 38.2,
     "widthInches": 70.9,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "flowers"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7809-a063-80f25d10a396",
@@ -4265,9 +4134,10 @@
       ],
       "locations": []
     },
-    "categories": [
-      "calligraphy"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-763c-819c-62b3e41136e1",
@@ -4298,9 +4168,10 @@
       ],
       "locations": []
     },
-    "categories": [
-      "calligraphy"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7455-9267-14eb33bed415",
@@ -4326,21 +4197,19 @@
     "heightInches": 26.8,
     "widthInches": 17.7,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "flowers"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-70a8-aa76-019cadc5409d",
     "title": "陶然忘機",
     "titleEn": "Serenity in Abandon",
     "category": "paintings",
-    "subcategory": "",
     "image": "./images/paintings/thumbnails/019891b0-f39c-70a8-aa76-019cadc5409d_thumb.jpg",
     "imageHigh": "./images/paintings/large/019891b0-f39c-70a8-aa76-019cadc5409d_large.jpg",
     "description": "陶然忘機心不遠，綠蔭深處柳含煙。",
@@ -4361,14 +4230,13 @@
     "heightCm": 75,
     "widthCm": 22,
     "autoCategories": {
-      "subjects": [
-        "traditional"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "traditional"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-729c-bef5-b90e2cafb77e",
@@ -4395,18 +4263,16 @@
     "widthInches": 82.7,
     "autoCategories": {
       "subjects": [
-        "landscape",
-        "flowers"
+        "flowingclouds"
       ],
       "locations": [
         "liushidanshan"
       ]
     },
-    "categories": [
-      "landscape",
-      "flowers",
-      "liushidanshan"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7cf8-86a3-61f2f44df76f",
@@ -4432,17 +4298,15 @@
     "heightInches": 55.9,
     "widthInches": 28.7,
     "autoCategories": {
-      "subjects": [
-        "waterfall"
-      ],
+      "subjects": [],
       "locations": [
         "iguazu"
       ]
     },
-    "categories": [
-      "waterfall",
-      "iguazu"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-719e-a185-2f66d722d5ea",
@@ -4469,13 +4333,14 @@
     "widthInches": 13.8,
     "autoCategories": {
       "subjects": [
-        "landscape"
+        "bamboo"
       ],
       "locations": []
     },
-    "categories": [
-      "landscape"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7102-a694-48bd9ef009c1",
@@ -4500,14 +4365,13 @@
     "heightInches": 53.1,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [
-        "traditional"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "traditional"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7840-a59b-6347f70b1e3f",
@@ -4532,33 +4396,28 @@
     "heightInches": 18.1,
     "widthInches": 17.7,
     "autoCategories": {
-      "subjects": [
-        "traditional"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "traditional"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7a90-ab98-022c8b72668e",
     "title": "古月",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "潑墨, 山水",
-    "manualCategories": [
-      "潑墨",
-      "山水"
-    ],
-    "categories": [
-      "traditional",
-      "潑墨, 山水"
-    ],
-    "autoCategories": {
+    "manualCategories": {
       "subjects": [
-        "traditional"
+        "潑墨",
+        "山水"
       ],
+      "locations": []
+    },
+    "autoCategories": {
+      "subjects": [],
       "locations": []
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-7a90-ab98-022c8b72668e_thumb.png",
@@ -4589,14 +4448,13 @@
     "title": "吾心似秋月(漢隸)",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "calligraphy"
-    ],
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    },
     "autoCategories": {
       "subjects": [
-        "calligraphy"
+        "landscape"
       ],
       "locations": []
     },
@@ -4648,24 +4506,22 @@
       ],
       "locations": []
     },
-    "categories": [
-      "landscape"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7972-b2d2-06fc3c573914",
     "title": "大造本無方",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "traditional"
-    ],
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    },
     "autoCategories": {
-      "subjects": [
-        "traditional"
-      ],
+      "subjects": [],
       "locations": []
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-7972-b2d2-06fc3c573914_thumb.png",
@@ -4719,20 +4575,20 @@
       ],
       "locations": []
     },
-    "categories": [
-      "calligraphy"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7441-a5a7-dc968e455d98",
     "title": "天光雲影共徘徊─新中橫夫妻樹",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "flowingclouds"
-    ],
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    },
     "autoCategories": {
       "subjects": [
         "flowingclouds"
@@ -4790,9 +4646,10 @@
       ],
       "locations": []
     },
-    "categories": [
-      "bamboo"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-76d0-830d-e1a84734c35b",
@@ -4817,14 +4674,13 @@
     "heightInches": 53.1,
     "widthInches": 13.8,
     "autoCategories": {
-      "subjects": [
-        "traditional"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "traditional"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7201-bdba-6943519e8862",
@@ -4854,9 +4710,10 @@
       ],
       "locations": []
     },
-    "categories": [
-      "flowingclouds"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7aa8-90f8-b40422109aad",
@@ -4882,13 +4739,14 @@
     "widthInches": 53.1,
     "autoCategories": {
       "subjects": [
-        "landscape"
+        "flowingclouds"
       ],
       "locations": []
     },
-    "categories": [
-      "landscape"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7eb7-918f-81e80f086d63",
@@ -4918,9 +4776,10 @@
       ],
       "locations": []
     },
-    "categories": [
-      "landscape"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7f23-bcbb-b87134f4f667",
@@ -4951,9 +4810,10 @@
       ],
       "locations": []
     },
-    "categories": [
-      "calligraphy"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7fa4-834c-dfc205acfee3",
@@ -4978,28 +4838,26 @@
     "heightInches": 53.1,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "flowers"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7386-a86e-60369bb2ecd5",
     "title": "月梅圖-形影神",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "flowers"
-    ],
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    },
     "autoCategories": {
       "subjects": [
-        "flowers"
+        "calligraphy"
       ],
       "locations": []
     },
@@ -5054,9 +4912,10 @@
       ],
       "locations": []
     },
-    "categories": [
-      "landscape"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7489-928b-ccc89bfe45cd",
@@ -5081,14 +4940,13 @@
     "heightInches": 53.1,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "flowers"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7384-be98-8e564547c934",
@@ -5114,13 +4972,14 @@
     "widthInches": 31.5,
     "autoCategories": {
       "subjects": [
-        "flowers"
+        "landscape"
       ],
       "locations": []
     },
-    "categories": [
-      "flowers"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7127-92b7-784bb454984e",
@@ -5146,15 +5005,14 @@
     "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
-        "flowers",
         "bamboo"
       ],
       "locations": []
     },
-    "categories": [
-      "flowers",
-      "bamboo"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-71d1-9a64-3e6a4cea8efb",
@@ -5180,28 +5038,26 @@
     "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
-        "flowers"
+        "calligraphy"
       ],
       "locations": []
     },
-    "categories": [
-      "flowers"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7530-ace8-fffa8fead53e",
     "title": "梅花小鳥",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "flowers"
-    ],
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    },
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-7530-ace8-fffa8fead53e_thumb.png",
@@ -5232,14 +5088,13 @@
     "title": "活水潤物天地春-春瀑",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "waterfall"
-    ],
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    },
     "autoCategories": {
       "subjects": [
-        "waterfall"
+        "flowingclouds"
       ],
       "locations": []
     },
@@ -5290,13 +5145,14 @@
     "widthInches": 35.4,
     "autoCategories": {
       "subjects": [
-        "traditional"
+        "calligraphy"
       ],
       "locations": []
     },
-    "categories": [
-      "traditional"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-701a-8549-8acb24ecf588",
@@ -5323,20 +5179,20 @@
     "widthInches": 35.4,
     "autoCategories": {
       "subjects": [
-        "traditional"
+        "calligraphy"
       ],
       "locations": []
     },
-    "categories": [
-      "traditional"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7e3e-ae29-6cf7e37cc717",
     "title": "溪頭秋色",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "",
     "image": "",
     "imageHigh": "",
     "description": "花繁樹茂滿溪頭，碧水竹橋景色幽；遊客穿梭天上過，涼亭小憩賞清秋。",
@@ -5358,13 +5214,14 @@
     "widthCm": 135,
     "autoCategories": {
       "subjects": [
-        "landscape"
+        "bamboo"
       ],
       "locations": []
     },
-    "categories": [
-      "landscape"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7b8d-9017-a3c20acb6a5e",
@@ -5394,9 +5251,10 @@
       ],
       "locations": []
     },
-    "categories": [
-      "calligraphy"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-753a-ab69-48d8ee21bd58",
@@ -5422,9 +5280,10 @@
       ],
       "locations": []
     },
-    "categories": [
-      "calligraphy"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7d02-a8aa-91e063b359cd",
@@ -5455,9 +5314,10 @@
       ],
       "locations": []
     },
-    "categories": [
-      "calligraphy"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-70a9-9b91-b5a11b16a4e5",
@@ -5483,13 +5343,14 @@
     "widthInches": 53.1,
     "autoCategories": {
       "subjects": [
-        "waterfall"
+        "flowingclouds"
       ],
       "locations": []
     },
-    "categories": [
-      "waterfall"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-71ca-b2c1-0ccf8cbe55e2",
@@ -5515,27 +5376,24 @@
     "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
-        "landscape",
-        "flowingclouds"
+        "landscape"
       ],
       "locations": []
     },
-    "categories": [
-      "landscape",
-      "flowingclouds"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7b5a-9017-6de6a497f059",
     "title": "煙聲一縷一塵埃-大瀑布",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "waterfall",
-      "flowingclouds"
-    ],
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    },
     "autoCategories": {
       "subjects": [
         "waterfall",
@@ -5589,14 +5447,13 @@
     "heightInches": 27.6,
     "widthInches": 53.1,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "flowers"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-754c-b2f3-0042b0f1eda6",
@@ -5621,14 +5478,13 @@
     "heightInches": 27.6,
     "widthInches": 53.1,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "flowers"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-737c-ab58-5e7f6585cf58",
@@ -5649,14 +5505,13 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "autoCategories": {
-      "subjects": [
-        "traditional"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "traditional"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-773e-ba71-581478e868c3",
@@ -5681,14 +5536,13 @@
     "heightInches": 53.1,
     "widthInches": 13.8,
     "autoCategories": {
-      "subjects": [
-        "traditional"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "traditional"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7d79-aa2f-4fa671975bd7",
@@ -5718,20 +5572,20 @@
       ],
       "locations": []
     },
-    "categories": [
-      "landscape"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7b3a-a7ae-03eba18e8809",
     "title": "秋月月偏明(漢隸)",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "calligraphy"
-    ],
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    },
     "autoCategories": {
       "subjects": [
         "calligraphy"
@@ -5784,14 +5638,13 @@
     "heightInches": 27.6,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [
-        "waterfall"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "waterfall"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-799a-8b24-69278cd05a54",
@@ -5821,9 +5674,10 @@
       ],
       "locations": []
     },
-    "categories": [
-      "bamboo"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-78de-981c-5938a5bfa32f",
@@ -5853,9 +5707,10 @@
       ],
       "locations": []
     },
-    "categories": [
-      "calligraphy"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7986-b69d-df98c6926fd8",
@@ -5885,9 +5740,10 @@
       ],
       "locations": []
     },
-    "categories": [
-      "flowingclouds"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7b93-be63-f32d5ec6c96e",
@@ -5918,9 +5774,10 @@
       ],
       "locations": []
     },
-    "categories": [
-      "flowingclouds"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7b52-bc2d-c8ae2282e7bb",
@@ -5945,28 +5802,26 @@
     "heightInches": 53.1,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "flowers"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7e2c-aab1-3c1bd010b1f7",
     "title": "結廬人境外(漢隸)",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "calligraphy"
-    ],
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    },
     "autoCategories": {
       "subjects": [
-        "calligraphy"
+        "landscape"
       ],
       "locations": []
     },
@@ -6017,13 +5872,14 @@
     "widthInches": 55.1,
     "autoCategories": {
       "subjects": [
-        "traditional"
+        "landscape"
       ],
       "locations": []
     },
-    "categories": [
-      "traditional"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-74ce-98d6-18e6c467339f",
@@ -6049,13 +5905,14 @@
     "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
-        "flowers"
+        "calligraphy"
       ],
       "locations": []
     },
-    "categories": [
-      "flowers"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-708b-8c6c-ce2da0902915",
@@ -6081,13 +5938,14 @@
     "widthInches": 7.9,
     "autoCategories": {
       "subjects": [
-        "traditional"
+        "landscape"
       ],
       "locations": []
     },
-    "categories": [
-      "traditional"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7fba-9bd9-0c91d42c5658",
@@ -6117,9 +5975,10 @@
       ],
       "locations": []
     },
-    "categories": [
-      "calligraphy"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7a15-8cec-bbe1bff8ba7e",
@@ -6150,24 +6009,22 @@
       ],
       "locations": []
     },
-    "categories": [
-      "calligraphy"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7aed-9fac-21a5e94b8c1f",
     "title": "花能解語－問菊",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "flowers"
-    ],
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    },
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-7aed-9fac-21a5e94b8c1f_thumb.png",
@@ -6221,9 +6078,10 @@
       ],
       "locations": []
     },
-    "categories": [
-      "calligraphy"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7d2a-983e-2173b9553625",
@@ -6253,9 +6111,10 @@
       ],
       "locations": []
     },
-    "categories": [
-      "calligraphy"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7e9f-b88d-0fe3639ee835",
@@ -6281,13 +6140,14 @@
     "widthInches": 5.5,
     "autoCategories": {
       "subjects": [
-        "flowers"
+        "flowingclouds"
       ],
       "locations": []
     },
-    "categories": [
-      "flowers"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7574-a231-f0777acb01f3",
@@ -6312,14 +6172,13 @@
     "heightInches": 47.2,
     "widthInches": 94.5,
     "autoCategories": {
-      "subjects": [
-        "waterfall"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "waterfall"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7ac8-8ba9-462a13f7d56f",
@@ -6344,16 +6203,13 @@
     "heightInches": 35.4,
     "widthInches": 35.4,
     "autoCategories": {
-      "subjects": [
-        "flowingclouds",
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "flowingclouds",
-      "flowers"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7fb1-a33d-91b7825cf41d",
@@ -6378,29 +6234,25 @@
     "heightInches": 53.1,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "flowers"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7764-a468-4f7ad6140df2",
     "title": "赤壁賦(行草)",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "calligraphy"
-    ],
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    },
     "autoCategories": {
-      "subjects": [
-        "calligraphy"
-      ],
+      "subjects": [],
       "locations": []
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-7764-a468-4f7ad6140df2_thumb.png",
@@ -6431,14 +6283,13 @@
     "title": "輝映海天萬里金－鰲鼓夕照",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "traditional"
-    ],
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    },
     "autoCategories": {
       "subjects": [
-        "traditional"
+        "flowingclouds"
       ],
       "locations": []
     },
@@ -6488,14 +6339,13 @@
     "heightInches": 27.6,
     "widthInches": 53.1,
     "autoCategories": {
-      "subjects": [
-        "waterfall"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "waterfall"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7531-92cc-99a987218838",
@@ -6525,9 +6375,10 @@
       ],
       "locations": []
     },
-    "categories": [
-      "calligraphy"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-76fc-82e8-c3b479340c2e",
@@ -6558,9 +6409,10 @@
       ],
       "locations": []
     },
-    "categories": [
-      "calligraphy"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-74ff-a4b2-e9f3107748f4",
@@ -6590,9 +6442,10 @@
       ],
       "locations": []
     },
-    "categories": [
-      "calligraphy"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-7c6b-8a23-82f2cfce7c6a",
@@ -6618,33 +6471,26 @@
     "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
-        "landscape",
         "flowingclouds"
       ],
       "locations": []
     },
-    "categories": [
-      "landscape",
-      "flowingclouds"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-79c6-bfe0-4790c6114ae9",
     "title": "雲濤萬頃舞穹蒼（黃山雲瀑）",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "waterfall",
-      "landscape",
-      "flowingclouds",
-      "huangshan"
-    ],
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    },
     "autoCategories": {
       "subjects": [
-        "waterfall",
-        "landscape",
         "flowingclouds"
       ],
       "locations": [
@@ -6679,16 +6525,12 @@
     "title": "雲白任舒卷－玉山白木林",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "landscape",
-      "flowingclouds",
-      "yushan"
-    ],
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    },
     "autoCategories": {
       "subjects": [
-        "landscape",
         "flowingclouds"
       ],
       "locations": [
@@ -6723,19 +6565,13 @@
     "title": "雲自來去花自紅─玉山‧杜鵑‧雲海",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "",
-    "manualCategories": [],
-    "categories": [
-      "landscape",
-      "flowingclouds",
-      "flowers",
-      "yushan"
-    ],
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    },
     "autoCategories": {
       "subjects": [
-        "landscape",
-        "flowingclouds",
-        "flowers"
+        "flowingclouds"
       ],
       "locations": [
         "yushan"
@@ -6787,28 +6623,25 @@
     "heightInches": 53.1,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [
-        "traditional"
-      ],
+      "subjects": [],
       "locations": []
     },
-    "categories": [
-      "traditional"
-    ]
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "artwork-987218839",
     "title": "江山如此多好",
     "titleEn": "",
     "category": "paintings",
-    "subcategory": "煙雲",
-    "manualCategories": [
-      "煙雲"
-    ],
-    "categories": [
-      "landscape",
-      "煙雲"
-    ],
+    "manualCategories": {
+      "subjects": [
+        "煙雲"
+      ],
+      "locations": []
+    },
     "autoCategories": {
       "subjects": [
         "landscape"
