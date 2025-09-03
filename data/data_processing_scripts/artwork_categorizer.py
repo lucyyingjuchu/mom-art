@@ -1,103 +1,132 @@
 #!/usr/bin/env python3
 """
-Artwork Auto-Categorizer for Chinese Art Portfolio
-Processes artworks.json and adds category labels based on title analysis
+Artwork Auto-Categorizer for Chinese Art Portfolio - UPDATED VERSION
+Uses centralized category-config.json for consistency with web interface
 """
 
 import json
 import re
 from typing import Dict, List, Set
+import os
 
 class ArtworkCategorizer:
-    def __init__(self):
-        # Define categorization rules based on title keywords
-        self.rules = {
-            # By Subject
-            'subject': {
-                'waterfall': ['瀑布', '瀑', '飛瀑', '銀瀑', '煙聲'],
-                'landscape': ['山水', '山', '峰', '雲海', '煙雲', '嵐', '壑', '石', '木', '谷', '峽', '溪'],
-                'flowingclouds': ['煙', '雲', '煙雲', '雲海', '霧', '嵐'],
-                'flowers': ['花', '梅', '菊', '藤', '紫藤', '杜鵑', '桃花', '荷', '蓮', '牡丹', '阿勃勒', '金針', '櫻花', '凌霄'],
-                'bamboo': ['竹', '墨竹', '疏竹', '翠竹'],
-                'calligraphy': ['心經', '書法', '經', '愛蓮說', '序', '書', '隸', '楷', '行', '草', '隸書', '楷書', '草書', '詩', '聯'],
-            },
+    def __init__(self, config_path='./data/category-config.json'):
+        """Load categorization rules from config file"""
+        self.config_path = config_path
+        self.config = self.load_config()
+        
+    def load_config(self) -> Dict:
+        """Load category configuration from JSON file"""
+        try:
+            with open(self.config_path, 'r', encoding='utf-8') as f:
+                config = json.load(f)
             
-            # By Location  
-            'location': {
-                'huangshan': ['黃山', '北海', '夢筆'],
-                'alishan': ['阿里山', '雲揚'],
-                'taroko': ['太魯閣', '太魯峽'],
-                'hehuanshan': ['合歡', '合歡山'],
-                'yushan': ['玉山', '玉山北峰'],
-                'liushidanshan': ['六十石山', '六十石'],
-                'guishandao': ['龜山島'],
-                'longdong': ['龍洞'],
-                'zhangjiajie': ['張家界'],
-                'grandcanyon': ['大峽谷'],
-                'iguazu': ['伊瓜蘇'],
-                'niagara': ['尼加拉']
-            },
+            print(f"✅ Loaded category config from: {self.config_path}")
+            print(f"📊 Subjects: {len(config['categories']['subjects'])}")
+            print(f"🗺️ Locations: {len(config['categories']['locations'])}")
             
-            # By Style 
-            'style': {
-                'traditional': ['水墨', '墨', '古', '傳統'],
-                'abstract': ['抽象', '潑墨', '無題'],
-                'modern': ['現代', '當代']
+            return config
+            
+        except FileNotFoundError:
+            print(f"❌ Config file not found: {self.config_path}")
+            print("Using fallback rules...")
+            return self.get_fallback_config()
+        except json.JSONDecodeError as e:
+            print(f"❌ Invalid JSON in config file: {e}")
+            return self.get_fallback_config()
+    
+    def get_fallback_config(self) -> Dict:
+        """Fallback config if file load fails"""
+        return {
+            "categories": {
+                "subjects": ["landscape", "waterfall", "flowers", "calligraphy"],
+                "locations": ["huangshan", "alishan"]
+            },
+            "autoDetectionKeywords": {
+                "landscape": ["山水", "山", "峰", "雲海", "煙雲"],
+                "waterfall": ["瀑布", "瀑", "飛瀑"],
+                "flowers": ["花", "梅", "菊", "藤"],
+                "calligraphy": ["心經", "書法", "經"],
+                "huangshan": ["黃山", "北海", "夢筆"],
+                "alishan": ["阿里山", "雲揚"]
             }
         }
 
     def categorize_artwork(self, artwork: Dict) -> Dict[str, List[str]]:
-        """Categorize a single artwork based on title analysis"""
+        """Categorize artwork using config-based keywords"""
         title = artwork.get('title', '')
+        description = artwork.get('description', '')
+        
+        # Combine title and description for analysis
+        text_to_analyze = f"{title} {description}".lower()
+        
         categories = {
             'subjects': [],
-            'locations': [],
-            'styles': []
+            'locations': []
         }
 
         print(f"🎨 Analyzing: {title}")
 
-        # Check subject categories
-        for category, keywords in self.rules['subject'].items():
-            if any(keyword in title for keyword in keywords):
-                categories['subjects'].append(category)
-                print(f"  📍 Subject: {category}")
+        # Use keywords from config
+        keywords = self.config.get('autoDetectionKeywords', {})
+        
+        for category, category_keywords in keywords.items():
+            # Check if this category is a subject or location
+            if category in self.config['categories']['subjects']:
+                if any(keyword.lower() in text_to_analyze for keyword in category_keywords):
+                    categories['subjects'].append(category)
+                    print(f"  📍 Subject: {category}")
+                    
+            elif category in self.config['categories']['locations']:
+                if any(keyword.lower() in text_to_analyze for keyword in category_keywords):
+                    categories['locations'].append(category)
+                    print(f"  🗺️ Location: {category}")
 
-        # Check location categories  
-        for location, keywords in self.rules['location'].items():
-            if any(keyword in title for keyword in keywords):
-                categories['locations'].append(location)
-                print(f"  🗺️  Location: {location}")
-
-        # Check style categories
-        for style, keywords in self.rules['style'].items():
-            if any(keyword in title for keyword in keywords):
-                categories['styles'].append(style)
-                print(f"  🎭 Style: {style}")
-
-        # Default fallback categories
+        # Fallback logic for completely uncategorized artworks
         if not categories['subjects']:
-            if any(keyword in title for keyword in ['山', '雲', '水', '峽', '溪']):
+            # Basic fallback based on common patterns
+            if any(pattern in text_to_analyze for pattern in ['山', '雲', '水', '峽', '溪']):
                 categories['subjects'].append('landscape')
-                print(f"  📍 Default Subject: landscape")
-            elif any(keyword in title for keyword in ['書', '經', '詩', '聯']):
-                categories['subjects'].append('calligraphy')
-                print(f"  📍 Default Subject: calligraphy")
-            else:
-                categories['subjects'].append('traditional')
-                print(f"  📍 Default Subject: traditional")
-
-        if not categories['styles']:
-            categories['styles'].append('traditional')
-            print(f"  🎭 Default Style: traditional")
+                print(f"  📍 Fallback: landscape")
+            elif any(pattern in text_to_analyze for pattern in ['書', '經', '詩']):
+                categories['subjects'].append('calligraphy') 
+                print(f"  📍 Fallback: calligraphy")
 
         return categories
 
-    def process_artworks_file(self, input_file: str, output_file: str = None):
-        """Process the entire artworks.json file"""
-        if output_file is None:
-            output_file = input_file.replace('.json', '_categorized.json')
+    def clean_artwork_categories(self, artwork: Dict) -> Dict:
+        """Clean old category data while preserving manual categories"""
+        
+        # Preserve existing manual categories (if they exist and have the right structure)
+        preserved_manual = {"subjects": [], "locations": []}
+        
+        if artwork.get('manualCategories'):
+            # Handle both old and new manual category structures
+            if isinstance(artwork['manualCategories'], dict):
+                # New structure
+                preserved_manual = {
+                    "subjects": artwork['manualCategories'].get('subjects', []),
+                    "locations": artwork['manualCategories'].get('locations', [])
+                }
+            elif isinstance(artwork['manualCategories'], list):
+                # Old structure - classify manual categories
+                for manual_cat in artwork['manualCategories']:
+                    if manual_cat in self.config['categories']['subjects']:
+                        preserved_manual['subjects'].append(manual_cat)
+                    elif manual_cat in self.config['categories']['locations']:
+                        preserved_manual['locations'].append(manual_cat)
+                    else:
+                        # Default unknown manual categories to subjects
+                        preserved_manual['subjects'].append(manual_cat)
+        
+        print(f"  💾 Preserved manual: {preserved_manual}")
+        return preserved_manual
 
+    def process_artworks_file(self, input_file: str, output_file: str = None):
+        """Process the entire artworks.json file with config-based categorization"""
+        if output_file is None:
+            output_file = input_file  # Overwrite original
+            
         print(f"📂 Loading artworks from: {input_file}")
         
         try:
@@ -107,10 +136,8 @@ class ArtworkCategorizer:
             # Handle both array and object format
             if isinstance(data, list):
                 artworks = data
-            elif isinstance(data, dict) and 'artworks' in data:
-                artworks = data['artworks']
             else:
-                artworks = data
+                artworks = data if isinstance(data, list) else [data] if 'title' in data else []
                 
             print(f"📊 Found {len(artworks)} artworks to process")
             
@@ -126,56 +153,34 @@ class ArtworkCategorizer:
         for i, artwork in enumerate(artworks):
             print(f"\n--- Processing {i+1}/{len(artworks)} ---")
             
-            # Get auto-categories
-            auto_categories = self.categorize_artwork(artwork)
+            # Clean and preserve manual categories first
+            preserved_manual = self.clean_artwork_categories(artwork)
             
-            # Create combined categories array
-            all_categories = []
+            # Get new auto-categories using config
+            new_auto_categories = self.categorize_artwork(artwork)
             
-            # Add all subject categories
-            all_categories.extend(auto_categories['subjects'])
+            # Update artwork with clean structure
+            artwork['autoCategories'] = new_auto_categories
+            artwork['manualCategories'] = preserved_manual
             
-            # Add all location categories  
-            all_categories.extend(auto_categories['locations'])
-            
-            # Add all style categories
-            all_categories.extend(auto_categories['styles'])
-            
-            # Remove duplicates while preserving order
-            unique_categories = []
-            seen = set()
-            for cat in all_categories:
-                if cat not in seen:
-                    unique_categories.append(cat)
-                    seen.add(cat)
-            
-            # Update artwork with categories
-            artwork['autoCategories'] = auto_categories  # Keep detailed breakdown
-            artwork['categories'] = unique_categories    # Flat list for easy filtering
-            
-            # Also keep the old subcategory field if it exists and isn't empty
-            if artwork.get('subcategory') and artwork['subcategory'].strip():
-                if artwork['subcategory'] not in artwork['categories']:
-                    artwork['categories'].append(artwork['subcategory'])
+            # Remove old fields
+            if 'categories' in artwork:
+                del artwork['categories']  # Remove old flat categories
+            if 'subcategory' in artwork:
+                del artwork['subcategory']  # Remove old subcategory
             
             updated_count += 1
-            print(f"  ✅ Categories: {unique_categories}")
+            print(f"  ✅ Auto: subjects={new_auto_categories['subjects']}, locations={new_auto_categories['locations']}")
+            print(f"  ✅ Manual: subjects={preserved_manual['subjects']}, locations={preserved_manual['locations']}")
 
         print(f"\n🎉 Processed {updated_count} artworks successfully!")
         
         # Save the updated data
         try:
-            # Maintain original file structure
-            if isinstance(data, list):
-                output_data = artworks
-            else:
-                output_data = data
-                output_data['artworks'] = artworks
-            
             with open(output_file, 'w', encoding='utf-8') as f:
-                json.dump(output_data, f, ensure_ascii=False, indent=2)
+                json.dump(artworks, f, ensure_ascii=False, indent=2)
             
-            print(f"💾 Saved categorized artworks to: {output_file}")
+            print(f"💾 Saved updated artworks to: {output_file}")
             
             # Generate statistics report
             self.generate_stats_report(artworks)
@@ -184,76 +189,57 @@ class ArtworkCategorizer:
             print(f"❌ Error saving file: {e}")
 
     def generate_stats_report(self, artworks: List[Dict]):
-        """Generate a statistics report of the categorization"""
-        stats = {
-            'subjects': {},
-            'locations': {},  
-            'styles': {},
-            'total_artworks': len(artworks)
-        }
+        """Generate statistics report"""
+        auto_stats = {"subjects": {}, "locations": {}}
+        manual_stats = {"subjects": {}, "locations": {}}
+        total_artworks = len(artworks)
         
         for artwork in artworks:
+            # Count auto categories
             auto_cats = artwork.get('autoCategories', {})
-            
-            # Count subjects
             for subject in auto_cats.get('subjects', []):
-                stats['subjects'][subject] = stats['subjects'].get(subject, 0) + 1
-            
-            # Count locations
+                auto_stats['subjects'][subject] = auto_stats['subjects'].get(subject, 0) + 1
             for location in auto_cats.get('locations', []):
-                stats['locations'][location] = stats['locations'].get(location, 0) + 1
+                auto_stats['locations'][location] = auto_stats['locations'].get(location, 0) + 1
             
-            # Count styles
-            for style in auto_cats.get('styles', []):
-                stats['styles'][style] = stats['styles'].get(style, 0) + 1
+            # Count manual categories
+            manual_cats = artwork.get('manualCategories', {})
+            for subject in manual_cats.get('subjects', []):
+                manual_stats['subjects'][subject] = manual_stats['subjects'].get(subject, 0) + 1
+            for location in manual_cats.get('locations', []):
+                manual_stats['locations'][location] = manual_stats['locations'].get(location, 0) + 1
 
         print(f"\n📊 CATEGORIZATION STATISTICS")
-        print(f"=" * 50)
-        print(f"Total Artworks: {stats['total_artworks']}")
+        print(f"=" * 60)
+        print(f"Total Artworks: {total_artworks}")
         
-        print(f"\n🎨 SUBJECTS:")
-        for subject, count in sorted(stats['subjects'].items()):
-            percentage = (count / stats['total_artworks']) * 100
+        print(f"\n🤖 AUTO-CATEGORIZED SUBJECTS:")
+        for subject, count in sorted(auto_stats['subjects'].items()):
+            percentage = (count / total_artworks) * 100
             print(f"  {subject:15} {count:3d} ({percentage:5.1f}%)")
         
-        if stats['locations']:
-            print(f"\n🗺️  LOCATIONS:")
-            for location, count in sorted(stats['locations'].items()):
-                percentage = (count / stats['total_artworks']) * 100
+        if auto_stats['locations']:
+            print(f"\n🤖 AUTO-CATEGORIZED LOCATIONS:")
+            for location, count in sorted(auto_stats['locations'].items()):
+                percentage = (count / total_artworks) * 100
                 print(f"  {location:15} {count:3d} ({percentage:5.1f}%)")
         
-        print(f"\n🎭 STYLES:")
-        for style, count in sorted(stats['styles'].items()):
-            percentage = (count / stats['total_artworks']) * 100
-            print(f"  {style:15} {count:3d} ({percentage:5.1f}%)")
-
-    def validate_categories(self, artworks: List[Dict]) -> Dict:
-        """Validate the categorization results"""
-        issues = []
-        artwork_count = len(artworks)
-        
-        uncategorized = []
-        for artwork in artworks:
-            if not artwork.get('categories') or len(artwork['categories']) == 0:
-                uncategorized.append(artwork.get('title', 'Untitled'))
-        
-        if uncategorized:
-            issues.append(f"❌ {len(uncategorized)} artworks have no categories: {uncategorized[:5]}")
-        
-        return {
-            'valid': len(issues) == 0,
-            'issues': issues,
-            'uncategorized_count': len(uncategorized),
-            'total_count': artwork_count
-        }
+        if any(manual_stats['subjects'].values()) or any(manual_stats['locations'].values()):
+            print(f"\n✋ MANUALLY CATEGORIZED:")
+            for category_type, categories in manual_stats.items():
+                if categories:
+                    print(f"  {category_type.upper()}:")
+                    for category, count in sorted(categories.items()):
+                        percentage = (count / total_artworks) * 100
+                        print(f"    {category:13} {count:3d} ({percentage:5.1f}%)")
 
 
 def main():
     """Main execution function"""
     import sys
     
-    print("🎨 Artwork Auto-Categorizer Starting...")
-    print("=" * 50)
+    print("🎨 Config-Based Artwork Auto-Categorizer Starting...")
+    print("=" * 60)
     
     # Get input file path
     if len(sys.argv) > 1:
@@ -263,43 +249,15 @@ def main():
         if not input_file:
             input_file = './data/artworks.json'
     
-    # Get output file path (optional)
-    if len(sys.argv) > 2:
-        output_file = sys.argv[2]
-    else:
-        output_file = input("💾 Enter output file path (or press Enter to overwrite original): ").strip()
-        if not output_file:
-            output_file = input_file  # Overwrite original
-    
     # Create categorizer and process file
     categorizer = ArtworkCategorizer()
-    categorizer.process_artworks_file(input_file, output_file)
+    categorizer.process_artworks_file(input_file)
     
-    # Validate results if we have the data
-    try:
-        with open(output_file, 'r', encoding='utf-8') as f:
-            data = json.load(f)
-        
-        artworks = data if isinstance(data, list) else data.get('artworks', [])
-        validation = categorizer.validate_categories(artworks)
-        
-        print(f"\n✅ VALIDATION RESULTS:")
-        if validation['valid']:
-            print(f"All {validation['total_count']} artworks successfully categorized!")
-        else:
-            print(f"Found issues:")
-            for issue in validation['issues']:
-                print(f"  {issue}")
-                
-    except Exception as e:
-        print(f"⚠️  Could not validate results: {e}")
-
-    print(f"\n🎉 Categorization complete!")
+    print(f"\n🎉 Config-based categorization complete!")
     print(f"📝 Next steps:")
-    print(f"   1. Review the generated categories")
-    print(f"   2. Update your website's artworks.json file")  
-    print(f"   3. Test the filtering in your gallery")
-
+    print(f"   1. Manual categories are preserved")
+    print(f"   2. Auto categories use centralized config")
+    print(f"   3. Website will merge both for display")
 
 if __name__ == "__main__":
     main()

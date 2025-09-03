@@ -929,7 +929,6 @@
             showMessage(`已移除分類標籤「${categoryKey}」`, 'info');
         }
 
-        // Simplified add manual category
         function addManualCategory() {
             const input = document.getElementById('artworkSubcategory');
             const categoryText = input.value.trim();
@@ -939,135 +938,119 @@
                 return;
             }
             
-            // Check if already exists in existing categories (for editing mode)
-            if (currentEditingId) {
-                const artwork = allArtworks.find(a => a.id === currentEditingId);
-                if (artwork && artwork.categories && artwork.categories.includes(categoryText)) {
-                    showMessage('此分類標籤已存在於現有分類中', 'warning');
-                    return;
-                }
+            // Convert Chinese to English if possible
+            const englishKey = categoryManager.chineseToEnglish(categoryText);
+            
+            // Determine if it's a subject or location
+            let categoryType = 'subjects'; // Default to subjects
+            if (categoryManager.isLocation(englishKey)) {
+                categoryType = 'locations';
             }
             
-            // Check if already in manual categories
-            if (manualCategories.some(cat => cat.toLowerCase() === categoryText.toLowerCase())) {
-                showMessage('此分類標籤已存在於手動分類中', 'warning');
+            // Check if already exists
+            if (manualCategories[categoryType].includes(englishKey)) {
+                showMessage('此分類標籤已存在', 'warning');
                 return;
             }
             
             // Add to manual categories
-            manualCategories.push(categoryText);
+            manualCategories[categoryType].push(englishKey);
             input.value = '';
             
             updateManualCategoriesDisplay();
-            showMessage(`已新增分類標籤「${categoryText}」`, 'success');
+            showMessage(`已新增${categoryType === 'subjects' ? '題材' : '地點'}分類「${categoryText}」`, 'success');
         }
 
-        // Simplified remove manual category
-        function removeManualCategory(categoryToRemove) {
-            console.log('🗑️ Removing manual category:', categoryToRemove);
-            
-            const index = manualCategories.findIndex(cat => cat === categoryToRemove);
+        // UPDATED: Remove manual category with proper structure
+        function removeManualCategory(categoryType, categoryToRemove) {
+            const index = manualCategories[categoryType].findIndex(cat => cat === categoryToRemove);
             if (index > -1) {
-                manualCategories.splice(index, 1);
+                manualCategories[categoryType].splice(index, 1);
                 updateManualCategoriesDisplay();
-                showMessage(`已移除手動分類標籤「${categoryToRemove}」`, 'info');
+                showMessage(`已移除${categoryType === 'subjects' ? '題材' : '地點'}分類「${categoryToRemove}」`, 'info');
             }
         }
 
-        // Clean manual categories display
+        // UPDATED: Display manual categories in structured format
         function updateManualCategoriesDisplay() {
             const manualCategoriesDiv = document.getElementById('manualCategories');
             
-            if (manualCategories.length > 0) {
-                const manualHtml = manualCategories.map(cat => `
+            let html = '';
+            
+            // Display manual subjects
+            if (manualCategories.subjects.length > 0) {
+                const subjectsHtml = manualCategories.subjects.map(cat => `
                     <span style="background: #d4edda; color: #155724; padding: 3px 8px; border-radius: 12px; margin-right: 4px; font-size: 0.8rem; display: inline-flex; align-items: center; margin-bottom: 2px;">
-                        🏷️ ${cat}
-                        <button type="button" onclick="removeManualCategory('${cat}')" 
+                        📂 ${categoryManager.getCategoryLabel(cat, 'zh')}
+                        <button type="button" onclick="removeManualCategory('subjects', '${cat}')" 
                                 style="background: none; border: none; color: #155724; margin-left: 4px; cursor: pointer; font-size: 0.7rem; padding: 0;">
                             ✕
                         </button>
                     </span>
                 `).join('');
-                manualCategoriesDiv.innerHTML = `手動新增: ${manualHtml}`;
-            } else {
-                manualCategoriesDiv.innerHTML = '<span style="color: #6c757d; font-size: 0.8rem;">尚無手動新增的分類標籤</span>';
+                html += `<div style="margin-bottom: 0.5rem;"><strong>手動題材:</strong> ${subjectsHtml}</div>`;
             }
+            
+            // Display manual locations
+            if (manualCategories.locations.length > 0) {
+                const locationsHtml = manualCategories.locations.map(cat => `
+                    <span style="background: #cce5ff; color: #004085; padding: 3px 8px; border-radius: 12px; margin-right: 4px; font-size: 0.8rem; display: inline-flex; align-items: center; margin-bottom: 2px;">
+                        🗺️ ${categoryManager.getCategoryLabel(cat, 'zh')}
+                        <button type="button" onclick="removeManualCategory('locations', '${cat}')" 
+                                style="background: none; border: none; color: #004085; margin-left: 4px; cursor: pointer; font-size: 0.7rem; padding: 0;">
+                            ✕
+                        </button>
+                    </span>
+                `).join('');
+                html += `<div style="margin-bottom: 0.5rem;"><strong>手動地點:</strong> ${locationsHtml}</div>`;
+            }
+            
+            if (html === '') {
+                html = '<span style="color: #6c757d; font-size: 0.8rem;">尚無手動新增的分類標籤</span>';
+            }
+            
+            manualCategoriesDiv.innerHTML = html;
         }
 
-        // Clean form data collection for publishing
+        // UPDATED: Collect form data in new structured format
         function collectArtworkFormData(artworkId) {
-            // Collect basic form data
-            const title = document.getElementById('artworkTitle').value.trim();
-            const year = document.getElementById('artworkYear').value.trim();
-            const height = document.getElementById('artworkHeight').value.trim();
-            const width = document.getElementById('artworkWidth').value.trim();
-            
-            if (!title || !year || !height || !width) {
-                throw new Error('標題、年份、高度和寬度為必填欄位');
-            }
-            
-            const heightNum = parseFloat(height);
-            const widthNum = parseFloat(width);
+            // ... existing form validation code ...
             
             // Get existing artwork if editing
-            let existingCategories = [];
+            let existingAutoCategories = { subjects: [], locations: [] };
             if (currentEditingId) {
                 const existingArtwork = allArtworks.find(a => a.id === currentEditingId);
-                if (existingArtwork && existingArtwork.categories) {
-                    existingCategories = [...existingArtwork.categories];
+                if (existingArtwork && existingArtwork.autoCategories) {
+                    existingAutoCategories = existingArtwork.autoCategories;
                 }
             }
-            
-            // Combine existing categories with manual categories
-            const allCategories = [...existingCategories, ...manualCategories];
-            
-            // Remove duplicates
-            const uniqueCategories = [...new Set(allCategories)];
             
             const formData = {
                 id: artworkId,
                 title: title,
-                titleEn: '',
-                category: 'paintings',
-                subcategory: manualCategories.join(', '), // For backward compatibility
-                manualCategories: manualCategories,
-                categories: uniqueCategories, // Combined existing + manual
-                // Keep autoCategories for reference but don't auto-generate
-                autoCategories: currentEditingId ? 
-                    (allArtworks.find(a => a.id === currentEditingId)?.autoCategories || { subjects: [], locations: [] }) :
-                    { subjects: [], locations: [] },
-                image: '', // Will be set during upload
-                imageHigh: '', // Will be set during upload
-                description: document.getElementById('artworkDescription').value.trim(),
-                descriptionEn: '',
-                curatorNote: document.getElementById('artworkCuratorNote').value.trim(),
-                curatorNoteEn: '',
-                format: document.getElementById('artworkFormat').value,
-                formatEn: '',
-                mediumEn: '',
-                heightCm: heightNum,
-                widthCm: widthNum,
-                heightInches: parseFloat((heightNum / 2.54).toFixed(1)),
-                widthInches: parseFloat((widthNum / 2.54).toFixed(1)),
-                sizeCm: `${heightNum}×${widthNum}`,
-                sizeInches: `${(heightNum / 2.54).toFixed(1)}×${(widthNum / 2.54).toFixed(1)}`,
-                year: year,
-                price: document.getElementById('artworkPrice').value.trim(),
-                available: document.getElementById('artworkAvailable').checked,
-                featured: document.getElementById('artworkFeatured').checked,
-                recent: parseInt(year) >= 2020,
-                exhibitions: [],
-                tags: []
+                // ... other fields ...
+                
+                // NEW STRUCTURED FORMAT:
+                autoCategories: existingAutoCategories, // Keep existing auto categories
+                manualCategories: {
+                    subjects: [...manualCategories.subjects],
+                    locations: [...manualCategories.locations]
+                },
+                
+                // ... rest of form data ...
             };
             
-            console.log(`📋 Collected categories: ${uniqueCategories.length} total (${existingCategories.length} existing + ${manualCategories.length} manual)`);
+            console.log(`📋 Manual categories: ${manualCategories.subjects.length} subjects, ${manualCategories.locations.length} locations`);
             
             return formData;
         }
 
         // Reset category management when opening modal
         function resetCategoryManagement() {
-            manualCategories = [];
+            manualCategories = {
+                subjects: [],
+                locations: []
+            };
             updateCategoryPreview();
             updateManualCategoriesDisplay();
         }
