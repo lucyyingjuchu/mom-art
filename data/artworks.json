@@ -588,38 +588,31 @@
   {
     "id": "019891b0-f39c-79f7-8cab-78ad04b8b05d",
     "title": "紫藤雙燕",
-    "titleEn": "",
-    "category": "paintings",
-    "manualCategories": {
-      "subjects": [],
-      "locations": []
-    },
+    "year": "2011",
+    "heightCm": 135,
+    "widthCm": 70,
+    "sizeCm": "135 × 70 cm",
+    "format": "軸",
+    "description": "一雙好鳥飛自在，萬縷紫煙舞韶華。",
+    "curatorNote": "",
+    "featured": false,
+    "available": true,
+    "price": "",
     "autoCategories": {
       "subjects": [],
       "locations": []
     },
+    "manualCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": []
+    },
     "image": "./images/paintings/thumbnails/019891b0-f39c-79f7-8cab-78ad04b8b05d_thumb.png",
     "imageHigh": "./images/paintings/large/019891b0-f39c-79f7-8cab-78ad04b8b05d_large.png",
-    "description": "一雙好鳥飛自在，萬縷紫煙舞韶華。",
-    "descriptionEn": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "format": "軸",
-    "formatEn": "",
-    "mediumEn": "",
-    "heightCm": 135,
-    "widthCm": 70,
-    "heightInches": 53.1,
-    "widthInches": 27.6,
-    "sizeCm": "135×70",
-    "sizeInches": "53.1×27.6",
-    "year": "2011",
-    "price": "",
-    "available": true,
-    "featured": false,
-    "recent": false,
-    "exhibitions": [],
-    "tags": []
+    "categories": [
+      "flowers"
+    ]
   },
   {
     "id": "019891b0-f39c-7a23-a18f-085445820f6c",
