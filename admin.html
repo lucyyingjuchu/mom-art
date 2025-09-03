@@ -270,6 +270,26 @@
             overflow-y: auto;
         }
 
+        /* Available labels styling */
+        .available-label {
+            display: inline-block;
+            background: #e9ecef;
+            color: #495057;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            margin: 1px 2px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid #dee2e6;
+        }
+
+        .available-label:hover {
+            background: #007bff;
+            color: white;
+            transform: scale(1.05);
+        }
+
         .form-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -858,6 +878,13 @@
         // CLEANED UP: Category management functions using CategoryManager
         function updateCategoryDisplay() {
             if (!currentEditingId) {
+                // 新作品：確保 currentArtworkCategories 已初始化
+                if (!currentArtworkCategories || !currentArtworkCategories.autoCategories) {
+                    currentArtworkCategories = {
+                        autoCategories: { subjects: [], locations: [] },
+                        manualCategories: { subjects: [], locations: [] }
+                    };
+                }
                 displayCategoryTags({ subjects: [], locations: [] }, { subjects: [], locations: [] });
                 return;
             }
@@ -885,7 +912,6 @@
             
             displayCategoryTags(autoCategories, manualCategories);
         }
-
         function displayCategoryTags(autoCategories, manualCategories) {
             const autoSubjectTags = document.getElementById('autoSubjectTags');
             const autoLocationTags = document.getElementById('autoLocationTags');
@@ -1026,12 +1052,12 @@
             }
             
             // Use CategoryManager to normalize and classify
-            const normalizedKey = categoryManager.chineseToEnglish ? 
+            const normalizedKey = categoryManager && categoryManager.chineseToEnglish ? 
                                 categoryManager.chineseToEnglish(categoryText) : categoryText;
             
             // Determine if it's a subject or location using CategoryManager
             let categoryType = 'subjects'; // Default
-            if (categoryManager.isLocation && categoryManager.isLocation(normalizedKey)) {
+            if (categoryManager && categoryManager.isLocation && categoryManager.isLocation(normalizedKey)) {
                 categoryType = 'locations';
             }
             
@@ -1053,10 +1079,14 @@
             currentArtworkCategories.manualCategories[categoryType].push(normalizedKey);
             
             input.value = '';
-            updateCategoryDisplay();
-            showMessage(`已新增${categoryType === 'subjects' ? '題材' : '地點'}分類「${categoryManager.getCategoryLabel(normalizedKey, 'zh')}」`, 'success');
+            
+            // 重要修復：直接調用 displayCategoryTags
+            displayCategoryTags(currentArtworkCategories.autoCategories, currentArtworkCategories.manualCategories);
+            
+            const label = (categoryManager && categoryManager.getCategoryLabel) ? 
+                        categoryManager.getCategoryLabel(normalizedKey, 'zh') : normalizedKey;
+            showMessage(`已新增${categoryType === 'subjects' ? '題材' : '地點'}分類「${label}」`, 'success');
         }
-
         // Handle Enter key in category input
         function handleCategoryInputKeypress(event) {
             if (event.key === 'Enter') {
@@ -1181,13 +1211,13 @@
             }
             currentArtworkCategories.manualCategories[categoryType].push(categoryKey);
             
-            updateCategoryDisplay();
+            // 重要修復：直接調用 displayCategoryTags
+            displayCategoryTags(currentArtworkCategories.autoCategories, currentArtworkCategories.manualCategories);
             
-            const label = (typeof categoryManager !== 'undefined' && categoryManager.getCategoryLabel) ? 
+            const label = (categoryManager && categoryManager.getCategoryLabel) ? 
                         categoryManager.getCategoryLabel(categoryKey, 'zh') : categoryKey;
             showMessage(`已快速添加${categoryType === 'subjects' ? '題材' : '地點'}分類「${label}」`, 'success');
         }
-
         // Setup filter event listeners
         function setupAdminFilterListeners() {
             document.querySelectorAll('.secondary-filter-btn').forEach(btn => {
