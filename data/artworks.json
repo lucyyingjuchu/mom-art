@@ -2957,34 +2957,31 @@
   {
     "id": "019891b0-f39c-793d-819d-6c57e1716730",
     "title": "紫藤",
-    "titleEn": "Wisteria Blossoms",
-    "image": "",
-    "imageHigh": "",
-    "description": null,
-    "descriptionEn": "",
-    "format": "軸",
-    "mediumEn": "",
-    "sizeCm": "135x70",
-    "sizeInches": "53.1×27.6 inches",
     "year": "2021",
-    "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll",
     "heightCm": 135,
     "widthCm": 70,
-    "heightInches": 53.1,
-    "widthInches": 27.6,
+    "sizeCm": "135 × 70 cm",
+    "format": "軸",
+    "description": "",
+    "curatorNote": "",
+    "featured": false,
+    "available": true,
+    "price": "",
     "autoCategories": {
       "subjects": [],
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
-    }
+    },
+    "image": "",
+    "imageHigh": "",
+    "categories": [
+      "flowers"
+    ]
   },
   {
     "id": "019891b0-f39c-7c00-a038-c6c7bb860cbf",
