@@ -96,7 +96,7 @@
     "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
-        "landscape"
+        "flowers"
       ],
       "locations": []
     },
@@ -301,7 +301,8 @@
     },
     "autoCategories": {
       "subjects": [
-        "flowingclouds"
+        "flowingclouds",
+        "flowers"
       ],
       "locations": []
     },
@@ -595,7 +596,9 @@
       "locations": []
     },
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-79f7-8cab-78ad04b8b05d_thumb.png",
@@ -632,7 +635,7 @@
     },
     "autoCategories": {
       "subjects": [
-        "calligraphy"
+        "flowers"
       ],
       "locations": []
     },
@@ -669,7 +672,9 @@
       "locations": []
     },
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-7e69-8910-34d57c0a6589_thumb.png",
@@ -831,7 +836,9 @@
     "heightInches": 9.1,
     "widthInches": 13.8,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -965,7 +972,8 @@
     "widthInches": 29.5,
     "autoCategories": {
       "subjects": [
-        "flowingclouds"
+        "flowingclouds",
+        "flowers"
       ],
       "locations": [
         "longdong"
@@ -1141,7 +1149,8 @@
     "widthInches": 29.5,
     "autoCategories": {
       "subjects": [
-        "flowingclouds"
+        "flowingclouds",
+        "flowers"
       ],
       "locations": []
     },
@@ -1365,7 +1374,9 @@
       "locations": []
     },
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-7136-84bc-3625d99f8651_thumb.png",
@@ -1830,7 +1841,8 @@
     "widthInches": 70.9,
     "autoCategories": {
       "subjects": [
-        "flowingclouds"
+        "flowingclouds",
+        "flowers"
       ],
       "locations": []
     },
@@ -2236,7 +2248,9 @@
     "heightInches": 27.6,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -2340,7 +2354,9 @@
     "heightInches": 27.6,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -2372,7 +2388,9 @@
     "heightInches": 53.1,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -2440,7 +2458,9 @@
     "heightInches": 27.6,
     "widthInches": 17.7,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -2504,7 +2524,9 @@
     "heightInches": 27.6,
     "widthInches": 17.7,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -2607,7 +2629,9 @@
     "heightInches": 53.1,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -2801,7 +2825,9 @@
     "heightInches": 27.6,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -2894,7 +2920,9 @@
     "heightInches": 53.1,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -2992,7 +3020,9 @@
     "heightInches": 27.6,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -3061,7 +3091,9 @@
     "heightCm": 70,
     "widthCm": 45,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -3232,7 +3264,8 @@
     "widthInches": 82.7,
     "autoCategories": {
       "subjects": [
-        "flowingclouds"
+        "flowingclouds",
+        "flowers"
       ],
       "locations": [
         "hehuanshan"
@@ -3335,7 +3368,9 @@
     "heightInches": 27.6,
     "widthInches": 17.7,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -3368,7 +3403,9 @@
     "heightCm": 70,
     "widthCm": 45,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -3468,7 +3505,9 @@
     "heightInches": 26.8,
     "widthInches": 17.7,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -3933,7 +3972,9 @@
     "heightInches": 27.6,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -4065,7 +4106,9 @@
     "heightInches": 27.6,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -4097,7 +4140,9 @@
     "heightInches": 38.2,
     "widthInches": 70.9,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -4197,7 +4242,9 @@
     "heightInches": 26.8,
     "widthInches": 17.7,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -4365,7 +4412,9 @@
     "heightInches": 53.1,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -4396,7 +4445,9 @@
     "heightInches": 18.1,
     "widthInches": 17.7,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -4417,7 +4468,9 @@
       "locations": []
     },
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-7a90-ab98-022c8b72668e_thumb.png",
@@ -4838,7 +4891,9 @@
     "heightInches": 53.1,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -4857,7 +4912,7 @@
     },
     "autoCategories": {
       "subjects": [
-        "calligraphy"
+        "flowers"
       ],
       "locations": []
     },
@@ -4940,7 +4995,9 @@
     "heightInches": 53.1,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -5005,6 +5062,7 @@
     "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
+        "flowers",
         "bamboo"
       ],
       "locations": []
@@ -5038,6 +5096,7 @@
     "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
+        "flowers",
         "calligraphy"
       ],
       "locations": []
@@ -5057,7 +5116,9 @@
       "locations": []
     },
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-7530-ace8-fffa8fead53e_thumb.png",
@@ -5376,7 +5437,7 @@
     "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
-        "landscape"
+        "flowers"
       ],
       "locations": []
     },
@@ -5447,7 +5508,9 @@
     "heightInches": 27.6,
     "widthInches": 53.1,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -5478,7 +5541,9 @@
     "heightInches": 27.6,
     "widthInches": 53.1,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -5802,7 +5867,9 @@
     "heightInches": 53.1,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -5872,7 +5939,7 @@
     "widthInches": 55.1,
     "autoCategories": {
       "subjects": [
-        "landscape"
+        "flowers"
       ],
       "locations": []
     },
@@ -5905,7 +5972,7 @@
     "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
-        "calligraphy"
+        "flowers"
       ],
       "locations": []
     },
@@ -6024,7 +6091,9 @@
       "locations": []
     },
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-7aed-9fac-21a5e94b8c1f_thumb.png",
@@ -6203,7 +6272,9 @@
     "heightInches": 35.4,
     "widthInches": 35.4,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -6234,7 +6305,9 @@
     "heightInches": 53.1,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -6571,7 +6644,8 @@
     },
     "autoCategories": {
       "subjects": [
-        "flowingclouds"
+        "flowingclouds",
+        "flowers"
       ],
       "locations": [
         "yushan"

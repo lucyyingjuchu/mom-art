@@ -38,6 +38,7 @@ class ArtworkCategorizer:
     def get_fallback_config(self) -> Dict:
         """Fallback config if file load fails"""
         return {
+            
             "categories": {
                 "subjects": ["landscape", "waterfall", "flowers", "calligraphy"],
                 "locations": ["huangshan", "alishan"]
