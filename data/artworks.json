@@ -2524,35 +2524,32 @@
   },
   {
     "id": "019891b0-f39c-7038-a32d-0f2d0cb36be8",
-    "title": "巧遇-相逢即是有緣-墨荷 ",
-    "titleEn": "Serendipity - Encounters of Fate: Ink Lotus",
-    "image": "./images/paintings/thumbnails/019891b0-f39c-7038-a32d-0f2d0cb36be8_thumb.jpg",
-    "imageHigh": "./images/paintings/large/019891b0-f39c-7038-a32d-0f2d0cb36be8_large.jpg",
-    "description": "巧遇-相逢即是有緣",
-    "descriptionEn": "Serendipity - A Meeting is Fate",
-    "format": "框",
-    "mediumEn": "",
-    "sizeCm": "70x45",
-    "sizeInches": "27.6×17.7 inches",
+    "title": "巧遇-相逢即是有緣-墨荷",
     "year": "2021",
-    "price": "",
-    "available": "",
-    "featured": "true",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "formatEn": "Framed",
     "heightCm": 70,
     "widthCm": 45,
-    "heightInches": 27.6,
-    "widthInches": 17.7,
+    "sizeCm": "70 × 45 cm",
+    "format": "框",
+    "description": "巧遇-相逢即是有緣",
+    "curatorNote": "",
+    "featured": true,
+    "available": true,
+    "price": "",
     "autoCategories": {
       "subjects": [],
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
-    }
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7038-a32d-0f2d0cb36be8_thumb.jpg",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7038-a32d-0f2d0cb36be8_large.jpg",
+    "categories": [
+      "flowers"
+    ]
   },
   {
     "id": "019891b0-f39c-755d-a7dc-fb045eb4ef1c",
