@@ -2523,6 +2523,38 @@
     }
   },
   {
+    "id": "019891b0-f39c-75cd-bee9-3e517cf83161",
+    "title": "巧遇-相逢即是有緣",
+    "titleEn": "Serendipity - Encounters of Fate",
+    "image": "",
+    "imageHigh": "",
+    "description": "巧遇-相逢即是有緣",
+    "descriptionEn": "Serendipity - A Meeting is Destiny",
+    "format": "框",
+    "mediumEn": "",
+    "sizeCm": "70x45",
+    "sizeInches": "27.6×17.7 inches",
+    "year": "2021",
+    "price": "",
+    "available": "",
+    "featured": "",
+    "curatorNote": "",
+    "curatorNoteEn": "",
+    "formatEn": "Framed",
+    "heightCm": 70,
+    "widthCm": 45,
+    "heightInches": 27.6,
+    "widthInches": 17.7,
+    "autoCategories": {
+      "subjects": [],
+      "locations": []
+    },
+    "manualCategories": {
+      "subjects": [],
+      "locations": []
+    }
+  },
+  {
     "id": "019891b0-f39c-7038-a32d-0f2d0cb36be8",
     "title": "巧遇-相逢即是有緣-墨荷 ",
     "titleEn": "Serendipity - Encounters of Fate: Ink Lotus",
@@ -3090,31 +3122,35 @@
   {
     "id": "019891b0-f39c-7871-b204-09fa520d0d23",
     "title": "雍容華滋舞清和-牡丹",
-    "year": "2021",
-    "heightCm": 70,
-    "widthCm": 45,
-    "sizeCm": "70 × 45 cm",
-    "format": "框",
+    "titleEn": "",
+    "category": "paintings",
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7871-b204-09fa520d0d23_thumb.jpg",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7871-b204-09fa520d0d23_large.jpg",
     "description": "雍容華滋舞清和",
     "curatorNote": "",
-    "featured": false,
-    "available": true,
+    "curatorNoteEn": "",
+    "format": "框",
+    "formatEn": "",
+    "mediumEn": "",
+    "sizeCm": "70x45",
+    "sizeInches": "",
+    "year": "2021",
     "price": "",
+    "available": true,
+    "featured": false,
+    "recent": true,
+    "exhibitions": [],
+    "tags": [],
+    "heightCm": 70,
+    "widthCm": 45,
     "autoCategories": {
       "subjects": [],
       "locations": []
     },
     "manualCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
-    },
-    "image": "./images/paintings/thumbnails/019891b0-f39c-7871-b204-09fa520d0d23_thumb.jpg",
-    "imageHigh": "./images/paintings/large/019891b0-f39c-7871-b204-09fa520d0d23_large.jpg",
-    "categories": [
-      "flowers"
-    ]
+    }
   },
   {
     "id": "019891b0-f39c-79ee-915a-34d3aa1decd1",
@@ -3471,60 +3507,66 @@
   {
     "id": "019891b0-f39c-7939-897c-cc57bc9b4a35",
     "title": "悠遊",
+    "titleEn": "Serene Wanderings",
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7939-897c-cc57bc9b4a35_thumb.jpg",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7939-897c-cc57bc9b4a35_large.jpg",
+    "description": "悠遊",
+    "descriptionEn": "Leisurely Wanderings",
+    "format": "框",
+    "mediumEn": "",
+    "sizeCm": "24x70",
+    "sizeInches": "9.4×27.6 inches",
     "year": "2022",
+    "price": "",
+    "available": "",
+    "featured": "true",
+    "curatorNote": "",
+    "curatorNoteEn": "",
+    "formatEn": "Framed",
     "heightCm": 24,
     "widthCm": 70,
-    "sizeCm": "24 × 70 cm",
-    "format": "框",
-    "description": "悠遊",
-    "curatorNote": "",
-    "featured": true,
-    "available": true,
-    "price": "",
+    "heightInches": 9.4,
+    "widthInches": 27.6,
     "autoCategories": {
       "subjects": [],
       "locations": []
     },
     "manualCategories": {
-      "subjects": [
-        "landscape"
-      ],
+      "subjects": [],
       "locations": []
-    },
-    "image": "./images/paintings/thumbnails/019891b0-f39c-7939-897c-cc57bc9b4a35_thumb.jpg",
-    "imageHigh": "./images/paintings/large/019891b0-f39c-7939-897c-cc57bc9b4a35_large.jpg",
-    "categories": [
-      "landscape"
-    ]
+    }
   },
   {
     "id": "019891b0-f39c-7f63-87fd-b7a8a860889f",
     "title": "枝頭小鳥迎風立-櫻花",
+    "titleEn": "Little Birds on the Branches: A Dance in the Wind",
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7f63-87fd-b7a8a860889f_thumb.jpg",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7f63-87fd-b7a8a860889f_large.jpg",
+    "description": "枝頭小鳥迎風立，可愛深紅兼淺紅。",
+    "descriptionEn": "Atop the branches, little birds stand in the wind, Charming hues of deep and light crimson blend.",
+    "format": "框",
+    "mediumEn": "",
+    "sizeCm": "68x45",
+    "sizeInches": "26.8×17.7 inches",
     "year": "2022",
+    "price": "",
+    "available": "",
+    "featured": "",
+    "curatorNote": "",
+    "curatorNoteEn": "",
+    "formatEn": "Framed",
     "heightCm": 68,
     "widthCm": 45,
-    "sizeCm": "68 × 45 cm",
-    "format": "框",
-    "description": "枝頭小鳥迎風立，可愛深紅兼淺紅。",
-    "curatorNote": "",
-    "featured": false,
-    "available": true,
-    "price": "",
+    "heightInches": 26.8,
+    "widthInches": 17.7,
     "autoCategories": {
       "subjects": [],
       "locations": []
     },
     "manualCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
-    },
-    "image": "./images/paintings/thumbnails/019891b0-f39c-7f63-87fd-b7a8a860889f_thumb.jpg",
-    "imageHigh": "./images/paintings/large/019891b0-f39c-7f63-87fd-b7a8a860889f_large.jpg",
-    "categories": [
-      "flowers"
-    ]
+    }
   },
   {
     "id": "019891b0-f39c-7403-80d4-4da1440b7976",
