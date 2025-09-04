@@ -500,6 +500,10 @@ window.openLightbox = function(artworkId, context = 'all') {
     if (context === 'featured') {
         artworksData = portfolio.getFeaturedArtworks();
         console.log('📌 Using featured artworks only:', artworksData.length);
+    } else if (context === 'gallery') {
+        // 🎯 關鍵修復：使用當前藝廊顯示的順序
+        artworksData = portfolio.getCurrentGalleryArtworks();
+        console.log('🎨 Using current gallery order:', artworksData.length);
     } else {
         artworksData = portfolio.artworks;
         console.log('📋 Using all artworks:', artworksData.length);
@@ -528,6 +532,12 @@ window.openLightbox = function(artworkId, context = 'all') {
 
 window.closeLightbox = function() {
     console.log('🚪 Closing lightbox');
+
+    // 🆕 記住當前查看的作品 ID（用於回到位置）
+    let currentArtworkId = null;
+    if (artworksData && artworksData[currentArtworkIndex]) {
+        currentArtworkId = artworksData[currentArtworkIndex].id;
+    }
     
     if (isFullscreenMode) {
         exitImageFullscreen();
@@ -560,6 +570,13 @@ window.closeLightbox = function() {
         }
     }
     cleanupViews();
+
+    // 🆕 關鍵功能：關閉 lightbox 後滾動回到剛才查看的作品
+    if (currentArtworkId && typeof portfolio !== 'undefined') {
+        setTimeout(() => {
+            portfolio.scrollToArtwork(currentArtworkId);
+        }, 300);
+    }
 };
 
 window.navigateArtwork = function(direction) {
