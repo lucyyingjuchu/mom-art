@@ -3398,35 +3398,31 @@
   {
     "id": "019891b0-f39c-72a2-ae2f-04a06f5a0c75",
     "title": "忘形-紫藤",
-    "titleEn": "",
-    "category": "paintings",
-    "image": "./images/paintings/thumbnails/019891b0-f39c-72a2-ae2f-04a06f5a0c75_thumb.jpg",
-    "imageHigh": "./images/paintings/large/019891b0-f39c-72a2-ae2f-04a06f5a0c75_large.jpg",
-    "description": "忘形",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "format": "框",
-    "formatEn": "",
-    "mediumEn": "",
-    "sizeCm": "70x45",
-    "sizeInches": "",
     "year": "2022",
-    "price": "",
-    "available": true,
-    "featured": true,
-    "recent": true,
-    "exhibitions": [],
-    "tags": [],
     "heightCm": 70,
     "widthCm": 45,
+    "sizeCm": "70 × 45 cm",
+    "format": "框",
+    "description": "忘形",
+    "curatorNote": "",
+    "featured": true,
+    "available": true,
+    "price": "",
     "autoCategories": {
       "subjects": [],
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
-    }
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-72a2-ae2f-04a06f5a0c75_thumb.jpg",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-72a2-ae2f-04a06f5a0c75_large.jpg",
+    "categories": [
+      "flowers"
+    ]
   },
   {
     "id": "019891b0-f39c-73d5-ae97-3d296dba78a1",
