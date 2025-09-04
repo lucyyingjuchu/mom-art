@@ -5468,33 +5468,31 @@
   {
     "id": "019891b0-f39c-7535-8938-34b23c8840cd",
     "title": "牡丹品貴冠群芳",
-    "titleEn": "Peony: The Noble Crown Among Blossoms",
-    "image": "",
-    "imageHigh": "",
-    "description": "牡丹品貴冠群芳，覽豐迎校滿庭芳。105",
-    "descriptionEn": "The peony, noble in its grace, outshines all blooms in this place; In splendid view, it greets the day, filling the garden with sweet bouquet.",
-    "format": null,
-    "mediumEn": "",
-    "sizeCm": "70 × 135",
-    "sizeInches": "27.6×53.1 inches",
     "year": "unknown",
-    "price": "",
-    "available": 0,
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
     "heightCm": 70,
     "widthCm": 135,
-    "heightInches": 27.6,
-    "widthInches": 53.1,
+    "sizeCm": "70 × 135 cm",
+    "format": "",
+    "description": "牡丹品貴冠群芳，覽豐迎校滿庭芳。105",
+    "curatorNote": "",
+    "featured": false,
+    "available": true,
+    "price": "",
     "autoCategories": {
       "subjects": [],
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
-    }
+    },
+    "image": "",
+    "imageHigh": "",
+    "categories": [
+      "flowers"
+    ]
   },
   {
     "id": "019891b0-f39c-754c-b2f3-0042b0f1eda6",
