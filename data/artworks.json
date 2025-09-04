@@ -4851,33 +4851,31 @@
   {
     "id": "019891b0-f39c-7fa4-834c-dfc205acfee3",
     "title": "律回冰雪少(牡丹、梅花)",
-    "titleEn": "Harmony of Frost and Bloom",
-    "image": "",
-    "imageHigh": "",
-    "description": null,
-    "descriptionEn": "",
-    "format": null,
-    "mediumEn": "",
-    "sizeCm": "135 × 70",
-    "sizeInches": "53.1×27.6 inches",
     "year": "unknown",
-    "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
     "heightCm": 135,
     "widthCm": 70,
-    "heightInches": 53.1,
-    "widthInches": 27.6,
+    "sizeCm": "135 × 70 cm",
+    "format": "",
+    "description": "",
+    "curatorNote": "",
+    "featured": false,
+    "available": true,
+    "price": "",
     "autoCategories": {
       "subjects": [],
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
-    }
+    },
+    "image": "",
+    "imageHigh": "",
+    "categories": [
+      "flowers"
+    ]
   },
   {
     "id": "019891b0-f39c-7386-a86e-60369bb2ecd5",
