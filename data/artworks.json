@@ -2388,34 +2388,31 @@
   {
     "id": "019891b0-f39c-770a-b647-6b0a8efdc639",
     "title": "妙筆生花喜解語-牡丹",
-    "titleEn": "Flourishing Thoughts: The Peony's Whisper",
-    "image": "./images/paintings/thumbnails/019891b0-f39c-770a-b647-6b0a8efdc639_thumb.jpg",
-    "imageHigh": "./images/paintings/large/019891b0-f39c-770a-b647-6b0a8efdc639_large.jpg",
-    "description": "妙筆生花喜解語，從容落墨壽澤長。",
-    "descriptionEn": "With a deft hand, flowers of thought take flight, In tranquil strokes, may longevity's ink flow bright.",
-    "format": "框",
-    "mediumEn": "",
-    "sizeCm": "70x70",
-    "sizeInches": "27.6×27.6 inches",
     "year": "2021",
-    "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "formatEn": "Framed",
     "heightCm": 70,
     "widthCm": 70,
-    "heightInches": 27.6,
-    "widthInches": 27.6,
+    "sizeCm": "70 × 70 cm",
+    "format": "框",
+    "description": "妙筆生花喜解語，從容落墨壽澤長。",
+    "curatorNote": "",
+    "featured": false,
+    "available": true,
+    "price": "",
     "autoCategories": {
       "subjects": [],
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
-    }
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-770a-b647-6b0a8efdc639_thumb.jpg",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-770a-b647-6b0a8efdc639_large.jpg",
+    "categories": [
+      "flowers"
+    ]
   },
   {
     "id": "019891b0-f39c-7b7d-8e54-83ae4f652136",
