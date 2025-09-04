@@ -3507,34 +3507,31 @@
   {
     "id": "019891b0-f39c-7939-897c-cc57bc9b4a35",
     "title": "悠遊",
-    "titleEn": "Serene Wanderings",
-    "image": "./images/paintings/thumbnails/019891b0-f39c-7939-897c-cc57bc9b4a35_thumb.jpg",
-    "imageHigh": "./images/paintings/large/019891b0-f39c-7939-897c-cc57bc9b4a35_large.jpg",
-    "description": "悠遊",
-    "descriptionEn": "Leisurely Wanderings",
-    "format": "框",
-    "mediumEn": "",
-    "sizeCm": "24x70",
-    "sizeInches": "9.4×27.6 inches",
     "year": "2022",
-    "price": "",
-    "available": "",
-    "featured": "true",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "formatEn": "Framed",
     "heightCm": 24,
     "widthCm": 70,
-    "heightInches": 9.4,
-    "widthInches": 27.6,
+    "sizeCm": "24 × 70 cm",
+    "format": "框",
+    "description": "悠遊",
+    "curatorNote": "",
+    "featured": true,
+    "available": true,
+    "price": "",
     "autoCategories": {
       "subjects": [],
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape"
+      ],
       "locations": []
-    }
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7939-897c-cc57bc9b4a35_thumb.jpg",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7939-897c-cc57bc9b4a35_large.jpg",
+    "categories": [
+      "landscape"
+    ]
   },
   {
     "id": "019891b0-f39c-7f63-87fd-b7a8a860889f",
