@@ -305,16 +305,9 @@
     },
     "autoCategories": {
       "subjects": [
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-        "flowingclouds"
-=======
-=======
->>>>>>> Stashed changes
         "landscape",
         "flowingclouds",
         "flowers"
->>>>>>> Stashed changes
       ],
       "locations": []
     },
@@ -3345,16 +3338,9 @@
     "widthInches": 82.7,
     "autoCategories": {
       "subjects": [
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-        "flowingclouds"
-=======
-=======
->>>>>>> Stashed changes
         "landscape",
         "flowingclouds",
         "flowers"
->>>>>>> Stashed changes
       ],
       "locations": [
         "hehuanshan"
