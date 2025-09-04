@@ -96,7 +96,7 @@
     "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
-        "flowers"
+        "landscape"
       ],
       "locations": []
     },
@@ -301,8 +301,7 @@
     },
     "autoCategories": {
       "subjects": [
-        "flowingclouds",
-        "flowers"
+        "flowingclouds"
       ],
       "locations": []
     },
@@ -600,9 +599,7 @@
     "available": true,
     "price": "",
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
     "manualCategories": {
@@ -628,7 +625,7 @@
     },
     "autoCategories": {
       "subjects": [
-        "flowers"
+        "calligraphy"
       ],
       "locations": []
     },
@@ -665,9 +662,7 @@
       "locations": []
     },
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-7e69-8910-34d57c0a6589_thumb.png",
@@ -819,9 +814,7 @@
     "available": true,
     "price": "",
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
     "manualCategories": {
@@ -962,8 +955,7 @@
     "widthInches": 29.5,
     "autoCategories": {
       "subjects": [
-        "flowingclouds",
-        "flowers"
+        "flowingclouds"
       ],
       "locations": [
         "longdong"
@@ -1139,8 +1131,7 @@
     "widthInches": 29.5,
     "autoCategories": {
       "subjects": [
-        "flowingclouds",
-        "flowers"
+        "flowingclouds"
       ],
       "locations": []
     },
@@ -1364,9 +1355,7 @@
       "locations": []
     },
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-7136-84bc-3625d99f8651_thumb.png",
@@ -1831,8 +1820,7 @@
     "widthInches": 70.9,
     "autoCategories": {
       "subjects": [
-        "flowingclouds",
-        "flowers"
+        "flowingclouds"
       ],
       "locations": []
     },
@@ -2238,9 +2226,7 @@
     "heightInches": 27.6,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
     "manualCategories": {
@@ -2344,9 +2330,7 @@
     "heightInches": 27.6,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
     "manualCategories": {
@@ -2378,9 +2362,7 @@
     "heightInches": 53.1,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
     "manualCategories": {
@@ -2448,9 +2430,7 @@
     "heightInches": 27.6,
     "widthInches": 17.7,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
     "manualCategories": {
@@ -2514,9 +2494,7 @@
     "heightInches": 27.6,
     "widthInches": 17.7,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
     "manualCategories": {
@@ -2619,9 +2597,7 @@
     "heightInches": 53.1,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
     "manualCategories": {
@@ -2815,9 +2791,7 @@
     "heightInches": 27.6,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
     "manualCategories": {
@@ -2857,34 +2831,31 @@
   {
     "id": "019891b0-f39c-7c4a-a8f5-77fdf9b0873a",
     "title": "空裡凌霄一枝春",
-    "titleEn": "A Branch of Spring in the Void",
-    "image": "./images/paintings/thumbnails/019891b0-f39c-7c4a-a8f5-77fdf9b0873a_thumb.jpg",
-    "imageHigh": "./images/paintings/large/019891b0-f39c-7c4a-a8f5-77fdf9b0873a_large.jpg",
-    "description": "自在飛羽三弄影，空裡凌霄一枝春。",
-    "descriptionEn": "With carefree wings, I dance thrice in shadows' play, In the vastness, a single branch heralds spring's array.",
-    "format": "框",
-    "mediumEn": "",
-    "sizeCm": "70x45",
-    "sizeInches": "27.6×17.7 inches",
     "year": "2021",
-    "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "formatEn": "Framed",
     "heightCm": 70,
     "widthCm": 45,
-    "heightInches": 27.6,
-    "widthInches": 17.7,
+    "sizeCm": "70 × 45 cm",
+    "format": "框",
+    "description": "自在飛羽三弄影，空裡凌霄一枝春。",
+    "curatorNote": "",
+    "featured": false,
+    "available": true,
+    "price": "",
     "autoCategories": {
       "subjects": [],
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
-    }
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7c4a-a8f5-77fdf9b0873a_thumb.jpg",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7c4a-a8f5-77fdf9b0873a_large.jpg",
+    "categories": [
+      "flowers"
+    ]
   },
   {
     "id": "019891b0-f39c-793d-819d-6c57e1716730",
@@ -2910,9 +2881,7 @@
     "heightInches": 53.1,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
     "manualCategories": {
@@ -3010,9 +2979,7 @@
     "heightInches": 27.6,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
     "manualCategories": {
@@ -3081,9 +3048,7 @@
     "heightCm": 70,
     "widthCm": 45,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
     "manualCategories": {
@@ -3254,8 +3219,7 @@
     "widthInches": 82.7,
     "autoCategories": {
       "subjects": [
-        "flowingclouds",
-        "flowers"
+        "flowingclouds"
       ],
       "locations": [
         "hehuanshan"
@@ -3358,9 +3322,7 @@
     "heightInches": 27.6,
     "widthInches": 17.7,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
     "manualCategories": {
@@ -3393,9 +3355,7 @@
     "heightCm": 70,
     "widthCm": 45,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
     "manualCategories": {
@@ -3495,9 +3455,7 @@
     "heightInches": 26.8,
     "widthInches": 17.7,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
     "manualCategories": {
@@ -3962,9 +3920,7 @@
     "heightInches": 27.6,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
     "manualCategories": {
@@ -4096,9 +4052,7 @@
     "heightInches": 27.6,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
     "manualCategories": {
@@ -4130,9 +4084,7 @@
     "heightInches": 38.2,
     "widthInches": 70.9,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
     "manualCategories": {
@@ -4232,9 +4184,7 @@
     "heightInches": 26.8,
     "widthInches": 17.7,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
     "manualCategories": {
@@ -4402,9 +4352,7 @@
     "heightInches": 53.1,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
     "manualCategories": {
@@ -4435,9 +4383,7 @@
     "heightInches": 18.1,
     "widthInches": 17.7,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
     "manualCategories": {
@@ -4458,9 +4404,7 @@
       "locations": []
     },
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-7a90-ab98-022c8b72668e_thumb.png",
@@ -4881,9 +4825,7 @@
     "heightInches": 53.1,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
     "manualCategories": {
@@ -4902,7 +4844,7 @@
     },
     "autoCategories": {
       "subjects": [
-        "flowers"
+        "calligraphy"
       ],
       "locations": []
     },
@@ -4985,9 +4927,7 @@
     "heightInches": 53.1,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
     "manualCategories": {
@@ -5052,7 +4992,6 @@
     "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
-        "flowers",
         "bamboo"
       ],
       "locations": []
@@ -5086,7 +5025,6 @@
     "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
-        "flowers",
         "calligraphy"
       ],
       "locations": []
@@ -5106,9 +5044,7 @@
       "locations": []
     },
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-7530-ace8-fffa8fead53e_thumb.png",
@@ -5427,7 +5363,7 @@
     "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
-        "flowers"
+        "landscape"
       ],
       "locations": []
     },
@@ -5498,9 +5434,7 @@
     "heightInches": 27.6,
     "widthInches": 53.1,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
     "manualCategories": {
@@ -5531,9 +5465,7 @@
     "heightInches": 27.6,
     "widthInches": 53.1,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
     "manualCategories": {
@@ -5857,9 +5789,7 @@
     "heightInches": 53.1,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
     "manualCategories": {
@@ -5929,7 +5859,7 @@
     "widthInches": 55.1,
     "autoCategories": {
       "subjects": [
-        "flowers"
+        "landscape"
       ],
       "locations": []
     },
@@ -5962,7 +5892,7 @@
     "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
-        "flowers"
+        "calligraphy"
       ],
       "locations": []
     },
@@ -6081,9 +6011,7 @@
       "locations": []
     },
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-7aed-9fac-21a5e94b8c1f_thumb.png",
@@ -6262,9 +6190,7 @@
     "heightInches": 35.4,
     "widthInches": 35.4,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
     "manualCategories": {
@@ -6295,9 +6221,7 @@
     "heightInches": 53.1,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [
-        "flowers"
-      ],
+      "subjects": [],
       "locations": []
     },
     "manualCategories": {
@@ -6634,8 +6558,7 @@
     },
     "autoCategories": {
       "subjects": [
-        "flowingclouds",
-        "flowers"
+        "flowingclouds"
       ],
       "locations": [
         "yushan"
