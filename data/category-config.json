@@ -7,60 +7,90 @@
     "locations": [
       "huangshan", "alishan", "taroko", "hehuanshan", "yushan",
       "liushidanshan", "guishandao", "longdong", "zhangjiajie", 
-      "grandcanyon", "iguazu", "niagara","xueba"
+      "grandcanyon", "iguazu", "niagara", "xueba"
     ]
   },
-  "categoryMapping": {
-    "chineseToEnglish": {
-      "瀑布": "waterfall",
-      "山水": "landscape", 
-      "煙雲": "flowingclouds",
-      "花鳥": "flowers",
-      "墨竹": "bamboo",
-      "書法": "calligraphy",
-      "抽象": "abstract",
-      "傳統": "traditional",
-      "黃山": "huangshan",
-      "阿里山": "alishan",
-      "太魯閣": "taroko",
-      "合歡山": "hehuanshan",
-      "玉山": "yushan",
-      "六十石山": "liushidanshan",
-      "龜山島": "guishandao",
-      "龍洞": "longdong",
-      "張家界": "zhangjiajie",
-      "大峽谷": "grandcanyon",
-      "伊瓜蘇": "iguazu",
-      "尼加拉": "niagara",
-      "雪壩": "xueba"
+  "displayLabels": {
+    "zh": {
+      "subjects": {
+        "waterfall": "瀑布",
+        "landscape": "山水",
+        "flowingclouds": "煙雲", 
+        "flowers": "花鳥",
+        "bamboo": "墨竹",
+        "calligraphy": "書法",
+        "abstract": "抽象",
+        "traditional": "傳統",
+        "uncategorized": "未分類"
+      },
+      "locations": {
+        "huangshan": "黃山",
+        "alishan": "阿里山",
+        "taroko": "太魯閣",
+        "hehuanshan": "合歡山",
+        "yushan": "玉山",
+        "liushidanshan": "六十石山",
+        "guishandao": "龜山島",
+        "longdong": "龍洞",
+        "zhangjiajie": "張家界",
+        "grandcanyon": "大峽谷",
+        "iguazu": "伊瓜蘇",
+        "niagara": "尼加拉",
+        "xueba": "雪壩"
+      },
+      "availability": {
+        "available": "可售",
+        "sold": "已售",
+        "unknown": "狀態未明"
+      },
+      "filterSections": {
+        "bySubject": "題材分類",
+        "byLocation": "地點分類",
+        "byAvailability": "販售狀態"
+      }
     },
-    "englishToChinese": {
-      "waterfall": "瀑布",
-      "landscape": "山水",
-      "flowingclouds": "煙雲", 
-      "flowers": "花鳥",
-      "bamboo": "墨竹",
-      "calligraphy": "書法",
-      "abstract": "抽象",
-      "traditional": "傳統",
-      "huangshan": "黃山",
-      "alishan": "阿里山",
-      "taroko": "太魯閣",
-      "hehuanshan": "合歡山",
-      "yushan": "玉山",
-      "liushidanshan": "六十石山",
-      "guishandao": "龜山島",
-      "longdong": "龍洞",
-      "zhangjiajie": "張家界",
-      "grandcanyon": "大峽谷",
-      "iguazu": "伊瓜蘇",
-      "niagara": "尼加拉",
-      "xueba": "雪壩"
+    "en": {
+      "subjects": {
+        "waterfall": "Waterfalls",
+        "landscape": "Landscape",
+        "flowingclouds": "Flowing Clouds", 
+        "flowers": "Flowers & Birds",
+        "bamboo": "Bamboo",
+        "calligraphy": "Calligraphy",
+        "abstract": "Abstract",
+        "traditional": "Traditional",
+        "uncategorized": "Uncategorized"
+      },
+      "locations": {
+        "huangshan": "HuangShan",
+        "alishan": "AliShan",
+        "taroko": "Taroko",
+        "hehuanshan": "Mt. HeHuan",
+        "yushan": "Mt. Jade",
+        "liushidanshan": "Mt. Sixty Stone",
+        "guishandao": "GuiShan Island",
+        "longdong": "Dragon Cave",
+        "zhangjiajie": "Zhangjiajie",
+        "grandcanyon": "Grand Canyon",
+        "iguazu": "Iguazu Falls",
+        "niagara": "Niagara Falls",
+        "xueba": "XueBa"
+      },
+      "availability": {
+        "available": "Available",
+        "sold": "Sold",
+        "unknown": "Status Unknown"
+      },
+      "filterSections": {
+        "bySubject": "By Subject",
+        "byLocation": "By Location", 
+        "byAvailability": "By Availability"
+      }
     }
   },
   "autoDetectionKeywords": {
     "waterfall": ["瀑布", "waterfall", "falls", "cascade","瀑"],
-     "landscape": ["山水", "landscape", "mountain", "scenery", "風景","天","湖","海","河","溪","森","林","樹","田","楓","秋","冬","春","壑","峰","嶺","嶼","山","島"],
+    "landscape": ["山水", "landscape", "mountain", "scenery", "風景","天","湖","海","河","溪","森","林","樹","田","楓","秋","冬","春","壑","峰","嶺","嶼","山","島"],
     "flowingclouds": ["煙雲", "雲", "flowingclouds", "clouds", "mist", "vapor","煙", "霧","霞","雨"],
     "flowers": ["花鳥", "flowers", "birds", "floral", "botanical", "花卉", "紫藤", "菊", "牡丹", "梅","櫻", "蘭", "荷","蓮", "鳥","康乃馨","杜鵑"],
     "bamboo": ["墨竹", "竹", "bamboo", "ink bamboo"],

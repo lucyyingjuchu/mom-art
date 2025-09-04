@@ -1,5 +1,5 @@
 // CategoryManager.js - Centralized Category Management System
-// CLEAN VERSION: Fixed all syntax errors
+// ULTIMATE SIMPLIFIED: Single source of truth using displayLabels only
 
 // Prevent duplicate loading
 if (!window.categoryManagerLoaded) {
@@ -9,7 +9,8 @@ if (!window.categoryManagerLoaded) {
         constructor() {
             this.config = null;
             this.loaded = false;
-            console.log('🔧 CategoryManager constructor called');
+            this._chineseToEnglishCache = null; // Computed from displayLabels
+            console.log('🔧 CategoryManager constructor called (ultimate simplified version)');
         }
 
         async loadConfig() {
@@ -26,7 +27,10 @@ if (!window.categoryManagerLoaded) {
                 this.config = await response.json();
                 this.loaded = true;
                 
-                console.log('✅ Category config loaded successfully');
+                // Clear cache when config reloads
+                this._chineseToEnglishCache = null;
+                
+                console.log('✅ Category config loaded successfully (ultimate simplified)');
                 console.log(`📊 Subjects: ${this.config.categories.subjects.length}, Locations: ${this.config.categories.locations.length}`);
                 
                 return this.config;
@@ -44,25 +48,50 @@ if (!window.categoryManagerLoaded) {
                     subjects: ["landscape", "waterfall", "flowers", "calligraphy"],
                     locations: ["huangshan", "alishan"]
                 },
-                categoryMapping: {
-                    chineseToEnglish: {
-                        "山水": "landscape",
-                        "瀑布": "waterfall", 
-                        "花鳥": "flowers",
-                        "書法": "calligraphy",
-                        "黃山": "huangshan",
-                        "阿里山": "alishan"
+                displayLabels: {
+                    zh: {
+                        subjects: { "landscape": "山水", "waterfall": "瀑布", "flowers": "花鳥", "calligraphy": "書法" },
+                        locations: { "huangshan": "黃山", "alishan": "阿里山" },
+                        availability: { "available": "可售", "sold": "已售", "unknown": "狀態未明" },
+                        filterSections: { "bySubject": "題材分類", "byLocation": "地點分類", "byAvailability": "販售狀態" }
                     },
-                    englishToChinese: {
-                        "landscape": "山水",
-                        "waterfall": "瀑布",
-                        "flowers": "花鳥", 
-                        "calligraphy": "書法",
-                        "huangshan": "黃山",
-                        "alishan": "阿里山"
+                    en: {
+                        subjects: { "landscape": "Landscape", "waterfall": "Waterfalls", "flowers": "Flowers & Birds", "calligraphy": "Calligraphy" },
+                        locations: { "huangshan": "HuangShan", "alishan": "AliShan" },
+                        availability: { "available": "Available", "sold": "Sold", "unknown": "Status Unknown" },
+                        filterSections: { "bySubject": "By Subject", "byLocation": "By Location", "byAvailability": "By Availability" }
                     }
                 }
             };
+        }
+
+        // ULTIMATE SIMPLIFICATION: Compute Chinese->English mapping from displayLabels
+        getChineseToEnglishMapping() {
+            if (!this._chineseToEnglishCache) {
+                this._chineseToEnglishCache = {};
+                
+                if (this.config && this.config.displayLabels && this.config.displayLabels.zh) {
+                    const zhLabels = this.config.displayLabels.zh;
+                    
+                    // Invert subjects: "waterfall" -> "瀑布" becomes "瀑布" -> "waterfall"
+                    if (zhLabels.subjects) {
+                        Object.entries(zhLabels.subjects).forEach(([english, chinese]) => {
+                            this._chineseToEnglishCache[chinese] = english;
+                        });
+                    }
+                    
+                    // Invert locations: "huangshan" -> "黃山" becomes "黃山" -> "huangshan"
+                    if (zhLabels.locations) {
+                        Object.entries(zhLabels.locations).forEach(([english, chinese]) => {
+                            this._chineseToEnglishCache[chinese] = english;
+                        });
+                    }
+                }
+                
+                console.log('🔄 Computed Chinese->English mapping from displayLabels:', Object.keys(this._chineseToEnglishCache).length, 'entries');
+            }
+            
+            return this._chineseToEnglishCache;
         }
 
         isSubject(categoryKey) {
@@ -75,34 +104,33 @@ if (!window.categoryManagerLoaded) {
             return this.config.categories.locations.includes(categoryKey);
         }
 
+        // Get category labels from displayLabels (single source of truth)
         getCategoryLabel(categoryKey, language = 'zh') {
-            if (typeof LANGUAGE_DATA === 'undefined') {
+            if (!this.config || !this.config.displayLabels) {
                 return this.getFallbackLabel(categoryKey, language);
             }
 
-            const langData = LANGUAGE_DATA[language];
+            const langData = this.config.displayLabels[language];
             if (!langData) {
                 return categoryKey;
             }
 
+            // Check subjects first
             if (langData.subjects && langData.subjects[categoryKey]) {
                 return langData.subjects[categoryKey];
             }
 
+            // Check locations
             if (langData.locations && langData.locations[categoryKey]) {
                 return langData.locations[categoryKey];
             }
 
-            if (categoryKey === 'available') {
-                return langData.common?.available || (language === 'zh' ? '可售' : 'Available');
-            }
-            if (categoryKey === 'sold') {
-                return langData.common?.sold || (language === 'zh' ? '已售' : 'Sold');
-            }
-            if (categoryKey === 'unknown') {
-                return language === 'zh' ? '狀態未明' : 'Status Unknown';
+            // Check availability status
+            if (langData.availability && langData.availability[categoryKey]) {
+                return langData.availability[categoryKey];
             }
 
+            // Fallback to key itself
             return categoryKey;
         }
 
@@ -111,26 +139,41 @@ if (!window.categoryManagerLoaded) {
                 zh: {
                     "waterfall": "瀑布", "landscape": "山水", "flowers": "花鳥", 
                     "calligraphy": "書法", "huangshan": "黃山", "alishan": "阿里山",
-                    "available": "可售", "sold": "已售"
+                    "available": "可售", "sold": "已售", "uncategorized": "未分類"
                 },
                 en: {
                     "waterfall": "Waterfalls", "landscape": "Landscape", "flowers": "Flowers & Birds",
                     "calligraphy": "Calligraphy", "huangshan": "HuangShan", "alishan": "AliShan",
-                    "available": "Available", "sold": "Sold"
+                    "available": "Available", "sold": "Sold", "uncategorized": "Uncategorized"
                 }
             };
             
             return fallbackLabels[language]?.[categoryKey] || categoryKey;
         }
 
+        // ULTIMATE SIMPLIFICATION: Use computed mapping from displayLabels
         chineseToEnglish(chineseText) {
-            if (!this.config?.categoryMapping?.chineseToEnglish) return chineseText;
-            return this.config.categoryMapping.chineseToEnglish[chineseText] || chineseText;
+            const mapping = this.getChineseToEnglishMapping();
+            return mapping[chineseText] || chineseText;
         }
 
+        // Use displayLabels directly for English->Chinese
         englishToChinese(englishKey) {
-            if (!this.config?.categoryMapping?.englishToChinese) return englishKey;
-            return this.config.categoryMapping.englishToChinese[englishKey] || englishKey;
+            if (this.config && this.config.displayLabels && this.config.displayLabels.zh) {
+                const zhLabels = this.config.displayLabels.zh;
+                
+                // Check subjects
+                if (zhLabels.subjects && zhLabels.subjects[englishKey]) {
+                    return zhLabels.subjects[englishKey];
+                }
+                
+                // Check locations
+                if (zhLabels.locations && zhLabels.locations[englishKey]) {
+                    return zhLabels.locations[englishKey];
+                }
+            }
+            
+            return englishKey;
         }
 
         normalizeCategories(categories) {
@@ -221,7 +264,7 @@ if (!window.categoryManagerLoaded) {
             return stats;
         }
 
-        // UPDATED: Get all categories for an artwork (merges auto + manual)
+        // Get all categories for an artwork (merges auto + manual)
         getArtworkCategories(artwork) {
             const categories = [];
 
@@ -379,9 +422,13 @@ if (!window.categoryManagerLoaded) {
             return html;
         }
 
+        // Get filter section titles from displayLabels
         getFilterSectionTitle(sectionKey, language = 'zh') {
-            if (typeof LANGUAGE_DATA !== 'undefined' && LANGUAGE_DATA[language]?.filters?.[sectionKey]) {
-                return LANGUAGE_DATA[language].filters[sectionKey];
+            if (this.config && this.config.displayLabels && 
+                this.config.displayLabels[language] && 
+                this.config.displayLabels[language].filterSections &&
+                this.config.displayLabels[language].filterSections[sectionKey]) {
+                return this.config.displayLabels[language].filterSections[sectionKey];
             }
             
             const fallbackTitles = {
@@ -408,12 +455,17 @@ if (!window.categoryManagerLoaded) {
         }
 
         debugConfig() {
-            console.group('🔧 Category Config Debug');
+            console.group('🔧 Category Config Debug (Ultimate Simplified)');
             console.log('✅ Config loaded:', this.loaded);
             console.log('📊 Subjects:', this.config?.categories?.subjects || []);
             console.log('🗺️ Locations:', this.config?.categories?.locations || []);
-            console.log('🔄 Chinese mappings:', Object.keys(this.config?.categoryMapping?.chineseToEnglish || {}));
-            console.log('🌐 LANGUAGE_DATA available:', typeof LANGUAGE_DATA !== 'undefined');
+            console.log('🔄 Chinese->English cache:', this._chineseToEnglishCache ? Object.keys(this._chineseToEnglishCache).length + ' entries' : 'Not computed yet');
+            console.log('🏷️ Display labels available:', !!this.config?.displayLabels);
+            if (this.config?.displayLabels) {
+                console.log('🌐 Languages available:', Object.keys(this.config.displayLabels));
+                console.log('🎯 ZH subjects:', Object.keys(this.config.displayLabels.zh?.subjects || {}));
+                console.log('🗺️ ZH locations:', Object.keys(this.config.displayLabels.zh?.locations || {}));
+            }
             console.groupEnd();
         }
 
@@ -434,8 +486,8 @@ if (!window.categoryManagerLoaded) {
     }
 
     // Create and expose the CategoryManager
-    console.log('🔧 Creating clean CategoryManager instance...');
+    console.log('🔧 Creating ultimate simplified CategoryManager instance...');
     const categoryManager = new CategoryManager();
     window.categoryManager = categoryManager;
-    console.log('✅ Clean CategoryManager created and assigned to window');
+    console.log('✅ Ultimate simplified CategoryManager created and assigned to window');
 }

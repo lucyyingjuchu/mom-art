@@ -1,4 +1,5 @@
 // languages.js - All text content in one place
+// UPDATED: Removed category labels (now in category-config.json)
 const LANGUAGE_DATA = {
     en: {
         // Header
@@ -29,67 +30,22 @@ const LANGUAGE_DATA = {
             withImages: "with images",
         },
 
-        // Gallery filters
+        // Gallery filters (only non-category related)
         filters: {
-            bySubject: "By Subject",
-            byLocation: "By Location",
-            byYear: "By Year",
-            clearAll: "Clear All Filters",
-            searchPlaceholder: "Search artworks...",
-            showingResults: "Showing {count} of {total} artworks",
-            showingFiltered: "Showing {count} of {total} artworks ({filters} filters active)",
-            showingAll: "Showing all {total} artworks"
-        },
-        
-        // Subject labels
-        subjects: {
-            waterfall: "Waterfalls",
-            landscape: "Landscape", 
-            flowers: "Flowers & Birds",
-            bamboo: "Bamboo",
-            calligraphy: "Calligraphy",
-            flowingclouds: "Flowing Clouds",
-            abstract: "Abstract",
-            traditional: "Traditional",
-            uncategorized: "Uncategorized"  // ADD THIS LINE
-        },
-        
-        // Location labels  
-        locations: {
-            huangshan: "HuangShan",
-            alishan: "AliShan",
-            taroko: "Taroko",
-            hehuanshan: "Mt. HeHuan",
-            yushan: "Mt. Jade",
-            liushidanshan: "Mt. Sixty Stone",
-            guishandao: "GuiShan Island",
-            longdong: "Dragon Cave",
-            zhangjiajie: "Zhangjiajie",
-            grandcanyon: "Grand Canyon",
-            iguazu: "Iguazu Falls",
-            niagara: "Niagara Falls"
-        },
-        
-        // Year periods
-        years: {
-            recent: "Recent 2020+",
-            "2010s": "2010s", 
-            earlier: "Earlier"
-        },
-
-        // In the 'en' section, add to filters:
-        filters: {
-            bySubject: "By Subject",
-            byLocation: "By Location",
-            byAvailability: "By Availability", // NEW  
             clearAll: "Clear All Filters",
             searchPlaceholder: "Search artworks, descriptions...",
             showingAll: "Showing all {total} artworks",
             showingFiltered: "Showing {count} / {total} artworks ({filters} filters)",
             showingResults: "Found {count} / {total} artworks", 
-            searchResults: "Found {count} results for \"{query}\"", // NEW
-            searchWithFilters: "Found {count} results for \"{query}\" ({filters} filters applied)", // NEW
-            uncategorized: "Uncategorized"
+            searchResults: "Found {count} results for \"{query}\"",
+            searchWithFilters: "Found {count} results for \"{query}\" ({filters} filters applied)"
+        },
+        
+        // Year periods (not categories)
+        years: {
+            recent: "Recent 2020+",
+            "2010s": "2010s", 
+            earlier: "Earlier"
         },
         
         // About page
@@ -99,14 +55,16 @@ const LANGUAGE_DATA = {
             // Artist introduction paragraphs
             introParagraph1: "Yuan Chi-Jing, known as Xiaoran, was raised in a scholarly family with deep roots in classical Chinese literature. From childhood, she studied poetry and calligraphy, developing a profound foundation that would guide her lifelong dedication to Chinese ink painting and art education.",
             introParagraph2: "She holds an M.F.A. from National Taiwan University of Arts and has practiced painting and calligraphy for over forty years. Throughout her career, she studied under renowned masters including Luo Zhen-xian, Wang Jing-hao, Ou Hao-nian, and many other distinguished artists.",
-            introParagraph3: "Drawing inspiration from nature, she travels to mountains and rivers to observe the interplay of light, form, and spirit. Her work integrates poetry, calligraphy, painting, and seal carving, creating compositions that pursue the classical ideals of depth, height, and transcendent beauty.",            educationTitle: "Education",
+            introParagraph3: "Drawing inspiration from nature, she travels to mountains and rivers to observe the interplay of light, form, and spirit. Her work integrates poetry, calligraphy, painting, and seal carving, creating compositions that pursue the classical ideals of depth, height, and transcendent beauty.",            
+            educationTitle: "Education",
             awardsTitle: "Awards & Recognition",
             publicationsTitle: "Publications & Works",
             teachingTitle: "Teaching Experience", 
             positionsTitle: "Current Positions & Affiliations",
             exhibitionsTitle: "Solo Exhibitions",
             groupShowsTitle: "Group Exhibitions & Teaching Shows",
-                        // Education content
+            
+            // Education content
             education: [
                 "M.F.A., Graduate Institute of Painting and Calligraphy, National Taiwan University of Arts",
                 "Bachelor's Degree, National Chung Hsing University"
@@ -216,7 +174,7 @@ const LANGUAGE_DATA = {
             viewIndicator: 'Multiple Views',
         },
         
-        // 🆕 新增聯絡表單文字
+        // Contact Form
         contactForm: {
             title: "Purchase Inquiry",
             subtitle: "Interested in this artwork? Please fill out the information below and we'll contact you soon",
@@ -272,7 +230,7 @@ const LANGUAGE_DATA = {
             responseTime: "We typically respond to inquiries within 24 hours."
         },
     
-        // NEW: Shopping Cart
+        // Shopping Cart
         shopping: {
             cartTitle: "Shopping Cart",
             cartEmpty: "Your cart is empty",
@@ -289,7 +247,6 @@ const LANGUAGE_DATA = {
             processing: "Processing...",
             remove: "Remove",
             
-
             // Shopping messages
             notAvailable: "The Glclee Fine Art Print of this artwork  is not available for purchase",
             notAvailableDesc: "If you're interested, please contact us for inquiries.",
@@ -360,75 +317,28 @@ const LANGUAGE_DATA = {
         },
 
         //Gallery
-    
         gallery: {
             withImages: "含圖片"
         },
         
-        // Gallery filters
+        // Gallery filters (only non-category related)
         filters: {
-            bySubject: "題材分類",
-            byLocation: "地點分類", 
-            byAvailability: "販售狀態", // NEW
             clearAll: "清除所有篩選",
             searchPlaceholder: "搜尋作品標題、描述...",
             showingAll: "顯示全部 {total} 件作品",
             showingFiltered: "顯示 {count} / {total} 件作品 ({filters} 個篩選條件)",
             showingResults: "找到 {count} / {total} 件作品",
-            searchResults: "搜尋 \"{query}\" 找到 {count} 件作品", // NEW
-            searchWithFilters: "搜尋 \"{query}\" 找到 {count} 件作品 ({filters} 個篩選條件)", // NEW
-            uncategorized: "未分類"
+            searchResults: "搜尋 \"{query}\" 找到 {count} 件作品",
+            searchWithFilters: "搜尋 \"{query}\" 找到 {count} 件作品 ({filters} 個篩選條件)"
         },
         
-        // Subject labels
-        subjects: {
-            waterfall: "瀑布",
-            landscape: "山水",
-            flowers: "花鳥", 
-            bamboo: "墨竹",
-            calligraphy: "書法",
-            flowingclouds: "煙雲",
-            abstract: "抽象",
-            traditional: "傳統",
-            uncategorized: "未分類"  // ADD THIS LINE
-        },
-        
-        // Location labels
-        locations: {
-            huangshan: "黃山",
-            alishan: "阿里山",
-            taroko: "太魯閣",
-            hehuanshan: "合歡山", 
-            yushan: "玉山",
-            liushidanshan: "六十石山",
-            guishandao: "龜山島",
-            longdong: "龍洞",
-            zhangjiajie: "張家界",
-            grandcanyon: "大峽谷",
-            iguazu: "伊瓜蘇",
-            niagara: "尼加拉"
-        },
-        
-        // Year periods
+        // Year periods (not categories)
         years: {
             recent: "近期 2020+",
             "2010s": "2010年代",
             earlier: "更早期"
         },
         
-
-        // ZH filters section, add:
-        filters: {
-            bySubject: "題材",
-            byLocation: "地點", 
-            byYear: "年代",
-            clearAll: "清除所有篩選",
-            searchPlaceholder: "搜尋作品...",
-            showingResults: "顯示 {count} 件，共 {total} 件作品",
-            showingFiltered: "顯示 {count} 件，共 {total} 件作品（{filters} 個篩選條件）",
-            showingAll: "顯示全部 {total} 件作品",
-            uncategorized: "未分類"  // ADD THIS LINE
-        },
         // About page
         about: {
             mainTitle: "藝術家袁之靜（號曉然）｜書畫創作與教育者",
@@ -444,7 +354,8 @@ const LANGUAGE_DATA = {
             positionsTitle: "現任職務與學會身分", 
             exhibitionsTitle: "個展一覽",
             groupShowsTitle: "聯展與教學成果展",
-                        // Education content
+            
+            // Education content
             education: [
                 "國立台灣藝術大學 書畫藝術研究所 碩士（M.F.A.）",
                 "國立中興大學 學士"
@@ -554,7 +465,7 @@ const LANGUAGE_DATA = {
             viewIndicator: '多視圖',
         },
 
-        // 🆕 新增聯絡表單文字
+        // Contact Form
         contactForm: {
             title: "購買詢價",
             subtitle: "對此作品有興趣？請填寫以下資訊，我們將儘快與您聯繫",
@@ -609,10 +520,8 @@ const LANGUAGE_DATA = {
             privacyNote: "您的個人資料僅用於此次詢價，我們會妥善保護您的隱私。",
             responseTime: "我們通常會在24小時內回覆您的詢價。"
         },
-    
-
         
-        // NEW: Shopping Cart
+        // Shopping Cart
         shopping: {
             cartTitle: "微噴印刷購物車",
             cartEmpty: "購物車是空的",
@@ -628,7 +537,6 @@ const LANGUAGE_DATA = {
             checkout: "結帳",
             processing: "處理中...",
             remove: "移除",
-            
             
             // Shopping messages
             notAvailable: "此微噴印刷作品暫不提供訂購",
