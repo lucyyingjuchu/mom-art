@@ -3090,35 +3090,31 @@
   {
     "id": "019891b0-f39c-7871-b204-09fa520d0d23",
     "title": "雍容華滋舞清和-牡丹",
-    "titleEn": "",
-    "category": "paintings",
-    "image": "./images/paintings/thumbnails/019891b0-f39c-7871-b204-09fa520d0d23_thumb.jpg",
-    "imageHigh": "./images/paintings/large/019891b0-f39c-7871-b204-09fa520d0d23_large.jpg",
-    "description": "雍容華滋舞清和",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "format": "框",
-    "formatEn": "",
-    "mediumEn": "",
-    "sizeCm": "70x45",
-    "sizeInches": "",
     "year": "2021",
-    "price": "",
-    "available": true,
-    "featured": false,
-    "recent": true,
-    "exhibitions": [],
-    "tags": [],
     "heightCm": 70,
     "widthCm": 45,
+    "sizeCm": "70 × 45 cm",
+    "format": "框",
+    "description": "雍容華滋舞清和",
+    "curatorNote": "",
+    "featured": false,
+    "available": true,
+    "price": "",
     "autoCategories": {
       "subjects": [],
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
-    }
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7871-b204-09fa520d0d23_thumb.jpg",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7871-b204-09fa520d0d23_large.jpg",
+    "categories": [
+      "flowers"
+    ]
   },
   {
     "id": "019891b0-f39c-79ee-915a-34d3aa1decd1",
