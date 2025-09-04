@@ -3522,31 +3522,34 @@
   {
     "id": "019891b0-f39c-792d-b5e8-b80ef8754ca2",
     "title": "歸",
+    "titleEn": "Return",
+    "image": "./images/paintings/thumbnails/019891b0-f39c-792d-b5e8-b80ef8754ca2_thumb.jpg",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-792d-b5e8-b80ef8754ca2_large.jpg",
+    "description": "歸",
+    "descriptionEn": "Return",
+    "format": "框",
+    "mediumEn": "",
+    "sizeCm": "70x45",
+    "sizeInches": "27.6×17.7 inches",
     "year": "2022",
+    "price": "",
+    "available": "",
+    "featured": "",
+    "curatorNote": "",
+    "curatorNoteEn": "",
+    "formatEn": "Framed",
     "heightCm": 70,
     "widthCm": 45,
-    "sizeCm": "70 × 45 cm",
-    "format": "框",
-    "description": "歸",
-    "curatorNote": "",
-    "featured": false,
-    "available": true,
-    "price": "",
+    "heightInches": 27.6,
+    "widthInches": 17.7,
     "autoCategories": {
       "subjects": [],
       "locations": []
     },
     "manualCategories": {
-      "subjects": [
-        "abstract"
-      ],
+      "subjects": [],
       "locations": []
-    },
-    "image": "./images/paintings/thumbnails/019891b0-f39c-792d-b5e8-b80ef8754ca2_thumb.jpg",
-    "imageHigh": "./images/paintings/large/019891b0-f39c-792d-b5e8-b80ef8754ca2_large.jpg",
-    "categories": [
-      "abstract"
-    ]
+    }
   },
   {
     "id": "019891b0-f39c-71dd-be15-f32291c15cc6",
@@ -4421,41 +4424,33 @@
   {
     "id": "019891b0-f39c-7a90-ab98-022c8b72668e",
     "title": "古月",
-    "titleEn": "",
-    "category": "paintings",
-    "manualCategories": {
-      "subjects": [
-        "潑墨",
-        "山水"
-      ],
-      "locations": []
-    },
+    "year": "unknown",
+    "heightCm": 70,
+    "widthCm": 45,
+    "sizeCm": "70 × 45 cm",
+    "format": "",
+    "description": "青梅超象外，古月照今塵。",
+    "curatorNote": "",
+    "featured": false,
+    "available": true,
+    "price": "",
     "autoCategories": {
       "subjects": [],
       "locations": []
     },
+    "manualCategories": {
+      "subjects": [
+        "山水",
+        "abstract"
+      ],
+      "locations": []
+    },
     "image": "./images/paintings/thumbnails/019891b0-f39c-7a90-ab98-022c8b72668e_thumb.png",
     "imageHigh": "./images/paintings/large/019891b0-f39c-7a90-ab98-022c8b72668e_large.png",
-    "description": "青梅超象外，古月照今塵。",
-    "descriptionEn": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "format": "",
-    "formatEn": "",
-    "mediumEn": "",
-    "heightCm": 70,
-    "widthCm": 45,
-    "heightInches": 27.6,
-    "widthInches": 17.7,
-    "sizeCm": "70×45",
-    "sizeInches": "27.6×17.7",
-    "year": "unknown",
-    "price": "",
-    "available": true,
-    "featured": false,
-    "recent": false,
-    "exhibitions": [],
-    "tags": []
+    "categories": [
+      "山水",
+      "abstract"
+    ]
   },
   {
     "id": "019891b0-f39c-728a-b3ca-313cab5b59d0",
