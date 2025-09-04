@@ -621,14 +621,10 @@
     "available": true,
     "price": "",
     "autoCategories": {
-<<<<<<< Updated upstream
-      "subjects": [],
-=======
       "subjects": [
         "flowingclouds",
         "flowers"
       ],
->>>>>>> Stashed changes
       "locations": []
     },
     "manualCategories": {
@@ -651,17 +647,8 @@
     },
     "autoCategories": {
       "subjects": [
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
         "landscape",
-        "flowers",
->>>>>>> Stashed changes
-=======
-        "landscape",
-        "flowers",
->>>>>>> Stashed changes
-        "calligraphy"
+        "flowers"
       ],
       "locations": []
     },
@@ -698,14 +685,10 @@
       "locations": []
     },
     "autoCategories": {
-<<<<<<< Updated upstream
-      "subjects": [],
-=======
       "subjects": [
         "flowingclouds",
         "flowers"
       ],
->>>>>>> Stashed changes
       "locations": []
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-7e69-8910-34d57c0a6589_thumb.png",
@@ -862,14 +845,10 @@
     "available": true,
     "price": "",
     "autoCategories": {
-<<<<<<< Updated upstream
-      "subjects": [],
-=======
       "subjects": [
         "flowingclouds",
         "flowers"
       ],
->>>>>>> Stashed changes
       "locations": []
     },
     "manualCategories": {
@@ -1009,16 +988,9 @@
     "widthInches": 29.5,
     "autoCategories": {
       "subjects": [
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-        "flowingclouds"
-=======
-=======
->>>>>>> Stashed changes
         "landscape",
         "flowingclouds",
         "flowers"
->>>>>>> Stashed changes
       ],
       "locations": [
         "longdong"
@@ -1201,16 +1173,9 @@
     "widthInches": 29.5,
     "autoCategories": {
       "subjects": [
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-        "flowingclouds"
-=======
-=======
->>>>>>> Stashed changes
         "landscape",
         "flowingclouds",
         "flowers"
->>>>>>> Stashed changes
       ],
       "locations": []
     },
@@ -1926,16 +1891,9 @@
     "widthInches": 70.9,
     "autoCategories": {
       "subjects": [
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-        "flowingclouds"
-=======
-=======
->>>>>>> Stashed changes
         "landscape",
         "flowingclouds",
         "flowers"
->>>>>>> Stashed changes
       ],
       "locations": []
     },
@@ -2358,14 +2316,10 @@
     "heightInches": 27.6,
     "widthInches": 27.6,
     "autoCategories": {
-<<<<<<< Updated upstream
-      "subjects": [],
-=======
       "subjects": [
         "landscape",
         "flowers"
       ],
->>>>>>> Stashed changes
       "locations": []
     },
     "manualCategories": {
@@ -2504,14 +2458,10 @@
     "heightInches": 53.1,
     "widthInches": 27.6,
     "autoCategories": {
-<<<<<<< Updated upstream
-      "subjects": [],
-=======
       "subjects": [
         "landscape",
         "flowers"
       ],
->>>>>>> Stashed changes
       "locations": []
     },
     "manualCategories": {
@@ -2580,15 +2530,11 @@
     "heightInches": 27.6,
     "widthInches": 17.7,
     "autoCategories": {
-<<<<<<< Updated upstream
-      "subjects": [],
-=======
       "subjects": [
         "landscape",
         "flowers",
         "calligraphy"
       ],
->>>>>>> Stashed changes
       "locations": []
     },
     "manualCategories": {
@@ -2756,14 +2702,10 @@
     "heightInches": 53.1,
     "widthInches": 27.6,
     "autoCategories": {
-<<<<<<< Updated upstream
-      "subjects": [],
-=======
       "subjects": [
         "flowers",
         "calligraphy"
       ],
->>>>>>> Stashed changes
       "locations": []
     },
     "manualCategories": {
@@ -3154,14 +3096,10 @@
     "heightInches": 27.6,
     "widthInches": 27.6,
     "autoCategories": {
-<<<<<<< Updated upstream
-      "subjects": [],
-=======
       "subjects": [
         "landscape",
         "flowers"
       ],
->>>>>>> Stashed changes
       "locations": []
     },
     "manualCategories": {
@@ -4125,14 +4063,10 @@
     "heightInches": 27.6,
     "widthInches": 27.6,
     "autoCategories": {
-<<<<<<< Updated upstream
-      "subjects": [],
-=======
       "subjects": [
         "landscape",
         "flowers"
       ],
->>>>>>> Stashed changes
       "locations": []
     },
     "manualCategories": {
@@ -4264,14 +4198,10 @@
     "heightInches": 27.6,
     "widthInches": 27.6,
     "autoCategories": {
-<<<<<<< Updated upstream
-      "subjects": [],
-=======
       "subjects": [
         "flowers",
         "calligraphy"
       ],
->>>>>>> Stashed changes
       "locations": []
     },
     "manualCategories": {
@@ -4577,14 +4507,10 @@
     "heightInches": 53.1,
     "widthInches": 27.6,
     "autoCategories": {
-<<<<<<< Updated upstream
-      "subjects": [],
-=======
       "subjects": [
         "flowers",
         "calligraphy"
       ],
->>>>>>> Stashed changes
       "locations": []
     },
     "manualCategories": {
@@ -5086,15 +5012,7 @@
     },
     "autoCategories": {
       "subjects": [
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-        "flowers",
->>>>>>> Stashed changes
-=======
-        "flowers",
->>>>>>> Stashed changes
-        "calligraphy"
+        "flowers"
       ],
       "locations": []
     },
@@ -5177,14 +5095,10 @@
     "heightInches": 53.1,
     "widthInches": 27.6,
     "autoCategories": {
-<<<<<<< Updated upstream
-      "subjects": [],
-=======
       "subjects": [
         "landscape",
         "flowers"
       ],
->>>>>>> Stashed changes
       "locations": []
     },
     "manualCategories": {
@@ -5250,14 +5164,8 @@
     "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
         "landscape",
         "flowers",
->>>>>>> Stashed changes
         "bamboo"
       ],
       "locations": []
@@ -5635,16 +5543,9 @@
     "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-        "landscape"
-=======
-=======
->>>>>>> Stashed changes
         "landscape",
         "flowingclouds",
         "flowers"
->>>>>>> Stashed changes
       ],
       "locations": []
     },
@@ -5747,14 +5648,10 @@
     "heightInches": 27.6,
     "widthInches": 53.1,
     "autoCategories": {
-<<<<<<< Updated upstream
-      "subjects": [],
-=======
       "subjects": [
         "landscape",
         "flowers"
       ],
->>>>>>> Stashed changes
       "locations": []
     },
     "manualCategories": {
@@ -6088,14 +5985,10 @@
     "heightInches": 53.1,
     "widthInches": 27.6,
     "autoCategories": {
-<<<<<<< Updated upstream
-      "subjects": [],
-=======
       "subjects": [
         "landscape",
         "flowers"
       ],
->>>>>>> Stashed changes
       "locations": []
     },
     "manualCategories": {
@@ -6166,15 +6059,8 @@
     "widthInches": 55.1,
     "autoCategories": {
       "subjects": [
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-        "landscape"
-=======
-=======
->>>>>>> Stashed changes
         "landscape",
         "flowers"
->>>>>>> Stashed changes
       ],
       "locations": []
     },
@@ -6207,17 +6093,8 @@
     "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
         "landscape",
-        "flowers",
->>>>>>> Stashed changes
-=======
-        "landscape",
-        "flowers",
->>>>>>> Stashed changes
-        "calligraphy"
+        "flowers"
       ],
       "locations": []
     },
@@ -6336,14 +6213,10 @@
       "locations": []
     },
     "autoCategories": {
-<<<<<<< Updated upstream
-      "subjects": [],
-=======
       "subjects": [
         "landscape",
         "flowers"
       ],
->>>>>>> Stashed changes
       "locations": []
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-7aed-9fac-21a5e94b8c1f_thumb.png",
@@ -6527,14 +6400,10 @@
     "heightInches": 35.4,
     "widthInches": 35.4,
     "autoCategories": {
-<<<<<<< Updated upstream
-      "subjects": [],
-=======
       "subjects": [
         "flowingclouds",
         "flowers"
       ],
->>>>>>> Stashed changes
       "locations": []
     },
     "manualCategories": {
@@ -6913,16 +6782,9 @@
     },
     "autoCategories": {
       "subjects": [
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-        "flowingclouds"
-=======
-=======
->>>>>>> Stashed changes
         "landscape",
         "flowingclouds",
         "flowers"
->>>>>>> Stashed changes
       ],
       "locations": [
         "yushan"
