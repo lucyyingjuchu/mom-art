@@ -4195,34 +4195,31 @@
   {
     "id": "019891b0-f39c-7455-9267-14eb33bed415",
     "title": "花開富貴喜相逢-牡丹",
-    "titleEn": "Joyful Encounter of Blossoms and Prosperity - Peony",
-    "image": "./images/paintings/thumbnails/019891b0-f39c-7455-9267-14eb33bed415_thumb.jpg",
-    "imageHigh": "./images/paintings/large/019891b0-f39c-7455-9267-14eb33bed415_large.jpg",
-    "description": "花開富貴喜相逢",
-    "descriptionEn": "Blossoms bloom, wealth and honor meet in joyful encounter.",
-    "format": "框",
-    "mediumEn": "",
-    "sizeCm": "68x45",
-    "sizeInches": "26.8×17.7 inches",
     "year": "2022",
-    "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "formatEn": "Framed",
     "heightCm": 68,
     "widthCm": 45,
-    "heightInches": 26.8,
-    "widthInches": 17.7,
+    "sizeCm": "68 × 45 cm",
+    "format": "框",
+    "description": "花開富貴喜相逢",
+    "curatorNote": "",
+    "featured": false,
+    "available": true,
+    "price": "",
     "autoCategories": {
       "subjects": [],
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
-    }
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7455-9267-14eb33bed415_thumb.jpg",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7455-9267-14eb33bed415_large.jpg",
+    "categories": [
+      "flowers"
+    ]
   },
   {
     "id": "019891b0-f39c-70a8-aa76-019cadc5409d",
