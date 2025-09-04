@@ -131,7 +131,8 @@
     "widthCm": 135,
     "autoCategories": {
       "subjects": [
-        "waterfall"
+        "waterfall",
+        "landscape"
       ],
       "locations": []
     },
@@ -165,6 +166,7 @@
     "widthInches": 35.4,
     "autoCategories": {
       "subjects": [
+        "landscape",
         "flowingclouds"
       ],
       "locations": [
@@ -221,6 +223,7 @@
     },
     "autoCategories": {
       "subjects": [
+        "landscape",
         "flowingclouds"
       ],
       "locations": [
@@ -261,6 +264,7 @@
     },
     "autoCategories": {
       "subjects": [
+        "landscape",
         "flowingclouds"
       ],
       "locations": [
@@ -301,7 +305,13 @@
     },
     "autoCategories": {
       "subjects": [
+<<<<<<< Updated upstream
         "flowingclouds"
+=======
+        "landscape",
+        "flowingclouds",
+        "flowers"
+>>>>>>> Stashed changes
       ],
       "locations": []
     },
@@ -373,6 +383,7 @@
     },
     "autoCategories": {
       "subjects": [
+        "landscape",
         "flowingclouds"
       ],
       "locations": []
@@ -424,7 +435,9 @@
     "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
-        "waterfall"
+        "waterfall",
+        "landscape",
+        "flowingclouds"
       ],
       "locations": []
     },
@@ -444,7 +457,8 @@
     },
     "autoCategories": {
       "subjects": [
-        "flowingclouds"
+        "flowingclouds",
+        "calligraphy"
       ],
       "locations": []
     },
@@ -481,7 +495,10 @@
       "locations": []
     },
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape",
+        "flowingclouds"
+      ],
       "locations": []
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-7bae-8206-f4788f507776_thumb.png",
@@ -518,6 +535,7 @@
     },
     "autoCategories": {
       "subjects": [
+        "landscape",
         "flowingclouds"
       ],
       "locations": []
@@ -558,6 +576,7 @@
     },
     "autoCategories": {
       "subjects": [
+        "landscape",
         "flowingclouds"
       ],
       "locations": []
@@ -599,7 +618,14 @@
     "available": true,
     "price": "",
     "autoCategories": {
+<<<<<<< Updated upstream
       "subjects": [],
+=======
+      "subjects": [
+        "flowingclouds",
+        "flowers"
+      ],
+>>>>>>> Stashed changes
       "locations": []
     },
     "manualCategories": {
@@ -609,10 +635,7 @@
       "locations": []
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-79f7-8cab-78ad04b8b05d_thumb.png",
-    "imageHigh": "./images/paintings/large/019891b0-f39c-79f7-8cab-78ad04b8b05d_large.png",
-    "categories": [
-      "flowers"
-    ]
+    "imageHigh": "./images/paintings/large/019891b0-f39c-79f7-8cab-78ad04b8b05d_large.png"
   },
   {
     "id": "019891b0-f39c-7a23-a18f-085445820f6c",
@@ -625,6 +648,11 @@
     },
     "autoCategories": {
       "subjects": [
+<<<<<<< Updated upstream
+=======
+        "landscape",
+        "flowers",
+>>>>>>> Stashed changes
         "calligraphy"
       ],
       "locations": []
@@ -662,7 +690,14 @@
       "locations": []
     },
     "autoCategories": {
+<<<<<<< Updated upstream
       "subjects": [],
+=======
+      "subjects": [
+        "flowingclouds",
+        "flowers"
+      ],
+>>>>>>> Stashed changes
       "locations": []
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-7e69-8910-34d57c0a6589_thumb.png",
@@ -713,6 +748,7 @@
     "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
+        "landscape",
         "flowingclouds"
       ],
       "locations": []
@@ -733,9 +769,12 @@
     },
     "autoCategories": {
       "subjects": [
+        "landscape",
         "flowingclouds"
       ],
-      "locations": []
+      "locations": [
+        "xueba"
+      ]
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-7839-9ec1-f0013b25f208_thumb.png",
     "imageHigh": "./images/paintings/large/019891b0-f39c-7839-9ec1-f0013b25f208_large.png",
@@ -771,6 +810,7 @@
     },
     "autoCategories": {
       "subjects": [
+        "landscape",
         "flowingclouds"
       ],
       "locations": [
@@ -814,7 +854,14 @@
     "available": true,
     "price": "",
     "autoCategories": {
+<<<<<<< Updated upstream
       "subjects": [],
+=======
+      "subjects": [
+        "flowingclouds",
+        "flowers"
+      ],
+>>>>>>> Stashed changes
       "locations": []
     },
     "manualCategories": {
@@ -824,10 +871,7 @@
       "locations": []
     },
     "image": "",
-    "imageHigh": "",
-    "categories": [
-      "flowers"
-    ]
+    "imageHigh": ""
   },
   {
     "id": "019891b0-f39c-7e66-b993-7dabeab00451",
@@ -854,6 +898,8 @@
     "widthInches": 9.1,
     "autoCategories": {
       "subjects": [
+        "waterfall",
+        "landscape",
         "flowingclouds"
       ],
       "locations": []
@@ -955,7 +1001,13 @@
     "widthInches": 29.5,
     "autoCategories": {
       "subjects": [
+<<<<<<< Updated upstream
         "flowingclouds"
+=======
+        "landscape",
+        "flowingclouds",
+        "flowers"
+>>>>>>> Stashed changes
       ],
       "locations": [
         "longdong"
@@ -990,7 +1042,9 @@
     "heightInches": 27.6,
     "widthInches": 10.6,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -1010,7 +1064,9 @@
       "locations": []
     },
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowingclouds"
+      ],
       "locations": []
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-748f-a906-1de3f9f5b3b6_thumb.png",
@@ -1046,7 +1102,10 @@
       "locations": []
     },
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape",
+        "calligraphy"
+      ],
       "locations": []
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-76be-93c8-cf4233295e95_thumb.png",
@@ -1131,7 +1190,13 @@
     "widthInches": 29.5,
     "autoCategories": {
       "subjects": [
+<<<<<<< Updated upstream
         "flowingclouds"
+=======
+        "landscape",
+        "flowingclouds",
+        "flowers"
+>>>>>>> Stashed changes
       ],
       "locations": []
     },
@@ -1165,6 +1230,7 @@
     "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
+        "landscape",
         "flowingclouds",
         "bamboo"
       ],
@@ -1234,6 +1300,7 @@
     "widthInches": 19.7,
     "autoCategories": {
       "subjects": [
+        "landscape",
         "flowingclouds"
       ],
       "locations": []
@@ -1268,6 +1335,7 @@
     "widthInches": 24.4,
     "autoCategories": {
       "subjects": [
+        "waterfall",
         "landscape"
       ],
       "locations": []
@@ -1301,7 +1369,9 @@
     "heightInches": 54.3,
     "widthInches": 29.1,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -1334,7 +1404,8 @@
     "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
-        "landscape"
+        "landscape",
+        "flowingclouds"
       ],
       "locations": [
         "liushidanshan"
@@ -1405,7 +1476,10 @@
     "heightInches": 55.1,
     "widthInches": 29.5,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "waterfall",
+        "landscape"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -1437,7 +1511,10 @@
     "heightInches": 17.7,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape",
+        "calligraphy"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -1470,6 +1547,7 @@
     "widthInches": 17.7,
     "autoCategories": {
       "subjects": [
+        "landscape",
         "flowingclouds"
       ],
       "locations": []
@@ -1504,6 +1582,7 @@
     "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
+        "waterfall",
         "landscape"
       ],
       "locations": []
@@ -1537,7 +1616,9 @@
     "heightInches": 18.1,
     "widthInches": 19.3,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -1590,7 +1671,9 @@
     },
     "autoCategories": {
       "subjects": [
-        "flowingclouds"
+        "landscape",
+        "flowingclouds",
+        "calligraphy"
       ],
       "locations": []
     },
@@ -1641,7 +1724,10 @@
     "heightInches": 11.8,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape",
+        "flowingclouds"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -1674,6 +1760,7 @@
     "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
+        "landscape",
         "flowingclouds"
       ],
       "locations": [
@@ -1710,6 +1797,7 @@
     "widthInches": 28.7,
     "autoCategories": {
       "subjects": [
+        "landscape",
         "flowingclouds"
       ],
       "locations": []
@@ -1730,6 +1818,7 @@
     },
     "autoCategories": {
       "subjects": [
+        "landscape",
         "flowingclouds"
       ],
       "locations": [
@@ -1769,7 +1858,10 @@
       "locations": []
     },
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "waterfall",
+        "landscape"
+      ],
       "locations": []
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-7f16-a8d3-c83d48beb81e_thumb.jpg",
@@ -1820,7 +1912,13 @@
     "widthInches": 70.9,
     "autoCategories": {
       "subjects": [
+<<<<<<< Updated upstream
         "flowingclouds"
+=======
+        "landscape",
+        "flowingclouds",
+        "flowers"
+>>>>>>> Stashed changes
       ],
       "locations": []
     },
@@ -1854,7 +1952,9 @@
     "widthInches": 55.1,
     "autoCategories": {
       "subjects": [
-        "flowingclouds"
+        "landscape",
+        "flowingclouds",
+        "calligraphy"
       ],
       "locations": [
         "guishandao"
@@ -1888,7 +1988,11 @@
     "heightInches": 55.1,
     "widthInches": 29.5,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "waterfall",
+        "landscape",
+        "flowingclouds"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -1920,7 +2024,9 @@
     "heightInches": 26.8,
     "widthInches": 26.8,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -1985,6 +2091,8 @@
     "widthInches": 35.4,
     "autoCategories": {
       "subjects": [
+        "waterfall",
+        "landscape",
         "flowingclouds"
       ],
       "locations": []
@@ -2004,7 +2112,9 @@
       "locations": []
     },
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "calligraphy"
+      ],
       "locations": []
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-7614-95c9-2db8260fcc98_thumb.png",
@@ -2055,7 +2165,8 @@
     "widthInches": 29.5,
     "autoCategories": {
       "subjects": [
-        "waterfall"
+        "waterfall",
+        "flowingclouds"
       ],
       "locations": [
         "iguazu"
@@ -2091,6 +2202,7 @@
     "widthInches": 28.3,
     "autoCategories": {
       "subjects": [
+        "landscape",
         "flowingclouds"
       ],
       "locations": []
@@ -2125,7 +2237,9 @@
     "widthInches": 29.5,
     "autoCategories": {
       "subjects": [
-        "flowingclouds"
+        "landscape",
+        "flowingclouds",
+        "calligraphy"
       ],
       "locations": []
     },
@@ -2193,6 +2307,7 @@
     "widthInches": 28.3,
     "autoCategories": {
       "subjects": [
+        "landscape",
         "flowingclouds"
       ],
       "locations": []
@@ -2226,7 +2341,14 @@
     "heightInches": 27.6,
     "widthInches": 27.6,
     "autoCategories": {
+<<<<<<< Updated upstream
       "subjects": [],
+=======
+      "subjects": [
+        "landscape",
+        "flowers"
+      ],
+>>>>>>> Stashed changes
       "locations": []
     },
     "manualCategories": {
@@ -2245,7 +2367,8 @@
     },
     "autoCategories": {
       "subjects": [
-        "waterfall"
+        "waterfall",
+        "landscape"
       ],
       "locations": [
         "iguazu"
@@ -2298,7 +2421,9 @@
     "heightInches": 26.8,
     "widthInches": 26.8,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -2362,7 +2487,14 @@
     "heightInches": 53.1,
     "widthInches": 27.6,
     "autoCategories": {
+<<<<<<< Updated upstream
       "subjects": [],
+=======
+      "subjects": [
+        "landscape",
+        "flowers"
+      ],
+>>>>>>> Stashed changes
       "locations": []
     },
     "manualCategories": {
@@ -2395,7 +2527,8 @@
     "widthInches": 35.4,
     "autoCategories": {
       "subjects": [
-        "landscape"
+        "landscape",
+        "flowingclouds"
       ],
       "locations": [
         "longdong"
@@ -2430,7 +2563,15 @@
     "heightInches": 27.6,
     "widthInches": 17.7,
     "autoCategories": {
+<<<<<<< Updated upstream
       "subjects": [],
+=======
+      "subjects": [
+        "landscape",
+        "flowers",
+        "calligraphy"
+      ],
+>>>>>>> Stashed changes
       "locations": []
     },
     "manualCategories": {
@@ -2562,6 +2703,7 @@
     "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
+        "landscape",
         "flowingclouds"
       ],
       "locations": [
@@ -2597,7 +2739,14 @@
     "heightInches": 53.1,
     "widthInches": 27.6,
     "autoCategories": {
+<<<<<<< Updated upstream
       "subjects": [],
+=======
+      "subjects": [
+        "flowers",
+        "calligraphy"
+      ],
+>>>>>>> Stashed changes
       "locations": []
     },
     "manualCategories": {
@@ -2629,7 +2778,9 @@
     "heightInches": 27.6,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "calligraphy"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -2661,7 +2812,10 @@
     "heightInches": 55.1,
     "widthInches": 29.5,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "waterfall",
+        "landscape"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -2693,7 +2847,9 @@
     "heightInches": 27.6,
     "widthInches": 17.7,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -2842,7 +2998,9 @@
     "available": true,
     "price": "",
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -2979,7 +3137,14 @@
     "heightInches": 27.6,
     "widthInches": 27.6,
     "autoCategories": {
+<<<<<<< Updated upstream
       "subjects": [],
+=======
+      "subjects": [
+        "landscape",
+        "flowers"
+      ],
+>>>>>>> Stashed changes
       "locations": []
     },
     "manualCategories": {
@@ -2997,7 +3162,9 @@
       "locations": []
     },
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape"
+      ],
       "locations": []
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-7df5-a02e-1cc15d22bb57_thumb.png",
@@ -3081,7 +3248,8 @@
     "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
-        "landscape"
+        "landscape",
+        "flowingclouds"
       ],
       "locations": []
     },
@@ -3115,6 +3283,7 @@
     "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
+        "landscape",
         "bamboo"
       ],
       "locations": []
@@ -3149,6 +3318,8 @@
     "widthInches": 55.1,
     "autoCategories": {
       "subjects": [
+        "waterfall",
+        "landscape",
         "flowingclouds"
       ],
       "locations": []
@@ -3219,7 +3390,13 @@
     "widthInches": 82.7,
     "autoCategories": {
       "subjects": [
+<<<<<<< Updated upstream
         "flowingclouds"
+=======
+        "landscape",
+        "flowingclouds",
+        "flowers"
+>>>>>>> Stashed changes
       ],
       "locations": [
         "hehuanshan"
@@ -3254,7 +3431,9 @@
     "heightInches": 29.5,
     "widthInches": 29.5,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -3388,7 +3567,8 @@
     "widthInches": 35.4,
     "autoCategories": {
       "subjects": [
-        "landscape"
+        "landscape",
+        "flowingclouds"
       ],
       "locations": [
         "longdong"
@@ -3488,7 +3668,8 @@
     "widthInches": 29.5,
     "autoCategories": {
       "subjects": [
-        "landscape"
+        "landscape",
+        "flowingclouds"
       ],
       "locations": []
     },
@@ -3574,7 +3755,8 @@
     },
     "autoCategories": {
       "subjects": [
-        "waterfall"
+        "waterfall",
+        "landscape"
       ],
       "locations": [
         "niagara"
@@ -3756,6 +3938,7 @@
     "widthInches": 70.9,
     "autoCategories": {
       "subjects": [
+        "landscape",
         "bamboo"
       ],
       "locations": []
@@ -3856,7 +4039,9 @@
     "heightInches": 29.5,
     "widthInches": 29.5,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowingclouds"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -3920,7 +4105,14 @@
     "heightInches": 27.6,
     "widthInches": 27.6,
     "autoCategories": {
+<<<<<<< Updated upstream
       "subjects": [],
+=======
+      "subjects": [
+        "landscape",
+        "flowers"
+      ],
+>>>>>>> Stashed changes
       "locations": []
     },
     "manualCategories": {
@@ -4052,7 +4244,14 @@
     "heightInches": 27.6,
     "widthInches": 27.6,
     "autoCategories": {
+<<<<<<< Updated upstream
       "subjects": [],
+=======
+      "subjects": [
+        "flowers",
+        "calligraphy"
+      ],
+>>>>>>> Stashed changes
       "locations": []
     },
     "manualCategories": {
@@ -4217,7 +4416,9 @@
     "heightCm": 75,
     "widthCm": 22,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowingclouds"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -4250,6 +4451,7 @@
     "widthInches": 82.7,
     "autoCategories": {
       "subjects": [
+        "landscape",
         "flowingclouds"
       ],
       "locations": [
@@ -4285,7 +4487,9 @@
     "heightInches": 55.9,
     "widthInches": 28.7,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "waterfall"
+      ],
       "locations": [
         "iguazu"
       ]
@@ -4320,6 +4524,7 @@
     "widthInches": 13.8,
     "autoCategories": {
       "subjects": [
+        "landscape",
         "bamboo"
       ],
       "locations": []
@@ -4352,7 +4557,14 @@
     "heightInches": 53.1,
     "widthInches": 27.6,
     "autoCategories": {
+<<<<<<< Updated upstream
       "subjects": [],
+=======
+      "subjects": [
+        "flowers",
+        "calligraphy"
+      ],
+>>>>>>> Stashed changes
       "locations": []
     },
     "manualCategories": {
@@ -4441,7 +4653,8 @@
     },
     "autoCategories": {
       "subjects": [
-        "landscape"
+        "landscape",
+        "calligraphy"
       ],
       "locations": []
     },
@@ -4558,6 +4771,7 @@
     "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
+        "landscape",
         "calligraphy"
       ],
       "locations": []
@@ -4578,6 +4792,7 @@
     },
     "autoCategories": {
       "subjects": [
+        "landscape",
         "flowingclouds"
       ],
       "locations": []
@@ -4661,7 +4876,10 @@
     "heightInches": 53.1,
     "widthInches": 13.8,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape",
+        "calligraphy"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -4693,7 +4911,10 @@
     "widthInches": 53.1,
     "autoCategories": {
       "subjects": [
-        "flowingclouds"
+        "waterfall",
+        "landscape",
+        "flowingclouds",
+        "calligraphy"
       ],
       "locations": []
     },
@@ -4726,6 +4947,7 @@
     "widthInches": 53.1,
     "autoCategories": {
       "subjects": [
+        "landscape",
         "flowingclouds"
       ],
       "locations": []
@@ -4844,6 +5066,10 @@
     },
     "autoCategories": {
       "subjects": [
+<<<<<<< Updated upstream
+=======
+        "flowers",
+>>>>>>> Stashed changes
         "calligraphy"
       ],
       "locations": []
@@ -4927,7 +5153,14 @@
     "heightInches": 53.1,
     "widthInches": 27.6,
     "autoCategories": {
+<<<<<<< Updated upstream
       "subjects": [],
+=======
+      "subjects": [
+        "landscape",
+        "flowers"
+      ],
+>>>>>>> Stashed changes
       "locations": []
     },
     "manualCategories": {
@@ -4959,7 +5192,8 @@
     "widthInches": 31.5,
     "autoCategories": {
       "subjects": [
-        "landscape"
+        "landscape",
+        "flowingclouds"
       ],
       "locations": []
     },
@@ -4992,6 +5226,11 @@
     "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
+<<<<<<< Updated upstream
+=======
+        "landscape",
+        "flowers",
+>>>>>>> Stashed changes
         "bamboo"
       ],
       "locations": []
@@ -5081,7 +5320,10 @@
     },
     "autoCategories": {
       "subjects": [
-        "flowingclouds"
+        "waterfall",
+        "landscape",
+        "flowingclouds",
+        "calligraphy"
       ],
       "locations": []
     },
@@ -5201,6 +5443,7 @@
     "widthCm": 135,
     "autoCategories": {
       "subjects": [
+        "landscape",
         "bamboo"
       ],
       "locations": []
@@ -5263,6 +5506,7 @@
     "curatorNoteEn": "",
     "autoCategories": {
       "subjects": [
+        "landscape",
         "calligraphy"
       ],
       "locations": []
@@ -5330,6 +5574,7 @@
     "widthInches": 53.1,
     "autoCategories": {
       "subjects": [
+        "waterfall",
         "flowingclouds"
       ],
       "locations": []
@@ -5363,7 +5608,13 @@
     "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
+<<<<<<< Updated upstream
         "landscape"
+=======
+        "landscape",
+        "flowingclouds",
+        "flowers"
+>>>>>>> Stashed changes
       ],
       "locations": []
     },
@@ -5384,6 +5635,7 @@
     "autoCategories": {
       "subjects": [
         "waterfall",
+        "landscape",
         "flowingclouds"
       ],
       "locations": []
@@ -5465,7 +5717,14 @@
     "heightInches": 27.6,
     "widthInches": 53.1,
     "autoCategories": {
+<<<<<<< Updated upstream
       "subjects": [],
+=======
+      "subjects": [
+        "landscape",
+        "flowers"
+      ],
+>>>>>>> Stashed changes
       "locations": []
     },
     "manualCategories": {
@@ -5492,7 +5751,9 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -5523,7 +5784,9 @@
     "heightInches": 53.1,
     "widthInches": 13.8,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "calligraphy"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -5575,6 +5838,7 @@
     },
     "autoCategories": {
       "subjects": [
+        "landscape",
         "calligraphy"
       ],
       "locations": []
@@ -5625,7 +5889,10 @@
     "heightInches": 27.6,
     "widthInches": 27.6,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "waterfall",
+        "landscape"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -5723,6 +5990,7 @@
     "widthInches": 30.7,
     "autoCategories": {
       "subjects": [
+        "landscape",
         "flowingclouds"
       ],
       "locations": []
@@ -5757,6 +6025,7 @@
     "widthInches": 30.7,
     "autoCategories": {
       "subjects": [
+        "landscape",
         "flowingclouds"
       ],
       "locations": []
@@ -5789,7 +6058,14 @@
     "heightInches": 53.1,
     "widthInches": 27.6,
     "autoCategories": {
+<<<<<<< Updated upstream
       "subjects": [],
+=======
+      "subjects": [
+        "landscape",
+        "flowers"
+      ],
+>>>>>>> Stashed changes
       "locations": []
     },
     "manualCategories": {
@@ -5808,7 +6084,8 @@
     },
     "autoCategories": {
       "subjects": [
-        "landscape"
+        "landscape",
+        "calligraphy"
       ],
       "locations": []
     },
@@ -5859,7 +6136,12 @@
     "widthInches": 55.1,
     "autoCategories": {
       "subjects": [
+<<<<<<< Updated upstream
         "landscape"
+=======
+        "landscape",
+        "flowers"
+>>>>>>> Stashed changes
       ],
       "locations": []
     },
@@ -5892,6 +6174,11 @@
     "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
+<<<<<<< Updated upstream
+=======
+        "landscape",
+        "flowers",
+>>>>>>> Stashed changes
         "calligraphy"
       ],
       "locations": []
@@ -6011,7 +6298,14 @@
       "locations": []
     },
     "autoCategories": {
+<<<<<<< Updated upstream
       "subjects": [],
+=======
+      "subjects": [
+        "landscape",
+        "flowers"
+      ],
+>>>>>>> Stashed changes
       "locations": []
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-7aed-9fac-21a5e94b8c1f_thumb.png",
@@ -6127,7 +6421,9 @@
     "widthInches": 5.5,
     "autoCategories": {
       "subjects": [
-        "flowingclouds"
+        "landscape",
+        "flowingclouds",
+        "calligraphy"
       ],
       "locations": []
     },
@@ -6159,7 +6455,10 @@
     "heightInches": 47.2,
     "widthInches": 94.5,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "waterfall",
+        "landscape"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -6190,7 +6489,14 @@
     "heightInches": 35.4,
     "widthInches": 35.4,
     "autoCategories": {
+<<<<<<< Updated upstream
       "subjects": [],
+=======
+      "subjects": [
+        "flowingclouds",
+        "flowers"
+      ],
+>>>>>>> Stashed changes
       "locations": []
     },
     "manualCategories": {
@@ -6239,7 +6545,9 @@
       "locations": []
     },
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "calligraphy"
+      ],
       "locations": []
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-7764-a468-4f7ad6140df2_thumb.png",
@@ -6276,6 +6584,7 @@
     },
     "autoCategories": {
       "subjects": [
+        "landscape",
         "flowingclouds"
       ],
       "locations": []
@@ -6326,7 +6635,11 @@
     "heightInches": 27.6,
     "widthInches": 53.1,
     "autoCategories": {
-      "subjects": [],
+      "subjects": [
+        "waterfall",
+        "landscape",
+        "flowingclouds"
+      ],
       "locations": []
     },
     "manualCategories": {
@@ -6458,6 +6771,7 @@
     "widthInches": 27.6,
     "autoCategories": {
       "subjects": [
+        "landscape",
         "flowingclouds"
       ],
       "locations": []
@@ -6478,6 +6792,8 @@
     },
     "autoCategories": {
       "subjects": [
+        "waterfall",
+        "landscape",
         "flowingclouds"
       ],
       "locations": [
@@ -6518,6 +6834,7 @@
     },
     "autoCategories": {
       "subjects": [
+        "landscape",
         "flowingclouds"
       ],
       "locations": [
@@ -6558,7 +6875,13 @@
     },
     "autoCategories": {
       "subjects": [
+<<<<<<< Updated upstream
         "flowingclouds"
+=======
+        "landscape",
+        "flowingclouds",
+        "flowers"
+>>>>>>> Stashed changes
       ],
       "locations": [
         "yushan"
