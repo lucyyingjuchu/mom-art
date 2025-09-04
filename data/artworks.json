@@ -6283,33 +6283,31 @@
   {
     "id": "019891b0-f39c-7fb1-a33d-91b7825cf41d",
     "title": "賞觀籬菊可忘憂",
-    "titleEn": "Gazing at the Chrysanthemums, Worries Fade Away",
-    "image": "",
-    "imageHigh": "",
-    "description": null,
-    "descriptionEn": "",
-    "format": null,
-    "mediumEn": "",
-    "sizeCm": "135 × 70",
-    "sizeInches": "53.1×27.6 inches",
     "year": "unknown",
-    "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
     "heightCm": 135,
     "widthCm": 70,
-    "heightInches": 53.1,
-    "widthInches": 27.6,
+    "sizeCm": "135 × 70 cm",
+    "format": "",
+    "description": "",
+    "curatorNote": "",
+    "featured": false,
+    "available": true,
+    "price": "",
     "autoCategories": {
       "subjects": [],
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
-    }
+    },
+    "image": "",
+    "imageHigh": "",
+    "categories": [
+      "flowers"
+    ]
   },
   {
     "id": "019891b0-f39c-7764-a468-4f7ad6140df2",
