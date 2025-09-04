@@ -1998,34 +1998,31 @@
   {
     "id": "019891b0-f39c-7e21-ae47-81a6092c5a54",
     "title": "菩提花開",
-    "titleEn": "Blossoms of Bodhi",
-    "image": "./images/paintings/thumbnails/019891b0-f39c-7e21-ae47-81a6092c5a54_thumb.jpg",
-    "imageHigh": "./images/paintings/large/019891b0-f39c-7e21-ae47-81a6092c5a54_large.jpg",
-    "description": "菩提花開照眼明",
-    "descriptionEn": "The Bodhi blooms, illuminating the eye.",
-    "format": "框",
-    "mediumEn": "",
-    "sizeCm": "70x70",
-    "sizeInches": "27.6×27.6 inches",
     "year": "2019",
-    "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "formatEn": "Framed",
     "heightCm": 70,
     "widthCm": 70,
-    "heightInches": 27.6,
-    "widthInches": 27.6,
+    "sizeCm": "70 × 70 cm",
+    "format": "框",
+    "description": "菩提花開照眼明",
+    "curatorNote": "",
+    "featured": false,
+    "available": true,
+    "price": "",
     "autoCategories": {
       "subjects": [],
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
-    }
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7e21-ae47-81a6092c5a54_thumb.jpg",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7e21-ae47-81a6092c5a54_large.jpg",
+    "categories": [
+      "flowers"
+    ]
   },
   {
     "id": "019891b0-f39c-7cd6-a030-0406121e5164",
