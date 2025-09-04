@@ -4436,33 +4436,31 @@
   {
     "id": "019891b0-f39c-7840-a59b-6347f70b1e3f",
     "title": "出塵不染心",
-    "titleEn": "A Heart Untainted by the World",
-    "image": "",
-    "imageHigh": "",
-    "description": "荷塘萬朵無須折，看取出塵不染心。",
-    "descriptionEn": "In the lotus pond, countless blooms need not be plucked; Behold, a heart untouched by worldly dust.",
-    "format": null,
-    "mediumEn": "",
-    "sizeCm": "46x45",
-    "sizeInches": "18.1×17.7 inches",
     "year": "unknown",
-    "price": "",
-    "available": 0,
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
     "heightCm": 46,
     "widthCm": 45,
-    "heightInches": 18.1,
-    "widthInches": 17.7,
+    "sizeCm": "46 × 45 cm",
+    "format": "",
+    "description": "荷塘萬朵無須折，看取出塵不染心。",
+    "curatorNote": "",
+    "featured": false,
+    "available": true,
+    "price": "",
     "autoCategories": {
       "subjects": [],
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
-    }
+    },
+    "image": "",
+    "imageHigh": "",
+    "categories": [
+      "flowers"
+    ]
   },
   {
     "id": "019891b0-f39c-7a90-ab98-022c8b72668e",
