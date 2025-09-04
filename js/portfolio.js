@@ -10,7 +10,8 @@ class ChineseArtPortfolio {
         this.categories = {};
         this.currentLanguage = 'zh'; // Default to Chinese
         this.filterStats = {};
-        
+        this.currentGalleryOrder = []; // 當前藝廊顯示的作品順序
+
         // Track active multi-select filters - UPDATED for customer-friendly filters
         this.activeFilters = {
             subject: [],
@@ -476,6 +477,78 @@ class ChineseArtPortfolio {
         // LIGHTBOX ELEMENTS
         this.updateLightboxText();
     }
+    
+    // 🆕 新增：獲取當前藝廊顯示的作品列表（給 lightbox 使用）
+    getCurrentGalleryArtworks() {
+        return this.currentGalleryOrder.length > 0 ? this.currentGalleryOrder : this.artworks;
+    }
+
+    // 🆕 新增：根據 artwork ID 找到在當前藝廊中的位置
+    findArtworkIndexInCurrentGallery(artworkId) {
+        const currentOrder = this.getCurrentGalleryArtworks();
+        return currentOrder.findIndex(artwork => artwork.id === artworkId);
+    }
+
+    // 🆕 新增：關閉 lightbox 後滾動到對應作品位置
+    scrollToArtwork(artworkId) {
+        const artworkElement = document.querySelector(`.gallery-item[data-artwork-id="${artworkId}"]`);
+        if (artworkElement) {
+            artworkElement.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'center' 
+            });
+            
+            // 🎯 可選：添加短暫的高亮效果
+            artworkElement.style.transform = 'scale(1.02)';
+            artworkElement.style.transition = 'transform 0.3s ease';
+            setTimeout(() => {
+                artworkElement.style.transform = '';
+                setTimeout(() => {
+                    artworkElement.style.transition = '';
+                }, 300);
+            }, 1000);
+            
+            console.log(`📍 Scrolled to artwork: ${artworkId}`);
+        } else {
+            console.warn(`⚠️ Artwork element not found: ${artworkId}`);
+        }
+    }
+
+    // 🆕 新增：獲取當前藝廊顯示的作品列表（給 lightbox 使用）
+    getCurrentGalleryArtworks() {
+        return this.currentGalleryOrder.length > 0 ? this.currentGalleryOrder : this.artworks;
+    }
+
+    // 🆕 新增：根據 artwork ID 找到在當前藝廊中的位置
+    findArtworkIndexInCurrentGallery(artworkId) {
+        const currentOrder = this.getCurrentGalleryArtworks();
+        return currentOrder.findIndex(artwork => artwork.id === artworkId);
+    }
+
+    // 🆕 新增：關閉 lightbox 後滾動到對應作品位置
+    scrollToArtwork(artworkId) {
+        const artworkElement = document.querySelector(`.gallery-item[data-artwork-id="${artworkId}"]`);
+        if (artworkElement) {
+            artworkElement.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'center' 
+            });
+            
+            // 🎯 可選：添加短暫的高亮效果
+            artworkElement.style.transform = 'scale(1.02)';
+            artworkElement.style.transition = 'transform 0.3s ease';
+            setTimeout(() => {
+                artworkElement.style.transform = '';
+                setTimeout(() => {
+                    artworkElement.style.transition = '';
+                }, 300);
+            }, 1000);
+            
+            console.log(`📍 Scrolled to artwork: ${artworkId}`);
+        } else {
+            console.warn(`⚠️ Artwork element not found: ${artworkId}`);
+        }
+    }
 
     // Helper method for about section lists
     updateAboutListContent(sectionId, items) {
@@ -550,6 +623,10 @@ class ChineseArtPortfolio {
         // Combine: images first, then placeholders
         const prioritizedArtworks = [...randomizedWithImages, ...randomizedWithoutImages];
 
+        // 🆕 重要：保存當前藝廊顯示的順序
+        this.currentGalleryOrder = prioritizedArtworks;
+        console.log(`✅ Saved gallery order: ${prioritizedArtworks.length} artworks`);
+
         // Calculate counts
         const activeFilterCount = Object.values(this.activeFilters).flat().length;
         const imageCount = artworksWithImages.length;
@@ -592,7 +669,7 @@ class ChineseArtPortfolio {
         const available = this.getBooleanValue(artwork, 'available', true);
         
         return `
-            <div class="gallery-item" onclick="openLightbox('${artwork.id}')">
+            <div class="gallery-item" onclick="openLightbox('${artwork.id}', 'gallery')" data-artwork-id="${artwork.id}">
                 <div class="gallery-item-image">
                     <img src="${imageUrl}" alt="${title}" loading="lazy" 
                          onerror="this.src='${this.getPlaceholderImage()}'">
@@ -611,6 +688,7 @@ class ChineseArtPortfolio {
             </div>
         `;
     }
+
 
     // UPDATED: Generate dynamic filter menu using CategoryManager
     generateFilterMenu() {
@@ -1249,6 +1327,10 @@ class ChineseArtPortfolio {
 
         // Prioritize images first
         const prioritizedResults = [...resultsWithImages, ...resultsWithoutImages];
+
+        // 🆕 重要：搜尋結果也要保存順序
+        this.currentGalleryOrder = prioritizedResults;
+        console.log(`🔍 Saved search results order: ${prioritizedResults.length} artworks`);
 
         galleryGrid.innerHTML = prioritizedResults.map(artwork => this.createArtworkCard(artwork)).join('');
         
