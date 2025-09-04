@@ -3,6 +3,7 @@
 Combined Finer Works API Processor
 Combines size calculation and image metadata extraction for Xiaoran's Traditional Chinese Paintings
 Supports both .png and .jpg image formats
+Updated to use actual pixel dimensions and 200 PPI requirements
 """
 
 import json
@@ -21,7 +22,124 @@ class CombinedFinerWorksProcessor:
     def __init__(self, base_url="https://xiaoran.netlify.app/", image_dir="images/paintings/large"):
         self.base_url = base_url.rstrip('/') + '/'
         self.image_dir = image_dir
+        self.REQUIRED_PPI = 200
         
+    def get_image_dimensions_from_file(self, artwork_id):
+        """Get actual pixel dimensions from the image file"""
+        image_paths = self.get_local_image_paths(artwork_id)
+        
+        if not image_paths:
+            logger.warning(f"Image file not found for artwork: {artwork_id}")
+            return None, None
+            
+        try:
+            with Image.open(image_paths['large_path']) as img:
+                width, height = img.size
+                logger.info(f"Image dimensions for {artwork_id}: {width} × {height} pixels")
+                return width, height
+        except Exception as e:
+            logger.error(f"Error reading image dimensions for {artwork_id}: {e}")
+            return None, None
+
+    def calculate_max_print_size_at_300ppi(self, pixel_width, pixel_height):
+        """Calculate maximum print size at 300 PPI"""
+        max_width_inches = pixel_width / self.REQUIRED_PPI
+        max_height_inches = pixel_height / self.REQUIRED_PPI
+        
+        # Round down to ensure we don't exceed 300 PPI
+        max_width_inches = math.floor(max_width_inches * 10) / 10
+        max_height_inches = math.floor(max_height_inches * 10) / 10
+        
+        return max_width_inches, max_height_inches
+
+    def generate_size_options_at_300ppi(self, max_width_inches, max_height_inches):
+        """Generate 3 size options while maintaining 300+ PPI"""
+        sizes = []
+        original_ratio = max_width_inches / max_height_inches
+        
+        # Generate target sizes similar to your original logic
+        # Use the maximum dimension to determine size categories
+        max_dimension = max(max_width_inches, max_height_inches)
+        
+        # Generate 3 different target sizes based on the maximum possible size
+        if max_dimension >= 18:
+            target_sizes = [12, 15, int(max_dimension)]  # Small, medium, maximum
+        elif max_dimension >= 12:
+            target_sizes = [8, 12, int(max_dimension)]   # Small, medium, maximum  
+        else:
+            target_sizes = [6, int(max_dimension * 0.8), int(max_dimension)]  # Adjust for smaller images
+        
+        for target_size in target_sizes:
+            if original_ratio > 1:
+                # Landscape artwork (width > height)
+                width = target_size
+                height = width / original_ratio
+            else:
+                # Portrait artwork (height > width)
+                height = target_size
+                width = height * original_ratio
+            
+            # Round to integers like your original code
+            width_rounded = round(width)
+            height_rounded = round(height)
+            
+            # Verify ratio consistency (from your original logic)
+            new_ratio = width_rounded / height_rounded
+            if abs(new_ratio - original_ratio) > 0.1:
+                # If ratio deviation is too large, adjust one dimension
+                if original_ratio > 1:
+                    height_rounded = round(width_rounded / original_ratio)
+                else:
+                    width_rounded = round(height_rounded * original_ratio)
+            
+            # Don't exceed our maximum size at 300 PPI and ensure reasonable minimum
+            if (width_rounded <= max_width_inches and height_rounded <= max_height_inches and
+                width_rounded >= 6 and height_rounded >= 6):
+                
+                sizes.append({
+                    'width_inches': width_rounded,
+                    'height_inches': height_rounded
+                })
+        
+        # Remove duplicates
+        unique_sizes = {}
+        for size in sizes:
+            key = f"{size['width_inches']}x{size['height_inches']}"
+            if key not in unique_sizes:
+                unique_sizes[key] = size
+        
+        # Sort by area (largest first) and return up to 3
+        sorted_sizes = sorted(unique_sizes.values(), 
+                            key=lambda x: x['width_inches'] * x['height_inches'], 
+                            reverse=True)
+        
+        return sorted_sizes[:3]
+
+    def clean_artwork_data(self, artwork):
+        """Clean artwork data - remove old fields and ensure new structure"""
+        # Create clean copy
+        cleaned = artwork.copy()
+        
+        # Remove old/deprecated fields
+        fields_to_remove = ['sizeCm', 'sizeInches', 'mediumEn', 'recent', 'exhibitions', 'tags']
+        for field in fields_to_remove:
+            cleaned.pop(field, None)
+        
+        # Ensure we have the dimension fields (fallback to parsing sizeCm if needed)
+        if not cleaned.get('heightCm') or not cleaned.get('widthCm'):
+            if artwork.get('sizeCm'):
+                height_cm, width_cm = self.parse_size_cm(artwork['sizeCm'])
+                if height_cm and width_cm:
+                    cleaned['heightCm'] = height_cm
+                    cleaned['widthCm'] = width_cm
+        
+        # Calculate inch dimensions if we have cm dimensions
+        if cleaned.get('heightCm') and cleaned.get('widthCm'):
+            cleaned['heightInches'] = round(self.cm_to_inches(cleaned['heightCm']), 1)
+            cleaned['widthInches'] = round(self.cm_to_inches(cleaned['widthCm']), 1)
+        
+        return cleaned
+
     def parse_size_cm(self, size_str):
         """Parse size string, return (height_cm, width_cm)"""
         if not size_str:
@@ -44,172 +162,29 @@ class CombinedFinerWorksProcessor:
         """Convert cm to inches"""
         return cm / 2.54
 
-    def analyze_artwork_characteristics(self, artwork):
-        """Analyze artwork characteristics to determine suitable display style"""
-        title = artwork.get('title', '')
-        title_en = artwork.get('titleEn', '')
-        description = artwork.get('description', '')
+    def calculate_optimal_sizes_from_pixels(self, artwork_id):
+        """Calculate optimal display sizes based on actual pixel dimensions and 300 PPI"""
+        # Get actual pixel dimensions from image file
+        pixel_width, pixel_height = self.get_image_dimensions_from_file(artwork_id)
         
-        # Determine artwork type
-        artwork_type = 'general'
-        viewing_style = 'comfortable'
-        
-        # Landscape paintings - suitable for larger sizes, dramatic display
-        if any(keyword in title for keyword in ['山', '水', '峽', '瀑', '雲', '海']):
-            artwork_type = 'landscape'
-            viewing_style = 'dramatic'
-            
-        # Flower and bird paintings - suitable for medium sizes, detail appreciation
-        elif any(keyword in title for keyword in ['花', '鳥', '梅', '竹', '菊', '蘭']):
-            artwork_type = 'flower_bird'
-            viewing_style = 'comfortable'
-            
-        # Calligraphy - suitable for smaller sizes, close viewing
-        elif any(keyword in title for keyword in ['書', '字', '經', '詩', '序']):
-            artwork_type = 'calligraphy'
-            viewing_style = 'intimate'
-            
-        # Figures, animals - medium sizes
-        elif any(keyword in title for keyword in ['人', '母', '熊', '雀', '鳥']):
-            artwork_type = 'figure_animal'
-            viewing_style = 'comfortable'
-            
-        return artwork_type, viewing_style
-
-    def get_size_preferences(self, artwork_type, viewing_style):
-        """Get size preferences based on artwork type"""
-        base_preferences = {
-            'small': {'min': 8, 'max': 12},
-            'medium': {'min': 12, 'max': 18},
-            'large': {'min': 18, 'max': 24}
-        }
-        
-        # Adjust based on artwork type
-        if artwork_type == 'landscape':
-            # Landscape paintings tend toward larger sizes
-            base_preferences = {
-                'medium': {'min': 12, 'max': 18},
-                'large': {'min': 18, 'max': 24},
-                'statement': {'min': 24, 'max': 36}
-            }
-            
-        elif artwork_type == 'calligraphy':
-            # Calligraphy tends toward smaller refined sizes
-            base_preferences = {
-                'small': {'min': 8, 'max': 12},
-                'medium': {'min': 12, 'max': 18}
-            }
-            
-        return base_preferences
-
-    def calculate_recommendation_score(self, width, height, original_ratio):
-        """Calculate recommendation score (1-100)"""
-        score = 50  # Base score
-        
-        # Size appropriateness (not too small, not too large)
-        max_dim = max(width, height)
-        if 12 <= max_dim <= 20:
-            score += 30  # Most popular size range
-        elif 8 <= max_dim <= 24:
-            score += 20
-        elif max_dim > 30:
-            score -= 10  # Too large may be impractical
-        
-        # Ratio consistency
-        calculated_ratio = width / height
-        ratio_diff = abs(calculated_ratio - original_ratio)
-        if ratio_diff < 0.05:
-            score += 20  # Perfect ratio preservation
-        elif ratio_diff < 0.1:
-            score += 10
-        
-        # Size practicality (avoid strange sizes)
-        if min(width, height) < 6:
-            score -= 20  # Too narrow doesn't look good
-        
-        return max(0, min(100, score))
-
-    def calculate_optimal_sizes(self, artwork):
-        """Calculate optimal display sizes"""
-        height_cm, width_cm = self.parse_size_cm(artwork.get('sizeCm', ''))
-        
-        if not height_cm or not width_cm:
-            logger.warning(f"Cannot parse size: {artwork.get('id', 'unknown')}")
+        if not pixel_width or not pixel_height:
+            logger.warning(f"Cannot get pixel dimensions for artwork: {artwork_id}")
             return []
         
-        # Convert to inches
-        height_in = self.cm_to_inches(height_cm)
-        width_in = self.cm_to_inches(width_cm)
-        original_ratio = width_in / height_in
+        # Calculate maximum print size at 300 PPI
+        max_width_inches, max_height_inches = self.calculate_max_print_size_at_300ppi(pixel_width, pixel_height)
         
-        # Analyze artwork characteristics
-        artwork_type, viewing_style = self.analyze_artwork_characteristics(artwork)
+        logger.info(f"Max print size at 300 PPI for {artwork_id}: {max_width_inches}\" × {max_height_inches}\"")
         
-        # Adjust size preferences based on artwork type
-        size_preferences = self.get_size_preferences(artwork_type, viewing_style)
+        # Generate size options
+        size_options = self.generate_size_options_at_300ppi(max_width_inches, max_height_inches)
         
-        all_sizes = []
+        if not size_options:
+            logger.warning(f"No valid print sizes at 300 PPI for artwork: {artwork_id}")
+        else:
+            logger.info(f"Generated {len(size_options)} size options for {artwork_id}")
         
-        # Generate candidate sizes for each size range
-        for size_category, size_range in size_preferences.items():
-            min_size = size_range['min']
-            max_size = size_range['max']
-            
-            # Try several target sizes within this range
-            for target_size in [min_size, (min_size + max_size) / 2, max_size]:
-                if original_ratio > 1:
-                    # Landscape artwork (width > height)
-                    width = target_size
-                    height = width / original_ratio
-                else:
-                    # Portrait artwork (height > width)
-                    height = target_size
-                    width = height * original_ratio
-                
-                # Round while maintaining precise ratio
-                width_rounded = round(width)
-                height_rounded = round(height)
-                
-                # Verify ratio consistency
-                new_ratio = width_rounded / height_rounded
-                if abs(new_ratio - original_ratio) > 0.1:
-                    # If ratio deviation is too large, adjust one dimension
-                    if original_ratio > 1:
-                        height_rounded = round(width_rounded / original_ratio)
-                    else:
-                        width_rounded = round(height_rounded * original_ratio)
-                
-                # Check if within reasonable range
-                if (min_size <= max(width_rounded, height_rounded) <= max_size and
-                    min(width_rounded, height_rounded) >= 6):
-                    
-                    score = self.calculate_recommendation_score(width_rounded, height_rounded, original_ratio)
-                    
-                    all_sizes.append({
-                        'width_inches': width_rounded,
-                        'height_inches': height_rounded,
-                        'score': score
-                    })
-        
-        # Remove duplicate sizes
-        unique_sizes = {}
-        for size in all_sizes:
-            key = f"{size['width_inches']}x{size['height_inches']}"
-            if key not in unique_sizes or size['score'] > unique_sizes[key]['score']:
-                unique_sizes[key] = size
-        
-        # Sort by score, take top 2-3
-        sorted_sizes = sorted(unique_sizes.values(), key=lambda x: x['score'], reverse=True)
-        
-        # Return up to 3 best sizes, remove scores
-        result = []
-        for i, size in enumerate(sorted_sizes[:3]):
-            result.append({
-                'width_inches': size['width_inches'],
-                'height_inches': size['height_inches']
-            })
-        
-        return result
+        return size_options
 
     def get_local_image_paths(self, artwork_id):
         """Get local image paths and URLs for artwork ID - supports both .png and .jpg"""
@@ -245,7 +220,7 @@ class CombinedFinerWorksProcessor:
     def get_image_info(self, local_path, image_url):
         """Extract metadata from local image file"""
         try:
-            print(f"  📸 Processing local file: {local_path}")
+            print(f"  Processing local file: {local_path}")
             
             # Get file size
             file_size = os.path.getsize(local_path)
@@ -264,7 +239,7 @@ class CombinedFinerWorksProcessor:
             }
             
         except Exception as e:
-            print(f"  ❌ Error: {e}")
+            print(f"  Error: {e}")
             return None
 
     def create_finerworks_metadata(self, artwork_id, image_paths, image_info, artwork_data, recommended_sizes):
@@ -315,9 +290,10 @@ class CombinedFinerWorksProcessor:
     def process_artworks(self, input_file, output_file=None):
         """Process artworks JSON and combine size calculations with image metadata"""
         
-        print(f"🎨 Processing artwork data from: {input_file}")
-        print(f"🌐 Base URL: {self.base_url}")
-        print(f"📁 Image directory: {self.image_dir}")
+        print(f"Processing artwork data from: {input_file}")
+        print(f"Base URL: {self.base_url}")
+        print(f"Image directory: {self.image_dir}")
+        print(f"Required PPI: {self.REQUIRED_PPI}")
         print("-" * 60)
         
         # Load existing JSON
@@ -325,7 +301,7 @@ class CombinedFinerWorksProcessor:
             with open(input_file, 'r', encoding='utf-8') as f:
                 artworks_list = json.load(f)
         except Exception as e:
-            print(f"❌ Error loading JSON file: {e}")
+            print(f"Error loading JSON file: {e}")
             return False
         
         if output_file is None:
@@ -343,15 +319,18 @@ class CombinedFinerWorksProcessor:
             title = artwork.get('title', 'Unknown')
             title_en = artwork.get('titleEn', '')
             
-            print(f"\n🖼️  Processing: {title}")
+            print(f"\nProcessing: {title}")
             if title_en:
                 print(f"   English: {title_en}")
             
-            # Calculate optimal sizes
-            optimal_sizes = self.calculate_optimal_sizes(artwork)
+            # Clean artwork data
+            cleaned_artwork = self.clean_artwork_data(artwork)
+            
+            # Calculate optimal sizes based on actual pixel dimensions
+            optimal_sizes = self.calculate_optimal_sizes_from_pixels(artwork_id)
             
             if not optimal_sizes:
-                print(f"  ❌ Could not calculate sizes for {title}")
+                print(f"  Could not calculate valid sizes at 300 PPI for {title}")
                 error_count += 1
                 continue
             
@@ -359,23 +338,23 @@ class CombinedFinerWorksProcessor:
             image_paths = self.get_local_image_paths(artwork_id)
             
             if not image_paths:
-                print(f"  ❌ Large image file not found for: {artwork_id}")
+                print(f"  Large image file not found for: {artwork_id}")
                 # Still add the artwork with size recommendations but no image data
                 recommendations[artwork_id] = {
                     'artwork_info': {
                         'id': artwork_id,
                         'title': title,
                         'title_en': title_en,
-                        'original_size_cm': artwork.get('sizeCm', '')
+                        'original_size_cm': f"{cleaned_artwork.get('heightCm', '')}×{cleaned_artwork.get('widthCm', '')}"
                     },
                     'recommended_sizes': optimal_sizes
                 }
                 error_count += 1
                 continue
             
-            print(f"  ✅ Found large image: {image_paths['large_filename']}")
+            print(f"  Found large image: {image_paths['large_filename']}")
             if image_paths['thumb_exists']:
-                print(f"  ✅ Found thumbnail: {image_paths['thumb_filename']}")
+                print(f"  Found thumbnail: {image_paths['thumb_filename']}")
             
             # Get image metadata from local file
             image_info = self.get_image_info(image_paths['large_path'], image_paths['large_url'])
@@ -383,7 +362,7 @@ class CombinedFinerWorksProcessor:
             if image_info:
                 # Create Finer Works metadata
                 finerworks_metadata = self.create_finerworks_metadata(
-                    artwork_id, image_paths, image_info, artwork, optimal_sizes
+                    artwork_id, image_paths, image_info, cleaned_artwork, optimal_sizes
                 )
                 
                 # Add to recommendations
@@ -392,18 +371,18 @@ class CombinedFinerWorksProcessor:
                         'id': artwork_id,
                         'title': title,
                         'title_en': title_en,
-                        'original_size_cm': artwork.get('sizeCm', '')
+                        'original_size_cm': f"{cleaned_artwork.get('heightCm', '')}×{cleaned_artwork.get('widthCm', '')}"
                     },
                     'recommended_sizes': optimal_sizes,
                     'finerworks_image': finerworks_metadata
                 }
                 
-                print(f"  📏 Dimensions: {image_info['pix_w']}×{image_info['pix_h']}")
-                print(f"  📦 File size: {finerworks_metadata['file_size_mb']} MB")
-                print(f"  🎯 Recommended sizes: {len(optimal_sizes)}")
+                print(f"  Dimensions: {image_info['pix_w']}×{image_info['pix_h']}")
+                print(f"  File size: {finerworks_metadata['file_size_mb']} MB")
+                print(f"  Recommended sizes: {len(optimal_sizes)}")
                 for i, size in enumerate(optimal_sizes):
                     print(f"    Size {i+1}: {size['width_inches']}×{size['height_inches']}\"")
-                print(f"  ✅ Complete metadata added")
+                print(f"  Complete metadata added")
                 
                 processed_count += 1
             else:
@@ -413,7 +392,7 @@ class CombinedFinerWorksProcessor:
                         'id': artwork_id,
                         'title': title,
                         'title_en': title_en,
-                        'original_size_cm': artwork.get('sizeCm', '')
+                        'original_size_cm': f"{cleaned_artwork.get('heightCm', '')}×{cleaned_artwork.get('widthCm', '')}"
                     },
                     'recommended_sizes': optimal_sizes
                 }
@@ -425,43 +404,43 @@ class CombinedFinerWorksProcessor:
                 json.dump(recommendations, f, ensure_ascii=False, indent=2)
             
             print(f"\n" + "="*60)
-            print(f"✅ Processing complete!")
-            print(f"📊 Results:")
+            print(f"Processing complete!")
+            print(f"Results:")
             print(f"   • Processed: {processed_count} artworks with complete data")
-            print(f"   • Partial: {error_count} artworks (missing images or size data)")
+            print(f"   • Partial: {error_count} artworks (missing images or invalid PPI)")
             print(f"   • Total: {len(recommendations)} artworks in output")
             print(f"   • Success rate: {processed_count/(processed_count+error_count)*100:.1f}%")
-            print(f"💾 Updated file saved as: {output_file}")
+            print(f"Updated file saved as: {output_file}")
             
             return True
             
         except Exception as e:
-            print(f"❌ Error saving file: {e}")
+            print(f"Error saving file: {e}")
             return False
 
 def main():
     """Main execution function"""
     
     # Check if JSON file exists
-    input_file = "artworks-singleview_short.json"
+    input_file = "./data/artworks.json"
     if not os.path.exists(input_file):
-        print(f"❌ File not found: {input_file}")
-        print("Please make sure the JSON file is in the current directory.")
+        print(f"File not found: {input_file}")
+        print("Please make sure the JSON file is in the parent directory.")
         return
     
     # Create processor and process
     processor = CombinedFinerWorksProcessor()
     
-    success = processor.process_artworks(input_file, "finerworks_ready_artworks_short.json")
+    success = processor.process_artworks(input_file, "./data/finerworks_ready_artworks.json")
     
     if success:
-        print(f"\n🎉 All done! You can now use the updated JSON for Finer Works API testing.")
+        print(f"\nAll done! You can now use the updated JSON for Finer Works API.")
         print(f"Next steps:")
         print(f"  1. Review the updated JSON file")
         print(f"  2. Test image upload with a few samples")
         print(f"  3. Integrate into your website workflow")
     else:
-        print(f"\n❌ Processing failed. Please check the errors above.")
+        print(f"\nProcessing failed. Please check the errors above.")
 
 if __name__ == "__main__":
     main()
