@@ -4095,34 +4095,31 @@
   {
     "id": "019891b0-f39c-7b83-902a-1f7f7bc72183",
     "title": "自在飛花–紫藤",
-    "titleEn": "Free-spirited Blossoms – Wisteria",
-    "image": "./images/paintings/thumbnails/019891b0-f39c-7b83-902a-1f7f7bc72183_thumb.jpg",
-    "imageHigh": "./images/paintings/large/019891b0-f39c-7b83-902a-1f7f7bc72183_large.jpg",
-    "description": "寫胸中造化，迎萬古長空。",
-    "descriptionEn": "Inscribe the wonders of my heart, Embrace the eternal expanse above.",
-    "format": "鏡片",
-    "mediumEn": "",
-    "sizeCm": "97x180",
-    "sizeInches": "38.2×70.9 inches",
     "year": "2022",
-    "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "formatEn": "Mounted Panel",
     "heightCm": 97,
     "widthCm": 180,
-    "heightInches": 38.2,
-    "widthInches": 70.9,
+    "sizeCm": "97 × 180 cm",
+    "format": "鏡片",
+    "description": "寫胸中造化，迎萬古長空。",
+    "curatorNote": "",
+    "featured": false,
+    "available": true,
+    "price": "",
     "autoCategories": {
       "subjects": [],
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
-    }
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7b83-902a-1f7f7bc72183_thumb.jpg",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7b83-902a-1f7f7bc72183_large.jpg",
+    "categories": [
+      "flowers"
+    ]
   },
   {
     "id": "019891b0-f39c-7809-a063-80f25d10a396",
