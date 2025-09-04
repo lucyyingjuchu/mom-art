@@ -5089,38 +5089,31 @@
   {
     "id": "019891b0-f39c-7530-ace8-fffa8fead53e",
     "title": "梅花小鳥",
-    "titleEn": "",
-    "category": "paintings",
-    "manualCategories": {
-      "subjects": [],
-      "locations": []
-    },
+    "year": "unknown",
+    "heightCm": 70,
+    "widthCm": 70,
+    "sizeCm": "70 × 70 cm",
+    "format": "",
+    "description": "梅色分紅白",
+    "curatorNote": "",
+    "featured": false,
+    "available": true,
+    "price": "",
     "autoCategories": {
       "subjects": [],
       "locations": []
     },
+    "manualCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": []
+    },
     "image": "./images/paintings/thumbnails/019891b0-f39c-7530-ace8-fffa8fead53e_thumb.png",
     "imageHigh": "./images/paintings/large/019891b0-f39c-7530-ace8-fffa8fead53e_large.png",
-    "description": "梅色分紅白",
-    "descriptionEn": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "format": "",
-    "formatEn": "",
-    "mediumEn": "",
-    "heightCm": 70,
-    "widthCm": 70,
-    "heightInches": 27.6,
-    "widthInches": 27.6,
-    "sizeCm": "70×70",
-    "sizeInches": "27.6×27.6",
-    "year": "unknown",
-    "price": "",
-    "available": true,
-    "featured": false,
-    "recent": false,
-    "exhibitions": [],
-    "tags": []
+    "categories": [
+      "flowers"
+    ]
   },
   {
     "id": "019891b0-f39c-7605-8810-2ec32c05d109",
