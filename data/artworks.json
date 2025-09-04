@@ -589,13 +589,23 @@
   {
     "id": "019891b0-f39c-79f7-8cab-78ad04b8b05d",
     "title": "紫藤雙燕",
-    "titleEn": "",
-    "category": "paintings",
-    "manualCategories": {
-      "subjects": [],
+    "year": "2011",
+    "heightCm": 135,
+    "widthCm": 70,
+    "sizeCm": "135 × 70 cm",
+    "format": "軸",
+    "description": "一雙好鳥飛自在，萬縷紫煙舞韶華。",
+    "curatorNote": "",
+    "featured": false,
+    "available": true,
+    "price": "",
+    "autoCategories": {
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
     },
-    "autoCategories": {
+    "manualCategories": {
       "subjects": [
         "flowers"
       ],
@@ -603,26 +613,9 @@
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-79f7-8cab-78ad04b8b05d_thumb.png",
     "imageHigh": "./images/paintings/large/019891b0-f39c-79f7-8cab-78ad04b8b05d_large.png",
-    "description": "一雙好鳥飛自在，萬縷紫煙舞韶華。",
-    "descriptionEn": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "format": "軸",
-    "formatEn": "",
-    "mediumEn": "",
-    "heightCm": 135,
-    "widthCm": 70,
-    "heightInches": 53.1,
-    "widthInches": 27.6,
-    "sizeCm": "135×70",
-    "sizeInches": "53.1×27.6",
-    "year": "2011",
-    "price": "",
-    "available": true,
-    "featured": false,
-    "recent": false,
-    "exhibitions": [],
-    "tags": []
+    "categories": [
+      "flowers"
+    ]
   },
   {
     "id": "019891b0-f39c-7a23-a18f-085445820f6c",
@@ -815,26 +808,16 @@
   {
     "id": "019891b0-f39c-7bc8-ae41-7e14d730d294",
     "title": "墨荷-青煙裊裊冷香飄",
-    "titleEn": "Ink Lotus - Cool Fragrance in Wisps of Azure Smoke",
-    "image": "",
-    "imageHigh": "",
-    "description": null,
-    "descriptionEn": "",
-    "format": "框",
-    "mediumEn": "",
-    "sizeCm": "23x35",
-    "sizeInches": "9.1×13.8 inches",
     "year": "2016",
-    "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "formatEn": "Framed",
     "heightCm": 23,
     "widthCm": 35,
-    "heightInches": 9.1,
-    "widthInches": 13.8,
+    "sizeCm": "23 × 35 cm",
+    "format": "框",
+    "description": "",
+    "curatorNote": "",
+    "featured": false,
+    "available": true,
+    "price": "",
     "autoCategories": {
       "subjects": [
         "flowers"
@@ -842,9 +825,16 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
-    }
+    },
+    "image": "",
+    "imageHigh": "",
+    "categories": [
+      "flowers"
+    ]
   },
   {
     "id": "019891b0-f39c-7e66-b993-7dabeab00451",
