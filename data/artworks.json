@@ -3504,34 +3504,31 @@
   {
     "id": "019891b0-f39c-7f63-87fd-b7a8a860889f",
     "title": "枝頭小鳥迎風立-櫻花",
-    "titleEn": "Little Birds on the Branches: A Dance in the Wind",
-    "image": "./images/paintings/thumbnails/019891b0-f39c-7f63-87fd-b7a8a860889f_thumb.jpg",
-    "imageHigh": "./images/paintings/large/019891b0-f39c-7f63-87fd-b7a8a860889f_large.jpg",
-    "description": "枝頭小鳥迎風立，可愛深紅兼淺紅。",
-    "descriptionEn": "Atop the branches, little birds stand in the wind, Charming hues of deep and light crimson blend.",
-    "format": "框",
-    "mediumEn": "",
-    "sizeCm": "68x45",
-    "sizeInches": "26.8×17.7 inches",
     "year": "2022",
-    "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "formatEn": "Framed",
     "heightCm": 68,
     "widthCm": 45,
-    "heightInches": 26.8,
-    "widthInches": 17.7,
+    "sizeCm": "68 × 45 cm",
+    "format": "框",
+    "description": "枝頭小鳥迎風立，可愛深紅兼淺紅。",
+    "curatorNote": "",
+    "featured": false,
+    "available": true,
+    "price": "",
     "autoCategories": {
       "subjects": [],
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
-    }
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7f63-87fd-b7a8a860889f_thumb.jpg",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7f63-87fd-b7a8a860889f_large.jpg",
+    "categories": [
+      "flowers"
+    ]
   },
   {
     "id": "019891b0-f39c-7403-80d4-4da1440b7976",
