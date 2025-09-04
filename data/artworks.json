@@ -3522,34 +3522,31 @@
   {
     "id": "019891b0-f39c-792d-b5e8-b80ef8754ca2",
     "title": "歸",
-    "titleEn": "Return",
-    "image": "./images/paintings/thumbnails/019891b0-f39c-792d-b5e8-b80ef8754ca2_thumb.jpg",
-    "imageHigh": "./images/paintings/large/019891b0-f39c-792d-b5e8-b80ef8754ca2_large.jpg",
-    "description": "歸",
-    "descriptionEn": "Return",
-    "format": "框",
-    "mediumEn": "",
-    "sizeCm": "70x45",
-    "sizeInches": "27.6×17.7 inches",
     "year": "2022",
-    "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "formatEn": "Framed",
     "heightCm": 70,
     "widthCm": 45,
-    "heightInches": 27.6,
-    "widthInches": 17.7,
+    "sizeCm": "70 × 45 cm",
+    "format": "框",
+    "description": "歸",
+    "curatorNote": "",
+    "featured": false,
+    "available": true,
+    "price": "",
     "autoCategories": {
       "subjects": [],
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "abstract"
+      ],
       "locations": []
-    }
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-792d-b5e8-b80ef8754ca2_thumb.jpg",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-792d-b5e8-b80ef8754ca2_large.jpg",
+    "categories": [
+      "abstract"
+    ]
   },
   {
     "id": "019891b0-f39c-71dd-be15-f32291c15cc6",
