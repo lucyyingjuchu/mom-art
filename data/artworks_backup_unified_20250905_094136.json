@@ -105,12 +105,12 @@
   {
     "id": "019891b0-f39c-752c-bde4-db1ef1f5529c",
     "title": "源頭應是天上來─瀑布",
-    "titleEn": "Source from Heaven: The Waterfall",
+    "titleEn": "",
     "image": "",
     "imageHigh": "",
     "description": "歲歲朝朝萬斛流，濺花滌盡古今愁；源頭應是天上來，沾溉群生永不休。",
     "curatorNote": "ddasggg",
-    "curatorNoteEn": "The text provided does not contain any meaningful content to translate. Please provide a valid Chinese text for translation.",
+    "curatorNoteEn": "",
     "format": "框",
     "formatEn": "Framed",
     "year": "2010",
@@ -131,8 +131,7 @@
       "locations": []
     },
     "heightInches": 27.6,
-    "widthInches": 53.1,
-    "descriptionEn": "Year after year, morning after morning, countless streams flow,  \nSplashing flowers, washing away ancient and modern woes;  \nThe source should surely come from the heavens above,  \nMoistening all beings, in ceaseless love."
+    "widthInches": 53.1
   },
   {
     "id": "019891b0-f39c-73f8-9534-0b7d90737bde",
@@ -202,7 +201,7 @@
   {
     "id": "019891b0-f39c-760d-a955-60c68a66d5be",
     "title": "夢筆插花山為盆－黃山煙雲",
-    "titleEn": "Dream Brush Inserts Flowers, Mountain as Basin - Huangshan Mist and Clouds",
+    "titleEn": "",
     "manualCategories": {
       "subjects": [],
       "locations": []
@@ -219,7 +218,7 @@
     "image": "./images/paintings/thumbnails/019891b0-f39c-760d-a955-60c68a66d5be_thumb.png",
     "imageHigh": "./images/paintings/large/019891b0-f39c-760d-a955-60c68a66d5be_large.png",
     "description": "夢筆生花有若無，筆架橫陳景色殊；奇峰縹緲昇天去，我繪黃山入畫圖。",
-    "descriptionEn": "In dreams, the brush gives birth to flowers, as if they were not;  \nThe brush stand lies across, the scenery is unique.  \nStrange peaks rise ethereally, ascending to the sky,  \nI paint Huangshan into my picture's view.",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
     "format": "軸",
@@ -236,7 +235,7 @@
   {
     "id": "019891b0-f39c-7192-92e6-0e1d7d4a52dc",
     "title": "天地有大美－美國大峽谷",
-    "titleEn": "The Grandeur of Heaven and Earth - The Grand Canyon of America",
+    "titleEn": "",
     "manualCategories": {
       "subjects": [],
       "locations": []
@@ -253,7 +252,7 @@
     "image": "./images/paintings/thumbnails/019891b0-f39c-7192-92e6-0e1d7d4a52dc_thumb.png",
     "imageHigh": "./images/paintings/large/019891b0-f39c-7192-92e6-0e1d7d4a52dc_large.png",
     "description": "雲煙無去住，天地有大美。",
-    "descriptionEn": "Clouds and mist drift without end, the beauty of heaven and earth is vast.",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
     "format": "框",
@@ -270,7 +269,7 @@
   {
     "id": "019891b0-f39c-7036-9ac1-cbed9f6f03e5",
     "title": "梅嶺如雲－風櫃斗梅花林",
-    "titleEn": "Plum Ridge Like Clouds - Wind Cabinet Plum Blossom Grove",
+    "titleEn": "",
     "manualCategories": {
       "subjects": [],
       "locations": []
@@ -286,7 +285,7 @@
     "image": "./images/paintings/thumbnails/019891b0-f39c-7036-9ac1-cbed9f6f03e5_thumb.png",
     "imageHigh": "./images/paintings/large/019891b0-f39c-7036-9ac1-cbed9f6f03e5_large.png",
     "description": "盡日尋春不見春，芒鞋踏遍隴頭雲。歸來笑拈梅花嗅，春在枝頭已十分。",
-    "descriptionEn": "All day I seek for spring, yet spring I cannot find,  \nIn straw sandals I tread the clouds on the ridge behind.  \nReturning, I smile and pluck the plum blossoms to smell,  \nFor spring is already at the branch's tip, so well.",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
     "format": "軸",
@@ -334,7 +333,7 @@
   {
     "id": "019891b0-f39c-7b65-ab7f-c36ec9a747df",
     "title": "無心任始終—雲海(金宣)",
-    "titleEn": "Unfettered by Intent—Cloud Sea",
+    "titleEn": "",
     "manualCategories": {
       "subjects": [],
       "locations": []
@@ -349,7 +348,7 @@
     "image": "./images/paintings/thumbnails/019891b0-f39c-7b65-ab7f-c36ec9a747df_thumb.png",
     "imageHigh": "./images/paintings/large/019891b0-f39c-7b65-ab7f-c36ec9a747df_large.png",
     "description": "黃霞生遠岫，搖曳往西東。乘化隨舒卷，無心任始終。",
-    "descriptionEn": "Golden clouds rise from distant peaks,  \nSwaying gently, drifting west and east.  \nRiding the changes, unfolding and curling,  \nUnconcerned, they let beginnings and ends be.",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
     "format": "框",
@@ -398,7 +397,7 @@
   {
     "id": "019891b0-f39c-7f2c-96ed-160ad3c22a3f",
     "title": "煙雲情境",
-    "titleEn": "Mist and Cloud Reverie",
+    "titleEn": "",
     "manualCategories": {
       "subjects": [],
       "locations": []
@@ -413,7 +412,7 @@
     "image": "./images/paintings/thumbnails/019891b0-f39c-7f2c-96ed-160ad3c22a3f_thumb.png",
     "imageHigh": "./images/paintings/large/019891b0-f39c-7f2c-96ed-160ad3c22a3f_large.png",
     "description": "道之為物，惟恍惟惚。惚兮恍兮，其中有象。恍兮惚兮，其中有物。窈兮冥兮，其中有精。（老子‧道德經）",
-    "descriptionEn": "The Way, as a thing, is but a shadow, a dream.  \nIn the dream, there lies a form;  \nIn the shadow, there lies a substance.  \nProfound and dark, within it dwells the essence.",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
     "format": "框",
@@ -430,7 +429,7 @@
   {
     "id": "019891b0-f39c-7bae-8206-f4788f507776",
     "title": "煙霧中的花影－阿勃勒",
-    "titleEn": "Flower Shadows in the Mist - Yellow Cassia",
+    "titleEn": "",
     "manualCategories": {
       "subjects": [],
       "locations": []
@@ -445,7 +444,7 @@
     "image": "./images/paintings/thumbnails/019891b0-f39c-7bae-8206-f4788f507776_thumb.png",
     "imageHigh": "./images/paintings/large/019891b0-f39c-7bae-8206-f4788f507776_large.png",
     "description": "黃花舞煙蘊，天地成大美；盈盈無去住，淡中有真味。",
-    "descriptionEn": "Yellow flowers dance in mist, beauty of heaven and earth;  \nEver flowing, never staying, in the subtle lies true taste.",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
     "format": "軸",
@@ -462,7 +461,7 @@
   {
     "id": "019891b0-f39c-7a52-b635-427bdcdca491",
     "title": "白雲慈母心－北極熊",
-    "titleEn": "Motherly Heart of White Clouds - Polar Bear",
+    "titleEn": "",
     "manualCategories": {
       "subjects": [],
       "locations": []
@@ -477,7 +476,7 @@
     "image": "./images/paintings/thumbnails/019891b0-f39c-7a52-b635-427bdcdca491_thumb.png",
     "imageHigh": "./images/paintings/large/019891b0-f39c-7a52-b635-427bdcdca491_large.png",
     "description": "極目長望白雲深，天地無私慈母心。",
-    "descriptionEn": "Gazing far, the white clouds deep,  \nIn heaven and earth, a mother's heart, selfless and steep.",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
     "format": "軸",
@@ -494,7 +493,7 @@
   {
     "id": "019891b0-f39c-7cc4-ae49-d25008e1409d",
     "title": "秋波千萬情－天光雲影",
-    "titleEn": "Autumn Waves, Endless Affection - Light and Shadow of Sky and Clouds",
+    "titleEn": "",
     "manualCategories": {
       "subjects": [
         "山水"
@@ -511,7 +510,7 @@
     "image": "./images/paintings/thumbnails/019891b0-f39c-7cc4-ae49-d25008e1409d_thumb.png",
     "imageHigh": "./images/paintings/large/019891b0-f39c-7cc4-ae49-d25008e1409d_large.png",
     "description": "雲藏出塵心，煙戲眾樹影；窩居堪逍遙，秋波千萬情。",
-    "descriptionEn": "Clouds hide the worldly heart, smoke plays with shadows of trees;  \nIn a cozy nest, one can drift at ease, autumn waves hold countless feelings.",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
     "format": "框",
@@ -554,14 +553,12 @@
     "imageHigh": "./images/paintings/large/019891b0-f39c-79f7-8cab-78ad04b8b05d_large.png",
     "formatEn": "Hanging Scroll",
     "heightInches": 53.1,
-    "widthInches": 27.6,
-    "titleEn": "Wisteria and Twin Swallows",
-    "descriptionEn": "A pair of fine birds soar with ease,  \nA myriad of purple smoke dances in spring's embrace."
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7a23-a18f-085445820f6c",
     "title": "聚葉潑成千點墨－畫菊",
-    "titleEn": "Gathered Leaves, Inked in a Thousand Dots - Painting Chrysanthemums",
+    "titleEn": "",
     "manualCategories": {
       "subjects": [],
       "locations": []
@@ -576,7 +573,7 @@
     "image": "./images/paintings/thumbnails/019891b0-f39c-7a23-a18f-085445820f6c_thumb.png",
     "imageHigh": "./images/paintings/large/019891b0-f39c-7a23-a18f-085445820f6c_large.png",
     "description": "詩餘戲筆不知狂，豈是丹青費較量？聚葉潑成千點墨，攢花染出幾痕霜。淡濃神會風前影，跳脫秋生腕底香。莫認東籬閑采掇，黏屏聊以慰重陽。",
-    "descriptionEn": "After verses, I play with my brush in wild abandon,  \nIs it not a futile measure of ink and hue?  \nGathering leaves, I splash a thousand dots of ink,  \nPiling flowers, I dye a few traces of frost.  \nIn subtle shades, the spirit meets the shadow before the wind,  \nLeaping free, the autumn essence lingers on my wrist.  \nDo not mistake the eastern fence for idle gathering,  \nI cling to the screen, seeking solace on the Double Ninth.",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
     "format": "軸",
@@ -593,7 +590,7 @@
   {
     "id": "019891b0-f39c-7e69-8910-34d57c0a6589",
     "title": "自在飛花輕似夢－雨中紫藤",
-    "titleEn": "Free-Flying Blossoms as Light as Dreams - Wisteria in the Rain",
+    "titleEn": "",
     "manualCategories": {
       "subjects": [],
       "locations": []
@@ -608,7 +605,7 @@
     "image": "./images/paintings/thumbnails/019891b0-f39c-7e69-8910-34d57c0a6589_thumb.png",
     "imageHigh": "./images/paintings/large/019891b0-f39c-7e69-8910-34d57c0a6589_large.png",
     "description": "自在飛花輕似夢，無邊絲雨細如愁。",
-    "descriptionEn": "Freely flying blossoms, light as dreams,  \nEndless strands of rain, fine as sorrow.",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
     "format": "軸",
@@ -657,7 +654,7 @@
   {
     "id": "019891b0-f39c-7839-9ec1-f0013b25f208",
     "title": "雪壩煙雲",
-    "titleEn": "Snowy Banks and Misty Clouds",
+    "titleEn": "",
     "manualCategories": {
       "subjects": [],
       "locations": []
@@ -674,7 +671,7 @@
     "image": "./images/paintings/thumbnails/019891b0-f39c-7839-9ec1-f0013b25f208_thumb.png",
     "imageHigh": "./images/paintings/large/019891b0-f39c-7839-9ec1-f0013b25f208_large.png",
     "description": "紛紛風雪遍茫茫，山徑登臨曲且長；行健乾坤常惠物，歲寒古柏漫留香。",
-    "descriptionEn": "Amidst the swirling wind and snow so vast,  \nThe mountain path ascends, winding and long;  \nIn vigorous stride, the universe bestows,  \nWhile ancient pines in winter linger strong.",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
     "format": "軸",
@@ -691,7 +688,7 @@
   {
     "id": "019891b0-f39c-76d4-86ba-1ec281b83433",
     "title": "雲蒸霞蔚－雲揚阿里山",
-    "titleEn": "Clouds Rising, Hues of Dawn - Clouds Over Alishan",
+    "titleEn": "",
     "manualCategories": {
       "subjects": [],
       "locations": []
@@ -708,7 +705,7 @@
     "image": "./images/paintings/thumbnails/019891b0-f39c-76d4-86ba-1ec281b83433_thumb.png",
     "imageHigh": "./images/paintings/large/019891b0-f39c-76d4-86ba-1ec281b83433_large.png",
     "description": "雲蒸霞蔚、神采飛揚，眾美所赴、萬妙所歸，無為無形、有情有信，參贊化育、天人合一。",
-    "descriptionEn": "Clouds rise and mist glows, spirits soar high,  \nAll beauties converge, myriad wonders comply.  \nFormless and effortless, yet feelings run deep,  \nNurturing harmony, where heaven and humanity leap.",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
     "format": "軸",
@@ -751,8 +748,7 @@
     "imageHigh": "",
     "formatEn": "Framed",
     "heightInches": 9.1,
-    "widthInches": 13.8,
-    "titleEn": "Ink Lotus - Cool Fragrance of Blue Smoke Rising"
+    "widthInches": 13.8
   },
   {
     "id": "019891b0-f39c-7e66-b993-7dabeab00451",
@@ -917,7 +913,7 @@
   {
     "id": "019891b0-f39c-748f-a906-1de3f9f5b3b6",
     "title": "萬縷紫煙飛自在",
-    "titleEn": "A Thousand Threads of Purple Smoke Soar Freely",
+    "titleEn": "",
     "manualCategories": {
       "subjects": [
         "花鳥"
@@ -933,7 +929,7 @@
     "image": "./images/paintings/thumbnails/019891b0-f39c-748f-a906-1de3f9f5b3b6_thumb.png",
     "imageHigh": "./images/paintings/large/019891b0-f39c-748f-a906-1de3f9f5b3b6_large.png",
     "description": "萬縷紫煙飛自在，一枝藤影繫深情。",
-    "descriptionEn": "A myriad threads of purple smoke drift freely,  \nA single vine's shadow binds deep affection.",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
     "format": "軸",
@@ -950,7 +946,7 @@
   {
     "id": "019891b0-f39c-76be-93c8-cf4233295e95",
     "title": "頌母恩",
-    "titleEn": "Ode to Maternal Grace",
+    "titleEn": "",
     "manualCategories": {
       "subjects": [],
       "locations": []
@@ -965,7 +961,7 @@
     "image": "./images/paintings/thumbnails/019891b0-f39c-76be-93c8-cf4233295e95_thumb.png",
     "imageHigh": "./images/paintings/large/019891b0-f39c-76be-93c8-cf4233295e95_large.png",
     "description": "誰言寸草心，報得三春暉。",
-    "descriptionEn": "Who says a blade of grass can repay,  \nThe warmth of spring's threefold ray?",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
     "format": "框",
@@ -1265,9 +1261,7 @@
     ],
     "formatEn": "Framed",
     "heightInches": 17.7,
-    "widthInches": 27.6,
-    "titleEn": "Plum Blossom – Inked Ice Spirit, Clear Wind and White Moon.",
-    "descriptionEn": "Not the fragrance of darkness, but the shadow of clarity;  \nInk writes the soul of ice, as the wind is pure and the moon is white."
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-745a-b6ad-58e4e8545268",
@@ -1462,7 +1456,7 @@
   {
     "id": "019891b0-f39c-7c93-99be-4338883f37f7",
     "title": "煙擁合歡－合歡梯田",
-    "titleEn": "Embrace of Smoke and Joy – Joyful Terraces",
+    "titleEn": "",
     "manualCategories": {
       "subjects": [],
       "locations": []
@@ -1478,7 +1472,7 @@
     "image": "./images/paintings/thumbnails/019891b0-f39c-7c93-99be-4338883f37f7_thumb.png",
     "imageHigh": "./images/paintings/large/019891b0-f39c-7c93-99be-4338883f37f7_large.png",
     "description": "煙擁合歡，霧潤良疇，碧山含笑，雲凝翠黛，天然節奏，有象文章，風光綿延，機趣無窮。",
-    "descriptionEn": "Smoke embraces the harmonies, mist moistens the fertile fields,  \nEmerald mountains wear a smile, clouds gather like jade brows.  \nNature's rhythm flows, embodying the essence of prose,  \nScenery stretches endlessly, with endless charm it bestows.",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
     "format": "框",
@@ -1593,7 +1587,7 @@
   {
     "id": "019891b0-f39c-7c9a-9ae8-6dccaca82b5f",
     "title": "穹蒼萬頃，是我家鄉。(黃山煙雲)",
-    "titleEn": "Vast Sky, My Hometown",
+    "titleEn": "",
     "manualCategories": {
       "subjects": [],
       "locations": []
@@ -1610,7 +1604,7 @@
     "image": "./images/paintings/thumbnails/019891b0-f39c-7c9a-9ae8-6dccaca82b5f_thumb.png",
     "imageHigh": "./images/paintings/large/019891b0-f39c-7c9a-9ae8-6dccaca82b5f_large.png",
     "description": "江山嬌麗，質樸蘊寓，法象流長，滋生不息，煙波勁湧，凌空無盡，古松盎然，造物機心；心與物遊，依仁由藝，筆寫天地，墨染雲霞，大鵬展翅，自在翱翔，穹蒼萬頃，是我家鄉。",
-    "descriptionEn": "The land is beautiful, simple yet profound,  \nWith laws that flow long, life ever unbound.  \nMist and waves surge, endless in the sky,  \nAncient pines flourish, nature's design nearby.  \nHeart wanders with things, in kindness and art,  \nWith brush I write worlds, ink dyes clouds that depart.  \nThe great roc spreads wings, soaring free in the air,  \nThe vast heavens stretch wide, this is my homeland fair.",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
     "format": "鏡片",
@@ -1627,7 +1621,7 @@
   {
     "id": "019891b0-f39c-7f16-a8d3-c83d48beb81e",
     "title": "筆走雷霆萬壑鳴－夏瀑",
-    "titleEn": "Thunderous Brushstrokes over the Summer Falls",
+    "titleEn": "",
     "manualCategories": {
       "subjects": [],
       "locations": []
@@ -1642,7 +1636,7 @@
     "image": "./images/paintings/thumbnails/019891b0-f39c-7f16-a8d3-c83d48beb81e_thumb.jpg",
     "imageHigh": "./images/paintings/large/019891b0-f39c-7f16-a8d3-c83d48beb81e_large.jpg",
     "description": "墨潑飛瀑三千尺，筆走雷霆萬壑鳴。",
-    "descriptionEn": "Ink splashes cascade three thousand feet,  \nBrush strokes thunder, echoing through myriad valleys.",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
     "format": "軸",
@@ -1816,9 +1810,7 @@
     ],
     "formatEn": "Framed",
     "heightInches": 27.6,
-    "widthInches": 27.6,
-    "titleEn": "Blossoms of Bodhi Illuminate the Eyes",
-    "descriptionEn": "The Bodhi blooms, its light aglow."
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7cd6-a030-0406121e5164",
@@ -1856,7 +1848,7 @@
   {
     "id": "019891b0-f39c-7614-95c9-2db8260fcc98",
     "title": "臨懷仁集王羲之聖教序",
-    "titleEn": "Tribute to Wang Xizhi's Sacred Teachings",
+    "titleEn": "",
     "manualCategories": {
       "subjects": [],
       "locations": []
@@ -2081,7 +2073,7 @@
   {
     "id": "019891b0-f39c-7817-98ab-ec870aa5b2aa",
     "title": "天行健君子以自強不息―伊瓜蘇瀑布",
-    "titleEn": "Heavenly Motion: The Noble Man Strives Unceasingly - Iguazu Falls",
+    "titleEn": "",
     "manualCategories": {
       "subjects": [],
       "locations": []
@@ -2098,7 +2090,7 @@
     "image": "./images/paintings/thumbnails/019891b0-f39c-7817-98ab-ec870aa5b2aa_thumb.png",
     "imageHigh": "./images/paintings/large/019891b0-f39c-7817-98ab-ec870aa5b2aa_large.png",
     "description": "天行健，君子以自強不息。",
-    "descriptionEn": "The heavens move with strength, the noble man strives unceasingly.",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
     "format": "框",
@@ -2172,9 +2164,7 @@
     ],
     "formatEn": "Framed",
     "heightInches": 27.6,
-    "widthInches": 27.6,
-    "titleEn": "The Brush Creates Flowers, Joy in Understanding - Peony",
-    "descriptionEn": "With skillful brush, flowers bloom in joy,  \nCalmly the ink falls, longevity bestowed."
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7b7d-8e54-83ae4f652136",
@@ -2304,9 +2294,7 @@
     ],
     "formatEn": "Framed",
     "heightInches": 27.6,
-    "widthInches": 17.7,
-    "titleEn": "Serendipity - Encounters are Destiny - Ink Lotus",
-    "descriptionEn": "Serendipity - To meet is to be fated."
+    "widthInches": 17.7
   },
   {
     "id": "019891b0-f39c-755d-a7dc-fb045eb4ef1c",
@@ -2589,9 +2577,7 @@
     ],
     "formatEn": "Framed",
     "heightInches": 27.6,
-    "widthInches": 27.6,
-    "titleEn": "Peony - The Brush Blossoms with Joyful Words",
-    "descriptionEn": "With skillful brush, joy in words takes flight,  \nCalmly the ink falls, blessings long in sight."
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7edc-9801-8bc9199124f3",
@@ -2650,9 +2636,7 @@
     ],
     "formatEn": "Framed",
     "heightInches": 27.6,
-    "widthInches": 17.7,
-    "titleEn": "A Branch of Spring Soars in the Void",
-    "descriptionEn": "Freely soaring feathers dance in three shadows,  \nIn the void, a single branch of spring reaches the sky."
+    "widthInches": 17.7
   },
   {
     "id": "019891b0-f39c-793d-819d-6c57e1716730",
@@ -2683,8 +2667,7 @@
     ],
     "formatEn": "Hanging Scroll",
     "heightInches": 53.1,
-    "widthInches": 27.6,
-    "titleEn": "Wisteria"
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7c00-a038-c6c7bb860cbf",
@@ -2715,9 +2698,7 @@
     ],
     "formatEn": "Hanging Scroll",
     "heightInches": 53.1,
-    "widthInches": 27.6,
-    "titleEn": "Dancing Purple Snow, Gracefully Floating with the Wind",
-    "descriptionEn": "Purple snow dances in the sky, drifting freely with the wind."
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-73b5-88ac-2d98332bfd68",
@@ -2785,7 +2766,7 @@
   {
     "id": "019891b0-f39c-7df5-a02e-1cc15d22bb57",
     "title": "萬壑松風圖",
-    "titleEn": "Pine Winds in Ten Thousand Ravines",
+    "titleEn": "",
     "manualCategories": {
       "subjects": [],
       "locations": []
@@ -2842,9 +2823,7 @@
     ],
     "formatEn": "Framed",
     "heightInches": 27.6,
-    "widthInches": 17.7,
-    "titleEn": "Graceful Dance of Peonies in Tranquil Harmony",
-    "descriptionEn": "Graceful and splendid, dancing in serene harmony."
+    "widthInches": 17.7
   },
   {
     "id": "019891b0-f39c-79ee-915a-34d3aa1decd1",
@@ -3104,9 +3083,7 @@
     ],
     "formatEn": "Framed",
     "heightInches": 27.6,
-    "widthInches": 17.7,
-    "titleEn": "Transcending Form - Wisteria",
-    "descriptionEn": "Forget the form."
+    "widthInches": 17.7
   },
   {
     "id": "019891b0-f39c-73d5-ae97-3d296dba78a1",
@@ -3171,9 +3148,7 @@
     ],
     "formatEn": "Framed",
     "heightInches": 9.4,
-    "widthInches": 27.6,
-    "titleEn": "Leisurely Wanderings",
-    "descriptionEn": "Leisurely wandering."
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7f63-87fd-b7a8a860889f",
@@ -3204,9 +3179,7 @@
     ],
     "formatEn": "Framed",
     "heightInches": 26.8,
-    "widthInches": 17.7,
-    "titleEn": "A Bird on a Branch Greets the Wind - Cherry Blossoms",
-    "descriptionEn": "On the branch, a small bird stands in the wind,  \nAdorable in deep red and light red hues."
+    "widthInches": 17.7
   },
   {
     "id": "019891b0-f39c-7403-80d4-4da1440b7976",
@@ -3303,7 +3276,7 @@
   {
     "id": "019891b0-f39c-7b75-910e-8ef8046a7bb9",
     "title": "江流浩蕩-尼加拉瀑布金秋",
-    "titleEn": "Majestic River - Niagara Falls in Golden Autumn",
+    "titleEn": "",
     "manualCategories": {
       "subjects": [],
       "locations": []
@@ -3320,7 +3293,7 @@
     "image": "./images/paintings/thumbnails/019891b0-f39c-7b75-910e-8ef8046a7bb9_thumb.jpg",
     "imageHigh": "./images/paintings/large/019891b0-f39c-7b75-910e-8ef8046a7bb9_large.jpg",
     "description": "江流化飛瀑，浩蕩育群生。",
-    "descriptionEn": "The river flows, transforming into a flying waterfall,  \nMajestic and vast, nurturing all living beings.",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
     "format": "框",
@@ -3664,9 +3637,7 @@
     ],
     "formatEn": "Framed",
     "heightInches": 6.7,
-    "widthInches": 36.2,
-    "titleEn": "Fragrance of Rice Blossoms",
-    "descriptionEn": "Fragrance of rice blossoms."
+    "widthInches": 36.2
   },
   {
     "id": "019891b0-f39c-706e-bdb9-c752dc8bcf1f",
@@ -3791,9 +3762,7 @@
     ],
     "formatEn": "Mounted Panel",
     "heightInches": 38.2,
-    "widthInches": 70.9,
-    "titleEn": "Free-Flying Blossoms – Wisteria",
-    "descriptionEn": "Expressing the wonders within my heart, I embrace the eternal vastness of the sky."
+    "widthInches": 70.9
   },
   {
     "id": "019891b0-f39c-7809-a063-80f25d10a396",
@@ -3886,9 +3855,7 @@
     ],
     "formatEn": "Framed",
     "heightInches": 26.8,
-    "widthInches": 17.7,
-    "titleEn": "Blossoms of Prosperity and Joyful Encounters - Peony",
-    "descriptionEn": "When flowers bloom, wealth and honor meet in joy."
+    "widthInches": 17.7
   },
   {
     "id": "019891b0-f39c-70a8-aa76-019cadc5409d",
@@ -3918,8 +3885,7 @@
       "locations": []
     },
     "heightInches": 29.5,
-    "widthInches": 8.7,
-    "descriptionEn": "In tranquil joy, the heart is free from schemes,  \nBeneath the green shade, willows veil in dreams."
+    "widthInches": 8.7
   },
   {
     "id": "019891b0-f39c-729c-bef5-b90e2cafb77e",
@@ -4079,9 +4045,7 @@
       "flowers"
     ],
     "heightInches": 18.1,
-    "widthInches": 17.7,
-    "titleEn": "Unblemished Heart Beyond the Mundane",
-    "descriptionEn": "In the lotus pond, countless blooms do not need to be plucked,  \nBehold, a heart untouched by worldly dust."
+    "widthInches": 17.7
   },
   {
     "id": "019891b0-f39c-7a90-ab98-022c8b72668e",
@@ -4113,14 +4077,12 @@
       "abstract"
     ],
     "heightInches": 27.6,
-    "widthInches": 17.7,
-    "titleEn": "Ancient Moon",
-    "descriptionEn": "Green plums surpass the outer form, ancient moon illuminates today's dust."
+    "widthInches": 17.7
   },
   {
     "id": "019891b0-f39c-728a-b3ca-313cab5b59d0",
     "title": "吾心似秋月(漢隸)",
-    "titleEn": "My Heart Like the Autumn Moon",
+    "titleEn": "",
     "manualCategories": {
       "subjects": [],
       "locations": []
@@ -4135,9 +4097,9 @@
     "image": "",
     "imageHigh": "",
     "description": "己丑唐寒山子禪詩吾心似秋月",
-    "descriptionEn": "In the year of the Earth Ox, the cold mountain's Zen verse,  \nMy heart resembles the autumn moon.",
+    "descriptionEn": "",
     "curatorNote": "南投縣玉山美展入選",
-    "curatorNoteEn": "Selected for the Yushan Art Exhibition in Nantou County.",
+    "curatorNoteEn": "",
     "format": "",
     "formatEn": "",
     "heightCm": 180,
@@ -4179,7 +4141,7 @@
   {
     "id": "019891b0-f39c-7972-b2d2-06fc3c573914",
     "title": "大造本無方",
-    "titleEn": "The Great Creation Has No Form",
+    "titleEn": "",
     "manualCategories": {
       "subjects": [],
       "locations": []
@@ -4191,7 +4153,7 @@
     "image": "./images/paintings/thumbnails/019891b0-f39c-7972-b2d2-06fc3c573914_thumb.png",
     "imageHigh": "./images/paintings/large/019891b0-f39c-7972-b2d2-06fc3c573914_large.png",
     "description": "大造本無方，云何是應住；既從空中來，應向空中去。",
-    "descriptionEn": "The great creation knows no bounds, how can it be confined?  \nHaving come from the void above, it should return to the void in kind.",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
     "format": "",
@@ -4239,7 +4201,7 @@
   {
     "id": "019891b0-f39c-7441-a5a7-dc968e455d98",
     "title": "天光雲影共徘徊─新中橫夫妻樹",
-    "titleEn": "Heavenly Light and Cloud Shadows Intertwined - The Couple's Tree of New Central Cross",
+    "titleEn": "",
     "manualCategories": {
       "subjects": [],
       "locations": []
@@ -4254,7 +4216,7 @@
     "image": "./images/paintings/thumbnails/019891b0-f39c-7441-a5a7-dc968e455d98_thumb.png",
     "imageHigh": "./images/paintings/large/019891b0-f39c-7441-a5a7-dc968e455d98_large.png",
     "description": "夫妻情長意綿延，雲海靈動常為伴；天光穿空來相映，清風有心去復還。",
-    "descriptionEn": "The bond of husband and wife, deep and long,  \nIn the sea of clouds, spirits dance along;  \nHeaven's light pierces the void, a radiant embrace,  \nThe gentle breeze, with intent, returns to its place.",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
     "format": "",
@@ -4482,13 +4444,12 @@
       "flowers"
     ],
     "heightInches": 53.1,
-    "widthInches": 27.6,
-    "titleEn": "Harmony of Frost and Snow (Peony, Plum Blossom)"
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7386-a86e-60369bb2ecd5",
     "title": "月梅圖-形影神",
-    "titleEn": "Moon and Plum Blossoms - Form, Shadow, Spirit",
+    "titleEn": "",
     "manualCategories": {
       "subjects": [],
       "locations": []
@@ -4502,7 +4463,7 @@
     "image": "./images/paintings/thumbnails/019891b0-f39c-7386-a86e-60369bb2ecd5_thumb.png",
     "imageHigh": "./images/paintings/large/019891b0-f39c-7386-a86e-60369bb2ecd5_large.png",
     "description": "陶淵明形影神詩",
-    "descriptionEn": "In the realm of quietude, I find my peace,  \nWhere shadows dance and spirits cease.  \nAmidst the blooms of nature's grace,  \nI wander free, my soul's embrace.  \n\nWith every breath, the world unfolds,  \nIn whispered tales that time beholds.  \nThe essence of life, both pure and bright,  \nGuides my heart through day and night.",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
     "format": "",
@@ -4698,14 +4659,12 @@
       "flowers"
     ],
     "heightInches": 27.6,
-    "widthInches": 27.6,
-    "titleEn": "Plum Blossom and Little Bird",
-    "descriptionEn": "Plum blossoms divide in hues of red and white."
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7605-8810-2ec32c05d109",
     "title": "活水潤物天地春-春瀑",
-    "titleEn": "Spring Waterfall: Life-Giving Waters of Spring",
+    "titleEn": "",
     "manualCategories": {
       "subjects": [],
       "locations": []
@@ -4722,7 +4681,7 @@
     "image": "./images/paintings/thumbnails/019891b0-f39c-7605-8810-2ec32c05d109_thumb.png",
     "imageHigh": "./images/paintings/large/019891b0-f39c-7605-8810-2ec32c05d109_large.png",
     "description": "江流白雲花經眼，活水潤物天地春。",
-    "descriptionEn": "The river flows, white clouds and flowers meet the eye,  \nLiving waters nourish all, spring fills the earth and sky.",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
     "format": "",
@@ -4800,7 +4759,7 @@
   {
     "id": "019891b0-f39c-7e3e-ae29-6cf7e37cc717",
     "title": "溪頭秋色",
-    "titleEn": "Autumn Colors by the Stream",
+    "titleEn": "",
     "image": "",
     "imageHigh": "",
     "description": "花繁樹茂滿溪頭，碧水竹橋景色幽；遊客穿梭天上過，涼亭小憩賞清秋。",
@@ -4826,8 +4785,7 @@
       "locations": []
     },
     "heightInches": 27.6,
-    "widthInches": 53.1,
-    "descriptionEn": "Flowers bloom and trees are lush by the stream's head,  \nClear waters and bamboo bridges in tranquil spread;  \nVisitors weave through the sky above,  \nIn the cool pavilion, they rest and savor autumn's love."
+    "widthInches": 53.1
   },
   {
     "id": "019891b0-f39c-7b8d-9017-a3c20acb6a5e",
@@ -4983,7 +4941,7 @@
   {
     "id": "019891b0-f39c-7b5a-9017-6de6a497f059",
     "title": "煙聲一縷一塵埃-大瀑布",
-    "titleEn": "A Whisper of Smoke and Dust - The Great Waterfall",
+    "titleEn": "",
     "manualCategories": {
       "subjects": [],
       "locations": []
@@ -4999,7 +4957,7 @@
     "image": "./images/paintings/thumbnails/019891b0-f39c-7b5a-9017-6de6a497f059_thumb.png",
     "imageHigh": "./images/paintings/large/019891b0-f39c-7b5a-9017-6de6a497f059_large.png",
     "description": "放眼大千境始開，烟聲一縷一塵埃；飛天素染無盡意，流水行雲去復來。",
-    "descriptionEn": "Gazing wide, the vast realm unfolds,  \nA whisper of smoke, a speck of dust;  \nHeavenly flights, in pure hues untold,  \nFlowing waters and drifting clouds, return and trust.",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
     "format": "",
@@ -5041,9 +4999,7 @@
       "flowers"
     ],
     "heightInches": 27.6,
-    "widthInches": 53.1,
-    "titleEn": "Peony's Noble Elegance Crowned Among Blossoms",
-    "descriptionEn": "The peony, noble, crowns all blooms,  \nIn full splendor, fills the courtyard's rooms."
+    "widthInches": 53.1
   },
   {
     "id": "019891b0-f39c-754c-b2f3-0042b0f1eda6",
@@ -5165,7 +5121,7 @@
   {
     "id": "019891b0-f39c-7b3a-a7ae-03eba18e8809",
     "title": "秋月月偏明(漢隸)",
-    "titleEn": "Autumn Moonlight",
+    "titleEn": "",
     "manualCategories": {
       "subjects": [],
       "locations": []
@@ -5180,9 +5136,9 @@
     "image": "./images/paintings/thumbnails/019891b0-f39c-7b3a-a7ae-03eba18e8809_thumb.png",
     "imageHigh": "./images/paintings/large/019891b0-f39c-7b3a-a7ae-03eba18e8809_large.png",
     "description": "唐張南史和崔中丞中秋月詩",
-    "descriptionEn": "In autumn's night, the moon ascends so bright,  \nReflecting dreams of distant lands in flight.  \nWith friends beside, we share this tranquil glow,  \nAs whispers of the past in silence flow.  \nThe cool breeze stirs, a gentle, soothing balm,  \nWhile hearts unite beneath the moon's soft calm.  \nThough miles apart, our thoughts entwine as one,  \nIn this serene embrace, our souls have spun.",
+    "descriptionEn": "",
     "curatorNote": "台中縣美展入選",
-    "curatorNoteEn": "Selected for the Taichung County Art Exhibition.",
+    "curatorNoteEn": "",
     "format": "",
     "formatEn": "",
     "heightCm": 180,
@@ -5382,7 +5338,7 @@
   {
     "id": "019891b0-f39c-7e2c-aab1-3c1bd010b1f7",
     "title": "結廬人境外(漢隸)",
-    "titleEn": "Dwelling Beyond Human Realm",
+    "titleEn": "",
     "manualCategories": {
       "subjects": [],
       "locations": []
@@ -5397,9 +5353,9 @@
     "image": "./images/paintings/thumbnails/019891b0-f39c-7e2c-aab1-3c1bd010b1f7_thumb.png",
     "imageHigh": "./images/paintings/large/019891b0-f39c-7e2c-aab1-3c1bd010b1f7_large.png",
     "description": "清敬安禪師住山吟為與了上人作詩",
-    "descriptionEn": "In tranquil respect, Master An dwells in the mountain's embrace,  \nComposing verses to share with the enlightened one’s grace.",
+    "descriptionEn": "",
     "curatorNote": "中縣美展第二名",
-    "curatorNoteEn": "Second place in the Zhongxian Art Exhibition.",
+    "curatorNoteEn": "",
     "format": "",
     "formatEn": "",
     "heightCm": 180,
@@ -5567,7 +5523,7 @@
   {
     "id": "019891b0-f39c-7aed-9fac-21a5e94b8c1f",
     "title": "花能解語－問菊",
-    "titleEn": "Flowers Speak – Inquiring of the Chrysanthemum",
+    "titleEn": "",
     "manualCategories": {
       "subjects": [],
       "locations": []
@@ -5582,7 +5538,7 @@
     "image": "./images/paintings/thumbnails/019891b0-f39c-7aed-9fac-21a5e94b8c1f_thumb.png",
     "imageHigh": "./images/paintings/large/019891b0-f39c-7aed-9fac-21a5e94b8c1f_large.png",
     "description": "欲問秋情眾莫知，喃喃負手扣東籬：孤標傲世偕誰隱？一樣花開為底遲？圃露庭霜何寂寞？雁歸蝨病可相思？莫言舉世無談者，解語何妨話片時。",
-    "descriptionEn": "To ask of autumn's feelings, none can know,  \nWith hands behind, I tap the eastern fence so slow.  \nWho shares this lone mark, proud in the world’s disguise?  \nWhy does one flower bloom, yet linger in its sighs?  \nIn the garden's dew, the frost feels so forlorn,  \nAs geese return, can love's pain be reborn?  \nDo not say the world lacks those who speak,  \nWhat harm in sharing words, if just for a brief peek?",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
     "format": "",
@@ -5778,13 +5734,12 @@
       "flowers"
     ],
     "heightInches": 53.1,
-    "widthInches": 27.6,
-    "titleEn": "Gazing at the Chrysanthemums, Worries Fade Away"
+    "widthInches": 27.6
   },
   {
     "id": "019891b0-f39c-7764-a468-4f7ad6140df2",
     "title": "赤壁賦(行草)",
-    "titleEn": "Ode to the Red Cliffs",
+    "titleEn": "",
     "manualCategories": {
       "subjects": [],
       "locations": []
@@ -5815,7 +5770,7 @@
   {
     "id": "019891b0-f39c-7ec8-a85c-a9c9c25cf4b5",
     "title": "輝映海天萬里金－鰲鼓夕照",
-    "titleEn": "Golden Reflections of Sea and Sky - Sunset at Aogu",
+    "titleEn": "",
     "manualCategories": {
       "subjects": [],
       "locations": []
@@ -5830,7 +5785,7 @@
     "image": "./images/paintings/thumbnails/019891b0-f39c-7ec8-a85c-a9c9c25cf4b5_thumb.png",
     "imageHigh": "./images/paintings/large/019891b0-f39c-7ec8-a85c-a9c9c25cf4b5_large.png",
     "description": "無邊雲霞自去來，輝映海天萬里金；而今得結煙霞侶，休管人生幻與真。",
-    "descriptionEn": "Endless clouds and rosy hues come and go,  \nIlluminating the sea and sky in golden glow;  \nNow I find a companion in mist and haze,  \nLet life’s illusions and truths drift away.",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
     "format": "",
@@ -6001,7 +5956,7 @@
   {
     "id": "019891b0-f39c-79c6-bfe0-4790c6114ae9",
     "title": "雲濤萬頃舞穹蒼（黃山雲瀑）",
-    "titleEn": "Dancing Clouds over Vast Waves",
+    "titleEn": "",
     "manualCategories": {
       "subjects": [],
       "locations": []
@@ -6019,7 +5974,7 @@
     "image": "./images/paintings/thumbnails/019891b0-f39c-79c6-bfe0-4790c6114ae9_thumb.png",
     "imageHigh": "./images/paintings/large/019891b0-f39c-79c6-bfe0-4790c6114ae9_large.png",
     "description": "雲瀑騰奔去，砥根立圖間；古今豈增減？大化自循環。",
-    "descriptionEn": "The clouds cascade and rush away,  \nWhile the roots stand firm between the plans;  \nDo ancient and modern truly add or subtract?  \nThe great transformation flows in cycles grand.",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
     "format": "",
@@ -6036,7 +5991,7 @@
   {
     "id": "019891b0-f39c-7109-bdf7-2aff4e78b0ee",
     "title": "雲白任舒卷－玉山白木林",
-    "titleEn": "Clouds Unfurling at Will - Jade Mountain's White Forest",
+    "titleEn": "",
     "manualCategories": {
       "subjects": [],
       "locations": []
@@ -6053,7 +6008,7 @@
     "image": "./images/paintings/thumbnails/019891b0-f39c-7109-bdf7-2aff4e78b0ee_thumb.png",
     "imageHigh": "./images/paintings/large/019891b0-f39c-7109-bdf7-2aff4e78b0ee_large.png",
     "description": "雲白任舒卷，林深霜葉紅；乍疑方外好，不與世間同。",
-    "descriptionEn": "The clouds drift freely, white and wide,  \nIn deep woods, frost-kissed leaves turn red;  \nAt times, I doubt the joys outside,  \nYet with the world, I choose not to tread.",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
     "format": "",
@@ -6070,7 +6025,7 @@
   {
     "id": "019891b0-f39c-7c4e-b473-973fecc8171d",
     "title": "雲自來去花自紅─玉山‧杜鵑‧雲海",
-    "titleEn": "Clouds Come and Go, Flowers Bloom and Fade - Jade Mountain, Azalea, Sea of Clouds",
+    "titleEn": "",
     "manualCategories": {
       "subjects": [],
       "locations": []
@@ -6088,7 +6043,7 @@
     "image": "./images/paintings/thumbnails/019891b0-f39c-7c4e-b473-973fecc8171d_thumb.png",
     "imageHigh": "./images/paintings/large/019891b0-f39c-7c4e-b473-973fecc8171d_large.png",
     "description": "無限江山千里外，雲自來去花自紅。",
-    "descriptionEn": "Endless rivers and mountains stretch afar,  \nClouds come and go, while flowers bloom in scarlet.",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
     "format": "",
@@ -6133,7 +6088,7 @@
   {
     "id": "artwork-987218839",
     "title": "江山如此多好",
-    "titleEn": "Such Beauty in Rivers and Mountains",
+    "titleEn": "",
     "manualCategories": {
       "subjects": [
         "煙雲"
@@ -6149,7 +6104,7 @@
     "image": "./images/paintings/thumbnails/artwork-987218839_thumb.png",
     "imageHigh": "./images/paintings/large/artwork-987218839_large.png",
     "description": "江山如此多好",
-    "descriptionEn": "The rivers and mountains are so splendid.",
+    "descriptionEn": "",
     "curatorNote": "",
     "curatorNoteEn": "",
     "format": "",
