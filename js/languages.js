@@ -160,7 +160,7 @@ const LANGUAGE_DATA = {
             availableStatus: "Original Art Inquiry",
             soldStatus: "Original Art Sold",
             yearLabel: "Year",
-            dimensionsLabel: "Size(HxW cm)", 
+            dimensionsLabel: "Size(HxW)", 
             mediumLabel: "Medium",
             formatLabel: "Format",
             shareTitle: "Share Artwork",
@@ -184,7 +184,7 @@ const LANGUAGE_DATA = {
             
             // Artwork info fields
             artworkTitle: "Artwork Title",
-            artworkSize: "Dimensions", 
+            artworkSize: "Dimensions(HxW)", 
             artworkFormat: "Framing",
             artworkYear: "Year Created",
             
@@ -451,7 +451,7 @@ const LANGUAGE_DATA = {
             availableStatus: "點此洽詢購買原作",
             soldStatus: "原作已售出",
             yearLabel: "年份",
-            dimensionsLabel: " 尺寸（高x寬 cm）",
+            dimensionsLabel: " 尺寸(高x寬)",
             mediumLabel: "媒材", 
             formatLabel: "裝裱",
             shareTitle: "分享作品",
@@ -475,7 +475,7 @@ const LANGUAGE_DATA = {
             
             // 作品資訊欄位
             artworkTitle: "作品名稱",
-            artworkSize: "尺寸",
+            artworkSize: "尺寸(高x寬)",
             artworkFormat: "裝裱方式",
             artworkYear: "創作年份",
             

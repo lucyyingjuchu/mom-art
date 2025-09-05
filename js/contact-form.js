@@ -445,10 +445,20 @@ function populateArtworkInfo() {
     
     if (currentLang === 'zh') {
         title = artwork.title || '未命名作品';
-        size = artwork.sizeCm || '未指定';
+        size = artwork.heightCm && artwork.widthCm ? 
+            `${artwork.heightCm} x ${artwork.widthCm} cm` : 
+            artwork.sizeCm || '未指定';
     } else {
         title = artwork.titleEn || artwork.title || 'Untitled';
-        size = artwork.sizeCm || artwork.sizeInches || 'Not specified';
+        if (artwork.heightCm && artwork.widthCm && artwork.heightInches && artwork.widthInches) {
+            size = `${artwork.heightCm} x ${artwork.widthCm} cm (${artwork.heightInches}" x ${artwork.widthInches}")`;
+        } else if (artwork.sizeCm && artwork.sizeInches) {
+            size = `${artwork.sizeCm} (${artwork.sizeInches})`;
+        } else if (artwork.heightCm && artwork.widthCm) {
+            size = `${artwork.heightCm} x ${artwork.widthCm} cm`;
+        } else {
+            size = artwork.sizeCm || artwork.sizeInches || 'Not specified';
+        }
     }
     
     // Set the values
@@ -559,7 +569,7 @@ function handleFormSubmit(e) {
             id: currentInquiryArtwork?.id,
             title: document.getElementById('artworkTitle').value,
             year: document.getElementById('artworkYear').value,
-            size: document.getElementById('artworkSize').value,
+            size: document.getElementById('contactArtworkSize').value,
             format: document.getElementById('artworkFormat').value
         },
         customer: {

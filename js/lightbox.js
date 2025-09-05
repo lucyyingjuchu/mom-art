@@ -712,6 +712,8 @@ console.log('✅ Global functions defined');
 // ================================
 
 function populateLightbox(artwork) {
+    console.log('Raw artwork data:', JSON.stringify(artwork, null, 2));
+
     const image = document.getElementById('lightboxImage');
     if (!image) {
         console.error('Lightbox image element not found');
@@ -760,14 +762,26 @@ function populateLightbox(artwork) {
     
     // Get language-appropriate fields
     let title, titleEn, description, format, size;
-    
+
     if (currentLang === 'zh') {
-        // ... other fields
+        console.log('In Chinese branch');
+        title = artwork.title || artwork.titleEn || 'Untitled';
+        console.log('title after assignment:', title);
+        
+        titleEn = artwork.titleEn || '';
+        description = artwork.description || artwork.descriptionEn || '';
+        console.log('description after assignment:', description);
+        
+        format = artwork.format || artwork.formatEn || '';
         size = artwork.heightCm && artwork.widthCm ? 
             `${artwork.heightCm} x ${artwork.widthCm} cm` : 
-            artwork.sizeCm || getLocalizedText('common.sizeNotSpecified');
+            artwork.sizeCm || 'Size not specified';
     } else {
-        // ... other fields
+        console.log('In English branch');
+        title = artwork.titleEn || artwork.title || 'Untitled';
+        titleEn = '';
+        description = artwork.descriptionEn || artwork.description || '';
+        format = artwork.formatEn || artwork.format || '';
         if (artwork.heightCm && artwork.widthCm && artwork.heightInches && artwork.widthInches) {
             size = `${artwork.heightCm} x ${artwork.widthCm} cm (${artwork.heightInches}" x ${artwork.widthInches}")`;
         } else if (artwork.sizeCm && artwork.sizeInches) {
@@ -775,16 +789,17 @@ function populateLightbox(artwork) {
         } else if (artwork.heightCm && artwork.widthCm) {
             size = `${artwork.heightCm} x ${artwork.widthCm} cm`;
         } else {
-            size = artwork.sizeCm || artwork.sizeInches || getLocalizedText('common.sizeNotSpecified');
+            size = artwork.sizeCm || artwork.sizeInches || 'Size not specified';
         }
     }
+
 
     // Set artwork details with language-appropriate content
     const elements = {
         'artworkTitle': title,
         'artworkTitleEn': titleEn,
         'artworkDescription': description,
-        'artworkYear': artwork.year || getLocalizedText('common.unknown'),
+        'artworkYear': artwork.year || 'Unknown',
         'artworkSize': size,
         'artworkFormat': format
     };
