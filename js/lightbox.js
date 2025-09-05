@@ -714,22 +714,123 @@ function addImageProtection() {
 }
 
 
+// Modified share function to create useful shareable text snippet
 window.shareArtwork = function() {
     const titleEl = document.getElementById('artworkTitle');
+    const yearEl = document.getElementById('artworkYear');
     
-    if (navigator.share && titleEl) {
+    if (!titleEl) {
+        console.error('Artwork title not found');
+        return;
+    }
+    
+    // Get current artwork data
+    const currentArtwork = artworksData[currentArtworkIndex];
+    if (!currentArtwork) {
+        console.error('Current artwork data not found');
+        return;
+    }
+    
+    // Create direct link to this specific artwork
+    const baseUrl = window.location.origin + window.location.pathname;
+    const artworkUrl = `${baseUrl}?artwork=${currentArtwork.id}`;
+    
+    // Get artist name - UPDATE THIS with your mom's actual name
+    const artistName = "Artist Name Here"; // Replace with actual artist name
+    
+    // Create shareable text snippet
+    const artworkTitle = titleEl.textContent || 'Untitled';
+    const artworkYear = yearEl ? yearEl.textContent : '';
+    const yearText = artworkYear ? ` (${artworkYear})` : '';
+    
+    const shareText = `Check out this artwork: "${artworkTitle}"${yearText} by ${artistName}\n\n${artworkUrl}`;
+    
+    // Try different sharing methods
+    if (navigator.share) {
+        // Mobile native sharing
         navigator.share({
-            title: titleEl.textContent,
-            url: window.location.href
-        }).catch(console.error);
+            title: `${artworkTitle} by ${artistName}`,
+            text: shareText,
+            url: artworkUrl
+        }).catch(err => {
+            console.log('Native share failed, falling back to clipboard');
+            copyToClipboard(shareText);
+        });
     } else {
-        if (navigator.clipboard) {
-            navigator.clipboard.writeText(window.location.href).then(() => {
-                alert('Link copied to clipboard!');
-            });
-        }
+        // Desktop - copy to clipboard
+        copyToClipboard(shareText);
     }
 };
+
+// Helper function to copy text to clipboard with user feedback
+function copyToClipboard(text) {
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(() => {
+            showShareFeedback('Shareable link copied to clipboard!');
+        }).catch(err => {
+            console.error('Clipboard write failed:', err);
+            showShareFeedback('Unable to copy to clipboard');
+        });
+    } else {
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        document.body.appendChild(textArea);
+        textArea.select();
+        try {
+            document.execCommand('copy');
+            showShareFeedback('Shareable link copied to clipboard!');
+        } catch (err) {
+            showShareFeedback('Unable to copy to clipboard');
+        }
+        document.body.removeChild(textArea);
+    }
+}
+
+// Show user feedback for share action
+function showShareFeedback(message) {
+    // Remove existing feedback
+    const existingFeedback = document.querySelector('.share-feedback');
+    if (existingFeedback) {
+        existingFeedback.remove();
+    }
+    
+    // Create feedback element
+    const feedback = document.createElement('div');
+    feedback.className = 'share-feedback';
+    feedback.textContent = message;
+    feedback.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0,0,0,0.8);
+        color: white;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-size: 14px;
+        z-index: 10020;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    `;
+    
+    document.body.appendChild(feedback);
+    
+    // Fade in
+    setTimeout(() => {
+        feedback.style.opacity = '1';
+    }, 10);
+    
+    // Fade out and remove
+    setTimeout(() => {
+        feedback.style.opacity = '0';
+        setTimeout(() => {
+            if (feedback.parentNode) {
+                feedback.parentNode.removeChild(feedback);
+            }
+        }, 300);
+    }, 2000);
+}
 
 window.showZoomIndicator = function() {
     showCleanZoomIndicator();
@@ -780,7 +881,7 @@ function populateLightbox(artwork) {
         setTimeout(() => {
             // Add image protection first
             addImageProtection();
-            
+
             // 🎯 手機板特殊處理
             if (isMobileDevice()) {
                 initializeMobileLightbox();
