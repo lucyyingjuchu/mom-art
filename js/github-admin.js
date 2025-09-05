@@ -201,7 +201,8 @@ class GitHubUploader {
             // Upload thumbnail with retry
             onProgress?.('Uploading thumbnail...', 70);
             const thumbnailBase64 = await this.blobToBase64(thumbnailBlob);
-            const thumbnailPath = `${this.config.paths.thumbnails}${artworkData.id}_thumb.png`;
+            const fileExtension = file.type === 'image/png' ? 'png' : 'jpg';
+            const thumbnailPath = `${this.config.paths.thumbnails}${artworkData.id}_thumb.${fileExtension}`;
             
             console.log(`📤 Uploading thumbnail: ${Math.round(thumbnailBlob.size/1024)}KB`);
             const thumbnailResult = await this.uploadFileWithRetry(
@@ -215,7 +216,7 @@ class GitHubUploader {
             // Upload large image with retry
             onProgress?.('Uploading large image...', 85);
             const largeBase64 = await this.blobToBase64(largeBlob);
-            const largePath = `${this.config.paths.large}${artworkData.id}_large.png`;
+            const largePath = `${this.config.paths.large}${artworkData.id}_large.${fileExtension}`;
             
             console.log(`📤 Uploading large image: ${Math.round(largeBlob.size/1024)}KB`);
             const largeResult = await this.uploadFileWithRetry(
@@ -234,9 +235,8 @@ class GitHubUploader {
             // Return complete artwork data with image paths
             const completeArtworkData = {
                 ...artworkData,
-                image: `./images/paintings/thumbnails/${artworkData.id}_thumb.png`,
-                imageHigh: `./images/paintings/large/${artworkData.id}_large.png`
-            };
+                image: `./images/paintings/thumbnails/${artworkData.id}_thumb.${fileExtension}`,
+                imageHigh: `./images/paintings/large/${artworkData.id}_large.${fileExtension}`           };
             
             return {
                 success: true,
@@ -428,7 +428,10 @@ class GitHubUploader {
                     
                     // Convert to PNG with appropriate quality
                     const quality = type === 'thumbnail' ? 0.8 : 0.9;
-                    canvas.toBlob(resolve, 'image/png', quality);
+                    // Preserve original format - use JPEG for photos, PNG for graphics
+                    const outputFormat = file.type === 'image/png' ? 'image/png' : 'image/jpeg';
+                    const outputQuality = outputFormat === 'image/jpeg' ? quality : undefined;
+                    canvas.toBlob(resolve, outputFormat, outputQuality);
                     
                     // Clean up object URL
                     URL.revokeObjectURL(img.src);
