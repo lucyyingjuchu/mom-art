@@ -805,6 +805,30 @@ class ChineseArtPortfolio {
     getArtworkSpan(artwork) {
         console.log('🔍 Analyzing artwork:', artwork.title);
         
+        // First try individual height/width fields
+        if (artwork.heightCm && artwork.widthCm) {
+            const height = artwork.heightCm;
+            const width = artwork.widthCm;
+            const aspectRatio = width / height;
+            
+            console.log(`📊 Direct dimensions: H${height} × W${width}, Aspect Ratio: ${aspectRatio.toFixed(2)}`);
+            
+            let span;
+            if (aspectRatio >= 2.0) {
+                span = 3;
+                console.log('🌅 Classified as: PANORAMIC (3 columns)');
+            } else if (aspectRatio >= 1.3) {
+                span = 2;
+                console.log('🏞️ Classified as: LANDSCAPE (2 columns)');
+            } else {
+                span = 1;
+                console.log('🖼️ Classified as: PORTRAIT/SQUARE (1 column)');
+            }
+            
+            return { span, aspectRatio };
+        }
+        
+        // Fallback to parsing size strings (for backward compatibility)
         const sizeFields = [artwork.sizeCm, artwork.size, artwork.dimensions].filter(Boolean);
         console.log('📏 Size fields found:', sizeFields);
         
