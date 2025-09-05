@@ -714,60 +714,29 @@ function addImageProtection() {
 }
 
 
-    // Modified share function to create useful shareable text snippet - BILINGUAL VERSION
-    window.shareArtwork = function() {
-        const titleEl = document.getElementById('artworkTitle');
-        const yearEl = document.getElementById('artworkYear');
-        
-        if (!titleEl) {
-            console.error('Artwork title not found');
-            return;
-        }
-        
-        // Get current artwork data
-        const currentArtwork = artworksData[currentArtworkIndex];
-        if (!currentArtwork) {
-            console.error('Current artwork data not found');
-            return;
-        }
-        
-        // Create direct link to this specific artwork
-        const baseUrl = window.location.origin + window.location.pathname;
-        const artworkUrl = `${baseUrl}?artwork=${currentArtwork.id}`;
-        
-        // Get artist name from language data - BILINGUAL AWARE
-        const artistName = getLocalizedText('header.title');
-        
-        // Create shareable text snippet
-        const artworkTitle = titleEl.textContent || 'Untitled';
-        const artworkYear = yearEl ? yearEl.textContent : '';
-        const yearText = artworkYear ? ` (${artworkYear})` : '';
-        
-        const shareText = `Check out this artwork: "${artworkTitle}"${yearText} by ${artistName}\n\n${artworkUrl}`;
-        
-        // Try different sharing methods
-        if (navigator.share) {
-            // Mobile native sharing
-            navigator.share({
-                title: `${artworkTitle} by ${artistName}`,
-                text: shareText,
-                url: artworkUrl
-            }).catch(err => {
-                console.log('Native share failed, falling back to clipboard');
-                copyToClipboard(shareText);
-            });
-        } else {
-            // Desktop - copy to clipboard
-            copyToClipboard(shareText);
-        }
-    };
+// Modified share function to create useful shareable text snippet - BILINGUAL VERSION
+window.shareArtwork = function() {
+    const titleEl = document.getElementById('artworkTitle');
+    const yearEl = document.getElementById('artworkYear');
+    
+    if (!titleEl) {
+        console.error('Artwork title not found');
+        return;
+    }
+    
+    // Get current artwork data
+    const currentArtwork = artworksData[currentArtworkIndex];
+    if (!currentArtwork) {
+        console.error('Current artwork data not found');
+        return;
+    }
     
     // Create direct link to this specific artwork
     const baseUrl = window.location.origin + window.location.pathname;
     const artworkUrl = `${baseUrl}?artwork=${currentArtwork.id}`;
     
-    // Get artist name - UPDATE THIS with your mom's actual name
-    const artistName = "Artist Name Here"; // Replace with actual artist name
+    // Get artist name from language data - BILINGUAL AWARE
+    const artistName = getLocalizedText('header.title');
     
     // Create shareable text snippet
     const artworkTitle = titleEl.textContent || 'Untitled';
