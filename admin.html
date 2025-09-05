@@ -1880,8 +1880,9 @@
                 const imageUrl = artwork.image || './images/placeholder/artwork-placeholder-zh.svg';
                 const title = artwork.title || '未命名';
                 const year = artwork.year || '年份不詳';
-                const size = artwork.sizeCm || artwork.size || '尺寸未註明';
-                const featured = artwork.featured === 'true' || artwork.featured === true;
+                const size = artwork.heightCm && artwork.widthCm ? 
+                    `${artwork.heightCm} x ${artwork.widthCm} cm` : 
+                    artwork.sizeCm || artwork.size || '尺寸未註明';                const featured = artwork.featured === 'true' || artwork.featured === true;
                 const available = artwork.available !== false && artwork.available !== 'false';
                 
                 return `

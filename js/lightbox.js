@@ -762,18 +762,18 @@ function populateLightbox(artwork) {
     let title, titleEn, description, format, size;
     
     if (currentLang === 'zh') {
-        title = artwork.title || getLocalizedText('common.untitled');
-        titleEn = artwork.titleEn || '';
-        description = artwork.description || '';
-        format = artwork.format || '';
-        size = artwork.sizeCm || getLocalizedText('common.sizeNotSpecified');
+        // ... other fields
+        size = artwork.heightCm && artwork.widthCm ? 
+            `${artwork.heightCm} x ${artwork.widthCm} cm` : 
+            artwork.sizeCm || getLocalizedText('common.sizeNotSpecified');
     } else {
-        title = artwork.titleEn || artwork.title || getLocalizedText('common.untitled');
-        titleEn = '';
-        description = artwork.descriptionEn || '';
-        format = artwork.formatEn || artwork.format || '';
-        if (artwork.sizeCm && artwork.sizeInches) {
+        // ... other fields
+        if (artwork.heightCm && artwork.widthCm && artwork.heightInches && artwork.widthInches) {
+            size = `${artwork.heightCm} x ${artwork.widthCm} cm (${artwork.heightInches}" x ${artwork.widthInches}")`;
+        } else if (artwork.sizeCm && artwork.sizeInches) {
             size = `${artwork.sizeCm} (${artwork.sizeInches})`;
+        } else if (artwork.heightCm && artwork.widthCm) {
+            size = `${artwork.heightCm} x ${artwork.widthCm} cm`;
         } else {
             size = artwork.sizeCm || artwork.sizeInches || getLocalizedText('common.sizeNotSpecified');
         }

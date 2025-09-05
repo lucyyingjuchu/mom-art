@@ -662,9 +662,10 @@ class ChineseArtPortfolio {
         // Handle missing images
         const imageUrl = artwork.imageHigh || artwork.image || this.getPlaceholderImage();
         
-        // Handle missing size
-        const size = artwork.sizeCm || this.t('common.sizeNotSpecified');
-        
+        // Handle missing size - use individual dimensions if available
+        const size = artwork.heightCm && artwork.widthCm ? 
+        `${artwork.heightCm} x ${artwork.widthCm} cm` : 
+        artwork.sizeCm || this.t('common.sizeNotSpecified');
         // Handle boolean fields with defaults
         const available = this.getBooleanValue(artwork, 'available', true);
         
