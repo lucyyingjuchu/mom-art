@@ -3065,40 +3065,6 @@
     "curatorNoteEn": ""
   },
   {
-    "id": "019891b0-f39c-73d5-ae97-3d296dba78a1",
-    "title": "悠然立水涯―龍洞",
-    "titleEn": "Tranquil Stand by the Water's Edge – Dragon Cave",
-    "image": "./images/paintings/thumbnails/019891b0-f39c-73d5-ae97-3d296dba78a1_thumb.jpg",
-    "imageHigh": "./images/paintings/large/019891b0-f39c-73d5-ae97-3d296dba78a1_large.jpg",
-    "description": "朝霞生海隅，白浪舞韶華；安得一龍洞，悠然立水涯。",
-    "descriptionEn": "Morning glow rises by the sea's edge, white waves dance in youthful splendor; How I long for a dragon's cave, where I may stand at the water's brink in tranquil repose.",
-    "format": "框",
-    "year": "2022",
-    "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "formatEn": "Framed",
-    "heightCm": 60,
-    "widthCm": 90,
-    "heightInches": 23.6,
-    "widthInches": 35.4,
-    "autoCategories": {
-      "subjects": [
-        "landscape",
-        "flowingclouds"
-      ],
-      "locations": [
-        "longdong"
-      ]
-    },
-    "manualCategories": {
-      "subjects": [],
-      "locations": []
-    }
-  },
-  {
     "id": "019891b0-f39c-7939-897c-cc57bc9b4a35",
     "title": "悠遊",
     "year": "2022",
