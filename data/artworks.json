@@ -856,23 +856,16 @@
   {
     "id": "019891b0-f39c-7834-8476-a918927593ab",
     "title": "海天競秀一龍洞",
-    "titleEn": "Dragon's Cave: Where Sea and Sky Compete in Beauty",
-    "image": "",
-    "imageHigh": "",
-    "description": "滾滾浪捲萬頃波，蒼蒼石疊千仞峰；飛鳥翔雲百里游，海天競秀一龍洞。",
-    "descriptionEn": "Endless waves roll, sweeping vast seas, Amidst towering peaks, stone stacks rise in majesty; Birds soar and glide, traversing clouds for miles, Where ocean and sky compete in beauty, a dragon's cave.",
-    "format": "框",
     "year": "2017",
-    "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "formatEn": "Framed",
     "heightCm": 90,
     "widthCm": 75,
-    "heightInches": 35.4,
-    "widthInches": 29.5,
+    "sizeCm": "90 × 75 cm",
+    "format": "框",
+    "description": "滾滾浪捲萬頃波，蒼蒼石疊千仞峰；飛鳥翔雲百里游，海天競秀一龍洞。",
+    "curatorNote": "",
+    "featured": false,
+    "available": true,
+    "price": "",
     "autoCategories": {
       "subjects": [
         "landscape",
@@ -886,7 +879,15 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7834-8476-a918927593ab_thumb.jpg",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7834-8476-a918927593ab_large.jpg",
+    "categories": [
+      "landscape",
+      "flowingclouds",
+      "flowers",
+      "longdong"
+    ]
   },
   {
     "id": "019891b0-f39c-7220-b00b-be8e9249f911",
