@@ -157,167 +157,29 @@ function isMobileDevice() {
 function initializeMobileLightbox() {
     if (!isMobileDevice()) return;
     
-    console.log('📱 Mobile device detected - applying mobile optimizations');
+    console.log('📱 Mobile device detected - using unified behavior');
     
     const image = document.getElementById('lightboxImage');
     if (!image) return;
     
-    // 重置所有縮放變數
+    // Reset all zoom variables
     zoomLevel = 1;
     panX = 0;
     panY = 0;
     isDragging = false;
     hasDragged = false;
     
-    // 設置圖片樣式
+    // Set basic image styles
     image.style.transform = 'none';
-    image.style.cursor = 'pointer';
     
-    // 添加點擊放大功能
-    image.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        openFullscreenImage();
-    });
+    // Use the same zoom initialization as desktop
+    initializeImageZoom();
+    addZoomControls();
     
-    // 添加滑動手勢支援
+    // Add mobile swipe gestures for closing lightbox
     addMobileSwipeGestures();
 }
 
-// 手機板全螢幕查看原圖
-function openFullscreenImage() {
-    const image = document.getElementById('lightboxImage');
-    if (!image || !isMobileDevice()) return;
-    
-    console.log('📱 Opening fullscreen image view');
-    
-    // 創建全螢幕圖片容器
-    const fullscreenContainer = document.createElement('div');
-    fullscreenContainer.className = 'mobile-fullscreen-image';
-    fullscreenContainer.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: rgba(0,0,0,0.95);
-        z-index: 10010;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    `;
-    
-    // 創建全螢幕圖片
-    const fullscreenImage = document.createElement('img');
-    fullscreenImage.src = image.src;
-    fullscreenImage.alt = image.alt;
-    fullscreenImage.style.cssText = `
-        max-width: 95vw;
-        max-height: 95vh;
-        width: auto;
-        height: auto;
-        object-fit: contain;
-        border-radius: 4px;
-        box-shadow: 0 8px 32px rgba(0,0,0,0.5);
-    `;
-    
-    // 創建關閉按鈕
-    const closeButton = document.createElement('button');
-    closeButton.innerHTML = '×';
-    closeButton.style.cssText = `
-        position: absolute;
-        top: 1rem;
-        right: 1rem;
-        width: 44px;
-        height: 44px;
-        border: none;
-        border-radius: 50%;
-        background: rgba(0,0,0,0.8);
-        color: white;
-        font-size: 24px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        backdrop-filter: blur(10px);
-        border: 2px solid rgba(255,255,255,0.2);
-    `;
-    
-    // 關閉功能
-    const closeFullscreen = () => {
-        fullscreenContainer.style.opacity = '0';
-        setTimeout(() => {
-            document.body.removeChild(fullscreenContainer);
-        }, 300);
-    };
-    
-    closeButton.addEventListener('click', closeFullscreen);
-    
-    // 點擊背景關閉
-    fullscreenContainer.addEventListener('click', function(e) {
-        if (e.target === fullscreenContainer) {
-            closeFullscreen();
-        }
-    });
-    
-    // 組裝元素
-    fullscreenContainer.appendChild(fullscreenImage);
-    fullscreenContainer.appendChild(closeButton);
-    document.body.appendChild(fullscreenContainer);
-    
-    // 淡入動畫
-    setTimeout(() => {
-        fullscreenContainer.style.opacity = '1';
-    }, 10);
-    
-    // 添加簡單的縮放手勢（雙指縮放）
-    let scale = 1;
-    let lastDistance = 0;
-    
-    fullscreenImage.addEventListener('touchstart', function(e) {
-        if (e.touches.length === 2) {
-            const touch1 = e.touches[0];
-            const touch2 = e.touches[1];
-            lastDistance = Math.hypot(
-                touch2.clientX - touch1.clientX,
-                touch2.clientY - touch1.clientY
-            );
-        }
-    }, { passive: true });
-    
-    fullscreenImage.addEventListener('touchmove', function(e) {
-        if (e.touches.length === 2) {
-            e.preventDefault();
-            const touch1 = e.touches[0];
-            const touch2 = e.touches[1];
-            const distance = Math.hypot(
-                touch2.clientX - touch1.clientX,
-                touch2.clientY - touch1.clientY
-            );
-            
-            if (lastDistance > 0) {
-                const scaleChange = distance / lastDistance;
-                scale = Math.max(0.5, Math.min(3, scale * scaleChange));
-                fullscreenImage.style.transform = `scale(${scale})`;
-            }
-            
-            lastDistance = distance;
-        }
-    }, { passive: false });
-    
-    // 雙擊重置縮放
-    fullscreenImage.addEventListener('dblclick', function() {
-        scale = scale > 1 ? 1 : 2;
-        fullscreenImage.style.transform = `scale(${scale})`;
-        fullscreenImage.style.transition = 'transform 0.3s ease';
-        
-        setTimeout(() => {
-            fullscreenImage.style.transition = '';
-        }, 300);
-    });
-}
 
 function addMobileSwipeGestures() {
     const lightboxContent = document.querySelector('.lightbox-content');
@@ -1345,7 +1207,7 @@ function showFullscreenIndicator(entering) {
 function addZoomControls() {
     // 🎯 手機板不添加縮放控制
     if (isMobileDevice()) {
-        console.log('📱 Mobile device - skipping zoom controls');
+        console.log('📱 Mobile device - adding touch-friendly zoom controls');
         return;
     }
     
