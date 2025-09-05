@@ -856,23 +856,16 @@
   {
     "id": "019891b0-f39c-7834-8476-a918927593ab",
     "title": "海天競秀一龍洞",
-    "titleEn": "Dragon's Cave: Where Sea and Sky Compete in Beauty",
-    "image": "",
-    "imageHigh": "",
-    "description": "滾滾浪捲萬頃波，蒼蒼石疊千仞峰；飛鳥翔雲百里游，海天競秀一龍洞。",
-    "descriptionEn": "Endless waves roll, sweeping vast seas, Amidst towering peaks, stone stacks rise in majesty; Birds soar and glide, traversing clouds for miles, Where ocean and sky compete in beauty, a dragon's cave.",
-    "format": "框",
     "year": "2017",
-    "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "formatEn": "Framed",
     "heightCm": 90,
     "widthCm": 75,
-    "heightInches": 35.4,
-    "widthInches": 29.5,
+    "sizeCm": "90 × 75 cm",
+    "format": "框",
+    "description": "滾滾浪捲萬頃波，蒼蒼石疊千仞峰；飛鳥翔雲百里游，海天競秀一龍洞。",
+    "curatorNote": "",
+    "featured": false,
+    "available": true,
+    "price": "",
     "autoCategories": {
       "subjects": [
         "landscape",
@@ -886,7 +879,15 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7834-8476-a918927593ab_thumb.jpg",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7834-8476-a918927593ab_large.jpg",
+    "categories": [
+      "landscape",
+      "flowingclouds",
+      "flowers",
+      "longdong"
+    ]
   },
   {
     "id": "019891b0-f39c-7220-b00b-be8e9249f911",
@@ -2023,38 +2024,6 @@
     }
   },
   {
-    "id": "019891b0-f39c-7d35-bec5-bd039ad8684f",
-    "title": "墨染雲山參造化  桃江兩岸正逢春",
-    "titleEn": "Inky Peaks and Spring's Embrace by the Peach River",
-    "image": "",
-    "imageHigh": "",
-    "description": "墨染雲山參造化，桃江兩岸正逢春。",
-    "descriptionEn": "Inky hues stain the cloud-kissed peaks, While spring graces both banks of the Peach River.",
-    "format": "框",
-    "year": "2021",
-    "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "formatEn": "Framed",
-    "heightCm": 45,
-    "widthCm": 72,
-    "heightInches": 17.7,
-    "widthInches": 28.3,
-    "autoCategories": {
-      "subjects": [
-        "landscape",
-        "flowingclouds"
-      ],
-      "locations": []
-    },
-    "manualCategories": {
-      "subjects": [],
-      "locations": []
-    }
-  },
-  {
     "id": "019891b0-f39c-7817-98ab-ec870aa5b2aa",
     "title": "天行健君子以自強不息―伊瓜蘇瀑布",
     "titleEn": "Heavenly Motion: The Noble Man Strives Unceasingly - Iguazu Falls",
@@ -3062,40 +3031,6 @@
     "titleEn": "Transcending Form - Wisteria",
     "descriptionEn": "Forget the form.",
     "curatorNoteEn": ""
-  },
-  {
-    "id": "019891b0-f39c-73d5-ae97-3d296dba78a1",
-    "title": "悠然立水涯―龍洞",
-    "titleEn": "Tranquil Stand by the Water's Edge – Dragon Cave",
-    "image": "./images/paintings/thumbnails/019891b0-f39c-73d5-ae97-3d296dba78a1_thumb.jpg",
-    "imageHigh": "./images/paintings/large/019891b0-f39c-73d5-ae97-3d296dba78a1_large.jpg",
-    "description": "朝霞生海隅，白浪舞韶華；安得一龍洞，悠然立水涯。",
-    "descriptionEn": "Morning glow rises by the sea's edge, white waves dance in youthful splendor; How I long for a dragon's cave, where I may stand at the water's brink in tranquil repose.",
-    "format": "框",
-    "year": "2022",
-    "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "formatEn": "Framed",
-    "heightCm": 60,
-    "widthCm": 90,
-    "heightInches": 23.6,
-    "widthInches": 35.4,
-    "autoCategories": {
-      "subjects": [
-        "landscape",
-        "flowingclouds"
-      ],
-      "locations": [
-        "longdong"
-      ]
-    },
-    "manualCategories": {
-      "subjects": [],
-      "locations": []
-    }
   },
   {
     "id": "019891b0-f39c-7939-897c-cc57bc9b4a35",
