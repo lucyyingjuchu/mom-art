@@ -1490,6 +1490,44 @@ class ChineseArtPortfolio {
             });
         }
     }
+    // Add these functions to your ChineseArtPortfolio class in portfolio.js
+
+    // Core protection function applied to any image element
+    applyImageProtectionToElement(imageElement) {
+        if (!imageElement) return;
+        
+        // Prevent right-click context menu
+        imageElement.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        }, { passive: false });
+        
+        // Prevent drag and drop
+        imageElement.addEventListener('dragstart', function(e) {
+            e.preventDefault();
+            return false;
+        }, { passive: false });
+        
+        // Apply CSS protection attributes
+        imageElement.setAttribute('draggable', 'false');
+        imageElement.style.userSelect = 'none';
+        imageElement.style.webkitUserSelect = 'none';
+        imageElement.style.mozUserSelect = 'none';
+        imageElement.style.msUserSelect = 'none';
+    }
+
+    // Apply protection to all gallery images
+    addGalleryImageProtection() {
+        const galleryImages = document.querySelectorAll('.gallery-item img');
+        console.log(`Protecting ${galleryImages.length} gallery images`);
+        
+        galleryImages.forEach(img => {
+            this.applyImageProtectionToElement(img);
+        });
+    }
+
+
 }
 
 // Initialize portfolio
@@ -1640,41 +1678,4 @@ document.addEventListener('lightboxClosed', function() {
 window.handleArtworkURL = handleArtworkURL;
 window.cleanUpURL = cleanUpURL;
 window.initializeURLHandler = initializeURLHandler;
-
-// Add these functions to your ChineseArtPortfolio class in portfolio.js
-
-// Core protection function applied to any image element
-applyImageProtectionToElement(imageElement) {
-    if (!imageElement) return;
-    
-    // Prevent right-click context menu
-    imageElement.addEventListener('contextmenu', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        return false;
-    }, { passive: false });
-    
-    // Prevent drag and drop
-    imageElement.addEventListener('dragstart', function(e) {
-        e.preventDefault();
-        return false;
-    }, { passive: false });
-    
-    // Apply CSS protection attributes
-    imageElement.setAttribute('draggable', 'false');
-    imageElement.style.userSelect = 'none';
-    imageElement.style.webkitUserSelect = 'none';
-    imageElement.style.mozUserSelect = 'none';
-    imageElement.style.msUserSelect = 'none';
-}
-
-// Apply protection to all gallery images
-addGalleryImageProtection() {
-    const galleryImages = document.querySelectorAll('.gallery-item img');
-    console.log(`Protecting ${galleryImages.length} gallery images`);
-    
-    galleryImages.forEach(img => {
-        this.applyImageProtectionToElement(img);
-    });
-}
 
