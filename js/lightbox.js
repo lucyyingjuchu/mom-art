@@ -685,32 +685,47 @@ window.downloadImage = function() {
     console.log('Download disabled - intellectual property protection');
 };
 
+
+// Core protection function (same as portfolio.js version)
+function applyImageProtectionToElement(imageElement) {
+    if (!imageElement) return;
+    
+    // Prevent right-click context menu
+    imageElement.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+    }, { passive: false });
+    
+    // Prevent drag and drop
+    imageElement.addEventListener('dragstart', function(e) {
+        e.preventDefault();
+        return false;
+    }, { passive: false });
+    
+    // Apply CSS protection attributes
+    imageElement.setAttribute('draggable', 'false');
+    imageElement.style.userSelect = 'none';
+    imageElement.style.webkitUserSelect = 'none';
+    imageElement.style.mozUserSelect = 'none';
+    imageElement.style.msUserSelect = 'none';
+}
+
+// Enhanced lightbox image protection
 function addImageProtection() {
     const image = document.getElementById('lightboxImage');
     if (!image) return;
     
-    // Prevent right-click context menu
-    image.addEventListener('contextmenu', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        console.log('🚫 Right-click disabled for image protection');
-        return false;
-    });
+    console.log('🛡️ Applying enhanced image protection to lightbox');
     
-    // Prevent drag and drop
-    image.addEventListener('dragstart', function(e) {
-        e.preventDefault();
-        return false;
-    });
+    // Remove existing listeners to avoid duplicates
+    const newImage = image.cloneNode(true);
+    image.parentNode.replaceChild(newImage, image);
     
-    // Additional protection attributes
-    image.setAttribute('draggable', 'false');
-    image.style.userSelect = 'none';
-    image.style.webkitUserSelect = 'none';
-    image.style.mozUserSelect = 'none';
-    image.style.msUserSelect = 'none';
+    // Apply all protection methods
+    applyImageProtectionToElement(newImage);
     
-    console.log('🛡️ Image protection enabled');
+    console.log('✅ Lightbox image protection enabled');
 }
 
 
