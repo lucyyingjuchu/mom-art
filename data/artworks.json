@@ -3691,37 +3691,6 @@
     "curatorNoteEn": ""
   },
   {
-    "id": "019891b0-f39c-706e-bdb9-c752dc8bcf1f",
-    "title": "竹報平安-墨竹",
-    "titleEn": "Bamboo Whispers of Peace",
-    "image": "./images/paintings/thumbnails/019891b0-f39c-706e-bdb9-c752dc8bcf1f_thumb.jpg",
-    "imageHigh": "./images/paintings/large/019891b0-f39c-706e-bdb9-c752dc8bcf1f_large.jpg",
-    "description": "清風搖曳疏竹影，日報平安到吾家。",
-    "descriptionEn": "Gentle breeze sways the shadows of sparse bamboo, As the sun brings news of peace to my humble abode.",
-    "format": "軸",
-    "year": "2022",
-    "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll",
-    "heightCm": 135,
-    "widthCm": 70,
-    "heightInches": 53.1,
-    "widthInches": 27.6,
-    "autoCategories": {
-      "subjects": [
-        "bamboo"
-      ],
-      "locations": []
-    },
-    "manualCategories": {
-      "subjects": [],
-      "locations": []
-    }
-  },
-  {
     "id": "019891b0-f39c-721e-8576-4e3f61c0e800",
     "title": "竹影婆娑舞–墨竹",
     "titleEn": "Dancing Shadows of Bamboo",
