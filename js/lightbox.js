@@ -882,7 +882,6 @@ function initializeImageZoom() {
         return;
     }
 
-    console.log('✅ Image found:', image);
     currentImage = image;
     
     // Reset zoom/pan directly
@@ -901,7 +900,7 @@ function initializeImageZoom() {
     image.parentNode.replaceChild(newImage, image);
     currentImage = newImage;
     
-        addImageProtection();
+    addImageProtection();
 
 
     // Add wheel listener
