@@ -1039,15 +1039,14 @@ function initializeImageZoom() {
     image.parentNode.replaceChild(newImage, image);
     currentImage = newImage;
     
-    console.log('🔄 Image cloned, adding listeners...');
+        addImageProtection();
+
 
     // Add wheel listener
     currentImage.addEventListener('wheel', function(e) {
-        console.log('🖱️ WHEEL LISTENER TRIGGERED');
         handleWheelZoom(e);
     }, { passive: false });
     
-    console.log('✅ Wheel listener added');
     
     // Add other listeners
     currentImage.addEventListener('mousedown', handleMouseDown);
@@ -1058,7 +1057,6 @@ function initializeImageZoom() {
     currentImage.addEventListener('dblclick', handleDoubleClick);
     
     updateCursor();
-    console.log('🎯 All event listeners added');
 }
 
 // Modified handleWheelZoom function - fullscreen first, then zoom
