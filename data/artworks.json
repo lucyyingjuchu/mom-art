@@ -2055,38 +2055,6 @@
     }
   },
   {
-    "id": "019891b0-f39c-7691-bb11-877c6b6634e9",
-    "title": "墨池一夜西風起-菊花",
-    "titleEn": "Autumn Whispers in the Ink Pool",
-    "image": "",
-    "imageHigh": "",
-    "description": "墨池一夜西風起，染出東籬片片秋。",
-    "descriptionEn": "In the ink pool, the western wind rises through the night, Dyeing the eastern fence with fragments of autumn's light.",
-    "format": "框",
-    "year": "2021",
-    "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "formatEn": "Framed",
-    "heightCm": 70,
-    "widthCm": 70,
-    "heightInches": 27.6,
-    "widthInches": 27.6,
-    "autoCategories": {
-      "subjects": [
-        "landscape",
-        "flowers"
-      ],
-      "locations": []
-    },
-    "manualCategories": {
-      "subjects": [],
-      "locations": []
-    }
-  },
-  {
     "id": "019891b0-f39c-7817-98ab-ec870aa5b2aa",
     "title": "天行健君子以自強不息―伊瓜蘇瀑布",
     "titleEn": "Heavenly Motion: The Noble Man Strives Unceasingly - Iguazu Falls",
