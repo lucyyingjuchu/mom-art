@@ -1385,6 +1385,7 @@ class ChineseArtPortfolio {
         }
         return shuffled;
     }
+    // URL Parameter Handler for Direct Artwork Links
 
     // Multi-view artwork support
     setupArtworkViews(artwork) {
@@ -1526,4 +1527,111 @@ window.debugCategorization = function() {
     console.groupEnd();
 };
 
-console.log('✅ Updated portfolio system loaded with CategoryManager - centralized categorization!');
+// Add this to your main page JavaScript (not in lightbox.js)
+
+function handleArtworkURL() {
+    // Get URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const artworkId = urlParams.get('artwork');
+    
+    if (!artworkId) {
+        // No artwork parameter, normal page load
+        return;
+    }
+    
+    console.log('Direct artwork link detected:', artworkId);
+    
+    // Wait for portfolio to load, then open the lightbox
+    function attemptToOpenArtwork() {
+        // Check if portfolio system is ready
+        if (typeof portfolio === 'undefined' || !portfolio.artworks) {
+            console.log('Portfolio not ready yet, retrying...');
+            setTimeout(attemptToOpenArtwork, 200);
+            return;
+        }
+        
+        // Check if the artwork exists
+        const artwork = portfolio.getArtwork(artworkId);
+        if (!artwork) {
+            console.warn('Artwork not found:', artworkId);
+            // Optional: show a "artwork not found" message
+            showArtworkNotFoundMessage(artworkId);
+            return;
+        }
+        
+        console.log('Opening shared artwork:', artwork.title);
+        
+        // Small delay to ensure page is fully rendered
+        setTimeout(() => {
+            window.openLightbox(artworkId, 'all');
+        }, 500);
+    }
+    
+    // Start attempting to open the artwork
+    attemptToOpenArtwork();
+}
+
+// Show message if shared artwork is not found
+function showArtworkNotFoundMessage(artworkId) {
+    const message = document.createElement('div');
+    message.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0,0,0,0.9);
+        color: white;
+        padding: 20px 30px;
+        border-radius: 12px;
+        font-size: 16px;
+        text-align: center;
+        z-index: 10000;
+        max-width: 400px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    `;
+    
+    message.innerHTML = `
+        <h3 style="margin: 0 0 10px 0; color: #ff6b6b;">Artwork Not Found</h3>
+        <p style="margin: 0;">The shared artwork link appears to be invalid or the artwork may have been removed.</p>
+        <button onclick="this.parentElement.remove()" style="
+            margin-top: 15px;
+            padding: 8px 16px;
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        ">Close</button>
+    `;
+    
+    document.body.appendChild(message);
+    
+    // Auto-remove after 5 seconds
+    setTimeout(() => {
+        if (message.parentNode) {
+            message.parentNode.removeChild(message);
+        }
+    }, 5000);
+}
+
+// Clean up URL after opening lightbox (optional)
+function cleanUpURL() {
+    // Remove the artwork parameter from URL without page reload
+    const url = new URL(window.location);
+    url.searchParams.delete('artwork');
+    window.history.replaceState({}, '', url);
+}
+
+function initializeURLHandler() {
+    handleArtworkURL();
+}
+
+// Optional: Clean up URL when lightbox closes
+document.addEventListener('lightboxClosed', function() {
+    cleanUpURL();
+});
+
+// Export functions for manual use if needed
+window.handleArtworkURL = handleArtworkURL;
+window.cleanUpURL = cleanUpURL;
+window.initializeURLHandler = initializeURLHandler;

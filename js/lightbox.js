@@ -615,9 +615,20 @@ window.zoomIn = function() {
     }
 };
 
+
+// Modified zoomOut function - don't exit fullscreen immediately at 1x
 window.zoomOut = function() {
     console.log('🔍 Button zoom out');
     const oldZoom = zoomLevel;
+    
+    // If we're at 1x zoom and in fullscreen, exit fullscreen instead of trying to zoom out further
+    if (zoomLevel <= 1 && isFullscreenMode) {
+        console.log('📱 At 1x zoom in fullscreen - exiting fullscreen');
+        exitImageFullscreen();
+        return;
+    }
+    
+    // Normal zoom-out behavior
     zoomLevel = Math.max(zoomLevel - 0.5, minZoom);
     
     if (zoomLevel === minZoom) {
@@ -626,9 +637,6 @@ window.zoomOut = function() {
     }
     
     if (oldZoom !== zoomLevel) {
-        if (zoomLevel <= 1 && isFullscreenMode) {
-            exitImageFullscreen();
-        }
         constrainPan();
         updateCursor();
         applyTransform();
@@ -653,6 +661,7 @@ window.resetZoomPan = function() {
     }
 };
 
+// Modified toggleImageZoom function to work with new behavior
 window.toggleImageZoom = function() {
     if (!isFullscreenMode && zoomLevel === 1) {
         // First action: enter fullscreen at 1x
@@ -675,6 +684,35 @@ window.toggleImageZoom = function() {
 window.downloadImage = function() {
     console.log('Download disabled - intellectual property protection');
 };
+
+function addImageProtection() {
+    const image = document.getElementById('lightboxImage');
+    if (!image) return;
+    
+    // Prevent right-click context menu
+    image.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('🚫 Right-click disabled for image protection');
+        return false;
+    });
+    
+    // Prevent drag and drop
+    image.addEventListener('dragstart', function(e) {
+        e.preventDefault();
+        return false;
+    });
+    
+    // Additional protection attributes
+    image.setAttribute('draggable', 'false');
+    image.style.userSelect = 'none';
+    image.style.webkitUserSelect = 'none';
+    image.style.mozUserSelect = 'none';
+    image.style.msUserSelect = 'none';
+    
+    console.log('🛡️ Image protection enabled');
+}
+
 
 window.shareArtwork = function() {
     const titleEl = document.getElementById('artworkTitle');
@@ -740,6 +778,9 @@ function populateLightbox(artwork) {
     image.onload = function() {
         image.classList.remove('loading');
         setTimeout(() => {
+            // Add image protection first
+            addImageProtection();
+            
             // 🎯 手機板特殊處理
             if (isMobileDevice()) {
                 initializeMobileLightbox();
@@ -755,6 +796,7 @@ function populateLightbox(artwork) {
         // BILINGUAL UPDATE: Use language-aware placeholder on error
         image.src = placeholderImage;
         image.classList.remove('loading');
+        addImageProtection();
     };
 
     // BILINGUAL UPDATE: Language-aware field selection
@@ -903,6 +945,7 @@ function initializeImageZoom() {
     console.log('🎯 All event listeners added');
 }
 
+// Modified handleWheelZoom function - fullscreen first, then zoom
 function handleWheelZoom(e) {
     e.preventDefault();
     e.stopPropagation();
