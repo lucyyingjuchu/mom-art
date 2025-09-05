@@ -714,22 +714,53 @@ function addImageProtection() {
 }
 
 
-// Modified share function to create useful shareable text snippet
-window.shareArtwork = function() {
-    const titleEl = document.getElementById('artworkTitle');
-    const yearEl = document.getElementById('artworkYear');
-    
-    if (!titleEl) {
-        console.error('Artwork title not found');
-        return;
-    }
-    
-    // Get current artwork data
-    const currentArtwork = artworksData[currentArtworkIndex];
-    if (!currentArtwork) {
-        console.error('Current artwork data not found');
-        return;
-    }
+    // Modified share function to create useful shareable text snippet - BILINGUAL VERSION
+    window.shareArtwork = function() {
+        const titleEl = document.getElementById('artworkTitle');
+        const yearEl = document.getElementById('artworkYear');
+        
+        if (!titleEl) {
+            console.error('Artwork title not found');
+            return;
+        }
+        
+        // Get current artwork data
+        const currentArtwork = artworksData[currentArtworkIndex];
+        if (!currentArtwork) {
+            console.error('Current artwork data not found');
+            return;
+        }
+        
+        // Create direct link to this specific artwork
+        const baseUrl = window.location.origin + window.location.pathname;
+        const artworkUrl = `${baseUrl}?artwork=${currentArtwork.id}`;
+        
+        // Get artist name from language data - BILINGUAL AWARE
+        const artistName = getLocalizedText('header.title');
+        
+        // Create shareable text snippet
+        const artworkTitle = titleEl.textContent || 'Untitled';
+        const artworkYear = yearEl ? yearEl.textContent : '';
+        const yearText = artworkYear ? ` (${artworkYear})` : '';
+        
+        const shareText = `Check out this artwork: "${artworkTitle}"${yearText} by ${artistName}\n\n${artworkUrl}`;
+        
+        // Try different sharing methods
+        if (navigator.share) {
+            // Mobile native sharing
+            navigator.share({
+                title: `${artworkTitle} by ${artistName}`,
+                text: shareText,
+                url: artworkUrl
+            }).catch(err => {
+                console.log('Native share failed, falling back to clipboard');
+                copyToClipboard(shareText);
+            });
+        } else {
+            // Desktop - copy to clipboard
+            copyToClipboard(shareText);
+        }
+    };
     
     // Create direct link to this specific artwork
     const baseUrl = window.location.origin + window.location.pathname;
@@ -1140,7 +1171,8 @@ function applyTransform() {
 function updateCursor() {
     if (!currentImage) return;
     
-    if (zoomLevel > 1) {
+    // Allow grab cursor if zoomed > 1 OR if in fullscreen mode (even at 1x)
+    if (zoomLevel > 1 || isFullscreenMode) {
         currentImage.style.cursor = isDragging ? 'grabbing' : 'grab';
     } else if (zoomLevel < maxZoom) {
         currentImage.style.cursor = 'zoom-in';
@@ -1150,12 +1182,27 @@ function updateCursor() {
 }
 
 function constrainPan() {
-    if (zoomLevel <= 1) {
+    // If not zoomed and not in fullscreen, reset pan
+    if (zoomLevel <= 1 && !isFullscreenMode) {
         panX = 0;
         panY = 0;
         return;
     }
     
+    // In fullscreen at 1x, allow panning if image is larger than container
+    if (isFullscreenMode && zoomLevel === 1) {
+        const imageRect = currentImage.getBoundingClientRect();
+        const containerRect = currentImage.parentElement.getBoundingClientRect();
+        
+        const overflowX = Math.max(0, (imageRect.width - containerRect.width) / 2);
+        const overflowY = Math.max(0, (imageRect.height - containerRect.height) / 2);
+        
+        panX = Math.max(-overflowX, Math.min(overflowX, panX));
+        panY = Math.max(-overflowY, Math.min(overflowY, panY));
+        return;
+    }
+    
+    // Normal zoom constraint calculation
     const maxPanX = (currentImage.offsetWidth * (zoomLevel - 1)) / (2 * zoomLevel);
     const maxPanY = (currentImage.offsetHeight * (zoomLevel - 1)) / (2 * zoomLevel);
     
@@ -1188,7 +1235,8 @@ function handleDoubleClick(e) {
 }
 
 function handleMouseDown(e) {
-    if (zoomLevel <= 1) return;
+    if (zoomLevel <= 1 && !isFullscreenMode) return;
+
     
     isDragging = true;
     hasDragged = false;
@@ -1199,7 +1247,7 @@ function handleMouseDown(e) {
 }
 
 function handleMouseMove(e) {
-    if (!isDragging || zoomLevel <= 1) return;
+    if (!isDragging || (zoomLevel <= 1 && !isFullscreenMode)) return;
     
     const newPanX = e.clientX - startX;
     const newPanY = e.clientY - startY;
@@ -1240,6 +1288,8 @@ function enterImageFullscreen() {
     imageSection.classList.add('fullscreen-image');
     
     showFullscreenIndicator(true);
+    updateCursor(); // ADD THIS LINE
+
 }
 
 function exitImageFullscreen() {
@@ -1258,6 +1308,8 @@ function exitImageFullscreen() {
     }
     
     showFullscreenIndicator(false);
+    updateCursor(); // ADD THIS LINE
+
 }
 
 function showFullscreenIndicator(entering) {

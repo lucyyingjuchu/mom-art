@@ -744,6 +744,7 @@ class ChineseArtPortfolio {
         this.updateLanguageToggle();
         this.renderFilterMenu();
         this.updateStaticText();
+        initializeURLHandler(); // Add this line
     }
 
     // Render filter menu
