@@ -1148,23 +1148,16 @@
   {
     "id": "019891b0-f39c-7b84-a80e-a928e6c46860",
     "title": "山高水長",
-    "titleEn": "Endless Heights and Flowing Waters",
-    "image": "",
-    "imageHigh": "",
-    "description": "飛瀑行遠琴三弄，碧桃笑拈方外山。",
-    "descriptionEn": "Amidst the distant echoes of cascading waterfalls, the qin plays its three melodies; The jade peach blossoms smile, plucking at the mountains beyond the world.",
-    "format": "框",
     "year": "2018",
-    "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "formatEn": "Framed",
     "heightCm": 64,
     "widthCm": 62,
-    "heightInches": 25.2,
-    "widthInches": 24.4,
+    "sizeCm": "64 × 62 cm",
+    "format": "框",
+    "description": "飛瀑行遠琴三弄，碧桃笑拈方外山。",
+    "curatorNote": "",
+    "featured": false,
+    "available": true,
+    "price": "",
     "autoCategories": {
       "subjects": [
         "waterfall",
@@ -1175,7 +1168,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7b84-a80e-a928e6c46860_thumb.jpg",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7b84-a80e-a928e6c46860_large.jpg",
+    "categories": [
+      "waterfall",
+      "landscape"
+    ]
   },
   {
     "id": "019891b0-f39c-78c1-b44e-ae82a4e2d985",
