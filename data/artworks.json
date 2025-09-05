@@ -3561,38 +3561,6 @@
     }
   },
   {
-    "id": "019891b0-f39c-7674-b4b9-056c567df90a",
-    "title": "秋菊",
-    "titleEn": "Autumn Chrysanthemums",
-    "image": "./images/paintings/thumbnails/019891b0-f39c-7674-b4b9-056c567df90a_thumb.jpg",
-    "imageHigh": "./images/paintings/large/019891b0-f39c-7674-b4b9-056c567df90a_large.jpg",
-    "description": "墨池一夜西風起，染出東籬片片秋。",
-    "descriptionEn": "In the ink pool, the western wind rises through the night, Dyeing the eastern fence with fragments of autumn's light.",
-    "format": "框",
-    "year": "2022",
-    "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "formatEn": "Framed",
-    "heightCm": 70,
-    "widthCm": 70,
-    "heightInches": 27.6,
-    "widthInches": 27.6,
-    "autoCategories": {
-      "subjects": [
-        "landscape",
-        "flowers"
-      ],
-      "locations": []
-    },
-    "manualCategories": {
-      "subjects": [],
-      "locations": []
-    }
-  },
-  {
     "id": "019891b0-f39c-7562-bbed-32c024cd6676",
     "title": "稻花香",
     "year": "2022",
