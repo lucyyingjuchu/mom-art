@@ -39,7 +39,7 @@ FORMAT_TRANSLATIONS = {
 }
 
 # Fields to remove (obsolete)
-OBSOLETE_FIELDS = ['medium','mediumEn', 'recent', 'category', 'sizeCm', 'sizeInches','tags','exhibitions']
+OBSOLETE_FIELDS = ['medium', 'recent', 'category', 'sizeCm', 'sizeInches']
 
 def parse_size_cm(size_string):
     """
@@ -89,6 +89,24 @@ def process_dimensions(artwork):
         updated = True
     
     return updated
+
+def ensure_required_fields(artworks):
+    """Ensure all artworks have the required English fields"""
+    print("🔧 Ensuring all required fields exist...")
+    
+    required_fields = ['titleEn', 'descriptionEn', 'curatorNoteEn', 'formatEn']
+    fields_added = 0
+    
+    for artwork in artworks:
+        for field in required_fields:
+            if field not in artwork:
+                artwork[field] = ""
+                fields_added += 1
+    
+    if fields_added > 0:
+        print(f"  ✅ Added {fields_added} missing English fields")
+    else:
+        print("  ✅ All required fields already exist")
 
 def prepare_openai_requests(artworks):
     """Prepare batch requests for OpenAI translation"""
@@ -376,6 +394,8 @@ def download_and_apply_results(client, batch_job, artworks):
                     
                     if result['response']['status_code'] == 200:
                         translation = result['response']['body']['choices'][0]['message']['content'].strip()
+                        # Clean up AI junk
+                        translation = clean_ai_translation(translation)
                         
                         if custom_id.startswith('title_'):
                             artwork_id = custom_id.replace('title_', '')
@@ -436,6 +456,9 @@ def main():
         artworks = json.load(f)
     
     print(f"📖 Loaded {len(artworks)} artworks")
+    
+    # Ensure all required fields exist
+    ensure_required_fields(artworks)
     
     # Create backup
     timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
