@@ -665,7 +665,7 @@ class ChineseArtPortfolio {
         const description = this.getText(artwork, 'description') || this.t('common.noDescription');
         
         // Handle missing images
-        const imageUrl = artwork.imageHigh || artwork.image || this.getPlaceholderImage();
+        const imageUrl = artwork.image || artwork.imageHigh || this.getPlaceholderImage();
         
         // Handle missing size - use individual dimensions if available
         const size = artwork.heightCm && artwork.widthCm ? 
@@ -1493,18 +1493,13 @@ class ChineseArtPortfolio {
     // Add these functions to your ChineseArtPortfolio class in portfolio.js
 
     // Apply protection to all gallery images
-    addImageProtection() {
-        const image = document.getElementById('lightboxImage');
-        if (!image) return;
+    addGalleryImageProtection() {
+        const galleryImages = document.querySelectorAll('.gallery-item img');
+        console.log(`Protecting ${galleryImages.length} gallery images`);
         
-        // Only CSS protection - no overlay
-        image.setAttribute('draggable', 'false');
-        image.style.userSelect = 'none';
-        image.style.webkitUserSelect = 'none';
-        image.style.mozUserSelect = 'none';
-        image.style.msUserSelect = 'none';
-        
-        console.log('Lightbox image protection enabled (CSS only)');
+        galleryImages.forEach(img => {
+            this.applyImageProtectionToElement(img);
+        });
     }
 
 
