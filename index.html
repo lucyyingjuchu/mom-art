@@ -1301,5 +1301,32 @@
         }
 
         </script>
+        <script>
+        // Debug version - replace the previous global protection script
+        document.addEventListener('contextmenu', function(e) {
+            console.log('Contextmenu event target:', e.target.tagName, e.target.id, e.target.className);
+            
+            // Only block right-click on the actual lightbox image
+            if (e.target.tagName === 'IMG' && e.target.id === 'lightboxImage') {
+                console.log('Blocking right-click on lightbox image');
+                e.preventDefault();
+                return false;
+            }
+            
+            // Block right-click on gallery images
+            if (e.target.tagName === 'IMG' && e.target.closest('.gallery-item')) {
+                console.log('Blocking right-click on gallery image');
+                e.preventDefault();
+                return false;
+            }
+        }, { capture: true });
+
+        document.addEventListener('click', function(e) {
+            if (e.target.tagName === 'IMG' && e.target.id === 'lightboxImage') {
+                console.log('Click event on lightbox image - should zoom');
+            }
+        }, { capture: true });
+        </script>
+
 </body>
 </html>

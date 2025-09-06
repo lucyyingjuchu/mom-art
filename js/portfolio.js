@@ -1492,39 +1492,19 @@ class ChineseArtPortfolio {
     }
     // Add these functions to your ChineseArtPortfolio class in portfolio.js
 
-    // Core protection function applied to any image element
-    applyImageProtectionToElement(imageElement) {
-        if (!imageElement) return;
-        
-        // Prevent right-click context menu
-        imageElement.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            return false;
-        }, { passive: false });
-        
-        // Prevent drag and drop
-        imageElement.addEventListener('dragstart', function(e) {
-            e.preventDefault();
-            return false;
-        }, { passive: false });
-        
-        // Apply CSS protection attributes
-        imageElement.setAttribute('draggable', 'false');
-        imageElement.style.userSelect = 'none';
-        imageElement.style.webkitUserSelect = 'none';
-        imageElement.style.mozUserSelect = 'none';
-        imageElement.style.msUserSelect = 'none';
-    }
-
     // Apply protection to all gallery images
-    addGalleryImageProtection() {
-        const galleryImages = document.querySelectorAll('.gallery-item img');
-        console.log(`Protecting ${galleryImages.length} gallery images`);
+    addImageProtection() {
+        const image = document.getElementById('lightboxImage');
+        if (!image) return;
         
-        galleryImages.forEach(img => {
-            this.applyImageProtectionToElement(img);
-        });
+        // Only CSS protection - no overlay
+        image.setAttribute('draggable', 'false');
+        image.style.userSelect = 'none';
+        image.style.webkitUserSelect = 'none';
+        image.style.mozUserSelect = 'none';
+        image.style.msUserSelect = 'none';
+        
+        console.log('Lightbox image protection enabled (CSS only)');
     }
 
 
