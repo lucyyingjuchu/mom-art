@@ -774,6 +774,17 @@ class ChineseArtPortfolio {
                 }
             });
         });
+
+        // ADD THIS: Setup search event listener
+        const searchInput = document.getElementById('searchInput');
+        if (searchInput) {
+            searchInput.addEventListener('input', (e) => {
+                this.performSearch(e.target.value);
+            });
+            console.log('✅ Search event listener attached to input');
+        } else {
+            console.warn('⚠️ Search input not found when setting up listeners');
+        }
     }
 
     // Render featured works on home page with museum-quality presentation
