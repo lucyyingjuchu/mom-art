@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artist Portfolio - Paintings & Calligraphy</title>
-    
+    <link rel="icon" type="image/x-icon" href="./images/logo/favicon.ico">
+
     <!-- External Lightbox CSS -->
     <link rel="stylesheet" href="./css/lightbox.css">
     <!-- Contact form CSS -->
@@ -38,17 +39,54 @@
             position: relative;
         }
 
+        /* ================================ */
+        /* LOGO AND TITLE LAYOUT */
+        /* ================================ */
+
+        .logo-title-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .header-logo {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            flex-shrink: 0; /* Prevent logo from shrinking */
+        }
+
+        .header-logo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+        }
+
+        .title-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+        }
+
+
+        /* Adjust existing logo (title) styles */
         .logo {
             font-size: 2.5rem;
             font-weight: 300;
             color: #2c3e50;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.3rem; /* Reduced from 0.5rem */
+            line-height: 1.1;
         }
 
         .subtitle {
             font-size: 1.1rem;
             color: #6c757d;
             font-style: italic;
+            margin: 0;
         }
 
         .language-toggle {
@@ -646,6 +684,22 @@
             .section-content {
                 padding: 1rem;
             }
+            
+            /* Extra small screens */
+            @media (max-width: 480px) {
+                .header-logo {
+                    width: 50px;
+                    height: 50px;
+                }
+                
+                .logo {
+                    font-size: 1.8rem;
+                }
+                
+                .subtitle {
+                    font-size: 0.9rem;
+                }
+            }
 
             /* Hide hint text on mobile */
             .section-header.collapsible::after {
@@ -990,9 +1044,15 @@
             <button id="languageToggle" class="header-icon language-toggle">中</button>
             <!-- Cart icon will be inserted here by JavaScript -->
         </div>
-        
-        <div class="logo"><!-- Will be filled by JavaScript --></div>
-        <div class="subtitle"><!-- Will be filled by JavaScript --></div>
+        <!-- Logo and title container -->
+        <div class="logo-title-container">
+            <img src="./images/logo/logo512.png" alt="Artist Logo" class="header-logo" 
+                onerror="this.style.display='none'">
+            <div class="title-text">
+                <div class="logo"><!-- Will be filled by JavaScript --></div>
+                <div class="subtitle"><!-- Will be filled by JavaScript --></div>
+            </div>
+        </div>
     </header>
 
     <!-- ================================ -->
