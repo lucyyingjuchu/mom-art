@@ -1965,23 +1965,16 @@
   {
     "id": "019891b0-f39c-7c2c-ab3a-8f771d7ff31d",
     "title": "合歡新秋",
-    "titleEn": "New Autumn of Hehuan",
-    "image": "./images/paintings/thumbnails/019891b0-f39c-7c2c-ab3a-8f771d7ff31d_thumb.jpg",
-    "imageHigh": "images\\paintings\\large\\019891b0-f39c-7c2c-ab3a-8f771d7ff31d_large.jpg",
-    "description": "秋雲渺渺舞蒼穹，芒草迎風虎杖紅；墨染千山常自在，合歡松雪有無中。",
-    "descriptionEn": "In the autumn, clouds drift and dance in the vast sky, While the reeds sway in the wind, and the red of the tiger stick glows; Ink-stained mountains dwell in tranquil freedom, As the snow on the hehuan pine blurs the line between presence and absence.",
-    "format": "軸",
     "year": "2021",
-    "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll",
     "heightCm": 140,
     "widthCm": 75,
-    "heightInches": 55.1,
-    "widthInches": 29.5,
+    "sizeCm": "140 × 75 cm",
+    "format": "軸",
+    "description": "秋雲渺渺舞蒼穹，芒草迎風虎杖紅；墨染千山常自在，合歡松雪有無中。",
+    "curatorNote": "",
+    "featured": false,
+    "available": true,
+    "price": "",
     "autoCategories": {
       "subjects": [
         "landscape",
@@ -1992,8 +1985,18 @@
     },
     "manualCategories": {
       "subjects": [],
-      "locations": []
-    }
+      "locations": [
+        "hehuanshan"
+      ]
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7c2c-ab3a-8f771d7ff31d_thumb.jpg",
+    "imageHigh": "images\\paintings\\large\\019891b0-f39c-7c2c-ab3a-8f771d7ff31d_large.jpg",
+    "categories": [
+      "landscape",
+      "flowingclouds",
+      "calligraphy",
+      "hehuanshan"
+    ]
   },
   {
     "id": "019891b0-f39c-73e0-a9c8-0c6ccf4ed87d",
