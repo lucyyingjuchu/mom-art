@@ -452,7 +452,8 @@ window.shareArtwork = function() {
     
     // Create direct link to this specific artwork
     const baseUrl = window.location.origin + window.location.pathname;
-    const artworkUrl = `${baseUrl}?artwork=${currentArtwork.id}`;
+    const currentLang = (typeof portfolio !== 'undefined') ? portfolio.currentLanguage : 'en';
+    const artworkUrl = `${baseUrl}?artwork=${currentArtwork.id}&lang=${currentLang}`;
     
     // Get artist name from language data - BILINGUAL AWARE
     const artistName = getLocalizedText('header.title');

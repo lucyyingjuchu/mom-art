@@ -8,7 +8,18 @@ class ChineseArtPortfolio {
     constructor() {
         this.artworks = [];
         this.categories = {};
-        this.currentLanguage = 'zh'; // Default to Chinese
+        // Detect user's language preference
+        const browserLang = navigator.language || navigator.userLanguage;
+        console.log('Detected browser language:', browserLang);
+
+        // Default to English for US market, Chinese for Chinese-speaking regions
+        if (browserLang.startsWith('zh')) {
+            this.currentLanguage = 'zh';
+            console.log('Setting language to Chinese based on browser');
+        } else {
+            this.currentLanguage = 'en';
+            console.log('Setting language to English (default)');
+        }
         this.filterStats = {};
         this.currentGalleryOrder = []; // 當前藝廊顯示的作品順序
 
@@ -1562,7 +1573,8 @@ function handleArtworkURL() {
     // Get URL parameters
     const urlParams = new URLSearchParams(window.location.search);
     const artworkId = urlParams.get('artwork');
-    
+    const langParam = urlParams.get('lang'); 
+
     if (!artworkId) {
         // No artwork parameter, normal page load
         return;
@@ -1570,14 +1582,32 @@ function handleArtworkURL() {
     
     console.log('Direct artwork link detected:', artworkId);
     
-    // Wait for portfolio to load, then open the lightbox
     function attemptToOpenArtwork() {
-        // Check if portfolio system is ready
         if (typeof portfolio === 'undefined' || !portfolio.artworks) {
             console.log('Portfolio not ready yet, retrying...');
             setTimeout(attemptToOpenArtwork, 200);
             return;
         }
+        
+        // Set language from URL parameter before opening lightbox
+        if (langParam && (langParam === 'zh' || langParam === 'en')) {
+            portfolio.currentLanguage = langParam;
+            portfolio.updateAllUI();
+        }
+        
+        const artwork = portfolio.getArtwork(artworkId);
+        if (!artwork) {
+            console.warn('Artwork not found:', artworkId);
+            showArtworkNotFoundMessage(artworkId);
+            return;
+        }
+        
+        console.log('Opening shared artwork:', artwork.title);
+        
+        setTimeout(() => {
+            window.openLightbox(artworkId, 'all');
+        }, 500);
+    }
         
         // Check if the artwork exists
         const artwork = portfolio.getArtwork(artworkId);
