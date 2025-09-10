@@ -323,6 +323,9 @@ window.closeLightbox = function() {
             portfolio.scrollToArtwork(currentArtworkId);
         }, 300);
     }
+
+    // ADD THIS LINE to trigger URL cleanup:
+    document.dispatchEvent(new CustomEvent('lightboxClosed'));
 };
 
 window.navigateArtwork = function(direction) {

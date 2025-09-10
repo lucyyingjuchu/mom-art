@@ -18,44 +18,25 @@
     "productViews": [
       {
         "type": "original",
-        "title": "原作",
-        "icon": "🖼️",
-        "image": "./images/paintings/large/019891b0-f39c-7cee-bc2d-85b83d7ced08_large.jpg",
-        "description": "高清原作細節"
+        "image": "./images/paintings/large/019891b0-f39c-7cee-bc2d-85b83d7ced08_large.jpg"
       },
       {
         "type": "original-mockup",
-        "title": "原作展示",
-        "icon": "🏠",
-        "image": "./images/mockups/original/019891b0-f39c-7cee-bc2d-85b83d7ced08_mockup_orig.jpg",
-        "description": "135×70cm 原作在客廳的效果"
+        "image": "./images/mockups/original/019891b0-f39c-7cee-bc2d-85b83d7ced08_mockup_orig.jpg"
       },
       {
-        "type": "print",
-        "title": "限量版畫",
-        "icon": "📄",
-        "image": "./images/prints/019891b0-f39c-7cee-bc2d-85b83d7ced08_print.jpg",
-        "description": "高品質藝術微噴版畫"
+        "type": "detail1",
+        "image": "./images/prints/019891b0-f39c-7cee-bc2d-85b83d7ced08_print.jpg"
+      },
+      {
+        "type": "detail2",
+
+        "image": "./images/prints/019891b0-f39c-7cee-bc2d-85b83d7ced08_print.jpg"
       },
       {
         "type": "print-mockup",
         "icon": "🏠",
-        "image": "./images/mockups/prints/019891b0-f39c-7cee-bc2d-85b83d7ced08_living.jpg",
-        "description": "50×35cm 版畫在書房的效果"
-      },
-      {
-        "type": "packaging",
-        "title": "精美包裝",
-        "icon": "📦",
-        "image": "./images/packaging/019891b0-f39c-7cee-bc2d-85b83d7ced08_box.jpg",
-        "description": "專業裝裱與包裝"
-      },
-      {
-        "type": "detail",
-        "title": "印刷細節",
-        "icon": "🔍",
-        "image": "./images/details/019891b0-f39c-7cee-bc2d-85b83d7ced08_detail.jpg",
-        "description": "紙張質感與簽名細節"
+        "image": "./images/mockups/prints/019891b0-f39c-7cee-bc2d-85b83d7ced08_print.jpg"
       }
     ],
     "products": [
