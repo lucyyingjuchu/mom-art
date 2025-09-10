@@ -1469,11 +1469,16 @@
   {
     "id": "019891b0-f39c-7c93-99be-4338883f37f7",
     "title": "煙擁合歡－合歡梯田",
-    "titleEn": "Embrace of Smoke and Joy – Joyful Terraces",
-    "manualCategories": {
-      "subjects": [],
-      "locations": []
-    },
+    "year": "2018",
+    "heightCm": 135,
+    "widthCm": 70,
+    "sizeCm": "135 × 70 cm",
+    "format": "框",
+    "description": "煙擁合歡，霧潤良疇，碧山含笑，雲凝翠黛，天然節奏，有象文章，風光綿延，機趣無窮。",
+    "curatorNote": "",
+    "featured": false,
+    "available": true,
+    "price": "",
     "autoCategories": {
       "subjects": [
         "landscape",
@@ -1482,22 +1487,20 @@
       ],
       "locations": []
     },
+    "manualCategories": {
+      "subjects": [],
+      "locations": [
+        "hehuanshan"
+      ]
+    },
     "image": "./images/paintings/thumbnails/019891b0-f39c-7c93-99be-4338883f37f7_thumb.png",
     "imageHigh": "images\\paintings\\large\\019891b0-f39c-7c93-99be-4338883f37f7_large.png",
-    "description": "煙擁合歡，霧潤良疇，碧山含笑，雲凝翠黛，天然節奏，有象文章，風光綿延，機趣無窮。",
-    "descriptionEn": "Smoke embraces the harmonies, mist moistens the fertile fields,  \nEmerald mountains wear a smile, clouds gather like jade brows.  \nNature's rhythm flows, embodying the essence of prose,  \nScenery stretches endlessly, with endless charm it bestows.",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "format": "框",
-    "formatEn": "Framed",
-    "heightCm": 135,
-    "widthCm": 70,
-    "heightInches": 53.1,
-    "widthInches": 27.6,
-    "year": "2018",
-    "price": "",
-    "available": true,
-    "featured": false
+    "categories": [
+      "landscape",
+      "flowingclouds",
+      "calligraphy",
+      "hehuanshan"
+    ]
   },
   {
     "id": "019891b0-f39c-74e5-8201-1f0276798b75",
