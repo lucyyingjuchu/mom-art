@@ -810,7 +810,6 @@ class ChineseArtPortfolio {
             <div class="featured-gallery">
                 <div class="featured-header">
                     <h2>${this.t('home.featuredTitle')}</h2>
-                    <p>${this.t('home.featuredSubtitle')}</p>
                 </div>
                 
                 <div class="featured-grid" id="featuredMasonryGrid">

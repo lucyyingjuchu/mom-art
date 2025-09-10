@@ -4,7 +4,7 @@ const LANGUAGE_DATA = {
     en: {
         // Header
         header: {
-            title: "Yuan Chi-Jing - Xiaoran Cultural Arts",
+            title: "Xiaoran Cultural Arts",
             subtitle: "Where stillness meets the flowing brush: Chinese Paintings & Calligraphy"
         },
         

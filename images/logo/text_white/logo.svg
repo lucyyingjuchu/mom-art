@@ -9,9 +9,9 @@
    viewBox="0 0 549 549"
    sodipodi:docname="logo.svg"
    inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
-   inkscape:export-filename="logo2048.png"
-   inkscape:export-xdpi="358.12021"
-   inkscape:export-ydpi="358.12021"
+   inkscape:export-filename="logo1024.png"
+   inkscape:export-xdpi="179.0601"
+   inkscape:export-ydpi="179.0601"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +36,7 @@
      inkscape:window-y="29"
      inkscape:window-maximized="0"
      inkscape:current-layer="g1"
-     inkscape:export-bgcolor="#ffffffff" />
+     inkscape:export-bgcolor="#ffffff00" />
   <g
      inkscape:groupmode="layer"
      inkscape:label="Image"
