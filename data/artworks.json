@@ -1016,23 +1016,16 @@
   {
     "id": "019891b0-f39c-7a5f-a6de-f1a8172971f6",
     "title": "合歡雲擁映山紅－合歡杜鵑",
-    "titleEn": "Clouds of Harmony Embracing Mountain Reds – Rhododendron",
-    "image": "./images/paintings/thumbnails/019891b0-f39c-7a5f-a6de-f1a8172971f6_thumb.jpg",
-    "imageHigh": "images\\paintings\\large\\019891b0-f39c-7a5f-a6de-f1a8172971f6_large.jpg",
-    "description": "雲浮千里白，笑擁萬山紅；遙望雲歸處，合歡自在同。",
-    "descriptionEn": "Clouds drift a thousand miles in white, While laughter embraces mountains clad in red; From afar, I gaze where the clouds return, In harmony, we find our joy together.",
-    "format": "框",
     "year": "2018",
-    "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "formatEn": "Framed",
     "heightCm": 140,
     "widthCm": 75,
-    "heightInches": 55.1,
-    "widthInches": 29.5,
+    "sizeCm": "140 × 75 cm",
+    "format": "框",
+    "description": "雲浮千里白，笑擁萬山紅；遙望雲歸處，合歡自在同。",
+    "curatorNote": "",
+    "featured": false,
+    "available": true,
+    "price": "",
     "autoCategories": {
       "subjects": [
         "landscape",
@@ -1043,8 +1036,18 @@
     },
     "manualCategories": {
       "subjects": [],
-      "locations": []
-    }
+      "locations": [
+        "hehuanshan"
+      ]
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7a5f-a6de-f1a8172971f6_thumb.jpg",
+    "imageHigh": "images\\paintings\\large\\019891b0-f39c-7a5f-a6de-f1a8172971f6_large.jpg",
+    "categories": [
+      "landscape",
+      "flowingclouds",
+      "flowers",
+      "hehuanshan"
+    ]
   },
   {
     "id": "019891b0-f39c-74e9-9011-76112f5b97a4",
