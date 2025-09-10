@@ -1624,7 +1624,7 @@ function handleArtworkURL() {
         setTimeout(() => {
             window.openLightbox(artworkId, 'all');
         }, 500);
-    }
+    
     
     // Start attempting to open the artwork
     attemptToOpenArtwork();
