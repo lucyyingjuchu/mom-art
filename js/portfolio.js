@@ -370,6 +370,7 @@ class ChineseArtPortfolio {
 
     // Update all UI elements when language changes
     updateAllUI() {
+        this.updatePageTitle(); // ADD THIS LINE
         this.updateStaticText();
         this.renderGallery();
         this.renderFeaturedWorks();
@@ -754,13 +755,30 @@ class ChineseArtPortfolio {
 
     // Initialize gallery and event listeners
     initializeGallery() {
+        this.updatePageTitle(); 
         this.renderGallery();
         this.setupEventListeners();
         this.renderFeaturedWorks();
         this.updateLanguageToggle();
         this.renderFilterMenu();
         this.updateStaticText();
-        initializeURLHandler(); // Add this line
+        initializeURLHandler(); 
+    }
+
+    // Update webpage title based on current language
+    updatePageTitle() {
+        const title = this.t('header.title');
+        if (title && title !== 'header.title') { // Check if translation exists
+            document.title = title;
+            console.log(`📝 Page title updated to: ${title}`);
+        } else {
+            // Fallback titles if not defined in language data
+            const fallbackTitle = this.currentLanguage === 'zh' 
+                ? '袁之靜 -   曉然文化藝術'
+                : 'Xiaoran Cultral Arts - Chinese Paintings & Calligraphy';
+            document.title = fallbackTitle;
+            console.log(`📝 Page title updated (fallback): ${fallbackTitle}`);
+        }
     }
 
     // Render filter menu
@@ -797,7 +815,7 @@ class ChineseArtPortfolio {
             console.warn('⚠️ Search input not found when setting up listeners');
         }
     }
-
+    
     // Render featured works on home page with museum-quality presentation
     renderFeaturedWorks() {
         const featuredContainer = document.querySelector('.featured-works');
