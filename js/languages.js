@@ -18,10 +18,7 @@ const LANGUAGE_DATA = {
         
         // Home page
         home: {
-            heroTitle: "Welcome to My Art World",
-            heroDescription: "Explore a collection of paintings and calligraphy that captures the beauty of traditional and contemporary art forms. Each piece tells a story through delicate brushstrokes and thoughtful composition.",
             featuredTitle: "Featured Artworks",
-            featuredSubtitle: "A curated selection of exceptional pieces",
             viewAllButton: "View Complete Gallery"
         },
         
