@@ -502,7 +502,7 @@ const LANGUAGE_DATA = {
             // 提示文字
             requiredField: "此欄位為必填",
             emailPlaceholder: "請輸入有效的電子郵件地址",
-            phonePlaceholder: "請輸入手機號碼 (如: 0912345678)",
+            phonePlaceholder: "請輸入手機號碼",
             addressPlaceholder: "請輸入完整郵寄地址",
             notePlaceholder: "特殊需求、問題或偏好的聯繫時間（選填）",
             shippingMethodPlaceholder: "請選擇配送方式",
@@ -515,14 +515,14 @@ const LANGUAGE_DATA = {
             
             // 額外說明
             privacyNote: "您的個人資料僅用於此次詢價，我們會妥善保護您的隱私。",
-            responseTime: "我們通常會在24小時內回覆您的詢價。"
+            responseTime: "我們通常會在2個工作日內回覆您的詢價。"
         },
         
         // Shopping Cart
         shopping: {
             cartTitle: "微噴印刷購物車",
             cartEmpty: "購物車是空的",
-            cartEmptyDesc: "瀏覽藝術作品，將喜愛的作品的加入購物車",
+            cartEmptyDesc: "瀏覽藝廊，將喜愛的微噴印刷品加入購物車",
             selectSizeTitle: "藝術微噴印刷",
             selectSizeSubtitle: "厚卡紙裝裱，可掛可裱",
             availableSizes: "可選尺寸：",

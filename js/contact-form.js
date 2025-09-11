@@ -1,6 +1,5 @@
 // contact-form.js - Enhanced Professional Contact Form System
-// Version: 2.0 - Clean implementation with smart phone input and autocomplete
-emailjs.init("pbE7j2fLMaqfGjb3_"); // Replace with your actual public key from EmailJS dashboard
+// Version: 3.0 - Updated to use Netlify Functions for secure email sending
 
 console.log('📋 Loading enhanced contact form system...');
 
@@ -304,8 +303,6 @@ function generateContactFormHTML() {
 // ================================
 
 // 開啟聯絡表單
-
-// REPLACE your window.openContactForm function with this:
 window.openContactForm = function(artworkId) {
     console.log('📋 Opening contact form for artwork:', artworkId);
     
@@ -372,7 +369,6 @@ function createContactFormModal() {
     console.log('✅ Contact form opened');
 }
 
-
 // 綁定表單事件
 function bindContactFormEvents(modal) {
     // 關閉按鈕
@@ -408,10 +404,6 @@ function bindContactFormEvents(modal) {
 }
 
 // 填入作品資訊
-// ULTRA DEBUG VERSION - Replace your populateArtworkInfo() function with this:
-
-// REPLACE your populateArtworkInfo() function with this clean version:
-
 function populateArtworkInfo() {
     console.log('Populating artwork info...');
     
@@ -424,7 +416,6 @@ function populateArtworkInfo() {
     const titleInput = document.getElementById('contactArtworkTitle');
     const yearInput = document.getElementById('contactArtworkYear');
     const sizeInput = document.getElementById('contactArtworkSize');
-    //const formatInput = document.getElementById('contactArtworkFormat');
     
     console.log('Form elements found:', {
         titleInput: !!titleInput,
@@ -567,10 +558,10 @@ function handleFormSubmit(e) {
     const inquiryData = {
         artwork: {
             id: currentInquiryArtwork?.id,
-            title: document.getElementById('artworkTitle').value,
-            year: document.getElementById('artworkYear').value,
-            size: document.getElementById('contactArtworkSize').value,
-            format: document.getElementById('artworkFormat').value
+            title: document.getElementById('contactArtworkTitle').value,
+            titleEn: currentInquiryArtwork?.titleEn || currentInquiryArtwork?.title,
+            year: document.getElementById('contactArtworkYear').value,
+            size: document.getElementById('contactArtworkSize').value
         },
         customer: {
             name: document.getElementById('customerName').value,
@@ -601,8 +592,7 @@ function handleFormSubmit(e) {
     submitInquiry(inquiryData);
 }
 
-// 提交詢價
-
+// 提交詢價 - Updated to use Netlify Functions
 function submitInquiry(data) {
     const messageDiv = document.getElementById('formMessage');
     const submitBtn = document.querySelector('.btn-submit');
@@ -611,62 +601,43 @@ function submitInquiry(data) {
     submitBtn.textContent = '提交中...';
     submitBtn.disabled = true;
     
-    // Prepare email template parameters
-    const templateParams = {
-        // Customer info
-        customer_name: data.customer.name,
-        customer_email: data.customer.email,
-        customer_phone: data.customer.phone,
-        customer_country: data.customer.country,
-        
-        // Artwork info
-        artwork_title: data.artwork.title,
-        artwork_year: data.artwork.year,
-        artwork_size: data.artwork.size,
-        artwork_id: data.artwork.id,
-        
-        // Shipping info
-        shipping_address: data.shipping.address,
-        shipping_method: data.shipping.method,
-        shipping_note: data.shipping.note || 'No additional notes',
-        
-        // Analytics (optional)
-        inquiry_language: data.analytics.language,
-        inquiry_timestamp: data.analytics.timestamp,
-        user_country: data.analytics.detected_country,
-        
-        artwork_image: currentInquiryArtwork.imageHigh || currentInquiryArtwork.image,
-        artwork_title_en: currentInquiryArtwork.titleEn || currentInquiryArtwork.title,
-
-    };
+    console.log('Submitting inquiry data:', data);
     
-    console.log('Sending email with params:', templateParams);
-    
-    // Send email using EmailJS
-    const templateId = data.analytics.language === 'zh' ? 'artwork-inquiry-zh' : 'artwork-inquiry-en';
-    emailjs.send('YOUR_SERVICE_ID', templateId, templateParams)
-
-        .then(function(response) {
-            console.log('Email sent successfully:', response.status, response.text);
+    // Send to Netlify function instead of EmailJS directly
+    fetch('/.netlify/functions/send-email', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => {
+        console.log('Response status:', response.status);
+        return response.json();
+    })
+    .then(result => {
+        console.log('Success:', result);
+        
+        if (result.success) {
             showFormMessage(getContactText('contactForm.submitSuccess'), 'success');
-            
-            // Reset button
-            submitBtn.textContent = getContactText('contactForm.submitButton');
-            submitBtn.disabled = false;
             
             // Close form after 3 seconds
             setTimeout(() => {
                 closeContactForm();
             }, 3000);
-            
-        }, function(error) {
-            console.error('Email send failed:', error);
-            showFormMessage(getContactText('contactForm.submitError'), 'error');
-            
-            // Reset button
-            submitBtn.textContent = getContactText('contactForm.submitButton');
-            submitBtn.disabled = false;
-        });
+        } else {
+            throw new Error(result.error || 'Unknown error');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        showFormMessage(getContactText('contactForm.submitError'), 'error');
+    })
+    .finally(() => {
+        // Reset button
+        submitBtn.textContent = getContactText('contactForm.submitButton');
+        submitBtn.disabled = false;
+    });
 }
 
 // 顯示表單訊息
@@ -719,4 +690,4 @@ if (!sessionStorage.getItem('sessionStart')) {
 const currentViews = parseInt(sessionStorage.getItem('pageViews')) || 0;
 sessionStorage.setItem('pageViews', currentViews + 1);
 
-console.log('✅ Enhanced contact form system loaded');
+console.log('✅ Enhanced contact form system loaded (Netlify Functions version)');

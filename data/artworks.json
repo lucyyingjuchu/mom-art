@@ -14,7 +14,13 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "descriptionEn": "In the dance of water and moonlight, chaos unfolds, As heaven and earth in myriad forms behold. What essence do the seasons’ winds convey? Amidst the chill, the lone plum blossoms sway.",
-    "formatEn": "Hanging Scroll"
+    "formatEn": "Hanging Scroll",
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7cee-bc2d-85b83d7ced08_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-752c-bde4-db1ef1f5529c",
@@ -46,7 +52,13 @@
     },
     "heightInches": 27.6,
     "widthInches": 53.1,
-    "descriptionEn": "Year after year, morning after morning, countless streams flow,  \nSplashing flowers, washing away ancient and modern woes;  \nThe source should surely come from the heavens above,  \nMoistening all beings, in ceaseless love."
+    "descriptionEn": "Year after year, morning after morning, countless streams flow,  \nSplashing flowers, washing away ancient and modern woes;  \nThe source should surely come from the heavens above,  \nMoistening all beings, in ceaseless love.",
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-752c-bde4-db1ef1f5529c_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-73f8-9534-0b7d90737bde",
@@ -145,7 +157,13 @@
     "year": "2011",
     "price": "",
     "available": true,
-    "featured": false
+    "featured": false,
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-760d-a955-60c68a66d5be_large.png"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7192-92e6-0e1d7d4a52dc",
@@ -179,7 +197,13 @@
     "year": "2011",
     "price": "",
     "available": true,
-    "featured": false
+    "featured": false,
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7192-92e6-0e1d7d4a52dc_large.png"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7036-9ac1-cbed9f6f03e5",
@@ -212,7 +236,13 @@
     "year": "2011",
     "price": "",
     "available": true,
-    "featured": false
+    "featured": false,
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7036-9ac1-cbed9f6f03e5_large.png"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7692-b225-e725fef10f3e",
@@ -275,7 +305,13 @@
     "year": "2011",
     "price": "",
     "available": true,
-    "featured": true
+    "featured": true,
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7b65-ab7f-c36ec9a747df_large.png"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7186-94bc-b7109c05f639",
@@ -308,7 +344,13 @@
       "subjects": [],
       "locations": []
     },
-    "formatEn": ""
+    "formatEn": "",
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7186-94bc-b7109c05f639_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7f2c-96ed-160ad3c22a3f",
@@ -340,7 +382,13 @@
     "year": "2011",
     "price": "",
     "available": true,
-    "featured": false
+    "featured": false,
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7f2c-96ed-160ad3c22a3f_large.png"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7bae-8206-f4788f507776",
@@ -372,7 +420,13 @@
     "year": "2011",
     "price": "",
     "available": true,
-    "featured": false
+    "featured": false,
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7bae-8206-f4788f507776_large.png"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7a52-b635-427bdcdca491",
@@ -404,7 +458,17 @@
     "year": "2011",
     "price": "",
     "available": true,
-    "featured": false
+    "featured": false,
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7a52-b635-427bdcdca491_large.png"
+      },
+      {
+        "type": "original-mockup",
+        "image": "./images/mockups/original/019891b0-f39c-7a52-b635-427bdcdca491_orig_mock.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7cc4-ae49-d25008e1409d",
@@ -438,7 +502,13 @@
     "year": "2011",
     "price": "",
     "available": true,
-    "featured": false
+    "featured": false,
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7cc4-ae49-d25008e1409d_large.png"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-79f7-8cab-78ad04b8b05d",
@@ -472,7 +542,13 @@
     "widthInches": 27.6,
     "titleEn": "Wisteria and Twin Swallows",
     "descriptionEn": "A pair of fine birds soar with ease,  \nA myriad of purple smoke dances in spring's embrace.",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-79f7-8cab-78ad04b8b05d_large.png"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7a23-a18f-085445820f6c",
@@ -504,7 +580,13 @@
     "year": "2011",
     "price": "",
     "available": true,
-    "featured": false
+    "featured": false,
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7a23-a18f-085445820f6c_large.png"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7e69-8910-34d57c0a6589",
@@ -536,7 +618,13 @@
     "year": "2011",
     "price": "",
     "available": true,
-    "featured": false
+    "featured": false,
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7e69-8910-34d57c0a6589_large.png"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-777e-98f4-ccdf31977c1d",
@@ -602,7 +690,13 @@
     "year": "2011",
     "price": "",
     "available": true,
-    "featured": false
+    "featured": false,
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7839-9ec1-f0013b25f208_large.png"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-76d4-86ba-1ec281b83433",
@@ -636,7 +730,13 @@
     "year": "2011",
     "price": "",
     "available": true,
-    "featured": false
+    "featured": false,
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-76d4-86ba-1ec281b83433_large.png"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7bc8-ae41-7e14d730d294",
@@ -801,6 +901,12 @@
       "flowingclouds",
       "flowers",
       "longdong"
+    ],
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7834-8476-a918927593ab_large.jpg"
+      }
     ]
   },
   {
@@ -832,7 +938,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7220-b00b-be8e9249f911_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-748f-a906-1de3f9f5b3b6",
@@ -865,7 +977,13 @@
     "year": "2017",
     "price": "",
     "available": true,
-    "featured": false
+    "featured": false,
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-748f-a906-1de3f9f5b3b6_large.png"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-76be-93c8-cf4233295e95",
@@ -897,7 +1015,13 @@
     "year": "2017",
     "price": "",
     "available": true,
-    "featured": false
+    "featured": false,
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-76be-93c8-cf4233295e95_large.png"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7a7e-b0e7-4bce5225a761",
@@ -930,6 +1054,10 @@
       {
         "type": "original-mockup",
         "image": "./images/mockups/original/019891b0-f39c-7a7e-b0e7-4bce5225a761_orig_mock.jpg"
+      },
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7a7e-b0e7-4bce5225a761_large.jpg"
       }
     ]
   },
@@ -972,6 +1100,10 @@
       {
         "type": "original-mockup",
         "image": "./images/mockups/original/019891b0-f39c-7a5f-a6de-f1a8172971f6_orig_mock.jpg"
+      },
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7a5f-a6de-f1a8172971f6_large.jpg"
       }
     ]
   },
@@ -1037,7 +1169,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7b9e-bb65-6852f393b302_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-78c6-9e86-b1be74fe48eb",
@@ -1101,7 +1239,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7b84-a80e-a928e6c46860_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-78c1-b44e-ae82a4e2d985",
@@ -1166,7 +1310,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7507-aa0e-43acd4db1f68_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7136-84bc-3625d99f8651",
@@ -1200,7 +1350,13 @@
     "widthInches": 27.6,
     "titleEn": "Plum Blossom – Inked Ice Spirit, Clear Wind and White Moon.",
     "descriptionEn": "Not the fragrance of darkness, but the shadow of clarity;  \nInk writes the soul of ice, as the wind is pure and the moon is white.",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7136-84bc-3625d99f8651_large.png"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-745a-b6ad-58e4e8545268",
@@ -1232,7 +1388,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-745a-b6ad-58e4e8545268_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7e85-8f83-fd90bbaf222d",
@@ -1296,7 +1458,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-787c-a46f-62905fa86f16_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-794f-912a-d6417dbb78df",
@@ -1426,6 +1594,12 @@
       "flowingclouds",
       "calligraphy",
       "hehuanshan"
+    ],
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7c93-99be-4338883f37f7_large.png"
+      }
     ]
   },
   {
@@ -1497,6 +1671,10 @@
       {
         "type": "original-mockup",
         "image": "./images/mockups/original/019891b0-f39c-7a34-89ac-966e1e93eb42_orig_mock.jpg"
+      },
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7a34-89ac-966e1e93eb42_large.jpg"
       }
     ]
   },
@@ -1564,7 +1742,13 @@
     "year": "2018",
     "price": "",
     "available": true,
-    "featured": false
+    "featured": false,
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7c9a-9ae8-6dccaca82b5f_large.png"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7f16-a8d3-c83d48beb81e",
@@ -1596,7 +1780,13 @@
     "year": "2018",
     "price": "",
     "available": true,
-    "featured": false
+    "featured": false,
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7f16-a8d3-c83d48beb81e_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7643-8153-14cf32b528bc",
@@ -1629,7 +1819,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7643-8153-14cf32b528bc_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7a2d-b50f-e9e6ec2e46b7",
@@ -1669,6 +1865,10 @@
       {
         "type": "original-mockup",
         "image": "./images/mockups/original/019891b0-f39c-7a2d-b50f-e9e6ec2e46b7_orig_mock.jpg"
+      },
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7a2d-b50f-e9e6ec2e46b7_large.jpg"
       }
     ]
   },
@@ -1703,7 +1903,13 @@
       "subjects": [],
       "locations": []
     },
-    "formatEn": ""
+    "formatEn": "",
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-77f0-b10f-4fece05d42ba_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7f1a-99db-36b8e31758cb",
@@ -1734,7 +1940,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7f1a-99db-36b8e31758cb_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7e21-ae47-81a6092c5a54",
@@ -1768,7 +1980,13 @@
     "widthInches": 27.6,
     "titleEn": "Blossoms of Bodhi Illuminate the Eyes",
     "descriptionEn": "The Bodhi blooms, its light aglow.",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7e21-ae47-81a6092c5a54_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7cd6-a030-0406121e5164",
@@ -1801,7 +2019,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7cd6-a030-0406121e5164_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7614-95c9-2db8260fcc98",
@@ -1832,7 +2056,13 @@
     "year": "2020",
     "price": "",
     "available": true,
-    "featured": false
+    "featured": false,
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7614-95c9-2db8260fcc98_large.png"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7f2c-b8af-cbff485e10a5",
@@ -1866,7 +2096,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7f2c-b8af-cbff485e10a5_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-728f-a1de-1b6a07cf80ff",
@@ -1898,7 +2134,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-728f-a1de-1b6a07cf80ff_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7c2c-ab3a-8f771d7ff31d",
@@ -1934,6 +2176,12 @@
       "flowingclouds",
       "calligraphy",
       "hehuanshan"
+    ],
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7c2c-ab3a-8f771d7ff31d_large.jpg"
+      }
     ]
   },
   {
@@ -1965,7 +2213,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-73e0-a9c8-0c6ccf4ed87d_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7817-98ab-ec870aa5b2aa",
@@ -1999,7 +2253,13 @@
     "year": "2021",
     "price": "",
     "available": true,
-    "featured": false
+    "featured": false,
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7817-98ab-ec870aa5b2aa_large.png"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7e9f-b136-621667022a8e",
@@ -2030,7 +2290,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7e9f-b136-621667022a8e_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-770a-b647-6b0a8efdc639",
@@ -2064,7 +2330,13 @@
     "widthInches": 27.6,
     "titleEn": "The Brush Creates Flowers, Joy in Understanding - Peony",
     "descriptionEn": "With skillful brush, flowers bloom in joy,  \nCalmly the ink falls, longevity bestowed.",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-770a-b647-6b0a8efdc639_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7b7d-8e54-83ae4f652136",
@@ -2096,7 +2368,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7b7d-8e54-83ae4f652136_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-78da-b5ed-b11a0a0e8bb1",
@@ -2130,7 +2408,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-78da-b5ed-b11a0a0e8bb1_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7eb1-abf3-a892d0a3a655",
@@ -2163,7 +2447,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7eb1-abf3-a892d0a3a655_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7038-a32d-0f2d0cb36be8",
@@ -2197,7 +2487,13 @@
     "widthInches": 17.7,
     "titleEn": "Serendipity - Encounters are Destiny - Ink Lotus",
     "descriptionEn": "Serendipity - To meet is to be fated.",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7038-a32d-0f2d0cb36be8_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-755d-a7dc-fb045eb4ef1c",
@@ -2230,7 +2526,13 @@
       "subjects": [],
       "locations": []
     },
-    "formatEn": ""
+    "formatEn": "",
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-755d-a7dc-fb045eb4ef1c_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7bfb-9266-f832146002dd",
@@ -2264,7 +2566,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7bfb-9266-f832146002dd_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7e6a-a74c-8f5ec5c50381",
@@ -2296,7 +2604,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7e6a-a74c-8f5ec5c50381_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7fd8-9336-d5c9897af012",
@@ -2327,7 +2641,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7fd8-9336-d5c9897af012_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7aff-a45f-54ed6d61069b",
@@ -2359,7 +2679,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7aff-a45f-54ed6d61069b_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7af0-82e2-2e72570b0aa1",
@@ -2390,7 +2716,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7af0-82e2-2e72570b0aa1_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-78dc-adb1-0aa1b3b74a00",
@@ -2421,7 +2753,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-78dc-adb1-0aa1b3b74a00_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7597-8177-ccdf69e29071",
@@ -2450,7 +2788,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7597-8177-ccdf69e29071_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7823-8592-e3871b17c028",
@@ -2547,7 +2891,13 @@
     "widthInches": 17.7,
     "titleEn": "A Branch of Spring Soars in the Void",
     "descriptionEn": "Freely soaring feathers dance in three shadows,  \nIn the void, a single branch of spring reaches the sky.",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7c4a-a8f5-77fdf9b0873a_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-793d-819d-6c57e1716730",
@@ -2678,7 +3028,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7841-9423-b51b365a7b9c_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7df5-a02e-1cc15d22bb57",
@@ -2709,7 +3065,13 @@
     "year": "2021",
     "price": "",
     "available": true,
-    "featured": false
+    "featured": false,
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7df5-a02e-1cc15d22bb57_large.png"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7871-b204-09fa520d0d23",
@@ -2743,7 +3105,13 @@
     "widthInches": 17.7,
     "titleEn": "Graceful Dance of Peonies in Tranquil Harmony",
     "descriptionEn": "Graceful and splendid, dancing in serene harmony.",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7871-b204-09fa520d0d23_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-79ee-915a-34d3aa1decd1",
@@ -2775,7 +3143,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-79ee-915a-34d3aa1decd1_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7d61-9f3a-c5847a00bde5",
@@ -2808,7 +3182,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7d61-9f3a-c5847a00bde5_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7904-960b-4b52cf3fe52e",
@@ -2841,7 +3221,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7904-960b-4b52cf3fe52e_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-71be-8987-5f3e69224ab5",
@@ -2876,7 +3262,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-71be-8987-5f3e69224ab5_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7a96-8e1b-28d8310e36dd",
@@ -2907,7 +3299,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7a96-8e1b-28d8310e36dd_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-78e8-be37-c859eb030659",
@@ -2940,7 +3338,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-78e8-be37-c859eb030659_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-72a2-ae2f-04a06f5a0c75",
@@ -2974,7 +3378,13 @@
     "widthInches": 17.7,
     "titleEn": "Transcending Form - Wisteria",
     "descriptionEn": "Forget the form.",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-72a2-ae2f-04a06f5a0c75_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7939-897c-cc57bc9b4a35",
@@ -3008,7 +3418,13 @@
     "widthInches": 27.6,
     "titleEn": "Leisurely Wanderings",
     "descriptionEn": "Leisurely wandering.",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7939-897c-cc57bc9b4a35_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7f63-87fd-b7a8a860889f",
@@ -3042,7 +3458,13 @@
     "widthInches": 17.7,
     "titleEn": "A Bird on a Branch Greets the Wind - Cherry Blossoms",
     "descriptionEn": "On the branch, a small bird stands in the wind,  \nAdorable in deep red and light red hues.",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7f63-87fd-b7a8a860889f_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7403-80d4-4da1440b7976",
@@ -3074,7 +3496,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7403-80d4-4da1440b7976_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-792d-b5e8-b80ef8754ca2",
@@ -3103,7 +3531,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-792d-b5e8-b80ef8754ca2_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-71dd-be15-f32291c15cc6",
@@ -3134,7 +3568,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-71dd-be15-f32291c15cc6_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7b75-910e-8ef8046a7bb9",
@@ -3168,7 +3608,13 @@
     "year": "2022",
     "price": "",
     "available": true,
-    "featured": false
+    "featured": false,
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7b75-910e-8ef8046a7bb9_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-721b-b645-0e2a1c090d9b",
@@ -3197,7 +3643,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-721b-b645-0e2a1c090d9b_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7539-8543-c9a7de487cca",
@@ -3222,7 +3674,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7539-8543-c9a7de487cca_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7fb1-9331-58595bfdef27",
@@ -3253,7 +3711,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7fb1-9331-58595bfdef27_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7995-bcb5-8b510d734e53",
@@ -3284,7 +3748,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7995-bcb5-8b510d734e53_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-71f0-bd5c-b448f22ef5f4",
@@ -3316,7 +3786,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-71f0-bd5c-b448f22ef5f4_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7e7e-ab7e-4b6efd6d2dfa",
@@ -3348,7 +3824,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7e7e-ab7e-4b6efd6d2dfa_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7a31-8759-95a350b1e45b",
@@ -3379,6 +3861,10 @@
       "locations": []
     },
     "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7a31-8759-95a350b1e45b_large.jpg"
+      },
       {
         "type": "original-mockup",
         "image": "./images/mockups/original/019891b0-f39c-7a31-8759-95a350b1e45b_orig_mock.jpg"
@@ -3414,7 +3900,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7b15-9621-9861ba359745_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-73f5-98b1-d68da1664faf",
@@ -3443,7 +3935,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-73f5-98b1-d68da1664faf_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7562-bbed-32c024cd6676",
@@ -3477,7 +3975,13 @@
     "widthInches": 36.2,
     "titleEn": "Fragrance of Rice Blossoms",
     "descriptionEn": "Fragrance of rice blossoms.",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7562-bbed-32c024cd6676_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-721e-8576-4e3f61c0e800",
@@ -3508,7 +4012,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-721e-8576-4e3f61c0e800_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-71b7-918f-b55fd4fbca35",
@@ -3540,7 +4050,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-71b7-918f-b55fd4fbca35_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7b83-902a-1f7f7bc72183",
@@ -3574,7 +4090,13 @@
     "widthInches": 70.9,
     "titleEn": "Free-Flying Blossoms – Wisteria",
     "descriptionEn": "Expressing the wonders within my heart, I embrace the eternal vastness of the sky.",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7b83-902a-1f7f7bc72183_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7809-a063-80f25d10a396",
@@ -3605,7 +4127,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7809-a063-80f25d10a396_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-763c-819c-62b3e41136e1",
@@ -3636,7 +4164,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-763c-819c-62b3e41136e1_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7455-9267-14eb33bed415",
@@ -3670,7 +4204,13 @@
     "widthInches": 17.7,
     "titleEn": "Blossoms of Prosperity and Joyful Encounters - Peony",
     "descriptionEn": "When flowers bloom, wealth and honor meet in joy.",
-    "curatorNoteEn": ""
+    "curatorNoteEn": "",
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7455-9267-14eb33bed415_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-70a8-aa76-019cadc5409d",
@@ -3701,7 +4241,13 @@
     },
     "heightInches": 29.5,
     "widthInches": 8.7,
-    "descriptionEn": "In tranquil joy, the heart is free from schemes,  \nBeneath the green shade, willows veil in dreams."
+    "descriptionEn": "In tranquil joy, the heart is free from schemes,  \nBeneath the green shade, willows veil in dreams.",
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-70a8-aa76-019cadc5409d_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-729c-bef5-b90e2cafb77e",
@@ -3735,7 +4281,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-729c-bef5-b90e2cafb77e_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7cf8-86a3-61f2f44df76f",
@@ -3768,7 +4320,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7cf8-86a3-61f2f44df76f_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-719e-a185-2f66d722d5ea",
@@ -3800,7 +4358,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-719e-a185-2f66d722d5ea_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7102-a694-48bd9ef009c1",
@@ -3902,7 +4466,13 @@
     "titleEn": "Ancient Moon",
     "descriptionEn": "Green plums surpass the outer form, ancient moon illuminates today's dust.",
     "curatorNoteEn": "",
-    "formatEn": ""
+    "formatEn": "",
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7a90-ab98-022c8b72668e_large.png"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-728a-b3ca-313cab5b59d0",
@@ -3990,7 +4560,13 @@
     "year": "unknown",
     "price": "",
     "available": true,
-    "featured": false
+    "featured": false,
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7972-b2d2-06fc3c573914_large.png"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-749a-a0e7-de471740115b",
@@ -4054,7 +4630,13 @@
     "year": "unknown",
     "price": "",
     "available": true,
-    "featured": false
+    "featured": false,
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7441-a5a7-dc968e455d98_large.png"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-714c-be36-6f1486418c72",
@@ -4151,7 +4733,13 @@
       "subjects": [],
       "locations": []
     },
-    "formatEn": ""
+    "formatEn": "",
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7201-bdba-6943519e8862_large.png"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7aa8-90f8-b40422109aad",
@@ -4310,7 +4898,13 @@
     "year": "2018",
     "price": "",
     "available": true,
-    "featured": false
+    "featured": false,
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7386-a86e-60369bb2ecd5_large.png"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7a10-8ea8-7399764b770b",
@@ -4503,7 +5097,13 @@
     "titleEn": "Plum Blossom and Little Bird",
     "descriptionEn": "Plum blossoms divide in hues of red and white.",
     "curatorNoteEn": "",
-    "formatEn": ""
+    "formatEn": "",
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7530-ace8-fffa8fead53e_large.png"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7605-8810-2ec32c05d109",
@@ -4537,7 +5137,13 @@
     "year": "unknown",
     "price": "",
     "available": true,
-    "featured": false
+    "featured": false,
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7605-8810-2ec32c05d109_large.png"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-79d8-9ef1-3daa601bdab9",
@@ -4819,7 +5425,13 @@
     "year": "2018",
     "price": "",
     "available": true,
-    "featured": true
+    "featured": true,
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7b5a-9017-6de6a497f059_large.png"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7535-8938-34b23c8840cd",
@@ -5006,7 +5618,13 @@
     "year": "2010",
     "price": "",
     "available": true,
-    "featured": false
+    "featured": false,
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7b3a-a7ae-03eba18e8809_large.png"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7972-9fe7-988683c4167b",
@@ -5228,7 +5846,13 @@
     "year": "2010",
     "price": "",
     "available": true,
-    "featured": false
+    "featured": false,
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7e2c-aab1-3c1bd010b1f7_large.png"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7353-828e-07b6ae7b5e06",
@@ -5417,7 +6041,13 @@
     "year": "2004",
     "price": "",
     "available": true,
-    "featured": false
+    "featured": false,
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7aed-9fac-21a5e94b8c1f_large.png"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-744e-b30c-7599d6a173be",
@@ -5641,7 +6271,13 @@
     "year": "unknown",
     "price": "",
     "available": true,
-    "featured": false
+    "featured": false,
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7764-a468-4f7ad6140df2_large.png"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7ec8-a85c-a9c9c25cf4b5",
@@ -5673,7 +6309,13 @@
     "year": "unknown",
     "price": "",
     "available": true,
-    "featured": false
+    "featured": false,
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7ec8-a85c-a9c9c25cf4b5_large.png"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7296-b1fe-00c0dc5bac9e",
@@ -5866,7 +6508,13 @@
     "year": "unknown",
     "price": "",
     "available": true,
-    "featured": false
+    "featured": false,
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-79c6-bfe0-4790c6114ae9_large.png"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7109-bdf7-2aff4e78b0ee",
@@ -5900,7 +6548,13 @@
     "year": "unknown",
     "price": "",
     "available": true,
-    "featured": false
+    "featured": false,
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7109-bdf7-2aff4e78b0ee_large.png"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7c4e-b473-973fecc8171d",
@@ -5935,7 +6589,13 @@
     "year": "unknown",
     "price": "",
     "available": true,
-    "featured": false
+    "featured": false,
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7c4e-b473-973fecc8171d_large.png"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-757c-afd8-62401715ca08",
@@ -5997,6 +6657,12 @@
     "year": "2017",
     "price": "",
     "available": false,
-    "featured": false
+    "featured": false,
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/artwork-987218839_large.png"
+      }
+    ]
   }
 ]
