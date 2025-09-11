@@ -2403,8 +2403,43 @@
       "title_en": "In Silence",
       "original_size_cm": "75×75"
     },
-    "print_ready": false,
-    "reason": "Insufficient resolution for 200 PPI printing"
+    "recommended_sizes": [
+      {
+        "width_inches": 25,
+        "height_inches": 23
+      },
+      {
+        "width_inches": 15,
+        "height_inches": 14
+      },
+      {
+        "width_inches": 12,
+        "height_inches": 11
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "無題",
+        "description": "Traditional Chinese painting by Xiaoran. In Silence",
+        "file_name": "019891b0-f39c-7a31-8759-95a350b1e45b_large.jpg",
+        "file_size": 971629,
+        "pix_w": 5171,
+        "pix_h": 4756,
+        "hires_file_name": "019891b0-f39c-7a31-8759-95a350b1e45b_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-7a31-8759-95a350b1e45b.jpg",
+        "thumbnail_file_name": "019891b0-f39c-7a31-8759-95a350b1e45b_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-7a31-8759-95a350b1e45b_thumb.jpg",
+        "preview_file_name": "019891b0-f39c-7a31-8759-95a350b1e45b_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7a31-8759-95a350b1e45b_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "5171×4756",
+      "file_size_mb": 0.93,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
   },
   "019891b0-f39c-7b15-9621-9861ba359745": {
     "artwork_info": {

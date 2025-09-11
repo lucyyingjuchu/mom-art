@@ -54,14 +54,17 @@ class HybridFinerWorksProcessor:
         
         return False, None  # Not found
     
-    def get_s3_image_url(self, artwork_id):
-        """Get S3 URL for high-res image"""
-        return f"https://{self.s3_bucket_name}.s3.{self.s3_region}.amazonaws.com/high-res/{artwork_id}_large.jpg"
+    def get_s3_image_url(self, artwork_id, file_format):
+        """Get S3 URL for raw image with correct format"""
+        return f"https://{self.s3_bucket_name}.s3.{self.s3_region}.amazonaws.com/raw/{artwork_id}.{file_format}"
     
     def get_image_dimensions_and_source(self, artwork_id):
         """Get pixel dimensions and determine best source (S3 or GitHub)"""
+        print(f"DEBUG: Processing {artwork_id}")
+        
         # First check if high-res version exists in S3
         has_s3_version, s3_format = self.check_s3_object_exists(artwork_id)
+        print(f"DEBUG: S3 check returned: {has_s3_version}, format: {s3_format}")
         
         # Get GitHub paths for fallback and web URLs
         github_paths = self.get_github_image_paths(artwork_id)
@@ -73,19 +76,24 @@ class HybridFinerWorksProcessor:
         # If S3 version exists, read dimensions from S3 for accurate print calculations
         if has_s3_version:
             try:
-                # Download S3 image temporarily to read dimensions
-                import tempfile
+                print(f"DEBUG: Attempting to get S3 URL for {artwork_id}.{s3_format}")
+                
+                # Download S3 image directly into memory
+                import urllib.request
+                from io import BytesIO
+                
                 s3_url = self.get_s3_image_url(artwork_id, s3_format)
+                print(f"DEBUG: S3 URL: {s3_url}")
                 
-                with tempfile.NamedTemporaryFile() as temp_file:
-                    # Download from S3
-                    import urllib.request
-                    urllib.request.urlretrieve(s3_url, temp_file.name)
-                    
-                    # Read dimensions from S3 version
-                    with Image.open(temp_file.name) as img:
-                        width, height = img.size
+                # Download directly into memory instead of temp file
+                response = urllib.request.urlopen(s3_url)
+                image_data = BytesIO(response.read())
                 
+                # Read dimensions from S3 version
+                with Image.open(image_data) as img:
+                    width, height = img.size
+                
+                print(f"DEBUG: Successfully read S3 dimensions: {width}×{height}")
                 logger.info(f"Read dimensions from S3 for {artwork_id}: {width}×{height}")
                 
                 return width, height, {
@@ -96,6 +104,7 @@ class HybridFinerWorksProcessor:
                 }
                 
             except Exception as e:
+                print(f"DEBUG: S3 download failed: {e}")
                 logger.warning(f"Could not read S3 dimensions for {artwork_id}, falling back to GitHub: {e}")
                 # Fall through to GitHub version
         
@@ -104,16 +113,18 @@ class HybridFinerWorksProcessor:
             with Image.open(github_paths['large_path']) as img:
                 width, height = img.size
                 
-                logger.info(f"Read dimensions from GitHub for {artwork_id}: {width}×{height}")
-                
-                return width, height, {
-                    'source': "github",
-                    'print_url': github_paths['large_url'],
-                    'web_url': github_paths['large_url'],
-                    'has_high_res': has_s3_version
-                }
-                
+            print(f"DEBUG: Read GitHub dimensions: {width}×{height}")
+            logger.info(f"Read dimensions from GitHub for {artwork_id}: {width}×{height}")
+            
+            return width, height, {
+                'source': "github",
+                'print_url': github_paths['large_url'],
+                'web_url': github_paths['large_url'],
+                'has_high_res': has_s3_version
+            }
+            
         except Exception as e:
+            print(f"DEBUG: GitHub read failed: {e}")
             logger.error(f"Error reading image dimensions for {artwork_id}: {e}")
             return None, None, None
 
@@ -222,34 +233,36 @@ class HybridFinerWorksProcessor:
                 }
         return None
 
-    def get_image_info(self, local_path, source_info):
-        """Extract metadata from local image file"""
-        try:
-            print(f"  Processing: {local_path}")
-            
-            # Get file size (from GitHub version for reference)
-            file_size = os.path.getsize(local_path)
-            
-            # Get image dimensions and format
-            with Image.open(local_path) as img:
-                width, height = img.size
-                format_type = img.format.lower() if img.format else 'png'
-            
-            return {
-                'file_size': file_size,
-                'pix_w': width,
-                'pix_h': height,
-                'format': format_type,
-                'source': source_info['source'],
-                'print_url': source_info['print_url'],
-                'web_url': source_info['web_url'],
-                'has_high_res': source_info['has_high_res']
-            }
-            
-        except Exception as e:
-            print(f"  Error: {e}")
-            return None
-
+    def get_image_info(self, local_path, source_info, pixel_width, pixel_height):
+            """Extract metadata from local image file using provided dimensions"""
+            try:
+                print(f"  Processing: {local_path}")
+                
+                # Get file size (from GitHub version for reference)
+                file_size = os.path.getsize(local_path)
+                
+                # Use the provided dimensions (from S3 if available, GitHub as fallback)
+                width, height = pixel_width, pixel_height
+                
+                # Get format from local file
+                with Image.open(local_path) as img:
+                    format_type = img.format.lower() if img.format else 'png'
+                
+                return {
+                    'file_size': file_size,
+                    'pix_w': width,
+                    'pix_h': height,
+                    'format': format_type,
+                    'source': source_info['source'],
+                    'print_url': source_info['print_url'],
+                    'web_url': source_info['web_url'],
+                    'has_high_res': source_info['has_high_res']
+                }
+                
+            except Exception as e:
+                print(f"  Error: {e}")
+                return None
+        
     def create_finerworks_metadata(self, artwork_id, github_paths, image_info, artwork_data, recommended_sizes):
         """Create Finer Works compatible metadata with hybrid storage support"""
         
@@ -389,7 +402,8 @@ class HybridFinerWorksProcessor:
             if not github_paths:
                 continue
                 
-            image_info = self.get_image_info(github_paths['large_path'], source_info)
+            # Pass the actual calculated dimensions to get_image_info
+            image_info = self.get_image_info(github_paths['large_path'], source_info, pixel_width, pixel_height)
             if not image_info:
                 continue
             
@@ -471,7 +485,7 @@ def main():
         s3_region="us-east-1"
     )
     
-    success = processor.process_artworks(input_file, "finerworks_ready_artworks.json")
+    success = processor.process_artworks(input_file, "./data/finerworks_ready_artworks.json")
     
     if success:
         print(f"\nHybrid processing complete!")
