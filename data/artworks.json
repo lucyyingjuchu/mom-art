@@ -14,31 +14,7 @@
     "curatorNote": "",
     "curatorNoteEn": "",
     "descriptionEn": "In the dance of water and moonlight, chaos unfolds, As heaven and earth in myriad forms behold. What essence do the seasons’ winds convey? Amidst the chill, the lone plum blossoms sway.",
-    "formatEn": "Hanging Scroll",
-    "productViews": [
-      {
-        "type": "original",
-        "image": "./images/paintings/large/019891b0-f39c-7cee-bc2d-85b83d7ced08_large.jpg"
-      },
-      {
-        "type": "original-mockup",
-        "image": "./images/mockups/original/019891b0-f39c-7cee-bc2d-85b83d7ced08_mockup_orig.jpg"
-      },
-      {
-        "type": "detail1",
-        "image": "./images/prints/019891b0-f39c-7cee-bc2d-85b83d7ced08_print.jpg"
-      },
-      {
-        "type": "detail2",
-
-        "image": "./images/prints/019891b0-f39c-7cee-bc2d-85b83d7ced08_print.jpg"
-      },
-      {
-        "type": "print-mockup",
-        "icon": "🏠",
-        "image": "./images/mockups/prints/019891b0-f39c-7cee-bc2d-85b83d7ced08_print.jpg"
-      }
-    ]
+    "formatEn": "Hanging Scroll"
   },
   {
     "id": "019891b0-f39c-752c-bde4-db1ef1f5529c",
@@ -949,6 +925,12 @@
     "imageHigh": "images\\paintings\\large\\019891b0-f39c-7a7e-b0e7-4bce5225a761_large.jpg",
     "categories": [
       "landscape"
+    ],
+    "productViews": [
+      {
+        "type": "original-mockup",
+        "image": "./images/mockups/original/019891b0-f39c-7a7e-b0e7-4bce5225a761_orig_mock.jpg"
+      }
     ]
   },
   {
@@ -985,6 +967,12 @@
       "flowingclouds",
       "flowers",
       "hehuanshan"
+    ],
+    "productViews": [
+      {
+        "type": "original-mockup",
+        "image": "./images/mockups/original/019891b0-f39c-7a5f-a6de-f1a8172971f6_orig_mock.jpg"
+      }
     ]
   },
   {
@@ -1504,7 +1492,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original-mockup",
+        "image": "./images/mockups/original/019891b0-f39c-7a34-89ac-966e1e93eb42_orig_mock.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7694-879a-47c9954a100b",
@@ -1670,7 +1664,13 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "productViews": [
+      {
+        "type": "original-mockup",
+        "image": "./images/mockups/original/019891b0-f39c-7a2d-b50f-e9e6ec2e46b7_orig_mock.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-77f0-b10f-4fece05d42ba",
@@ -3378,19 +3378,10 @@
       "subjects": [],
       "locations": []
     },
-        "productViews": [
-      {
-        "type": "original",
-        "image": "./images/paintings/large/019891b0-f39c-7a31-8759-95a350b1e45b_large.jpg"
-      },
+    "productViews": [
       {
         "type": "original-mockup",
-        "image": "./images/mockups/original/"
-      },
-      {
-        "type": "print-mockup",
-        "icon": "🏠",
-        "image": "./images/mockups/prints/019891b0-f39c-7cee-bc2d-85b83d7ced08_print.jpg"
+        "image": "./images/mockups/original/019891b0-f39c-7a31-8759-95a350b1e45b_orig_mock.jpg"
       }
     ]
   },
