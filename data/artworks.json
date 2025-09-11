@@ -19,16 +19,20 @@
   {
     "id": "019891b0-f39c-752c-bde4-db1ef1f5529c",
     "title": "源頭應是天上來─瀑布",
+    "titleEn": "Source from Heaven: The Waterfall",
+    "image": "",
+    "imageHigh": "",
+    "description": "歲歲朝朝萬斛流，濺花滌盡古今愁；源頭應是天上來，沾溉群生永不休。",
+    "curatorNote": "ddasggg",
+    "curatorNoteEn": "The text provided does not contain any meaningful content to translate. Please provide a valid Chinese text for translation.",
+    "format": "框",
+    "formatEn": "Framed",
     "year": "2010",
+    "price": "",
+    "available": true,
+    "featured": false,
     "heightCm": 70,
     "widthCm": 135,
-    "sizeCm": "70 × 135 cm",
-    "format": "框",
-    "description": "歲歲朝朝萬斛流，濺花滌盡古今愁；源頭應是天上來，沾溉群生永不休。",
-    "curatorNote": "",
-    "featured": false,
-    "available": false,
-    "price": "",
     "autoCategories": {
       "subjects": [
         "waterfall",
@@ -40,12 +44,9 @@
       "subjects": [],
       "locations": []
     },
-    "image": "./images/paintings/thumbnails/019891b0-f39c-752c-bde4-db1ef1f5529c_thumb.jpg",
-    "imageHigh": "./images/paintings/large/019891b0-f39c-752c-bde4-db1ef1f5529c_large.jpg",
-    "categories": [
-      "waterfall",
-      "landscape"
-    ]
+    "heightInches": 27.6,
+    "widthInches": 53.1,
+    "descriptionEn": "Year after year, morning after morning, countless streams flow,  \nSplashing flowers, washing away ancient and modern woes;  \nThe source should surely come from the heavens above,  \nMoistening all beings, in ceaseless love."
   },
   {
     "id": "019891b0-f39c-73f8-9534-0b7d90737bde",
