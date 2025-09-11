@@ -185,7 +185,6 @@ function generateContactInfoSection() {
                     <input type="text" 
                            id="customerName" 
                            name="given-name"
-                           autocomplete="given-name"
                            required>
                 </div>
             </div>
@@ -195,7 +194,6 @@ function generateContactInfoSection() {
                     <input type="email" 
                            id="customerEmail" 
                            name="email"
-                           autocomplete="email"
                            required>
                 </div>
             </div>
@@ -212,7 +210,6 @@ function generateContactInfoSection() {
                                id="customerPhone"
                                class="phone-number-input"
                                name="tel"
-                               autocomplete="tel"
                                required>
                     </div>
                 </div>
@@ -230,7 +227,6 @@ function generateShippingInfoSection() {
                     <label>${getContactText('contactForm.shippingAddress')} <span class="required">*</span></label>
                     <textarea id="shippingAddress" 
                               name="street-address"
-                              autocomplete="shipping street-address"
                               rows="3" 
                               required></textarea>
                 </div>
