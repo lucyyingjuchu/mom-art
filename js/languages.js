@@ -433,7 +433,7 @@ const LANGUAGE_DATA = {
         
         // Connect page
         connect: {
-            title: "與我聯繫",
+            title: "與我聯絡",
             subtitle: "關注我的藝術旅程，獲取最新作品、展覽和創作見解。",
             emailTitle: "電子郵件",
             emailDesc: "諮詢、委託或合作事宜",

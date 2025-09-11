@@ -38,50 +38,7 @@
         "icon": "🏠",
         "image": "./images/mockups/prints/019891b0-f39c-7cee-bc2d-85b83d7ced08_print.jpg"
       }
-    ],
-    "products": [
-      {
-        "type": "original",
-        "name": "原作",
-        "price": 45000,
-        "currency": "TWD",
-        "size": "135×70 cm",
-        "available": true,
-        "unique": true
-      },
-      {
-        "type": "print-large",
-        "name": "大尺寸限量版畫",
-        "price": 8000,
-        "currency": "TWD",
-        "size": "70×50 cm",
-        "edition": 20,
-        "available": true
-      },
-      {
-        "type": "print-medium",
-        "name": "中尺寸版畫",
-        "price": 4500,
-        "currency": "TWD",
-        "size": "50×35 cm",
-        "edition": 50,
-        "available": true
-      }
-    ],
-    "heightCm": 135,
-    "widthCm": 70,
-    "heightInches": 53.1,
-    "widthInches": 27.6,
-    "autoCategories": {
-      "subjects": [
-        "landscape"
-      ],
-      "locations": []
-    },
-    "manualCategories": {
-      "subjects": [],
-      "locations": []
-    }
+    ]
   },
   {
     "id": "019891b0-f39c-752c-bde4-db1ef1f5529c",
@@ -3420,7 +3377,22 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+        "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7a31-8759-95a350b1e45b_large.jpg"
+      },
+      {
+        "type": "original-mockup",
+        "image": "./images/mockups/original/"
+      },
+      {
+        "type": "print-mockup",
+        "icon": "🏠",
+        "image": "./images/mockups/prints/019891b0-f39c-7cee-bc2d-85b83d7ced08_print.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-7b15-9621-9861ba359745",

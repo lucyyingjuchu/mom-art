@@ -39,16 +39,20 @@ class HybridFinerWorksProcessor:
             self.s3_client = None
     
     def check_s3_object_exists(self, artwork_id):
-        """Check if high-res version exists in S3"""
+        """Check if raw version exists in S3, return format if found"""
         if not self.s3_client:
-            return False
+            return False, None
             
-        try:
-            key = f"high-res/{artwork_id}_large.jpg"
-            self.s3_client.head_object(Bucket=self.s3_bucket_name, Key=key)
-            return True
-        except ClientError:
-            return False
+        # Check both formats
+        for ext in ['jpg', 'png']:
+            try:
+                key = f"raw/{artwork_id}.{ext}"
+                self.s3_client.head_object(Bucket=self.s3_bucket_name, Key=key)
+                return True, ext  # Found it, return format
+            except ClientError:
+                continue
+        
+        return False, None  # Not found
     
     def get_s3_image_url(self, artwork_id):
         """Get S3 URL for high-res image"""
@@ -57,32 +61,54 @@ class HybridFinerWorksProcessor:
     def get_image_dimensions_and_source(self, artwork_id):
         """Get pixel dimensions and determine best source (S3 or GitHub)"""
         # First check if high-res version exists in S3
-        has_s3_version = self.check_s3_object_exists(artwork_id)
+        has_s3_version, s3_format = self.check_s3_object_exists(artwork_id)
         
-        # Always try to read from local GitHub version for dimensions
+        # Get GitHub paths for fallback and web URLs
         github_paths = self.get_github_image_paths(artwork_id)
         
         if not github_paths:
             logger.warning(f"No local image found for artwork: {artwork_id}")
             return None, None, None
-            
+        
+        # If S3 version exists, read dimensions from S3 for accurate print calculations
+        if has_s3_version:
+            try:
+                # Download S3 image temporarily to read dimensions
+                import tempfile
+                s3_url = self.get_s3_image_url(artwork_id, s3_format)
+                
+                with tempfile.NamedTemporaryFile() as temp_file:
+                    # Download from S3
+                    import urllib.request
+                    urllib.request.urlretrieve(s3_url, temp_file.name)
+                    
+                    # Read dimensions from S3 version
+                    with Image.open(temp_file.name) as img:
+                        width, height = img.size
+                
+                logger.info(f"Read dimensions from S3 for {artwork_id}: {width}×{height}")
+                
+                return width, height, {
+                    'source': "s3",
+                    'print_url': s3_url,
+                    'web_url': github_paths['large_url'],  # Preview still from GitHub
+                    'has_high_res': True
+                }
+                
+            except Exception as e:
+                logger.warning(f"Could not read S3 dimensions for {artwork_id}, falling back to GitHub: {e}")
+                # Fall through to GitHub version
+        
+        # Read dimensions from GitHub version (fallback or when no S3 version)
         try:
             with Image.open(github_paths['large_path']) as img:
                 width, height = img.size
                 
-                # Determine which source to use for print
-                if has_s3_version:
-                    source = "s3"
-                    print_url = self.get_s3_image_url(artwork_id)
-                    logger.info(f"Found S3 high-res version for {artwork_id}")
-                else:
-                    source = "github"
-                    print_url = github_paths['large_url']
-                    logger.info(f"Using GitHub version for {artwork_id}")
+                logger.info(f"Read dimensions from GitHub for {artwork_id}: {width}×{height}")
                 
                 return width, height, {
-                    'source': source,
-                    'print_url': print_url,
+                    'source': "github",
+                    'print_url': github_paths['large_url'],
                     'web_url': github_paths['large_url'],
                     'has_high_res': has_s3_version
                 }
@@ -273,26 +299,37 @@ class HybridFinerWorksProcessor:
         return metadata
 
     def upload_to_s3(self, local_file_path, artwork_id):
-        """Upload high-res image to S3"""
+        """Upload raw image to S3 with automatic format detection"""
         if not self.s3_client:
             logger.error("S3 client not available")
             return False
             
+        # Auto-detect file format
+        file_ext = os.path.splitext(local_file_path)[1].lower()
+        if file_ext in ['.jpg', '.jpeg']:
+            format_ext = 'jpg'
+            content_type = 'image/jpeg'
+        elif file_ext == '.png':
+            format_ext = 'png'
+            content_type = 'image/png'
+        else:
+            logger.error(f"Unsupported file format: {file_ext}")
+            return False
+        
         try:
-            key = f"high-res/{artwork_id}_large.jpg"
+            key = f"raw/{artwork_id}.{format_ext}"
             
-            # Upload with public read access
+            # Upload with correct content type
             self.s3_client.upload_file(
                 local_file_path, 
                 self.s3_bucket_name, 
                 key,
                 ExtraArgs={
-                    'ACL': 'public-read',
-                    'ContentType': 'image/jpeg'
+                    'ContentType': content_type
                 }
             )
             
-            logger.info(f"Successfully uploaded {artwork_id} to S3")
+            logger.info(f"Successfully uploaded {artwork_id}.{format_ext} to S3")
             return True
             
         except Exception as e:
@@ -423,25 +460,25 @@ class HybridFinerWorksProcessor:
 def main():
     """Main execution function"""
     
-    input_file = "../artworks.json"
+    input_file = "./data/artworks.json"
     if not os.path.exists(input_file):
         print(f"File not found: {input_file}")
         return
     
-    # You'll need to set up AWS credentials first
+    # Process with hybrid storage support
     processor = HybridFinerWorksProcessor(
-        s3_bucket_name="xiaoran-high-res-artworks",  # Change this to your bucket name
-        s3_region="us-east-1"  # Change this to your preferred region
+        s3_bucket_name="xiaoran-raw-artworks",
+        s3_region="us-east-1"
     )
     
     success = processor.process_artworks(input_file, "finerworks_ready_artworks.json")
     
     if success:
-        print(f"\nNext steps:")
-        print(f"1. Set up AWS S3 bucket")
-        print(f"2. Upload high-res versions of selected artworks")
-        print(f"3. Re-run processor to pick up S3 versions")
-        print(f"4. Test with Finerworks API")
+        print(f"\nHybrid processing complete!")
+        print(f"- Artworks with S3 high-res versions are marked as print-ready")
+        print(f"- Web-only artworks use GitHub images")
+        print(f"- Upload more high-res images to S3 and re-run to expand print options")
+        print(f"- Use finerworks_ready_artworks.json for API integration")
 
 if __name__ == "__main__":
     main()
