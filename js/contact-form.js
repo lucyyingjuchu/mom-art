@@ -2,9 +2,9 @@
 // Version: 3.1 - Hybrid approach: Server validation + Client-side EmailJS
 
 // Initialize EmailJS when the script loads
-emailjs.init("pbE7j2fLMaqfGjb3_");
+return emailjs.send(config.serviceId, templateId, templateParams, config.publicKey);
 
-console.log('📋 Loading enhanced contact form system...');
+console.log(' Loading enhanced contact form system...');
 
 // ================================
 // 全域變數
@@ -729,46 +729,48 @@ function submitInquiry(data) {
 
 // Send email using client-side EmailJS (browser environment)
 function sendEmailViaClientSide(data) {
-    // Get EmailJS config and initialize
+    // Make sure EmailJS is loaded
+    if (typeof emailjs === 'undefined') {
+        throw new Error('EmailJS not loaded');
+    }
+    
+    // Determine template based on language
+    const templateId = data.analytics.language === 'zh' ? 
+        'template_artwork_inquiry_zh' : 
+        'template_artwork_inquiry_en';
+
+    // Prepare EmailJS template parameters
+    const templateParams = {
+        // Customer info
+        customer_name: data.customer.name,
+        customer_email: data.customer.email,
+        customer_phone: data.customer.phone,
+        customer_country: data.customer.country,
+        
+        // Artwork info
+        artwork_title: data.artwork.title,
+        artwork_title_en: data.artwork.titleEn || data.artwork.title,
+        artwork_year: data.artwork.year,
+        artwork_size: data.artwork.size,
+        artwork_id: data.artwork.id,
+        
+        // Shipping info
+        shipping_address: data.shipping.address,
+        shipping_note: data.shipping.note || 'No additional notes',
+        
+        // Analytics
+        inquiry_language: data.analytics.language,
+        inquiry_timestamp: data.analytics.timestamp,
+        user_country: data.analytics.detected_country
+    };
+    
+    console.log('Sending email with EmailJS template:', templateId);
+    
+    // Use the environment variables through a simple endpoint
     return fetch('/.netlify/functions/get-emailjs-config')
         .then(response => response.json())
         .then(config => {
-            // Initialize EmailJS with server-provided config (no hardcoded secrets)
-            emailjs.init(config.publicKey);
-            
-            // Determine template based on language
-            const templateId = data.analytics.language === 'zh' ? 
-                'template_artwork_inquiry_zh' : 
-                'template_artwork_inquiry_en';
-
-            // Prepare EmailJS template parameters
-            const templateParams = {
-                // Customer info
-                customer_name: data.customer.name,
-                customer_email: data.customer.email,
-                customer_phone: data.customer.phone,
-                customer_country: data.customer.country,
-                
-                // Artwork info
-                artwork_title: data.artwork.title,
-                artwork_title_en: data.artwork.titleEn || data.artwork.title,
-                artwork_year: data.artwork.year,
-                artwork_size: data.artwork.size,
-                artwork_id: data.artwork.id,
-                
-                // Shipping info
-                shipping_address: data.shipping.address,
-                shipping_note: data.shipping.note || 'No additional notes',
-                
-                // Analytics
-                inquiry_language: data.analytics.language,
-                inquiry_timestamp: data.analytics.timestamp,
-                user_country: data.analytics.detected_country
-            };
-            
-            console.log('Sending email with EmailJS template:', templateId);
-            
-            // Send email using client-side EmailJS
+            // Send email using client-side EmailJS with server-provided config
             return emailjs.send(
                 config.serviceId,
                 templateId, 

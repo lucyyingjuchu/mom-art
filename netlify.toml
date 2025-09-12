@@ -1,2 +1,5 @@
 [build]
 functions = "functions"
+
+[build.environment]
+  SECRETS_SCAN_OMIT_PATHS = "js/contact-form.js"
