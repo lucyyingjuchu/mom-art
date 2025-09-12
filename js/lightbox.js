@@ -1215,6 +1215,26 @@ function setupLightboxEventListeners() {
         const lightbox = document.getElementById('lightbox');
         if (!lightbox || !lightbox.classList.contains('active')) return;
 
+        // Don't intercept keys when user is typing in form fields
+        const activeElement = document.activeElement;
+        const isTypingInForm = activeElement && (
+            activeElement.tagName === 'INPUT' || 
+            activeElement.tagName === 'TEXTAREA' || 
+            activeElement.isContentEditable
+        );
+        
+        if (isTypingInForm) {
+            // Only handle Escape key when typing in forms
+            if (e.key === 'Escape') {
+                if (isFullscreenMode) {
+                    exitImageFullscreen();
+                } else {
+                    window.closeLightbox();
+                }
+            }
+            return; // Don't handle other keys when typing
+        }
+
         switch(e.key) {
             case 'Escape':
                 if (isFullscreenMode) {
