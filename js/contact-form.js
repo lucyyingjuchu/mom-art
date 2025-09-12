@@ -502,6 +502,85 @@ function validatePhoneInput(input) {
     }
 }
 
+// 檢測瀏覽器擴充功能干擾
+function detectExtensionInterference() {
+    const inputs = document.querySelectorAll('#artworkInquiryForm input, #artworkInquiryForm textarea');
+    let hasExtensionAttributes = false;
+    
+    inputs.forEach(input => {
+        // Check for common extension attributes
+        const extensionAttributes = ['fdprocessedid', 'data-dashlane-rid', 'data-1p-ignore', 'data-lpignore'];
+        extensionAttributes.forEach(attr => {
+            if (input.hasAttribute(attr)) {
+                hasExtensionAttributes = true;
+            }
+        });
+    });
+    
+    if (hasExtensionAttributes) {
+        showExtensionWarning();
+    }
+}
+
+// 顯示擴充功能警告
+function showExtensionWarning() {
+    // Don't show if already shown in this session
+    if (sessionStorage.getItem('extension-warning-shown')) return;
+    
+    const currentLang = (typeof portfolio !== 'undefined') ? portfolio.currentLanguage : 'zh';
+    const messages = {
+        zh: {
+            title: '輸入提醒',
+            message: '如果您無法輸入某些字符（如數字0），這可能是因為瀏覽器擴充功能的影響。請嘗試：\n• 暫時停用密碼管理器\n• 使用無痕視窗\n• 或直接聯繫我們',
+            button: '我知道了'
+        },
+        en: {
+            title: 'Input Notice',
+            message: 'If you cannot type certain characters (like the number 0), this may be due to browser extensions. Please try:\n• Temporarily disable password managers\n• Use incognito mode\n• Or contact us directly',
+            button: 'Got it'
+        }
+    };
+    
+    const msg = messages[currentLang] || messages.zh;
+    
+    const warning = document.createElement('div');
+    warning.className = 'extension-warning';
+    warning.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #fff3cd;
+        border: 1px solid #ffeaa7;
+        color: #856404;
+        padding: 15px 20px;
+        border-radius: 8px;
+        font-size: 14px;
+        max-width: 350px;
+        z-index: 10010;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        line-height: 1.4;
+    `;
+    
+    warning.innerHTML = `
+        <div style="font-weight: bold; margin-bottom: 8px;">${msg.title}</div>
+        <div style="margin-bottom: 12px; white-space: pre-line;">${msg.message}</div>
+        <button onclick="this.parentElement.remove(); sessionStorage.setItem('extension-warning-shown', 'true');" 
+                style="background: #ffc107; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; color: #212529;">
+            ${msg.button}
+        </button>
+    `;
+    
+    document.body.appendChild(warning);
+    
+    // Auto-remove after 10 seconds
+    setTimeout(() => {
+        if (warning.parentNode) {
+            warning.parentNode.removeChild(warning);
+            sessionStorage.setItem('extension-warning-shown', 'true');
+        }
+    }, 10000);
+}
+
 // 顯示欄位錯誤
 function showFieldError(input, message) {
     hideFieldError(input);
@@ -600,7 +679,7 @@ function handleFormSubmit(e) {
     submitInquiry(inquiryData);
 }
 
-// 提交詢價 - Updated to use Netlify Functions
+// 提交詢價 - Hybrid approach: server validation + client EmailJS
 function submitInquiry(data) {
     const messageDiv = document.getElementById('formMessage');
     const submitBtn = document.querySelector('.btn-submit');
@@ -611,31 +690,31 @@ function submitInquiry(data) {
     
     console.log('Submitting inquiry data:', data);
     
-    // Send to Netlify function instead of EmailJS directly
+    // Step 1: Send to server for validation and processing
     fetch('/.netlify/functions/send-email', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify({ ...data, validateOnly: true })
     })
-    .then(response => {
-        console.log('Response status:', response.status);
-        return response.json();
+    .then(response => response.json())
+    .then(result => {
+        if (result.success) {
+            // Step 2: Server validation passed, now send via client-side EmailJS
+            return sendEmailViaClientSide(data);
+        } else {
+            throw new Error(result.error || 'Server validation failed');
+        }
     })
     .then(result => {
-        console.log('Success:', result);
+        console.log('Email sent successfully:', result);
+        showFormMessage(getContactText('contactForm.submitSuccess'), 'success');
         
-        if (result.success) {
-            showFormMessage(getContactText('contactForm.submitSuccess'), 'success');
-            
-            // Close form after 3 seconds
-            setTimeout(() => {
-                closeContactForm();
-            }, 3000);
-        } else {
-            throw new Error(result.error || 'Unknown error');
-        }
+        // Close form after 3 seconds
+        setTimeout(() => {
+            closeContactForm();
+        }, 3000);
     })
     .catch(error => {
         console.error('Error:', error);
@@ -646,6 +725,59 @@ function submitInquiry(data) {
         submitBtn.textContent = getContactText('contactForm.submitButton');
         submitBtn.disabled = false;
     });
+}
+
+// Send email using client-side EmailJS (browser environment)
+function sendEmailViaClientSide(data) {
+    // Make sure EmailJS is loaded
+    if (typeof emailjs === 'undefined') {
+        throw new Error('EmailJS not loaded');
+    }
+    
+    // Determine template based on language
+    const templateId = data.analytics.language === 'zh' ? 
+        'template_artwork_inquiry_zh' : 
+        'template_artwork_inquiry_en';
+
+    // Prepare EmailJS template parameters
+    const templateParams = {
+        // Customer info
+        customer_name: data.customer.name,
+        customer_email: data.customer.email,
+        customer_phone: data.customer.phone,
+        customer_country: data.customer.country,
+        
+        // Artwork info
+        artwork_title: data.artwork.title,
+        artwork_title_en: data.artwork.titleEn || data.artwork.title,
+        artwork_year: data.artwork.year,
+        artwork_size: data.artwork.size,
+        artwork_id: data.artwork.id,
+        
+        // Shipping info
+        shipping_address: data.shipping.address,
+        shipping_note: data.shipping.note || 'No additional notes',
+        
+        // Analytics
+        inquiry_language: data.analytics.language,
+        inquiry_timestamp: data.analytics.timestamp,
+        user_country: data.analytics.detected_country
+    };
+    
+    console.log('Sending email with EmailJS template:', templateId);
+    
+    // Use the environment variables through a simple endpoint
+    return fetch('/.netlify/functions/get-emailjs-config')
+        .then(response => response.json())
+        .then(config => {
+            // Send email using client-side EmailJS with server-provided config
+            return emailjs.send(
+                config.serviceId,
+                templateId, 
+                templateParams,
+                config.publicKey
+            );
+        });
 }
 
 // 顯示表單訊息
@@ -698,4 +830,4 @@ if (!sessionStorage.getItem('sessionStart')) {
 const currentViews = parseInt(sessionStorage.getItem('pageViews')) || 0;
 sessionStorage.setItem('pageViews', currentViews + 1);
 
-console.log('✅ Enhanced contact form system loaded (Netlify Functions version)');
+console.log('✅ Enhanced contact form system loaded (Hybrid EmailJS version)');
