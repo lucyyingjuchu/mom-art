@@ -682,10 +682,8 @@ function submitInquiry(data) {
     const submitBtn = document.querySelector('.btn-submit');
     
     // Show submitting state
-    submitBtn.textContent = '提交中...';
+    submitBtn.textContent = 'loading...';
     submitBtn.disabled = true;
-    
-    console.log('Submitting inquiry data:', data);
     
     // Step 1: Send to server for validation and processing
     fetch('/.netlify/functions/send-email', {
