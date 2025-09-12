@@ -740,8 +740,8 @@ function sendEmailViaClientSide(data) {
             
             // Determine template based on language
             const templateId = data.analytics.language === 'zh' ? 
-                'template_artwork_inquiry_zh' : 
-                'template_artwork_inquiry_en';
+                'template_14hjrgo' : 
+                'template_lur15po';
 
             // Prepare EmailJS template parameters
             const templateParams = {
