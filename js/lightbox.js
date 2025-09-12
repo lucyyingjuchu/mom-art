@@ -62,23 +62,14 @@ function initializeMobileLightbox() {
     zoomLevel = 1;
     panX = 0;
     panY = 0;
-    isDragging = false;
-    hasDragged = false;
     
-    // Remove any existing desktop event listeners by cloning
+    // Remove existing desktop event listeners by cloning
     const newImage = image.cloneNode(true);
     image.parentNode.replaceChild(newImage, image);
     
-    // Set up mobile-optimized image
     setupMobileImage(newImage);
-    
-    // Add mobile-specific gestures
     addMobileGestures();
-    
-    // Remove desktop zoom controls if they exist
     removeDeskopZoomControls();
-    
-    console.log('✅ Mobile lightbox initialized');
 }
 
 function setupMobileImage(image) {
@@ -435,7 +426,8 @@ window.navigateArtwork = function(direction) {
 // Desktop-only zoom functions
 window.zoomIn = function() {
     if (isMobileDevice()) return; // No custom zoom on mobile
-    
+    if (!currentViewAllowsZoom()) return; // No zoom for non-original views  
+
     console.log('🔍 Button zoom in');
     
     if (!isFullscreenMode && zoomLevel === 1) {
@@ -457,6 +449,7 @@ window.zoomIn = function() {
 
 window.zoomOut = function() {
     if (isMobileDevice()) return; // No custom zoom on mobile
+    if (!currentViewAllowsZoom()) return; // No zoom for non-original views
     
     console.log('🔍 Button zoom out');
     const oldZoom = zoomLevel;
@@ -569,6 +562,7 @@ window.showZoomIndicator = function() {
 
 window.toggleFullscreenZoom = function() {
     if (isMobileDevice()) return; // No fullscreen toggle on mobile
+    if (!currentViewAllowsZoom()) return; // No fullscreen for non-original views
     
     if (isFullscreenMode) {
         exitImageFullscreen();
@@ -745,6 +739,11 @@ function handleWheelZoom(e) {
     e.preventDefault();
     e.stopPropagation();
     
+    // Block zoom for non-original views
+    if (!currentViewAllowsZoom()) {
+        return; // Do nothing for non-original views
+    }
+
     if (isZoomBlocked) return;
     
     isZoomBlocked = true;
@@ -807,15 +806,36 @@ function applyTransform() {
     currentImage.style.transformOrigin = 'center center';
 }
 
+// Helper function to check if current view allows zoom
+function currentViewAllowsZoom() {
+    if (!currentArtworkViews || currentArtworkViews.length === 0) return true; // Default allow
+    
+    const currentView = currentArtworkViews[currentViewIndex];
+    if (!currentView) return true; // Default allow
+    
+    // Only allow zoom for original artwork
+    return currentView.type === 'original' || currentView.type === 'artwork' || !currentView.type;
+}
+
 function updateCursor() {
     if (!currentImage) return;
     
-    if (zoomLevel > 1 || isFullscreenMode) {
-        currentImage.style.cursor = isDragging ? 'grabbing' : 'grab';
-    } else if (zoomLevel < maxZoom) {
-        currentImage.style.cursor = 'zoom-in';
+    // For non-zoomable views (room display, etc.), always use default cursor
+    if (!currentViewAllowsZoom()) {
+        currentImage.style.cursor = 'default';
+        return;
+    }
+    
+    // For original artwork (zoomable views):
+    if (isDragging) {
+        // Currently dragging
+        currentImage.style.cursor = 'grabbing';
+    } else if (zoomLevel > 1 || isFullscreenMode) {
+        // Can pan: either zoomed in OR in fullscreen mode
+        currentImage.style.cursor = 'grab';
     } else {
-        currentImage.style.cursor = 'zoom-out';
+        // Default state for original art: show zoom-in hint
+        currentImage.style.cursor = 'zoom-in';
     }
 }
 
@@ -850,12 +870,23 @@ function handleImageClick(e) {
         hasDragged = false;
         return;
     }
+    
+    // Only allow zoom on original artwork
+    if (!currentViewAllowsZoom()) {
+        return; // Do nothing for non-original views
+    }
+    
     window.toggleImageZoom();
 }
 
 function handleDoubleClick(e) {
     e.preventDefault();
     e.stopPropagation();
+
+    // Block zoom for non-original views
+    if (!currentViewAllowsZoom()) {
+        return; // Do nothing for non-original views
+    }
     
     if (zoomLevel === 1) {
         zoomLevel = 2;
@@ -870,8 +901,10 @@ function handleDoubleClick(e) {
 }
 
 function handleMouseDown(e) {
-    if (zoomLevel <= 1 && !isFullscreenMode) return;
-    
+    // Only allow panning for zoomable views AND when zoom > 1 or fullscreen
+    if (!currentViewAllowsZoom() || (zoomLevel <= 1 && !isFullscreenMode)) {
+        return;
+    }    
     isDragging = true;
     hasDragged = false;
     startX = e.clientX - panX;
@@ -881,8 +914,10 @@ function handleMouseDown(e) {
 }
 
 function handleMouseMove(e) {
-    if (!isDragging || (zoomLevel <= 1 && !isFullscreenMode)) return;
-    
+    // Only allow panning for zoomable views AND when zoom > 1 or fullscreen
+    if (!isDragging || !currentViewAllowsZoom() || (zoomLevel <= 1 && !isFullscreenMode)) {
+        return;
+    }    
     const newPanX = e.clientX - startX;
     const newPanY = e.clientY - startY;
     
@@ -1269,16 +1304,22 @@ function getArtworkText(artwork, field) {
 }
 
 function addViewIndicators() {
-    const imageSection = document.querySelector('.lightbox-image-section');
-    if (!imageSection || currentArtworkViews.length <= 1) return;
+    const image = document.getElementById('lightboxImage'); // Target the actual image
+    if (!image || currentArtworkViews.length <= 1) return;
     
-    const existingIndicators = imageSection.querySelector('.view-indicators');
+    // Remove existing indicators
+    const existingIndicators = document.querySelector('.view-indicators');
     if (existingIndicators) {
         existingIndicators.remove();
     }
     
+    // Create new indicators container
     const indicators = document.createElement('div');
     indicators.className = 'view-indicators';
+    
+    // Position relative to the image, not the image section
+    indicators.style.position = 'absolute';
+    indicators.style.zIndex = '1001';
     
     const isCompact = currentArtworkViews.length > 4;
     if (isCompact) {
@@ -1288,7 +1329,35 @@ function addViewIndicators() {
     currentArtworkViews.forEach((view, index) => {
         const dot = document.createElement('div');
         dot.className = `view-dot ${index === 0 ? 'active' : ''}`;
-        dot.title = view.title || `視圖 ${index + 1}`;
+        
+        // Get meaningful tooltip text based on view type/title
+        let tooltipText;
+        
+        if (view.title) {
+            // If view has a specific title, use it
+            tooltipText = view.title;
+        } else if (view.type) {
+            // Try to get translated view type
+            try {
+                const currentLang = (typeof portfolio !== 'undefined') ? portfolio.currentLanguage : 'zh';
+                const viewTypeKey = `lightbox.viewTypes.${view.type}`;
+                tooltipText = getLocalizedText(viewTypeKey) || view.type;
+                
+                // If translation returns the key (not found), use type as fallback
+                if (tooltipText === viewTypeKey) {
+                    tooltipText = view.type.charAt(0).toUpperCase() + view.type.slice(1);
+                }
+            } catch (e) {
+                // Fallback to type name
+                tooltipText = view.type.charAt(0).toUpperCase() + view.type.slice(1);
+            }
+        } else {
+            // Final fallback
+            const currentLang = (typeof portfolio !== 'undefined') ? portfolio.currentLanguage : 'zh';
+            tooltipText = currentLang === 'en' ? `View ${index + 1}` : `視圖 ${index + 1}`;
+        }
+        
+        dot.title = tooltipText;
         dot.onclick = () => switchArtworkView(index);
         
         if (view.icon && !isCompact) {
@@ -1299,13 +1368,41 @@ function addViewIndicators() {
         indicators.appendChild(dot);
     });
     
-    imageSection.appendChild(indicators);
+    // Append to the image's parent (not the lightbox-image-section)
+    const imageContainer = image.parentElement;
+    imageContainer.appendChild(indicators);
     
-    console.log(`✅ Added ${currentArtworkViews.length} view indicators`);
+    // Position the indicators below the actual image
+    function positionIndicators() {
+        const imageRect = image.getBoundingClientRect();
+        const containerRect = imageContainer.getBoundingClientRect();
+        
+        // Calculate position relative to container
+        const imageBottomRelative = imageRect.bottom - containerRect.top;
+        const imageCenterRelative = (imageRect.left + imageRect.right) / 2 - containerRect.left;
+        
+        indicators.style.top = `${imageBottomRelative + 10}px`; // 10px below image
+        indicators.style.left = `${imageCenterRelative}px`;
+        indicators.style.transform = 'translateX(-50%)';
+    }
+    
+    // Position initially and on image load
+    positionIndicators();
+    image.addEventListener('load', positionIndicators);
+    
+    console.log(`✅ Added ${currentArtworkViews.length} view indicators positioned below image`);
 }
 
 function switchArtworkView(index) {
     if (index === currentViewIndex || index >= currentArtworkViews.length) return;
+
+    // Reset zoom when switching away from original view
+    if (isFullscreenMode) {
+        exitImageFullscreen();
+    }
+    if (zoomLevel > 1) {
+        window.resetZoomPan();
+    }
     
     const image = document.getElementById('lightboxImage');
     const dots = document.querySelectorAll('.view-dot');
@@ -1332,7 +1429,9 @@ function switchArtworkView(index) {
             console.warn(`⚠️ Failed to load view image: ${newView.src}`);
             image.src = getPlaceholderImage();
         };
-        
+
+        updateCursor();
+
     }, 150);
 }
 

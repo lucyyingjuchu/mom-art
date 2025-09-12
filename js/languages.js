@@ -164,11 +164,12 @@ const LANGUAGE_DATA = {
             closeTitle: "Close Lightbox",
             prevTitle: "Previous Artwork",
             nextTitle: "Next Artwork",
-            originalView: 'Original',
-            roomView: 'Room Display',
-            originalDescription: 'High-resolution original details',
-            roomDescription: 'Decorative effect in home',
-            viewIndicator: 'Multiple Views',
+            viewTypes: {
+                "original": "Original",
+                "original-mockup": "Room Display", 
+                "print-mockup": "print- room display",
+            }
+
         },
         
         // Contact Form
@@ -455,11 +456,11 @@ const LANGUAGE_DATA = {
             closeTitle: "關閉檢視",
             prevTitle: "上一件作品",
             nextTitle: "下一件作品",
-            originalView: '原作',
-            roomView: '房間展示',
-            originalDescription: '高清原作細節',
-            roomDescription: '在家中的裝飾效果',
-            viewIndicator: '多視圖',
+            viewTypes: {
+                "original": "原作",
+                "original-mockup": "房間展示",
+            }
+
         },
 
         // Contact Form
