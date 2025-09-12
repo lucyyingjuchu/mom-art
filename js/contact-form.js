@@ -1,5 +1,8 @@
 // contact-form.js - Enhanced Professional Contact Form System
-// Version: 3.0 - Updated to use Netlify Functions for secure email sending
+// Version: 3.1 - Hybrid approach: Server validation + Client-side EmailJS
+
+// Initialize EmailJS when the script loads
+emailjs.init("pbE7j2fLMaqfGjb3_");
 
 console.log('📋 Loading enhanced contact form system...');
 
@@ -357,6 +360,11 @@ function createContactFormModal() {
     // 綁定事件
     bindContactFormEvents(modal);
     
+    // 檢測擴充功能干擾
+    setTimeout(() => {
+        detectExtensionInterference();
+    }, 1000);
+    
     // 🎯 CRITICAL FIX: Wait for DOM to be ready before populating
     setTimeout(() => {
         console.log('🔄 DOM should be ready, populating artwork info...');
@@ -596,7 +604,11 @@ function handleFormSubmit(e) {
 function submitInquiry(data) {
     const messageDiv = document.getElementById('formMessage');
     const submitBtn = document.querySelector('.btn-submit');
-      
+    
+    // Show submitting state
+    submitBtn.textContent = '提交中...';
+    submitBtn.disabled = true;
+    
     console.log('Submitting inquiry data:', data);
     
     // Send to Netlify function instead of EmailJS directly
