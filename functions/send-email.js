@@ -63,7 +63,7 @@ exports.handler = async (event, context) => {
             service_id: serviceId,
             template_id: templateId,
             user_id: publicKey,
-            accessToken: privateKey, // Use private key for server-side auth
+            accessToken: privateKey,
             template_params: {
                 // Customer info
                 customer_name: data.customer.name,
