@@ -1,8 +1,9 @@
-// Complete Working Lightbox - ALL zoom indicators use clean progress bar
-// Version: 7.2 - BILINGUAL FRAMEWORK with Dynamic Layout System
-// BILINGUAL FRAMEWORK UPDATE - Preserves all existing zoom/pan functionality
+// Complete Working Lightbox - Mobile-First with Native Pinch Zoom
+// Version: 8.0 - CLEAN MOBILE/DESKTOP SEPARATION
+// Mobile: Native pinch-zoom, tap-to-close, swipe-to-close
+// Desktop: Advanced zoom controls, fullscreen, pan/zoom
 
-console.log('🚀 Loading bilingual lightbox with dynamic layout...');
+console.log('🚀 Loading mobile-optimized lightbox with clean separation...');
 
 // ================================
 // GLOBAL VARIABLES
@@ -28,88 +29,192 @@ let currentArtworkViews = [];
 let currentViewIndex = 0;
 const BLOCK_DURATION = 600;
 
-
-
 // ================================
-// 手機板檢測和特殊處理
+// DEVICE DETECTION
 // ================================
 
 function isMobileDevice() {
-    return window.innerWidth <= 768;
+    // More robust mobile detection: touch capability + screen size
+    const hasTouchScreen = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    const isSmallScreen = window.innerWidth <= 768;
+    const isMobileUserAgent = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    return hasTouchScreen && (isSmallScreen || isMobileUserAgent);
 }
 
+function isTabletDevice() {
+    const hasTouchScreen = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    const isTabletSize = window.innerWidth > 768 && window.innerWidth <= 1024;
+    return hasTouchScreen && isTabletSize;
+}
+
+// ================================
+// MOBILE-SPECIFIC FUNCTIONS
+// ================================
+
 function initializeMobileLightbox() {
-    if (!isMobileDevice()) return;
-    
-    console.log('📱 Mobile device detected - using unified behavior');
+    console.log('📱 Initializing mobile lightbox experience');
     
     const image = document.getElementById('lightboxImage');
     if (!image) return;
     
-    // Reset all zoom variables
+    // Reset any desktop zoom state
     zoomLevel = 1;
     panX = 0;
     panY = 0;
     isDragging = false;
     hasDragged = false;
     
-    // Set basic image styles
-    image.style.transform = 'none';
+    // Remove any existing desktop event listeners by cloning
+    const newImage = image.cloneNode(true);
+    image.parentNode.replaceChild(newImage, image);
     
-    // Use the same zoom initialization as desktop
-    initializeImageZoom();
-    addZoomControls();
+    // Set up mobile-optimized image
+    setupMobileImage(newImage);
     
-    // Add mobile swipe gestures for closing lightbox
-    addMobileSwipeGestures();
+    // Add mobile-specific gestures
+    addMobileGestures();
+    
+    // Remove desktop zoom controls if they exist
+    removeDeskopZoomControls();
+    
+    console.log('✅ Mobile lightbox initialized');
 }
 
+function setupMobileImage(image) {
+    // Enable native browser zoom
+    image.style.touchAction = 'pinch-zoom';
+    image.style.userSelect = 'none';
+    image.style.webkitUserSelect = 'none';
+    
+    // Remove any transforms
+    image.style.transform = 'none';
+    image.style.transformOrigin = 'center center';
+    
+    // Set cursor to indicate tap-to-close
+    image.style.cursor = 'pointer';
+    
+    // Add single tap to close
+    let tapTimeout;
+    image.addEventListener('touchstart', function(e) {
+        if (e.touches.length === 1) {
+            tapTimeout = setTimeout(() => {
+                // Single tap detected - close lightbox
+                window.closeLightbox();
+            }, 200);
+        } else {
+            // Multi-touch (pinch) - clear tap timeout
+            clearTimeout(tapTimeout);
+        }
+    }, { passive: true });
+    
+    image.addEventListener('touchend', function(e) {
+        clearTimeout(tapTimeout);
+    }, { passive: true });
+    
+    image.addEventListener('touchmove', function(e) {
+        // Clear tap timeout if user starts dragging
+        clearTimeout(tapTimeout);
+    }, { passive: true });
+    
+    currentImage = image;
+}
 
-function addMobileSwipeGestures() {
+function addMobileGestures() {
     const lightboxContent = document.querySelector('.lightbox-content');
-    if (!lightboxContent || !isMobileDevice()) return;
+    if (!lightboxContent) return;
     
     let startY = 0;
     let currentY = 0;
-    let isDragging = false;
+    let isSwipeGesture = false;
+    let swipeStartTime = 0;
     
+    // Swipe down to close
     lightboxContent.addEventListener('touchstart', function(e) {
         if (e.touches.length === 1) {
             startY = e.touches[0].clientY;
-            isDragging = true;
+            swipeStartTime = Date.now();
+            isSwipeGesture = true;
         }
     }, { passive: true });
     
     lightboxContent.addEventListener('touchmove', function(e) {
-        if (!isDragging || e.touches.length !== 1) return;
+        if (!isSwipeGesture || e.touches.length !== 1) return;
         
         currentY = e.touches[0].clientY;
         const deltaY = currentY - startY;
+        const swipeTime = Date.now() - swipeStartTime;
         
-        // 向下滑動超過100px時準備關閉
-        if (deltaY > 100) {
-            lightboxContent.style.transform = `translateY(${deltaY * 0.3}px)`;
-            lightboxContent.style.opacity = Math.max(0.3, 1 - deltaY / 300);
+        // Only trigger visual feedback for significant downward swipes
+        if (deltaY > 50 && swipeTime < 500) {
+            const opacity = Math.max(0.5, 1 - deltaY / 400);
+            const translateY = Math.min(deltaY * 0.3, 100);
+            
+            lightboxContent.style.transform = `translateY(${translateY}px)`;
+            lightboxContent.style.opacity = opacity;
         }
     }, { passive: true });
     
     lightboxContent.addEventListener('touchend', function(e) {
-        if (!isDragging) return;
-        isDragging = false;
+        if (!isSwipeGesture) return;
         
         const deltaY = currentY - startY;
+        const swipeTime = Date.now() - swipeStartTime;
+        const swipeVelocity = deltaY / swipeTime;
         
-        if (deltaY > 150) {
-            // 向下滑動足夠距離，關閉 lightbox
+        // Close if: significant downward swipe OR fast downward gesture
+        if ((deltaY > 100 && swipeTime < 500) || swipeVelocity > 0.5) {
             window.closeLightbox();
         } else {
-            // 回彈
+            // Reset position
             lightboxContent.style.transform = '';
             lightboxContent.style.opacity = '';
         }
+        
+        isSwipeGesture = false;
     }, { passive: true });
 }
+
+function removeDeskopZoomControls() {
+    const zoomControls = document.querySelector('.zoom-controls');
+    if (zoomControls) {
+        zoomControls.remove();
+    }
+    
+    // Remove zoom indicators
+    const zoomIndicator = document.querySelector('.zoom-indicator');
+    if (zoomIndicator) {
+        zoomIndicator.remove();
+    }
+    
+    const fullscreenIndicator = document.querySelector('.fullscreen-indicator');
+    if (fullscreenIndicator) {
+        fullscreenIndicator.remove();
+    }
+}
+
+// ================================
+// DESKTOP-SPECIFIC FUNCTIONS (UNCHANGED)
+// ================================
+
+function initializeDesktopLightbox() {
+    console.log('🖥️ Initializing desktop lightbox experience');
+    
+    const image = document.getElementById('lightboxImage');
+    if (!image) return;
+    
+    // Initialize with advanced zoom features
+    initializeImageZoom();
+    addZoomControls();
+    addImageProtection();
+    
+    console.log('✅ Desktop lightbox initialized');
+}
+
 function showCleanZoomIndicator() {
+    // Only show on desktop
+    if (isMobileDevice()) return;
+    
     const existingIndicator = document.querySelector('.zoom-indicator');
     if (existingIndicator) {
         existingIndicator.remove();
@@ -138,32 +243,25 @@ function showCleanZoomIndicator() {
 }
 
 // ================================
-// BILINGUAL HELPER FUNCTIONS
+// BILINGUAL HELPER FUNCTIONS (UNCHANGED)
 // ================================
 
-// Get language-aware placeholder image
 function getPlaceholderImage() {
     if (typeof portfolio !== 'undefined' && portfolio.currentLanguage) {
         return `./images/placeholder/artwork-placeholder-${portfolio.currentLanguage}.svg`;
     }
-    // Fallback to generic placeholder
     return './images/placeholder/artwork-placeholder.svg';
 }
 
-// Get localized text with fallback
 function getLocalizedText(key, params = {}) {
     if (typeof portfolio !== 'undefined' && typeof portfolio.t === 'function') {
         return portfolio.t(key, params);
     }
-    // Fallback for cases where portfolio isn't ready
     return key;
 }
 
-// Update lightbox UI text elements
 function updateLightboxUIText() {
     console.log('🔄 Updating lightbox UI text...');
-    console.log('Portfolio available:', typeof portfolio !== 'undefined');
-    console.log('LANGUAGE_DATA available:', typeof LANGUAGE_DATA !== 'undefined');
     
     if (typeof portfolio !== 'undefined') {
         console.log('Current language:', portfolio.currentLanguage);
@@ -172,16 +270,12 @@ function updateLightboxUIText() {
     // Update navigation tooltips
     const prevBtn = document.querySelector('.nav-arrow.prev');
     if (prevBtn) {
-        const prevText = getLocalizedText('lightbox.prevTitle');
-        console.log('Prev title:', prevText);
-        prevBtn.title = prevText;
+        prevBtn.title = getLocalizedText('lightbox.prevTitle');
     }
     
     const nextBtn = document.querySelector('.nav-arrow.next');
     if (nextBtn) {
-        const nextText = getLocalizedText('lightbox.nextTitle');
-        console.log('Next title:', nextText);
-        nextBtn.title = nextText;
+        nextBtn.title = getLocalizedText('lightbox.nextTitle');
     }
     
     // Update control button tooltips
@@ -191,7 +285,6 @@ function updateLightboxUIText() {
     const closeBtn = document.querySelector('.control-btn[onclick="closeLightbox()"]');
     if (closeBtn) closeBtn.title = getLocalizedText('lightbox.closeTitle');
     
-
     // Update spec labels
     const specLabels = document.querySelectorAll('.spec-label');
     const labelKeys = ['lightbox.yearLabel', 'lightbox.dimensionsLabel', 'lightbox.formatLabel'];
@@ -201,26 +294,22 @@ function updateLightboxUIText() {
         }
     });
     
-    // Update zoom control tooltips if they exist
-    const zoomInBtn = document.querySelector('.zoom-in-btn');
-    if (zoomInBtn) {
-        const zoomInText = getLocalizedText('lightbox.zoomInTitle');
-        console.log('Zoom in text:', zoomInText);
-        zoomInBtn.title = zoomInText;
-    }
-    
-    const zoomOutBtn = document.querySelector('.zoom-out-btn');
-    if (zoomOutBtn) {
-        const zoomOutText = getLocalizedText('lightbox.zoomOutTitle');
-        console.log('Zoom out text:', zoomOutText);
-        zoomOutBtn.title = zoomOutText;
-    }
-    
-    const fullscreenBtn = document.querySelector('.zoom-fullscreen-btn');
-    if (fullscreenBtn) {
-        const fullscreenText = getLocalizedText('lightbox.toggleFullscreenTitle');
-        console.log('Fullscreen text:', fullscreenText);
-        fullscreenBtn.title = fullscreenText;
+    // Update zoom control tooltips (desktop only)
+    if (!isMobileDevice()) {
+        const zoomInBtn = document.querySelector('.zoom-in-btn');
+        if (zoomInBtn) {
+            zoomInBtn.title = getLocalizedText('lightbox.zoomInTitle');
+        }
+        
+        const zoomOutBtn = document.querySelector('.zoom-out-btn');
+        if (zoomOutBtn) {
+            zoomOutBtn.title = getLocalizedText('lightbox.zoomOutTitle');
+        }
+        
+        const fullscreenBtn = document.querySelector('.zoom-fullscreen-btn');
+        if (fullscreenBtn) {
+            fullscreenBtn.title = getLocalizedText('lightbox.toggleFullscreenTitle');
+        }
     }
 }
 
@@ -247,7 +336,6 @@ window.openLightbox = function(artworkId, context = 'all') {
         artworksData = portfolio.getFeaturedArtworks();
         console.log('📌 Using featured artworks only:', artworksData.length);
     } else if (context === 'gallery') {
-        // 🎯 關鍵修復：使用當前藝廊顯示的順序
         artworksData = portfolio.getCurrentGalleryArtworks();
         console.log('🎨 Using current gallery order:', artworksData.length);
     } else {
@@ -279,7 +367,7 @@ window.openLightbox = function(artworkId, context = 'all') {
 window.closeLightbox = function() {
     console.log('🚪 Closing lightbox');
 
-    // 🆕 記住當前查看的作品 ID（用於回到位置）
+    // Remember current artwork ID for scroll-back feature
     let currentArtworkId = null;
     if (artworksData && artworksData[currentArtworkIndex]) {
         currentArtworkId = artworksData[currentArtworkIndex].id;
@@ -294,7 +382,7 @@ window.closeLightbox = function() {
         lightbox.classList.remove('active');
         document.body.style.overflow = '';
         
-        // Reset zoom/pan directly
+        // Reset zoom/pan state
         if (isFullscreenMode) {
             exitImageFullscreen();
         }
@@ -306,25 +394,29 @@ window.closeLightbox = function() {
         hasDragged = false;
         
         if (currentImage) {
-            applyTransform();
-            updateCursor();
+            currentImage.style.transform = 'none';
+            if (!isMobileDevice()) {
+                updateCursor();
+            }
         }
         
+        // Clean up desktop controls
         const existingControls = document.querySelector('.zoom-controls');
         if (existingControls) {
             existingControls.remove();
         }
     }
+    
     cleanupViews();
 
-    // 🆕 關鍵功能：關閉 lightbox 後滾動回到剛才查看的作品
+    // Scroll back to artwork after closing
     if (currentArtworkId && typeof portfolio !== 'undefined') {
         setTimeout(() => {
             portfolio.scrollToArtwork(currentArtworkId);
         }, 300);
     }
 
-    // ADD THIS LINE to trigger URL cleanup:
+    // Trigger URL cleanup
     document.dispatchEvent(new CustomEvent('lightboxClosed'));
 };
 
@@ -340,20 +432,19 @@ window.navigateArtwork = function(direction) {
     populateLightbox(artworksData[currentArtworkIndex]);
 };
 
-// Modified zoomIn function - first click enters fullscreen, subsequent clicks zoom
-
+// Desktop-only zoom functions
 window.zoomIn = function() {
+    if (isMobileDevice()) return; // No custom zoom on mobile
+    
     console.log('🔍 Button zoom in');
     
-    // If not in fullscreen mode and zoom is at 1, just enter fullscreen without zooming
     if (!isFullscreenMode && zoomLevel === 1) {
         console.log('📱 First zoom click - entering fullscreen at 1x');
         enterImageFullscreen();
         showFullscreenIndicator(true);
-        return; // Exit without changing zoom level
+        return;
     }
     
-    // If already in fullscreen or zoom > 1, proceed with normal zoom
     const oldZoom = zoomLevel;
     zoomLevel = Math.min(zoomLevel + 0.5, maxZoom);
     
@@ -364,20 +455,18 @@ window.zoomIn = function() {
     }
 };
 
-
-// Modified zoomOut function - don't exit fullscreen immediately at 1x
 window.zoomOut = function() {
+    if (isMobileDevice()) return; // No custom zoom on mobile
+    
     console.log('🔍 Button zoom out');
     const oldZoom = zoomLevel;
     
-    // If we're at 1x zoom and in fullscreen, exit fullscreen instead of trying to zoom out further
     if (zoomLevel <= 1 && isFullscreenMode) {
         console.log('📱 At 1x zoom in fullscreen - exiting fullscreen');
         exitImageFullscreen();
         return;
     }
     
-    // Normal zoom-out behavior
     zoomLevel = Math.max(zoomLevel - 0.5, minZoom);
     
     if (zoomLevel === minZoom) {
@@ -394,6 +483,8 @@ window.zoomOut = function() {
 };
 
 window.resetZoomPan = function() {
+    if (isMobileDevice()) return; // No custom zoom on mobile
+    
     if (isFullscreenMode) {
         exitImageFullscreen();
     }
@@ -410,20 +501,18 @@ window.resetZoomPan = function() {
     }
 };
 
-// Modified toggleImageZoom function to work with new behavior
 window.toggleImageZoom = function() {
+    if (isMobileDevice()) return; // No custom zoom on mobile
+    
     if (!isFullscreenMode && zoomLevel === 1) {
-        // First action: enter fullscreen at 1x
         window.zoomIn();
     } else if (zoomLevel === 1) {
-        // If in fullscreen at 1x, zoom to 2x
         zoomLevel = 2;
         constrainPan();
         applyTransform();
         updateCursor();
         showCleanZoomIndicator();
     } else {
-        // If zoomed, reset to 1x and exit fullscreen
         window.resetZoomPan();
         applyTransform();
         showCleanZoomIndicator();
@@ -434,9 +523,6 @@ window.downloadImage = function() {
     console.log('Download disabled - intellectual property protection');
 };
 
-
-
-// Modified share function to create useful shareable text snippet - BILINGUAL VERSION
 window.shareArtwork = function() {
     const titleEl = document.getElementById('artworkTitle');
     const yearEl = document.getElementById('artworkYear');
@@ -446,31 +532,24 @@ window.shareArtwork = function() {
         return;
     }
     
-    // Get current artwork data
     const currentArtwork = artworksData[currentArtworkIndex];
     if (!currentArtwork) {
         console.error('Current artwork data not found');
         return;
     }
     
-    // Create direct link to this specific artwork
     const baseUrl = window.location.origin + window.location.pathname;
     const currentLang = (typeof portfolio !== 'undefined') ? portfolio.currentLanguage : 'en';
     const artworkUrl = `${baseUrl}?artwork=${currentArtwork.id}&lang=${currentLang}`;
     
-    // Get artist name from language data - BILINGUAL AWARE
     const artistName = getLocalizedText('header.title');
-    
-    // Create shareable text snippet
     const artworkTitle = titleEl.textContent || 'Untitled';
     const artworkYear = yearEl ? yearEl.textContent : '';
     const yearText = artworkYear ? ` (${artworkYear})` : '';
     
     const shareText = `Check out this artwork: "${artworkTitle}"${yearText} by ${artistName}\n\n${artworkUrl}`;
     
-    // Try different sharing methods
     if (navigator.share) {
-        // Mobile native sharing
         navigator.share({
             title: `${artworkTitle} by ${artistName}`,
             text: shareText,
@@ -480,86 +559,17 @@ window.shareArtwork = function() {
             copyToClipboard(shareText);
         });
     } else {
-        // Desktop - copy to clipboard
         copyToClipboard(shareText);
     }
 };
-
-// Helper function to copy text to clipboard with user feedback
-function copyToClipboard(text) {
-    if (navigator.clipboard) {
-        navigator.clipboard.writeText(text).then(() => {
-            showShareFeedback('Shareable link copied to clipboard!');
-        }).catch(err => {
-            console.error('Clipboard write failed:', err);
-            showShareFeedback('Unable to copy to clipboard');
-        });
-    } else {
-        // Fallback for older browsers
-        const textArea = document.createElement('textarea');
-        textArea.value = text;
-        document.body.appendChild(textArea);
-        textArea.select();
-        try {
-            document.execCommand('copy');
-            showShareFeedback('Shareable link copied to clipboard!');
-        } catch (err) {
-            showShareFeedback('Unable to copy to clipboard');
-        }
-        document.body.removeChild(textArea);
-    }
-}
-
-// Show user feedback for share action
-function showShareFeedback(message) {
-    // Remove existing feedback
-    const existingFeedback = document.querySelector('.share-feedback');
-    if (existingFeedback) {
-        existingFeedback.remove();
-    }
-    
-    // Create feedback element
-    const feedback = document.createElement('div');
-    feedback.className = 'share-feedback';
-    feedback.textContent = message;
-    feedback.style.cssText = `
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: rgba(0,0,0,0.8);
-        color: white;
-        padding: 12px 20px;
-        border-radius: 8px;
-        font-size: 14px;
-        z-index: 10020;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    `;
-    
-    document.body.appendChild(feedback);
-    
-    // Fade in
-    setTimeout(() => {
-        feedback.style.opacity = '1';
-    }, 10);
-    
-    // Fade out and remove
-    setTimeout(() => {
-        feedback.style.opacity = '0';
-        setTimeout(() => {
-            if (feedback.parentNode) {
-                feedback.parentNode.removeChild(feedback);
-            }
-        }, 300);
-    }, 2000);
-}
 
 window.showZoomIndicator = function() {
     showCleanZoomIndicator();
 };
 
 window.toggleFullscreenZoom = function() {
+    if (isMobileDevice()) return; // No fullscreen toggle on mobile
+    
     if (isFullscreenMode) {
         exitImageFullscreen();
     } else {
@@ -567,13 +577,14 @@ window.toggleFullscreenZoom = function() {
     }
 };
 
-console.log('✅ Global functions defined');
+console.log('✅ Global functions defined with mobile/desktop separation');
 
 // ================================
-// INTERNAL FUNCTIONS
+// MAIN POPULATE FUNCTION
 // ================================
 
 function populateLightbox(artwork) {
+    console.log('🎨 Populating lightbox for:', isMobileDevice() ? 'mobile' : 'desktop');
     console.log('Raw artwork data:', JSON.stringify(artwork, null, 2));
 
     const image = document.getElementById('lightboxImage');
@@ -582,7 +593,7 @@ function populateLightbox(artwork) {
         return;
     }
     
-    // Reset zoom/pan directly
+    // Reset state
     if (isFullscreenMode) {
         exitImageFullscreen();
     }
@@ -595,55 +606,45 @@ function populateLightbox(artwork) {
     
     image.classList.add('loading');
     
-    // BILINGUAL UPDATE: Use language-aware placeholder
     const placeholderImage = getPlaceholderImage();
     image.src = artwork.imageHigh || artwork.image || placeholderImage;
     
     image.onload = function() {
         image.classList.remove('loading');
         setTimeout(() => {
-            // Add image protection first
             addImageProtection();
 
-            // 🎯 手機板特殊處理
+            // Device-specific initialization
             if (isMobileDevice()) {
                 initializeMobileLightbox();
             } else {
-                initializeImageZoom();
-                addZoomControls();
+                initializeDesktopLightbox();
             }
+            
             addViewIndicators();
         }, 100);
     };
 
     image.onerror = function() {
-        // BILINGUAL UPDATE: Use language-aware placeholder on error
         image.src = placeholderImage;
         image.classList.remove('loading');
         addImageProtection();
     };
 
-    // BILINGUAL UPDATE: Language-aware field selection
+    // Language-aware field selection
     const currentLang = (typeof portfolio !== 'undefined') ? portfolio.currentLanguage : 'zh';
     
-    // Get language-appropriate fields
     let title, titleEn, description, format, size;
 
     if (currentLang === 'zh') {
-        console.log('In Chinese branch');
         title = artwork.title || artwork.titleEn || 'Untitled';
-        console.log('title after assignment:', title);
-        
         titleEn = artwork.titleEn || '';
         description = artwork.description || artwork.descriptionEn || '';
-        console.log('description after assignment:', description);
-        
         format = artwork.format || artwork.formatEn || '';
         size = artwork.heightCm && artwork.widthCm ? 
             `${artwork.heightCm} x ${artwork.widthCm} cm` : 
             artwork.sizeCm || 'Size not specified';
     } else {
-        console.log('In English branch');
         title = artwork.titleEn || artwork.title || 'Untitled';
         titleEn = '';
         description = artwork.descriptionEn || artwork.description || '';
@@ -659,8 +660,7 @@ function populateLightbox(artwork) {
         }
     }
 
-
-    // Set artwork details with language-appropriate content
+    // Set artwork details
     const elements = {
         'artworkTitle': title,
         'artworkTitleEn': titleEn,
@@ -675,7 +675,7 @@ function populateLightbox(artwork) {
         if (el) el.textContent = text;
     });
 
-    // Update availability status with localized text
+    // Update availability status
     const statusEl = document.getElementById('availabilityStatus');
     if (statusEl && portfolio) {
         const isAvailable = portfolio.getBooleanValue(artwork, 'available', true);
@@ -695,84 +695,17 @@ function populateLightbox(artwork) {
         }
     }
     
-    // 🆕 讓可購買狀態變成可點擊
     addClickableAvailabilityStatus(artwork);
-    
-    // BILINGUAL UPDATE: Update all UI text elements
     updateLightboxUIText();
-
-    console.log('Using fixed lightbox layout for all devices');
-
-    // 設置多視圖功能
     setupArtworkViews(artwork);
-
-    // Add mobile hint
-    setTimeout(() => {
-        showMobileHint();
-    }, 1000); // Show after 1 second delay
 }
 
-// Show mobile interaction hint
-function showMobileHint() {
-    if (!isMobileDevice()) return;
-    
-    // Don't show if hint was already dismissed in this session
-    if (sessionStorage.getItem('lightbox-hint-shown')) return;
-    
-    const hint = document.createElement('div');
-    hint.className = 'mobile-lightbox-hint';
-    hint.style.cssText = `
-        position: absolute;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: rgba(0,0,0,0.8);
-        color: white;
-        padding: 8px 16px;
-        border-radius: 20px;
-        font-size: 14px;
-        z-index: 10005;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        pointer-events: none;
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255,255,255,0.2);
-    `;
-    
-    // Get current language for hint text
-    const currentLang = (typeof portfolio !== 'undefined') ? portfolio.currentLanguage : 'zh';
-    const hintText = currentLang === 'zh' ? 
-        '雙擊圖片可全螢幕檢視' : 
-        'Double-tap image for full view';
-    
-    hint.textContent = hintText;
-    
-    const lightboxContainer = document.querySelector('.lightbox-container');
-    if (lightboxContainer) {
-        lightboxContainer.appendChild(hint);
-        
-        // Fade in
-        setTimeout(() => {
-            hint.style.opacity = '1';
-        }, 500);
-        
-        // Fade out after 3 seconds
-        setTimeout(() => {
-            hint.style.opacity = '0';
-            setTimeout(() => {
-                if (hint.parentNode) {
-                    hint.parentNode.removeChild(hint);
-                }
-            }, 300);
-        }, 3500);
-        
-        // Mark as shown for this session
-        sessionStorage.setItem('lightbox-hint-shown', 'true');
-    }
-}
+// ================================
+// DESKTOP-ONLY FUNCTIONS (Keep existing advanced features)
+// ================================
 
 function initializeImageZoom() {
-    console.log('🔧 INITIALIZING IMAGE ZOOM');
+    console.log('🔧 INITIALIZING DESKTOP IMAGE ZOOM');
     
     const image = document.getElementById('lightboxImage');
     if (!image) {
@@ -782,32 +715,22 @@ function initializeImageZoom() {
 
     currentImage = image;
     
-    // Reset zoom/pan directly
-    if (isFullscreenMode) {
-        exitImageFullscreen();
-    }
-    
     zoomLevel = 1;
     panX = 0;
     panY = 0;
     isDragging = false;
     hasDragged = false;
 
-    // Remove ALL existing listeners by cloning
+    // Remove existing listeners by cloning
     const newImage = image.cloneNode(true);
     image.parentNode.replaceChild(newImage, image);
     currentImage = newImage;
     
-    addImageProtection();
-
-
-    // Add wheel listener
+    // Add desktop-specific event listeners
     currentImage.addEventListener('wheel', function(e) {
         handleWheelZoom(e);
     }, { passive: false });
     
-    
-    // Add other listeners
     currentImage.addEventListener('mousedown', handleMouseDown);
     currentImage.addEventListener('mousemove', handleMouseMove);
     currentImage.addEventListener('mouseup', handleMouseUp);
@@ -818,29 +741,23 @@ function initializeImageZoom() {
     updateCursor();
 }
 
-// Modified handleWheelZoom function - fullscreen first, then zoom
 function handleWheelZoom(e) {
     e.preventDefault();
     e.stopPropagation();
     
-    if (isZoomBlocked) {
-        return;
-    }
+    if (isZoomBlocked) return;
     
     isZoomBlocked = true;
     console.log('✅ ZOOM ACCEPTED - IMMEDIATE RESPONSE');
     
-    // Handle zoom-in (scroll up)
     if (e.deltaY < 0) {
         console.log('📈 WHEEL ZOOMING IN');
         
-        // If not in fullscreen and at 1x zoom, enter fullscreen first without zooming
         if (!isFullscreenMode && zoomLevel === 1) {
             console.log('📱 First wheel zoom - entering fullscreen at 1x');
             enterImageFullscreen();
             showFullscreenIndicator(true);
         } else {
-            // Normal zoom behavior
             const step = 0.3;
             const oldZoom = zoomLevel;
             zoomLevel = Math.min(zoomLevel + step, maxZoom);
@@ -853,7 +770,6 @@ function handleWheelZoom(e) {
             }
         }
     } else {
-        // Handle zoom-out (scroll down)
         console.log('📉 WHEEL ZOOMING OUT');
         const step = 0.3;
         const oldZoom = zoomLevel;
@@ -885,24 +801,6 @@ function handleWheelZoom(e) {
     }, BLOCK_DURATION);
 }
 
-
-function resetZoomPan() {
-    if (isFullscreenMode) {
-        exitImageFullscreen();
-    }
-    
-    zoomLevel = 1;
-    panX = 0;
-    panY = 0;
-    isDragging = false;
-    hasDragged = false;
-    
-    if (currentImage) {
-        applyTransform();
-        updateCursor();
-    }
-}
-
 function applyTransform() {
     if (!currentImage) return;
     currentImage.style.transform = `scale(${zoomLevel}) translate(${panX}px, ${panY}px)`;
@@ -912,7 +810,6 @@ function applyTransform() {
 function updateCursor() {
     if (!currentImage) return;
     
-    // Allow grab cursor if zoomed > 1 OR if in fullscreen mode (even at 1x)
     if (zoomLevel > 1 || isFullscreenMode) {
         currentImage.style.cursor = isDragging ? 'grabbing' : 'grab';
     } else if (zoomLevel < maxZoom) {
@@ -923,14 +820,12 @@ function updateCursor() {
 }
 
 function constrainPan() {
-    // If not zoomed and not in fullscreen, reset pan
     if (zoomLevel <= 1 && !isFullscreenMode) {
         panX = 0;
         panY = 0;
         return;
     }
     
-    // In fullscreen at 1x, allow panning if image is larger than container
     if (isFullscreenMode && zoomLevel === 1) {
         const imageRect = currentImage.getBoundingClientRect();
         const containerRect = currentImage.parentElement.getBoundingClientRect();
@@ -943,7 +838,6 @@ function constrainPan() {
         return;
     }
     
-    // Normal zoom constraint calculation
     const maxPanX = (currentImage.offsetWidth * (zoomLevel - 1)) / (2 * zoomLevel);
     const maxPanY = (currentImage.offsetHeight * (zoomLevel - 1)) / (2 * zoomLevel);
     
@@ -956,7 +850,6 @@ function handleImageClick(e) {
         hasDragged = false;
         return;
     }
-    console.log('About to call toggleImageZoom');
     window.toggleImageZoom();
 }
 
@@ -968,7 +861,7 @@ function handleDoubleClick(e) {
         zoomLevel = 2;
         constrainPan();
     } else {
-        resetZoomPan();
+        window.resetZoomPan();
     }
     
     applyTransform();
@@ -978,7 +871,6 @@ function handleDoubleClick(e) {
 
 function handleMouseDown(e) {
     if (zoomLevel <= 1 && !isFullscreenMode) return;
-
     
     isDragging = true;
     hasDragged = false;
@@ -1030,8 +922,7 @@ function enterImageFullscreen() {
     imageSection.classList.add('fullscreen-image');
     
     showFullscreenIndicator(true);
-    updateCursor(); // ADD THIS LINE
-
+    updateCursor();
 }
 
 function exitImageFullscreen() {
@@ -1050,8 +941,7 @@ function exitImageFullscreen() {
     }
     
     showFullscreenIndicator(false);
-    updateCursor(); // ADD THIS LINE
-
+    updateCursor();
 }
 
 function showFullscreenIndicator(entering) {
@@ -1063,13 +953,11 @@ function showFullscreenIndicator(entering) {
     const indicator = document.createElement('div');
     indicator.className = 'fullscreen-indicator';
     
-    // Get current language
     let currentLang = 'zh';
     if (typeof portfolio !== 'undefined' && portfolio.currentLanguage) {
         currentLang = portfolio.currentLanguage;
     }
     
-    // HARDCODED translations to bypass the translation system issue
     const translations = {
         zh: {
             fullscreenView: "全螢幕檢視",
@@ -1098,14 +986,12 @@ function showFullscreenIndicator(entering) {
             setTimeout(() => indicator.remove(), 300);
         }, 2000);
     }
-    
-    console.log('✅ Fullscreen indicator shown:', entering ? t.fullscreenView : t.splitView);
 }
 
 function addZoomControls() {
-    // 🎯 手機板不添加縮放控制
+    // Only add on desktop
     if (isMobileDevice()) {
-        console.log('📱 Mobile device - adding touch-friendly zoom controls');
+        console.log('📱 Mobile device - skipping zoom controls');
         return;
     }
     
@@ -1120,13 +1006,11 @@ function addZoomControls() {
     const zoomControls = document.createElement('div');
     zoomControls.className = 'zoom-controls';
     
-    // Get current language
     let currentLang = 'zh';
     if (typeof portfolio !== 'undefined' && portfolio.currentLanguage) {
         currentLang = portfolio.currentLanguage;
     }
     
-    // HARDCODED translations to bypass the translation system issue
     const translations = {
         zh: {
             zoomIn: "放大 (+)",
@@ -1150,35 +1034,98 @@ function addZoomControls() {
     
     lightboxControls.insertBefore(zoomControls, lightboxControls.firstChild);
     
-    console.log('✅ Zoom controls created with language:', currentLang);
-    console.log('✅ Tooltips:', t);
+    console.log('✅ Desktop zoom controls created');
 }
 
 function addImageProtection() {
     const image = document.getElementById('lightboxImage');
     if (!image) return;
     
-    // Only CSS protection - no overlay
     image.setAttribute('draggable', 'false');
     image.style.userSelect = 'none';
     image.style.webkitUserSelect = 'none';
     image.style.mozUserSelect = 'none';
     image.style.msUserSelect = 'none';
     
-    console.log('Lightbox image protection enabled (CSS only)');
+    console.log('Image protection enabled');
 }
 
+// ================================
+// UTILITY FUNCTIONS
+// ================================
+
+function copyToClipboard(text) {
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(() => {
+            showShareFeedback('Shareable link copied to clipboard!');
+        }).catch(err => {
+            console.error('Clipboard write failed:', err);
+            showShareFeedback('Unable to copy to clipboard');
+        });
+    } else {
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        document.body.appendChild(textArea);
+        textArea.select();
+        try {
+            document.execCommand('copy');
+            showShareFeedback('Shareable link copied to clipboard!');
+        } catch (err) {
+            showShareFeedback('Unable to copy to clipboard');
+        }
+        document.body.removeChild(textArea);
+    }
+}
+
+function showShareFeedback(message) {
+    const existingFeedback = document.querySelector('.share-feedback');
+    if (existingFeedback) {
+        existingFeedback.remove();
+    }
+    
+    const feedback = document.createElement('div');
+    feedback.className = 'share-feedback';
+    feedback.textContent = message;
+    feedback.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0,0,0,0.8);
+        color: white;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-size: 14px;
+        z-index: 10020;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    `;
+    
+    document.body.appendChild(feedback);
+    
+    setTimeout(() => {
+        feedback.style.opacity = '1';
+    }, 10);
+    
+    setTimeout(() => {
+        feedback.style.opacity = '0';
+        setTimeout(() => {
+            if (feedback.parentNode) {
+                feedback.parentNode.removeChild(feedback);
+            }
+        }, 300);
+    }, 2000);
+}
 
 // ================================
-// BILINGUAL UPDATE: Global function to refresh lightbox language
+// BILINGUAL FRAMEWORK UPDATE
 // ================================
+
 window.updateLightboxLanguage = function() {
-    // Update UI text if lightbox is open
     const lightbox = document.getElementById('lightbox');
     if (lightbox && lightbox.classList.contains('active')) {
         updateLightboxUIText();
         
-        // Re-populate the current artwork with new language
         if (artworksData[currentArtworkIndex]) {
             populateLightbox(artworksData[currentArtworkIndex]);
         }
@@ -1215,7 +1162,6 @@ function setupLightboxEventListeners() {
         const lightbox = document.getElementById('lightbox');
         if (!lightbox || !lightbox.classList.contains('active')) return;
 
-        // Don't intercept keys when user is typing in form fields
         const activeElement = document.activeElement;
         const isTypingInForm = activeElement && (
             activeElement.tagName === 'INPUT' || 
@@ -1224,7 +1170,6 @@ function setupLightboxEventListeners() {
         );
         
         if (isTypingInForm) {
-            // Only handle Escape key when typing in forms
             if (e.key === 'Escape') {
                 if (isFullscreenMode) {
                     exitImageFullscreen();
@@ -1232,7 +1177,7 @@ function setupLightboxEventListeners() {
                     window.closeLightbox();
                 }
             }
-            return; // Don't handle other keys when typing
+            return;
         }
 
         switch(e.key) {
@@ -1251,18 +1196,24 @@ function setupLightboxEventListeners() {
                 break;
             case '+':
             case '=':
-                e.preventDefault();
-                window.zoomIn();
+                if (!isMobileDevice()) {
+                    e.preventDefault();
+                    window.zoomIn();
+                }
                 break;
             case '-':
-                e.preventDefault();
-                window.zoomOut();
+                if (!isMobileDevice()) {
+                    e.preventDefault();
+                    window.zoomOut();
+                }
                 break;
             case '0':
-                e.preventDefault();
-                window.resetZoomPan();
-                applyTransform();
-                showCleanZoomIndicator();
+                if (!isMobileDevice()) {
+                    e.preventDefault();
+                    window.resetZoomPan();
+                    applyTransform();
+                    showCleanZoomIndicator();
+                }
                 break;
         }
     });
@@ -1272,11 +1223,9 @@ function setupLightboxEventListeners() {
 // MULTI-VIEW SYSTEM
 // ================================
 
-// 設置作品的多個視圖
 function setupArtworkViews(artwork) {
     currentArtworkViews = [];
     
-    // 如果有 productViews，使用新系統
     if (artwork.productViews && artwork.productViews.length > 0) {
         currentArtworkViews = artwork.productViews.map(view => ({
             src: view.image,
@@ -1287,7 +1236,6 @@ function setupArtworkViews(artwork) {
             description: view.description
         }));
     } else {
-        // 向後兼容：使用原有系統
         const placeholderImage = getPlaceholderImage();
         currentArtworkViews = [
             {
@@ -1299,7 +1247,6 @@ function setupArtworkViews(artwork) {
             }
         ];
         
-        // 檢查舊的房間展示欄位
         if (artwork.roomDisplay) {
             currentArtworkViews.push({
                 src: artwork.roomDisplay,
@@ -1314,7 +1261,6 @@ function setupArtworkViews(artwork) {
     currentViewIndex = 0;
 }
 
-// 獲取作品文字（根據當前語言）
 function getArtworkText(artwork, field) {
     if (typeof portfolio !== 'undefined' && portfolio.currentLanguage === 'en') {
         return artwork[field + 'En'] || artwork[field] || '';
@@ -1322,22 +1268,18 @@ function getArtworkText(artwork, field) {
     return artwork[field] || artwork[field + 'En'] || '';
 }
 
-// 添加視圖指示器
 function addViewIndicators() {
     const imageSection = document.querySelector('.lightbox-image-section');
     if (!imageSection || currentArtworkViews.length <= 1) return;
     
-    // 移除現有指示器
     const existingIndicators = imageSection.querySelector('.view-indicators');
     if (existingIndicators) {
         existingIndicators.remove();
     }
     
-    // 創建新指示器容器
     const indicators = document.createElement('div');
     indicators.className = 'view-indicators';
     
-    // 如果視圖太多（>4個），使用緊湊模式
     const isCompact = currentArtworkViews.length > 4;
     if (isCompact) {
         indicators.classList.add('compact-mode');
@@ -1349,7 +1291,6 @@ function addViewIndicators() {
         dot.title = view.title || `視圖 ${index + 1}`;
         dot.onclick = () => switchArtworkView(index);
         
-        // 如果有圖標且不是緊湊模式，顯示圖標
         if (view.icon && !isCompact) {
             dot.textContent = view.icon;
             dot.classList.add('icon-dot');
@@ -1363,7 +1304,6 @@ function addViewIndicators() {
     console.log(`✅ Added ${currentArtworkViews.length} view indicators`);
 }
 
-// 切換作品視圖
 function switchArtworkView(index) {
     if (index === currentViewIndex || index >= currentArtworkViews.length) return;
     
@@ -1374,26 +1314,20 @@ function switchArtworkView(index) {
     
     console.log(`🔄 Switching to view ${index}: ${currentArtworkViews[index].title}`);
     
-    // 更新指示器狀態
     dots.forEach(dot => dot.classList.remove('active'));
     dots[index].classList.add('active');
     
-    // 添加淡出效果
     image.style.opacity = '0.5';
     image.style.transition = 'opacity 0.3s ease';
     
     setTimeout(() => {
-        // 切換圖片
         const newView = currentArtworkViews[index];
         image.src = newView.src;
         image.alt = newView.alt;
         
-        // 淡入效果
         image.style.opacity = '1';
-        
         currentViewIndex = index;
         
-        // 處理圖片加載錯誤
         image.onerror = function() {
             console.warn(`⚠️ Failed to load view image: ${newView.src}`);
             image.src = getPlaceholderImage();
@@ -1402,52 +1336,31 @@ function switchArtworkView(index) {
     }, 150);
 }
 
-// 清理視圖數據（當關閉 lightbox 時調用）
 function cleanupViews() {
     currentArtworkViews = [];
     currentViewIndex = 0;
     
-    // 移除指示器
     const indicators = document.querySelector('.view-indicators');
     if (indicators) {
         indicators.remove();
     }
 }
 
-// Export multi-view functions to global scope
-window.setupArtworkViews = setupArtworkViews;
-window.addViewIndicators = addViewIndicators;
-window.switchArtworkView = switchArtworkView;
-window.cleanupViews = cleanupViews;
-
-console.log('✅ Multi-view system loaded for lightbox');
-console.log('✅ Dynamic layout system loaded for lightbox');
-console.log('✅ All lightbox functions exported to global scope');
-
-// ================================
-// 🆕 可點擊的可購買狀態
-// ================================
-
 function addClickableAvailabilityStatus(artwork) {
     const statusEl = document.getElementById('availabilityStatus');
     if (!statusEl) return;
     
-    // 檢查作品是否可購買
     const isAvailable = portfolio ? portfolio.getBooleanValue(artwork, 'available', true) : true;
     
     if (isAvailable) {
-        // 移除現有的點擊事件監聽器（如果有的話）
         const newStatusEl = statusEl.cloneNode(true);
         statusEl.parentNode.replaceChild(newStatusEl, statusEl);
         
-        // 添加點擊事件
         newStatusEl.addEventListener('click', function() {
-            // 確保聯絡表單系統已載入
             if (typeof openContactForm === 'function') {
                 openContactForm(artwork.id);
             } else {
                 console.error('Contact form system not loaded');
-                // 降級處理：顯示聯絡資訊或跳轉
                 alert('請透過電話或Email與我們聯繫');
             }
         });
@@ -1457,3 +1370,15 @@ function addClickableAvailabilityStatus(artwork) {
         console.log('✅ Artwork is sold - status not clickable');
     }
 }
+
+// Export functions to global scope
+window.setupArtworkViews = setupArtworkViews;
+window.addViewIndicators = addViewIndicators;
+window.switchArtworkView = switchArtworkView;
+window.cleanupViews = cleanupViews;
+
+console.log('🎯 Mobile-optimized lightbox loaded successfully!');
+console.log('📱 Mobile: Native pinch-zoom + tap-to-close + swipe-to-close');
+console.log('🖥️ Desktop: Advanced zoom controls + fullscreen + pan/zoom');
+console.log('✅ Clean device separation implemented');
+    
