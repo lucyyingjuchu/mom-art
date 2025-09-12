@@ -596,11 +596,7 @@ function handleFormSubmit(e) {
 function submitInquiry(data) {
     const messageDiv = document.getElementById('formMessage');
     const submitBtn = document.querySelector('.btn-submit');
-    
-    // Show submitting state
-    submitBtn.textContent = '提交中...';
-    submitBtn.disabled = true;
-    
+      
     console.log('Submitting inquiry data:', data);
     
     // Send to Netlify function instead of EmailJS directly
