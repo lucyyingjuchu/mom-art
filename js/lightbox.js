@@ -808,36 +808,62 @@ function applyTransform() {
 
 // Helper function to check if current view allows zoom
 function currentViewAllowsZoom() {
-    if (!currentArtworkViews || currentArtworkViews.length === 0) return true; // Default allow
-    
+    if (!currentArtworkViews || currentArtworkViews.length === 0){
+        console.log('🔍 No views, allowing zoom by default');
+        return true; // Default allow
+    }
+
     const currentView = currentArtworkViews[currentViewIndex];
-    if (!currentView) return true; // Default allow
+    if (!currentView){
+        console.log('🔍 No current view, allowing zoom by default');
+        return true; // Default allow
+    } 
     
-    // Only allow zoom for original artwork
-    return currentView.type === 'original' || currentView.type === 'artwork' || !currentView.type;
+    const allowsZoom = currentView.type === 'original' || currentView.type === 'artwork' || !currentView.type;
+    console.log('🔍 View allows zoom?', {
+        type: currentView.type,
+        allowsZoom
+    });
+    
+    return allowsZoom;
 }
 
 function updateCursor() {
-    if (!currentImage) return;
+    if (!currentImage) {
+        console.log('❌ No current image');
+        return;
+    }
+    
+    const allowsZoom = currentViewAllowsZoom();
+    console.log('🔍 Cursor update:', {
+        allowsZoom,
+        currentViewIndex,
+        viewType: currentArtworkViews[currentViewIndex]?.type,
+        zoomLevel,
+        isFullscreenMode,
+        isDragging
+    });
     
     // For non-zoomable views (room display, etc.), always use default cursor
-    if (!currentViewAllowsZoom()) {
+    if (!allowsZoom) {
+        console.log('➡️ Setting default cursor (non-zoomable view)');
         currentImage.style.cursor = 'default';
         return;
     }
     
     // For original artwork (zoomable views):
     if (isDragging) {
-        // Currently dragging
+        console.log('➡️ Setting grabbing cursor (dragging)');
         currentImage.style.cursor = 'grabbing';
     } else if (zoomLevel > 1 || isFullscreenMode) {
-        // Can pan: either zoomed in OR in fullscreen mode
+        console.log('➡️ Setting grab cursor (can pan)');
         currentImage.style.cursor = 'grab';
     } else {
-        // Default state for original art: show zoom-in hint
+        console.log('➡️ Setting zoom-in cursor (original art, ready to zoom)');
         currentImage.style.cursor = 'zoom-in';
     }
 }
+
 
 function constrainPan() {
     if (zoomLevel <= 1 && !isFullscreenMode) {
