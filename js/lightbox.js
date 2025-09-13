@@ -517,9 +517,13 @@ window.downloadImage = function() {
 };
 
 window.shareArtwork = function() {
+    const existingDropdown = document.querySelector('.share-dropdown');
+    if (existingDropdown) {
+        existingDropdown.remove();
+        return;
+    }
+
     const titleEl = document.getElementById('artworkTitle');
-    const yearEl = document.getElementById('artworkYear');
-    
     if (!titleEl) {
         console.error('Artwork title not found');
         return;
@@ -531,30 +535,160 @@ window.shareArtwork = function() {
         return;
     }
     
+    // Create share URL
     const baseUrl = window.location.origin + window.location.pathname;
     const currentLang = (typeof portfolio !== 'undefined') ? portfolio.currentLanguage : 'en';
     const artworkUrl = `${baseUrl}?artwork=${currentArtwork.id}&lang=${currentLang}`;
     
-    const artistName = getLocalizedText('header.title');
-    const artworkTitle = titleEl.textContent || 'Untitled';
-    const artworkYear = yearEl ? yearEl.textContent : '';
-    const yearText = artworkYear ? ` (${artworkYear})` : '';
+    // Create dropdown menu
+    const dropdown = document.createElement('div');
+    dropdown.className = 'share-dropdown';
     
-    const shareText = `Check out this artwork: "${artworkTitle}"${yearText} by ${artistName}\n\n${artworkUrl}`;
+    // Get current language for labels
+    const isZh = currentLang === 'zh';
     
-    if (navigator.share) {
-        navigator.share({
-            title: `${artworkTitle} by ${artistName}`,
-            text: shareText,
-            url: artworkUrl
+    dropdown.innerHTML = `
+        <div class="share-option" onclick="copyArtworkLink('${artworkUrl}')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.72-1.71"/>
+            </svg>
+            <span>${isZh ? '複製連結' : 'Copy Link'}</span>
+        </div>
+        <div class="share-option" onclick="generateQRCode('${artworkUrl}')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="5" height="5"/>
+                <rect x="3" y="16" width="5" height="5"/>
+                <rect x="16" y="3" width="5" height="5"/>
+                <path d="M21 16h-3a2 2 0 0 0-2 2v3"/>
+                <path d="M21 21v.01"/>
+                <path d="M12 7v3a2 2 0 0 1-2 2H7"/>
+                <path d="M3 12h.01"/>
+                <path d="M12 3h.01"/>
+                <path d="M12 16v.01"/>
+                <path d="M16 12h1"/>
+                <path d="M21 12v.01"/>
+                <path d="M12 21v-1"/>
+            </svg>
+            <span>${isZh ? '生成二維碼' : 'Generate QR Code'}</span>
+        </div>
+    `;
+    
+    // Position dropdown
+    const shareBtn = document.querySelector('.control-btn[onclick="shareArtwork()"]');
+    if (shareBtn) {
+        const rect = shareBtn.getBoundingClientRect();
+        dropdown.style.position = 'fixed';
+        dropdown.style.top = `${rect.bottom + 8}px`;
+        dropdown.style.right = `${window.innerWidth - rect.right}px`;
+        dropdown.style.zIndex = '10010';
+    }
+    
+    document.body.appendChild(dropdown);
+    
+    // Close dropdown when clicking outside
+    setTimeout(() => {
+        document.addEventListener('click', function closeDropdown(e) {
+            if (!dropdown.contains(e.target) && e.target !== shareBtn) {
+                dropdown.remove();
+                document.removeEventListener('click', closeDropdown);
+            }
+        });
+    }, 100);
+};
+
+// Copy link function
+window.copyArtworkLink = function(url) {
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(url).then(() => {
+            showShareFeedback('Link copied to clipboard!');
         }).catch(err => {
-            console.log('Native share failed, falling back to clipboard');
-            copyToClipboard(shareText);
+            console.error('Clipboard write failed:', err);
+            showShareFeedback('Unable to copy to clipboard');
         });
     } else {
-        copyToClipboard(shareText);
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = url;
+        document.body.appendChild(textArea);
+        textArea.select();
+        try {
+            document.execCommand('copy');
+            showShareFeedback('Link copied to clipboard!');
+        } catch (err) {
+            showShareFeedback('Unable to copy to clipboard');
+        }
+        document.body.removeChild(textArea);
     }
+    
+    // Close dropdown
+    const dropdown = document.querySelector('.share-dropdown');
+    if (dropdown) dropdown.remove();
 };
+
+// QR Code generation function
+window.generateQRCode = function(url) {
+    // Create QR code modal
+    const modal = document.createElement('div');
+    modal.className = 'qr-modal';
+    
+    const currentLang = (typeof portfolio !== 'undefined') ? portfolio.currentLanguage : 'zh';
+    const isZh = currentLang === 'zh';
+    
+    modal.innerHTML = `
+        <div class="qr-modal-content">
+            <div class="qr-header">
+                <h3>${isZh ? '掃描二維碼分享' : 'Scan QR Code to Share'}</h3>
+                <button class="qr-close" onclick="this.closest('.qr-modal').remove()">×</button>
+            </div>
+            <div class="qr-code-container">
+                <div id="qrcode"></div>
+            </div>
+            <p class="qr-url">${url}</p>
+        </div>
+    `;
+    
+    document.body.appendChild(modal);
+    
+    // Generate QR code using a simple library-free approach
+    generateSimpleQR(url, 'qrcode');
+    
+    // Close dropdown
+    const dropdown = document.querySelector('.share-dropdown');
+    if (dropdown) dropdown.remove();
+};
+
+// Simple QR code generation (library-free)
+function generateSimpleQR(text, elementId) {
+    const qrContainer = document.getElementById(elementId);
+    if (!qrContainer) return;
+    
+    // Use a free QR code API service
+    const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(text)}`;
+    
+    const img = document.createElement('img');
+    img.src = qrUrl;
+    img.alt = 'QR Code';
+    img.style.cssText = `
+        width: 200px;
+        height: 200px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+    `;
+    
+    img.onerror = function() {
+        qrContainer.innerHTML = `
+            <div style="width: 200px; height: 200px; border: 1px solid #ddd; border-radius: 8px; 
+                        display: flex; align-items: center; justify-content: center; 
+                        background: #f5f5f5; color: #666; text-align: center; font-size: 14px;">
+                QR Code generation failed<br>
+                Please copy the link instead
+            </div>
+        `;
+    };
+    
+    qrContainer.appendChild(img);
+}
 
 window.showZoomIndicator = function() {
     showCleanZoomIndicator();
@@ -1015,11 +1149,11 @@ function showFullscreenIndicator(entering) {
     
     const translations = {
         zh: {
-            fullscreenView: "全螢幕檢視",
+            fullscreenView: "全螢幕檢視(滾動縮放)",
             splitView: "分割檢視"
         },
         en: {
-            fullscreenView: "Fullscreen View",
+            fullscreenView: "Fullscreen View (Scroll to zoom)",
             splitView: "Split View"
         }
     };
