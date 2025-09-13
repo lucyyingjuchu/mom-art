@@ -1,9 +1,109 @@
 {
+  "019891b0-f39c-7cee-bc2d-85b83d7ced08": {
+    "artwork_info": {
+      "id": "019891b0-f39c-7cee-bc2d-85b83d7ced08",
+      "title": "月梅圖－兩個月亮",
+      "title_en": "Plum Blossoms Under Twin Moons",
+      "original_size_cm": "×"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
+  },
+  "019891b0-f39c-752c-bde4-db1ef1f5529c": {
+    "artwork_info": {
+      "id": "019891b0-f39c-752c-bde4-db1ef1f5529c",
+      "title": "源頭應是天上來─瀑布",
+      "title_en": "Source from Heaven: The Waterfall",
+      "original_size_cm": "70×135"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
+  },
+  "019891b0-f39c-760d-a955-60c68a66d5be": {
+    "artwork_info": {
+      "id": "019891b0-f39c-760d-a955-60c68a66d5be",
+      "title": "夢筆插花山為盆－黃山煙雲",
+      "title_en": "Dream Brush Inserts Flowers, Mountain as Basin - Huangshan Mist and Clouds",
+      "original_size_cm": "180×90"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
+  },
+  "019891b0-f39c-7192-92e6-0e1d7d4a52dc": {
+    "artwork_info": {
+      "id": "019891b0-f39c-7192-92e6-0e1d7d4a52dc",
+      "title": "天地有大美－美國大峽谷",
+      "title_en": "The Grandeur of Heaven and Earth - The Grand Canyon of America",
+      "original_size_cm": "70×135"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
+  },
+  "019891b0-f39c-7036-9ac1-cbed9f6f03e5": {
+    "artwork_info": {
+      "id": "019891b0-f39c-7036-9ac1-cbed9f6f03e5",
+      "title": "梅嶺如雲－風櫃斗梅花林",
+      "title_en": "Plum Ridge Like Clouds - Wind Cabinet Plum Blossom Grove",
+      "original_size_cm": "135×70"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
+  },
+  "019891b0-f39c-7b65-ab7f-c36ec9a747df": {
+    "artwork_info": {
+      "id": "019891b0-f39c-7b65-ab7f-c36ec9a747df",
+      "title": "無心任始終—雲海(金宣)",
+      "title_en": "Unfettered by Intent—Cloud Sea",
+      "original_size_cm": "90×180"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
+  },
+  "019891b0-f39c-7186-94bc-b7109c05f639": {
+    "artwork_info": {
+      "id": "019891b0-f39c-7186-94bc-b7109c05f639",
+      "title": "煙聲畫外流－煙聲瀑布",
+      "title_en": "Whispers of Smoke Beyond the Canvas - The Cascade of Mist",
+      "original_size_cm": "135×70"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
+  },
+  "019891b0-f39c-7f2c-96ed-160ad3c22a3f": {
+    "artwork_info": {
+      "id": "019891b0-f39c-7f2c-96ed-160ad3c22a3f",
+      "title": "煙雲情境",
+      "title_en": "Mist and Cloud Reverie",
+      "original_size_cm": "95×65"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
+  },
+  "019891b0-f39c-7bae-8206-f4788f507776": {
+    "artwork_info": {
+      "id": "019891b0-f39c-7bae-8206-f4788f507776",
+      "title": "煙霧中的花影－阿勃勒",
+      "title_en": "Flower Shadows in the Mist - Yellow Cassia",
+      "original_size_cm": "135×70"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
+  },
+  "019891b0-f39c-7a52-b635-427bdcdca491": {
+    "artwork_info": {
+      "id": "019891b0-f39c-7a52-b635-427bdcdca491",
+      "title": "白雲慈母心－北極熊",
+      "title_en": "Motherly Heart of White Clouds - Polar Bear",
+      "original_size_cm": "210×90"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
+  },
   "019891b0-f39c-7cc4-ae49-d25008e1409d": {
     "artwork_info": {
       "id": "019891b0-f39c-7cc4-ae49-d25008e1409d",
       "title": "秋波千萬情－天光雲影",
-      "title_en": "",
+      "title_en": "Autumn Waves, Endless Affection - Light and Shadow of Sky and Clouds",
       "original_size_cm": "90×80"
     },
     "recommended_sizes": [
@@ -15,7 +115,7 @@
     "finerworks_image": {
       "finerworks_api_object": {
         "title": "秋波千萬情－天光雲影",
-        "description": "Traditional Chinese painting: 秋波千萬情－天光雲影",
+        "description": "Traditional Chinese painting by Xiaoran. Autumn Waves, Endless Affection - Light and Shadow of Sky and Clouds",
         "file_name": "019891b0-f39c-7cc4-ae49-d25008e1409d_large.png",
         "file_size": 4374746,
         "pix_w": 1600,
@@ -30,14 +130,17 @@
       "format": "png",
       "dimensions_text": "1600×1200",
       "file_size_mb": 4.17,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-79f7-8cab-78ad04b8b05d": {
     "artwork_info": {
       "id": "019891b0-f39c-79f7-8cab-78ad04b8b05d",
       "title": "紫藤雙燕",
-      "title_en": "",
+      "title_en": "Wisteria and Twin Swallows",
       "original_size_cm": "135×70"
     },
     "recommended_sizes": [
@@ -53,7 +156,7 @@
     "finerworks_image": {
       "finerworks_api_object": {
         "title": "紫藤雙燕",
-        "description": "Traditional Chinese painting: 紫藤雙燕",
+        "description": "Traditional Chinese painting by Xiaoran. Wisteria and Twin Swallows",
         "file_name": "019891b0-f39c-79f7-8cab-78ad04b8b05d_large.png",
         "file_size": 4370215,
         "pix_w": 1538,
@@ -68,8 +171,88 @@
       "format": "png",
       "dimensions_text": "1538×1423",
       "file_size_mb": 4.17,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
+  },
+  "019891b0-f39c-7a23-a18f-085445820f6c": {
+    "artwork_info": {
+      "id": "019891b0-f39c-7a23-a18f-085445820f6c",
+      "title": "聚葉潑成千點墨－畫菊",
+      "title_en": "Gathered Leaves, Inked in a Thousand Dots - Painting Chrysanthemums",
+      "original_size_cm": "135×70"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
+  },
+  "019891b0-f39c-7e69-8910-34d57c0a6589": {
+    "artwork_info": {
+      "id": "019891b0-f39c-7e69-8910-34d57c0a6589",
+      "title": "自在飛花輕似夢－雨中紫藤",
+      "title_en": "Free-Flying Blossoms as Light as Dreams - Wisteria in the Rain",
+      "original_size_cm": "135×70"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
+  },
+  "019891b0-f39c-7839-9ec1-f0013b25f208": {
+    "artwork_info": {
+      "id": "019891b0-f39c-7839-9ec1-f0013b25f208",
+      "title": "雪壩煙雲",
+      "title_en": "Snowy Banks and Misty Clouds",
+      "original_size_cm": "135×70"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
+  },
+  "019891b0-f39c-76d4-86ba-1ec281b83433": {
+    "artwork_info": {
+      "id": "019891b0-f39c-76d4-86ba-1ec281b83433",
+      "title": "雲蒸霞蔚－雲揚阿里山",
+      "title_en": "Clouds Rising, Hues of Dawn - Clouds Over Alishan",
+      "original_size_cm": "180×90"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
+  },
+  "019891b0-f39c-7834-8476-a918927593ab": {
+    "artwork_info": {
+      "id": "019891b0-f39c-7834-8476-a918927593ab",
+      "title": "海天競秀一龍洞",
+      "title_en": "",
+      "original_size_cm": "90×75"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 7,
+        "height_inches": 8
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "海天競秀一龍洞",
+        "description": "Traditional Chinese painting: 海天競秀一龍洞",
+        "file_name": "019891b0-f39c-7834-8476-a918927593ab_large.jpg",
+        "file_size": 4571829,
+        "pix_w": 1462,
+        "pix_h": 1600,
+        "hires_file_name": "019891b0-f39c-7834-8476-a918927593ab_large.jpg",
+        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7834-8476-a918927593ab_large.jpg",
+        "thumbnail_file_name": "019891b0-f39c-7834-8476-a918927593ab_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-7834-8476-a918927593ab_thumb.jpg",
+        "preview_file_name": "019891b0-f39c-7834-8476-a918927593ab_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7834-8476-a918927593ab_large.jpg"
+      },
+      "format": "png",
+      "dimensions_text": "1462×1600",
+      "file_size_mb": 4.36,
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-7220-b00b-be8e9249f911": {
     "artwork_info": {
@@ -102,14 +285,17 @@
       "format": "jpeg",
       "dimensions_text": "1306×3210",
       "file_size_mb": 3.71,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-748f-a906-1de3f9f5b3b6": {
     "artwork_info": {
       "id": "019891b0-f39c-748f-a906-1de3f9f5b3b6",
       "title": "萬縷紫煙飛自在",
-      "title_en": "",
+      "title_en": "A Thousand Threads of Purple Smoke Soar Freely",
       "original_size_cm": "70×70"
     },
     "recommended_sizes": [
@@ -121,7 +307,7 @@
     "finerworks_image": {
       "finerworks_api_object": {
         "title": "萬縷紫煙飛自在",
-        "description": "Traditional Chinese painting: 萬縷紫煙飛自在",
+        "description": "Traditional Chinese painting by Xiaoran. A Thousand Threads of Purple Smoke Soar Freely",
         "file_name": "019891b0-f39c-748f-a906-1de3f9f5b3b6_large.png",
         "file_size": 3322990,
         "pix_w": 1318,
@@ -136,8 +322,41 @@
       "format": "png",
       "dimensions_text": "1318×1331",
       "file_size_mb": 3.17,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
+  },
+  "019891b0-f39c-76be-93c8-cf4233295e95": {
+    "artwork_info": {
+      "id": "019891b0-f39c-76be-93c8-cf4233295e95",
+      "title": "頌母恩",
+      "title_en": "Ode to Maternal Grace",
+      "original_size_cm": "45×70"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
+  },
+  "019891b0-f39c-7a7e-b0e7-4bce5225a761": {
+    "artwork_info": {
+      "id": "019891b0-f39c-7a7e-b0e7-4bce5225a761",
+      "title": "別有天地非人間",
+      "title_en": "",
+      "original_size_cm": "75×140"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
+  },
+  "019891b0-f39c-7a5f-a6de-f1a8172971f6": {
+    "artwork_info": {
+      "id": "019891b0-f39c-7a5f-a6de-f1a8172971f6",
+      "title": "合歡雲擁映山紅－合歡杜鵑",
+      "title_en": "",
+      "original_size_cm": "140×75"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
   },
   "019891b0-f39c-7b9e-bb65-6852f393b302": {
     "artwork_info": {
@@ -170,8 +389,48 @@
       "format": "jpeg",
       "dimensions_text": "2660×1576",
       "file_size_mb": 3.78,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
+  },
+  "019891b0-f39c-7b84-a80e-a928e6c46860": {
+    "artwork_info": {
+      "id": "019891b0-f39c-7b84-a80e-a928e6c46860",
+      "title": "山高水長",
+      "title_en": "Endless Heights and Flowing Waters",
+      "original_size_cm": "64×62"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 6,
+        "height_inches": 6
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "山高水長",
+        "description": "Traditional Chinese painting by Xiaoran. Endless Heights and Flowing Waters",
+        "file_name": "019891b0-f39c-7b84-a80e-a928e6c46860_large.jpg",
+        "file_size": 3827467,
+        "pix_w": 1388,
+        "pix_h": 1417,
+        "hires_file_name": "019891b0-f39c-7b84-a80e-a928e6c46860_large.jpg",
+        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7b84-a80e-a928e6c46860_large.jpg",
+        "thumbnail_file_name": "019891b0-f39c-7b84-a80e-a928e6c46860_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-7b84-a80e-a928e6c46860_thumb.jpg",
+        "preview_file_name": "019891b0-f39c-7b84-a80e-a928e6c46860_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7b84-a80e-a928e6c46860_large.jpg"
+      },
+      "format": "png",
+      "dimensions_text": "1388×1417",
+      "file_size_mb": 3.65,
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-7507-aa0e-43acd4db1f68": {
     "artwork_info": {
@@ -204,8 +463,21 @@
       "format": "jpeg",
       "dimensions_text": "1202×2362",
       "file_size_mb": 3.8,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
+  },
+  "019891b0-f39c-7136-84bc-3625d99f8651": {
+    "artwork_info": {
+      "id": "019891b0-f39c-7136-84bc-3625d99f8651",
+      "title": "梅花－筆寫冰魂，風清月白。",
+      "title_en": "Plum Blossom – Inked Ice Spirit, Clear Wind and White Moon.",
+      "original_size_cm": "45×70"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
   },
   "019891b0-f39c-745a-b6ad-58e4e8545268": {
     "artwork_info": {
@@ -238,8 +510,11 @@
       "format": "jpeg",
       "dimensions_text": "1246×2362",
       "file_size_mb": 3.83,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-787c-a46f-62905fa86f16": {
     "artwork_info": {
@@ -272,8 +547,21 @@
       "format": "jpeg",
       "dimensions_text": "1661×2524",
       "file_size_mb": 2.79,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
+  },
+  "019891b0-f39c-7c93-99be-4338883f37f7": {
+    "artwork_info": {
+      "id": "019891b0-f39c-7c93-99be-4338883f37f7",
+      "title": "煙擁合歡－合歡梯田",
+      "title_en": "",
+      "original_size_cm": "135×70"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
   },
   "019891b0-f39c-7a34-89ac-966e1e93eb42": {
     "artwork_info": {
@@ -314,14 +602,27 @@
       "format": "jpeg",
       "dimensions_text": "2362×2234",
       "file_size_mb": 3.22,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
+  },
+  "019891b0-f39c-7c9a-9ae8-6dccaca82b5f": {
+    "artwork_info": {
+      "id": "019891b0-f39c-7c9a-9ae8-6dccaca82b5f",
+      "title": "穹蒼萬頃，是我家鄉。(黃山煙雲)",
+      "title_en": "Vast Sky, My Hometown",
+      "original_size_cm": "360×150"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
   },
   "019891b0-f39c-7f16-a8d3-c83d48beb81e": {
     "artwork_info": {
       "id": "019891b0-f39c-7f16-a8d3-c83d48beb81e",
       "title": "筆走雷霆萬壑鳴－夏瀑",
-      "title_en": "",
+      "title_en": "Thunderous Brushstrokes over the Summer Falls",
       "original_size_cm": "140×75"
     },
     "recommended_sizes": [
@@ -333,7 +634,7 @@
     "finerworks_image": {
       "finerworks_api_object": {
         "title": "筆走雷霆萬壑鳴－夏瀑",
-        "description": "Traditional Chinese painting: 筆走雷霆萬壑鳴－夏瀑",
+        "description": "Traditional Chinese painting by Xiaoran. Thunderous Brushstrokes over the Summer Falls",
         "file_name": "019891b0-f39c-7f16-a8d3-c83d48beb81e_large.jpg",
         "file_size": 3075309,
         "pix_w": 1233,
@@ -348,8 +649,11 @@
       "format": "jpeg",
       "dimensions_text": "1233×2362",
       "file_size_mb": 2.93,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-7643-8153-14cf32b528bc": {
     "artwork_info": {
@@ -382,8 +686,11 @@
       "format": "jpeg",
       "dimensions_text": "2362×1270",
       "file_size_mb": 3.19,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-7a2d-b50f-e9e6ec2e46b7": {
     "artwork_info": {
@@ -416,8 +723,11 @@
       "format": "jpeg",
       "dimensions_text": "2362×1249",
       "file_size_mb": 3.27,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-77f0-b10f-4fece05d42ba": {
     "artwork_info": {
@@ -450,8 +760,11 @@
       "format": "jpeg",
       "dimensions_text": "1254×2362",
       "file_size_mb": 3.47,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-7f1a-99db-36b8e31758cb": {
     "artwork_info": {
@@ -492,14 +805,17 @@
       "format": "jpeg",
       "dimensions_text": "2045×2049",
       "file_size_mb": 2.55,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-7e21-ae47-81a6092c5a54": {
     "artwork_info": {
       "id": "019891b0-f39c-7e21-ae47-81a6092c5a54",
       "title": "菩提花開",
-      "title_en": "",
+      "title_en": "Blossoms of Bodhi Illuminate the Eyes",
       "original_size_cm": "70×70"
     },
     "recommended_sizes": [
@@ -519,7 +835,7 @@
     "finerworks_image": {
       "finerworks_api_object": {
         "title": "菩提花開",
-        "description": "Traditional Chinese painting: 菩提花開",
+        "description": "Traditional Chinese painting by Xiaoran. Blossoms of Bodhi Illuminate the Eyes",
         "file_name": "019891b0-f39c-7e21-ae47-81a6092c5a54_large.jpg",
         "file_size": 3145502,
         "pix_w": 2014,
@@ -534,8 +850,11 @@
       "format": "jpeg",
       "dimensions_text": "2014×2081",
       "file_size_mb": 3.0,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-7cd6-a030-0406121e5164": {
     "artwork_info": {
@@ -572,8 +891,21 @@
       "format": "jpeg",
       "dimensions_text": "1502×2792",
       "file_size_mb": 2.38,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
+  },
+  "019891b0-f39c-7614-95c9-2db8260fcc98": {
+    "artwork_info": {
+      "id": "019891b0-f39c-7614-95c9-2db8260fcc98",
+      "title": "臨懷仁集王羲之聖教序",
+      "title_en": "Tribute to Wang Xizhi's Sacred Teachings",
+      "original_size_cm": "180×90"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
   },
   "019891b0-f39c-7f2c-b8af-cbff485e10a5": {
     "artwork_info": {
@@ -610,8 +942,11 @@
       "format": "jpeg",
       "dimensions_text": "1473×2845",
       "file_size_mb": 1.61,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-728f-a1de-1b6a07cf80ff": {
     "artwork_info": {
@@ -644,14 +979,17 @@
       "format": "jpeg",
       "dimensions_text": "2576×1627",
       "file_size_mb": 2.61,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-7c2c-ab3a-8f771d7ff31d": {
     "artwork_info": {
       "id": "019891b0-f39c-7c2c-ab3a-8f771d7ff31d",
       "title": "合歡新秋",
-      "title_en": "New Autumn of Hehuan",
+      "title_en": "",
       "original_size_cm": "140×75"
     },
     "recommended_sizes": [
@@ -667,7 +1005,7 @@
     "finerworks_image": {
       "finerworks_api_object": {
         "title": "合歡新秋",
-        "description": "Traditional Chinese painting by Xiaoran. New Autumn of Hehuan",
+        "description": "Traditional Chinese painting: 合歡新秋",
         "file_name": "019891b0-f39c-7c2c-ab3a-8f771d7ff31d_large.jpg",
         "file_size": 2733955,
         "pix_w": 1464,
@@ -682,8 +1020,11 @@
       "format": "jpeg",
       "dimensions_text": "1464×2865",
       "file_size_mb": 2.61,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-73e0-a9c8-0c6ccf4ed87d": {
     "artwork_info": {
@@ -724,8 +1065,21 @@
       "format": "jpeg",
       "dimensions_text": "2049×2045",
       "file_size_mb": 3.28,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
+  },
+  "019891b0-f39c-7817-98ab-ec870aa5b2aa": {
+    "artwork_info": {
+      "id": "019891b0-f39c-7817-98ab-ec870aa5b2aa",
+      "title": "天行健君子以自強不息―伊瓜蘇瀑布",
+      "title_en": "Heavenly Motion: The Noble Man Strives Unceasingly - Iguazu Falls",
+      "original_size_cm": "153×263"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
   },
   "019891b0-f39c-7e9f-b136-621667022a8e": {
     "artwork_info": {
@@ -762,14 +1116,17 @@
       "format": "jpeg",
       "dimensions_text": "1457×1438",
       "file_size_mb": 1.55,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-770a-b647-6b0a8efdc639": {
     "artwork_info": {
       "id": "019891b0-f39c-770a-b647-6b0a8efdc639",
       "title": "妙筆生花喜解語-牡丹",
-      "title_en": "",
+      "title_en": "The Brush Creates Flowers, Joy in Understanding - Peony",
       "original_size_cm": "70×70"
     },
     "recommended_sizes": [
@@ -789,7 +1146,7 @@
     "finerworks_image": {
       "finerworks_api_object": {
         "title": "妙筆生花喜解語-牡丹",
-        "description": "Traditional Chinese painting: 妙筆生花喜解語-牡丹",
+        "description": "Traditional Chinese painting by Xiaoran. The Brush Creates Flowers, Joy in Understanding - Peony",
         "file_name": "019891b0-f39c-770a-b647-6b0a8efdc639_large.jpg",
         "file_size": 1540887,
         "pix_w": 2023,
@@ -804,8 +1161,11 @@
       "format": "jpeg",
       "dimensions_text": "2023×2073",
       "file_size_mb": 1.47,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-7b7d-8e54-83ae4f652136": {
     "artwork_info": {
@@ -838,8 +1198,11 @@
       "format": "jpeg",
       "dimensions_text": "1523×3000",
       "file_size_mb": 4.58,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-78da-b5ed-b11a0a0e8bb1": {
     "artwork_info": {
@@ -876,14 +1239,27 @@
       "format": "jpeg",
       "dimensions_text": "2367×1770",
       "file_size_mb": 2.89,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
+  },
+  "019891b0-f39c-7eb1-abf3-a892d0a3a655": {
+    "artwork_info": {
+      "id": "019891b0-f39c-7eb1-abf3-a892d0a3a655",
+      "title": "寸草春暉-康乃馨",
+      "title_en": "Tender Grass in Spring's Embrace - Carnation",
+      "original_size_cm": "70×45"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
   },
   "019891b0-f39c-7038-a32d-0f2d0cb36be8": {
     "artwork_info": {
       "id": "019891b0-f39c-7038-a32d-0f2d0cb36be8",
       "title": "巧遇-相逢即是有緣-墨荷",
-      "title_en": "",
+      "title_en": "Serendipity - Encounters are Destiny - Ink Lotus",
       "original_size_cm": "70×45"
     },
     "recommended_sizes": [
@@ -899,7 +1275,7 @@
     "finerworks_image": {
       "finerworks_api_object": {
         "title": "巧遇-相逢即是有緣-墨荷",
-        "description": "Traditional Chinese painting: 巧遇-相逢即是有緣-墨荷",
+        "description": "Traditional Chinese painting by Xiaoran. Serendipity - Encounters are Destiny - Ink Lotus",
         "file_name": "019891b0-f39c-7038-a32d-0f2d0cb36be8_large.jpg",
         "file_size": 2073821,
         "pix_w": 1460,
@@ -914,8 +1290,11 @@
       "format": "jpeg",
       "dimensions_text": "1460×2872",
       "file_size_mb": 1.98,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-755d-a7dc-fb045eb4ef1c": {
     "artwork_info": {
@@ -956,8 +1335,11 @@
       "format": "jpeg",
       "dimensions_text": "2088×2008",
       "file_size_mb": 3.06,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-7bfb-9266-f832146002dd": {
     "artwork_info": {
@@ -998,8 +1380,11 @@
       "format": "jpeg",
       "dimensions_text": "2100×1996",
       "file_size_mb": 2.82,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-7e6a-a74c-8f5ec5c50381": {
     "artwork_info": {
@@ -1036,8 +1421,11 @@
       "format": "jpeg",
       "dimensions_text": "1461×2868",
       "file_size_mb": 1.9,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-7fd8-9336-d5c9897af012": {
     "artwork_info": {
@@ -1078,8 +1466,11 @@
       "format": "jpeg",
       "dimensions_text": "2049×2045",
       "file_size_mb": 2.9,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-7aff-a45f-54ed6d61069b": {
     "artwork_info": {
@@ -1116,8 +1507,11 @@
       "format": "jpeg",
       "dimensions_text": "1479×2833",
       "file_size_mb": 2.82,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-7af0-82e2-2e72570b0aa1": {
     "artwork_info": {
@@ -1150,8 +1544,11 @@
       "format": "jpeg",
       "dimensions_text": "1623×2583",
       "file_size_mb": 3.31,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-78dc-adb1-0aa1b3b74a00": {
     "artwork_info": {
@@ -1188,8 +1585,11 @@
       "format": "jpeg",
       "dimensions_text": "2902×1445",
       "file_size_mb": 2.26,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-7597-8177-ccdf69e29071": {
     "artwork_info": {
@@ -1222,14 +1622,17 @@
       "format": "jpeg",
       "dimensions_text": "2494×1680",
       "file_size_mb": 2.05,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-7c4a-a8f5-77fdf9b0873a": {
     "artwork_info": {
       "id": "019891b0-f39c-7c4a-a8f5-77fdf9b0873a",
       "title": "空裡凌霄一枝春",
-      "title_en": "",
+      "title_en": "A Branch of Spring Soars in the Void",
       "original_size_cm": "70×45"
     },
     "recommended_sizes": [
@@ -1241,7 +1644,7 @@
     "finerworks_image": {
       "finerworks_api_object": {
         "title": "空裡凌霄一枝春",
-        "description": "Traditional Chinese painting: 空裡凌霄一枝春",
+        "description": "Traditional Chinese painting by Xiaoran. A Branch of Spring Soars in the Void",
         "file_name": "019891b0-f39c-7c4a-a8f5-77fdf9b0873a_large.jpg",
         "file_size": 1091547,
         "pix_w": 1651,
@@ -1256,8 +1659,11 @@
       "format": "jpeg",
       "dimensions_text": "1651×2538",
       "file_size_mb": 1.04,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-7841-9423-b51b365a7b9c": {
     "artwork_info": {
@@ -1298,8 +1704,31 @@
       "format": "jpeg",
       "dimensions_text": "2060×2036",
       "file_size_mb": 1.68,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
+  },
+  "019891b0-f39c-7df5-a02e-1cc15d22bb57": {
+    "artwork_info": {
+      "id": "019891b0-f39c-7df5-a02e-1cc15d22bb57",
+      "title": "萬壑松風圖",
+      "title_en": "Pine Winds in Ten Thousand Ravines",
+      "original_size_cm": "190×140"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
+  },
+  "019891b0-f39c-7871-b204-09fa520d0d23": {
+    "artwork_info": {
+      "id": "019891b0-f39c-7871-b204-09fa520d0d23",
+      "title": "雍容華滋舞清和-牡丹",
+      "title_en": "Graceful Dance of Peonies in Tranquil Harmony",
+      "original_size_cm": "70×45"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
   },
   "019891b0-f39c-79ee-915a-34d3aa1decd1": {
     "artwork_info": {
@@ -1336,8 +1765,11 @@
       "format": "jpeg",
       "dimensions_text": "1464×2864",
       "file_size_mb": 2.2,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-7d61-9f3a-c5847a00bde5": {
     "artwork_info": {
@@ -1374,8 +1806,31 @@
       "format": "jpeg",
       "dimensions_text": "2821×1485",
       "file_size_mb": 3.0,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
+  },
+  "019891b0-f39c-7904-960b-4b52cf3fe52e": {
+    "artwork_info": {
+      "id": "019891b0-f39c-7904-960b-4b52cf3fe52e",
+      "title": "上善若水-浩瀚伊瓜蘇",
+      "title_en": "The Highest Goodness: Boundless Iguazu",
+      "original_size_cm": "120×240"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
+  },
+  "019891b0-f39c-71be-8987-5f3e69224ab5": {
+    "artwork_info": {
+      "id": "019891b0-f39c-71be-8987-5f3e69224ab5",
+      "title": "合歡峰頂沐春風–合歡山杜鵑",
+      "title_en": "Spring Breeze at Hehuan Peak – Rhododendrons in Bloom",
+      "original_size_cm": "90×210"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
   },
   "019891b0-f39c-7a96-8e1b-28d8310e36dd": {
     "artwork_info": {
@@ -1416,8 +1871,11 @@
       "format": "jpeg",
       "dimensions_text": "2051×2044",
       "file_size_mb": 2.71,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-78e8-be37-c859eb030659": {
     "artwork_info": {
@@ -1450,14 +1908,17 @@
       "format": "jpeg",
       "dimensions_text": "1242×1920",
       "file_size_mb": 1.63,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-72a2-ae2f-04a06f5a0c75": {
     "artwork_info": {
       "id": "019891b0-f39c-72a2-ae2f-04a06f5a0c75",
       "title": "忘形-紫藤",
-      "title_en": "",
+      "title_en": "Transcending Form - Wisteria",
       "original_size_cm": "70×45"
     },
     "recommended_sizes": [
@@ -1469,7 +1930,7 @@
     "finerworks_image": {
       "finerworks_api_object": {
         "title": "忘形-紫藤",
-        "description": "Traditional Chinese painting: 忘形-紫藤",
+        "description": "Traditional Chinese painting by Xiaoran. Transcending Form - Wisteria",
         "file_name": "019891b0-f39c-72a2-ae2f-04a06f5a0c75_large.jpg",
         "file_size": 2459421,
         "pix_w": 1660,
@@ -1484,48 +1945,17 @@
       "format": "jpeg",
       "dimensions_text": "1660×2526",
       "file_size_mb": 2.35,
-      "has_thumbnail": true
-    }
-  },
-  "019891b0-f39c-73d5-ae97-3d296dba78a1": {
-    "artwork_info": {
-      "id": "019891b0-f39c-73d5-ae97-3d296dba78a1",
-      "title": "悠然立水涯―龍洞",
-      "title_en": "Tranquil Stand by the Water's Edge – Dragon Cave",
-      "original_size_cm": "60×90"
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
     },
-    "recommended_sizes": [
-      {
-        "width_inches": 8,
-        "height_inches": 12
-      }
-    ],
-    "finerworks_image": {
-      "finerworks_api_object": {
-        "title": "悠然立水涯―龍洞",
-        "description": "Traditional Chinese painting by Xiaoran. Tranquil Stand by the Water's Edge – Dragon Cave",
-        "file_name": "019891b0-f39c-73d5-ae97-3d296dba78a1_large.jpg",
-        "file_size": 3474092,
-        "pix_w": 1623,
-        "pix_h": 2583,
-        "hires_file_name": "019891b0-f39c-73d5-ae97-3d296dba78a1_large.jpg",
-        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-73d5-ae97-3d296dba78a1_large.jpg",
-        "thumbnail_file_name": "019891b0-f39c-73d5-ae97-3d296dba78a1_thumb.jpg",
-        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-73d5-ae97-3d296dba78a1_thumb.jpg",
-        "preview_file_name": "019891b0-f39c-73d5-ae97-3d296dba78a1_large.jpg",
-        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-73d5-ae97-3d296dba78a1_large.jpg"
-      },
-      "format": "jpeg",
-      "dimensions_text": "1623×2583",
-      "file_size_mb": 3.31,
-      "has_thumbnail": true
-    }
+    "print_ready": true
   },
   "019891b0-f39c-7939-897c-cc57bc9b4a35": {
     "artwork_info": {
       "id": "019891b0-f39c-7939-897c-cc57bc9b4a35",
       "title": "悠遊",
-      "title_en": "",
+      "title_en": "Leisurely Wanderings",
       "original_size_cm": "24×70"
     },
     "recommended_sizes": [
@@ -1537,7 +1967,7 @@
     "finerworks_image": {
       "finerworks_api_object": {
         "title": "悠遊",
-        "description": "Traditional Chinese painting: 悠遊",
+        "description": "Traditional Chinese painting by Xiaoran. Leisurely Wanderings",
         "file_name": "019891b0-f39c-7939-897c-cc57bc9b4a35_large.jpg",
         "file_size": 2097674,
         "pix_w": 3486,
@@ -1552,14 +1982,17 @@
       "format": "jpeg",
       "dimensions_text": "3486×1202",
       "file_size_mb": 2.0,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-7f63-87fd-b7a8a860889f": {
     "artwork_info": {
       "id": "019891b0-f39c-7f63-87fd-b7a8a860889f",
       "title": "枝頭小鳥迎風立-櫻花",
-      "title_en": "",
+      "title_en": "A Bird on a Branch Greets the Wind - Cherry Blossoms",
       "original_size_cm": "68×45"
     },
     "recommended_sizes": [
@@ -1571,7 +2004,7 @@
     "finerworks_image": {
       "finerworks_api_object": {
         "title": "枝頭小鳥迎風立-櫻花",
-        "description": "Traditional Chinese painting: 枝頭小鳥迎風立-櫻花",
+        "description": "Traditional Chinese painting by Xiaoran. A Bird on a Branch Greets the Wind - Cherry Blossoms",
         "file_name": "019891b0-f39c-7f63-87fd-b7a8a860889f_large.jpg",
         "file_size": 2788923,
         "pix_w": 1668,
@@ -1586,8 +2019,11 @@
       "format": "jpeg",
       "dimensions_text": "1668×2514",
       "file_size_mb": 2.66,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-7403-80d4-4da1440b7976": {
     "artwork_info": {
@@ -1624,8 +2060,11 @@
       "format": "jpeg",
       "dimensions_text": "1485×2823",
       "file_size_mb": 3.07,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-792d-b5e8-b80ef8754ca2": {
     "artwork_info": {
@@ -1658,8 +2097,11 @@
       "format": "jpeg",
       "dimensions_text": "1654×2535",
       "file_size_mb": 2.09,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-71dd-be15-f32291c15cc6": {
     "artwork_info": {
@@ -1692,14 +2134,17 @@
       "format": "jpeg",
       "dimensions_text": "1392×3010",
       "file_size_mb": 2.28,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-7b75-910e-8ef8046a7bb9": {
     "artwork_info": {
       "id": "019891b0-f39c-7b75-910e-8ef8046a7bb9",
       "title": "江流浩蕩-尼加拉瀑布金秋",
-      "title_en": "",
+      "title_en": "Majestic River - Niagara Falls in Golden Autumn",
       "original_size_cm": "90×180"
     },
     "recommended_sizes": [
@@ -1715,7 +2160,7 @@
     "finerworks_image": {
       "finerworks_api_object": {
         "title": "江流浩蕩-尼加拉瀑布金秋",
-        "description": "Traditional Chinese painting: 江流浩蕩-尼加拉瀑布金秋",
+        "description": "Traditional Chinese painting by Xiaoran. Majestic River - Niagara Falls in Golden Autumn",
         "file_name": "019891b0-f39c-7b75-910e-8ef8046a7bb9_large.jpg",
         "file_size": 2386259,
         "pix_w": 2793,
@@ -1730,8 +2175,21 @@
       "format": "jpeg",
       "dimensions_text": "2793×1501",
       "file_size_mb": 2.28,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
+  },
+  "019891b0-f39c-721b-b645-0e2a1c090d9b": {
+    "artwork_info": {
+      "id": "019891b0-f39c-721b-b645-0e2a1c090d9b",
+      "title": "泊",
+      "title_en": "Harboring",
+      "original_size_cm": "75×22"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
   },
   "019891b0-f39c-7539-8543-c9a7de487cca": {
     "artwork_info": {
@@ -1768,8 +2226,11 @@
       "format": "jpeg",
       "dimensions_text": "2822×1486",
       "file_size_mb": 2.53,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-7fb1-9331-58595bfdef27": {
     "artwork_info": {
@@ -1806,8 +2267,11 @@
       "format": "jpeg",
       "dimensions_text": "1466×2860",
       "file_size_mb": 1.33,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-7995-bcb5-8b510d734e53": {
     "artwork_info": {
@@ -1844,8 +2308,11 @@
       "format": "jpeg",
       "dimensions_text": "1467×2859",
       "file_size_mb": 1.37,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-71f0-bd5c-b448f22ef5f4": {
     "artwork_info": {
@@ -1882,8 +2349,11 @@
       "format": "jpeg",
       "dimensions_text": "2897×1446",
       "file_size_mb": 1.47,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-7e7e-ab7e-4b6efd6d2dfa": {
     "artwork_info": {
@@ -1920,8 +2390,57 @@
       "format": "jpeg",
       "dimensions_text": "2901×1444",
       "file_size_mb": 1.44,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
+  },
+  "019891b0-f39c-7a31-8759-95a350b1e45b": {
+    "artwork_info": {
+      "id": "019891b0-f39c-7a31-8759-95a350b1e45b",
+      "title": "無題",
+      "title_en": "In Silence",
+      "original_size_cm": "75×75"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 25,
+        "height_inches": 23
+      },
+      {
+        "width_inches": 15,
+        "height_inches": 14
+      },
+      {
+        "width_inches": 12,
+        "height_inches": 11
+      }
+      
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "無題",
+        "description": "Traditional Chinese painting by Xiaoran. In Silence",
+        "file_name": "019891b0-f39c-7a31-8759-95a350b1e45b_large.jpg",
+        "file_size": 971629,
+        "pix_w": 5171,
+        "pix_h": 4756,
+        "hires_file_name": "019891b0-f39c-7a31-8759-95a350b1e45b_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-7a31-8759-95a350b1e45b.jpg",
+        "thumbnail_file_name": "019891b0-f39c-7a31-8759-95a350b1e45b_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-7a31-8759-95a350b1e45b_thumb.jpg",
+        "preview_file_name": "019891b0-f39c-7a31-8759-95a350b1e45b_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7a31-8759-95a350b1e45b_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "5171×4756",
+      "file_size_mb": 0.93,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
   },
   "019891b0-f39c-7b15-9621-9861ba359745": {
     "artwork_info": {
@@ -1954,88 +2473,31 @@
       "format": "jpeg",
       "dimensions_text": "1316×1244",
       "file_size_mb": 1.11,
-      "has_thumbnail": true
-    }
-  },
-  "019891b0-f39c-7674-b4b9-056c567df90a": {
-    "artwork_info": {
-      "id": "019891b0-f39c-7674-b4b9-056c567df90a",
-      "title": "秋菊",
-      "title_en": "Autumn Chrysanthemums",
-      "original_size_cm": "70×70"
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
     },
-    "recommended_sizes": [
-      {
-        "width_inches": 10,
-        "height_inches": 10
-      },
-      {
-        "width_inches": 8,
-        "height_inches": 8
-      },
-      {
-        "width_inches": 6,
-        "height_inches": 6
-      }
-    ],
-    "finerworks_image": {
-      "finerworks_api_object": {
-        "title": "秋菊",
-        "description": "Traditional Chinese painting by Xiaoran. Autumn Chrysanthemums",
-        "file_name": "019891b0-f39c-7674-b4b9-056c567df90a_large.jpg",
-        "file_size": 1759582,
-        "pix_w": 2060,
-        "pix_h": 2036,
-        "hires_file_name": "019891b0-f39c-7674-b4b9-056c567df90a_large.jpg",
-        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7674-b4b9-056c567df90a_large.jpg",
-        "thumbnail_file_name": "019891b0-f39c-7674-b4b9-056c567df90a_thumb.jpg",
-        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-7674-b4b9-056c567df90a_thumb.jpg",
-        "preview_file_name": "019891b0-f39c-7674-b4b9-056c567df90a_large.jpg",
-        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7674-b4b9-056c567df90a_large.jpg"
-      },
-      "format": "jpeg",
-      "dimensions_text": "2060×2036",
-      "file_size_mb": 1.68,
-      "has_thumbnail": true
-    }
+    "print_ready": true
   },
-  "019891b0-f39c-706e-bdb9-c752dc8bcf1f": {
+  "019891b0-f39c-73f5-98b1-d68da1664faf": {
     "artwork_info": {
-      "id": "019891b0-f39c-706e-bdb9-c752dc8bcf1f",
-      "title": "竹報平安-墨竹",
-      "title_en": "Bamboo Whispers of Peace",
-      "original_size_cm": "135×70"
+      "id": "019891b0-f39c-73f5-98b1-d68da1664faf",
+      "title": "相依-棕梠",
+      "title_en": "In Mutual Embrace - Palm Fronds",
+      "original_size_cm": "137×35"
     },
-    "recommended_sizes": [
-      {
-        "width_inches": 7,
-        "height_inches": 14
-      },
-      {
-        "width_inches": 6,
-        "height_inches": 12
-      }
-    ],
-    "finerworks_image": {
-      "finerworks_api_object": {
-        "title": "竹報平安-墨竹",
-        "description": "Traditional Chinese painting by Xiaoran. Bamboo Whispers of Peace",
-        "file_name": "019891b0-f39c-706e-bdb9-c752dc8bcf1f_large.jpg",
-        "file_size": 1438120,
-        "pix_w": 1467,
-        "pix_h": 2859,
-        "hires_file_name": "019891b0-f39c-706e-bdb9-c752dc8bcf1f_large.jpg",
-        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-706e-bdb9-c752dc8bcf1f_large.jpg",
-        "thumbnail_file_name": "019891b0-f39c-706e-bdb9-c752dc8bcf1f_thumb.jpg",
-        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-706e-bdb9-c752dc8bcf1f_thumb.jpg",
-        "preview_file_name": "019891b0-f39c-706e-bdb9-c752dc8bcf1f_large.jpg",
-        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-706e-bdb9-c752dc8bcf1f_large.jpg"
-      },
-      "format": "jpeg",
-      "dimensions_text": "1467×2859",
-      "file_size_mb": 1.37,
-      "has_thumbnail": true
-    }
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
+  },
+  "019891b0-f39c-7562-bbed-32c024cd6676": {
+    "artwork_info": {
+      "id": "019891b0-f39c-7562-bbed-32c024cd6676",
+      "title": "稻花香",
+      "title_en": "Fragrance of Rice Blossoms",
+      "original_size_cm": "17×92"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
   },
   "019891b0-f39c-721e-8576-4e3f61c0e800": {
     "artwork_info": {
@@ -2072,8 +2534,11 @@
       "format": "jpeg",
       "dimensions_text": "1466×2860",
       "file_size_mb": 1.33,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-71b7-918f-b55fd4fbca35": {
     "artwork_info": {
@@ -2114,14 +2579,17 @@
       "format": "jpeg",
       "dimensions_text": "2049×2045",
       "file_size_mb": 2.9,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-7b83-902a-1f7f7bc72183": {
     "artwork_info": {
       "id": "019891b0-f39c-7b83-902a-1f7f7bc72183",
       "title": "自在飛花–紫藤",
-      "title_en": "",
+      "title_en": "Free-Flying Blossoms – Wisteria",
       "original_size_cm": "97×180"
     },
     "recommended_sizes": [
@@ -2137,7 +2605,7 @@
     "finerworks_image": {
       "finerworks_api_object": {
         "title": "自在飛花–紫藤",
-        "description": "Traditional Chinese painting: 自在飛花–紫藤",
+        "description": "Traditional Chinese painting by Xiaoran. Free-Flying Blossoms – Wisteria",
         "file_name": "019891b0-f39c-7b83-902a-1f7f7bc72183_large.jpg",
         "file_size": 2787996,
         "pix_w": 2796,
@@ -2152,8 +2620,11 @@
       "format": "jpeg",
       "dimensions_text": "2796×1500",
       "file_size_mb": 2.66,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-7809-a063-80f25d10a396": {
     "artwork_info": {
@@ -2186,8 +2657,11 @@
       "format": "jpeg",
       "dimensions_text": "1240×1320",
       "file_size_mb": 0.82,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-763c-819c-62b3e41136e1": {
     "artwork_info": {
@@ -2220,14 +2694,17 @@
       "format": "jpeg",
       "dimensions_text": "1224×1336",
       "file_size_mb": 0.76,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-7455-9267-14eb33bed415": {
     "artwork_info": {
       "id": "019891b0-f39c-7455-9267-14eb33bed415",
       "title": "花開富貴喜相逢-牡丹",
-      "title_en": "",
+      "title_en": "Blossoms of Prosperity and Joyful Encounters - Peony",
       "original_size_cm": "68×45"
     },
     "recommended_sizes": [
@@ -2239,7 +2716,7 @@
     "finerworks_image": {
       "finerworks_api_object": {
         "title": "花開富貴喜相逢-牡丹",
-        "description": "Traditional Chinese painting: 花開富貴喜相逢-牡丹",
+        "description": "Traditional Chinese painting by Xiaoran. Blossoms of Prosperity and Joyful Encounters - Peony",
         "file_name": "019891b0-f39c-7455-9267-14eb33bed415_large.jpg",
         "file_size": 2172881,
         "pix_w": 1667,
@@ -2254,8 +2731,31 @@
       "format": "jpeg",
       "dimensions_text": "1667×2515",
       "file_size_mb": 2.07,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
+  },
+  "019891b0-f39c-70a8-aa76-019cadc5409d": {
+    "artwork_info": {
+      "id": "019891b0-f39c-70a8-aa76-019cadc5409d",
+      "title": "陶然忘機",
+      "title_en": "Serenity in Abandon",
+      "original_size_cm": "75×22"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
+  },
+  "019891b0-f39c-729c-bef5-b90e2cafb77e": {
+    "artwork_info": {
+      "id": "019891b0-f39c-729c-bef5-b90e2cafb77e",
+      "title": "願把金針度與人–六十石山金針花",
+      "title_en": "Wishing to Share the Golden Needle",
+      "original_size_cm": "90×210"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
   },
   "019891b0-f39c-7cf8-86a3-61f2f44df76f": {
     "artwork_info": {
@@ -2292,14 +2792,37 @@
       "format": "jpeg",
       "dimensions_text": "1479×2835",
       "file_size_mb": 2.36,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
+  },
+  "019891b0-f39c-719e-a185-2f66d722d5ea": {
+    "artwork_info": {
+      "id": "019891b0-f39c-719e-a185-2f66d722d5ea",
+      "title": "點輕鴨ㄧ溪春水",
+      "title_en": "Whispers of Spring: A Duck on the Stream",
+      "original_size_cm": "137×35"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
+  },
+  "019891b0-f39c-7a90-ab98-022c8b72668e": {
+    "artwork_info": {
+      "id": "019891b0-f39c-7a90-ab98-022c8b72668e",
+      "title": "古月",
+      "title_en": "Ancient Moon",
+      "original_size_cm": "70×45"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
   },
   "019891b0-f39c-7972-b2d2-06fc3c573914": {
     "artwork_info": {
       "id": "019891b0-f39c-7972-b2d2-06fc3c573914",
       "title": "大造本無方",
-      "title_en": "",
+      "title_en": "The Great Creation Has No Form",
       "original_size_cm": "75×70"
     },
     "recommended_sizes": [
@@ -2311,7 +2834,7 @@
     "finerworks_image": {
       "finerworks_api_object": {
         "title": "大造本無方",
-        "description": "Traditional Chinese painting: 大造本無方",
+        "description": "Traditional Chinese painting by Xiaoran. The Great Creation Has No Form",
         "file_name": "019891b0-f39c-7972-b2d2-06fc3c573914_large.png",
         "file_size": 4653392,
         "pix_w": 1597,
@@ -2326,14 +2849,47 @@
       "format": "png",
       "dimensions_text": "1597×1600",
       "file_size_mb": 4.44,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
+  },
+  "019891b0-f39c-7441-a5a7-dc968e455d98": {
+    "artwork_info": {
+      "id": "019891b0-f39c-7441-a5a7-dc968e455d98",
+      "title": "天光雲影共徘徊─新中橫夫妻樹",
+      "title_en": "Heavenly Light and Cloud Shadows Intertwined - The Couple's Tree of New Central Cross",
+      "original_size_cm": "135×70"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
+  },
+  "019891b0-f39c-7201-bdba-6943519e8862": {
+    "artwork_info": {
+      "id": "019891b0-f39c-7201-bdba-6943519e8862",
+      "title": "姑蘇寒霧繞雲村",
+      "title_en": "Misty Embrace of Cloud Village in Suzhou",
+      "original_size_cm": "70×135"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
+  },
+  "019891b0-f39c-7386-a86e-60369bb2ecd5": {
+    "artwork_info": {
+      "id": "019891b0-f39c-7386-a86e-60369bb2ecd5",
+      "title": "月梅圖-形影神",
+      "title_en": "Moon and Plum Blossoms - Form, Shadow, Spirit",
+      "original_size_cm": "135×70"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
   },
   "019891b0-f39c-7530-ace8-fffa8fead53e": {
     "artwork_info": {
       "id": "019891b0-f39c-7530-ace8-fffa8fead53e",
       "title": "梅花小鳥",
-      "title_en": "",
+      "title_en": "Plum Blossom and Little Bird",
       "original_size_cm": "70×70"
     },
     "recommended_sizes": [
@@ -2345,7 +2901,7 @@
     "finerworks_image": {
       "finerworks_api_object": {
         "title": "梅花小鳥",
-        "description": "Traditional Chinese painting: 梅花小鳥",
+        "description": "Traditional Chinese painting by Xiaoran. Plum Blossom and Little Bird",
         "file_name": "019891b0-f39c-7530-ace8-fffa8fead53e_large.png",
         "file_size": 4425536,
         "pix_w": 1578,
@@ -2360,14 +2916,97 @@
       "format": "png",
       "dimensions_text": "1578×1600",
       "file_size_mb": 4.22,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
+  },
+  "019891b0-f39c-7605-8810-2ec32c05d109": {
+    "artwork_info": {
+      "id": "019891b0-f39c-7605-8810-2ec32c05d109",
+      "title": "活水潤物天地春-春瀑",
+      "title_en": "Spring Waterfall: Life-Giving Waters of Spring",
+      "original_size_cm": "140×75"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
+  },
+  "019891b0-f39c-7b5a-9017-6de6a497f059": {
+    "artwork_info": {
+      "id": "019891b0-f39c-7b5a-9017-6de6a497f059",
+      "title": "煙聲一縷一塵埃-大瀑布",
+      "title_en": "A Whisper of Smoke and Dust - The Great Waterfall",
+      "original_size_cm": "120×240"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
+  },
+  "019891b0-f39c-7b3a-a7ae-03eba18e8809": {
+    "artwork_info": {
+      "id": "019891b0-f39c-7b3a-a7ae-03eba18e8809",
+      "title": "秋月月偏明(漢隸)",
+      "title_en": "Autumn Moonlight",
+      "original_size_cm": "180×90"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
+  },
+  "019891b0-f39c-7e2c-aab1-3c1bd010b1f7": {
+    "artwork_info": {
+      "id": "019891b0-f39c-7e2c-aab1-3c1bd010b1f7",
+      "title": "結廬人境外(漢隸)",
+      "title_en": "Dwelling Beyond Human Realm",
+      "original_size_cm": "180×90"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
+  },
+  "019891b0-f39c-7aed-9fac-21a5e94b8c1f": {
+    "artwork_info": {
+      "id": "019891b0-f39c-7aed-9fac-21a5e94b8c1f",
+      "title": "花能解語－問菊",
+      "title_en": "Flowers Speak – Inquiring of the Chrysanthemum",
+      "original_size_cm": "135×70"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
+  },
+  "019891b0-f39c-7764-a468-4f7ad6140df2": {
+    "artwork_info": {
+      "id": "019891b0-f39c-7764-a468-4f7ad6140df2",
+      "title": "赤壁賦(行草)",
+      "title_en": "Ode to the Red Cliffs",
+      "original_size_cm": "135×60"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
+  },
+  "019891b0-f39c-7ec8-a85c-a9c9c25cf4b5": {
+    "artwork_info": {
+      "id": "019891b0-f39c-7ec8-a85c-a9c9c25cf4b5",
+      "title": "輝映海天萬里金－鰲鼓夕照",
+      "title_en": "Golden Reflections of Sea and Sky - Sunset at Aogu",
+      "original_size_cm": "70×135"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
+  },
+  "019891b0-f39c-79c6-bfe0-4790c6114ae9": {
+    "artwork_info": {
+      "id": "019891b0-f39c-79c6-bfe0-4790c6114ae9",
+      "title": "雲濤萬頃舞穹蒼（黃山雲瀑）",
+      "title_en": "Dancing Clouds over Vast Waves",
+      "original_size_cm": "90×180"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
   },
   "019891b0-f39c-7109-bdf7-2aff4e78b0ee": {
     "artwork_info": {
       "id": "019891b0-f39c-7109-bdf7-2aff4e78b0ee",
       "title": "雲白任舒卷－玉山白木林",
-      "title_en": "",
+      "title_en": "Clouds Unfurling at Will - Jade Mountain's White Forest",
       "original_size_cm": "70×80"
     },
     "recommended_sizes": [
@@ -2383,7 +3022,7 @@
     "finerworks_image": {
       "finerworks_api_object": {
         "title": "雲白任舒卷－玉山白木林",
-        "description": "Traditional Chinese painting: 雲白任舒卷－玉山白木林",
+        "description": "Traditional Chinese painting by Xiaoran. Clouds Unfurling at Will - Jade Mountain's White Forest",
         "file_name": "019891b0-f39c-7109-bdf7-2aff4e78b0ee_large.png",
         "file_size": 4641578,
         "pix_w": 1600,
@@ -2398,7 +3037,30 @@
       "format": "png",
       "dimensions_text": "1600×1480",
       "file_size_mb": 4.43,
-      "has_thumbnail": true
-    }
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
+  },
+  "019891b0-f39c-7c4e-b473-973fecc8171d": {
+    "artwork_info": {
+      "id": "019891b0-f39c-7c4e-b473-973fecc8171d",
+      "title": "雲自來去花自紅─玉山‧杜鵑‧雲海",
+      "title_en": "Clouds Come and Go, Flowers Bloom and Fade - Jade Mountain, Azalea, Sea of Clouds",
+      "original_size_cm": "135×70"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
+  },
+  "artwork-987218839": {
+    "artwork_info": {
+      "id": "artwork-987218839",
+      "title": "江山如此多好",
+      "title_en": "Such Beauty in Rivers and Mountains",
+      "original_size_cm": "70×135"
+    },
+    "print_ready": false,
+    "reason": "Insufficient resolution for 200 PPI printing"
   }
 }
