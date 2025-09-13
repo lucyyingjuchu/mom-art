@@ -82,31 +82,10 @@ function setupMobileImage(image) {
     image.style.transform = 'none';
     image.style.transformOrigin = 'center center';
     
-    // Set cursor to indicate tap-to-close
-    image.style.cursor = 'pointer';
+    // Remove cursor styling - not needed on mobile
+    image.style.cursor = 'default';
     
-    // Add single tap to close
-    let tapTimeout;
-    image.addEventListener('touchstart', function(e) {
-        if (e.touches.length === 1) {
-            tapTimeout = setTimeout(() => {
-                // Single tap detected - close lightbox
-                window.closeLightbox();
-            }, 200);
-        } else {
-            // Multi-touch (pinch) - clear tap timeout
-            clearTimeout(tapTimeout);
-        }
-    }, { passive: true });
-    
-    image.addEventListener('touchend', function(e) {
-        clearTimeout(tapTimeout);
-    }, { passive: true });
-    
-    image.addEventListener('touchmove', function(e) {
-        // Clear tap timeout if user starts dragging
-        clearTimeout(tapTimeout);
-    }, { passive: true });
+    // NO TAP-TO-CLOSE - removed all tap event listeners
     
     currentImage = image;
 }
@@ -115,54 +94,70 @@ function addMobileGestures() {
     const lightboxContent = document.querySelector('.lightbox-content');
     if (!lightboxContent) return;
     
+    // Only add horizontal swipe gestures for view navigation
+    let startX = 0;
     let startY = 0;
-    let currentY = 0;
-    let isSwipeGesture = false;
+    let currentX = 0;
+    let isHorizontalSwipe = false;
     let swipeStartTime = 0;
     
-    // Swipe down to close
     lightboxContent.addEventListener('touchstart', function(e) {
         if (e.touches.length === 1) {
+            startX = e.touches[0].clientX;
             startY = e.touches[0].clientY;
             swipeStartTime = Date.now();
-            isSwipeGesture = true;
+            isHorizontalSwipe = false;
         }
     }, { passive: true });
     
     lightboxContent.addEventListener('touchmove', function(e) {
-        if (!isSwipeGesture || e.touches.length !== 1) return;
+        if (e.touches.length !== 1) return;
         
-        currentY = e.touches[0].clientY;
+        currentX = e.touches[0].clientX;
+        const currentY = e.touches[0].clientY;
+        const deltaX = currentX - startX;
         const deltaY = currentY - startY;
         const swipeTime = Date.now() - swipeStartTime;
         
-        // Only trigger visual feedback for significant downward swipes
-        if (deltaY > 50 && swipeTime < 500) {
-            const opacity = Math.max(0.5, 1 - deltaY / 400);
-            const translateY = Math.min(deltaY * 0.3, 100);
-            
-            lightboxContent.style.transform = `translateY(${translateY}px)`;
-            lightboxContent.style.opacity = opacity;
+        // Determine if this is a horizontal swipe
+        if (!isHorizontalSwipe && swipeTime < 300) {
+            if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 30) {
+                isHorizontalSwipe = true;
+            }
         }
-    }, { passive: true });
+        
+        // Only prevent default for horizontal swipes to allow normal vertical scrolling
+        if (isHorizontalSwipe && Math.abs(deltaX) > 50) {
+            e.preventDefault();
+        }
+        
+    }, { passive: false });
     
     lightboxContent.addEventListener('touchend', function(e) {
-        if (!isSwipeGesture) return;
+        if (!isHorizontalSwipe) return;
         
-        const deltaY = currentY - startY;
+        const deltaX = currentX - startX;
         const swipeTime = Date.now() - swipeStartTime;
-        const swipeVelocity = deltaY / swipeTime;
+        const swipeVelocity = Math.abs(deltaX) / swipeTime;
         
-        // Close if: significant downward swipe OR fast downward gesture
-        if ((deltaY > 100 && swipeTime < 500) || swipeVelocity > 0.5) {
-            window.closeLightbox();
-        } else {
-            // Reset position
-            lightboxContent.style.transform = '';
-            lightboxContent.style.opacity = '';
+        // Trigger view change if significant horizontal distance OR fast gesture
+        if ((Math.abs(deltaX) > 80 && swipeTime < 400) || swipeVelocity > 0.3) {
+            
+            // Only proceed if there are multiple views
+            if (currentArtworkViews && currentArtworkViews.length > 1) {
+                if (deltaX > 0) {
+                    // Swipe right - previous view
+                    const prevIndex = currentViewIndex > 0 ? currentViewIndex - 1 : currentArtworkViews.length - 1;
+                    switchArtworkView(prevIndex);
+                } else {
+                    // Swipe left - next view  
+                    const nextIndex = currentViewIndex < currentArtworkViews.length - 1 ? currentViewIndex + 1 : 0;
+                    switchArtworkView(nextIndex);
+                }
+            }
         }
         
-        isSwipeGesture = false;
+        isHorizontalSwipe = false;
     }, { passive: true });
 }
 
