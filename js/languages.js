@@ -166,7 +166,7 @@ const LANGUAGE_DATA = {
             nextTitle: "Next Artwork",
             viewTypes: {
                 "original": "Original",
-                "original-mockup": "Room Display", 
+                "original-mockup": "Room Display (mockup frame and setting)", 
                 "print-mockup": "print- room display",
             }
 
@@ -458,7 +458,7 @@ const LANGUAGE_DATA = {
             nextTitle: "下一件作品",
             viewTypes: {
                 "original": "原作",
-                "original-mockup": "房間展示",
+                "original-mockup": "房間展示(外框與場景皆為模擬)",
             }
 
         },

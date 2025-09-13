@@ -77,15 +77,16 @@
 }
 
 /* Dynamic cursor states */
-.lightbox-image.zoomable {
-    cursor: zoom-in;
+/* Dynamic cursor states - Higher specificity to override conflicts */
+.lightbox.active .lightbox-content .lightbox-image-section .lightbox-image.zoomable {
+    cursor: zoom-in !important;
 }
 
-.lightbox-image.zoomed {
-    cursor: grab;
+.lightbox.active .lightbox-content .lightbox-image-section .lightbox-image.zoomed {
+    cursor: grab !important;
 }
 
-.lightbox-image.dragging {
+.lightbox.active .lightbox-content .lightbox-image-section .lightbox-image.dragging {
     cursor: grabbing !important;
 }
 
@@ -396,6 +397,12 @@
     background: #000;
 }
 
+/* Hide view indicators in fullscreen mode */
+.lightbox-content.fullscreen-mode .view-indicators {
+    display: none !important;
+}
+
+
 .lightbox-content.fullscreen-mode .lightbox-info-section {
     display: none;
 }
@@ -528,21 +535,21 @@
     width: 14px;
     height: 14px;
     border-radius: 50%;
-    background: #2c3e50 !important; /* Dark solid color */
-    cursor: pointer !important;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.5) !important; /* Strong shadow */
+    background: #2c3e50 ; /* Dark solid color */
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5) ; /* Strong shadow */
     transition: all 0.3s ease;
 }
 
 .view-dot:hover {
     transform: scale(1.1);
-    background: #34495e !important;
+    background: #34495e ;
 }
 
 .view-dot.active {
-    background: #34495e !important;
-    transform: scale(1.2) !important;
-    box-shadow: 0 0 0 3px rgba(52, 73, 94, 0.3) !important;
+    background: #34495e ;
+    transform: scale(1.2);
+    box-shadow: 0 0 0 3px rgba(52, 73, 94, 0.3) ;
 }
 
 /* Icon dots (when using emoji icons) */

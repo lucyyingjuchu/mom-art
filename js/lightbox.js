@@ -581,6 +581,13 @@ function populateLightbox(artwork) {
     console.log('🎨 Populating lightbox for:', isMobileDevice() ? 'mobile' : 'desktop');
     console.log('Raw artwork data:', JSON.stringify(artwork, null, 2));
 
+    // CLEAN UP: Remove any existing indicators from previous artwork
+    const existingIndicators = document.querySelector('.view-indicators');
+    if (existingIndicators) {
+        existingIndicators.remove();
+        console.log('🧹 Cleaned up old view indicators');
+    }
+    
     const image = document.getElementById('lightboxImage');
     if (!image) {
         console.error('Lightbox image element not found');
@@ -820,50 +827,50 @@ function currentViewAllowsZoom() {
     } 
     
     const allowsZoom = currentView.type === 'original' || currentView.type === 'artwork' || !currentView.type;
-    console.log('🔍 View allows zoom?', {
-        type: currentView.type,
-        allowsZoom
-    });
     
     return allowsZoom;
 }
 
 function updateCursor() {
     if (!currentImage) {
-        console.log('❌ No current image');
+        console.log('No current image');
         return;
     }
     
-    const allowsZoom = currentViewAllowsZoom();
-    console.log('🔍 Cursor update:', {
-        allowsZoom,
-        currentViewIndex,
-        viewType: currentArtworkViews[currentViewIndex]?.type,
-        zoomLevel,
+    console.log('updateCursor called:', {
         isFullscreenMode,
-        isDragging
+        zoomLevel,
+        isDragging,
+        allowsZoom: currentViewAllowsZoom()
     });
     
-    // For non-zoomable views (room display, etc.), always use default cursor
+    // Remove all cursor classes first
+    currentImage.classList.remove('zoomable', 'zoomed', 'dragging');
+    console.log('Removed all cursor classes');
+    
+    const allowsZoom = currentViewAllowsZoom();
+    
+    // For non-zoomable views, default cursor
     if (!allowsZoom) {
-        console.log('➡️ Setting default cursor (non-zoomable view)');
-        currentImage.style.cursor = 'default';
-        return;
+        console.log('Non-zoomable view, returning');
+        return; 
     }
     
-    // For original artwork (zoomable views):
+    // For original artwork:
     if (isDragging) {
-        console.log('➡️ Setting grabbing cursor (dragging)');
-        currentImage.style.cursor = 'grabbing';
-    } else if (zoomLevel > 1 || isFullscreenMode) {
-        console.log('➡️ Setting grab cursor (can pan)');
-        currentImage.style.cursor = 'grab';
+        currentImage.classList.add('dragging');
+        console.log('Added dragging class');
+    } else if (isFullscreenMode || zoomLevel > 1) {
+        currentImage.classList.add('zoomed');
+        console.log('Added zoomed class (fullscreen or zoomed)');
     } else {
-        console.log('➡️ Setting zoom-in cursor (original art, ready to zoom)');
-        currentImage.style.cursor = 'zoom-in';
+        currentImage.classList.add('zoomable');
+        console.log('Added zoomable class');
     }
+    
+    console.log('Final image classes:', currentImage.className);
+    console.log('Computed cursor:', window.getComputedStyle(currentImage).cursor);
 }
-
 
 function constrainPan() {
     if (zoomLevel <= 1 && !isFullscreenMode) {
@@ -894,48 +901,35 @@ function constrainPan() {
 function handleImageClick(e) {
     if (hasDragged) {
         hasDragged = false;
-        return;
+        return; // Don't do anything if user was dragging
     }
     
-    // Only allow zoom on original artwork
-    if (!currentViewAllowsZoom()) {
-        return; // Do nothing for non-original views
+    // Only allow fullscreen entry when in normal view
+    if (!currentViewAllowsZoom() || isFullscreenMode || zoomLevel > 1) {
+        return; // Do nothing in fullscreen or when zoomed
     }
     
-    window.toggleImageZoom();
+    // Enter fullscreen from normal view
+    enterImageFullscreen();
+    showFullscreenIndicator(true);
 }
 
 function handleDoubleClick(e) {
     e.preventDefault();
     e.stopPropagation();
-
-    // Block zoom for non-original views
-    if (!currentViewAllowsZoom()) {
-        return; // Do nothing for non-original views
-    }
-    
-    if (zoomLevel === 1) {
-        zoomLevel = 2;
-        constrainPan();
-    } else {
-        window.resetZoomPan();
-    }
-    
-    applyTransform();
-    updateCursor();
-    showCleanZoomIndicator();
 }
 
 function handleMouseDown(e) {
-    // Only allow panning for zoomable views AND when zoom > 1 or fullscreen
-    if (!currentViewAllowsZoom() || (zoomLevel <= 1 && !isFullscreenMode)) {
+    // Allow panning in fullscreen mode OR when zoomed > 1x
+    if (!currentViewAllowsZoom() || (!isFullscreenMode && zoomLevel <= 1)) {
         return;
-    }    
+    }
+    
     isDragging = true;
     hasDragged = false;
     startX = e.clientX - panX;
     startY = e.clientY - panY;
-    updateCursor();
+    updateCursor(); // This should show 'grabbing'
     e.preventDefault();
 }
 
