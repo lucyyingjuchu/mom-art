@@ -23,7 +23,7 @@ class HybridFinerWorksProcessor:
     def __init__(self, 
                  base_url="https://xiaoran.netlify.app/", 
                  github_image_dir="images/paintings/large",
-                 s3_bucket_name="xiaoran-high-res-artworks",
+                 s3_bucket_name="xiaoran-raw-artworks",
                  s3_region="us-east-1"):
         self.base_url = base_url.rstrip('/') + '/'
         self.github_image_dir = github_image_dir
@@ -128,73 +128,65 @@ class HybridFinerWorksProcessor:
             logger.error(f"Error reading image dimensions for {artwork_id}: {e}")
             return None, None, None
 
-    def calculate_max_print_size_at_ppi(self, pixel_width, pixel_height):
-        """Calculate maximum print size at required PPI"""
-        max_width_inches = pixel_width / self.REQUIRED_PPI
-        max_height_inches = pixel_height / self.REQUIRED_PPI
+    def calculate_print_cap_and_sizes(self, pixel_width, pixel_height):
+        """Calculate print cap and generate three size options with 24" limit"""
         
-        # Round down to ensure we don't exceed PPI requirement
-        max_width_inches = math.floor(max_width_inches * 10) / 10
-        max_height_inches = math.floor(max_height_inches * 10) / 10
+        # Calculate exact ratio (4 decimal places)
+        ratio = round(pixel_width / pixel_height, 4)
         
-        return max_width_inches, max_height_inches
-
-    def generate_size_options_at_ppi(self, max_width_inches, max_height_inches):
-        """Generate size options while maintaining required PPI"""
+        # Determine larger dimension and calculate PPI-based cap
+        larger_dimension_pixels = max(pixel_width, pixel_height)
+        ppi_based_cap = larger_dimension_pixels / self.REQUIRED_PPI
+        
+        # Apply 24" maximum limit
+        final_cap = min(ppi_based_cap, 24.0)
+        
+        print(f"DEBUG: Ratio = {ratio}, PPI cap = {ppi_based_cap:.1f}\", Final cap = {final_cap}\"")
+        
+        # Generate three target sizes (100%, 70%, 50%)
+        target_percentages = [1.0, 0.7, 0.5]
         sizes = []
-        original_ratio = max_width_inches / max_height_inches
         
-        # Generate target sizes
-        max_dimension = max(max_width_inches, max_height_inches)
-        
-        if max_dimension >= 18:
-            target_sizes = [12, 15, int(max_dimension)]
-        elif max_dimension >= 12:
-            target_sizes = [8, 12, int(max_dimension)]
-        else:
-            target_sizes = [6, int(max_dimension * 0.8), int(max_dimension)]
-        
-        for target_size in target_sizes:
-            if original_ratio > 1:
-                width = target_size
-                height = width / original_ratio
-            else:
-                height = target_size
-                width = height * original_ratio
+        for percentage in target_percentages:
+            target_size = final_cap * percentage
+            
+            # Determine orientation and calculate dimensions
+            if ratio >= 1.0:  # Landscape or square
+                width_exact = target_size
+                height_exact = target_size / ratio
+            else:  # Portrait
+                height_exact = target_size
+                width_exact = target_size * ratio
             
             # Round to integers
-            width_rounded = round(width)
-            height_rounded = round(height)
+            width_inches = round(width_exact)
+            height_inches = round(height_exact)
             
-            # Verify ratio consistency
-            new_ratio = width_rounded / height_rounded
-            if abs(new_ratio - original_ratio) > 0.1:
-                if original_ratio > 1:
-                    height_rounded = round(width_rounded / original_ratio)
-                else:
-                    width_rounded = round(height_rounded * original_ratio)
-            
-            # Check constraints
-            if (width_rounded <= max_width_inches and height_rounded <= max_height_inches and
-                width_rounded >= 6 and height_rounded >= 6):
-                
+            # Ensure minimum size of 6" on smallest dimension
+            if min(width_inches, height_inches) >= 6:
                 sizes.append({
-                    'width_inches': width_rounded,
-                    'height_inches': height_rounded
+                    'width_inches': width_inches,
+                    'height_inches': height_inches,
+                    'percentage': int(percentage * 100)
                 })
+                print(f"DEBUG: {int(percentage * 100)}% size: {width_inches}\" × {height_inches}\"")
         
-        # Remove duplicates and return up to 3
-        unique_sizes = {}
+        return sizes, final_cap, ratio
+
+    def generate_size_options_at_ppi(self, pixel_width, pixel_height):
+        """Generate size options using new logic - replacement for old function"""
+        sizes, cap, ratio = self.calculate_print_cap_and_sizes(pixel_width, pixel_height)
+        
+        # Remove the percentage info for compatibility with existing code
+        clean_sizes = []
         for size in sizes:
-            key = f"{size['width_inches']}x{size['height_inches']}"
-            if key not in unique_sizes:
-                unique_sizes[key] = size
+            clean_sizes.append({
+                'width_inches': size['width_inches'],
+                'height_inches': size['height_inches']
+            })
         
-        sorted_sizes = sorted(unique_sizes.values(), 
-                            key=lambda x: x['width_inches'] * x['height_inches'], 
-                            reverse=True)
-        
-        return sorted_sizes[:3]
+        return clean_sizes
+
 
     def clean_artwork_data(self, artwork):
         """Clean artwork data - remove old fields and ensure new structure"""
@@ -395,8 +387,8 @@ class HybridFinerWorksProcessor:
                 continue
             
             # Calculate print sizes
-            max_width_inches, max_height_inches = self.calculate_max_print_size_at_ppi(pixel_width, pixel_height)
-            optimal_sizes = self.generate_size_options_at_ppi(max_width_inches, max_height_inches)
+            optimal_sizes = self.generate_size_options_at_ppi(pixel_width, pixel_height)
+
             
             github_paths = self.get_github_image_paths(artwork_id)
             if not github_paths:
@@ -429,8 +421,11 @@ class HybridFinerWorksProcessor:
                 }
                 
                 print(f"  ✅ PRINT READY - {image_info['source'].upper()} source")
-                print(f"  Max size: {max_width_inches:.1f}×{max_height_inches:.1f}\"")
+                if optimal_sizes:
+                    largest_size = optimal_sizes[0]  # First size is largest (100%)
+                    print(f"  Largest size: {largest_size['width_inches']}\"×{largest_size['height_inches']}\"")
                 print(f"  Size options: {len(optimal_sizes)}")
+
                 print_ready_count += 1
                 
             else:

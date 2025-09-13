@@ -145,12 +145,8 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 7,
+        "width_inches": 8,
         "height_inches": 7
-      },
-      {
-        "width_inches": 6,
-        "height_inches": 6
       }
     ],
     "finerworks_image": {
@@ -263,7 +259,7 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 6,
+        "width_inches": 7,
         "height_inches": 16
       }
     ],
@@ -300,8 +296,8 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 6,
-        "height_inches": 6
+        "width_inches": 7,
+        "height_inches": 7
       }
     ],
     "finerworks_image": {
@@ -355,20 +351,51 @@
       "title_en": "",
       "original_size_cm": "140×75"
     },
-    "print_ready": false,
-    "reason": "Insufficient resolution for 200 PPI printing"
+    "recommended_sizes": [
+      {
+        "width_inches": 6,
+        "height_inches": 12
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "合歡雲擁映山紅－合歡杜鵑",
+        "description": "Traditional Chinese painting: 合歡雲擁映山紅－合歡杜鵑",
+        "file_name": "019891b0-f39c-7a5f-a6de-f1a8172971f6_large.jpg",
+        "file_size": 2911571,
+        "pix_w": 1197,
+        "pix_h": 2362,
+        "hires_file_name": "019891b0-f39c-7a5f-a6de-f1a8172971f6_large.jpg",
+        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7a5f-a6de-f1a8172971f6_large.jpg",
+        "thumbnail_file_name": "019891b0-f39c-7a5f-a6de-f1a8172971f6_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-7a5f-a6de-f1a8172971f6_thumb.jpg",
+        "preview_file_name": "019891b0-f39c-7a5f-a6de-f1a8172971f6_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7a5f-a6de-f1a8172971f6_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "1197×2362",
+      "file_size_mb": 2.78,
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-7b9e-bb65-6852f393b302": {
     "artwork_info": {
       "id": "019891b0-f39c-7b9e-bb65-6852f393b302",
       "title": "太魯峽谷",
       "title_en": "Taroko Gorge",
-      "original_size_cm": "68×40"
+      "original_size_cm": "40×68"
     },
     "recommended_sizes": [
       {
-        "width_inches": 12,
-        "height_inches": 7
+        "width_inches": 13,
+        "height_inches": 8
+      },
+      {
+        "width_inches": 9,
+        "height_inches": 6
       }
     ],
     "finerworks_image": {
@@ -404,8 +431,8 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 6,
-        "height_inches": 6
+        "width_inches": 7,
+        "height_inches": 7
       }
     ],
     "finerworks_image": {
@@ -442,7 +469,7 @@
     "recommended_sizes": [
       {
         "width_inches": 6,
-        "height_inches": 11
+        "height_inches": 12
       }
     ],
     "finerworks_image": {
@@ -489,7 +516,7 @@
     "recommended_sizes": [
       {
         "width_inches": 6,
-        "height_inches": 11
+        "height_inches": 12
       }
     ],
     "finerworks_image": {
@@ -526,7 +553,11 @@
     "recommended_sizes": [
       {
         "width_inches": 8,
-        "height_inches": 12
+        "height_inches": 13
+      },
+      {
+        "width_inches": 6,
+        "height_inches": 9
       }
     ],
     "finerworks_image": {
@@ -572,11 +603,11 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 11,
-        "height_inches": 10
+        "width_inches": 12,
+        "height_inches": 11
       },
       {
-        "width_inches": 9,
+        "width_inches": 8,
         "height_inches": 8
       },
       {
@@ -628,7 +659,7 @@
     "recommended_sizes": [
       {
         "width_inches": 6,
-        "height_inches": 11
+        "height_inches": 12
       }
     ],
     "finerworks_image": {
@@ -664,7 +695,7 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 11,
+        "width_inches": 12,
         "height_inches": 6
       }
     ],
@@ -701,7 +732,7 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 11,
+        "width_inches": 12,
         "height_inches": 6
       }
     ],
@@ -739,7 +770,7 @@
     "recommended_sizes": [
       {
         "width_inches": 6,
-        "height_inches": 11
+        "height_inches": 12
       }
     ],
     "finerworks_image": {
@@ -779,12 +810,8 @@
         "height_inches": 10
       },
       {
-        "width_inches": 8,
-        "height_inches": 8
-      },
-      {
-        "width_inches": 6,
-        "height_inches": 6
+        "width_inches": 7,
+        "height_inches": 7
       }
     ],
     "finerworks_image": {
@@ -824,12 +851,8 @@
         "height_inches": 10
       },
       {
-        "width_inches": 8,
-        "height_inches": 8
-      },
-      {
-        "width_inches": 6,
-        "height_inches": 6
+        "width_inches": 7,
+        "height_inches": 7
       }
     ],
     "finerworks_image": {
@@ -865,12 +888,8 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 7,
-        "height_inches": 13
-      },
-      {
-        "width_inches": 6,
-        "height_inches": 12
+        "width_inches": 8,
+        "height_inches": 14
       }
     ],
     "finerworks_image": {
@@ -918,10 +937,6 @@
       {
         "width_inches": 7,
         "height_inches": 14
-      },
-      {
-        "width_inches": 6,
-        "height_inches": 12
       }
     ],
     "finerworks_image": {
@@ -957,8 +972,12 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 12,
+        "width_inches": 13,
         "height_inches": 8
+      },
+      {
+        "width_inches": 9,
+        "height_inches": 6
       }
     ],
     "finerworks_image": {
@@ -996,10 +1015,6 @@
       {
         "width_inches": 7,
         "height_inches": 14
-      },
-      {
-        "width_inches": 6,
-        "height_inches": 12
       }
     ],
     "finerworks_image": {
@@ -1039,12 +1054,8 @@
         "height_inches": 10
       },
       {
-        "width_inches": 8,
-        "height_inches": 8
-      },
-      {
-        "width_inches": 6,
-        "height_inches": 6
+        "width_inches": 7,
+        "height_inches": 7
       }
     ],
     "finerworks_image": {
@@ -1092,10 +1103,6 @@
       {
         "width_inches": 7,
         "height_inches": 7
-      },
-      {
-        "width_inches": 6,
-        "height_inches": 6
       }
     ],
     "finerworks_image": {
@@ -1135,12 +1142,8 @@
         "height_inches": 10
       },
       {
-        "width_inches": 8,
-        "height_inches": 8
-      },
-      {
-        "width_inches": 6,
-        "height_inches": 6
+        "width_inches": 7,
+        "height_inches": 7
       }
     ],
     "finerworks_image": {
@@ -1176,8 +1179,8 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 6,
-        "height_inches": 12
+        "width_inches": 8,
+        "height_inches": 15
       }
     ],
     "finerworks_image": {
@@ -1213,12 +1216,12 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 11,
-        "height_inches": 8
+        "width_inches": 12,
+        "height_inches": 9
       },
       {
-        "width_inches": 9,
-        "height_inches": 7
+        "width_inches": 8,
+        "height_inches": 6
       }
     ],
     "finerworks_image": {
@@ -1252,8 +1255,35 @@
       "title_en": "Tender Grass in Spring's Embrace - Carnation",
       "original_size_cm": "70×45"
     },
-    "print_ready": false,
-    "reason": "Insufficient resolution for 200 PPI printing"
+    "recommended_sizes": [
+      {
+        "width_inches": 7,
+        "height_inches": 10
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "寸草春暉-康乃馨",
+        "description": "Traditional Chinese painting by Xiaoran. Tender Grass in Spring's Embrace - Carnation",
+        "file_name": "019891b0-f39c-7eb1-abf3-a892d0a3a655_large.jpg",
+        "file_size": 1282663,
+        "pix_w": 1355,
+        "pix_h": 2045,
+        "hires_file_name": "019891b0-f39c-7eb1-abf3-a892d0a3a655_large.jpg",
+        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7eb1-abf3-a892d0a3a655_large.jpg",
+        "thumbnail_file_name": "019891b0-f39c-7eb1-abf3-a892d0a3a655_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-7eb1-abf3-a892d0a3a655_thumb.jpg",
+        "preview_file_name": "019891b0-f39c-7eb1-abf3-a892d0a3a655_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7eb1-abf3-a892d0a3a655_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "1355×2045",
+      "file_size_mb": 1.22,
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-7038-a32d-0f2d0cb36be8": {
     "artwork_info": {
@@ -1266,10 +1296,6 @@
       {
         "width_inches": 7,
         "height_inches": 14
-      },
-      {
-        "width_inches": 6,
-        "height_inches": 12
       }
     ],
     "finerworks_image": {
@@ -1309,12 +1335,8 @@
         "height_inches": 10
       },
       {
-        "width_inches": 8,
-        "height_inches": 8
-      },
-      {
-        "width_inches": 6,
-        "height_inches": 6
+        "width_inches": 7,
+        "height_inches": 7
       }
     ],
     "finerworks_image": {
@@ -1351,15 +1373,11 @@
     "recommended_sizes": [
       {
         "width_inches": 10,
-        "height_inches": 9
+        "height_inches": 10
       },
       {
-        "width_inches": 8,
-        "height_inches": 8
-      },
-      {
-        "width_inches": 6,
-        "height_inches": 6
+        "width_inches": 7,
+        "height_inches": 7
       }
     ],
     "finerworks_image": {
@@ -1397,10 +1415,6 @@
       {
         "width_inches": 7,
         "height_inches": 14
-      },
-      {
-        "width_inches": 6,
-        "height_inches": 12
       }
     ],
     "finerworks_image": {
@@ -1440,12 +1454,8 @@
         "height_inches": 10
       },
       {
-        "width_inches": 8,
-        "height_inches": 8
-      },
-      {
-        "width_inches": 6,
-        "height_inches": 6
+        "width_inches": 7,
+        "height_inches": 7
       }
     ],
     "finerworks_image": {
@@ -1483,10 +1493,6 @@
       {
         "width_inches": 7,
         "height_inches": 14
-      },
-      {
-        "width_inches": 6,
-        "height_inches": 12
       }
     ],
     "finerworks_image": {
@@ -1523,7 +1529,11 @@
     "recommended_sizes": [
       {
         "width_inches": 8,
-        "height_inches": 12
+        "height_inches": 13
+      },
+      {
+        "width_inches": 6,
+        "height_inches": 9
       }
     ],
     "finerworks_image": {
@@ -1559,12 +1569,8 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 14,
+        "width_inches": 15,
         "height_inches": 7
-      },
-      {
-        "width_inches": 12,
-        "height_inches": 6
       }
     ],
     "finerworks_image": {
@@ -1602,6 +1608,10 @@
       {
         "width_inches": 12,
         "height_inches": 8
+      },
+      {
+        "width_inches": 9,
+        "height_inches": 6
       }
     ],
     "finerworks_image": {
@@ -1638,7 +1648,11 @@
     "recommended_sizes": [
       {
         "width_inches": 8,
-        "height_inches": 12
+        "height_inches": 13
+      },
+      {
+        "width_inches": 6,
+        "height_inches": 9
       }
     ],
     "finerworks_image": {
@@ -1678,12 +1692,8 @@
         "height_inches": 10
       },
       {
-        "width_inches": 8,
-        "height_inches": 8
-      },
-      {
-        "width_inches": 6,
-        "height_inches": 6
+        "width_inches": 7,
+        "height_inches": 7
       }
     ],
     "finerworks_image": {
@@ -1717,8 +1727,35 @@
       "title_en": "Pine Winds in Ten Thousand Ravines",
       "original_size_cm": "190×140"
     },
-    "print_ready": false,
-    "reason": "Insufficient resolution for 200 PPI printing"
+    "recommended_sizes": [
+      {
+        "width_inches": 6,
+        "height_inches": 8
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "萬壑松風圖",
+        "description": "Traditional Chinese painting by Xiaoran. Pine Winds in Ten Thousand Ravines",
+        "file_name": "019891b0-f39c-7df5-a02e-1cc15d22bb57_large.png",
+        "file_size": 3789435,
+        "pix_w": 1198,
+        "pix_h": 1600,
+        "hires_file_name": "019891b0-f39c-7df5-a02e-1cc15d22bb57_large.png",
+        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7df5-a02e-1cc15d22bb57_large.png",
+        "thumbnail_file_name": "019891b0-f39c-7df5-a02e-1cc15d22bb57_thumb.png",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-7df5-a02e-1cc15d22bb57_thumb.png",
+        "preview_file_name": "019891b0-f39c-7df5-a02e-1cc15d22bb57_large.png",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7df5-a02e-1cc15d22bb57_large.png"
+      },
+      "format": "png",
+      "dimensions_text": "1198×1600",
+      "file_size_mb": 3.61,
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-7871-b204-09fa520d0d23": {
     "artwork_info": {
@@ -1741,10 +1778,6 @@
       {
         "width_inches": 7,
         "height_inches": 14
-      },
-      {
-        "width_inches": 6,
-        "height_inches": 12
       }
     ],
     "finerworks_image": {
@@ -1782,10 +1815,6 @@
       {
         "width_inches": 14,
         "height_inches": 7
-      },
-      {
-        "width_inches": 12,
-        "height_inches": 6
       }
     ],
     "finerworks_image": {
@@ -1829,8 +1858,35 @@
       "title_en": "Spring Breeze at Hehuan Peak – Rhododendrons in Bloom",
       "original_size_cm": "90×210"
     },
-    "print_ready": false,
-    "reason": "Insufficient resolution for 200 PPI printing"
+    "recommended_sizes": [
+      {
+        "width_inches": 15,
+        "height_inches": 7
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "合歡峰頂沐春風–合歡山杜鵑",
+        "description": "Traditional Chinese painting by Xiaoran. Spring Breeze at Hehuan Peak – Rhododendrons in Bloom",
+        "file_name": "019891b0-f39c-71be-8987-5f3e69224ab5_large.jpg",
+        "file_size": 3256792,
+        "pix_w": 3063,
+        "pix_h": 1369,
+        "hires_file_name": "019891b0-f39c-71be-8987-5f3e69224ab5_large.jpg",
+        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-71be-8987-5f3e69224ab5_large.jpg",
+        "thumbnail_file_name": "019891b0-f39c-71be-8987-5f3e69224ab5_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-71be-8987-5f3e69224ab5_thumb.jpg",
+        "preview_file_name": "019891b0-f39c-71be-8987-5f3e69224ab5_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-71be-8987-5f3e69224ab5_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "3063×1369",
+      "file_size_mb": 3.11,
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-7a96-8e1b-28d8310e36dd": {
     "artwork_info": {
@@ -1845,12 +1901,8 @@
         "height_inches": 10
       },
       {
-        "width_inches": 8,
-        "height_inches": 8
-      },
-      {
-        "width_inches": 6,
-        "height_inches": 6
+        "width_inches": 7,
+        "height_inches": 7
       }
     ],
     "finerworks_image": {
@@ -1887,7 +1939,7 @@
     "recommended_sizes": [
       {
         "width_inches": 6,
-        "height_inches": 9
+        "height_inches": 10
       }
     ],
     "finerworks_image": {
@@ -1924,7 +1976,11 @@
     "recommended_sizes": [
       {
         "width_inches": 8,
-        "height_inches": 12
+        "height_inches": 13
+      },
+      {
+        "width_inches": 6,
+        "height_inches": 9
       }
     ],
     "finerworks_image": {
@@ -1998,7 +2054,11 @@
     "recommended_sizes": [
       {
         "width_inches": 8,
-        "height_inches": 12
+        "height_inches": 13
+      },
+      {
+        "width_inches": 6,
+        "height_inches": 9
       }
     ],
     "finerworks_image": {
@@ -2036,10 +2096,6 @@
       {
         "width_inches": 7,
         "height_inches": 14
-      },
-      {
-        "width_inches": 6,
-        "height_inches": 12
       }
     ],
     "finerworks_image": {
@@ -2076,7 +2132,11 @@
     "recommended_sizes": [
       {
         "width_inches": 8,
-        "height_inches": 12
+        "height_inches": 13
+      },
+      {
+        "width_inches": 6,
+        "height_inches": 9
       }
     ],
     "finerworks_image": {
@@ -2112,8 +2172,8 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 6,
-        "height_inches": 12
+        "width_inches": 7,
+        "height_inches": 15
       }
     ],
     "finerworks_image": {
@@ -2149,8 +2209,12 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 13,
-        "height_inches": 7
+        "width_inches": 24,
+        "height_inches": 13
+      },
+      {
+        "width_inches": 17,
+        "height_inches": 9
       },
       {
         "width_inches": 12,
@@ -2163,21 +2227,21 @@
         "description": "Traditional Chinese painting by Xiaoran. Majestic River - Niagara Falls in Golden Autumn",
         "file_name": "019891b0-f39c-7b75-910e-8ef8046a7bb9_large.jpg",
         "file_size": 2386259,
-        "pix_w": 2793,
-        "pix_h": 1501,
+        "pix_w": 6538,
+        "pix_h": 3514,
         "hires_file_name": "019891b0-f39c-7b75-910e-8ef8046a7bb9_large.jpg",
-        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7b75-910e-8ef8046a7bb9_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-7b75-910e-8ef8046a7bb9.jpg",
         "thumbnail_file_name": "019891b0-f39c-7b75-910e-8ef8046a7bb9_thumb.jpg",
         "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-7b75-910e-8ef8046a7bb9_thumb.jpg",
         "preview_file_name": "019891b0-f39c-7b75-910e-8ef8046a7bb9_large.jpg",
         "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7b75-910e-8ef8046a7bb9_large.jpg"
       },
       "format": "jpeg",
-      "dimensions_text": "2793×1501",
+      "dimensions_text": "6538×3514",
       "file_size_mb": 2.28,
       "has_thumbnail": true,
-      "storage_source": "github",
-      "has_high_res_version": false
+      "storage_source": "s3",
+      "has_high_res_version": true
     },
     "print_ready": true
   },
@@ -2202,10 +2266,6 @@
       {
         "width_inches": 14,
         "height_inches": 7
-      },
-      {
-        "width_inches": 12,
-        "height_inches": 6
       }
     ],
     "finerworks_image": {
@@ -2243,10 +2303,6 @@
       {
         "width_inches": 7,
         "height_inches": 14
-      },
-      {
-        "width_inches": 6,
-        "height_inches": 12
       }
     ],
     "finerworks_image": {
@@ -2284,10 +2340,6 @@
       {
         "width_inches": 7,
         "height_inches": 14
-      },
-      {
-        "width_inches": 6,
-        "height_inches": 12
       }
     ],
     "finerworks_image": {
@@ -2325,10 +2377,6 @@
       {
         "width_inches": 14,
         "height_inches": 7
-      },
-      {
-        "width_inches": 12,
-        "height_inches": 6
       }
     ],
     "finerworks_image": {
@@ -2364,12 +2412,8 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 14,
+        "width_inches": 15,
         "height_inches": 7
-      },
-      {
-        "width_inches": 12,
-        "height_inches": 6
       }
     ],
     "finerworks_image": {
@@ -2405,18 +2449,17 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 25,
-        "height_inches": 23
+        "width_inches": 24,
+        "height_inches": 22
       },
       {
-        "width_inches": 15,
-        "height_inches": 14
+        "width_inches": 17,
+        "height_inches": 15
       },
       {
         "width_inches": 12,
         "height_inches": 11
       }
-      
     ],
     "finerworks_image": {
       "finerworks_api_object": {
@@ -2451,7 +2494,7 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 6,
+        "width_inches": 7,
         "height_inches": 6
       }
     ],
@@ -2510,10 +2553,6 @@
       {
         "width_inches": 7,
         "height_inches": 14
-      },
-      {
-        "width_inches": 6,
-        "height_inches": 12
       }
     ],
     "finerworks_image": {
@@ -2553,12 +2592,8 @@
         "height_inches": 10
       },
       {
-        "width_inches": 8,
-        "height_inches": 8
-      },
-      {
-        "width_inches": 6,
-        "height_inches": 6
+        "width_inches": 7,
+        "height_inches": 7
       }
     ],
     "finerworks_image": {
@@ -2594,12 +2629,8 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 13,
-        "height_inches": 7
-      },
-      {
-        "width_inches": 12,
-        "height_inches": 6
+        "width_inches": 14,
+        "height_inches": 8
       }
     ],
     "finerworks_image": {
@@ -2636,7 +2667,7 @@
     "recommended_sizes": [
       {
         "width_inches": 6,
-        "height_inches": 6
+        "height_inches": 7
       }
     ],
     "finerworks_image": {
@@ -2673,7 +2704,7 @@
     "recommended_sizes": [
       {
         "width_inches": 6,
-        "height_inches": 6
+        "height_inches": 7
       }
     ],
     "finerworks_image": {
@@ -2710,7 +2741,11 @@
     "recommended_sizes": [
       {
         "width_inches": 8,
-        "height_inches": 12
+        "height_inches": 13
+      },
+      {
+        "width_inches": 6,
+        "height_inches": 9
       }
     ],
     "finerworks_image": {
@@ -2754,8 +2789,35 @@
       "title_en": "Wishing to Share the Golden Needle",
       "original_size_cm": "90×210"
     },
-    "print_ready": false,
-    "reason": "Insufficient resolution for 200 PPI printing"
+    "recommended_sizes": [
+      {
+        "width_inches": 15,
+        "height_inches": 7
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "願把金針度與人–六十石山金針花",
+        "description": "Traditional Chinese painting by Xiaoran. Wishing to Share the Golden Needle",
+        "file_name": "019891b0-f39c-729c-bef5-b90e2cafb77e_large.jpg",
+        "file_size": 3532986,
+        "pix_w": 3067,
+        "pix_h": 1366,
+        "hires_file_name": "019891b0-f39c-729c-bef5-b90e2cafb77e_large.jpg",
+        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-729c-bef5-b90e2cafb77e_large.jpg",
+        "thumbnail_file_name": "019891b0-f39c-729c-bef5-b90e2cafb77e_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-729c-bef5-b90e2cafb77e_thumb.jpg",
+        "preview_file_name": "019891b0-f39c-729c-bef5-b90e2cafb77e_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-729c-bef5-b90e2cafb77e_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "3067×1366",
+      "file_size_mb": 3.37,
+      "has_thumbnail": true,
+      "storage_source": "github",
+      "has_high_res_version": false
+    },
+    "print_ready": true
   },
   "019891b0-f39c-7cf8-86a3-61f2f44df76f": {
     "artwork_info": {
@@ -2768,10 +2830,6 @@
       {
         "width_inches": 7,
         "height_inches": 14
-      },
-      {
-        "width_inches": 6,
-        "height_inches": 12
       }
     ],
     "finerworks_image": {
@@ -2826,6 +2884,10 @@
       "original_size_cm": "75×70"
     },
     "recommended_sizes": [
+      {
+        "width_inches": 8,
+        "height_inches": 8
+      },
       {
         "width_inches": 6,
         "height_inches": 6
@@ -2893,6 +2955,10 @@
       "original_size_cm": "70×70"
     },
     "recommended_sizes": [
+      {
+        "width_inches": 8,
+        "height_inches": 8
+      },
       {
         "width_inches": 6,
         "height_inches": 6
@@ -3013,10 +3079,6 @@
       {
         "width_inches": 8,
         "height_inches": 7
-      },
-      {
-        "width_inches": 6,
-        "height_inches": 6
       }
     ],
     "finerworks_image": {
