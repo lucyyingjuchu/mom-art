@@ -1192,7 +1192,7 @@
         "pix_w": 1523,
         "pix_h": 3000,
         "hires_file_name": "019891b0-f39c-7b7d-8e54-83ae4f652136_large.jpg",
-        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7b7d-8e54-83ae4f652136_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-7b7d-8e54-83ae4f652136.jpg",
         "thumbnail_file_name": "019891b0-f39c-7b7d-8e54-83ae4f652136_thumb.jpg",
         "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-7b7d-8e54-83ae4f652136_thumb.jpg",
         "preview_file_name": "019891b0-f39c-7b7d-8e54-83ae4f652136_large.jpg",
@@ -1202,8 +1202,8 @@
       "dimensions_text": "1523×3000",
       "file_size_mb": 4.58,
       "has_thumbnail": true,
-      "storage_source": "github",
-      "has_high_res_version": false
+      "storage_source": "s3",
+      "has_high_res_version": true
     },
     "print_ready": true
   },
