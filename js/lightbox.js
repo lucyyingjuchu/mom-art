@@ -415,7 +415,10 @@ window.navigateArtwork = function(direction) {
         currentArtworkIndex = currentArtworkIndex < artworksData.length - 1 ? currentArtworkIndex + 1 : 0;
     }
     
-    populateLightbox(artworksData[currentArtworkIndex]);
+    const newArtwork = artworksData[currentArtworkIndex];
+    console.log('🔄 Navigating to artwork:', newArtwork.id, newArtwork.title);
+    
+    populateLightbox(newArtwork);
 };
 
 // Desktop-only zoom functions
@@ -828,6 +831,11 @@ function populateLightbox(artwork) {
     addClickableAvailabilityStatus(artwork);
     updateLightboxUIText();
     setupArtworkViews(artwork);
+
+    // Dispatch event for shopping cart and other systems that need to know about artwork changes
+    document.dispatchEvent(new CustomEvent('artworkChanged', { 
+        detail: { artwork } 
+    }));
 }
 
 // ================================

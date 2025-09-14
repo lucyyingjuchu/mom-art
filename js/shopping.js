@@ -74,8 +74,44 @@ class ShoppingCart {
         document.addEventListener('lightboxOpened', (event) => {
             this.enhanceLightboxWithShopping(event.detail.artwork);
         });
+        
+        // 🆕 NEW: Listen for artwork changes during navigation
+        document.addEventListener('artworkChanged', (event) => {
+            console.log('🛒 Artwork changed during navigation, updating shopping options');
+            this.enhanceLightboxWithShopping(event.detail.artwork);
+        });
+        
+        // 🆕 NEW: Listen for language changes to update cart text
+        document.addEventListener('languageChanged', () => {
+            console.log('🌍 Language changed, updating cart UI');
+            this.updateCartLanguage();
+        });
     }
     
+        // 🆕 NEW: Add this method to update cart language
+    updateCartLanguage() {
+        // Update cart sidebar title and buttons
+        const cartTitle = document.querySelector('.cart-title');
+        if (cartTitle) {
+            cartTitle.textContent = this.getText('shopping.cartTitle');
+        }
+        
+        const cartTotalLabel = document.querySelector('.cart-total-label');
+        if (cartTotalLabel) {
+            cartTotalLabel.textContent = this.getText('shopping.total');
+        }
+        
+        const checkoutBtn = document.querySelector('.checkout-btn');
+        if (checkoutBtn) {
+            checkoutBtn.textContent = this.getText('shopping.checkout');
+        }
+        
+        // Re-render cart items with new language
+        if (document.getElementById('cartSidebar').classList.contains('open')) {
+            this.renderCartItems();
+        }
+    }
+
     createCartSidebar() {
         const overlay = document.createElement('div');
         overlay.id = 'cartOverlay';
