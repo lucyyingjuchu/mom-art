@@ -1938,8 +1938,16 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 6,
-        "height_inches": 10
+        "width_inches": 16,
+        "height_inches": 24
+      },
+      {
+        "width_inches": 11,
+        "height_inches": 17
+      },
+      {
+        "width_inches": 8,
+        "height_inches": 12
       }
     ],
     "finerworks_image": {
@@ -1948,21 +1956,21 @@
         "description": "Traditional Chinese painting by Xiaoran. Spring in Taroko: The Hall of Eternal Spring",
         "file_name": "019891b0-f39c-78e8-be37-c859eb030659_large.jpg",
         "file_size": 1710345,
-        "pix_w": 1242,
-        "pix_h": 1920,
+        "pix_w": 3960,
+        "pix_h": 6121,
         "hires_file_name": "019891b0-f39c-78e8-be37-c859eb030659_large.jpg",
-        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-78e8-be37-c859eb030659_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-78e8-be37-c859eb030659.jpg",
         "thumbnail_file_name": "019891b0-f39c-78e8-be37-c859eb030659_thumb.jpg",
         "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-78e8-be37-c859eb030659_thumb.jpg",
         "preview_file_name": "019891b0-f39c-78e8-be37-c859eb030659_large.jpg",
         "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-78e8-be37-c859eb030659_large.jpg"
       },
       "format": "jpeg",
-      "dimensions_text": "1242×1920",
+      "dimensions_text": "3960×6121",
       "file_size_mb": 1.63,
       "has_thumbnail": true,
-      "storage_source": "github",
-      "has_high_res_version": false
+      "storage_source": "s3",
+      "has_high_res_version": true
     },
     "print_ready": true
   },

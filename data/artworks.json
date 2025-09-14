@@ -3355,6 +3355,10 @@
       {
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-78e8-be37-c859eb030659_large.jpg"
+      },
+      {
+        "type": "original-mockup",
+        "image": "./images/mockups/original/019891b0-f39c-78e8-be37-c859eb030659_orig_mock.jpg"
       }
     ]
   },
