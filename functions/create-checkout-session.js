@@ -1,6 +1,6 @@
 // netlify/functions/create-checkout-session.js
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY, {
-    apiVersion: '2025-08-27.basil'
+    apiVersion: '2024-10-28'
 });
 
 exports.handler = async (event, context) => {
@@ -26,8 +26,6 @@ exports.handler = async (event, context) => {
     try {
         const { cartItems } = JSON.parse(event.body);
         
-        // DEBUG: Check what API version Stripe is actually using
-        console.log('Stripe API Version in use:', stripe.getApiVersion());
         console.log('Function started successfully');
         
         // Calculate total
