@@ -1403,34 +1403,31 @@
   {
     "id": "019891b0-f39c-7e85-8f83-fd90bbaf222d",
     "title": "母親的愛",
-    "titleEn": "A Mother's Love",
-    "image": "",
-    "imageHigh": "",
-    "description": "母親的愛-是寸草春暉中唱不完的歌聲",
-    "descriptionEn": "The love of a mother—an endless melody sung in the tender light of spring's embrace.",
-    "format": "框",
     "year": "2018",
-    "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "formatEn": "Framed",
     "heightCm": 45,
     "widthCm": 70,
-    "heightInches": 17.7,
-    "widthInches": 27.6,
+    "sizeCm": "45 × 70 cm",
+    "format": "框",
+    "description": "母親的愛-是寸草春暉中唱不完的歌聲",
+    "curatorNote": "",
+    "featured": false,
+    "available": true,
+    "price": "",
     "autoCategories": {
-      "subjects": [
-        "landscape",
-        "calligraphy"
-      ],
+      "subjects": [],
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
-    }
+    },
+    "image": "./images/paintings/thumbnails/019891b0-f39c-7e85-8f83-fd90bbaf222d_thumb.jpg",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-7e85-8f83-fd90bbaf222d_large.jpg",
+    "categories": [
+      "flowers"
+    ]
   },
   {
     "id": "019891b0-f39c-787c-a46f-62905fa86f16",
