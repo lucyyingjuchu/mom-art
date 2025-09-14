@@ -64,16 +64,8 @@ exports.handler = async (event, context) => {
 
             ui_mode: 'hosted',
             
-            // Re-added appearance customization with newer API version
-            appearance: {
-                theme: 'stripe',
-                variables: {
-                    fontSizeBase: '16px',        // Default is 14px
-                    fontSizeSm: '14px',          // Default is 12px  
-                    fontSizeLg: '18px',          // Default is 16px
-                    fontSizeXl: '20px'           // Default is 18px
-                }
-            },
+            // APPEARANCE REMOVED - not supported in Stripe Checkout Sessions
+            // Custom styling would need to be done differently
             
             // Let Stripe collect shipping address and show shipping options
             shipping_address_collection: {
