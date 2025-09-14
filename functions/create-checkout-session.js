@@ -59,6 +59,8 @@ exports.handler = async (event, context) => {
             mode: 'payment',
 
             ui_mode: 'hosted',
+            
+            // Re-added appearance customization with newer API version
             appearance: {
                 theme: 'stripe',
                 variables: {

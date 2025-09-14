@@ -1,5 +1,7 @@
 // netlify/functions/get-session-details.js
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY, {
+    apiVersion: '2024-06-20'
+});
 
 exports.handler = async (event, context) => {
     const headers = {
