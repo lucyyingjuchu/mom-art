@@ -1,6 +1,9 @@
 // netlify/functions/create-checkout-session.js
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
+// Force API version after initialization
+stripe.setApiVersion('2024-06-20');
+
 exports.handler = async (event, context) => {
     const headers = {
         'Access-Control-Allow-Origin': '*',
@@ -23,6 +26,10 @@ exports.handler = async (event, context) => {
 
     try {
         const { cartItems } = JSON.parse(event.body);
+        
+        // DEBUG: Check what API version Stripe is actually using
+        console.log('Stripe API Version in use:', stripe.getApiVersion());
+        console.log('Stripe library version:', require('stripe/package.json').version);
         
         // Calculate total
         const total = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
