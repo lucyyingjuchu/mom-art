@@ -1,6 +1,6 @@
 // netlify/functions/create-checkout-session.js
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY, {
-    apiVersion: '2024-10-28'
+    apiVersion: '2025-08-27.basil'
 });
 
 exports.handler = async (event, context) => {
