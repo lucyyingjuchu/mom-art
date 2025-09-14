@@ -8,7 +8,7 @@ processor = HybridFinerWorksProcessor()
 # Upload your first artwork
 base_path = r"C:\Users\paral\Documents\AdditionalFilesforMom-artSite\Original_image_collection"
 
-artwork_id = "019891b0-f39c-7b7d-8e54-83ae4f652136"
+artwork_id = "019891b0-f39c-7201-bdba-6943519e8862"
 file_ext=".jpg"
 
 local_file = os.path.join(base_path, artwork_id + file_ext)

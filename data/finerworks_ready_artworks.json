@@ -503,8 +503,35 @@
       "title_en": "Plum Blossom – Inked Ice Spirit, Clear Wind and White Moon.",
       "original_size_cm": "45×70"
     },
-    "print_ready": false,
-    "reason": "Insufficient resolution for 200 PPI printing"
+    "recommended_sizes": [
+      {
+        "width_inches": 12,
+        "height_inches": 8
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "梅花－筆寫冰魂，風清月白。",
+        "description": "Traditional Chinese painting by Xiaoran. Plum Blossom – Inked Ice Spirit, Clear Wind and White Moon.",
+        "file_name": "019891b0-f39c-7136-84bc-3625d99f8651_large.png",
+        "file_size": 3717184,
+        "pix_w": 2362,
+        "pix_h": 1559,
+        "hires_file_name": "019891b0-f39c-7136-84bc-3625d99f8651_large.png",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-7136-84bc-3625d99f8651.jpg",
+        "thumbnail_file_name": "019891b0-f39c-7136-84bc-3625d99f8651_thumb.png",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-7136-84bc-3625d99f8651_thumb.png",
+        "preview_file_name": "019891b0-f39c-7136-84bc-3625d99f8651_large.png",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7136-84bc-3625d99f8651_large.png"
+      },
+      "format": "png",
+      "dimensions_text": "2362×1559",
+      "file_size_mb": 3.54,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
   },
   "019891b0-f39c-745a-b6ad-58e4e8545268": {
     "artwork_info": {
@@ -708,7 +735,7 @@
         "pix_w": 2362,
         "pix_h": 1270,
         "hires_file_name": "019891b0-f39c-7643-8153-14cf32b528bc_large.jpg",
-        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7643-8153-14cf32b528bc_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-7643-8153-14cf32b528bc.jpg",
         "thumbnail_file_name": "019891b0-f39c-7643-8153-14cf32b528bc_thumb.jpg",
         "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-7643-8153-14cf32b528bc_thumb.jpg",
         "preview_file_name": "019891b0-f39c-7643-8153-14cf32b528bc_large.jpg",
@@ -718,8 +745,8 @@
       "dimensions_text": "2362×1270",
       "file_size_mb": 3.19,
       "has_thumbnail": true,
-      "storage_source": "github",
-      "has_high_res_version": false
+      "storage_source": "s3",
+      "has_high_res_version": true
     },
     "print_ready": true
   },
@@ -1089,8 +1116,39 @@
       "title_en": "Heavenly Motion: The Noble Man Strives Unceasingly - Iguazu Falls",
       "original_size_cm": "153×263"
     },
-    "print_ready": false,
-    "reason": "Insufficient resolution for 200 PPI printing"
+    "recommended_sizes": [
+      {
+        "width_inches": 15,
+        "height_inches": 9
+      },
+      {
+        "width_inches": 10,
+        "height_inches": 6
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "天行健君子以自強不息―伊瓜蘇瀑布",
+        "description": "Traditional Chinese painting by Xiaoran. Heavenly Motion: The Noble Man Strives Unceasingly - Iguazu Falls",
+        "file_name": "019891b0-f39c-7817-98ab-ec870aa5b2aa_large.png",
+        "file_size": 3507795,
+        "pix_w": 3000,
+        "pix_h": 1770,
+        "hires_file_name": "019891b0-f39c-7817-98ab-ec870aa5b2aa_large.png",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-7817-98ab-ec870aa5b2aa.jpg",
+        "thumbnail_file_name": "019891b0-f39c-7817-98ab-ec870aa5b2aa_thumb.png",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-7817-98ab-ec870aa5b2aa_thumb.png",
+        "preview_file_name": "019891b0-f39c-7817-98ab-ec870aa5b2aa_large.png",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7817-98ab-ec870aa5b2aa_large.png"
+      },
+      "format": "png",
+      "dimensions_text": "3000×1770",
+      "file_size_mb": 3.35,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
   },
   "019891b0-f39c-7e9f-b136-621667022a8e": {
     "artwork_info": {
@@ -1413,8 +1471,12 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 7,
-        "height_inches": 14
+        "width_inches": 12,
+        "height_inches": 11
+      },
+      {
+        "width_inches": 8,
+        "height_inches": 7
       }
     ],
     "finerworks_image": {
@@ -1423,21 +1485,21 @@
         "description": "Traditional Chinese painting by Xiaoran. Ode to the Lotus",
         "file_name": "019891b0-f39c-7e6a-a74c-8f5ec5c50381_large.jpg",
         "file_size": 1994923,
-        "pix_w": 1461,
-        "pix_h": 2868,
+        "pix_w": 2362,
+        "pix_h": 2118,
         "hires_file_name": "019891b0-f39c-7e6a-a74c-8f5ec5c50381_large.jpg",
-        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7e6a-a74c-8f5ec5c50381_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-7e6a-a74c-8f5ec5c50381.jpg",
         "thumbnail_file_name": "019891b0-f39c-7e6a-a74c-8f5ec5c50381_thumb.jpg",
         "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-7e6a-a74c-8f5ec5c50381_thumb.jpg",
         "preview_file_name": "019891b0-f39c-7e6a-a74c-8f5ec5c50381_large.jpg",
         "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7e6a-a74c-8f5ec5c50381_large.jpg"
       },
       "format": "jpeg",
-      "dimensions_text": "1461×2868",
+      "dimensions_text": "2362×2118",
       "file_size_mb": 1.9,
       "has_thumbnail": true,
-      "storage_source": "github",
-      "has_high_res_version": false
+      "storage_source": "s3",
+      "has_high_res_version": true
     },
     "print_ready": true
   },
@@ -1688,11 +1750,15 @@
     },
     "recommended_sizes": [
       {
+        "width_inches": 15,
+        "height_inches": 15
+      },
+      {
         "width_inches": 10,
         "height_inches": 10
       },
       {
-        "width_inches": 7,
+        "width_inches": 8,
         "height_inches": 7
       }
     ],
@@ -1702,21 +1768,21 @@
         "description": "Traditional Chinese painting by Xiaoran. Chrysanthemum",
         "file_name": "019891b0-f39c-7841-9423-b51b365a7b9c_large.jpg",
         "file_size": 1759582,
-        "pix_w": 2060,
-        "pix_h": 2036,
+        "pix_w": 3000,
+        "pix_h": 2965,
         "hires_file_name": "019891b0-f39c-7841-9423-b51b365a7b9c_large.jpg",
-        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7841-9423-b51b365a7b9c_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-7841-9423-b51b365a7b9c.jpg",
         "thumbnail_file_name": "019891b0-f39c-7841-9423-b51b365a7b9c_thumb.jpg",
         "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-7841-9423-b51b365a7b9c_thumb.jpg",
         "preview_file_name": "019891b0-f39c-7841-9423-b51b365a7b9c_large.jpg",
         "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7841-9423-b51b365a7b9c_large.jpg"
       },
       "format": "jpeg",
-      "dimensions_text": "2060×2036",
+      "dimensions_text": "3000×2965",
       "file_size_mb": 1.68,
       "has_thumbnail": true,
-      "storage_source": "github",
-      "has_high_res_version": false
+      "storage_source": "s3",
+      "has_high_res_version": true
     },
     "print_ready": true
   },
@@ -1776,8 +1842,12 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 7,
-        "height_inches": 14
+        "width_inches": 9,
+        "height_inches": 18
+      },
+      {
+        "width_inches": 6,
+        "height_inches": 12
       }
     ],
     "finerworks_image": {
@@ -1786,21 +1856,21 @@
         "description": "Traditional Chinese painting by Xiaoran. Mountain Blooms, Ocean Blue: A Glimpse of Misty Hydrangeas",
         "file_name": "019891b0-f39c-79ee-915a-34d3aa1decd1_large.jpg",
         "file_size": 2308007,
-        "pix_w": 1464,
-        "pix_h": 2864,
+        "pix_w": 1803,
+        "pix_h": 3528,
         "hires_file_name": "019891b0-f39c-79ee-915a-34d3aa1decd1_large.jpg",
-        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-79ee-915a-34d3aa1decd1_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-79ee-915a-34d3aa1decd1.jpg",
         "thumbnail_file_name": "019891b0-f39c-79ee-915a-34d3aa1decd1_thumb.jpg",
         "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-79ee-915a-34d3aa1decd1_thumb.jpg",
         "preview_file_name": "019891b0-f39c-79ee-915a-34d3aa1decd1_large.jpg",
         "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-79ee-915a-34d3aa1decd1_large.jpg"
       },
       "format": "jpeg",
-      "dimensions_text": "1464×2864",
+      "dimensions_text": "1803×3528",
       "file_size_mb": 2.2,
       "has_thumbnail": true,
-      "storage_source": "github",
-      "has_high_res_version": false
+      "storage_source": "s3",
+      "has_high_res_version": true
     },
     "print_ready": true
   },
@@ -2881,8 +2951,39 @@
       "title_en": "Ancient Moon",
       "original_size_cm": "70×45"
     },
-    "print_ready": false,
-    "reason": "Insufficient resolution for 200 PPI printing"
+    "recommended_sizes": [
+      {
+        "width_inches": 8,
+        "height_inches": 12
+      },
+      {
+        "width_inches": 6,
+        "height_inches": 8
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "古月",
+        "description": "Traditional Chinese painting by Xiaoran. Ancient Moon",
+        "file_name": "019891b0-f39c-7a90-ab98-022c8b72668e_large.png",
+        "file_size": 4242105,
+        "pix_w": 1620,
+        "pix_h": 2362,
+        "hires_file_name": "019891b0-f39c-7a90-ab98-022c8b72668e_large.png",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-7a90-ab98-022c8b72668e.jpg",
+        "thumbnail_file_name": "019891b0-f39c-7a90-ab98-022c8b72668e_thumb.png",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-7a90-ab98-022c8b72668e_thumb.png",
+        "preview_file_name": "019891b0-f39c-7a90-ab98-022c8b72668e_large.png",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7a90-ab98-022c8b72668e_large.png"
+      },
+      "format": "png",
+      "dimensions_text": "1620×2362",
+      "file_size_mb": 4.05,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
   },
   "019891b0-f39c-7972-b2d2-06fc3c573914": {
     "artwork_info": {
@@ -2942,8 +3043,43 @@
       "title_en": "Misty Embrace of Cloud Village in Suzhou",
       "original_size_cm": "70×135"
     },
-    "print_ready": false,
-    "reason": "Insufficient resolution for 200 PPI printing"
+    "recommended_sizes": [
+      {
+        "width_inches": 24,
+        "height_inches": 12
+      },
+      {
+        "width_inches": 17,
+        "height_inches": 9
+      },
+      {
+        "width_inches": 12,
+        "height_inches": 6
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "姑蘇寒霧繞雲村",
+        "description": "Traditional Chinese painting by Xiaoran. Misty Embrace of Cloud Village in Suzhou",
+        "file_name": "019891b0-f39c-7201-bdba-6943519e8862_large.png",
+        "file_size": 3570628,
+        "pix_w": 6217,
+        "pix_h": 3225,
+        "hires_file_name": "019891b0-f39c-7201-bdba-6943519e8862_large.png",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-7201-bdba-6943519e8862.jpg",
+        "thumbnail_file_name": "019891b0-f39c-7201-bdba-6943519e8862_thumb.png",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-7201-bdba-6943519e8862_thumb.png",
+        "preview_file_name": "019891b0-f39c-7201-bdba-6943519e8862_large.png",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7201-bdba-6943519e8862_large.png"
+      },
+      "format": "png",
+      "dimensions_text": "6217×3225",
+      "file_size_mb": 3.41,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
   },
   "019891b0-f39c-7386-a86e-60369bb2ecd5": {
     "artwork_info": {
@@ -3013,8 +3149,35 @@
       "title_en": "A Whisper of Smoke and Dust - The Great Waterfall",
       "original_size_cm": "120×240"
     },
-    "print_ready": false,
-    "reason": "Insufficient resolution for 200 PPI printing"
+    "recommended_sizes": [
+      {
+        "width_inches": 12,
+        "height_inches": 6
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "煙聲一縷一塵埃-大瀑布",
+        "description": "Traditional Chinese painting by Xiaoran. A Whisper of Smoke and Dust - The Great Waterfall",
+        "file_name": "019891b0-f39c-7b5a-9017-6de6a497f059_large.png",
+        "file_size": 2880353,
+        "pix_w": 2362,
+        "pix_h": 1186,
+        "hires_file_name": "019891b0-f39c-7b5a-9017-6de6a497f059_large.png",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-7b5a-9017-6de6a497f059.jpg",
+        "thumbnail_file_name": "019891b0-f39c-7b5a-9017-6de6a497f059_thumb.png",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-7b5a-9017-6de6a497f059_thumb.png",
+        "preview_file_name": "019891b0-f39c-7b5a-9017-6de6a497f059_large.png",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7b5a-9017-6de6a497f059_large.png"
+      },
+      "format": "png",
+      "dimensions_text": "2362×1186",
+      "file_size_mb": 2.75,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
   },
   "019891b0-f39c-7b3a-a7ae-03eba18e8809": {
     "artwork_info": {
