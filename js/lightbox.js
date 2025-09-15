@@ -203,27 +203,36 @@ function addFullscreenExitGestures() {
     const lightbox = document.querySelector('.lightbox');
     if (!lightbox) return;
     
-    // Tap to exit (outside image or on image)
+    // Only exit on single tap, not during pinch gestures
     const tapHandler = function(e) {
-        // Simple tap anywhere to exit fullscreen
+        // Ignore if it's a multi-touch gesture (pinch)
+        if (e.touches && e.touches.length > 1) return;
+        
+        // Simple single tap to exit fullscreen
         exitMobileFullscreen();
     };
     
-    // Swipe down to exit
+    // Swipe down to exit (unchanged)
     let startY = 0;
     let currentY = 0;
+    let isPinching = false;
+    
     const swipeHandler = {
         start: function(e) {
             if (e.touches.length === 1) {
                 startY = e.touches[0].clientY;
+                isPinching = false;
+            } else if (e.touches.length > 1) {
+                isPinching = true; // Pinch gesture detected
             }
         },
         move: function(e) {
+            if (isPinching || e.touches.length > 1) return; // Ignore during pinch
+            
             if (e.touches.length === 1) {
                 currentY = e.touches[0].clientY;
                 const deltaY = currentY - startY;
                 
-                // Visual feedback for downward swipe
                 if (deltaY > 50) {
                     lightbox.style.transform = `translateY(${deltaY * 0.2}px)`;
                     lightbox.style.opacity = Math.max(0.5, 1 - deltaY / 400);
@@ -231,27 +240,31 @@ function addFullscreenExitGestures() {
             }
         },
         end: function(e) {
+            if (isPinching) {
+                isPinching = false;
+                return; // Don't exit on pinch end
+            }
+            
             const deltaY = currentY - startY;
             
             if (deltaY > 100) {
                 exitMobileFullscreen();
             } else {
-                // Reset position
                 lightbox.style.transform = '';
                 lightbox.style.opacity = '';
             }
         }
     };
     
-    // Add event listeners
-    lightbox.addEventListener('touchstart', tapHandler, { passive: true });
+    // Use touchend instead of touchstart to avoid conflicts
+    lightbox.addEventListener('touchend', tapHandler, { passive: true });
     lightbox.addEventListener('touchstart', swipeHandler.start, { passive: true });
     lightbox.addEventListener('touchmove', swipeHandler.move, { passive: true });
     lightbox.addEventListener('touchend', swipeHandler.end, { passive: true });
     
     // Store handlers for removal
     fullscreenExitHandlers = [
-        { element: lightbox, event: 'touchstart', handler: tapHandler },
+        { element: lightbox, event: 'touchend', handler: tapHandler },
         { element: lightbox, event: 'touchstart', handler: swipeHandler.start },
         { element: lightbox, event: 'touchmove', handler: swipeHandler.move },
         { element: lightbox, event: 'touchend', handler: swipeHandler.end }
