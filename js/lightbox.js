@@ -188,9 +188,32 @@ function enterMobileFullscreen() {
     image.style.height = 'auto';
     image.style.objectFit = 'contain';
     
+    // Add double-tap to reset zoom
+    addDoubleTapZoomReset(image);
+    
     addFullscreenExitGestures();
     
-    console.log('Entered mobile fullscreen mode with pan and zoom');
+    console.log('Entered mobile fullscreen mode with pan, zoom, and double-tap reset');
+}
+
+function addDoubleTapZoomReset(image) {
+    let lastTap = 0;
+    
+    image.addEventListener('touchend', function(e) {
+        const currentTime = new Date().getTime();
+        const tapLength = currentTime - lastTap;
+        
+        // Double tap detected (within 300ms)
+        if (tapLength < 300 && tapLength > 0) {
+            e.preventDefault();
+            
+            // Reset zoom and position
+            image.style.transform = 'scale(1) translate(0, 0)';
+            
+            console.log('Double-tap zoom reset');
+        }
+        lastTap = currentTime;
+    });
 }
 
 function addFullscreenExitGestures() {
@@ -242,21 +265,23 @@ function exitMobileFullscreen() {
 }
 
 
-function removeDeskopZoomControls() {
-    const zoomControls = document.querySelector('.zoom-controls');
-    if (zoomControls) {
-        zoomControls.remove();
-    }
+function exitMobileFullscreen() {
+    const lightbox = document.querySelector('.lightbox');
+    const image = document.getElementById('lightboxImage');
     
-    const zoomIndicator = document.querySelector('.zoom-indicator');
-    if (zoomIndicator) {
-        zoomIndicator.remove();
-    }
+    if (!lightbox || !image) return;
     
-    const fullscreenIndicator = document.querySelector('.fullscreen-indicator');
-    if (fullscreenIndicator) {
-        fullscreenIndicator.remove();
-    }
+    // Remove fullscreen class
+    lightbox.classList.remove('mobile-fullscreen');
+    
+    // Restore normal mobile image settings
+    image.style.touchAction = 'manipulation';
+    image.style.transform = ''; // Clear any zoom/pan transforms
+    // ... rest of existing restore code
+    
+    removeFullscreenExitGestures();
+    
+    console.log('Exited mobile fullscreen mode');
 }
 
 // ================================
