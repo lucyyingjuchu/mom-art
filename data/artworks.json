@@ -5292,22 +5292,16 @@
   {
     "id": "019891b0-f39c-70a9-9b91-b5a11b16a4e5",
     "title": "無極萬瀑流",
-    "titleEn": "Eternal Cascades",
-    "image": "",
-    "imageHigh": "",
-    "description": "無極萬瀑流，滌盡古今愁；悠悠泱雲湧，忘機物外遊。",
-    "descriptionEn": "Endless cascades in boundless flow, washing away the sorrows of ages past; In the vastness, clouds drift and surge, forgetting the world, wandering beyond the mundane.",
-    "format": null,
     "year": "unknown",
-    "price": "",
-    "available": 0,
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
     "heightCm": 70,
     "widthCm": 135,
-    "heightInches": 27.6,
-    "widthInches": 53.1,
+    "sizeCm": "70 × 135 cm",
+    "format": "",
+    "description": "無極萬瀑流，滌盡古今愁；悠悠泱雲湧，忘機物外遊。",
+    "curatorNote": "",
+    "featured": false,
+    "available": true,
+    "price": "",
     "autoCategories": {
       "subjects": [
         "waterfall",
@@ -5319,7 +5313,12 @@
       "subjects": [],
       "locations": []
     },
-    "formatEn": ""
+    "image": "./images/paintings/thumbnails/019891b0-f39c-70a9-9b91-b5a11b16a4e5_thumb.jpg",
+    "imageHigh": "./images/paintings/large/019891b0-f39c-70a9-9b91-b5a11b16a4e5_large.jpg",
+    "categories": [
+      "waterfall",
+      "flowingclouds"
+    ]
   },
   {
     "id": "019891b0-f39c-71ca-b2c1-0ccf8cbe55e2",
