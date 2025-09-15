@@ -1603,7 +1603,7 @@ function getArtworkText(artwork, field) {
 }
 
 function addViewIndicators() {
-    const image = document.getElementById('lightboxImage'); // Target the actual image
+    const image = document.getElementById('lightboxImage');
     if (!image || currentArtworkViews.length <= 1) return;
     
     // Remove existing indicators
@@ -1616,10 +1616,6 @@ function addViewIndicators() {
     const indicators = document.createElement('div');
     indicators.className = 'view-indicators';
     
-    // Position relative to the image, not the image section
-    indicators.style.position = 'absolute';
-    indicators.style.zIndex = '1001';
-    
     const isCompact = currentArtworkViews.length > 4;
     if (isCompact) {
         indicators.classList.add('compact-mode');
@@ -1628,35 +1624,7 @@ function addViewIndicators() {
     currentArtworkViews.forEach((view, index) => {
         const dot = document.createElement('div');
         dot.className = `view-dot ${index === 0 ? 'active' : ''}`;
-        
-        // Get meaningful tooltip text based on view type/title
-        let tooltipText;
-        
-        if (view.title) {
-            // If view has a specific title, use it
-            tooltipText = view.title;
-        } else if (view.type) {
-            // Try to get translated view type
-            try {
-                const currentLang = (typeof portfolio !== 'undefined') ? portfolio.currentLanguage : 'zh';
-                const viewTypeKey = `lightbox.viewTypes.${view.type}`;
-                tooltipText = getLocalizedText(viewTypeKey) || view.type;
-                
-                // If translation returns the key (not found), use type as fallback
-                if (tooltipText === viewTypeKey) {
-                    tooltipText = view.type.charAt(0).toUpperCase() + view.type.slice(1);
-                }
-            } catch (e) {
-                // Fallback to type name
-                tooltipText = view.type.charAt(0).toUpperCase() + view.type.slice(1);
-            }
-        } else {
-            // Final fallback
-            const currentLang = (typeof portfolio !== 'undefined') ? portfolio.currentLanguage : 'zh';
-            tooltipText = currentLang === 'en' ? `View ${index + 1}` : `視圖 ${index + 1}`;
-        }
-        
-        dot.title = tooltipText;
+        dot.title = view.title || `View ${index + 1}`;
         dot.onclick = () => switchArtworkView(index);
         
         if (view.icon && !isCompact) {
@@ -1667,29 +1635,39 @@ function addViewIndicators() {
         indicators.appendChild(dot);
     });
     
-    // Append to the image's parent (not the lightbox-image-section)
-    const imageContainer = image.parentElement;
-    imageContainer.appendChild(indicators);
-    
-    // Position the indicators below the actual image
-    function positionIndicators() {
-        const imageRect = image.getBoundingClientRect();
-        const containerRect = imageContainer.getBoundingClientRect();
-        
-        // Calculate position relative to container
-        const imageBottomRelative = imageRect.bottom - containerRect.top;
-        const imageCenterRelative = (imageRect.left + imageRect.right) / 2 - containerRect.left;
-        
-        indicators.style.top = `${imageBottomRelative + 10}px`; // 10px below image
-        indicators.style.left = `${imageCenterRelative}px`;
+    // Mobile-aware positioning
+    if (window.innerWidth <= 768) {
+        // Mobile: use CSS positioning instead of JavaScript
+        indicators.style.position = 'absolute';
+        indicators.style.bottom = '10px';
+        indicators.style.left = '50%';
         indicators.style.transform = 'translateX(-50%)';
+        indicators.style.zIndex = '1001';
+        
+        const imageSection = document.querySelector('.lightbox-image-section');
+        imageSection.appendChild(indicators);
+    } else {
+        // Desktop: use the existing JavaScript positioning
+        const imageContainer = image.parentElement;
+        imageContainer.appendChild(indicators);
+        
+        function positionIndicators() {
+            const imageRect = image.getBoundingClientRect();
+            const containerRect = imageContainer.getBoundingClientRect();
+            
+            const imageBottomRelative = imageRect.bottom - containerRect.top;
+            const imageCenterRelative = (imageRect.left + imageRect.right) / 2 - containerRect.left;
+            
+            indicators.style.top = `${imageBottomRelative + 10}px`;
+            indicators.style.left = `${imageCenterRelative}px`;
+            indicators.style.transform = 'translateX(-50%)';
+        }
+        
+        positionIndicators();
+        image.addEventListener('load', positionIndicators);
     }
     
-    // Position initially and on image load
-    positionIndicators();
-    image.addEventListener('load', positionIndicators);
-    
-    console.log(`✅ Added ${currentArtworkViews.length} view indicators positioned below image`);
+    console.log(`Added ${currentArtworkViews.length} view indicators`);
 }
 
 function switchArtworkView(index) {
