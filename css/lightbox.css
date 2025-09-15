@@ -1185,6 +1185,13 @@
 /* Smart Mobile Lightbox - Full-width with dedicated fullscreen mode */
 @media (max-width: 768px) {
     /* Mobile lightbox: Full width and optimized layout */
+
+    .lightbox-container {
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100vw !important;
+    }
+    
     .lightbox-content {
         flex-direction: column;
         width: 100vw !important;
