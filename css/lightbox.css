@@ -1282,34 +1282,33 @@
     }
 
     /* Hide all controls in fullscreen except close button */
+
+    /* Hide close button in mobile fullscreen, show only fullscreen toggle */
+    .lightbox.mobile-fullscreen .lightbox-controls {
+        display: none !important;
+    }
+
+    /* Keep view indicators hidden */
     .lightbox.mobile-fullscreen .view-indicators {
         display: none !important;
     }
 
-    .lightbox.mobile-fullscreen .nav-arrow {
-        display: none !important;
-    }
-
-    /* Keep close button visible in fullscreen */
-    .lightbox.mobile-fullscreen .lightbox-controls {
+    /* Show only the fullscreen toggle button */
+    .lightbox.mobile-fullscreen .fullscreen-toggle {
         position: fixed !important;
-        top: 20px !important;
-        right: 20px !important;
-        z-index: 10001 !important;
-    }
-
-    .lightbox.mobile-fullscreen .control-btn {
-        background: rgba(0, 0, 0, 0.7) !important;
+        bottom: 20px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        z-index: 10002 !important;
+        background: rgba(0, 0, 0, 0.8) !important;
         color: white !important;
         border: 2px solid rgba(255, 255, 255, 0.3) !important;
+        border-radius: 25px !important;
+        padding: 8px 16px !important;
+        font-size: 14px !important;
         backdrop-filter: blur(10px);
     }
 
-    .lightbox.mobile-fullscreen .control-btn:hover {
-        background: rgba(0, 0, 0, 0.9) !important;
-        color: white !important;
-        transform: scale(1.05);
-    }
 
     /* Hide desktop features on mobile */
     .zoom-controls {

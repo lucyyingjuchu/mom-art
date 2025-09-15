@@ -195,95 +195,29 @@ function enterMobileFullscreen() {
 }
 
 function addFullscreenExitGestures() {
+    // Create toggle button instead of complex gestures
+    const toggleButton = document.createElement('button');
+    toggleButton.className = 'control-btn fullscreen-toggle';
+    toggleButton.innerHTML = 'Exit Fullscreen';
+    toggleButton.onclick = exitMobileFullscreen;
+    
     const lightbox = document.querySelector('.lightbox');
-    if (!lightbox) return;
+    if (lightbox) {
+        lightbox.appendChild(toggleButton);
+    }
     
-    let touchStartTime = 0;
-    let initialTouchCount = 0;
-    let startY = 0;
-    let isPinchGesture = false;
-    
-    // Track touch start
-    const touchStart = function(e) {
-        touchStartTime = Date.now();
-        initialTouchCount = e.touches.length;
-        
-        if (e.touches.length === 1) {
-            startY = e.touches[0].clientY;
-            isPinchGesture = false;
-        } else if (e.touches.length === 2) {
-            isPinchGesture = true; // Mark as pinch gesture
-        }
-    };
-    
-    // Track touch move to detect pinch
-    const touchMove = function(e) {
-        if (e.touches.length === 2) {
-            isPinchGesture = true; // Definitely a pinch
-        }
-        
-        // Visual feedback for swipe down (only on single touch)
-        if (e.touches.length === 1 && !isPinchGesture) {
-            const currentY = e.touches[0].clientY;
-            const deltaY = currentY - startY;
-            
-            if (deltaY > 50) {
-                lightbox.style.transform = `translateY(${deltaY * 0.2}px)`;
-                lightbox.style.opacity = Math.max(0.5, 1 - deltaY / 400);
-            }
-        }
-    };
-    
-    // Handle touch end - exit fullscreen
-    const touchEnd = function(e) {
-        const touchDuration = Date.now() - touchStartTime;
-        
-        // Don't exit if it was a pinch gesture
-        if (isPinchGesture) {
-            isPinchGesture = false;
-            return;
-        }
-        
-        // Single tap to exit (like Instagram/Facebook)
-        if (initialTouchCount === 1 && e.touches.length === 0 && touchDuration < 300) {
-            exitMobileFullscreen();
-            return;
-        }
-        
-        // Swipe down to exit
-        if (e.changedTouches && e.changedTouches[0]) {
-            const deltaY = e.changedTouches[0].clientY - startY;
-            if (deltaY > 100) {
-                exitMobileFullscreen();
-            } else {
-                // Reset position if not enough swipe
-                lightbox.style.transform = '';
-                lightbox.style.opacity = '';
-            }
-        }
-    };
-    
-    lightbox.addEventListener('touchstart', touchStart, { passive: true });
-    lightbox.addEventListener('touchmove', touchMove, { passive: true });
-    lightbox.addEventListener('touchend', touchEnd, { passive: true });
-    
+    // No touch event handlers needed
     fullscreenExitHandlers = [
-        { element: lightbox, event: 'touchstart', handler: touchStart },
-        { element: lightbox, event: 'touchmove', handler: touchMove },
-        { element: lightbox, event: 'touchend', handler: touchEnd }
+        { element: toggleButton, type: 'button' }
     ];
 }
 
 function removeFullscreenExitGestures() {
-    // Nothing to remove since no gestures are added
-    fullscreenExitHandlers = [];
-    
-    // Reset any visual transforms just in case
-    const lightbox = document.querySelector('.lightbox');
-    if (lightbox) {
-        lightbox.style.transform = '';
-        lightbox.style.opacity = '';
+    const toggleButton = document.querySelector('.fullscreen-toggle');
+    if (toggleButton) {
+        toggleButton.remove();
     }
+    fullscreenExitHandlers = [];
 }
 
 function exitMobileFullscreen() {
