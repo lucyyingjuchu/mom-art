@@ -180,18 +180,17 @@ function enterMobileFullscreen() {
     // Add fullscreen class for styling
     lightbox.classList.add('mobile-fullscreen');
     
-    // Enable native pinch-zoom and pan for fullscreen
-    image.style.touchAction = 'pinch-zoom';
+    // Enable native pinch-zoom AND single-finger panning
+    image.style.touchAction = 'pan-x pan-y pinch-zoom';
     image.style.maxWidth = '100vw';
     image.style.maxHeight = '100vh';
     image.style.width = 'auto';
     image.style.height = 'auto';
     image.style.objectFit = 'contain';
     
-    // Add exit gestures for fullscreen
     addFullscreenExitGestures();
     
-    console.log('Entered mobile fullscreen mode');
+    console.log('Entered mobile fullscreen mode with pan and zoom');
 }
 
 function addFullscreenExitGestures() {
