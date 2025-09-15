@@ -331,8 +331,43 @@
       "title_en": "Ode to Maternal Grace",
       "original_size_cm": "45×70"
     },
-    "print_ready": false,
-    "reason": "Insufficient resolution for 200 PPI printing"
+    "recommended_sizes": [
+      {
+        "width_inches": 24,
+        "height_inches": 16
+      },
+      {
+        "width_inches": 17,
+        "height_inches": 11
+      },
+      {
+        "width_inches": 12,
+        "height_inches": 8
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "頌母恩",
+        "description": "Traditional Chinese painting by Xiaoran. Ode to Maternal Grace",
+        "file_name": "019891b0-f39c-76be-93c8-cf4233295e95_large.png",
+        "file_size": 3838864,
+        "pix_w": 5824,
+        "pix_h": 3804,
+        "hires_file_name": "019891b0-f39c-76be-93c8-cf4233295e95_large.png",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-76be-93c8-cf4233295e95.jpg",
+        "thumbnail_file_name": "019891b0-f39c-76be-93c8-cf4233295e95_thumb.png",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-76be-93c8-cf4233295e95_thumb.png",
+        "preview_file_name": "019891b0-f39c-76be-93c8-cf4233295e95_large.png",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-76be-93c8-cf4233295e95_large.png"
+      },
+      "format": "png",
+      "dimensions_text": "5824×3804",
+      "file_size_mb": 3.66,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
   },
   "019891b0-f39c-7a7e-b0e7-4bce5225a761": {
     "artwork_info": {
@@ -341,8 +376,35 @@
       "title_en": "",
       "original_size_cm": "75×140"
     },
-    "print_ready": false,
-    "reason": "Insufficient resolution for 200 PPI printing"
+    "recommended_sizes": [
+      {
+        "width_inches": 12,
+        "height_inches": 6
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "別有天地非人間",
+        "description": "Traditional Chinese painting: 別有天地非人間",
+        "file_name": "019891b0-f39c-7a7e-b0e7-4bce5225a761_large.jpg",
+        "file_size": 3399490,
+        "pix_w": 2362,
+        "pix_h": 1284,
+        "hires_file_name": "019891b0-f39c-7a7e-b0e7-4bce5225a761_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-7a7e-b0e7-4bce5225a761.jpg",
+        "thumbnail_file_name": "019891b0-f39c-7a7e-b0e7-4bce5225a761_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-7a7e-b0e7-4bce5225a761_thumb.jpg",
+        "preview_file_name": "019891b0-f39c-7a7e-b0e7-4bce5225a761_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7a7e-b0e7-4bce5225a761_large.jpg"
+      },
+      "format": "png",
+      "dimensions_text": "2362×1284",
+      "file_size_mb": 3.24,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
   },
   "019891b0-f39c-7a5f-a6de-f1a8172971f6": {
     "artwork_info": {
@@ -366,7 +428,7 @@
         "pix_w": 1197,
         "pix_h": 2362,
         "hires_file_name": "019891b0-f39c-7a5f-a6de-f1a8172971f6_large.jpg",
-        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7a5f-a6de-f1a8172971f6_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-7a5f-a6de-f1a8172971f6.jpg",
         "thumbnail_file_name": "019891b0-f39c-7a5f-a6de-f1a8172971f6_thumb.jpg",
         "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-7a5f-a6de-f1a8172971f6_thumb.jpg",
         "preview_file_name": "019891b0-f39c-7a5f-a6de-f1a8172971f6_large.jpg",
@@ -376,8 +438,8 @@
       "dimensions_text": "1197×2362",
       "file_size_mb": 2.78,
       "has_thumbnail": true,
-      "storage_source": "github",
-      "has_high_res_version": false
+      "storage_source": "s3",
+      "has_high_res_version": true
     },
     "print_ready": true
   },
@@ -570,6 +632,43 @@
     },
     "print_ready": true
   },
+  "019891b0-f39c-7e85-8f83-fd90bbaf222d": {
+    "artwork_info": {
+      "id": "019891b0-f39c-7e85-8f83-fd90bbaf222d",
+      "title": "母親的愛",
+      "title_en": "",
+      "original_size_cm": "45×70"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 12,
+        "height_inches": 8
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "母親的愛",
+        "description": "Traditional Chinese painting: 母親的愛",
+        "file_name": "019891b0-f39c-7e85-8f83-fd90bbaf222d_large.jpg",
+        "file_size": 3463154,
+        "pix_w": 2362,
+        "pix_h": 1555,
+        "hires_file_name": "019891b0-f39c-7e85-8f83-fd90bbaf222d_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-7e85-8f83-fd90bbaf222d.jpg",
+        "thumbnail_file_name": "019891b0-f39c-7e85-8f83-fd90bbaf222d_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-7e85-8f83-fd90bbaf222d_thumb.jpg",
+        "preview_file_name": "019891b0-f39c-7e85-8f83-fd90bbaf222d_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7e85-8f83-fd90bbaf222d_large.jpg"
+      },
+      "format": "png",
+      "dimensions_text": "2362×1555",
+      "file_size_mb": 3.3,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
   "019891b0-f39c-787c-a46f-62905fa86f16": {
     "artwork_info": {
       "id": "019891b0-f39c-787c-a46f-62905fa86f16",
@@ -579,12 +678,12 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 8,
-        "height_inches": 13
+        "width_inches": 10,
+        "height_inches": 15
       },
       {
-        "width_inches": 6,
-        "height_inches": 9
+        "width_inches": 7,
+        "height_inches": 10
       }
     ],
     "finerworks_image": {
@@ -593,21 +692,21 @@
         "description": "Traditional Chinese painting by Xiaoran. Mother's Blossoms in Gentle Laughter",
         "file_name": "019891b0-f39c-787c-a46f-62905fa86f16_large.jpg",
         "file_size": 2926716,
-        "pix_w": 1661,
-        "pix_h": 2524,
+        "pix_w": 1974,
+        "pix_h": 3000,
         "hires_file_name": "019891b0-f39c-787c-a46f-62905fa86f16_large.jpg",
-        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-787c-a46f-62905fa86f16_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-787c-a46f-62905fa86f16.jpg",
         "thumbnail_file_name": "019891b0-f39c-787c-a46f-62905fa86f16_thumb.jpg",
         "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-787c-a46f-62905fa86f16_thumb.jpg",
         "preview_file_name": "019891b0-f39c-787c-a46f-62905fa86f16_large.jpg",
         "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-787c-a46f-62905fa86f16_large.jpg"
       },
       "format": "jpeg",
-      "dimensions_text": "1661×2524",
+      "dimensions_text": "1974×3000",
       "file_size_mb": 2.79,
       "has_thumbnail": true,
-      "storage_source": "github",
-      "has_high_res_version": false
+      "storage_source": "s3",
+      "has_high_res_version": true
     },
     "print_ready": true
   },
@@ -651,7 +750,7 @@
         "pix_w": 2362,
         "pix_h": 2234,
         "hires_file_name": "019891b0-f39c-7a34-89ac-966e1e93eb42_large.jpg",
-        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7a34-89ac-966e1e93eb42_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-7a34-89ac-966e1e93eb42.jpg",
         "thumbnail_file_name": "019891b0-f39c-7a34-89ac-966e1e93eb42_thumb.jpg",
         "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-7a34-89ac-966e1e93eb42_thumb.jpg",
         "preview_file_name": "019891b0-f39c-7a34-89ac-966e1e93eb42_large.jpg",
@@ -661,8 +760,8 @@
       "dimensions_text": "2362×2234",
       "file_size_mb": 3.22,
       "has_thumbnail": true,
-      "storage_source": "github",
-      "has_high_res_version": false
+      "storage_source": "s3",
+      "has_high_res_version": true
     },
     "print_ready": true
   },
@@ -809,7 +908,7 @@
         "pix_w": 1254,
         "pix_h": 2362,
         "hires_file_name": "019891b0-f39c-77f0-b10f-4fece05d42ba_large.jpg",
-        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-77f0-b10f-4fece05d42ba_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-77f0-b10f-4fece05d42ba.jpg",
         "thumbnail_file_name": "019891b0-f39c-77f0-b10f-4fece05d42ba_thumb.jpg",
         "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-77f0-b10f-4fece05d42ba_thumb.jpg",
         "preview_file_name": "019891b0-f39c-77f0-b10f-4fece05d42ba_large.jpg",
@@ -819,8 +918,8 @@
       "dimensions_text": "1254×2362",
       "file_size_mb": 3.47,
       "has_thumbnail": true,
-      "storage_source": "github",
-      "has_high_res_version": false
+      "storage_source": "s3",
+      "has_high_res_version": true
     },
     "print_ready": true
   },
@@ -916,7 +1015,11 @@
     "recommended_sizes": [
       {
         "width_inches": 8,
-        "height_inches": 14
+        "height_inches": 15
+      },
+      {
+        "width_inches": 6,
+        "height_inches": 10
       }
     ],
     "finerworks_image": {
@@ -925,21 +1028,21 @@
         "description": "Traditional Chinese painting by Xiaoran. Spring Mountains in Endless Mist",
         "file_name": "019891b0-f39c-7cd6-a030-0406121e5164_large.jpg",
         "file_size": 2491669,
-        "pix_w": 1502,
-        "pix_h": 2792,
+        "pix_w": 1614,
+        "pix_h": 3000,
         "hires_file_name": "019891b0-f39c-7cd6-a030-0406121e5164_large.jpg",
-        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7cd6-a030-0406121e5164_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-7cd6-a030-0406121e5164.jpg",
         "thumbnail_file_name": "019891b0-f39c-7cd6-a030-0406121e5164_thumb.jpg",
         "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-7cd6-a030-0406121e5164_thumb.jpg",
         "preview_file_name": "019891b0-f39c-7cd6-a030-0406121e5164_large.jpg",
         "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7cd6-a030-0406121e5164_large.jpg"
       },
       "format": "jpeg",
-      "dimensions_text": "1502×2792",
+      "dimensions_text": "1614×3000",
       "file_size_mb": 2.38,
       "has_thumbnail": true,
-      "storage_source": "github",
-      "has_high_res_version": false
+      "storage_source": "s3",
+      "has_high_res_version": true
     },
     "print_ready": true
   },
@@ -962,8 +1065,8 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 7,
-        "height_inches": 14
+        "width_inches": 8,
+        "height_inches": 15
       }
     ],
     "finerworks_image": {
@@ -972,21 +1075,21 @@
         "description": "Traditional Chinese painting by Xiaoran. Echoes of the Cascades",
         "file_name": "019891b0-f39c-7f2c-b8af-cbff485e10a5_large.jpg",
         "file_size": 1689473,
-        "pix_w": 1473,
-        "pix_h": 2845,
+        "pix_w": 1553,
+        "pix_h": 3000,
         "hires_file_name": "019891b0-f39c-7f2c-b8af-cbff485e10a5_large.jpg",
-        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7f2c-b8af-cbff485e10a5_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-7f2c-b8af-cbff485e10a5.jpg",
         "thumbnail_file_name": "019891b0-f39c-7f2c-b8af-cbff485e10a5_thumb.jpg",
         "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-7f2c-b8af-cbff485e10a5_thumb.jpg",
         "preview_file_name": "019891b0-f39c-7f2c-b8af-cbff485e10a5_large.jpg",
         "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7f2c-b8af-cbff485e10a5_large.jpg"
       },
       "format": "jpeg",
-      "dimensions_text": "1473×2845",
+      "dimensions_text": "1553×3000",
       "file_size_mb": 1.61,
       "has_thumbnail": true,
-      "storage_source": "github",
-      "has_high_res_version": false
+      "storage_source": "s3",
+      "has_high_res_version": true
     },
     "print_ready": true
   },
@@ -999,12 +1102,12 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 13,
-        "height_inches": 8
+        "width_inches": 15,
+        "height_inches": 9
       },
       {
-        "width_inches": 9,
-        "height_inches": 6
+        "width_inches": 10,
+        "height_inches": 7
       }
     ],
     "finerworks_image": {
@@ -1013,21 +1116,21 @@
         "description": "Traditional Chinese painting by Xiaoran. Spring Along the Peach River Banks",
         "file_name": "019891b0-f39c-728f-a1de-1b6a07cf80ff_large.jpg",
         "file_size": 2738210,
-        "pix_w": 2576,
-        "pix_h": 1627,
+        "pix_w": 3000,
+        "pix_h": 1895,
         "hires_file_name": "019891b0-f39c-728f-a1de-1b6a07cf80ff_large.jpg",
-        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-728f-a1de-1b6a07cf80ff_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-728f-a1de-1b6a07cf80ff.jpg",
         "thumbnail_file_name": "019891b0-f39c-728f-a1de-1b6a07cf80ff_thumb.jpg",
         "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-728f-a1de-1b6a07cf80ff_thumb.jpg",
         "preview_file_name": "019891b0-f39c-728f-a1de-1b6a07cf80ff_large.jpg",
         "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-728f-a1de-1b6a07cf80ff_large.jpg"
       },
       "format": "jpeg",
-      "dimensions_text": "2576×1627",
+      "dimensions_text": "3000×1895",
       "file_size_mb": 2.61,
       "has_thumbnail": true,
-      "storage_source": "github",
-      "has_high_res_version": false
+      "storage_source": "s3",
+      "has_high_res_version": true
     },
     "print_ready": true
   },
@@ -1077,11 +1180,15 @@
     },
     "recommended_sizes": [
       {
+        "width_inches": 15,
+        "height_inches": 15
+      },
+      {
         "width_inches": 10,
         "height_inches": 10
       },
       {
-        "width_inches": 7,
+        "width_inches": 8,
         "height_inches": 7
       }
     ],
@@ -1091,21 +1198,21 @@
         "description": "Traditional Chinese painting by Xiaoran. Joy in the Garden and Village",
         "file_name": "019891b0-f39c-73e0-a9c8-0c6ccf4ed87d_large.jpg",
         "file_size": 3436652,
-        "pix_w": 2049,
-        "pix_h": 2045,
+        "pix_w": 3000,
+        "pix_h": 2994,
         "hires_file_name": "019891b0-f39c-73e0-a9c8-0c6ccf4ed87d_large.jpg",
-        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-73e0-a9c8-0c6ccf4ed87d_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-73e0-a9c8-0c6ccf4ed87d.jpg",
         "thumbnail_file_name": "019891b0-f39c-73e0-a9c8-0c6ccf4ed87d_thumb.jpg",
         "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-73e0-a9c8-0c6ccf4ed87d_thumb.jpg",
         "preview_file_name": "019891b0-f39c-73e0-a9c8-0c6ccf4ed87d_large.jpg",
         "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-73e0-a9c8-0c6ccf4ed87d_large.jpg"
       },
       "format": "jpeg",
-      "dimensions_text": "2049×2045",
+      "dimensions_text": "3000×2994",
       "file_size_mb": 3.28,
       "has_thumbnail": true,
-      "storage_source": "github",
-      "has_high_res_version": false
+      "storage_source": "s3",
+      "has_high_res_version": true
     },
     "print_ready": true
   },
@@ -1159,7 +1266,15 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 7,
+        "width_inches": 15,
+        "height_inches": 15
+      },
+      {
+        "width_inches": 10,
+        "height_inches": 10
+      },
+      {
+        "width_inches": 8,
         "height_inches": 7
       }
     ],
@@ -1169,21 +1284,21 @@
         "description": "Traditional Chinese painting by Xiaoran. Skyward Pen of White Wood",
         "file_name": "019891b0-f39c-7e9f-b136-621667022a8e_large.jpg",
         "file_size": 1629745,
-        "pix_w": 1457,
-        "pix_h": 1438,
+        "pix_w": 3000,
+        "pix_h": 2962,
         "hires_file_name": "019891b0-f39c-7e9f-b136-621667022a8e_large.jpg",
-        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7e9f-b136-621667022a8e_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-7e9f-b136-621667022a8e.jpg",
         "thumbnail_file_name": "019891b0-f39c-7e9f-b136-621667022a8e_thumb.jpg",
         "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-7e9f-b136-621667022a8e_thumb.jpg",
         "preview_file_name": "019891b0-f39c-7e9f-b136-621667022a8e_large.jpg",
         "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7e9f-b136-621667022a8e_large.jpg"
       },
       "format": "jpeg",
-      "dimensions_text": "1457×1438",
+      "dimensions_text": "3000×2962",
       "file_size_mb": 1.55,
       "has_thumbnail": true,
-      "storage_source": "github",
-      "has_high_res_version": false
+      "storage_source": "s3",
+      "has_high_res_version": true
     },
     "print_ready": true
   },
@@ -1196,12 +1311,16 @@
     },
     "recommended_sizes": [
       {
+        "width_inches": 15,
+        "height_inches": 15
+      },
+      {
         "width_inches": 10,
         "height_inches": 10
       },
       {
         "width_inches": 7,
-        "height_inches": 7
+        "height_inches": 8
       }
     ],
     "finerworks_image": {
@@ -1210,21 +1329,21 @@
         "description": "Traditional Chinese painting by Xiaoran. The Brush Creates Flowers, Joy in Understanding - Peony",
         "file_name": "019891b0-f39c-770a-b647-6b0a8efdc639_large.jpg",
         "file_size": 1540887,
-        "pix_w": 2023,
-        "pix_h": 2073,
+        "pix_w": 2928,
+        "pix_h": 3000,
         "hires_file_name": "019891b0-f39c-770a-b647-6b0a8efdc639_large.jpg",
-        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-770a-b647-6b0a8efdc639_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-770a-b647-6b0a8efdc639.jpg",
         "thumbnail_file_name": "019891b0-f39c-770a-b647-6b0a8efdc639_thumb.jpg",
         "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-770a-b647-6b0a8efdc639_thumb.jpg",
         "preview_file_name": "019891b0-f39c-770a-b647-6b0a8efdc639_large.jpg",
         "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-770a-b647-6b0a8efdc639_large.jpg"
       },
       "format": "jpeg",
-      "dimensions_text": "2023×2073",
+      "dimensions_text": "2928×3000",
       "file_size_mb": 1.47,
       "has_thumbnail": true,
-      "storage_source": "github",
-      "has_high_res_version": false
+      "storage_source": "s3",
+      "has_high_res_version": true
     },
     "print_ready": true
   },
@@ -1274,8 +1393,12 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 12,
-        "height_inches": 9
+        "width_inches": 15,
+        "height_inches": 11
+      },
+      {
+        "width_inches": 10,
+        "height_inches": 8
       },
       {
         "width_inches": 8,
@@ -1288,21 +1411,21 @@
         "description": "Traditional Chinese painting by Xiaoran. A Serene Haven by the Water's Edge",
         "file_name": "019891b0-f39c-78da-b5ed-b11a0a0e8bb1_large.jpg",
         "file_size": 3029705,
-        "pix_w": 2367,
-        "pix_h": 1770,
+        "pix_w": 3000,
+        "pix_h": 2243,
         "hires_file_name": "019891b0-f39c-78da-b5ed-b11a0a0e8bb1_large.jpg",
-        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-78da-b5ed-b11a0a0e8bb1_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-78da-b5ed-b11a0a0e8bb1.jpg",
         "thumbnail_file_name": "019891b0-f39c-78da-b5ed-b11a0a0e8bb1_thumb.jpg",
         "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-78da-b5ed-b11a0a0e8bb1_thumb.jpg",
         "preview_file_name": "019891b0-f39c-78da-b5ed-b11a0a0e8bb1_large.jpg",
         "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-78da-b5ed-b11a0a0e8bb1_large.jpg"
       },
       "format": "jpeg",
-      "dimensions_text": "2367×1770",
+      "dimensions_text": "3000×2243",
       "file_size_mb": 2.89,
       "has_thumbnail": true,
-      "storage_source": "github",
-      "has_high_res_version": false
+      "storage_source": "s3",
+      "has_high_res_version": true
     },
     "print_ready": true
   },
@@ -1352,8 +1475,8 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 7,
-        "height_inches": 14
+        "width_inches": 8,
+        "height_inches": 15
       }
     ],
     "finerworks_image": {
@@ -1362,21 +1485,21 @@
         "description": "Traditional Chinese painting by Xiaoran. Serendipity - Encounters are Destiny - Ink Lotus",
         "file_name": "019891b0-f39c-7038-a32d-0f2d0cb36be8_large.jpg",
         "file_size": 2073821,
-        "pix_w": 1460,
-        "pix_h": 2872,
+        "pix_w": 1525,
+        "pix_h": 3000,
         "hires_file_name": "019891b0-f39c-7038-a32d-0f2d0cb36be8_large.jpg",
-        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7038-a32d-0f2d0cb36be8_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-7038-a32d-0f2d0cb36be8.jpg",
         "thumbnail_file_name": "019891b0-f39c-7038-a32d-0f2d0cb36be8_thumb.jpg",
         "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-7038-a32d-0f2d0cb36be8_thumb.jpg",
         "preview_file_name": "019891b0-f39c-7038-a32d-0f2d0cb36be8_large.jpg",
         "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7038-a32d-0f2d0cb36be8_large.jpg"
       },
       "format": "jpeg",
-      "dimensions_text": "1460×2872",
+      "dimensions_text": "1525×3000",
       "file_size_mb": 1.98,
       "has_thumbnail": true,
-      "storage_source": "github",
-      "has_high_res_version": false
+      "storage_source": "s3",
+      "has_high_res_version": true
     },
     "print_ready": true
   },
@@ -1389,11 +1512,15 @@
     },
     "recommended_sizes": [
       {
+        "width_inches": 15,
+        "height_inches": 14
+      },
+      {
         "width_inches": 10,
         "height_inches": 10
       },
       {
-        "width_inches": 7,
+        "width_inches": 8,
         "height_inches": 7
       }
     ],
@@ -1403,21 +1530,21 @@
         "description": "Traditional Chinese painting by Xiaoran. Winter in Zhangjiajie",
         "file_name": "019891b0-f39c-755d-a7dc-fb045eb4ef1c_large.jpg",
         "file_size": 3211520,
-        "pix_w": 2088,
-        "pix_h": 2008,
+        "pix_w": 3000,
+        "pix_h": 2885,
         "hires_file_name": "019891b0-f39c-755d-a7dc-fb045eb4ef1c_large.jpg",
-        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-755d-a7dc-fb045eb4ef1c_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-755d-a7dc-fb045eb4ef1c.jpg",
         "thumbnail_file_name": "019891b0-f39c-755d-a7dc-fb045eb4ef1c_thumb.jpg",
         "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-755d-a7dc-fb045eb4ef1c_thumb.jpg",
         "preview_file_name": "019891b0-f39c-755d-a7dc-fb045eb4ef1c_large.jpg",
         "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-755d-a7dc-fb045eb4ef1c_large.jpg"
       },
       "format": "jpeg",
-      "dimensions_text": "2088×2008",
+      "dimensions_text": "3000×2885",
       "file_size_mb": 3.06,
       "has_thumbnail": true,
-      "storage_source": "github",
-      "has_high_res_version": false
+      "storage_source": "s3",
+      "has_high_res_version": true
     },
     "print_ready": true
   },
@@ -1430,11 +1557,15 @@
     },
     "recommended_sizes": [
       {
+        "width_inches": 15,
+        "height_inches": 14
+      },
+      {
         "width_inches": 10,
         "height_inches": 10
       },
       {
-        "width_inches": 7,
+        "width_inches": 8,
         "height_inches": 7
       }
     ],
@@ -1444,21 +1575,21 @@
         "description": "Traditional Chinese painting by Xiaoran. Spring in Zhangjiajie",
         "file_name": "019891b0-f39c-7bfb-9266-f832146002dd_large.jpg",
         "file_size": 2960160,
-        "pix_w": 2100,
-        "pix_h": 1996,
+        "pix_w": 3000,
+        "pix_h": 2851,
         "hires_file_name": "019891b0-f39c-7bfb-9266-f832146002dd_large.jpg",
-        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7bfb-9266-f832146002dd_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-7bfb-9266-f832146002dd.jpg",
         "thumbnail_file_name": "019891b0-f39c-7bfb-9266-f832146002dd_thumb.jpg",
         "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-7bfb-9266-f832146002dd_thumb.jpg",
         "preview_file_name": "019891b0-f39c-7bfb-9266-f832146002dd_large.jpg",
         "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7bfb-9266-f832146002dd_large.jpg"
       },
       "format": "jpeg",
-      "dimensions_text": "2100×1996",
+      "dimensions_text": "3000×2851",
       "file_size_mb": 2.82,
       "has_thumbnail": true,
-      "storage_source": "github",
-      "has_high_res_version": false
+      "storage_source": "s3",
+      "has_high_res_version": true
     },
     "print_ready": true
   },
@@ -1512,11 +1643,15 @@
     },
     "recommended_sizes": [
       {
+        "width_inches": 15,
+        "height_inches": 15
+      },
+      {
         "width_inches": 10,
         "height_inches": 10
       },
       {
-        "width_inches": 7,
+        "width_inches": 8,
         "height_inches": 7
       }
     ],
@@ -1526,21 +1661,21 @@
         "description": "Traditional Chinese painting by Xiaoran. The Heart of Literature Dances Amidst Blossoms",
         "file_name": "019891b0-f39c-7fd8-9336-d5c9897af012_large.jpg",
         "file_size": 3045412,
-        "pix_w": 2049,
-        "pix_h": 2045,
+        "pix_w": 3000,
+        "pix_h": 2994,
         "hires_file_name": "019891b0-f39c-7fd8-9336-d5c9897af012_large.jpg",
-        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7fd8-9336-d5c9897af012_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-7fd8-9336-d5c9897af012.jpg",
         "thumbnail_file_name": "019891b0-f39c-7fd8-9336-d5c9897af012_thumb.jpg",
         "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-7fd8-9336-d5c9897af012_thumb.jpg",
         "preview_file_name": "019891b0-f39c-7fd8-9336-d5c9897af012_large.jpg",
         "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7fd8-9336-d5c9897af012_large.jpg"
       },
       "format": "jpeg",
-      "dimensions_text": "2049×2045",
+      "dimensions_text": "3000×2994",
       "file_size_mb": 2.9,
       "has_thumbnail": true,
-      "storage_source": "github",
-      "has_high_res_version": false
+      "storage_source": "s3",
+      "has_high_res_version": true
     },
     "print_ready": true
   },
@@ -1553,8 +1688,8 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 7,
-        "height_inches": 14
+        "width_inches": 8,
+        "height_inches": 15
       }
     ],
     "finerworks_image": {
@@ -1563,21 +1698,21 @@
         "description": "Traditional Chinese painting by Xiaoran. Spring Waterfall - Brushes Dance in the Spring Breeze",
         "file_name": "019891b0-f39c-7aff-a45f-54ed6d61069b_large.jpg",
         "file_size": 2954024,
-        "pix_w": 1479,
-        "pix_h": 2833,
+        "pix_w": 1566,
+        "pix_h": 3000,
         "hires_file_name": "019891b0-f39c-7aff-a45f-54ed6d61069b_large.jpg",
-        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7aff-a45f-54ed6d61069b_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-7aff-a45f-54ed6d61069b.jpg",
         "thumbnail_file_name": "019891b0-f39c-7aff-a45f-54ed6d61069b_thumb.jpg",
         "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-7aff-a45f-54ed6d61069b_thumb.jpg",
         "preview_file_name": "019891b0-f39c-7aff-a45f-54ed6d61069b_large.jpg",
         "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7aff-a45f-54ed6d61069b_large.jpg"
       },
       "format": "jpeg",
-      "dimensions_text": "1479×2833",
+      "dimensions_text": "1566×3000",
       "file_size_mb": 2.82,
       "has_thumbnail": true,
-      "storage_source": "github",
-      "has_high_res_version": false
+      "storage_source": "s3",
+      "has_high_res_version": true
     },
     "print_ready": true
   },
@@ -1590,12 +1725,12 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 8,
-        "height_inches": 13
+        "width_inches": 9,
+        "height_inches": 15
       },
       {
-        "width_inches": 6,
-        "height_inches": 9
+        "width_inches": 7,
+        "height_inches": 10
       }
     ],
     "finerworks_image": {
@@ -1604,21 +1739,21 @@
         "description": "Traditional Chinese painting by Xiaoran. Woodland Sentiment",
         "file_name": "019891b0-f39c-7af0-82e2-2e72570b0aa1_large.jpg",
         "file_size": 3474092,
-        "pix_w": 1623,
-        "pix_h": 2583,
+        "pix_w": 1885,
+        "pix_h": 3000,
         "hires_file_name": "019891b0-f39c-7af0-82e2-2e72570b0aa1_large.jpg",
-        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7af0-82e2-2e72570b0aa1_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-7af0-82e2-2e72570b0aa1.jpg",
         "thumbnail_file_name": "019891b0-f39c-7af0-82e2-2e72570b0aa1_thumb.jpg",
         "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-7af0-82e2-2e72570b0aa1_thumb.jpg",
         "preview_file_name": "019891b0-f39c-7af0-82e2-2e72570b0aa1_large.jpg",
         "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7af0-82e2-2e72570b0aa1_large.jpg"
       },
       "format": "jpeg",
-      "dimensions_text": "1623×2583",
+      "dimensions_text": "1885×3000",
       "file_size_mb": 3.31,
       "has_thumbnail": true,
-      "storage_source": "github",
-      "has_high_res_version": false
+      "storage_source": "s3",
+      "has_high_res_version": true
     },
     "print_ready": true
   },
@@ -1641,21 +1776,21 @@
         "description": "Traditional Chinese painting by Xiaoran. Unbound by Clouds",
         "file_name": "019891b0-f39c-78dc-adb1-0aa1b3b74a00_large.jpg",
         "file_size": 2366582,
-        "pix_w": 2902,
-        "pix_h": 1445,
+        "pix_w": 3000,
+        "pix_h": 1494,
         "hires_file_name": "019891b0-f39c-78dc-adb1-0aa1b3b74a00_large.jpg",
-        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-78dc-adb1-0aa1b3b74a00_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-78dc-adb1-0aa1b3b74a00.jpg",
         "thumbnail_file_name": "019891b0-f39c-78dc-adb1-0aa1b3b74a00_thumb.jpg",
         "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-78dc-adb1-0aa1b3b74a00_thumb.jpg",
         "preview_file_name": "019891b0-f39c-78dc-adb1-0aa1b3b74a00_large.jpg",
         "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-78dc-adb1-0aa1b3b74a00_large.jpg"
       },
       "format": "jpeg",
-      "dimensions_text": "2902×1445",
+      "dimensions_text": "3000×1494",
       "file_size_mb": 2.26,
       "has_thumbnail": true,
-      "storage_source": "github",
-      "has_high_res_version": false
+      "storage_source": "s3",
+      "has_high_res_version": true
     },
     "print_ready": true
   },
@@ -1668,12 +1803,12 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 12,
-        "height_inches": 8
+        "width_inches": 15,
+        "height_inches": 10
       },
       {
-        "width_inches": 9,
-        "height_inches": 6
+        "width_inches": 10,
+        "height_inches": 7
       }
     ],
     "finerworks_image": {
@@ -1682,21 +1817,21 @@
         "description": "Traditional Chinese painting by Xiaoran. Echoes of Waves - Gazing at the Stone Steps",
         "file_name": "019891b0-f39c-7597-8177-ccdf69e29071_large.jpg",
         "file_size": 2149381,
-        "pix_w": 2494,
-        "pix_h": 1680,
+        "pix_w": 3000,
+        "pix_h": 2021,
         "hires_file_name": "019891b0-f39c-7597-8177-ccdf69e29071_large.jpg",
-        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7597-8177-ccdf69e29071_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-7597-8177-ccdf69e29071.jpg",
         "thumbnail_file_name": "019891b0-f39c-7597-8177-ccdf69e29071_thumb.jpg",
         "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-7597-8177-ccdf69e29071_thumb.jpg",
         "preview_file_name": "019891b0-f39c-7597-8177-ccdf69e29071_large.jpg",
         "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7597-8177-ccdf69e29071_large.jpg"
       },
       "format": "jpeg",
-      "dimensions_text": "2494×1680",
+      "dimensions_text": "3000×2021",
       "file_size_mb": 2.05,
       "has_thumbnail": true,
-      "storage_source": "github",
-      "has_high_res_version": false
+      "storage_source": "s3",
+      "has_high_res_version": true
     },
     "print_ready": true
   },
@@ -1709,12 +1844,12 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 8,
-        "height_inches": 13
+        "width_inches": 10,
+        "height_inches": 15
       },
       {
-        "width_inches": 6,
-        "height_inches": 9
+        "width_inches": 7,
+        "height_inches": 10
       }
     ],
     "finerworks_image": {
@@ -1723,21 +1858,21 @@
         "description": "Traditional Chinese painting by Xiaoran. A Branch of Spring Soars in the Void",
         "file_name": "019891b0-f39c-7c4a-a8f5-77fdf9b0873a_large.jpg",
         "file_size": 1091547,
-        "pix_w": 1651,
-        "pix_h": 2538,
+        "pix_w": 1952,
+        "pix_h": 3000,
         "hires_file_name": "019891b0-f39c-7c4a-a8f5-77fdf9b0873a_large.jpg",
-        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7c4a-a8f5-77fdf9b0873a_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-7c4a-a8f5-77fdf9b0873a.jpg",
         "thumbnail_file_name": "019891b0-f39c-7c4a-a8f5-77fdf9b0873a_thumb.jpg",
         "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-7c4a-a8f5-77fdf9b0873a_thumb.jpg",
         "preview_file_name": "019891b0-f39c-7c4a-a8f5-77fdf9b0873a_large.jpg",
         "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7c4a-a8f5-77fdf9b0873a_large.jpg"
       },
       "format": "jpeg",
-      "dimensions_text": "1651×2538",
+      "dimensions_text": "1952×3000",
       "file_size_mb": 1.04,
       "has_thumbnail": true,
-      "storage_source": "github",
-      "has_high_res_version": false
+      "storage_source": "s3",
+      "has_high_res_version": true
     },
     "print_ready": true
   },
@@ -1830,8 +1965,39 @@
       "title_en": "Graceful Dance of Peonies in Tranquil Harmony",
       "original_size_cm": "70×45"
     },
-    "print_ready": false,
-    "reason": "Insufficient resolution for 200 PPI printing"
+    "recommended_sizes": [
+      {
+        "width_inches": 10,
+        "height_inches": 15
+      },
+      {
+        "width_inches": 7,
+        "height_inches": 10
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "雍容華滋舞清和-牡丹",
+        "description": "Traditional Chinese painting by Xiaoran. Graceful Dance of Peonies in Tranquil Harmony",
+        "file_name": "019891b0-f39c-7871-b204-09fa520d0d23_large.jpg",
+        "file_size": 1386510,
+        "pix_w": 1962,
+        "pix_h": 3000,
+        "hires_file_name": "019891b0-f39c-7871-b204-09fa520d0d23_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-7871-b204-09fa520d0d23.jpg",
+        "thumbnail_file_name": "019891b0-f39c-7871-b204-09fa520d0d23_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-7871-b204-09fa520d0d23_thumb.jpg",
+        "preview_file_name": "019891b0-f39c-7871-b204-09fa520d0d23_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7871-b204-09fa520d0d23_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "1962×3000",
+      "file_size_mb": 1.32,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
   },
   "019891b0-f39c-79ee-915a-34d3aa1decd1": {
     "artwork_info": {
@@ -2657,47 +2823,6 @@
     },
     "print_ready": true
   },
-  "019891b0-f39c-71b7-918f-b55fd4fbca35": {
-    "artwork_info": {
-      "id": "019891b0-f39c-71b7-918f-b55fd4fbca35",
-      "title": "自在-文心蘭",
-      "title_en": "Serenity - Orchid of the Mind",
-      "original_size_cm": "70×70"
-    },
-    "recommended_sizes": [
-      {
-        "width_inches": 10,
-        "height_inches": 10
-      },
-      {
-        "width_inches": 7,
-        "height_inches": 7
-      }
-    ],
-    "finerworks_image": {
-      "finerworks_api_object": {
-        "title": "自在-文心蘭",
-        "description": "Traditional Chinese painting by Xiaoran. Serenity - Orchid of the Mind",
-        "file_name": "019891b0-f39c-71b7-918f-b55fd4fbca35_large.jpg",
-        "file_size": 3045412,
-        "pix_w": 2049,
-        "pix_h": 2045,
-        "hires_file_name": "019891b0-f39c-71b7-918f-b55fd4fbca35_large.jpg",
-        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-71b7-918f-b55fd4fbca35_large.jpg",
-        "thumbnail_file_name": "019891b0-f39c-71b7-918f-b55fd4fbca35_thumb.jpg",
-        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-71b7-918f-b55fd4fbca35_thumb.jpg",
-        "preview_file_name": "019891b0-f39c-71b7-918f-b55fd4fbca35_large.jpg",
-        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-71b7-918f-b55fd4fbca35_large.jpg"
-      },
-      "format": "jpeg",
-      "dimensions_text": "2049×2045",
-      "file_size_mb": 2.9,
-      "has_thumbnail": true,
-      "storage_source": "github",
-      "has_high_res_version": false
-    },
-    "print_ready": true
-  },
   "019891b0-f39c-7b83-902a-1f7f7bc72183": {
     "artwork_info": {
       "id": "019891b0-f39c-7b83-902a-1f7f7bc72183",
@@ -3141,6 +3266,51 @@
     },
     "print_ready": false,
     "reason": "Insufficient resolution for 200 PPI printing"
+  },
+  "019891b0-f39c-70a9-9b91-b5a11b16a4e5": {
+    "artwork_info": {
+      "id": "019891b0-f39c-70a9-9b91-b5a11b16a4e5",
+      "title": "無極萬瀑流",
+      "title_en": "",
+      "original_size_cm": "70×135"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 24,
+        "height_inches": 12
+      },
+      {
+        "width_inches": 17,
+        "height_inches": 8
+      },
+      {
+        "width_inches": 12,
+        "height_inches": 6
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "無極萬瀑流",
+        "description": "Traditional Chinese painting: 無極萬瀑流",
+        "file_name": "019891b0-f39c-70a9-9b91-b5a11b16a4e5_large.jpg",
+        "file_size": 3129158,
+        "pix_w": 6239,
+        "pix_h": 3129,
+        "hires_file_name": "019891b0-f39c-70a9-9b91-b5a11b16a4e5_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-70a9-9b91-b5a11b16a4e5.jpg",
+        "thumbnail_file_name": "019891b0-f39c-70a9-9b91-b5a11b16a4e5_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-70a9-9b91-b5a11b16a4e5_thumb.jpg",
+        "preview_file_name": "019891b0-f39c-70a9-9b91-b5a11b16a4e5_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-70a9-9b91-b5a11b16a4e5_large.jpg"
+      },
+      "format": "png",
+      "dimensions_text": "6239×3129",
+      "file_size_mb": 2.98,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
   },
   "019891b0-f39c-7b5a-9017-6de6a497f059": {
     "artwork_info": {
