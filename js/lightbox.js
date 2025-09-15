@@ -236,12 +236,16 @@ function addDoubleTapZoomReset(image) {
         const currentTime = new Date().getTime();
         const tapLength = currentTime - lastTap;
         
-        // Double tap detected (within 300ms)
         if (tapLength < 300 && tapLength > 0) {
             e.preventDefault();
             
-            // Reset zoom and position
-            image.style.transform = 'scale(1) translate(0, 0)';
+            // Force a refresh to reset native zoom
+            const currentSrc = image.src;
+            image.style.transform = 'none';
+            image.src = '';
+            setTimeout(() => {
+                image.src = currentSrc;
+            }, 10);
             
             console.log('Double-tap zoom reset');
         }
