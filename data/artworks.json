@@ -3131,7 +3131,7 @@
     "description": "山花籃如海，雙羽舞翩翩；笑拈含煙翠，揮筆寫大千。",
     "descriptionEn": "In a basket of mountain blooms, like an ocean they spread wide, With twin wings dancing gracefully, in the gentle breeze they glide. With laughter, I pluck the misty greens, in hand, the brush I wield, To inscribe the vastness of the world, where dreams and beauty yield.",
     "format": "鏡片",
-    "year": "2022",
+    "year": "2022.8",
     "price": "",
     "available": "",
     "featured": "",
@@ -4042,44 +4042,6 @@
       {
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-721e-8576-4e3f61c0e800_large.jpg"
-      }
-    ]
-  },
-  {
-    "id": "019891b0-f39c-71b7-918f-b55fd4fbca35",
-    "title": "自在-文心蘭",
-    "titleEn": "Serenity - Orchid of the Mind",
-    "image": "./images/paintings/thumbnails/019891b0-f39c-71b7-918f-b55fd4fbca35_thumb.jpg",
-    "imageHigh": "images\\paintings\\large\\019891b0-f39c-71b7-918f-b55fd4fbca35_large.jpg",
-    "description": "文心自在舞芳菲―寫胸中逸氣",
-    "descriptionEn": "With a free spirit, I dance among the blossoms— Expressing the unrestrained thoughts within my heart.",
-    "format": "框",
-    "year": "2022",
-    "price": "",
-    "available": "",
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "formatEn": "Framed",
-    "heightCm": 70,
-    "widthCm": 70,
-    "heightInches": 27.6,
-    "widthInches": 27.6,
-    "autoCategories": {
-      "subjects": [
-        "flowers",
-        "calligraphy"
-      ],
-      "locations": []
-    },
-    "manualCategories": {
-      "subjects": [],
-      "locations": []
-    },
-    "productViews": [
-      {
-        "type": "original",
-        "image": "./images/paintings/large/019891b0-f39c-71b7-918f-b55fd4fbca35_large.jpg"
       }
     ]
   },
