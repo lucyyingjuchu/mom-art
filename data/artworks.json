@@ -2806,40 +2806,6 @@
     ]
   },
   {
-    "id": "019891b0-f39c-7823-8592-e3871b17c028",
-    "title": "牡丹-妙筆生花喜解語",
-    "year": "2021",
-    "heightCm": 70,
-    "widthCm": 70,
-    "format": "框",
-    "description": "妙筆生花喜解語，從容落墨壽澤長。",
-    "curatorNote": "",
-    "featured": false,
-    "available": true,
-    "price": "",
-    "autoCategories": {
-      "subjects": [],
-      "locations": []
-    },
-    "manualCategories": {
-      "subjects": [
-        "flowers"
-      ],
-      "locations": []
-    },
-    "image": "",
-    "imageHigh": "",
-    "categories": [
-      "flowers"
-    ],
-    "formatEn": "Framed",
-    "heightInches": 27.6,
-    "widthInches": 27.6,
-    "titleEn": "Peony - The Brush Blossoms with Joyful Words",
-    "descriptionEn": "With skillful brush, joy in words takes flight,  Calmly the ink falls, blessings long in sight.",
-    "curatorNoteEn": ""
-  },
-  {
     "id": "019891b0-f39c-7edc-9801-8bc9199124f3",
     "title": "白雲出遠岫，會心共徜徉。",
     "titleEn": "White Clouds from Distant Peaks, Wandering in Harmony",
