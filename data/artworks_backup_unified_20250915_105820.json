@@ -877,6 +877,7 @@
     "year": "2017",
     "heightCm": 90,
     "widthCm": 75,
+    "sizeCm": "90 × 75 cm",
     "format": "框",
     "description": "滾滾浪捲萬頃波，蒼蒼石疊千仞峰；飛鳥翔雲百里游，海天競秀一龍洞。",
     "curatorNote": "",
@@ -914,9 +915,7 @@
     "titleEn": "",
     "descriptionEn": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed",
-    "heightInches": 35.4,
-    "widthInches": 29.5
+    "formatEn": ""
   },
   {
     "id": "019891b0-f39c-7220-b00b-be8e9249f911",
@@ -1072,9 +1071,7 @@
     "titleEn": "",
     "descriptionEn": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed",
-    "heightInches": 29.5,
-    "widthInches": 55.1
+    "formatEn": ""
   },
   {
     "id": "019891b0-f39c-7a5f-a6de-f1a8172971f6",
@@ -1082,6 +1079,7 @@
     "year": "2018",
     "heightCm": 140,
     "widthCm": 75,
+    "sizeCm": "140 × 75 cm",
     "format": "框",
     "description": "雲浮千里白，笑擁萬山紅；遙望雲歸處，合歡自在同。",
     "curatorNote": "",
@@ -1123,9 +1121,7 @@
     "titleEn": "",
     "descriptionEn": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed",
-    "heightInches": 55.1,
-    "widthInches": 29.5
+    "formatEn": ""
   },
   {
     "id": "019891b0-f39c-74e9-9011-76112f5b97a4",
@@ -1422,6 +1418,7 @@
     "year": "2018",
     "heightCm": 45,
     "widthCm": 70,
+    "sizeCm": "45 × 70 cm",
     "format": "框",
     "description": "母親的愛-是寸草春暉中唱不完的歌聲",
     "curatorNote": "",
@@ -1446,9 +1443,7 @@
     "titleEn": "",
     "descriptionEn": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed",
-    "heightInches": 17.7,
-    "widthInches": 27.6
+    "formatEn": ""
   },
   {
     "id": "019891b0-f39c-787c-a46f-62905fa86f16",
@@ -1588,6 +1583,7 @@
     "year": "2018",
     "heightCm": 135,
     "widthCm": 70,
+    "sizeCm": "135 × 70 cm",
     "format": "框",
     "description": "煙擁合歡，霧潤良疇，碧山含笑，雲凝翠黛，天然節奏，有象文章，風光綿延，機趣無窮。",
     "curatorNote": "",
@@ -1625,9 +1621,7 @@
     "titleEn": "",
     "descriptionEn": "",
     "curatorNoteEn": "",
-    "formatEn": "Framed",
-    "heightInches": 53.1,
-    "widthInches": 27.6
+    "formatEn": ""
   },
   {
     "id": "019891b0-f39c-74e5-8201-1f0276798b75",
@@ -2175,6 +2169,7 @@
     "year": "2021",
     "heightCm": 140,
     "widthCm": 75,
+    "sizeCm": "140 × 75 cm",
     "format": "軸",
     "description": "秋雲渺渺舞蒼穹，芒草迎風虎杖紅；墨染千山常自在，合歡松雪有無中。",
     "curatorNote": "",
@@ -2212,9 +2207,7 @@
     "titleEn": "",
     "descriptionEn": "",
     "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll",
-    "heightInches": 55.1,
-    "widthInches": 29.5
+    "formatEn": ""
   },
   {
     "id": "019891b0-f39c-73e0-a9c8-0c6ccf4ed87d",
@@ -5292,6 +5285,7 @@
     "year": "unknown",
     "heightCm": 70,
     "widthCm": 135,
+    "sizeCm": "70 × 135 cm",
     "format": "",
     "description": "無極萬瀑流，滌盡古今愁；悠悠泱雲湧，忘機物外遊。",
     "curatorNote": "",
@@ -5318,9 +5312,7 @@
     "titleEn": "",
     "descriptionEn": "",
     "curatorNoteEn": "",
-    "formatEn": "",
-    "heightInches": 27.6,
-    "widthInches": 53.1
+    "formatEn": ""
   },
   {
     "id": "019891b0-f39c-71ca-b2c1-0ccf8cbe55e2",
