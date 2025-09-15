@@ -101,19 +101,14 @@ function setupMobileImage(image) {
     }, { passive: true });
     
     image.addEventListener('touchend', function(e) {
-        // Only proceed if it's a single tap
         if (e.touches.length === 0 && tapStartTime > 0) {
             const tapDuration = Date.now() - tapStartTime;
             const timeSinceScroll = Date.now() - lastScrollTime;
             
-            // Only allow tap-to-fullscreen if:
-            // 1. It's a quick tap (not a long press)
-            // 2. User hasn't scrolled recently
             if (tapDuration < 300 && timeSinceScroll > SCROLL_COOLDOWN && !isScrolling) {
+                e.stopPropagation(); // Prevent bubbling to lightbox
                 console.log('Smart tap detected - entering fullscreen');
                 enterMobileFullscreen();
-            } else if (timeSinceScroll <= SCROLL_COOLDOWN) {
-                console.log('Tap ignored - user was recently scrolling');
             }
         }
         tapStartTime = 0;
