@@ -195,18 +195,17 @@ function enterMobileFullscreen() {
 }
 
 function addFullscreenExitGestures() {
-    // Create toggle button instead of complex gestures
     const toggleButton = document.createElement('button');
     toggleButton.className = 'control-btn fullscreen-toggle';
-    toggleButton.innerHTML = 'Exit Fullscreen';
+    toggleButton.innerHTML = '⛶'; // Or use ↙ for "back to corner" or ⤓ for "exit fullscreen"
     toggleButton.onclick = exitMobileFullscreen;
+    toggleButton.title = 'Exit Fullscreen';
     
     const lightbox = document.querySelector('.lightbox');
     if (lightbox) {
         lightbox.appendChild(toggleButton);
     }
     
-    // No touch event handlers needed
     fullscreenExitHandlers = [
         { element: toggleButton, type: 'button' }
     ];
