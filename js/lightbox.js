@@ -29,6 +29,12 @@ let currentArtworkViews = [];
 let currentViewIndex = 0;
 const BLOCK_DURATION = 600;
 
+let lastScrollTime = 0;
+let isScrolling = false;
+const SCROLL_COOLDOWN = 500; // ms to wait after scrolling before allowing tap-to-fullscreen
+let fullscreenExitHandlers = [];
+
+
 // ================================
 // DEVICE DETECTION
 // ================================
@@ -53,7 +59,7 @@ function isTabletDevice() {
 // ================================
 
 function initializeMobileLightbox() {
-    console.log('📱 Initializing mobile lightbox experience');
+    console.log('📱 Initializing smart mobile lightbox with fullscreen mode');
     
     const image = document.getElementById('lightboxImage');
     if (!image) return;
@@ -63,7 +69,7 @@ function initializeMobileLightbox() {
     panX = 0;
     panY = 0;
     
-    // Remove existing desktop event listeners by cloning
+    // Remove existing event listeners by cloning
     const newImage = image.cloneNode(true);
     image.parentNode.replaceChild(newImage, image);
     
@@ -73,8 +79,8 @@ function initializeMobileLightbox() {
 }
 
 function setupMobileImage(image) {
-    // Enable native browser zoom
-    image.style.touchAction = 'pinch-zoom';
+    // Enable native browser zoom in fullscreen mode only
+    image.style.touchAction = 'manipulation'; // Allows pinch-zoom but prevents double-tap zoom
     image.style.userSelect = 'none';
     image.style.webkitUserSelect = 'none';
     
@@ -82,10 +88,36 @@ function setupMobileImage(image) {
     image.style.transform = 'none';
     image.style.transformOrigin = 'center center';
     
-    // Remove cursor styling - not needed on mobile
+    // Default cursor
     image.style.cursor = 'default';
     
-    // NO TAP-TO-CLOSE - removed all tap event listeners
+    // Add smart tap-to-fullscreen with scroll detection
+    let tapStartTime = 0;
+    
+    image.addEventListener('touchstart', function(e) {
+        if (e.touches.length === 1) {
+            tapStartTime = Date.now();
+        }
+    }, { passive: true });
+    
+    image.addEventListener('touchend', function(e) {
+        // Only proceed if it's a single tap
+        if (e.touches.length === 0 && tapStartTime > 0) {
+            const tapDuration = Date.now() - tapStartTime;
+            const timeSinceScroll = Date.now() - lastScrollTime;
+            
+            // Only allow tap-to-fullscreen if:
+            // 1. It's a quick tap (not a long press)
+            // 2. User hasn't scrolled recently
+            if (tapDuration < 300 && timeSinceScroll > SCROLL_COOLDOWN && !isScrolling) {
+                console.log('Smart tap detected - entering fullscreen');
+                enterMobileFullscreen();
+            } else if (timeSinceScroll <= SCROLL_COOLDOWN) {
+                console.log('Tap ignored - user was recently scrolling');
+            }
+        }
+        tapStartTime = 0;
+    }, { passive: true });
     
     currentImage = image;
 }
@@ -94,72 +126,175 @@ function addMobileGestures() {
     const lightboxContent = document.querySelector('.lightbox-content');
     if (!lightboxContent) return;
     
-    // Only add horizontal swipe gestures for view navigation
-    let startX = 0;
+    // Track scrolling to prevent accidental tap-to-fullscreen
+    lightboxContent.addEventListener('scroll', function(e) {
+        lastScrollTime = Date.now();
+        isScrolling = true;
+        
+        // Clear scrolling flag after a short delay
+        clearTimeout(window.scrollTimeout);
+        window.scrollTimeout = setTimeout(() => {
+            isScrolling = false;
+        }, 150);
+    }, { passive: true });
+    
+    // Also track touch-based scrolling
     let startY = 0;
-    let currentX = 0;
-    let isHorizontalSwipe = false;
-    let swipeStartTime = 0;
+    let isVerticalGesture = false;
     
     lightboxContent.addEventListener('touchstart', function(e) {
         if (e.touches.length === 1) {
-            startX = e.touches[0].clientX;
             startY = e.touches[0].clientY;
-            swipeStartTime = Date.now();
-            isHorizontalSwipe = false;
+            isVerticalGesture = false;
         }
     }, { passive: true });
     
     lightboxContent.addEventListener('touchmove', function(e) {
-        if (e.touches.length !== 1) return;
-        
-        currentX = e.touches[0].clientX;
-        const currentY = e.touches[0].clientY;
-        const deltaX = currentX - startX;
-        const deltaY = currentY - startY;
-        const swipeTime = Date.now() - swipeStartTime;
-        
-        // Determine if this is a horizontal swipe
-        if (!isHorizontalSwipe && swipeTime < 300) {
-            if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 30) {
-                isHorizontalSwipe = true;
+        if (e.touches.length === 1) {
+            const currentY = e.touches[0].clientY;
+            const deltaY = Math.abs(currentY - startY);
+            
+            // If significant vertical movement, consider it scrolling
+            if (deltaY > 10) {
+                lastScrollTime = Date.now();
+                isScrolling = true;
+                isVerticalGesture = true;
             }
         }
-        
-        // Only prevent default for horizontal swipes to allow normal vertical scrolling
-        if (isHorizontalSwipe && Math.abs(deltaX) > 50) {
-            e.preventDefault();
-        }
-        
-    }, { passive: false });
+    }, { passive: true });
     
     lightboxContent.addEventListener('touchend', function(e) {
-        if (!isHorizontalSwipe) return;
-        
-        const deltaX = currentX - startX;
-        const swipeTime = Date.now() - swipeStartTime;
-        const swipeVelocity = Math.abs(deltaX) / swipeTime;
-        
-        // Trigger view change if significant horizontal distance OR fast gesture
-        if ((Math.abs(deltaX) > 80 && swipeTime < 400) || swipeVelocity > 0.3) {
-            
-            // Only proceed if there are multiple views
-            if (currentArtworkViews && currentArtworkViews.length > 1) {
-                if (deltaX > 0) {
-                    // Swipe right - previous view
-                    const prevIndex = currentViewIndex > 0 ? currentViewIndex - 1 : currentArtworkViews.length - 1;
-                    switchArtworkView(prevIndex);
-                } else {
-                    // Swipe left - next view  
-                    const nextIndex = currentViewIndex < currentArtworkViews.length - 1 ? currentViewIndex + 1 : 0;
-                    switchArtworkView(nextIndex);
-                }
-            }
+        if (isVerticalGesture) {
+            // Give extra time after vertical gestures
+            setTimeout(() => {
+                isScrolling = false;
+            }, 200);
         }
-        
-        isHorizontalSwipe = false;
+        isVerticalGesture = false;
     }, { passive: true });
 }
+
+// Mobile fullscreen mode - dedicated image viewing
+function enterMobileFullscreen() {
+    const lightbox = document.querySelector('.lightbox');
+    const lightboxContent = document.querySelector('.lightbox-content');
+    const image = document.getElementById('lightboxImage');
+    
+    if (!lightbox || !lightboxContent || !image) return;
+    
+    // Add fullscreen class for styling
+    lightbox.classList.add('mobile-fullscreen');
+    
+    // Enable native pinch-zoom and pan for fullscreen
+    image.style.touchAction = 'pinch-zoom';
+    image.style.maxWidth = '100vw';
+    image.style.maxHeight = '100vh';
+    image.style.width = 'auto';
+    image.style.height = 'auto';
+    image.style.objectFit = 'contain';
+    
+    // Add exit gestures for fullscreen
+    addFullscreenExitGestures();
+    
+    console.log('Entered mobile fullscreen mode');
+}
+
+function addFullscreenExitGestures() {
+    const lightbox = document.querySelector('.lightbox');
+    if (!lightbox) return;
+    
+    // Tap to exit (outside image or on image)
+    const tapHandler = function(e) {
+        // Simple tap anywhere to exit fullscreen
+        exitMobileFullscreen();
+    };
+    
+    // Swipe down to exit
+    let startY = 0;
+    let currentY = 0;
+    const swipeHandler = {
+        start: function(e) {
+            if (e.touches.length === 1) {
+                startY = e.touches[0].clientY;
+            }
+        },
+        move: function(e) {
+            if (e.touches.length === 1) {
+                currentY = e.touches[0].clientY;
+                const deltaY = currentY - startY;
+                
+                // Visual feedback for downward swipe
+                if (deltaY > 50) {
+                    lightbox.style.transform = `translateY(${deltaY * 0.2}px)`;
+                    lightbox.style.opacity = Math.max(0.5, 1 - deltaY / 400);
+                }
+            }
+        },
+        end: function(e) {
+            const deltaY = currentY - startY;
+            
+            if (deltaY > 100) {
+                exitMobileFullscreen();
+            } else {
+                // Reset position
+                lightbox.style.transform = '';
+                lightbox.style.opacity = '';
+            }
+        }
+    };
+    
+    // Add event listeners
+    lightbox.addEventListener('touchstart', tapHandler, { passive: true });
+    lightbox.addEventListener('touchstart', swipeHandler.start, { passive: true });
+    lightbox.addEventListener('touchmove', swipeHandler.move, { passive: true });
+    lightbox.addEventListener('touchend', swipeHandler.end, { passive: true });
+    
+    // Store handlers for removal
+    fullscreenExitHandlers = [
+        { element: lightbox, event: 'touchstart', handler: tapHandler },
+        { element: lightbox, event: 'touchstart', handler: swipeHandler.start },
+        { element: lightbox, event: 'touchmove', handler: swipeHandler.move },
+        { element: lightbox, event: 'touchend', handler: swipeHandler.end }
+    ];
+}
+
+function removeFullscreenExitGestures() {
+    fullscreenExitHandlers.forEach(({ element, event, handler }) => {
+        element.removeEventListener(event, handler);
+    });
+    fullscreenExitHandlers = [];
+    
+    // Reset any visual transforms
+    const lightbox = document.querySelector('.lightbox');
+    if (lightbox) {
+        lightbox.style.transform = '';
+        lightbox.style.opacity = '';
+    }
+}
+
+function exitMobileFullscreen() {
+    const lightbox = document.querySelector('.lightbox');
+    const image = document.getElementById('lightboxImage');
+    
+    if (!lightbox || !image) return;
+    
+    // Remove fullscreen class
+    lightbox.classList.remove('mobile-fullscreen');
+    
+    // Restore normal mobile image settings
+    image.style.touchAction = 'manipulation';
+    image.style.maxWidth = '';
+    image.style.maxHeight = '';
+    image.style.width = '';
+    image.style.height = '';
+    image.style.objectFit = '';
+    
+    // Remove fullscreen exit gestures
+    removeFullscreenExitGestures();
+    
+    console.log('Exited mobile fullscreen mode');
+}
+
 
 function removeDeskopZoomControls() {
     const zoomControls = document.querySelector('.zoom-controls');
@@ -167,7 +302,6 @@ function removeDeskopZoomControls() {
         zoomControls.remove();
     }
     
-    // Remove zoom indicators
     const zoomIndicator = document.querySelector('.zoom-indicator');
     if (zoomIndicator) {
         zoomIndicator.remove();
