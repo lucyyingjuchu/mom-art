@@ -121,51 +121,84 @@ function addMobileGestures() {
     const lightboxContent = document.querySelector('.lightbox-content');
     if (!lightboxContent) return;
     
-    // Track scrolling to prevent accidental tap-to-fullscreen
+    // Track scrolling (existing code)
     lightboxContent.addEventListener('scroll', function(e) {
         lastScrollTime = Date.now();
         isScrolling = true;
         
-        // Clear scrolling flag after a short delay
         clearTimeout(window.scrollTimeout);
         window.scrollTimeout = setTimeout(() => {
             isScrolling = false;
         }, 150);
     }, { passive: true });
     
-    // Also track touch-based scrolling
+    // ADD BACK: Horizontal swipe for multiview switching
+    let startX = 0;
     let startY = 0;
-    let isVerticalGesture = false;
+    let currentX = 0;
+    let isHorizontalSwipe = false;
+    let swipeStartTime = 0;
     
     lightboxContent.addEventListener('touchstart', function(e) {
         if (e.touches.length === 1) {
+            startX = e.touches[0].clientX;
             startY = e.touches[0].clientY;
-            isVerticalGesture = false;
+            swipeStartTime = Date.now();
+            isHorizontalSwipe = false;
         }
     }, { passive: true });
     
     lightboxContent.addEventListener('touchmove', function(e) {
-        if (e.touches.length === 1) {
-            const currentY = e.touches[0].clientY;
-            const deltaY = Math.abs(currentY - startY);
-            
-            // If significant vertical movement, consider it scrolling
-            if (deltaY > 10) {
-                lastScrollTime = Date.now();
-                isScrolling = true;
-                isVerticalGesture = true;
+        if (e.touches.length !== 1) return;
+        
+        currentX = e.touches[0].clientX;
+        const currentY = e.touches[0].clientY;
+        const deltaX = currentX - startX;
+        const deltaY = currentY - startY;
+        const swipeTime = Date.now() - swipeStartTime;
+        
+        // Determine if this is a horizontal swipe (more horizontal than vertical)
+        if (!isHorizontalSwipe && swipeTime < 300) {
+            if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 30) {
+                isHorizontalSwipe = true;
             }
         }
-    }, { passive: true });
+        
+        // Prevent default for horizontal swipes to avoid interference
+        if (isHorizontalSwipe && Math.abs(deltaX) > 50) {
+            e.preventDefault();
+        }
+        
+        // Update scroll tracking for vertical movements
+        if (Math.abs(deltaY) > 10) {
+            lastScrollTime = Date.now();
+            isScrolling = true;
+        }
+    }, { passive: false });
     
     lightboxContent.addEventListener('touchend', function(e) {
-        if (isVerticalGesture) {
-            // Give extra time after vertical gestures
-            setTimeout(() => {
-                isScrolling = false;
-            }, 200);
+        if (!isHorizontalSwipe) return;
+        
+        const deltaX = currentX - startX;
+        const swipeTime = Date.now() - swipeStartTime;
+        const swipeVelocity = Math.abs(deltaX) / swipeTime;
+        
+        // Switch views on significant horizontal gesture
+        if ((Math.abs(deltaX) > 80 && swipeTime < 400) || swipeVelocity > 0.3) {
+            if (currentArtworkViews && currentArtworkViews.length > 1) {
+                if (deltaX > 0) {
+                    // Swipe right - previous view
+                    const prevIndex = currentViewIndex > 0 ? currentViewIndex - 1 : currentArtworkViews.length - 1;
+                    switchArtworkView(prevIndex);
+                } else {
+                    // Swipe left - next view
+                    const nextIndex = currentViewIndex < currentArtworkViews.length - 1 ? currentViewIndex + 1 : 0;
+                    switchArtworkView(nextIndex);
+                }
+            }
         }
-        isVerticalGesture = false;
+        
+        isHorizontalSwipe = false;
     }, { passive: true });
 }
 
