@@ -713,6 +713,159 @@
                 height: 32px;
             }
         }
+
+        /* ================================ */
+        /* FAQ SECTION STYLES - SIMPLE */
+        /* ================================ */
+
+        .faq-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .faq-content h2 {
+            color: #2c3e50;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: 300;
+        }
+
+        .faq-content > p {
+            font-size: 1.1rem;
+            color: #6c757d;
+            margin-bottom: 3rem;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .faq-sections {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .faq-section {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+            border: 1px solid #e9ecef;
+        }
+
+        .faq-section-header {
+            background: #f8f9fa;
+            padding: 1.5rem 2rem;
+            margin: 0;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2c3e50;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .faq-icon {
+            font-size: 1.4rem;
+        }
+
+        .faq-questions {
+            padding: 1.5rem 2rem 2rem 2rem;
+        }
+
+        .faq-item {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #f8f9fa;
+            padding-bottom: 1.5rem;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 1.1rem;
+            line-height: 1.4;
+            margin-bottom: 0.8rem;
+        }
+
+        .faq-answer {
+            color: #495057;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .faq-answer p {
+            margin: 0 0 1rem 0;
+        }
+
+        .faq-answer p:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-answer strong {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .faq-content {
+                padding: 1rem;
+            }
+            
+            .faq-content h2 {
+                font-size: 1.8rem;
+            }
+            
+            .faq-section-header {
+                padding: 1.2rem 1.5rem;
+                font-size: 1.1rem;
+            }
+            
+            .faq-questions {
+                padding: 1.2rem 1.5rem 1.5rem 1.5rem;
+            }
+            
+            .faq-question {
+                font-size: 1rem;
+            }
+            
+            .faq-answer {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .faq-section-header {
+                padding: 1rem;
+                font-size: 1rem;
+                gap: 0.6rem;
+            }
+            
+            .faq-icon {
+                font-size: 1.2rem;
+            }
+            
+            .faq-questions {
+                padding: 1rem;
+            }
+            
+            .faq-question {
+                font-size: 0.95rem;
+            }
+            
+            .faq-answer {
+                font-size: 0.9rem;
+                line-height: 1.6;
+            }
+        }
         /* ================================ */
         /* CONNECT SECTION STYLES */
         /* ================================ */
@@ -1063,9 +1216,11 @@
             <button class="nav-btn active" onclick="showSection('home')"><!-- Will be filled by JavaScript --></button>
             <button class="nav-btn" onclick="showSection('gallery')"><!-- Will be filled by JavaScript --></button>
             <button class="nav-btn" onclick="showSection('about')"><!-- Will be filled by JavaScript --></button>
+            <button class="nav-btn" onclick="showSection('faq')"><!-- Will be filled by JavaScript --></button>
             <button class="nav-btn" onclick="showSection('connect')"><!-- Will be filled by JavaScript --></button>
         </div>
     </nav>
+
 
     <!-- ================================ -->
     <!-- MAIN CONTENT AREA -->
@@ -1213,6 +1368,50 @@
                 </div>
             </div>
         </section>
+
+        <!-- FAQ SECTION -->
+        <section id="faq" class="section">
+            <div class="faq-content">
+                <h2 id="faqTitle"><!-- Will be filled by JavaScript --></h2>
+                <p id="faqSubtitle"><!-- Will be filled by JavaScript --></p>
+                
+                <div class="faq-sections">
+                    <!-- Authenticity & Creation -->
+                    <div class="faq-section">
+                        <h3 class="faq-section-header">
+                            <span class="faq-icon" id="authenticityIcon">✨</span>
+                            <span id="authenticityTitle"><!-- Will be filled by JavaScript --></span>
+                        </h3>
+                        <div class="faq-questions" id="authenticityQuestions">
+                            <!-- Questions will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Shipping & Production -->
+                    <div class="faq-section">
+                        <h3 class="faq-section-header">
+                            <span class="faq-icon" id="shippingIcon">🚚</span>
+                            <span id="shippingTitle"><!-- Will be filled by JavaScript --></span>
+                        </h3>
+                        <div class="faq-questions" id="shippingQuestions">
+                            <!-- Questions will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Pricing & Payments -->
+                    <div class="faq-section">
+                        <h3 class="faq-section-header">
+                            <span class="faq-icon" id="pricingIcon">💳</span>
+                            <span id="pricingTitle"><!-- Will be filled by JavaScript --></span>
+                        </h3>
+                        <div class="faq-questions" id="pricingQuestions">
+                            <!-- Questions will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
 
         <!-- CONNECT SECTION -->
         <section id="connect" class="section">

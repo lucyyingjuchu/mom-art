@@ -13,6 +13,7 @@ const LANGUAGE_DATA = {
             featured: "Featured",
             gallery: "Gallery",
             about: "About", 
+            faq: "FAQ",
             connect: "Connect"
         },
         
@@ -140,6 +141,57 @@ const LANGUAGE_DATA = {
             ]
         },
         
+        faq: {
+                title: "Frequently Asked Questions",
+                subtitle: "Our artworks take different journeys to reach you: originals come directly from the artist's studio in Taiwan, while prints are produced in the U.S. to make ink art more accessible worldwide.",
+                
+                sections: {
+                    authenticity: {
+                        title: "Authenticity & Creation",
+                        icon: "✨",
+                        questions: [
+                            {
+                                question: "Where are the artworks created?",
+                                answer: "All original ink wash paintings are created in Taiwan by artist **Xiao-Ran (袁之靜)** on traditional Xuan paper. Each piece is one-of-a-kind, hand-painted, inscribed, signed, and sealed by the artist."
+                            },
+                            {
+
+                                question: "What's the difference between originals and prints?",
+                                answer: "**Originals**: one-of-a-kind, collectible works on Xuan paper (or known as rice paper).\n**Prints**: archival giclée reproductions, made in the U.S. through trusted partners for museum-quality results, available in multiple sizes for everyday interiors."
+                            }
+                        ]
+                    },
+                    shipping: {
+                        title: "Shipping & Production", 
+                        icon: "🚚",
+                        questions: [
+                            {
+                                question: "Where do orders ship from?",
+                                answer: "**Originals** ship directly from the artist’s studio in Taiwan.\n**Prints** are produced and shipped from the U.S. through trusted partners. This allows us to share Taiwanese ink art more easily with collectors worldwide, especially reaching audiences in the United States."
+                            },
+                            {
+                                question: "How do I purchase originals and prints?",
+                                answer: "*Originals** require filling out the \"Original Art Inquiry Form\" and we will contact you to arrange payment and shipping.\n**Prints** can be added directly to the shopping cart for checkout."
+                            },
+                            {
+                                question: "How long will shipping take?",
+                                answer: "**Prints**: usually 5–10 business days within the U.S.\n**Originals**: international shipping varies, usually 10–20 business days."
+                            }
+                        ]
+                    },
+                    pricing: {
+                        title: "Pricing & Payments",
+                        icon: "💳", 
+                        questions: [
+                            {
+                                question: "Why are prices shown in USD?",
+                                answer: "We sell internationally, and USD is a standard currency most collectors understand. At checkout, your local bank may show the converted amount."
+                            }
+                        ]
+                    }
+                }
+            },  
+
         // Connect page
         connect: {
             title: "Connect With Me",
@@ -302,6 +354,7 @@ const LANGUAGE_DATA = {
             featured: "精選",
             gallery: "藝廊",
             about: "關於",
+            faq: "常見問題",
             connect: "聯絡"
         },
         
@@ -431,6 +484,56 @@ const LANGUAGE_DATA = {
                 "2017 《華枝春滿》麗澤國畫班聯展｜豐原醫院藝文走廊"
             ]
         },
+
+        faq: {
+                title: "常見問題",
+                subtitle: "作品各自有不同的旅程：原作由藝術家工作室（台灣）直寄；版畫複製品則於美國製作並寄送，讓水墨藝術更容易走向世界。",
+                
+                sections: {
+                    authenticity: {
+                        title: "真品與創作",
+                        icon: "✨",
+                        questions: [
+                            {
+                                question: "作品在哪裡創作？",
+                                answer: "所有原作水墨畫皆由藝術家**袁之靜（曉然）**在台灣使用傳統宣紙手工創作。每件作品都是獨一無二的，經藝術家親筆繪製、落款、簽名與用印。"
+                            },
+                            {
+                                question: "原作與印刷品有什麼差別？",
+                                answer: "**原作**：宣紙上的獨一無二收藏級作品。\n**印刷品**：透過美國信賴夥伴製作的典藏級微噴複製品，達到博物館品質標準，提供多種尺寸適合日常居家裝飾。"
+                            }
+                        ]
+                    },
+                    shipping: {
+                        title: "運送與製作",
+                        icon: "🚚", 
+                        questions: [
+                            {
+                                question: "訂單從哪裡出貨？",
+                                answer: "**原作**由曉然文化工作室（台灣）直寄。\n**印刷品**由美國合作夥伴製作並寄送，讓台灣水墨藝術更容易推廣到全球，特別是能更便捷地觸及美國的收藏群體。"
+                            },
+                            {
+                                question: "如何購買原作與藝術微噴版畫(fine art giclée prints)？",
+                                answer: "**原作**需填寫「原作詢價表單」，我們會與您聯繫安排付款與出貨。\n**印刷品**可直接加入購物車結帳。"
+                            },
+                            {
+                                question: "運送需要多長時間？",
+                                answer: "**印刷品**：美國境內通常5-10個工作天。\n**原作**：國際運送時間不等，通常10-20個工作天。"
+                            }
+                        ]
+                    },
+                    pricing: {
+                        title: "定價與付款",
+                        icon: "💳",
+                        questions: [
+                            {
+                                question: "為什麼價格顯示為美元？",
+                                answer: "我們面向國際銷售，美元是大多數收藏家都理解的標準貨幣。結帳時，您的銀行可能會顯示轉換後的當地貨幣金額。"
+                            }
+                        ]
+                    }
+                }
+            },
         
         // Connect page
         connect: {

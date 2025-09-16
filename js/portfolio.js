@@ -372,6 +372,7 @@ class ChineseArtPortfolio {
     updateAllUI() {
         this.updatePageTitle(); // ADD THIS LINE
         this.updateStaticText();
+        this.initializeFAQ();
         this.renderGallery();
         this.renderFeaturedWorks();
         this.renderFilterMenu();
@@ -382,14 +383,15 @@ class ChineseArtPortfolio {
     updateStaticText() {
         console.log('🚀 updateStaticText() started');
 
-        // NAVIGATION
-        const navButtons = document.querySelectorAll('.nav-btn');
-        if (navButtons.length >= 4) {
-            navButtons[0].textContent = this.t('nav.featured');
-            navButtons[1].textContent = this.t('nav.gallery'); 
-            navButtons[2].textContent = this.t('nav.about');
-            navButtons[3].textContent = this.t('nav.connect');
-        }
+    // NAVIGATION
+    const navButtons = document.querySelectorAll('.nav-btn');
+    if (navButtons.length >= 5) {
+        navButtons[0].textContent = this.t('nav.featured');
+        navButtons[1].textContent = this.t('nav.gallery'); 
+        navButtons[2].textContent = this.t('nav.about');
+        navButtons[3].textContent = this.t('nav.faq');      // NEW FAQ BUTTON
+        navButtons[4].textContent = this.t('nav.connect');
+    }
         
         // HEADER
         const logoElement = document.querySelector('.logo');
@@ -762,6 +764,7 @@ class ChineseArtPortfolio {
         this.updateLanguageToggle();
         this.renderFilterMenu();
         this.updateStaticText();
+        this.initializeFAQ();  // ADD THIS LINE
         initializeURLHandler(); 
     }
 
@@ -1529,7 +1532,6 @@ class ChineseArtPortfolio {
             });
         }
     }
-    // Add these functions to your ChineseArtPortfolio class in portfolio.js
 
     // Apply protection to all gallery images
     addGalleryImageProtection() {
@@ -1539,6 +1541,103 @@ class ChineseArtPortfolio {
         galleryImages.forEach(img => {
             this.applyImageProtectionToElement(img);
         });
+    }
+
+    // Initialize FAQ section with current language
+    initializeFAQ() {
+        // Check if FAQ elements exist on the page
+        if (!document.getElementById('faqTitle')) {
+            console.log('FAQ section not found, skipping FAQ initialization');
+            return;
+        }
+
+        const currentLang = this.currentLanguage;
+        const faqData = LANGUAGE_DATA[currentLang].faq;
+        
+        if (!faqData) {
+            console.warn('FAQ data not found for language:', currentLang);
+            return;
+        }
+        
+        // Set main titles
+        const faqTitle = document.getElementById('faqTitle');
+        const faqSubtitle = document.getElementById('faqSubtitle');
+        
+        if (faqTitle) faqTitle.textContent = faqData.title;
+        if (faqSubtitle) faqSubtitle.textContent = faqData.subtitle;
+        
+        // Set section titles and icons
+        this.updateFAQSection('authenticity', faqData.sections.authenticity);
+        this.updateFAQSection('shipping', faqData.sections.shipping);
+        this.updateFAQSection('pricing', faqData.sections.pricing);
+        
+        console.log('✅ FAQ initialized for language:', currentLang);
+    }
+
+    // Helper method to update FAQ sections
+    updateFAQSection(sectionId, sectionData) {
+        const iconElement = document.getElementById(sectionId + 'Icon');
+        const titleElement = document.getElementById(sectionId + 'Title');
+        const questionsContainer = document.getElementById(sectionId + 'Questions');
+        
+        if (iconElement) iconElement.textContent = sectionData.icon;
+        if (titleElement) titleElement.textContent = sectionData.title;
+        
+        if (questionsContainer && sectionData.questions) {
+            this.populateFAQQuestions(sectionId, sectionData.questions);
+        }
+    }
+
+    // Populate FAQ questions for a section
+    populateFAQQuestions(sectionId, questions) {
+        const container = document.getElementById(sectionId + 'Questions');
+        if (!container) return;
+        
+        container.innerHTML = '';
+        
+        questions.forEach((item, index) => {
+            const faqItem = document.createElement('div');
+            faqItem.className = 'faq-item';
+            faqItem.onclick = () => this.toggleFAQItem(sectionId, index);
+            
+            faqItem.innerHTML = `
+                <div class="faq-question">
+                    <span>${item.question}</span>
+                    <span class="faq-toggle" id="${sectionId}Toggle${index}">▼</span>
+                </div>
+                <div class="faq-answer" id="${sectionId}Answer${index}">
+                    ${this.formatFAQAnswer(item.answer)}
+                </div>
+            `;
+            
+            container.appendChild(faqItem);
+        });
+    }
+
+    // Format FAQ answers (convert markdown-style formatting)
+    formatFAQAnswer(answer) {
+        // Convert markdown-style bold text to HTML
+        let formatted = answer.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        
+        // Convert line breaks to paragraphs
+        const paragraphs = formatted.split('\n').filter(p => p.trim());
+        return paragraphs.map(p => `<p>${p}</p>`).join('');
+    }
+
+    // Toggle FAQ item expanded/collapsed state
+    toggleFAQItem(sectionId, index) {
+        const answer = document.getElementById(`${sectionId}Answer${index}`);
+        const toggle = document.getElementById(`${sectionId}Toggle${index}`);
+        
+        if (!answer || !toggle) return;
+        
+        if (answer.classList.contains('expanded')) {
+            answer.classList.remove('expanded');
+            toggle.classList.remove('expanded');
+        } else {
+            answer.classList.add('expanded');
+            toggle.classList.add('expanded');
+        }
     }
 
 
