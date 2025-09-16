@@ -171,11 +171,11 @@ const LANGUAGE_DATA = {
                             },
                             {
                                 question: "How do I purchase originals and prints?",
-                                answer: "*Originals** require filling out the \"Original Art Inquiry Form\" and we will contact you to arrange payment and shipping.\n**Prints** can be added directly to the shopping cart for checkout."
+                                answer: "**Originals** require filling out the \"Original Art Inquiry Form\" and we will contact you to arrange payment and shipping.\n**Prints** can be added directly to the shopping cart for checkout."
                             },
                             {
                                 question: "How long will shipping take?",
-                                answer: "**Prints**: usually 5–10 business days within the U.S.\n**Originals**: international shipping varies, usually 10–20 business days."
+                                answer: "**Originals**: Delivery times vary by region — within Taiwan it is usually faster, while international orders take about 10–20 business days.**Prints**: Within the U.S., delivery speed depend on the shipping method chosen in the shopping cart. For addresses outside the U.S., it usually takes about 5–10 business days.\n"
                             }
                         ]
                     },
@@ -209,7 +209,7 @@ const LANGUAGE_DATA = {
             availableStatus: "Original Art Inquiry",
             soldStatus: "Original Art Sold",
             yearLabel: "Year",
-            dimensionsLabel: "Size(HxW)", 
+            dimensionsLabel: "Size (HxW)", 
             mediumLabel: "Medium",
             formatLabel: "Format",
             shareTitle: "Share Artwork",
@@ -270,14 +270,14 @@ const LANGUAGE_DATA = {
             shippingMethodPlaceholder: "Please select shipping method",
             
             // Success/error messages
-            submitSuccess: "Inquiry submitted successfully! We will contact you within 24 hours.",
+            submitSuccess: "Inquiry submitted successfully! We will contact you soon.",
             submitError: "Submission failed. Please try again later or contact us directly.",
             invalidEmail: "Please enter a valid email format",
             invalidPhone: "Please enter a valid phone number format",
             
             // Additional information
             privacyNote: "Your personal information will only be used for this inquiry. We protect your privacy.",
-            responseTime: "We typically respond to inquiries within 24 hours."
+            responseTime: "We will respond as soon as we are available."
         },
     
         // Shopping Cart
@@ -487,7 +487,7 @@ const LANGUAGE_DATA = {
 
         faq: {
                 title: "常見問題",
-                subtitle: "作品各自有不同的旅程：原作由藝術家工作室於台灣直寄；藝術微噴版畫(fine art giclée prints)則於美國製作並寄送，讓水墨藝術更容易走向世界。",
+                subtitle: "作品各自有不同的旅程：原作由藝術家工作室於台灣直寄；\n藝術微噴版畫(fine art giclée prints)則於美國製作並寄送，讓水墨藝術更容易走向世界。",
                 
                 sections: {
                     authenticity: {
@@ -500,7 +500,7 @@ const LANGUAGE_DATA = {
                             },
                             {
                                 question: "原作與印刷品有什麼差別？",
-                                answer: "**原作**：宣紙上的獨一無二收藏級作品。\n**印刷品**：透過美國信賴夥伴製作的典藏級微噴複製品，達到博物館品質標準，提供多種尺寸適合日常居家裝飾。"
+                                answer: "**原作**：宣紙上的獨一無二收藏級作品。\n**印刷品**：透過美國信賴夥伴製作的典藏級微噴複製品(fine art giclée prints)，達到博物館品質標準，提供多種尺寸適合日常居家裝飾。"
                             }
                         ]
                     },
@@ -518,7 +518,7 @@ const LANGUAGE_DATA = {
                             },
                             {
                                 question: "運送需要多長時間？",
-                                answer: "**印刷品**：美國境內通常5-10個工作天。\n**原作**：國際運送時間不等，通常10-20個工作天。"
+                                answer: "**原作**：寄送時間依地區而異——台灣境內通常更快，國際訂單約 10–20 個工作天。\n**印刷品**：美國境內的寄送速度依您在購物車選擇的方式而定，美國境外通常約 5–10 個工作天。"
                             }
                         ]
                     },
@@ -612,14 +612,14 @@ const LANGUAGE_DATA = {
             shippingMethodPlaceholder: "請選擇配送方式",
             
             // 成功/錯誤訊息
-            submitSuccess: "詢價表單已送出！我們將在24小時內與您聯繫。",
+            submitSuccess: "詢價表單已送出！我們將盡快與您聯繫。",
             submitError: "送出失敗，請稍後再試或直接來電聯繫我們。",
             invalidEmail: "請輸入有效的電子郵件格式",
             invalidPhone: "請輸入有效的手機號碼格式",
             
             // 額外說明
             privacyNote: "您的個人資料僅用於此次詢價，我們會妥善保護您的隱私。",
-            responseTime: "我們通常會在2個工作日內回覆您的詢價。"
+            responseTime: "我們將會盡快回覆您的詢價。"
         },
         
         // Shopping Cart
