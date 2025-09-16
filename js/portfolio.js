@@ -1598,16 +1598,10 @@ class ChineseArtPortfolio {
         questions.forEach((item, index) => {
             const faqItem = document.createElement('div');
             faqItem.className = 'faq-item';
-            faqItem.onclick = () => this.toggleFAQItem(sectionId, index);
             
             faqItem.innerHTML = `
-                <div class="faq-question">
-                    <span>${item.question}</span>
-                    <span class="faq-toggle" id="${sectionId}Toggle${index}">▼</span>
-                </div>
-                <div class="faq-answer" id="${sectionId}Answer${index}">
-                    ${this.formatFAQAnswer(item.answer)}
-                </div>
+                <div class="faq-question">${item.question}</div>
+                <div class="faq-answer">${this.formatFAQAnswer(item.answer)}</div>
             `;
             
             container.appendChild(faqItem);
@@ -1623,23 +1617,6 @@ class ChineseArtPortfolio {
         const paragraphs = formatted.split('\n').filter(p => p.trim());
         return paragraphs.map(p => `<p>${p}</p>`).join('');
     }
-
-    // Toggle FAQ item expanded/collapsed state
-    toggleFAQItem(sectionId, index) {
-        const answer = document.getElementById(`${sectionId}Answer${index}`);
-        const toggle = document.getElementById(`${sectionId}Toggle${index}`);
-        
-        if (!answer || !toggle) return;
-        
-        if (answer.classList.contains('expanded')) {
-            answer.classList.remove('expanded');
-            toggle.classList.remove('expanded');
-        } else {
-            answer.classList.add('expanded');
-            toggle.classList.add('expanded');
-        }
-    }
-
 
 }
 
