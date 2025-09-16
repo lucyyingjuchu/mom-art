@@ -354,7 +354,7 @@ const LANGUAGE_DATA = {
             featured: "精選",
             gallery: "藝廊",
             about: "關於",
-            faq: "常見問題",
+            faq: "問答",
             connect: "聯絡"
         },
         
