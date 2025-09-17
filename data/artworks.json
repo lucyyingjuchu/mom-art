@@ -901,6 +901,12 @@
     "categories": [
       "landscape",
       "longdong"
+    ],
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7834-8476-a918927593ab_large.jpg"
+      }
     ]
   },
   {
@@ -2202,6 +2208,10 @@
       {
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7c2c-ab3a-8f771d7ff31d_large.jpg"
+      },
+      {
+        "type": "original-mockup",
+        "image": "./images/mockups/original/019891b0-f39c-7c2c-ab3a-8f771d7ff31d_orig_mock.jpg"
       }
     ],
     "titleEn": "",
@@ -2901,6 +2911,10 @@
       {
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7c4a-a8f5-77fdf9b0873a_large.jpg"
+      },
+      {
+        "type": "original-mockup",
+        "image": "./images/mockups/original/019891b0-f39c-7c4a-a8f5-77fdf9b0873a_orig_mock.jpg"
       }
     ]
   },
