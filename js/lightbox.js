@@ -119,9 +119,12 @@ function setupMobileImage(image) {
 
 function addMobileGestures() {
     const lightboxContent = document.querySelector('.lightbox-content');
-    if (!lightboxContent) return;
+    if (!lightboxContent) {
+        console.warn('lightbox-content not found for mobile gestures');
+        return;
+    }
     
-    // Track scrolling (existing code)
+    // Track scrolling
     lightboxContent.addEventListener('scroll', function(e) {
         lastScrollTime = Date.now();
         isScrolling = true;
@@ -132,21 +135,18 @@ function addMobileGestures() {
         }, 150);
     }, { passive: true });
     
-    // ENHANCED: Better horizontal swipe detection
+    // Enhanced horizontal swipe detection
     let startX = 0;
     let startY = 0;
     let currentX = 0;
     let currentY = 0;
     let isHorizontalSwipe = false;
     let swipeStartTime = 0;
-    let swipeThreshold = 50; // Minimum distance for swipe
-    let velocityThreshold = 0.3; // Minimum velocity for swipe
+    let swipeThreshold = 50;
+    let velocityThreshold = 0.3;
     
-    // Use the image section for better swipe detection
-    const imageSection = document.querySelector('.lightbox-image-section');
-    const targetElement = imageSection || lightboxContent;
-    
-    targetElement.addEventListener('touchstart', function(e) {
+    // Use the lightbox content for swipe detection
+    lightboxContent.addEventListener('touchstart', function(e) {
         if (e.touches.length === 1) {
             const touch = e.touches[0];
             startX = touch.clientX;
@@ -156,12 +156,18 @@ function addMobileGestures() {
             swipeStartTime = Date.now();
             isHorizontalSwipe = false;
             
-            console.log('👆 Touch start:', startX, startY);
+            console.log('👆 Touch start for swipe:', startX, startY, 'Views:', currentArtworkViews.length);
         }
     }, { passive: true });
     
-    targetElement.addEventListener('touchmove', function(e) {
-        if (e.touches.length !== 1 || !currentArtworkViews || currentArtworkViews.length <= 1) return;
+    lightboxContent.addEventListener('touchmove', function(e) {
+        if (e.touches.length !== 1) return;
+        
+        // Check if we have multiple views to swipe between
+        if (!currentArtworkViews || currentArtworkViews.length <= 1) {
+            console.log('No multiple views for swiping');
+            return;
+        }
         
         const touch = e.touches[0];
         currentX = touch.clientX;
@@ -175,10 +181,9 @@ function addMobileGestures() {
             const horizontalDistance = Math.abs(deltaX);
             const verticalDistance = Math.abs(deltaY);
             
-            // If horizontal movement is significantly more than vertical, it's a horizontal swipe
             if (horizontalDistance > 20 && horizontalDistance > verticalDistance * 1.5) {
                 isHorizontalSwipe = true;
-                console.log('🔄 Horizontal swipe detected');
+                console.log('🔄 Horizontal swipe detected, deltaX:', deltaX);
             }
         }
         
@@ -187,14 +192,14 @@ function addMobileGestures() {
             e.preventDefault();
         }
         
-        // Still track vertical scrolling for non-horizontal movements
+        // Track vertical scrolling for non-horizontal movements
         if (!isHorizontalSwipe && Math.abs(deltaY) > 10) {
             lastScrollTime = Date.now();
             isScrolling = true;
         }
-    }, { passive: false }); // passive: false to allow preventDefault
+    }, { passive: false });
     
-    targetElement.addEventListener('touchend', function(e) {
+    lightboxContent.addEventListener('touchend', function(e) {
         if (!isHorizontalSwipe || !currentArtworkViews || currentArtworkViews.length <= 1) {
             return;
         }
@@ -204,15 +209,17 @@ function addMobileGestures() {
         const swipeVelocity = Math.abs(deltaX) / swipeTime;
         const horizontalDistance = Math.abs(deltaX);
         
-        console.log('👋 Swipe end:', {
+        console.log('👋 Swipe end analysis:', {
             deltaX,
             swipeTime,
             swipeVelocity,
             horizontalDistance,
-            threshold: swipeThreshold
+            threshold: swipeThreshold,
+            currentViewIndex,
+            totalViews: currentArtworkViews.length
         });
         
-        // Check if swipe meets criteria (distance OR velocity)
+        // Check if swipe meets criteria
         const meetsDistanceCriteria = horizontalDistance > swipeThreshold;
         const meetsVelocityCriteria = swipeVelocity > velocityThreshold;
         const meetsTimeCriteria = swipeTime < 500;
@@ -234,13 +241,15 @@ function addMobileGestures() {
             setTimeout(() => {
                 isHorizontalSwipe = false;
             }, 100);
+        } else {
+            console.log('Swipe did not meet criteria');
         }
         
         // Reset swipe state
         isHorizontalSwipe = false;
     }, { passive: true });
     
-    console.log('✅ Enhanced mobile gestures initialized with better swipe detection');
+    console.log('✅ Enhanced mobile gestures initialized');
 }
 
 // Mobile fullscreen mode - dedicated image viewing
@@ -280,15 +289,16 @@ function addDoubleTapZoomReset(image) {
         if (tapLength < 300 && tapLength > 0) {
             e.preventDefault();
             
-            // Force a refresh to reset native zoom
-            const currentSrc = image.src;
+            // FIXED: Just reset CSS transform, don't clear src
             image.style.transform = 'none';
-            image.src = '';
-            setTimeout(() => {
-                image.src = currentSrc;
-            }, 10);
+            image.style.transition = 'transform 0.3s ease';
             
-            console.log('Double-tap zoom reset');
+            // Reset back after animation
+            setTimeout(() => {
+                image.style.transition = '';
+            }, 300);
+            
+            console.log('Double-tap zoom reset (CSS only)');
         }
         lastTap = currentTime;
     });
@@ -894,7 +904,6 @@ console.log('✅ Global functions defined with mobile/desktop separation');
 
 function populateLightbox(artwork) {
     console.log('🎨 Populating lightbox for:', isMobileDevice() ? 'mobile' : 'desktop');
-    console.log('Raw artwork data:', JSON.stringify(artwork, null, 2));
 
     // CLEAN UP: Remove any existing indicators from previous artwork
     const existingIndicators = document.querySelector('.view-indicators');
@@ -925,6 +934,9 @@ function populateLightbox(artwork) {
     const placeholderImage = getPlaceholderImage();
     image.src = artwork.imageHigh || artwork.image || placeholderImage;
     
+    // SETUP VIEWS FIRST - before image loads
+    setupArtworkViews(artwork);
+    
     image.onload = function() {
         image.classList.remove('loading');
         setTimeout(() => {
@@ -937,6 +949,7 @@ function populateLightbox(artwork) {
                 initializeDesktopLightbox();
             }
             
+            // ADD VIEW INDICATORS AFTER INITIALIZATION
             addViewIndicators();
         }, 100);
     };
@@ -945,9 +958,19 @@ function populateLightbox(artwork) {
         image.src = placeholderImage;
         image.classList.remove('loading');
         addImageProtection();
+        
+        // Still add view indicators even on error
+        setTimeout(() => {
+            if (isMobileDevice()) {
+                initializeMobileLightbox();
+            } else {
+                initializeDesktopLightbox();
+            }
+            addViewIndicators();
+        }, 100);
     };
 
-    // Language-aware field selection
+    // ... rest of the function remains the same for setting text content etc.
     const currentLang = (typeof portfolio !== 'undefined') ? portfolio.currentLanguage : 'zh';
     
     let title, titleEn, description, format, size;
@@ -1013,9 +1036,8 @@ function populateLightbox(artwork) {
     
     addClickableAvailabilityStatus(artwork);
     updateLightboxUIText();
-    setupArtworkViews(artwork);
 
-    // Dispatch event for shopping cart and other systems that need to know about artwork changes
+    // Dispatch event for shopping cart and other systems
     document.dispatchEvent(new CustomEvent('artworkChanged', { 
         detail: { artwork } 
     }));
@@ -1599,9 +1621,12 @@ function setupLightboxEventListeners() {
 // ================================
 
 function setupArtworkViews(artwork) {
+    console.log('🎨 Setting up artwork views for:', artwork.id);
+    
     currentArtworkViews = [];
     
     if (artwork.productViews && artwork.productViews.length > 0) {
+        console.log(`📸 Found ${artwork.productViews.length} product views`);
         currentArtworkViews = artwork.productViews.map(view => ({
             src: view.image,
             alt: getArtworkText(artwork, 'title') + ' - ' + view.title,
@@ -1611,7 +1636,9 @@ function setupArtworkViews(artwork) {
             description: view.description
         }));
     } else {
+        console.log('📸 Using default views (original + room display if available)');
         const placeholderImage = getPlaceholderImage();
+        
         currentArtworkViews = [
             {
                 src: artwork.imageHigh || artwork.image || placeholderImage,
@@ -1634,6 +1661,8 @@ function setupArtworkViews(artwork) {
     }
     
     currentViewIndex = 0;
+    
+    console.log('✅ Setup complete:', currentArtworkViews.map(v => v.title || v.type));
 }
 
 function getArtworkText(artwork, field) {
@@ -1645,12 +1674,23 @@ function getArtworkText(artwork, field) {
 
 function addViewIndicators() {
     const image = document.getElementById('lightboxImage');
-    if (!image || currentArtworkViews.length <= 1) return;
+    if (!image) {
+        console.warn('Lightbox image not found for view indicators');
+        return;
+    }
+    
+    if (!currentArtworkViews || currentArtworkViews.length <= 1) {
+        console.log('No multiple views, skipping indicators');
+        return;
+    }
+    
+    console.log(`Adding view indicators for ${currentArtworkViews.length} views`);
     
     // Remove existing indicators
     const existingIndicators = document.querySelector('.view-indicators');
     if (existingIndicators) {
         existingIndicators.remove();
+        console.log('Removed existing view indicators');
     }
     
     // Create new indicators container
@@ -1696,26 +1736,25 @@ function addViewIndicators() {
         }
         
         indicators.appendChild(dot);
+        console.log(`Added view dot ${index}: ${tooltipText}`);
     });
     
-    // MOBILE-SPECIFIC POSITIONING
+    // DEVICE-SPECIFIC POSITIONING
     if (isMobileDevice()) {
-        // For mobile: Add to lightbox-image-section as a fixed positioned element
+        console.log('Adding mobile view indicators');
+        
+        // For mobile: Add to lightbox-image-section
         const imageSection = document.querySelector('.lightbox-image-section');
         if (imageSection) {
             imageSection.appendChild(indicators);
-            
-            // Set mobile-specific positioning
-            indicators.style.position = 'absolute';
-            indicators.style.bottom = '20px';
-            indicators.style.left = '50%';
-            indicators.style.transform = 'translateX(-50%)';
-            indicators.style.zIndex = '1002';
-            
-            console.log('✅ Mobile view indicators positioned at bottom of image section');
+            console.log('✅ Mobile view indicators added to image section');
+        } else {
+            console.error('Image section not found for mobile indicators');
         }
     } else {
-        // DESKTOP: Position relative to actual image (existing logic)
+        console.log('Adding desktop view indicators');
+        
+        // DESKTOP: Position relative to actual image
         const imageContainer = image.parentElement;
         imageContainer.appendChild(indicators);
         
@@ -1737,10 +1776,13 @@ function addViewIndicators() {
         
         positionIndicators();
         image.addEventListener('load', positionIndicators);
+        
+        console.log('✅ Desktop view indicators positioned');
     }
     
     console.log(`✅ Added ${currentArtworkViews.length} view indicators for ${isMobileDevice() ? 'mobile' : 'desktop'}`);
 }
+
 
 function switchArtworkView(index) {
     if (index === currentViewIndex || index >= currentArtworkViews.length) return;

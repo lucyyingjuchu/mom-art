@@ -1168,24 +1168,12 @@
     }
 }
 
-/* Tablet landscape - Start preparing for stack */
-@media (max-width: 899px) and (min-width: 768px) {
-    .lightbox-content {
-        max-width: none;  /* 移除最大寬度限制 */
-        width: var(--container-width, 90vw);  /* 使用動態寬度 */
-    }
-    
-    .spec-item {
-        grid-template-columns: 80px 1fr;
-        font-size: 0.85rem;
-    }
-}
 
-/* 🚫 手機板專用設計 - 自然流動布局 */
-/* Smart Mobile Lightbox - Full-width with dedicated fullscreen mode */
+/* ================================================= */
+/* MOBILE LIGHTBOX - CLEAN SINGLE VERSION */
+/* ================================================= */
 @media (max-width: 768px) {
     /* Mobile lightbox: Full width and optimized layout */
-
     .lightbox-container {
         padding: 0 !important;
         margin: 0 !important;
@@ -1203,7 +1191,7 @@
         --container-width: 100vw;
     }
 
-    /* Image section: Full width, natural height */
+    /* Image section: Full width, PROPERLY CENTERED */
     .lightbox-image-section {
         width: 100% !important;
         height: auto;
@@ -1212,12 +1200,30 @@
         background: #000;
         flex-shrink: 0;
         display: flex;
-        align-items: center;
-        justify-content: center;
+        align-items: center;        /* CENTER VERTICALLY */
+        justify-content: center;    /* CENTER HORIZONTALLY */
         padding: 0;
         --image-width: 100%;
+        position: relative;         /* For view indicators positioning */
     }
 
+    /* FIXED: Mobile image - properly centered */
+    .lightbox-image {
+        width: 100% !important;
+        height: auto !important;
+        max-width: 100% !important;
+        max-height: 60vh !important;  /* Leave space for info section */
+        margin: 0 !important;         /* Remove all margins */
+        object-fit: contain;
+        object-position: center;
+        transform: none !important;
+        cursor: pointer !important;
+        border-radius: 0;
+        box-shadow: none;
+        transition: none;
+    }
+
+    /* FIXED: Mobile view indicators - single clean definition */
     .lightbox-image-section .view-indicators {
         position: absolute !important;
         bottom: 20px !important;
@@ -1227,26 +1233,51 @@
         display: flex !important;
         gap: 12px;
         padding: 8px 16px;
-        background: rgba(0, 0, 0, 0.7) !important;
+        background: rgba(0, 0, 0, 0.8) !important;
         border-radius: 20px;
         backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.3);
     }
 
-    /* Mobile image: Full width of container, tap-friendly */
-    .lightbox-image {
-        width: 100% !important;
-        height: auto !important;
-        max-width: 100% !important;
-        max-height: 60vh; /* Ensure space for info below */
-        margin: 0 !important;
-        object-fit: contain;
-        object-position: center;
-        transform: none !important;
-        cursor: pointer !important;
-        border-radius: 0;
-        box-shadow: none;
-        transition: none;
+    /* Mobile view dots - clean single definition */
+    .view-indicators .view-dot {
+        width: 16px !important;
+        height: 16px !important;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.6) !important;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+        box-shadow: none !important;
+    }
+    
+    .view-indicators .view-dot:hover {
+        transform: scale(1.1);
+        background: rgba(255, 255, 255, 0.8) !important;
+    }
+    
+    .view-indicators .view-dot.active {
+        background: white !important;
+        transform: scale(1.3);
+        border-color: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 0 8px rgba(255, 255, 255, 0.5) !important;
+    }
+    
+    /* Icon dots for mobile */
+    .view-indicators .view-dot.icon-dot {
+        width: 28px !important;
+        height: 28px !important;
+        background: rgba(255, 255, 255, 0.9) !important;
+        color: #2c3e50 !important;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .view-indicators .view-dot.icon-dot.active {
+        background: white !important;
+        color: #2c3e50 !important;
     }
 
     /* Info section: Full width, natural flow */
@@ -1261,17 +1292,6 @@
         --info-width: 100%;
     }
 
-    .lightbox-image-section[style*="background: #f8f9fa"] .view-indicators,
-    .lightbox-image-section[style*="background: white"] .view-indicators {
-        background: rgba(44, 62, 80, 0.9) !important;
-        border: 1px solid rgba(44, 62, 80, 0.7);
-    }
-    
-    .lightbox-image-section[style*="background: #f8f9fa"] .view-indicators .view-dot,
-    .lightbox-image-section[style*="background: white"] .view-indicators .view-dot {
-        background: rgba(255, 255, 255, 0.9) !important;
-        border-color: rgba(44, 62, 80, 0.3);
-    }
     /* MOBILE FULLSCREEN MODE - Dedicated image viewing */
     .lightbox.mobile-fullscreen {
         background: rgba(0, 0, 0, 1) !important;
@@ -1307,14 +1327,12 @@
         display: none !important;
     }
 
-    /* Hide all controls in fullscreen except close button */
-
-    /* Hide close button in mobile fullscreen, show only fullscreen toggle */
+    /* Mobile fullscreen - hide most controls */
     .lightbox.mobile-fullscreen .lightbox-controls {
         display: none !important;
     }
 
-    /* Keep view indicators hidden */
+    /* Hide view indicators in mobile fullscreen */
     .lightbox.mobile-fullscreen .view-indicators {
         display: none !important;
     }
@@ -1335,7 +1353,6 @@
         backdrop-filter: blur(10px);
     }
 
-
     /* Hide desktop features on mobile */
     .zoom-controls {
         display: none !important;
@@ -1353,7 +1370,7 @@
         display: none !important;
     }
 
-    /* Optimize mobile content display */
+    /* Mobile content optimization */
     .artwork-title {
         font-size: 1.3rem;
         margin-bottom: 0.3rem;
@@ -1416,85 +1433,6 @@
         border-radius: 20px;
     }
 
-    /* View indicators: Below image, responsive */
-    .view-indicators {
-        gap: 10px;
-    }
-    
-    .view-dot {
-        width: 12px;
-        height: 12px;
-        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-    }
-    
-    .view-dot.icon-dot {
-        width: 20px;
-        height: 20px;
-        font-size: 10px;
-    }
-    
-    .view-dot.active {
-        transform: scale(1.3);
-        box-shadow: 0 0 0 2px rgba(44, 62, 80, 0.4);
-    }
-    
-    .view-indicators.compact-mode {
-        gap: 6px;
-    }
-    
-    .view-indicators.compact-mode .view-dot {
-        width: 8px;
-        height: 8px;
-    }
-    
-    /* Hide tooltips on mobile */
-    .view-dot::before {
-        display: none;
-    }
-
-    /* Mobile view dots - larger and more touch-friendly */
-    .view-indicators .view-dot {
-        width: 16px !important;
-        height: 16px !important;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.6) !important;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        border: 2px solid transparent;
-        box-shadow: none !important; /* Remove desktop shadow */
-    }
-    
-    .view-indicators .view-dot:hover {
-        transform: scale(1.1);
-        background: rgba(255, 255, 255, 0.8) !important;
-    }
-    
-    .view-indicators .view-dot.active {
-        background: white !important;
-        transform: scale(1.3);
-        border-color: rgba(255, 255, 255, 0.8);
-        box-shadow: 0 0 8px rgba(255, 255, 255, 0.5) !important;
-    }
-    
-    /* Icon dots for mobile */
-    .view-indicators .view-dot.icon-dot {
-        width: 28px !important;
-        height: 28px !important;
-        background: rgba(255, 255, 255, 0.9) !important;
-        color: #2c3e50 !important;
-        font-size: 14px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-    }
-    
-    .view-indicators .view-dot.icon-dot.active {
-        background: white !important;
-        color: #2c3e50 !important;
-        box-shadow: 0 0 8px rgba(255, 255, 255, 0.8) !important;
-    }
-    
     /* Compact mode for many views */
     .view-indicators.compact-mode {
         gap: 8px;
@@ -1516,52 +1454,9 @@
         font-size: 12px;
     }
     
-    /* Hide tooltips on mobile completely */
+    /* Hide tooltips on mobile */
     .view-indicators .view-dot::before {
         display: none !important;
-    }
-    
-    /* Mobile fullscreen mode - keep indicators visible but smaller */
-    .lightbox.mobile-fullscreen .lightbox-image-section .view-indicators {
-        bottom: 80px !important; /* Above the fullscreen toggle button */
-        padding: 6px 12px;
-        background: rgba(0, 0, 0, 0.8) !important;
-    }
-    
-    .lightbox.mobile-fullscreen .view-indicators .view-dot {
-        width: 12px !important;
-        height: 12px !important;
-    }
-    
-    .lightbox.mobile-fullscreen .view-indicators .view-dot.icon-dot {
-        width: 20px !important;
-        height: 20px !important;
-        font-size: 10px;
-    }
-    
-    /* Ensure indicators don't interfere with image interaction */
-    .lightbox-image-section {
-        position: relative;
-        overflow: visible !important; /* Allow indicators to show outside bounds */
-    }
-    
-    /* Make sure mobile image container allows for indicators */
-    .lightbox.mobile-fullscreen .lightbox-image-section,
-    .lightbox-image-section {
-        padding-bottom: 60px !important; /* Space for indicators */
-    }
-    
-    .lightbox.mobile-fullscreen .lightbox-image-section {
-        padding-bottom: 120px !important; /* More space in fullscreen */
-    }
-    
-    /* Adjust image to account for indicator space */
-    .lightbox-image {
-        max-height: calc(60vh - 60px) !important; /* Account for indicator space */
-    }
-    
-    .lightbox.mobile-fullscreen .lightbox-image {
-        max-height: calc(100vh - 120px) !important; /* Account for indicators + controls */
     }
 
     /* Close button optimization */
@@ -1621,38 +1516,63 @@
         margin-right: 0.5rem;
         margin-bottom: 0.5rem;
     }
+
+    /* Ensure proper contrast on different backgrounds */
+    .lightbox-image-section[style*="background: #f8f9fa"] .view-indicators,
+    .lightbox-image-section[style*="background: white"] .view-indicators {
+        background: rgba(44, 62, 80, 0.9) !important;
+        border: 1px solid rgba(44, 62, 80, 0.7);
+    }
+    
+    .lightbox-image-section[style*="background: #f8f9fa"] .view-indicators .view-dot,
+    .lightbox-image-section[style*="background: white"] .view-indicators .view-dot {
+        background: rgba(255, 255, 255, 0.9) !important;
+        border-color: rgba(44, 62, 80, 0.3);
+    }
 }
 
-/* Ultra small mobile adjustments */
+/* ================================================= */
+/* ULTRA SMALL MOBILE SCREENS */
+/* ================================================= */
 @media (max-width: 480px) {
+    /* Tighter info section padding */
     .lightbox-info-section {
         padding: 1rem;
     }
     
+    /* Smaller typography for very small screens */
     .artwork-title {
         font-size: 1.1rem;
+        line-height: 1.2;
     }
     
     .artwork-title-en {
         font-size: 0.85rem;
+        line-height: 1.3;
     }
     
     .artwork-description {
         font-size: 0.8rem;
         padding: 0.6rem;
+        line-height: 1.5;
     }
     
     .spec-value {
         font-size: 0.8rem;
     }
-
-    /* Larger close button for small screens */
-    .control-btn {
-        width: 48px;
-        height: 48px;
-        font-size: 1.4rem;
+    
+    .spec-label {
+        font-size: 0.7rem;
     }
 
+    /* Larger touch targets for small screens */
+    .control-btn {
+        width: 48px !important;
+        height: 48px !important;
+        font-size: 1.4rem !important;
+    }
+
+    /* Optimized view indicators for small screens */
     .lightbox-image-section .view-indicators {
         bottom: 15px !important;
         gap: 10px;
@@ -1673,95 +1593,62 @@
     .view-indicators .view-dot.active {
         transform: scale(1.4);
     }
+    
+    /* Compact mode adjustments for small screens */
+    .view-indicators.compact-mode {
+        gap: 6px;
+        padding: 4px 10px;
+    }
+    
+    .view-indicators.compact-mode .view-dot {
+        width: 14px !important;
+        height: 14px !important;
+    }
+    
+    .view-indicators.compact-mode .view-dot.icon-dot {
+        width: 26px !important;
+        height: 26px !important;
+        font-size: 13px;
+    }
+
+    /* Tighter availability status */
+    .availability-status {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.8rem;
+    }
+    
+    /* Smaller tags */
+    .tag {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.6rem;
+    }
+
+    /* Mobile fullscreen adjustments for small screens */
+    .lightbox.mobile-fullscreen .fullscreen-toggle {
+        padding: 6px 12px !important;
+        font-size: 12px !important;
+    }
+
+    /* Ensure image doesn't get too small */
+    .lightbox-image {
+        min-height: 200px;
+    }
+
+    /* Shopping section adjustments if present */
+    .shopping-section {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        margin-left: -1rem;
+        margin-right: -1rem;
+    }
 }
 
-
-    /* 🎯 關閉按鈕優化 */
-    .lightbox-controls {
-        position: fixed; /* 固定位置 */
-        top: 1rem;
-        right: 1rem;
-        z-index: 10001;
-    }
-    
-    .control-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem;
-        background: rgba(0, 0, 0, 0.8);
-        color: white;
-        border: 2px solid rgba(255, 255, 255, 0.3);
-        backdrop-filter: blur(10px);
-    }
-    
-    .control-btn:hover {
-        background: rgba(0, 0, 0, 0.9);
-        color: white;
-        transform: scale(1.05);
-    }
-
-    /* 🚫 手機板不需要的功能樣式 */
-    .lightbox-image.zoomable,
-    .lightbox-image.zoomed,
-    .lightbox-image.dragging {
-        cursor: pointer !important; /* 保持可點擊 */
-    }
-
-    /* 🎯 購物區域優化（如果存在） */
-    .shopping-section {
-        margin-top: 1.5rem;
-        padding-top: 1.5rem;
-        margin-left: -1.5rem;
-        margin-right: -1.5rem;
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-        border-top: 2px solid #e9ecef;
-    }
-
-    /* 🎯 標籤區域優化 */
-    .artwork-tags {
-        margin-bottom: 1.5rem;
-    }
-    
-    .tag {
-        display: inline-block;
-        background: #e9ecef;
-        color: #495057;
-        padding: 0.4rem 0.8rem;
-        border-radius: 15px;
-        font-size: 0.8rem;
-        margin-right: 0.5rem;
-        margin-bottom: 0.5rem;
-    }
-
-
-/* Small mobile - Ultra compact */
-@media (max-width: 480px) {
-    .lightbox-info-section {
-        padding: 1rem;
-    }
-    
-    .artwork-title {
-        font-size: 1.1rem;
-    }
-    
-    .artwork-title-en {
-        font-size: 0.85rem;
-    }
-    
-    .artwork-description {
-        font-size: 0.8rem;
-        padding: 0.6rem;
-    }
-    
-    .spec-value {
-        font-size: 0.8rem;
-    }
-
-/* Tablet adjustments */
+/* ================================================= */
+/* TABLET ADJUSTMENTS */
+/* ================================================= */
 @media (max-width: 1024px) and (min-width: 769px) {
     .view-indicators {
-        bottom: 12px; /* Stay inside image area */
+        bottom: 12px;
         gap: 10px;
     }
     
@@ -1777,7 +1664,7 @@
     }
     
     .lightbox-image-section {
-        padding-bottom: 0; /* Remove extra space */
+        padding-bottom: 0;
     }
 }
 
@@ -1797,5 +1684,4 @@
     background: white;
     border-color: white;
     box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5);
-}
 }
