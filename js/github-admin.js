@@ -201,7 +201,7 @@ class GitHubUploader {
             // Upload thumbnail with retry
             onProgress?.('Uploading thumbnail...', 70);
             const thumbnailBase64 = await this.blobToBase64(thumbnailBlob);
-            const fileExtension = file.type === 'image/png' ? 'png' : 'jpg';
+            const fileExtension = 'jpg'; // Always use JPG now
             const thumbnailPath = `${this.config.paths.thumbnails}${artworkData.id}_thumb.${fileExtension}`;
             
             console.log(`📤 Uploading thumbnail: ${Math.round(thumbnailBlob.size/1024)}KB`);
@@ -334,68 +334,105 @@ class GitHubUploader {
     }
 
 
-    async createImageFromFile(file, maxSize, type = 'thumbnail', quality = 0.9) {
-    return new Promise((resolve, reject) => {
-        const img = new Image();
-        
-        img.onload = () => {
-            try {
-                const canvas = document.createElement('canvas');
-                const ctx = canvas.getContext('2d');
-                
-                let { width, height } = img;
-                console.log(`📏 Original dimensions: ${width}x${height}`);
-                
-                // Resize if needed
-                if (Math.max(width, height) > maxSize) {
-                    const ratio = maxSize / Math.max(width, height);
-                    width = Math.round(width * ratio);
-                    height = Math.round(height * ratio);
-                    console.log(`📐 Resized to: ${width}x${height}`);
+    async createImageFromFile(file, maxSize, type = 'thumbnail', quality = 0.95) {
+        return new Promise((resolve, reject) => {
+            const img = new Image();
+            
+            img.onload = () => {
+                try {
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+                    
+                    let { width, height } = img;
+                    console.log(`📏 Original dimensions: ${width}x${height}`);
+                    
+                    // Resize if needed
+                    if (Math.max(width, height) > maxSize) {
+                        const ratio = maxSize / Math.max(width, height);
+                        width = Math.round(width * ratio);
+                        height = Math.round(height * ratio);
+                        console.log(`📐 Resized to: ${width}x${height}`);
+                    }
+                    
+                    canvas.width = width;
+                    canvas.height = height;
+                    
+                    // Memory optimization settings
+                    ctx.imageSmoothingEnabled = true;
+                    ctx.imageSmoothingQuality = quality > 0.8 ? 'high' : 'medium';
+                    
+                    // Draw image
+                    ctx.drawImage(img, 0, 0, width, height);
+                    
+                    // NEW: Target file sizes and use JPEG
+                    const targetSizeKB = type === 'thumbnail' ? 500 : 1200; // 400KB for thumbnails, 800KB for large
+                    const targetSizeBytes = targetSizeKB * 1024;
+                    
+                    // NEW: Try different JPEG qualities to hit target size
+                    this.createOptimizedJPEG(canvas, targetSizeBytes, type)
+                        .then(blob => {
+                            console.log(`✅ Created ${type}: ${Math.round(blob.size/1024)}KB (target: ${targetSizeKB}KB)`);
+                            resolve(blob);
+                            
+                            // Clean up
+                            canvas.width = canvas.height = 0;
+                            URL.revokeObjectURL(img.src);
+                        })
+                        .catch(error => {
+                            URL.revokeObjectURL(img.src);
+                            reject(error);
+                        });
+                    
+                } catch (error) {
+                    URL.revokeObjectURL(img.src);
+                    reject(error);
                 }
-                
-                canvas.width = width;
-                canvas.height = height;
-                
-                // Memory optimization settings
-                ctx.imageSmoothingEnabled = true;
-                ctx.imageSmoothingQuality = quality > 0.8 ? 'high' : 'medium';
-                
-                // Draw image
-                ctx.drawImage(img, 0, 0, width, height);
-                
-                // Convert to blob with appropriate quality
+            };
+            
+            img.onerror = (error) => {
+                URL.revokeObjectURL(img.src);
+                reject(new Error('Failed to load image for processing'));
+            };
+            
+            img.src = URL.createObjectURL(file);
+        });
+    }
+
+    // NEW: Add this helper function to the GitHubUploader class
+    async createOptimizedJPEG(canvas, targetSizeBytes, type) {
+        return new Promise((resolve, reject) => {
+            // Start with high quality and work down
+            let quality = type === 'thumbnail' ? 0.85 : 0.90;
+            const minQuality = 0.30;
+            const qualityStep = 0.05;
+            
+            const tryQuality = (currentQuality) => {
                 canvas.toBlob(
                     (blob) => {
-                        if (blob) {
-                            console.log(`✅ Created ${type}: ${Math.round(blob.size/1024)}KB (quality: ${quality})`);
-                            resolve(blob);
-                        } else {
+                        if (!blob) {
                             reject(new Error('Failed to create blob'));
+                            return;
                         }
                         
-                        // Clean up
-                        canvas.width = canvas.height = 0;
-                        URL.revokeObjectURL(img.src);
+                        console.log(`🎯 Quality ${(currentQuality * 100).toFixed(0)}%: ${Math.round(blob.size/1024)}KB (target: ${Math.round(targetSizeBytes/1024)}KB)`);
+                        
+                        // If size is good or we've hit minimum quality, use this version
+                        if (blob.size <= targetSizeBytes || currentQuality <= minQuality) {
+                            resolve(blob);
+                        } else {
+                            // Try lower quality
+                            const nextQuality = Math.max(currentQuality - qualityStep, minQuality);
+                            tryQuality(nextQuality);
+                        }
                     },
-                    'image/png',
-                    quality
+                    'image/jpeg', // Always use JPEG now
+                    currentQuality
                 );
-                
-            } catch (error) {
-                URL.revokeObjectURL(img.src);
-                reject(error);
-            }
-        };
-        
-        img.onerror = (error) => {
-            URL.revokeObjectURL(img.src);
-            reject(new Error('Failed to load image for processing'));
-        };
-        
-        img.src = URL.createObjectURL(file);
-    });
-}
+            };
+            
+            tryQuality(quality);
+        });
+    }
 
 
 
