@@ -1711,6 +1711,8 @@ function getArtworkText(artwork, field) {
 }
 
 function addViewIndicators() {
+    console.log('addViewIndicators called. Views:', currentArtworkViews?.length, currentArtworkViews);
+
     const image = document.getElementById('lightboxImage');
     if (!image) {
         console.error('Lightbox image not found');
@@ -1792,8 +1794,6 @@ function addViewIndicators() {
     console.log(`Added ${currentArtworkViews.length} real view indicators`);
 }
 
-
-
 function switchArtworkView(index) {
     if (index === currentViewIndex || index >= currentArtworkViews.length) return;
 
@@ -1810,9 +1810,9 @@ function switchArtworkView(index) {
     
     if (!image || !dots.length) return;
     
-    console.log(`🔄 Switching to view ${index}: ${currentArtworkViews[index].title || currentArtworkViews[index].type}`);
+    console.log(`Switching to view ${index}: ${currentArtworkViews[index].title}`);
     
-    // Update dot states immediately for better responsiveness
+    // Update dot states immediately
     dots.forEach(dot => dot.classList.remove('active'));
     if (dots[index]) {
         dots[index].classList.add('active');
@@ -1822,11 +1822,6 @@ function switchArtworkView(index) {
     image.style.opacity = '0.5';
     image.style.transition = 'opacity 0.3s ease';
     
-    // Mobile haptic feedback (if supported)
-    if (isMobileDevice() && navigator.vibrate) {
-        navigator.vibrate(50); // Short vibration
-    }
-    
     setTimeout(() => {
         const newView = currentArtworkViews[index];
         image.src = newView.src;
@@ -1835,11 +1830,11 @@ function switchArtworkView(index) {
         image.onload = function() {
             image.style.opacity = '1';
             currentViewIndex = index;
-            console.log(`✅ Successfully switched to view ${index}`);
+            console.log(`Successfully switched to view ${index}`);
         };
         
         image.onerror = function() {
-            console.warn(`⚠️ Failed to load view image: ${newView.src}`);
+            console.warn(`Failed to load view image: ${newView.src}`);
             image.src = getPlaceholderImage();
             image.style.opacity = '1';
             currentViewIndex = index;
@@ -1848,6 +1843,7 @@ function switchArtworkView(index) {
         updateCursor();
     }, 150);
 }
+
 
 function cleanupViews() {
     currentArtworkViews = [];
@@ -2003,53 +1999,11 @@ window.forceCreateIndicators = function() {
     }, 100);
 };
 
-// Replace this function in lightbox.js
-// Replace this function in lightbox.js
 function shouldUseMobileLayout() {
     return window.innerWidth <= 768 || isMobileDevice();
 }
 
-// Then in addViewIndicators(), replace:
-if (isMobileDevice()) {
-    // mobile positioning
-} else {
-    // desktop positioning  
-}
 
-// With:
-if (shouldUseMobileLayout()) {
-    // mobile positioning
-} else {
-    // desktop positioning
-}
-
-// Also update populateLightbox() image.onload section:
-if (shouldUseMobileLayout()) {
-    initializeMobileLightbox();
-} else {
-    initializeDesktopLightbox();
-}
-
-// Then in addViewIndicators(), replace:
-if (isMobileDevice()) {
-    // mobile positioning
-} else {
-    // desktop positioning  
-}
-
-// With:
-if (shouldUseMobileLayout()) {
-    // mobile positioning
-} else {
-    // desktop positioning
-}
-
-// Also update populateLightbox() image.onload section:
-if (shouldUseMobileLayout()) {
-    initializeMobileLightbox();
-} else {
-    initializeDesktopLightbox();
-}
 
 // 7. SIMPLE debug function to check what's really happening
 window.simpleDebug = function() {
