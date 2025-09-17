@@ -877,6 +877,7 @@
     "year": "2017",
     "heightCm": 90,
     "widthCm": 75,
+    "sizeCm": "90 × 75 cm",
     "format": "框",
     "description": "滾滾浪捲萬頃波，蒼蒼石疊千仞峰；飛鳥翔雲百里游，海天競秀一龍洞。",
     "curatorNote": "",
@@ -885,9 +886,7 @@
     "price": "",
     "autoCategories": {
       "subjects": [
-        "landscape",
-        "flowingclouds",
-        "flowers"
+        "landscape"
       ],
       "locations": [
         "longdong"
@@ -901,22 +900,8 @@
     "imageHigh": "images\\paintings\\large\\019891b0-f39c-7834-8476-a918927593ab_large.jpg",
     "categories": [
       "landscape",
-      "flowingclouds",
-      "flowers",
       "longdong"
-    ],
-    "productViews": [
-      {
-        "type": "original",
-        "image": "./images/paintings/large/019891b0-f39c-7834-8476-a918927593ab_large.jpg"
-      }
-    ],
-    "titleEn": "",
-    "descriptionEn": "",
-    "curatorNoteEn": "",
-    "formatEn": "Framed",
-    "heightInches": 35.4,
-    "widthInches": 29.5
+    ]
   },
   {
     "id": "019891b0-f39c-7220-b00b-be8e9249f911",
