@@ -1394,6 +1394,17 @@ function exitImageFullscreen() {
         imageSection.className = originalLightboxContent.imageSectionClass;
     }
     
+    // Reset zoom and pan when exiting fullscreen
+    zoomLevel = 1;
+    panX = 0;
+    panY = 0;
+
+    // Apply the reset transform
+    if (currentImage) {
+        applyTransform();
+    }
+
+
     showFullscreenIndicator(false);
     updateCursor();
 }
