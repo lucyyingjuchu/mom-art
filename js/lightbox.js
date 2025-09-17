@@ -144,6 +144,12 @@ function setupMobileImage(image) {
                     enterMobileFullscreen();
                 }
             } else if (isMoving && distance > 50 && duration < 500) {
+                // Check if we're in fullscreen mode before processing swipe
+                const lightbox = document.querySelector('.lightbox');
+                if (lightbox && lightbox.classList.contains('mobile-fullscreen')) {
+                    return; // Block swipe in fullscreen, but allow native pan/pinch to continue
+                }
+                  
                 // SWIPE - check if we have multiple views
                 if (currentArtworkViews && currentArtworkViews.length > 1) {
                     e.preventDefault();
@@ -1891,18 +1897,6 @@ console.log('✅ Clean device separation implemented');
 
 // Debug function to check what's happening
 window.checkMobileMultiview = function() {
-    console.log('=== MOBILE MULTIVIEW DEBUG ===');
-    console.log('1. Is mobile device:', isMobileDevice());
-    console.log('2. Current artwork views:', currentArtworkViews);
-    console.log('3. Views count:', currentArtworkViews?.length || 0);
-    console.log('4. Current view index:', currentViewIndex);
-    console.log('5. View indicators element:', document.querySelector('.view-indicators'));
-    console.log('6. Lightbox image section:', document.querySelector('.lightbox-image-section'));
-    
-    // Force mobile device detection for testing
-    console.log('7. User agent:', navigator.userAgent);
-    console.log('8. Touch points:', navigator.maxTouchPoints);
-    console.log('9. Window width:', window.innerWidth);
     
     const indicators = document.querySelector('.view-indicators');
     if (indicators) {
@@ -1999,15 +1993,3 @@ function shouldUseMobileLayout() {
     return window.innerWidth <= 768 || isMobileDevice();
 }
 
-
-
-// 7. SIMPLE debug function to check what's really happening
-window.simpleDebug = function() {
-    console.log('=== SIMPLE DEBUG ===');
-    console.log('Mobile detected:', isMobileDevice());
-    console.log('Touch support:', 'ontouchstart' in window);
-    console.log('Max touch points:', navigator.maxTouchPoints);
-    console.log('Current views:', currentArtworkViews?.length || 0);
-    console.log('View details:', currentArtworkViews?.map(v => v.title) || []);
-    console.log('Indicators element:', !!document.querySelector('.view-indicators'));
-};
