@@ -499,8 +499,8 @@
     "curatorNoteEn": "",
     "format": "框",
     "formatEn": "Framed",
-    "heightCm": 90,
-    "widthCm": 80,
+    "heightCm": 80,
+    "widthCm": 90,
     "heightInches": 35.4,
     "widthInches": 31.5,
     "year": "2011",
@@ -511,6 +511,10 @@
       {
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7cc4-ae49-d25008e1409d_large.png"
+      },
+      {
+        "type": "original-mockup",
+        "image": "./images/mockups/original/019891b0-f39c-7cc4-ae49-d25008e1409d_orig_mock.jpg"
       }
     ]
   },
@@ -1185,6 +1189,10 @@
       {
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7b9e-bb65-6852f393b302_large.jpg"
+      },
+      {
+        "type": "original-mockup",
+        "image": "./images/mockups/original/019891b0-f39c-7b9e-bb65-6852f393b302_orig_mock.jpg"
       }
     ]
   },
@@ -1621,6 +1629,10 @@
       {
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7c93-99be-4338883f37f7_large.png"
+      },
+      {
+        "type": "original-mockup",
+        "image": "./images/mockups/original/019891b0-f39c-7c93-99be-4338883f37f7_orig_mock.jpg"
       }
     ],
     "titleEn": "",
