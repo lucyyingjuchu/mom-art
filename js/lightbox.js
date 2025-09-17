@@ -322,6 +322,12 @@ function enterMobileFullscreen() {
         console.log('Fullscreen not allowed for non-original view');
         return;
     }
+
+    // Switch to high resolution image for fullscreen viewing
+    const artwork = artworksData[currentArtworkIndex];
+    if (artwork && artwork.imageHigh) {
+        image.src = artwork.imageHigh;
+    }
     
     // Add fullscreen class for styling
     lightbox.classList.add('mobile-fullscreen');
@@ -373,7 +379,14 @@ function exitMobileFullscreen() {
     
     // Remove fullscreen class
     lightbox.classList.remove('mobile-fullscreen');
-    
+
+    // Add this to exitMobileFullscreen() after removing the fullscreen class:
+    // Switch back to regular resolution image
+    const artwork = artworksData[currentArtworkIndex];
+    if (artwork && artwork.image) {
+        image.src = artwork.image;
+    }
+        
     // Restore normal mobile image settings
     image.style.touchAction = 'manipulation';
     image.style.maxWidth = '';
@@ -968,7 +981,14 @@ function populateLightbox(artwork) {
     image.classList.add('loading');
     
     const placeholderImage = getPlaceholderImage();
-    image.src = artwork.imageHigh || artwork.image || placeholderImage;
+
+    if (isMobileDevice() || shouldUseMobileLayout()) {
+        // Mobile: Use regular image for lightbox view, save bandwidth
+        image.src = artwork.image || placeholderImage;
+    } else {
+        // Desktop: Use high resolution image
+        image.src = artwork.imageHigh || artwork.image || placeholderImage;
+    }
     
     // SETUP VIEWS FIRST - before image loads
     setupArtworkViews(artwork);
