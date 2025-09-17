@@ -1763,8 +1763,8 @@
     "curatorNoteEn": "",
     "format": "鏡片",
     "formatEn": "Mounted Panel",
-    "heightCm": 360,
-    "widthCm": 150,
+    "heightCm": 150,
+    "widthCm": 360,
     "heightInches": 141.7,
     "widthInches": 59.1,
     "year": "2018",
@@ -1775,6 +1775,10 @@
       {
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7c9a-9ae8-6dccaca82b5f_large.png"
+      },
+      {
+        "type": "original-mockup",
+        "image": "./images/mockups/original/019891b0-f39c-7c9a-9ae8-6dccaca82b5f_orig_mock.jpg"
       }
     ]
   },
@@ -6566,6 +6570,10 @@
       {
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7c4e-b473-973fecc8171d_large.png"
+      },
+      {
+        "type": "original-mockup",
+        "image": "./images/mockups/original/019891b0-f39c-7c4e-b473-973fecc8171d_orig_mock.jpg"
       }
     ]
   },
