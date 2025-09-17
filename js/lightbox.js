@@ -1769,26 +1769,22 @@ function addViewIndicators() {
             imageSection.appendChild(indicators);
             console.log('Mobile indicators added');
         }
+    // In addViewIndicators(), for desktop positioning:
     } else {
-        // Desktop positioning
-        const imageContainer = image.parentElement;
-        imageContainer.appendChild(indicators);
-        indicators.style.position = 'absolute';
-        indicators.style.zIndex = '1001';
+        console.log('Desktop: Using image section positioning');
         
-        function positionIndicators() {
-            const imageRect = image.getBoundingClientRect();
-            const containerRect = imageContainer.getBoundingClientRect();
-            const imageBottomRelative = imageRect.bottom - containerRect.top;
-            const imageCenterRelative = (imageRect.left + imageRect.right) / 2 - containerRect.left;
+        const imageSection = document.querySelector('.lightbox-image-section');
+        if (imageSection) {
+            imageSection.appendChild(indicators);
             
-            indicators.style.top = `${imageBottomRelative + 10}px`;
-            indicators.style.left = `${imageCenterRelative}px`;
+            indicators.style.position = 'absolute';
+            indicators.style.bottom = '20px'; // Fixed distance from image section bottom
+            indicators.style.left = '50%';
             indicators.style.transform = 'translateX(-50%)';
+            indicators.style.zIndex = '1001';
+            
+            console.log('Desktop indicators positioned in image section');
         }
-        
-        positionIndicators();
-        image.addEventListener('load', positionIndicators);
     }
     
     console.log(`Added ${currentArtworkViews.length} real view indicators`);
