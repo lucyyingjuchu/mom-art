@@ -2003,6 +2003,54 @@ window.forceCreateIndicators = function() {
     }, 100);
 };
 
+// Replace this function in lightbox.js
+// Replace this function in lightbox.js
+function shouldUseMobileLayout() {
+    return window.innerWidth <= 768 || isMobileDevice();
+}
+
+// Then in addViewIndicators(), replace:
+if (isMobileDevice()) {
+    // mobile positioning
+} else {
+    // desktop positioning  
+}
+
+// With:
+if (shouldUseMobileLayout()) {
+    // mobile positioning
+} else {
+    // desktop positioning
+}
+
+// Also update populateLightbox() image.onload section:
+if (shouldUseMobileLayout()) {
+    initializeMobileLightbox();
+} else {
+    initializeDesktopLightbox();
+}
+
+// Then in addViewIndicators(), replace:
+if (isMobileDevice()) {
+    // mobile positioning
+} else {
+    // desktop positioning  
+}
+
+// With:
+if (shouldUseMobileLayout()) {
+    // mobile positioning
+} else {
+    // desktop positioning
+}
+
+// Also update populateLightbox() image.onload section:
+if (shouldUseMobileLayout()) {
+    initializeMobileLightbox();
+} else {
+    initializeDesktopLightbox();
+}
+
 // 7. SIMPLE debug function to check what's really happening
 window.simpleDebug = function() {
     console.log('=== SIMPLE DEBUG ===');
