@@ -2,7 +2,7 @@ import os
 from PIL import Image
 import pillow_heif  # For HEIF support if needed
 
-def optimize_image(input_path, output_path, target_size_kb=500, quality_start=90):
+def optimize_image(input_path, output_path, target_size_kb=1200, quality_start=100):
     """
     Optimize image to get as close as possible to target size
     """
@@ -99,7 +99,7 @@ def optimize_image(input_path, output_path, target_size_kb=500, quality_start=90
         print(f"❌ Error processing {input_path}: {e}")
         return False
 
-def batch_optimize_images(source_dir, backup_dir=None, target_size_kb=500):
+def batch_optimize_images(source_dir, backup_dir=None, target_size_kb=1200):
     """
     Batch optimize all images in a directory
     """
@@ -147,9 +147,9 @@ def batch_optimize_images(source_dir, backup_dir=None, target_size_kb=500):
 # Usage
 if __name__ == "__main__":
     # IMPORTANT: Update these paths for your setup
-    SOURCE_DIR = "./images/paintings/thumbnails"  # Your artwork.image directory
-    BACKUP_DIR = "./images/paintings/thumbnails_bkup"   # Backup original files
-    TARGET_SIZE_KB = 500              # Target size in KB
+    SOURCE_DIR = "./images/paintings/large"  # Your artwork.image directory
+    BACKUP_DIR = "./images/paintings/large_bkup"   # Backup original files
+    TARGET_SIZE_KB = 1200              # Target size in KB
     
     print(f"🚀 Starting image optimization...")
     print(f"📁 Source: {SOURCE_DIR}")
