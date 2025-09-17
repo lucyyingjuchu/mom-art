@@ -326,6 +326,19 @@ class ChineseArtPortfolio {
         return this.artworks.filter(artwork => this.getBooleanValue(artwork, 'featured', false));
     }
 
+    // Add this method anywhere in your ChineseArtPortfolio class
+    getFeaturedImageUrl(artwork) {
+        const isMobile = window.innerWidth <= 768;
+        
+        if (isMobile) {
+            // Mobile: prioritize smaller images for performance
+            return artwork.image || artwork.imageHigh || this.getPlaceholderImage();
+        } else {
+            // Desktop: prioritize high-quality images for hero display
+            return artwork.imageHigh || artwork.image || this.getPlaceholderImage();
+        }
+    }
+
     // Search artworks - FIXED VERSION
     searchArtworks(query) {
         const searchTerm = query.toLowerCase().trim();
@@ -996,7 +1009,7 @@ class ChineseArtPortfolio {
         const year = artwork.year || '';
         const size = artwork.sizeCm || '';
         const medium = artwork.mediumEn || artwork.format || '';
-        const imageUrl = artwork.imageHigh || artwork.image || this.getPlaceholderImage();
+        const imageUrl = this.getFeaturedImageUrl(artwork);
         const available = this.getBooleanValue(artwork, 'available', true);
         
         const spanClass = `featured-item-span-${span}`;
