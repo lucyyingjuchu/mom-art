@@ -1206,11 +1206,6 @@ function currentViewAllowsZoom() {
     
     const allowsZoom = currentView.type === 'original' || currentView.type === 'artwork' || !currentView.type;
     
-    console.log('Zoom check:', {
-        currentViewIndex,
-        viewType: currentView.type,
-        allowsZoom
-    });
     
     return allowsZoom;
 }
