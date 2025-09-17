@@ -1194,17 +1194,23 @@ function applyTransform() {
 // Helper function to check if current view allows zoom
 function currentViewAllowsZoom() {
     if (!currentArtworkViews || currentArtworkViews.length === 0){
-        console.log('🔍 No views, allowing zoom by default');
-        return true; // Default allow
+        console.log('No views, allowing zoom by default');
+        return true;
     }
 
     const currentView = currentArtworkViews[currentViewIndex];
     if (!currentView){
-        console.log('🔍 No current view, allowing zoom by default');
-        return true; // Default allow
+        console.log('No current view, allowing zoom by default');
+        return true;
     } 
     
     const allowsZoom = currentView.type === 'original' || currentView.type === 'artwork' || !currentView.type;
+    
+    console.log('Zoom check:', {
+        currentViewIndex,
+        viewType: currentView.type,
+        allowsZoom
+    });
     
     return allowsZoom;
 }
@@ -1829,9 +1835,11 @@ function switchArtworkView(index) {
         image.src = newView.src;
         image.alt = newView.alt;
         
+        // Move this line here, before updateCursor()
+        currentViewIndex = index;
+        
         image.onload = function() {
             image.style.opacity = '1';
-            currentViewIndex = index;
             console.log(`Successfully switched to view ${index}`);
         };
         
@@ -1839,10 +1847,9 @@ function switchArtworkView(index) {
             console.warn(`Failed to load view image: ${newView.src}`);
             image.src = getPlaceholderImage();
             image.style.opacity = '1';
-            currentViewIndex = index;
         };
 
-        updateCursor();
+        updateCursor(); // Now this uses the correct currentViewIndex
     }, 150);
 }
 
