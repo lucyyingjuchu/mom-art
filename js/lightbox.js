@@ -271,38 +271,12 @@ function enterMobileFullscreen() {
     image.style.height = 'auto';
     image.style.objectFit = 'contain';
     
-    // Add double-tap to reset zoom
-    addDoubleTapZoomReset(image);
-    
+   
     addFullscreenExitGestures();
     
     console.log('Entered mobile fullscreen mode with pan, zoom, and double-tap reset');
 }
 
-function addDoubleTapZoomReset(image) {
-    let lastTap = 0;
-    
-    image.addEventListener('touchend', function(e) {
-        const currentTime = new Date().getTime();
-        const tapLength = currentTime - lastTap;
-        
-        if (tapLength < 300 && tapLength > 0) {
-            e.preventDefault();
-            
-            // FIXED: Just reset CSS transform, don't clear src
-            image.style.transform = 'none';
-            image.style.transition = 'transform 0.3s ease';
-            
-            // Reset back after animation
-            setTimeout(() => {
-                image.style.transition = '';
-            }, 300);
-            
-            console.log('Double-tap zoom reset (CSS only)');
-        }
-        lastTap = currentTime;
-    });
-}
 
 function addFullscreenExitGestures() {
     const toggleButton = document.createElement('button');
@@ -1884,4 +1858,111 @@ console.log('🎯 Mobile-optimized lightbox loaded successfully!');
 console.log('📱 Mobile: Native pinch-zoom + tap-to-close + swipe-to-close');
 console.log('🖥️ Desktop: Advanced zoom controls + fullscreen + pan/zoom');
 console.log('✅ Clean device separation implemented');
+
+// SIMPLE MOBILE DEBUG - Add this to the very end of lightbox.js
+
+// Debug function to check what's happening
+window.checkMobileMultiview = function() {
+    console.log('=== MOBILE MULTIVIEW DEBUG ===');
+    console.log('1. Is mobile device:', isMobileDevice());
+    console.log('2. Current artwork views:', currentArtworkViews);
+    console.log('3. Views count:', currentArtworkViews?.length || 0);
+    console.log('4. Current view index:', currentViewIndex);
+    console.log('5. View indicators element:', document.querySelector('.view-indicators'));
+    console.log('6. Lightbox image section:', document.querySelector('.lightbox-image-section'));
     
+    // Force mobile device detection for testing
+    console.log('7. User agent:', navigator.userAgent);
+    console.log('8. Touch points:', navigator.maxTouchPoints);
+    console.log('9. Window width:', window.innerWidth);
+    
+    const indicators = document.querySelector('.view-indicators');
+    if (indicators) {
+        const rect = indicators.getBoundingClientRect();
+        console.log('10. Indicators position:', rect);
+        console.log('11. Indicators visible:', rect.width > 0 && rect.height > 0);
+        console.log('12. Indicators styles:', window.getComputedStyle(indicators));
+    } else {
+        console.log('10. NO VIEW INDICATORS FOUND');
+    }
+};
+
+// Force mobile mode for testing
+window.forceMobileMode = function() {
+    // Override the mobile detection temporarily
+    window.originalIsMobile = isMobileDevice;
+    window.isMobileDevice = function() { return true; };
+    
+    console.log('Forced mobile mode ON');
+    console.log('Opening lightbox should now use mobile mode');
+};
+
+// Restore original mobile detection
+window.restoreMobileMode = function() {
+    if (window.originalIsMobile) {
+        window.isMobileDevice = window.originalIsMobile;
+        console.log('Restored original mobile detection');
+    }
+};
+
+// Test by manually creating view indicators
+window.forceCreateIndicators = function() {
+    console.log('Manually creating view indicators for testing...');
+    
+    // Remove any existing indicators
+    const existing = document.querySelector('.view-indicators');
+    if (existing) existing.remove();
+    
+    // Get image section
+    const imageSection = document.querySelector('.lightbox-image-section');
+    if (!imageSection) {
+        console.error('No image section found');
+        return;
+    }
+    
+    // Create test indicators
+    const indicators = document.createElement('div');
+    indicators.className = 'view-indicators';
+    indicators.style.cssText = `
+        position: absolute !important;
+        bottom: 20px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        z-index: 1002 !important;
+        display: flex !important;
+        gap: 12px;
+        padding: 8px 16px;
+        background: rgba(0, 0, 0, 0.8) !important;
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    `;
+    
+    // Create test dots
+    for (let i = 0; i < 3; i++) {
+        const dot = document.createElement('div');
+        dot.className = i === 0 ? 'view-dot active' : 'view-dot';
+        dot.style.cssText = `
+            width: 16px !important;
+            height: 16px !important;
+            border-radius: 50%;
+            background: ${i === 0 ? 'white' : 'rgba(255, 255, 255, 0.6)'} !important;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        `;
+        dot.onclick = () => console.log(`Clicked dot ${i}`);
+        indicators.appendChild(dot);
+    }
+    
+    imageSection.appendChild(indicators);
+    
+    console.log('Test indicators created');
+    console.log('Indicators element:', indicators);
+    console.log('Parent:', indicators.parentElement);
+    
+    setTimeout(() => {
+        const rect = indicators.getBoundingClientRect();
+        console.log('Test indicators position:', rect);
+        console.log('Visible:', rect.width > 0 && rect.height > 0);
+    }, 100);
+};
