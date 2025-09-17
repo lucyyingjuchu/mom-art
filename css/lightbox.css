@@ -1218,6 +1218,21 @@
         --image-width: 100%;
     }
 
+    .lightbox-image-section .view-indicators {
+        position: absolute !important;
+        bottom: 20px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        z-index: 1002 !important;
+        display: flex !important;
+        gap: 12px;
+        padding: 8px 16px;
+        background: rgba(0, 0, 0, 0.7) !important;
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
     /* Mobile image: Full width of container, tap-friendly */
     .lightbox-image {
         width: 100% !important;
@@ -1246,6 +1261,17 @@
         --info-width: 100%;
     }
 
+    .lightbox-image-section[style*="background: #f8f9fa"] .view-indicators,
+    .lightbox-image-section[style*="background: white"] .view-indicators {
+        background: rgba(44, 62, 80, 0.9) !important;
+        border: 1px solid rgba(44, 62, 80, 0.7);
+    }
+    
+    .lightbox-image-section[style*="background: #f8f9fa"] .view-indicators .view-dot,
+    .lightbox-image-section[style*="background: white"] .view-indicators .view-dot {
+        background: rgba(255, 255, 255, 0.9) !important;
+        border-color: rgba(44, 62, 80, 0.3);
+    }
     /* MOBILE FULLSCREEN MODE - Dedicated image viewing */
     .lightbox.mobile-fullscreen {
         background: rgba(0, 0, 0, 1) !important;
@@ -1426,6 +1452,118 @@
         display: none;
     }
 
+    /* Mobile view dots - larger and more touch-friendly */
+    .view-indicators .view-dot {
+        width: 16px !important;
+        height: 16px !important;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.6) !important;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+        box-shadow: none !important; /* Remove desktop shadow */
+    }
+    
+    .view-indicators .view-dot:hover {
+        transform: scale(1.1);
+        background: rgba(255, 255, 255, 0.8) !important;
+    }
+    
+    .view-indicators .view-dot.active {
+        background: white !important;
+        transform: scale(1.3);
+        border-color: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 0 8px rgba(255, 255, 255, 0.5) !important;
+    }
+    
+    /* Icon dots for mobile */
+    .view-indicators .view-dot.icon-dot {
+        width: 28px !important;
+        height: 28px !important;
+        background: rgba(255, 255, 255, 0.9) !important;
+        color: #2c3e50 !important;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+    }
+    
+    .view-indicators .view-dot.icon-dot.active {
+        background: white !important;
+        color: #2c3e50 !important;
+        box-shadow: 0 0 8px rgba(255, 255, 255, 0.8) !important;
+    }
+    
+    /* Compact mode for many views */
+    .view-indicators.compact-mode {
+        gap: 8px;
+        padding: 6px 12px;
+    }
+    
+    .view-indicators.compact-mode .view-dot {
+        width: 12px !important;
+        height: 12px !important;
+    }
+    
+    .view-indicators.compact-mode .view-dot.active {
+        transform: scale(1.5);
+    }
+    
+    .view-indicators.compact-mode .view-dot.icon-dot {
+        width: 24px !important;
+        height: 24px !important;
+        font-size: 12px;
+    }
+    
+    /* Hide tooltips on mobile completely */
+    .view-indicators .view-dot::before {
+        display: none !important;
+    }
+    
+    /* Mobile fullscreen mode - keep indicators visible but smaller */
+    .lightbox.mobile-fullscreen .lightbox-image-section .view-indicators {
+        bottom: 80px !important; /* Above the fullscreen toggle button */
+        padding: 6px 12px;
+        background: rgba(0, 0, 0, 0.8) !important;
+    }
+    
+    .lightbox.mobile-fullscreen .view-indicators .view-dot {
+        width: 12px !important;
+        height: 12px !important;
+    }
+    
+    .lightbox.mobile-fullscreen .view-indicators .view-dot.icon-dot {
+        width: 20px !important;
+        height: 20px !important;
+        font-size: 10px;
+    }
+    
+    /* Ensure indicators don't interfere with image interaction */
+    .lightbox-image-section {
+        position: relative;
+        overflow: visible !important; /* Allow indicators to show outside bounds */
+    }
+    
+    /* Make sure mobile image container allows for indicators */
+    .lightbox.mobile-fullscreen .lightbox-image-section,
+    .lightbox-image-section {
+        padding-bottom: 60px !important; /* Space for indicators */
+    }
+    
+    .lightbox.mobile-fullscreen .lightbox-image-section {
+        padding-bottom: 120px !important; /* More space in fullscreen */
+    }
+    
+    /* Adjust image to account for indicator space */
+    .lightbox-image {
+        max-height: calc(60vh - 60px) !important; /* Account for indicator space */
+    }
+    
+    .lightbox.mobile-fullscreen .lightbox-image {
+        max-height: calc(100vh - 120px) !important; /* Account for indicators + controls */
+    }
+
     /* Close button optimization */
     .lightbox-controls {
         position: fixed;
@@ -1513,6 +1651,27 @@
         width: 48px;
         height: 48px;
         font-size: 1.4rem;
+    }
+
+    .lightbox-image-section .view-indicators {
+        bottom: 15px !important;
+        gap: 10px;
+        padding: 6px 14px;
+    }
+    
+    .view-indicators .view-dot {
+        width: 18px !important;
+        height: 18px !important;
+    }
+    
+    .view-indicators .view-dot.icon-dot {
+        width: 30px !important;
+        height: 30px !important;
+        font-size: 15px;
+    }
+    
+    .view-indicators .view-dot.active {
+        transform: scale(1.4);
     }
 }
 

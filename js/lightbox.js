@@ -132,74 +132,115 @@ function addMobileGestures() {
         }, 150);
     }, { passive: true });
     
-    // ADD BACK: Horizontal swipe for multiview switching
+    // ENHANCED: Better horizontal swipe detection
     let startX = 0;
     let startY = 0;
     let currentX = 0;
+    let currentY = 0;
     let isHorizontalSwipe = false;
     let swipeStartTime = 0;
+    let swipeThreshold = 50; // Minimum distance for swipe
+    let velocityThreshold = 0.3; // Minimum velocity for swipe
     
-    lightboxContent.addEventListener('touchstart', function(e) {
+    // Use the image section for better swipe detection
+    const imageSection = document.querySelector('.lightbox-image-section');
+    const targetElement = imageSection || lightboxContent;
+    
+    targetElement.addEventListener('touchstart', function(e) {
         if (e.touches.length === 1) {
-            startX = e.touches[0].clientX;
-            startY = e.touches[0].clientY;
+            const touch = e.touches[0];
+            startX = touch.clientX;
+            startY = touch.clientY;
+            currentX = startX;
+            currentY = startY;
             swipeStartTime = Date.now();
             isHorizontalSwipe = false;
+            
+            console.log('👆 Touch start:', startX, startY);
         }
     }, { passive: true });
     
-    lightboxContent.addEventListener('touchmove', function(e) {
-        if (e.touches.length !== 1) return;
+    targetElement.addEventListener('touchmove', function(e) {
+        if (e.touches.length !== 1 || !currentArtworkViews || currentArtworkViews.length <= 1) return;
         
-        currentX = e.touches[0].clientX;
-        const currentY = e.touches[0].clientY;
+        const touch = e.touches[0];
+        currentX = touch.clientX;
+        currentY = touch.clientY;
         const deltaX = currentX - startX;
         const deltaY = currentY - startY;
         const swipeTime = Date.now() - swipeStartTime;
         
-        // Determine if this is a horizontal swipe (more horizontal than vertical)
+        // Determine if this is a horizontal swipe early
         if (!isHorizontalSwipe && swipeTime < 300) {
-            if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 30) {
+            const horizontalDistance = Math.abs(deltaX);
+            const verticalDistance = Math.abs(deltaY);
+            
+            // If horizontal movement is significantly more than vertical, it's a horizontal swipe
+            if (horizontalDistance > 20 && horizontalDistance > verticalDistance * 1.5) {
                 isHorizontalSwipe = true;
+                console.log('🔄 Horizontal swipe detected');
             }
         }
         
-        // Prevent default for horizontal swipes to avoid interference
-        if (isHorizontalSwipe && Math.abs(deltaX) > 50) {
+        // Prevent vertical scrolling during horizontal swipes
+        if (isHorizontalSwipe && Math.abs(deltaX) > 30) {
             e.preventDefault();
         }
         
-        // Update scroll tracking for vertical movements
-        if (Math.abs(deltaY) > 10) {
+        // Still track vertical scrolling for non-horizontal movements
+        if (!isHorizontalSwipe && Math.abs(deltaY) > 10) {
             lastScrollTime = Date.now();
             isScrolling = true;
         }
-    }, { passive: false });
+    }, { passive: false }); // passive: false to allow preventDefault
     
-    lightboxContent.addEventListener('touchend', function(e) {
-        if (!isHorizontalSwipe) return;
+    targetElement.addEventListener('touchend', function(e) {
+        if (!isHorizontalSwipe || !currentArtworkViews || currentArtworkViews.length <= 1) {
+            return;
+        }
         
         const deltaX = currentX - startX;
         const swipeTime = Date.now() - swipeStartTime;
         const swipeVelocity = Math.abs(deltaX) / swipeTime;
+        const horizontalDistance = Math.abs(deltaX);
         
-        // Switch views on significant horizontal gesture
-        if ((Math.abs(deltaX) > 80 && swipeTime < 400) || swipeVelocity > 0.3) {
-            if (currentArtworkViews && currentArtworkViews.length > 1) {
-                if (deltaX > 0) {
-                    // Swipe right - previous view
-                    const prevIndex = currentViewIndex > 0 ? currentViewIndex - 1 : currentArtworkViews.length - 1;
-                    switchArtworkView(prevIndex);
-                } else {
-                    // Swipe left - next view
-                    const nextIndex = currentViewIndex < currentArtworkViews.length - 1 ? currentViewIndex + 1 : 0;
-                    switchArtworkView(nextIndex);
-                }
+        console.log('👋 Swipe end:', {
+            deltaX,
+            swipeTime,
+            swipeVelocity,
+            horizontalDistance,
+            threshold: swipeThreshold
+        });
+        
+        // Check if swipe meets criteria (distance OR velocity)
+        const meetsDistanceCriteria = horizontalDistance > swipeThreshold;
+        const meetsVelocityCriteria = swipeVelocity > velocityThreshold;
+        const meetsTimeCriteria = swipeTime < 500;
+        
+        if ((meetsDistanceCriteria || meetsVelocityCriteria) && meetsTimeCriteria) {
+            if (deltaX > 0) {
+                // Swipe right - previous view
+                const prevIndex = currentViewIndex > 0 ? currentViewIndex - 1 : currentArtworkViews.length - 1;
+                console.log('👈 Swiped right - switching to view:', prevIndex);
+                switchArtworkView(prevIndex);
+            } else {
+                // Swipe left - next view
+                const nextIndex = currentViewIndex < currentArtworkViews.length - 1 ? currentViewIndex + 1 : 0;
+                console.log('👉 Swiped left - switching to view:', nextIndex);
+                switchArtworkView(nextIndex);
             }
+            
+            // Prevent any click events that might follow
+            setTimeout(() => {
+                isHorizontalSwipe = false;
+            }, 100);
         }
         
+        // Reset swipe state
         isHorizontalSwipe = false;
     }, { passive: true });
+    
+    console.log('✅ Enhanced mobile gestures initialized with better swipe detection');
 }
 
 // Mobile fullscreen mode - dedicated image viewing
@@ -1603,7 +1644,7 @@ function getArtworkText(artwork, field) {
 }
 
 function addViewIndicators() {
-    const image = document.getElementById('lightboxImage'); // Target the actual image
+    const image = document.getElementById('lightboxImage');
     if (!image || currentArtworkViews.length <= 1) return;
     
     // Remove existing indicators
@@ -1616,42 +1657,32 @@ function addViewIndicators() {
     const indicators = document.createElement('div');
     indicators.className = 'view-indicators';
     
-    // Position relative to the image, not the image section
-    indicators.style.position = 'absolute';
-    indicators.style.zIndex = '1001';
-    
     const isCompact = currentArtworkViews.length > 4;
     if (isCompact) {
         indicators.classList.add('compact-mode');
     }
     
+    // Create dots
     currentArtworkViews.forEach((view, index) => {
         const dot = document.createElement('div');
         dot.className = `view-dot ${index === 0 ? 'active' : ''}`;
         
-        // Get meaningful tooltip text based on view type/title
+        // Get meaningful tooltip text
         let tooltipText;
-        
         if (view.title) {
-            // If view has a specific title, use it
             tooltipText = view.title;
         } else if (view.type) {
-            // Try to get translated view type
             try {
                 const currentLang = (typeof portfolio !== 'undefined') ? portfolio.currentLanguage : 'zh';
                 const viewTypeKey = `lightbox.viewTypes.${view.type}`;
                 tooltipText = getLocalizedText(viewTypeKey) || view.type;
-                
-                // If translation returns the key (not found), use type as fallback
                 if (tooltipText === viewTypeKey) {
                     tooltipText = view.type.charAt(0).toUpperCase() + view.type.slice(1);
                 }
             } catch (e) {
-                // Fallback to type name
                 tooltipText = view.type.charAt(0).toUpperCase() + view.type.slice(1);
             }
         } else {
-            // Final fallback
             const currentLang = (typeof portfolio !== 'undefined') ? portfolio.currentLanguage : 'zh';
             tooltipText = currentLang === 'en' ? `View ${index + 1}` : `視圖 ${index + 1}`;
         }
@@ -1667,29 +1698,48 @@ function addViewIndicators() {
         indicators.appendChild(dot);
     });
     
-    // Append to the image's parent (not the lightbox-image-section)
-    const imageContainer = image.parentElement;
-    imageContainer.appendChild(indicators);
-    
-    // Position the indicators below the actual image
-    function positionIndicators() {
-        const imageRect = image.getBoundingClientRect();
-        const containerRect = imageContainer.getBoundingClientRect();
+    // MOBILE-SPECIFIC POSITIONING
+    if (isMobileDevice()) {
+        // For mobile: Add to lightbox-image-section as a fixed positioned element
+        const imageSection = document.querySelector('.lightbox-image-section');
+        if (imageSection) {
+            imageSection.appendChild(indicators);
+            
+            // Set mobile-specific positioning
+            indicators.style.position = 'absolute';
+            indicators.style.bottom = '20px';
+            indicators.style.left = '50%';
+            indicators.style.transform = 'translateX(-50%)';
+            indicators.style.zIndex = '1002';
+            
+            console.log('✅ Mobile view indicators positioned at bottom of image section');
+        }
+    } else {
+        // DESKTOP: Position relative to actual image (existing logic)
+        const imageContainer = image.parentElement;
+        imageContainer.appendChild(indicators);
         
-        // Calculate position relative to container
-        const imageBottomRelative = imageRect.bottom - containerRect.top;
-        const imageCenterRelative = (imageRect.left + imageRect.right) / 2 - containerRect.left;
+        indicators.style.position = 'absolute';
+        indicators.style.zIndex = '1001';
         
-        indicators.style.top = `${imageBottomRelative + 10}px`; // 10px below image
-        indicators.style.left = `${imageCenterRelative}px`;
-        indicators.style.transform = 'translateX(-50%)';
+        // Position the indicators below the actual image
+        function positionIndicators() {
+            const imageRect = image.getBoundingClientRect();
+            const containerRect = imageContainer.getBoundingClientRect();
+            
+            const imageBottomRelative = imageRect.bottom - containerRect.top;
+            const imageCenterRelative = (imageRect.left + imageRect.right) / 2 - containerRect.left;
+            
+            indicators.style.top = `${imageBottomRelative + 10}px`;
+            indicators.style.left = `${imageCenterRelative}px`;
+            indicators.style.transform = 'translateX(-50%)';
+        }
+        
+        positionIndicators();
+        image.addEventListener('load', positionIndicators);
     }
     
-    // Position initially and on image load
-    positionIndicators();
-    image.addEventListener('load', positionIndicators);
-    
-    console.log(`✅ Added ${currentArtworkViews.length} view indicators positioned below image`);
+    console.log(`✅ Added ${currentArtworkViews.length} view indicators for ${isMobileDevice() ? 'mobile' : 'desktop'}`);
 }
 
 function switchArtworkView(index) {
@@ -1708,29 +1758,42 @@ function switchArtworkView(index) {
     
     if (!image || !dots.length) return;
     
-    console.log(`🔄 Switching to view ${index}: ${currentArtworkViews[index].title}`);
+    console.log(`🔄 Switching to view ${index}: ${currentArtworkViews[index].title || currentArtworkViews[index].type}`);
     
+    // Update dot states immediately for better responsiveness
     dots.forEach(dot => dot.classList.remove('active'));
-    dots[index].classList.add('active');
+    if (dots[index]) {
+        dots[index].classList.add('active');
+    }
     
+    // Add loading state
     image.style.opacity = '0.5';
     image.style.transition = 'opacity 0.3s ease';
+    
+    // Mobile haptic feedback (if supported)
+    if (isMobileDevice() && navigator.vibrate) {
+        navigator.vibrate(50); // Short vibration
+    }
     
     setTimeout(() => {
         const newView = currentArtworkViews[index];
         image.src = newView.src;
         image.alt = newView.alt;
         
-        image.style.opacity = '1';
-        currentViewIndex = index;
+        image.onload = function() {
+            image.style.opacity = '1';
+            currentViewIndex = index;
+            console.log(`✅ Successfully switched to view ${index}`);
+        };
         
         image.onerror = function() {
             console.warn(`⚠️ Failed to load view image: ${newView.src}`);
             image.src = getPlaceholderImage();
+            image.style.opacity = '1';
+            currentViewIndex = index;
         };
 
         updateCursor();
-
     }, 150);
 }
 
