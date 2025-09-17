@@ -1602,12 +1602,8 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 12,
-        "height_inches": 11
-      },
-      {
         "width_inches": 8,
-        "height_inches": 7
+        "height_inches": 15
       }
     ],
     "finerworks_image": {
@@ -1616,8 +1612,8 @@
         "description": "Traditional Chinese painting by Xiaoran. Ode to the Lotus",
         "file_name": "019891b0-f39c-7e6a-a74c-8f5ec5c50381_large.jpg",
         "file_size": 1994923,
-        "pix_w": 2362,
-        "pix_h": 2118,
+        "pix_w": 1528,
+        "pix_h": 3000,
         "hires_file_name": "019891b0-f39c-7e6a-a74c-8f5ec5c50381_large.jpg",
         "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-7e6a-a74c-8f5ec5c50381.jpg",
         "thumbnail_file_name": "019891b0-f39c-7e6a-a74c-8f5ec5c50381_thumb.jpg",
@@ -1626,7 +1622,7 @@
         "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7e6a-a74c-8f5ec5c50381_large.jpg"
       },
       "format": "jpeg",
-      "dimensions_text": "2362×2118",
+      "dimensions_text": "1528×3000",
       "file_size_mb": 1.9,
       "has_thumbnail": true,
       "storage_source": "s3",
@@ -2297,12 +2293,16 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 8,
-        "height_inches": 13
+        "width_inches": 16,
+        "height_inches": 24
       },
       {
-        "width_inches": 6,
-        "height_inches": 9
+        "width_inches": 11,
+        "height_inches": 17
+      },
+      {
+        "width_inches": 8,
+        "height_inches": 12
       }
     ],
     "finerworks_image": {
@@ -2311,21 +2311,21 @@
         "description": "Traditional Chinese painting by Xiaoran. A Bird on a Branch Greets the Wind - Cherry Blossoms",
         "file_name": "019891b0-f39c-7f63-87fd-b7a8a860889f_large.jpg",
         "file_size": 2788923,
-        "pix_w": 1668,
-        "pix_h": 2514,
+        "pix_w": 3701,
+        "pix_h": 5577,
         "hires_file_name": "019891b0-f39c-7f63-87fd-b7a8a860889f_large.jpg",
-        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7f63-87fd-b7a8a860889f_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-7f63-87fd-b7a8a860889f.jpg",
         "thumbnail_file_name": "019891b0-f39c-7f63-87fd-b7a8a860889f_thumb.jpg",
         "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-7f63-87fd-b7a8a860889f_thumb.jpg",
         "preview_file_name": "019891b0-f39c-7f63-87fd-b7a8a860889f_large.jpg",
         "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7f63-87fd-b7a8a860889f_large.jpg"
       },
       "format": "jpeg",
-      "dimensions_text": "1668×2514",
+      "dimensions_text": "3701×5577",
       "file_size_mb": 2.66,
       "has_thumbnail": true,
-      "storage_source": "github",
-      "has_high_res_version": false
+      "storage_source": "s3",
+      "has_high_res_version": true
     },
     "print_ready": true
   },
@@ -2338,8 +2338,16 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 7,
-        "height_inches": 14
+        "width_inches": 13,
+        "height_inches": 24
+      },
+      {
+        "width_inches": 9,
+        "height_inches": 17
+      },
+      {
+        "width_inches": 6,
+        "height_inches": 12
       }
     ],
     "finerworks_image": {
@@ -2348,21 +2356,21 @@
         "description": "Traditional Chinese painting by Xiaoran. A Thousand White Paulownia Blossoms by a Misty Stream",
         "file_name": "019891b0-f39c-7403-80d4-4da1440b7976_large.jpg",
         "file_size": 3218378,
-        "pix_w": 1485,
-        "pix_h": 2823,
+        "pix_w": 3368,
+        "pix_h": 6402,
         "hires_file_name": "019891b0-f39c-7403-80d4-4da1440b7976_large.jpg",
-        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7403-80d4-4da1440b7976_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-7403-80d4-4da1440b7976.jpg",
         "thumbnail_file_name": "019891b0-f39c-7403-80d4-4da1440b7976_thumb.jpg",
         "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-7403-80d4-4da1440b7976_thumb.jpg",
         "preview_file_name": "019891b0-f39c-7403-80d4-4da1440b7976_large.jpg",
         "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7403-80d4-4da1440b7976_large.jpg"
       },
       "format": "jpeg",
-      "dimensions_text": "1485×2823",
+      "dimensions_text": "3368×6402",
       "file_size_mb": 3.07,
       "has_thumbnail": true,
-      "storage_source": "github",
-      "has_high_res_version": false
+      "storage_source": "s3",
+      "has_high_res_version": true
     },
     "print_ready": true
   },
@@ -2738,8 +2746,16 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 7,
-        "height_inches": 6
+        "width_inches": 24,
+        "height_inches": 22
+      },
+      {
+        "width_inches": 17,
+        "height_inches": 16
+      },
+      {
+        "width_inches": 12,
+        "height_inches": 11
       }
     ],
     "finerworks_image": {
@@ -2748,21 +2764,21 @@
         "description": "Traditional Chinese painting by Xiaoran. The Present Moment",
         "file_name": "019891b0-f39c-7b15-9621-9861ba359745_large.jpg",
         "file_size": 1167122,
-        "pix_w": 1316,
-        "pix_h": 1244,
+        "pix_w": 4893,
+        "pix_h": 4565,
         "hires_file_name": "019891b0-f39c-7b15-9621-9861ba359745_large.jpg",
-        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7b15-9621-9861ba359745_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-7b15-9621-9861ba359745.jpg",
         "thumbnail_file_name": "019891b0-f39c-7b15-9621-9861ba359745_thumb.jpg",
         "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-7b15-9621-9861ba359745_thumb.jpg",
         "preview_file_name": "019891b0-f39c-7b15-9621-9861ba359745_large.jpg",
         "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7b15-9621-9861ba359745_large.jpg"
       },
       "format": "jpeg",
-      "dimensions_text": "1316×1244",
+      "dimensions_text": "4893×4565",
       "file_size_mb": 1.11,
       "has_thumbnail": true,
-      "storage_source": "github",
-      "has_high_res_version": false
+      "storage_source": "s3",
+      "has_high_res_version": true
     },
     "print_ready": true
   },
@@ -2773,8 +2789,35 @@
       "title_en": "In Mutual Embrace - Palm Fronds",
       "original_size_cm": "137×35"
     },
-    "print_ready": false,
-    "reason": "Insufficient resolution for 200 PPI printing"
+    "recommended_sizes": [
+      {
+        "width_inches": 6,
+        "height_inches": 24
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "相依-棕梠",
+        "description": "Traditional Chinese painting by Xiaoran. In Mutual Embrace - Palm Fronds",
+        "file_name": "019891b0-f39c-73f5-98b1-d68da1664faf_large.jpg",
+        "file_size": 2166458,
+        "pix_w": 1579,
+        "pix_h": 6184,
+        "hires_file_name": "019891b0-f39c-73f5-98b1-d68da1664faf_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-73f5-98b1-d68da1664faf.jpg",
+        "thumbnail_file_name": "019891b0-f39c-73f5-98b1-d68da1664faf_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-73f5-98b1-d68da1664faf_thumb.jpg",
+        "preview_file_name": "019891b0-f39c-73f5-98b1-d68da1664faf_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-73f5-98b1-d68da1664faf_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "1579×6184",
+      "file_size_mb": 2.07,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
   },
   "019891b0-f39c-7562-bbed-32c024cd6676": {
     "artwork_info": {
@@ -2943,12 +2986,16 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 8,
-        "height_inches": 13
+        "width_inches": 16,
+        "height_inches": 24
       },
       {
-        "width_inches": 6,
-        "height_inches": 9
+        "width_inches": 11,
+        "height_inches": 17
+      },
+      {
+        "width_inches": 8,
+        "height_inches": 12
       }
     ],
     "finerworks_image": {
@@ -2957,21 +3004,21 @@
         "description": "Traditional Chinese painting by Xiaoran. Blossoms of Prosperity and Joyful Encounters - Peony",
         "file_name": "019891b0-f39c-7455-9267-14eb33bed415_large.jpg",
         "file_size": 2172881,
-        "pix_w": 1667,
-        "pix_h": 2515,
+        "pix_w": 3828,
+        "pix_h": 5776,
         "hires_file_name": "019891b0-f39c-7455-9267-14eb33bed415_large.jpg",
-        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7455-9267-14eb33bed415_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-7455-9267-14eb33bed415.jpg",
         "thumbnail_file_name": "019891b0-f39c-7455-9267-14eb33bed415_thumb.jpg",
         "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-7455-9267-14eb33bed415_thumb.jpg",
         "preview_file_name": "019891b0-f39c-7455-9267-14eb33bed415_large.jpg",
         "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7455-9267-14eb33bed415_large.jpg"
       },
       "format": "jpeg",
-      "dimensions_text": "1667×2515",
+      "dimensions_text": "3828×5776",
       "file_size_mb": 2.07,
       "has_thumbnail": true,
-      "storage_source": "github",
-      "has_high_res_version": false
+      "storage_source": "s3",
+      "has_high_res_version": true
     },
     "print_ready": true
   },

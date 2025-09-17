@@ -175,7 +175,7 @@ const LANGUAGE_DATA = {
                             },
                             {
                                 question: "How long will shipping take?",
-                                answer: "**Originals**: Delivery times vary by region — within Taiwan it is usually faster, while international orders take about 10–20 business days.**Prints**: Within the U.S., delivery speed depend on the shipping method chosen in the shopping cart. For addresses outside the U.S., it usually takes about 5–10 business days.\n"
+                                answer: "**Originals**: Delivery times vary by region — within Taiwan it is usually faster, while international orders take about 10–20 business days.\n**Prints**: Within the U.S., delivery speed depend on the shipping method chosen in the shopping cart. For addresses outside the U.S., it usually takes about 5–10 business days.\n"
                             }
                         ]
                     },
@@ -510,11 +510,11 @@ const LANGUAGE_DATA = {
                         questions: [
                             {
                                 question: "訂單從哪裡出貨？",
-                                answer: "**原作**由曉然文化工作室於台灣直寄。\n**印刷品**由美國合作夥伴製作並寄送，讓水墨藝術更容易由台灣推廣到全球，特別是能更便捷地觸及美國的收藏群體。"
+                                answer: "**原作**：由曉然文化工作室於台灣直寄。\n**印刷品**：由美國合作夥伴製作並寄送，讓水墨藝術更容易由台灣推廣到全球，特別是能更便捷地觸及美國的收藏群體。"
                             },
                             {
                                 question: "如何購買原作與藝術微噴版畫(fine art giclée prints)？",
-                                answer: "**原作**需填寫「原作詢價表單」，我們會與您聯繫安排付款與出貨。\n**印刷品**可直接加入購物車結帳。"
+                                answer: "**原作**：需填寫「原作詢價表單」，我們會與您聯繫安排付款與出貨。\n**印刷品**：可直接加入購物車結帳。"
                             },
                             {
                                 question: "運送需要多長時間？",

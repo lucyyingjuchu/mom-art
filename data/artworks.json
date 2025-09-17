@@ -1061,12 +1061,12 @@
     ],
     "productViews": [
       {
-        "type": "original-mockup",
-        "image": "./images/mockups/original/019891b0-f39c-7a7e-b0e7-4bce5225a761_orig_mock.jpg"
-      },
-      {
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7a7e-b0e7-4bce5225a761_large.jpg"
+      },
+      {
+        "type": "original-mockup",
+        "image": "./images/mockups/original/019891b0-f39c-7a7e-b0e7-4bce5225a761_orig_mock.jpg"
       }
     ],
     "titleEn": "",
@@ -1264,6 +1264,10 @@
       {
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7b84-a80e-a928e6c46860_large.jpg"
+      },
+      {
+        "type": "original-mockup",
+        "image": "./images/mockups/original/019891b0-f39c-7b84-a80e-a928e6c46860_orig_mock.jpg"
       }
     ]
   },
@@ -1448,7 +1452,13 @@
     "curatorNoteEn": "",
     "formatEn": "Framed",
     "heightInches": 17.7,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-7e85-8f83-fd90bbaf222d_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-787c-a46f-62905fa86f16",
@@ -1696,12 +1706,12 @@
     },
     "productViews": [
       {
-        "type": "original-mockup",
-        "image": "./images/mockups/original/019891b0-f39c-7a34-89ac-966e1e93eb42_orig_mock.jpg"
-      },
-      {
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7a34-89ac-966e1e93eb42_large.jpg"
+      },
+      {
+        "type": "original-mockup",
+        "image": "./images/mockups/original/019891b0-f39c-7a34-89ac-966e1e93eb42_orig_mock.jpg"
       }
     ]
   },
@@ -2607,6 +2617,10 @@
       {
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7bfb-9266-f832146002dd_large.jpg"
+      },
+      {
+        "type": "original-mockup",
+        "image": "./images/mockups/original/019891b0-f39c-7bfb-9266-f832146002dd_orig_mock.jpg"
       }
     ]
   },
@@ -3962,6 +3976,10 @@
       {
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-73f5-98b1-d68da1664faf_large.jpg"
+      },
+      {
+        "type": "original-mockup",
+        "image": "./images/mockups/original/019891b0-f39c-73f5-98b1-d68da1664faf_orig_mock.jpg"
       }
     ]
   },
@@ -4079,6 +4097,10 @@
       {
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7b83-902a-1f7f7bc72183_large.jpg"
+      },
+      {
+        "type": "original-mockup",
+        "image": "./images/mockups/original/019891b0-f39c-7b83-902a-1f7f7bc72183_orig_mock.jpg"
       }
     ]
   },
@@ -4193,6 +4215,10 @@
       {
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7455-9267-14eb33bed415_large.jpg"
+      },
+      {
+        "type": "original-mockup",
+        "image": "./images/mockups/original/019891b0-f39c-7455-9267-14eb33bed415_orig_mock.jpg"
       }
     ]
   },
@@ -5320,7 +5346,13 @@
     "curatorNoteEn": "",
     "formatEn": "",
     "heightInches": 27.6,
-    "widthInches": 53.1
+    "widthInches": 53.1,
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/019891b0-f39c-70a9-9b91-b5a11b16a4e5_large.jpg"
+      }
+    ]
   },
   {
     "id": "019891b0-f39c-71ca-b2c1-0ccf8cbe55e2",
