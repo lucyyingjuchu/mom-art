@@ -40,23 +40,11 @@ let fullscreenExitHandlers = [];
 // ================================
 
 function isMobileDevice() {
-    // More comprehensive mobile detection
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-    
-    // Check for mobile user agents
-    const mobileUserAgent = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini|mobile/i.test(userAgent);
-    
-    // Check for touch capability
     const hasTouchScreen = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    const result = hasTouchScreen; // Simple: if touch screen = mobile
     
-    // Check screen size
-    const isSmallScreen = window.innerWidth <= 768;
-    
-    // More aggressive mobile detection
-    const isMobileScreen = window.innerWidth <= 1024 && hasTouchScreen;
-    
-    // Return true if any mobile criteria are met
-    return mobileUserAgent || isMobileScreen || (hasTouchScreen && isSmallScreen);
+    console.log('Mobile detection - Touch screen detected:', result);
+    return result;
 }
 
 
@@ -71,7 +59,7 @@ function isTabletDevice() {
 // ================================
 
 function initializeMobileLightbox() {
-    console.log('📱 Initializing smart mobile lightbox with fullscreen mode');
+    console.log('Initializing mobile lightbox');
     
     const image = document.getElementById('lightboxImage');
     if (!image) return;
@@ -85,54 +73,97 @@ function initializeMobileLightbox() {
     const newImage = image.cloneNode(true);
     image.parentNode.replaceChild(newImage, image);
     
-    setupMobileImage(newImage);
-    addMobileGestures();
+    setupMobileImage(newImage); // This now handles both tap and swipe
+    // REMOVED: addMobileGestures(); - no longer needed
     removeDeskopZoomControls();
 }
 
+function removeDeskopZoomControls() {
+    const existingControls = document.querySelector('.zoom-controls');
+    if (existingControls) {
+        existingControls.remove();
+    }
+}
+
+
 function setupMobileImage(image) {
-    // Enable native browser zoom in fullscreen mode only
     image.style.touchAction = 'manipulation';
     image.style.userSelect = 'none';
     image.style.webkitUserSelect = 'none';
-    
-    // Remove any transforms
     image.style.transform = 'none';
     image.style.transformOrigin = 'center center';
-    
-    // Default cursor
     image.style.cursor = 'default';
     
-    // FIXED: Only allow tap-to-fullscreen for original view
-    let tapStartTime = 0;
-    let tapStartX = 0;
-    let tapStartY = 0;
+    // UNIFIED touch handling on the image itself
+    let startX = 0;
+    let startY = 0;
+    let startTime = 0;
+    let isMoving = false;
     
     image.addEventListener('touchstart', function(e) {
         if (e.touches.length === 1) {
-            tapStartTime = Date.now();
-            tapStartX = e.touches[0].clientX;
-            tapStartY = e.touches[0].clientY;
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+            startTime = Date.now();
+            isMoving = false;
+        }
+    }, { passive: true });
+    
+    image.addEventListener('touchmove', function(e) {
+        if (e.touches.length === 1) {
+            const currentX = e.touches[0].clientX;
+            const currentY = e.touches[0].clientY;
+            const deltaX = Math.abs(currentX - startX);
+            const deltaY = Math.abs(currentY - startY);
+            
+            // If moved more than 10px, it's not a tap
+            if (deltaX > 10 || deltaY > 10) {
+                isMoving = true;
+            }
         }
     }, { passive: true });
     
     image.addEventListener('touchend', function(e) {
-        if (e.touches.length === 0 && tapStartTime > 0) {
-            const tapDuration = Date.now() - tapStartTime;
-            const timeSinceScroll = Date.now() - lastScrollTime;
+        if (e.touches.length === 0) {
+            const endTime = Date.now();
+            const duration = endTime - startTime;
+            const currentX = e.changedTouches[0].clientX;
+            const deltaX = currentX - startX;
+            const distance = Math.abs(deltaX);
             
-            // Only allow fullscreen for original view
-            const currentView = currentArtworkViews[currentViewIndex];
-            const isOriginalView = !currentView || currentView.type === 'original' || currentView.type === 'artwork';
+            console.log('Touch end:', { duration, distance, deltaX, isMoving });
             
-            if (tapDuration < 300 && timeSinceScroll > SCROLL_COOLDOWN && !isScrolling && isOriginalView) {
-                e.stopPropagation();
-                console.log('Tap-to-fullscreen for original view');
-                enterMobileFullscreen();
+            if (!isMoving && duration < 300) {
+                // TAP - only for original view
+                const currentView = currentArtworkViews[currentViewIndex];
+                const isOriginalView = !currentView || currentView.type === 'original' || currentView.type === 'artwork';
+                
+                if (isOriginalView) {
+                    console.log('Tap detected - entering fullscreen');
+                    e.stopPropagation();
+                    enterMobileFullscreen();
+                }
+            } else if (isMoving && distance > 50 && duration < 500) {
+                // SWIPE - check if we have multiple views
+                if (currentArtworkViews && currentArtworkViews.length > 1) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    if (deltaX > 0) {
+                        // Swipe right - previous view
+                        const prevIndex = currentViewIndex > 0 ? currentViewIndex - 1 : currentArtworkViews.length - 1;
+                        console.log('Swipe right - switching to view:', prevIndex);
+                        switchArtworkView(prevIndex);
+                    } else {
+                        // Swipe left - next view
+                        const nextIndex = currentViewIndex < currentArtworkViews.length - 1 ? currentViewIndex + 1 : 0;
+                        console.log('Swipe left - switching to view:', nextIndex);
+                        switchArtworkView(nextIndex);
+                    }
+                }
             }
         }
-        tapStartTime = 0;
-    }, { passive: true });
+    }, { passive: false });
     
     currentImage = image;
 }
@@ -1620,12 +1651,12 @@ function setupLightboxEventListeners() {
 // ================================
 
 function setupArtworkViews(artwork) {
-    console.log('🎨 Setting up artwork views for:', artwork.id);
+    console.log('Setting up artwork views for:', artwork.id);
     
     currentArtworkViews = [];
     
     if (artwork.productViews && artwork.productViews.length > 0) {
-        console.log(`📸 Found ${artwork.productViews.length} product views`);
+        console.log(`Found ${artwork.productViews.length} product views in data`);
         currentArtworkViews = artwork.productViews.map(view => ({
             src: view.image,
             alt: getArtworkText(artwork, 'title') + ' - ' + view.title,
@@ -1635,25 +1666,26 @@ function setupArtworkViews(artwork) {
             description: view.description
         }));
     } else {
-        console.log('📸 Using default views (original + room display if available)');
+        console.log('No product views, creating default views');
         const placeholderImage = getPlaceholderImage();
         
         currentArtworkViews = [
             {
                 src: artwork.imageHigh || artwork.image || placeholderImage,
-                alt: getArtworkText(artwork, 'title') + ' - 原作',
+                alt: getArtworkText(artwork, 'title') + ' - Original',
                 type: 'original',
-                title: '原作',
+                title: 'Original',
                 icon: '🖼️'
             }
         ];
         
+        // Only add room display if it exists
         if (artwork.roomDisplay) {
             currentArtworkViews.push({
                 src: artwork.roomDisplay,
-                alt: getArtworkText(artwork, 'title') + ' - 房間展示',
+                alt: getArtworkText(artwork, 'title') + ' - Room Display',
                 type: 'room',
-                title: '房間展示',
+                title: 'Room Display',
                 icon: '🏠'
             });
         }
@@ -1661,8 +1693,15 @@ function setupArtworkViews(artwork) {
     
     currentViewIndex = 0;
     
-    console.log('✅ Setup complete:', currentArtworkViews.map(v => v.title || v.type));
+    console.log('Final views setup:', currentArtworkViews.map(v => ({
+        title: v.title,
+        type: v.type,
+        src: v.src.substring(v.src.lastIndexOf('/') + 1) // Just filename
+    })));
+    
+    console.log(`Total views: ${currentArtworkViews.length}`);
 }
+
 
 function getArtworkText(artwork, field) {
     if (typeof portfolio !== 'undefined' && portfolio.currentLanguage === 'en') {
@@ -1672,28 +1711,24 @@ function getArtworkText(artwork, field) {
 }
 
 function addViewIndicators() {
-    console.log('Adding view indicators');
-    console.log('Mobile device:', isMobileDevice());
-    console.log('Current views:', currentArtworkViews?.length || 0);
-    
     const image = document.getElementById('lightboxImage');
     if (!image) {
         console.error('Lightbox image not found');
         return;
     }
     
+    // Check if we actually have multiple views from the real data
     if (!currentArtworkViews || currentArtworkViews.length <= 1) {
-        console.log('No multiple views - skipping indicators');
-        return; // REMOVED: No more test view creation
+        console.log('No multiple views in data - skipping indicators');
+        return; // NO test creation - use real data only
     }
     
-    console.log(`Creating indicators for ${currentArtworkViews.length} views`);
+    console.log(`Creating indicators for ${currentArtworkViews.length} REAL views`);
     
     // Remove existing indicators
     const existingIndicators = document.querySelector('.view-indicators');
     if (existingIndicators) {
         existingIndicators.remove();
-        console.log('Removed existing indicators');
     }
     
     // Create new indicators container
@@ -1705,27 +1740,14 @@ function addViewIndicators() {
         indicators.classList.add('compact-mode');
     }
     
-    // Create dots
+    // Create dots ONLY for real views
     currentArtworkViews.forEach((view, index) => {
         const dot = document.createElement('div');
-        dot.className = `view-dot ${index === 0 ? 'active' : ''}`;
+        dot.className = `view-dot ${index === currentViewIndex ? 'active' : ''}`;
         
-        // Get meaningful tooltip text
-        let tooltipText;
-        if (view.title) {
-            tooltipText = view.title;
-        } else if (view.type) {
-            tooltipText = view.type.charAt(0).toUpperCase() + view.type.slice(1);
-        } else {
-            const currentLang = (typeof portfolio !== 'undefined') ? portfolio.currentLanguage : 'zh';
-            tooltipText = currentLang === 'en' ? `View ${index + 1}` : `視圖 ${index + 1}`;
-        }
-        
+        let tooltipText = view.title || view.type || `View ${index + 1}`;
         dot.title = tooltipText;
-        dot.onclick = () => {
-            console.log(`Dot clicked: switching to view ${index}`);
-            switchArtworkView(index);
-        };
+        dot.onclick = () => switchArtworkView(index);
         
         if (view.icon && !isCompact) {
             dot.textContent = view.icon;
@@ -1733,34 +1755,28 @@ function addViewIndicators() {
         }
         
         indicators.appendChild(dot);
-        console.log(`Added dot ${index}: ${tooltipText}`);
+        console.log(`Added real dot ${index}: ${tooltipText}`);
     });
     
-    // DEVICE-SPECIFIC POSITIONING
+    // Always use mobile positioning if touch screen detected
     if (isMobileDevice()) {
-        console.log('Mobile: Adding indicators to image section');
+        console.log('Touch device: Adding indicators to image section');
         
         const imageSection = document.querySelector('.lightbox-image-section');
         if (imageSection) {
             imageSection.appendChild(indicators);
-            console.log('Mobile indicators added and positioned');
-        } else {
-            console.error('Image section not found for mobile indicators');
+            console.log('Mobile indicators added');
         }
     } else {
-        console.log('Desktop: Using desktop positioning');
-        
+        // Desktop positioning
         const imageContainer = image.parentElement;
         imageContainer.appendChild(indicators);
-        
         indicators.style.position = 'absolute';
         indicators.style.zIndex = '1001';
         
-        // Desktop positioning function
         function positionIndicators() {
             const imageRect = image.getBoundingClientRect();
             const containerRect = imageContainer.getBoundingClientRect();
-            
             const imageBottomRelative = imageRect.bottom - containerRect.top;
             const imageCenterRelative = (imageRect.left + imageRect.right) / 2 - containerRect.left;
             
@@ -1773,7 +1789,7 @@ function addViewIndicators() {
         image.addEventListener('load', positionIndicators);
     }
     
-    console.log(`Added ${currentArtworkViews.length} view indicators`);
+    console.log(`Added ${currentArtworkViews.length} real view indicators`);
 }
 
 
@@ -1985,4 +2001,15 @@ window.forceCreateIndicators = function() {
         console.log('Test indicators position:', rect);
         console.log('Visible:', rect.width > 0 && rect.height > 0);
     }, 100);
+};
+
+// 7. SIMPLE debug function to check what's really happening
+window.simpleDebug = function() {
+    console.log('=== SIMPLE DEBUG ===');
+    console.log('Mobile detected:', isMobileDevice());
+    console.log('Touch support:', 'ontouchstart' in window);
+    console.log('Max touch points:', navigator.maxTouchPoints);
+    console.log('Current views:', currentArtworkViews?.length || 0);
+    console.log('View details:', currentArtworkViews?.map(v => v.title) || []);
+    console.log('Indicators element:', !!document.querySelector('.view-indicators'));
 };
