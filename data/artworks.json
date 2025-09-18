@@ -4063,43 +4063,6 @@
     ]
   },
   {
-    "id": "019891b0-f39c-721e-8576-4e3f61c0e800",
-    "title": "竹影婆娑舞–墨竹",
-    "titleEn": "Dancing Shadows of Bamboo",
-    "image": "./images/paintings/thumbnails/019891b0-f39c-721e-8576-4e3f61c0e800_thumb.jpg",
-    "imageHigh": "images\\paintings\\large\\019891b0-f39c-721e-8576-4e3f61c0e800_large.jpg",
-    "description": "竹影婆娑舞，清風入畫圖。",
-    "descriptionEn": "Bamboo shadows sway and dance, As the gentle breeze paints the scene.",
-    "format": "軸",
-    "year": "2022",
-    "price": "",
-    "available": true,
-    "featured": "",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "formatEn": "Hanging Scroll",
-    "heightCm": 136,
-    "widthCm": 70,
-    "heightInches": 53.5,
-    "widthInches": 27.6,
-    "autoCategories": {
-      "subjects": [
-        "bamboo"
-      ],
-      "locations": []
-    },
-    "manualCategories": {
-      "subjects": [],
-      "locations": []
-    },
-    "productViews": [
-      {
-        "type": "original",
-        "image": "./images/paintings/large/019891b0-f39c-721e-8576-4e3f61c0e800_large.jpg"
-      }
-    ]
-  },
-  {
     "id": "019891b0-f39c-7b83-902a-1f7f7bc72183",
     "title": "自在飛花–紫藤",
     "year": "2022",
@@ -5236,24 +5199,19 @@
   {
     "id": "019891b0-f39c-7e3e-ae29-6cf7e37cc717",
     "title": "溪頭秋色",
-    "titleEn": "Autumn Colors by the Stream",
-    "image": "",
-    "imageHigh": "",
-    "description": "花繁樹茂滿溪頭，碧水竹橋景色幽；遊客穿梭天上過，涼亭小憩賞清秋。",
-    "curatorNote": "",
-    "curatorNoteEn": "",
-    "format": "",
-    "formatEn": "",
     "year": "unknown",
-    "price": "",
-    "available": false,
-    "featured": false,
     "heightCm": 70,
     "widthCm": 135,
+    "sizeCm": "70 × 135 cm",
+    "format": "",
+    "description": "花繁樹茂滿溪頭，碧水竹橋景色幽；遊客穿梭天上過，涼亭小憩賞清秋。",
+    "curatorNote": "",
+    "featured": false,
+    "available": false,
+    "price": "",
     "autoCategories": {
       "subjects": [
-        "landscape",
-        "bamboo"
+        "landscape"
       ],
       "locations": []
     },
@@ -5261,9 +5219,11 @@
       "subjects": [],
       "locations": []
     },
-    "heightInches": 27.6,
-    "widthInches": 53.1,
-    "descriptionEn": "Flowers bloom and trees are lush by the stream's head,  Clear waters and bamboo bridges in tranquil spread;  Visitors weave through the sky above,  In the cool pavilion, they rest and savor autumn's love."
+    "image": "",
+    "imageHigh": "",
+    "categories": [
+      "landscape"
+    ]
   },
   {
     "id": "019891b0-f39c-7b8d-9017-a3c20acb6a5e",
