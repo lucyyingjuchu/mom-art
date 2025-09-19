@@ -635,6 +635,10 @@
       {
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7e69-8910-34d57c0a6589_large.jpg"
+      },
+      {
+        "type": "original-mockup",
+        "image": "./images/mockups/original/019891b0-f39c-7e69-8910-34d57c0a6589_orig_mock.jpg"
       }
     ]
   },
@@ -2033,6 +2037,10 @@
       {
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7e21-ae47-81a6092c5a54_large.jpg"
+      },
+      {
+        "type": "original-mockup",
+        "image": "./images/mockups/original/019891b0-f39c-7e21-ae47-81a6092c5a54_orig_mock.jpg"
       }
     ]
   },
@@ -2356,6 +2364,10 @@
       {
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7e9f-b136-621667022a8e_large.jpg"
+      },
+      {
+        "type": "original-mockup",
+        "image": "./images/mockups/original/019891b0-f39c-7e9f-b136-621667022a8e_orig_mock.jpg"
       }
     ]
   },
