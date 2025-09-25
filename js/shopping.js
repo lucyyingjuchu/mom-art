@@ -763,34 +763,34 @@ class ShoppingCart {
                     
                     return result.client_secret;
                 },
-
-                onShippingDetailsChange: async (shippingDetailsChangeEvent) => {
-                const { checkoutSessionId, shippingDetails } = shippingDetailsChangeEvent;
                 
-                try {
-                    const response = await fetch('/.netlify/functions/calculate-shipping-options', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            checkout_session_id: checkoutSessionId,
-                            shipping_details: shippingDetails
-                        })
-                    });
+                onShippingDetailsChange: async (shippingDetailsChangeEvent) => {
+                    const { checkoutSessionId, shippingDetails } = shippingDetailsChangeEvent;
                     
-                    const result = await response.json();
-                    console.log('Frontend received response:', result);
-                    console.log('Response status:', response.status);
-                    
-                    return Promise.resolve(result);
-                    
-                } catch (error) {
-                    console.error('Shipping calculation error:', error);
-                    return Promise.resolve({
-                        type: 'reject',
-                        errorMessage: 'Unable to calculate shipping for this address'
-                    });
+                    try {
+                        const response = await fetch('/.netlify/functions/calculate-shipping-options', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                checkout_session_id: checkoutSessionId,
+                                shipping_details: shippingDetails
+                            })
+                        });
+                        
+                        const result = await response.json();
+                        console.log('Frontend received response:', result);
+                        console.log('Response status:', response.status);
+                        
+                        return Promise.resolve(result);
+                        
+                    } catch (error) {
+                        console.error('Shipping calculation error:', error);
+                        return Promise.resolve({
+                            type: 'reject',
+                            errorMessage: 'Unable to calculate shipping for this address'
+                        });
+                    }
                 }
-            }
             });
             
             // Mount the checkout
