@@ -3,11 +3,11 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY, {
     apiVersion: '2025-08-27.basil'
 });
 
-// netlify/functions/calculate-shipping-options.js
+// Simplified version - no session modification
 exports.handler = async (event, context) => {
     const headers = {
         'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Headers': 'Content-Type',
+        'Access-Control-Allow-Headers': 'Content-Type', 
         'Access-Control-Allow-Methods': 'POST, OPTIONS',
         'Content-Type': 'application/json'
     };
@@ -19,57 +19,22 @@ exports.handler = async (event, context) => {
     try {
         const { checkout_session_id, shipping_details } = JSON.parse(event.body);
         
-        console.log('Processing shipping for:', shipping_details?.address?.country);
-        
-        // Validate the shipping details
-        if (!shipping_details?.address?.country) {
-            return {
-                statusCode: 200,
-                headers,
-                body: JSON.stringify({
-                    type: 'reject',
-                    errorMessage: 'Please provide a valid shipping address'
-                })
-            };
-        }
-
-        const country = shipping_details.address.country.toUpperCase();
+        // Just validate and return - let Stripe handle the rest
+        const country = shipping_details?.address?.country?.toUpperCase();
         const allowedCountries = ['US', 'CA', 'TW', 'GB', 'AU'];
         
-        if (!allowedCountries.includes(country)) {
+        if (!country || !allowedCountries.includes(country)) {
             return {
                 statusCode: 200,
                 headers,
                 body: JSON.stringify({
                     type: 'reject',
-                    errorMessage: 'Sorry, we don\'t ship to this country yet'
+                    errorMessage: 'Invalid shipping address'
                 })
             };
         }
 
-        const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY, {
-            apiVersion: '2025-08-27.basil'
-        });
-
-        // Use your existing Stripe shipping rate IDs based on country
-        let shippingOptions;
-        if (country === 'US') {
-            shippingOptions = [
-                { shipping_rate: 'YOUR_US_ECONOMY_RATE_ID' },    // Replace with your actual ID
-                { shipping_rate: 'YOUR_US_STANDARD_RATE_ID' },   // Replace with your actual ID
-                { shipping_rate: 'YOUR_US_EXPRESS_RATE_ID' },    // Replace with your actual ID
-            ];
-        } else {
-            shippingOptions = [
-                { shipping_rate: 'YOUR_INTERNATIONAL_RATE_ID' }, // Replace with your actual ID
-            ];
-        }
-
-        // Update the checkout session with your pre-configured shipping rates
-        await stripe.checkout.sessions.modify(checkout_session_id, {
-            shipping_options: shippingOptions
-        });
-
+        // Simple accept - no session modification
         return {
             statusCode: 200,
             headers,
@@ -77,13 +42,12 @@ exports.handler = async (event, context) => {
         };
 
     } catch (error) {
-        console.error('Shipping calculation error:', error);
         return {
             statusCode: 200,
             headers,
             body: JSON.stringify({
                 type: 'reject',
-                errorMessage: 'Unable to calculate shipping for this address'
+                errorMessage: 'Unable to process address'
             })
         };
     }
