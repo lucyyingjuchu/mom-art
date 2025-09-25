@@ -750,7 +750,7 @@ class ShoppingCart {
                     return result.client_secret;
                 },
                 
-                onShippingDetailsChange: async (shippingDetailsChangeEvent) => {
+ /*             onShippingDetailsChange: async (shippingDetailsChangeEvent) => {
                     const { checkoutSessionId, shippingDetails } = shippingDetailsChangeEvent;
                     
                     console.log('Frontend: onShippingDetailsChange called');
@@ -781,6 +781,7 @@ class ShoppingCart {
                         });
                     }
                 }
+ */
             });
             
             // Mount the checkout
