@@ -48,8 +48,8 @@ exports.handler = async (event, context) => {
         let shippingOptions;
         if (country === 'US') {
             shippingOptions = [
-                { shipping_rate: 'shr_1SB6Nn7iRKbAsUAgKtbaJiJv' },    // Replace with your actual IDs
-                { shipping_rate: 'shr_1SB6NM7iRKbAsUAgQbsfDSWl' },   
+                { shipping_rate: 'shr_1SB6Nn7iRKbAsUAgKtbaJiJv' },
+                { shipping_rate: 'shr_1SB6NM7iRKbAsUAgQbsfDSWl' },
                 { shipping_rate: 'shr_1SB6Mo7iRKbAsUAgoS492PyL' }
             ];
         } else {
@@ -58,9 +58,11 @@ exports.handler = async (event, context) => {
             ];
         }
 
-        // Update the session with new shipping options
+        // Use the CORRECT API method with collected_information wrapper
         await stripe.checkout.sessions.update(checkout_session_id, {
-            shipping_details: shipping_details,
+            collected_information: {
+                shipping_details: shipping_details
+            },
             shipping_options: shippingOptions
         });
 
