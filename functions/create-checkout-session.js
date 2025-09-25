@@ -73,18 +73,26 @@ exports.handler = async (event, context) => {
             },
             
             // Configure shipping options (you'll need to create these rates in Stripe Dashboard first)
+            // In create-checkout-session.js, replace the shipping_options with:
+
+            ui_mode: 'embedded', // CHANGE: from 'hosted' to 'embedded'
+
+            permissions: {
+                update_shipping_details: 'server_only',
+            },
+
+            shipping_address_collection: {
+                allowed_countries: ['US', 'CA', 'TW', 'GB', 'AU']
+            },
+
+            // Replace the hardcoded shipping_options with a dummy one:
             shipping_options: [
                 {
-                    shipping_rate: 'shr_1SB6Nn7iRKbAsUAgKtbaJiJv', // Replace with your actual Stripe shipping rate ID
-                },
-                {
-                    shipping_rate: 'shr_1SB6NM7iRKbAsUAgQbsfDSWl', // Replace with your actual Stripe shipping rate ID  
-                },
-                {
-                    shipping_rate: 'shr_1SB6Mo7iRKbAsUAgoS492PyL', // Replace with your actual Stripe shipping rate ID
-                },
-                {
-                    shipping_rate: 'shr_1SB6Jt7iRKbAsUAgkz0FedRW', // Replace with your actual Stripe shipping rate ID
+                    shipping_rate_data: {
+                        display_name: 'Calculating shipping...',
+                        type: 'fixed_amount',
+                        fixed_amount: { amount: 0, currency: 'usd' }
+                    }
                 }
             ],
 
@@ -119,11 +127,11 @@ exports.handler = async (event, context) => {
     } catch (error) {
         console.error('Checkout session creation failed:', error);
         return {
-            statusCode: 500,
+            statusCode: 200,
             headers,
-            body: JSON.stringify({ 
-                error: 'Checkout session creation failed',
-                message: error.message 
+            body: JSON.stringify({
+                client_secret: session.client_secret, // CHANGE: from checkout_url to client_secret
+                session_id: session.id
             })
         };
     }

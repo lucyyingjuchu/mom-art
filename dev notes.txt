@@ -1,0 +1,50 @@
+
+
+==============================================================
+30x30cm-50000 NTD
+70x135cm 300,000 NTD --> 這樣一個單位只有三萬, 差太多了吧
+==============================================================
+
+Shipping Address (at least your city, country, zip code)
+
+==============================================================
+1*. Filtering: fix availability = true or "" bug
+2. Stripe: fix " Xiaoran Art Studio sandbox" in checkout. (Maybe bilingual?)
+3. Shopping cart: 裡面是否要標註WxH
+==============================================================
+
+[Original Mockup multiview ready]
+1.Generate mockup, name it with artid.
+2.(batch-friendly) update_artworks_multiview.py
+
+[To be print-ready]
+1. run Single_aws_uploader.py -> upload to AWS S3
+2. (batch-friendly) run Finerworks_processor_aws.py-> updates 'finerworks_ready_artworks.json'
+
+=============================================================
+
+Please create a quiz for my trivia tiktok channel on a general but fun topic, 6 questions, in the order of easy → medium → easy → medium → hard → hard designed for a broad audience.
+
+the quiz will be in the format below. Make stuff short and easy to read. Give a short quiz title too. Question | Option 1 | Option 2 | Option 3| Answer| Explanation
+
+
+ID
+Description
+Amount
+Status
+Created
+shr_1S1vG44OFXg8iiC4pmBSa3zG
+International (outside USA)
+$27.99 USD
+
+Express
+$39.99 USD
+Between 1 and 2 business days
+
+Standard
+$16.99 USD
+Between 2 and 5 business days
+
+Economy
+$10.99 USD
+Between 7 and 10 business days
