@@ -56,13 +56,13 @@ exports.handler = async (event, context) => {
             h: item.height_inches
         }));
 
-        // Create checkout session
+        // Create checkout session for embedded checkout
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ['card'],
             line_items: lineItems,
             mode: 'payment',
             
-            ui_mode: 'embedded', // Only define once
+            ui_mode: 'embedded',
             
             permissions: {
                 update_shipping_details: 'server_only',
@@ -72,6 +72,7 @@ exports.handler = async (event, context) => {
                 allowed_countries: ['US', 'CA', 'TW', 'GB', 'AU']
             },
 
+            // Dummy shipping option - will be replaced by calculate-shipping-options
             shipping_options: [
                 {
                     shipping_rate_data: {
@@ -101,7 +102,7 @@ exports.handler = async (event, context) => {
             statusCode: 200,
             headers,
             body: JSON.stringify({
-                client_secret: session.client_secret, // Fixed: correct property name
+                client_secret: session.client_secret,
                 session_id: session.id
             })
         };
@@ -109,7 +110,7 @@ exports.handler = async (event, context) => {
     } catch (error) {
         console.error('Checkout session creation failed:', error);
         return {
-            statusCode: 500, // Fixed: use 500 for actual errors
+            statusCode: 500,
             headers,
             body: JSON.stringify({ 
                 error: 'Checkout session creation failed',
