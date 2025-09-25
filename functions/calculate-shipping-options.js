@@ -4,6 +4,9 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY, {
 });
 
 exports.handler = async (event, context) => {
+    console.log('=== SHIPPING FUNCTION CALLED ===');
+    console.log('Request body:', event.body);
+    
     const headers = {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Headers': 'Content-Type',
