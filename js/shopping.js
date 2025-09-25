@@ -620,38 +620,171 @@ class ShoppingCart {
         this.renderCartItems();
     }
     
-    // CLEANED UP: Simple checkout method - no submitOrder
+    // In js/shopping.js, replace the checkout() method:
+
     async checkout() {
         if (this.items.length === 0) {
             alert(this.getText('shopping.cartEmpty'));
             return;
         }
         
+        // Close the cart sidebar
+        this.closeCart();
+        
+        // Show embedded checkout
+        this.showEmbeddedCheckout();
+    }
+
+    async showEmbeddedCheckout() {
         try {
-            console.log('Creating Stripe checkout session...');
+            // Create checkout overlay
+            const checkoutOverlay = document.createElement('div');
+            checkoutOverlay.id = 'checkoutOverlay';
+            checkoutOverlay.innerHTML = `
+                <div class="checkout-modal">
+                    <div class="checkout-header">
+                        <h3>Complete Your Purchase</h3>
+                        <button class="checkout-close" onclick="shoppingCart.closeEmbeddedCheckout()">✕</button>
+                    </div>
+                    <div id="checkout-container">
+                        <div class="checkout-loading">Setting up checkout...</div>
+                    </div>
+                </div>
+            `;
             
-            const response = await fetch('/.netlify/functions/create-checkout-session', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    cartItems: this.items
-                })
-            });
-
-            const result = await response.json();
+            // Add styles for the embedded checkout
+            const style = document.createElement('style');
+            style.textContent = `
+                #checkoutOverlay {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0,0,0,0.8);
+                    z-index: 10000;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 1rem;
+                }
+                .checkout-modal {
+                    background: white;
+                    border-radius: 12px;
+                    width: 100%;
+                    max-width: 600px;
+                    max-height: 90vh;
+                    overflow: hidden;
+                    display: flex;
+                    flex-direction: column;
+                }
+                .checkout-header {
+                    padding: 1rem 1.5rem;
+                    border-bottom: 1px solid #e9ecef;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    background: #f8f9fa;
+                }
+                .checkout-header h3 {
+                    margin: 0;
+                    color: #2c3e50;
+                }
+                .checkout-close {
+                    background: none;
+                    border: none;
+                    font-size: 1.5rem;
+                    cursor: pointer;
+                    color: #6c757d;
+                }
+                #checkout-container {
+                    flex: 1;
+                    padding: 1rem;
+                    overflow-y: auto;
+                }
+                .checkout-loading {
+                    text-align: center;
+                    padding: 2rem;
+                    color: #6c757d;
+                }
+            `;
+            document.head.appendChild(style);
+            document.body.appendChild(checkoutOverlay);
             
-            if (!response.ok) {
-                throw new Error(result.error || 'Failed to create checkout session');
-            }
-
-            console.log('Redirecting to Stripe Checkout:', result.checkout_url);
-            
-            // Redirect directly to Stripe Checkout
-            window.location.href = result.checkout_url;
+            // Initialize embedded checkout
+            await this.initializeEmbeddedCheckout();
             
         } catch (error) {
             console.error('Checkout error:', error);
             alert('There was an error starting the checkout process. Please try again.');
+            this.closeEmbeddedCheckout();
+        }
+    }
+
+    async initializeEmbeddedCheckout() {
+        try {
+            // Get Stripe public key
+            const configResponse = await fetch('/.netlify/functions/get-stripe-config');
+            const config = await configResponse.json();
+            const stripe = Stripe(config.publishableKey);
+            
+            // Initialize embedded checkout
+            const checkout = await stripe.initEmbeddedCheckout({
+                fetchClientSecret: async () => {
+                    const response = await fetch('/.netlify/functions/create-checkout-session', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ cartItems: this.items })
+                    });
+                    
+                    const result = await response.json();
+                    if (!response.ok) {
+                        throw new Error(result.error || 'Failed to create checkout session');
+                    }
+                    
+                    return result.client_secret;
+                },
+                
+                onShippingDetailsChange: async (shippingDetailsChangeEvent) => {
+                    const { checkoutSessionId, shippingDetails } = shippingDetailsChangeEvent;
+                    
+                    try {
+                        const response = await fetch('/.netlify/functions/calculate-shipping-options', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                checkout_session_id: checkoutSessionId,
+                                shipping_details: shippingDetails
+                            })
+                        });
+                        
+                        const result = await response.json();
+                        return Promise.resolve(result);
+                        
+                    } catch (error) {
+                        console.error('Shipping calculation error:', error);
+                        return Promise.resolve({
+                            type: 'reject',
+                            errorMessage: 'Unable to calculate shipping for this address'
+                        });
+                    }
+                }
+            });
+            
+            // Mount the checkout
+            checkout.mount('#checkout-container');
+            
+        } catch (error) {
+            console.error('Embedded checkout initialization failed:', error);
+            document.getElementById('checkout-container').innerHTML = 
+                '<div class="checkout-loading" style="color: #dc3545;">Failed to load checkout. Please try again.</div>';
+        }
+    }
+
+    closeEmbeddedCheckout() {
+        const overlay = document.getElementById('checkoutOverlay');
+        if (overlay) {
+            overlay.remove();
         }
     }
     
