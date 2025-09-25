@@ -60,6 +60,8 @@ exports.handler = async (event, context) => {
                 { shipping_rate: 'shr_1SB6Jt7iRKbAsUAgkz0FedRW' }
             ];
         }
+        
+        console.log('Updating session with shipping options:', JSON.stringify(shippingOptions, null, 2));
 
         // Use the correct syntax as shown by Stripe assistant
         await stripe.checkout.sessions.update(checkout_session_id, {
