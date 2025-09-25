@@ -628,25 +628,11 @@ class ShoppingCart {
             return;
         }
         
-        try {
-            const response = await fetch('/.netlify/functions/create-checkout-session', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ cartItems: this.items })
-            });
-
-            const result = await response.json();
-            
-            if (!response.ok) {
-                throw new Error(result.error || 'Failed to create checkout session');
-            }
-
-            window.location.href = result.checkout_url;
-            
-        } catch (error) {
-            console.error('Checkout error:', error);
-            alert('There was an error starting the checkout process. Please try again.');
-        }
+        // Close the cart sidebar
+        this.closeCart();
+        
+        // Show embedded checkout
+        this.showEmbeddedCheckout();
     }
 
     async showEmbeddedCheckout() {
@@ -778,9 +764,6 @@ class ShoppingCart {
                         });
                         
                         const result = await response.json();
-                        console.log('Frontend received response:', result);
-                        console.log('Response status:', response.status);
-                        
                         return Promise.resolve(result);
                         
                     } catch (error) {
