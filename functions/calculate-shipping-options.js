@@ -58,11 +58,8 @@ exports.handler = async (event, context) => {
             ];
         }
 
-        // Use the CORRECT API method with collected_information wrapper
+        // Use the correct syntax as shown by Stripe assistant
         await stripe.checkout.sessions.update(checkout_session_id, {
-            collected_information: {
-                shipping_details: shipping_details
-            },
             shipping_options: shippingOptions
         });
 
