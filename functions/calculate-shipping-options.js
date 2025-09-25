@@ -3,6 +3,7 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY, {
     apiVersion: '2025-08-27.basil'
 });
 
+// netlify/functions/calculate-shipping-options.js
 exports.handler = async (event, context) => {
     const headers = {
         'Access-Control-Allow-Origin': '*',
@@ -15,36 +16,57 @@ exports.handler = async (event, context) => {
         return { statusCode: 200, headers, body: '' };
     }
 
-    if (event.httpMethod !== 'POST') {
-        return {
-            statusCode: 405,
-            headers,
-            body: JSON.stringify({ error: 'Method not allowed' })
-        };
-    }
-
     try {
         const { checkout_session_id, shipping_details } = JSON.parse(event.body);
         
-        // Validate shipping details
-        const isValidAddress = validateShippingDetails(shipping_details);
-        if (!isValidAddress.valid) {
+        console.log('Processing shipping for:', shipping_details?.address?.country);
+        
+        // Validate the shipping details
+        if (!shipping_details?.address?.country) {
             return {
                 statusCode: 200,
                 headers,
                 body: JSON.stringify({
                     type: 'reject',
-                    errorMessage: isValidAddress.error
+                    errorMessage: 'Please provide a valid shipping address'
                 })
             };
         }
 
-        // Calculate shipping options based on country
-        const shippingOptions = calculateShippingOptions(shipping_details);
+        const country = shipping_details.address.country.toUpperCase();
+        const allowedCountries = ['US', 'CA', 'TW', 'GB', 'AU'];
         
-        // Update the checkout session with new shipping options
-        await stripe.checkout.sessions.update(checkout_session_id, {
-            shipping_details: shipping_details,
+        if (!allowedCountries.includes(country)) {
+            return {
+                statusCode: 200,
+                headers,
+                body: JSON.stringify({
+                    type: 'reject',
+                    errorMessage: 'Sorry, we don\'t ship to this country yet'
+                })
+            };
+        }
+
+        const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY, {
+            apiVersion: '2025-08-27.basil'
+        });
+
+        // Use your existing Stripe shipping rate IDs based on country
+        let shippingOptions;
+        if (country === 'US') {
+            shippingOptions = [
+                { shipping_rate: 'YOUR_US_ECONOMY_RATE_ID' },    // Replace with your actual ID
+                { shipping_rate: 'YOUR_US_STANDARD_RATE_ID' },   // Replace with your actual ID
+                { shipping_rate: 'YOUR_US_EXPRESS_RATE_ID' },    // Replace with your actual ID
+            ];
+        } else {
+            shippingOptions = [
+                { shipping_rate: 'YOUR_INTERNATIONAL_RATE_ID' }, // Replace with your actual ID
+            ];
+        }
+
+        // Update the checkout session with your pre-configured shipping rates
+        await stripe.checkout.sessions.modify(checkout_session_id, {
             shipping_options: shippingOptions
         });
 
