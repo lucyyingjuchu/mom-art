@@ -75,23 +75,23 @@ exports.handler = async (event, context) => {
             // Configure shipping options (you'll need to create these rates in Stripe Dashboard first)
             shipping_options: [
                 {
-                    shipping_rate: 'shr_1S1cpp4OFXg8iiC4vaA3fYq5', // Replace with your actual Stripe shipping rate ID
+                    shipping_rate: 'shr_1SB6Nn7iRKbAsUAgKtbaJiJv', // Replace with your actual Stripe shipping rate ID
                 },
                 {
-                    shipping_rate: 'shr_1S1cqW4OFXg8iiC4eIIuG3qH', // Replace with your actual Stripe shipping rate ID  
+                    shipping_rate: 'shr_1SB6NM7iRKbAsUAgQbsfDSWl', // Replace with your actual Stripe shipping rate ID  
                 },
                 {
-                    shipping_rate: 'shr_1S1d8J4OFXg8iiC4uCdQakec', // Replace with your actual Stripe shipping rate ID
+                    shipping_rate: 'shr_1SB6Mo7iRKbAsUAgoS492PyL', // Replace with your actual Stripe shipping rate ID
                 },
                 {
-                    shipping_rate: 'shr_1S1vG44OFXg8iiC4pmBSa3zG', // Replace with your actual Stripe shipping rate ID
+                    shipping_rate: 'shr_1SB6Jt7iRKbAsUAgkz0FedRW', // Replace with your actual Stripe shipping rate ID
                 }
             ],
 
             // Add processing time message
             custom_text: {
                 shipping_address: {
-                    message: 'Processing time: Your artwork will be printed within 48 hours, then shipped via your selected method.'
+                    message: 'Processing time: Your artwork will be printed in around 2-3 business days, then shipped via your selected method.'
                 }
             },
             
