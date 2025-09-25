@@ -753,6 +753,10 @@ class ShoppingCart {
                 onShippingDetailsChange: async (shippingDetailsChangeEvent) => {
                     const { checkoutSessionId, shippingDetails } = shippingDetailsChangeEvent;
                     
+                    console.log('Frontend: onShippingDetailsChange called');
+                    console.log('Frontend: shippingDetails country =', shippingDetails?.address?.country);
+
+
                     try {
                         const response = await fetch('/.netlify/functions/calculate-shipping-options', {
                             method: 'POST',
