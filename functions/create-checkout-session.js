@@ -42,12 +42,12 @@ exports.handler = async (event, context) => {
                     description: `${item.size} print`,
                     images: [item.image]
                 },
-                unit_amount: Math.round(item.price * 100) // Convert to cents
+                unit_amount: Math.round(item.price * 100)
             },
             quantity: item.quantity
         }));
 
-        // Create minimal cart data for metadata (under 500 chars)
+        // Create minimal cart data for metadata
         const minimalCartData = cartItems.map(item => ({
             id: item.artworkId,
             q: item.quantity,
@@ -56,27 +56,14 @@ exports.handler = async (event, context) => {
             h: item.height_inches
         }));
 
-        // Create checkout session - let Stripe collect all customer data
+        // Create checkout session
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ['card'],
             line_items: lineItems,
             mode: 'payment',
-
-            ui_mode: 'hosted',
             
-            // APPEARANCE REMOVED - not supported in Stripe Checkout Sessions
-            // Custom styling would need to be done differently
+            ui_mode: 'embedded', // Only define once
             
-            // Let Stripe collect shipping address and show shipping options
-            shipping_address_collection: {
-                allowed_countries: ['US', 'CA', 'TW', 'GB', 'AU']
-            },
-            
-            // Configure shipping options (you'll need to create these rates in Stripe Dashboard first)
-            // In create-checkout-session.js, replace the shipping_options with:
-
-            ui_mode: 'embedded', // CHANGE: from 'hosted' to 'embedded'
-
             permissions: {
                 update_shipping_details: 'server_only',
             },
@@ -85,7 +72,6 @@ exports.handler = async (event, context) => {
                 allowed_countries: ['US', 'CA', 'TW', 'GB', 'AU']
             },
 
-            // Replace the hardcoded shipping_options with a dummy one:
             shipping_options: [
                 {
                     shipping_rate_data: {
@@ -96,30 +82,26 @@ exports.handler = async (event, context) => {
                 }
             ],
 
-            // Add processing time message
             custom_text: {
                 shipping_address: {
                     message: 'Processing time: Your artwork will be printed in around 2-3 business days, then shipped via your selected method.'
                 }
             },
             
-            // Store minimal cart data in metadata
             metadata: {
                 cart_data: JSON.stringify(minimalCartData),
                 order_id: 'XIAORAN_' + Date.now(),
                 item_count: cartItems.length.toString()
             },
             
-            // Success and cancel URLs
-            success_url: `${process.env.URL || 'https://xiaoranart.com'}/order_success_page.html?session_id={CHECKOUT_SESSION_ID}`,
-            cancel_url: `${process.env.URL || 'https://xiaoranart.com'}/#gallery`
+            return_url: `${process.env.URL || 'https://xiaoranart.com'}/order_success_page.html?session_id={CHECKOUT_SESSION_ID}`,
         });
 
         return {
             statusCode: 200,
             headers,
             body: JSON.stringify({
-                checkout_url: session.url,
+                client_secret: session.client_secret, // Fixed: correct property name
                 session_id: session.id
             })
         };
@@ -127,11 +109,11 @@ exports.handler = async (event, context) => {
     } catch (error) {
         console.error('Checkout session creation failed:', error);
         return {
-            statusCode: 200,
+            statusCode: 500, // Fixed: use 500 for actual errors
             headers,
-            body: JSON.stringify({
-                client_secret: session.client_secret, // CHANGE: from checkout_url to client_secret
-                session_id: session.id
+            body: JSON.stringify({ 
+                error: 'Checkout session creation failed',
+                message: error.message 
             })
         };
     }
