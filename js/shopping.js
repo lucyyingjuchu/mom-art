@@ -646,9 +646,7 @@ class ShoppingCart {
                         <h3>Complete Your Purchase</h3>
                         <button class="checkout-close" onclick="shoppingCart.closeEmbeddedCheckout()">✕</button>
                     </div>
-                    <div id="checkout-container">
-                        <div class="checkout-loading">Setting up checkout...</div>
-                    </div>
+                    <div id="checkout-container"></div>
                 </div>
             `;
             
@@ -723,10 +721,17 @@ class ShoppingCart {
 
     async initializeEmbeddedCheckout() {
         try {
+            // Add loading message temporarily
+            const container = document.getElementById('checkout-container');
+            container.innerHTML = '<div class="checkout-loading">Setting up checkout...</div>';
+
             // Get Stripe public key
             const configResponse = await fetch('/.netlify/functions/get-stripe-config');
             const config = await configResponse.json();
             const stripe = Stripe(config.publishableKey);
+            
+            // Clear container completely before mounting Stripe
+            container.innerHTML = '';
             
             // Initialize embedded checkout
             const checkout = await stripe.initEmbeddedCheckout({
