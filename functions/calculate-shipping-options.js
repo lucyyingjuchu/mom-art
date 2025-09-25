@@ -66,6 +66,7 @@ exports.handler = async (event, context) => {
             shipping_options: shippingOptions
         });
 
+        console.log('Sending response: accept');
         return {
             statusCode: 200,
             headers,
