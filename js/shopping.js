@@ -768,6 +768,9 @@ class ShoppingCart {
                         });
                         
                         const result = await response.json();
+
+                        console.log('Frontend: received result =', result);
+                        console.log('Frontend: response status =', response.status);
                         return Promise.resolve(result);
                         
                     } catch (error) {
