@@ -62,25 +62,18 @@ exports.handler = async (event, context) => {
             line_items: lineItems,
             mode: 'payment',
             
-            ui_mode: 'embedded',
+            ui_mode: 'hosted',
             
-            permissions: {
-                update_shipping_details: 'server_only',
-            },
-
             shipping_address_collection: {
                 allowed_countries: ['US', 'CA', 'TW', 'GB', 'AU']
             },
 
             // Dummy shipping option - will be replaced by calculate-shipping-options
             shipping_options: [
-                {
-                    shipping_rate_data: {
-                        display_name: 'Calculating shipping...',
-                        type: 'fixed_amount',
-                        fixed_amount: { amount: 0, currency: 'usd' }
-                    }
-                }
+                { shipping_rate: 'shr_1SB6Nn7iRKbAsUAgKtbaJiJv' },  // US Economy
+                { shipping_rate: 'shr_1SB6NM7iRKbAsUAgQbsfDSWl' },  // US Standard  
+                { shipping_rate: 'shr_1SB6Mo7iRKbAsUAgoS492PyL' },  // US Express
+                { shipping_rate: 'shr_1SB6Jt7iRKbAsUAgkz0FedRW' }   // International
            ],
 
             custom_text: {
@@ -95,14 +88,15 @@ exports.handler = async (event, context) => {
                 item_count: cartItems.length.toString()
             },
             
-            return_url: `${process.env.URL || 'https://xiaoranart.com'}/order_success_page.html?session_id={CHECKOUT_SESSION_ID}`,
+            success_url: `${process.env.URL || 'https://xiaoranart.com'}/order_success_page.html?session_id={CHECKOUT_SESSION_ID}`,
+            cancel_url: `${process.env.URL || 'https://xiaoranart.com'}/#gallery`,
         });
 
         return {
             statusCode: 200,
             headers,
             body: JSON.stringify({
-                client_secret: session.client_secret,
+                checkout_url: session.url,  // This is what hosted checkout needs
                 session_id: session.id
             })
         };
