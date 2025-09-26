@@ -748,6 +748,38 @@ class ShoppingCart {
                     }
                     
                     return result.client_secret;
+                },
+                
+                onShippingDetailsChange: async (shippingDetailsChangeEvent) => {
+                    const { checkoutSessionId, shippingDetails } = shippingDetailsChangeEvent;
+                    
+                    console.log('Frontend: onShippingDetailsChange called');
+                    console.log('Frontend: shippingDetails country =', shippingDetails?.address?.country);
+
+
+                    try {
+                        const response = await fetch('/.netlify/functions/calculate-shipping-options', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                checkout_session_id: checkoutSessionId,
+                                shipping_details: shippingDetails
+                            })
+                        });
+                        
+                        const result = await response.json();
+
+                        console.log('Frontend: received result =', result);
+                        console.log('Frontend: response status =', response.status);
+                        return Promise.resolve(result);
+                        
+                    } catch (error) {
+                        console.error('Shipping calculation error:', error);
+                        return Promise.resolve({
+                            type: 'reject',
+                            errorMessage: 'Unable to calculate shipping for this address'
+                        });
+                    }
                 }
             });
             
