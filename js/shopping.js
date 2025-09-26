@@ -748,7 +748,7 @@ class ShoppingCart {
                     }
                     
                     return result.client_secret;
-                },
+                }
                 
  /*             onShippingDetailsChange: async (shippingDetailsChangeEvent) => {
                     const { checkoutSessionId, shippingDetails } = shippingDetailsChangeEvent;
