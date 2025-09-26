@@ -73,15 +73,6 @@ exports.handler = async (event, context) => {
             },
 
             // Dummy shipping option - will be replaced by calculate-shipping-options
- //           shipping_options: [
- //               {
- //                   shipping_rate_data: {
- //                       display_name: 'Calculating shipping...',
- //                       type: 'fixed_amount',
- //                       fixed_amount: { amount: 0, currency: 'usd' }
- //                   }
- //               }
- //           ],
 
             shipping_options: [
                 { shipping_rate: 'shr_1SB6Nn7iRKbAsUAgKtbaJiJv' },
