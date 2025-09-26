@@ -64,10 +64,6 @@ exports.handler = async (event, context) => {
             
             ui_mode: 'embedded',
             
-            permissions: {
-                update_shipping_details: 'server_only',
-            },
-
             shipping_address_collection: {
                 allowed_countries: ['US', 'CA', 'TW', 'GB', 'AU']
             },
