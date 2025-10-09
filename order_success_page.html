@@ -250,8 +250,8 @@
                     console.log('Session data received:', sessionData);
                     
                     const customerEmail = sessionData.customer_email || 
-                                         sessionData.customer_details?.email ||
-                                         'no-email@unknown.com';
+                                        sessionData.customer_details?.email ||
+                                        'no-email@unknown.com';
                     
                     console.log('Would extract email:', customerEmail);
                     console.log('Would extract shipping:', sessionData.shipping_details);
@@ -276,15 +276,42 @@
                 
                 // Get customer email from multiple possible sources
                 const customerEmail = sessionData.customer_email || 
-                                     sessionData.customer_details?.email ||
-                                     'no-email@unknown.com';
+                                    sessionData.customer_details?.email ||
+                                    'no-email@unknown.com';
                 
                 console.log('Extracted email:', customerEmail);
                 console.log('Shipping details:', shipping);
                 console.log('Customer details:', customer);
                 
+                // ========== NEW: PROPER STATE/PROVINCE HANDLING ==========
+                const country = shipping?.address?.country?.toUpperCase() || 'US';
+                const stateValue = shipping?.address?.state || '';
+                
+                let state_code = null;
+                let province = null;
+                
+                if (country === 'US' || country === 'AU') {
+                    // US and Australia use "states"
+                    state_code = stateValue;
+                    province = null;
+                } else if (country === 'CA') {
+                    // Canada uses "provinces"
+                    state_code = null;
+                    province = stateValue;
+                } else {
+                    // UK, Taiwan, others - use province as catch-all
+                    state_code = null;
+                    province = stateValue || null;
+                }
+                
+                console.log('Address routing:', { country, stateValue, state_code, province });
+                // ========== END STATE/PROVINCE HANDLING ==========
+                
                 // Generate user-friendly order number
                 const friendlyOrderNumber = `XR-${new Date().getFullYear()}-${sessionData.metadata.order_id.slice(-6)}`;
+                
+                // Get shipping code from session (you'll need to add this to your metadata)
+                const selectedShippingCode = sessionData.shipping_cost?.shipping_rate || 'SD'; // Default to Standard
                 
                 // Create Finerworks order using Stripe's collected data
                 const finerworksOrder = {
@@ -297,8 +324,8 @@
                             "company_name": "Xiaoran Art Studio",
                             "address_1": shipping?.address?.line1 || '',
                             "city": shipping?.address?.city || '',
-                            "state_code": shipping?.address?.state || '',
-                            "province": null,
+                            "state_code": state_code,  // ← FIXED: Conditional based on country
+                            "province": province,       // ← FIXED: Conditional based on country
                             "zip_postal_code": shipping?.address?.postal_code || '',
                             "country_code": shipping?.address?.country?.toLowerCase() || 'us',
                             "phone": customer?.phone || '',
@@ -310,19 +337,19 @@
                             "product_qty": item.q,
                             "product_sku": `5M210M37S${item.w}X${item.h}`,
                             "product_image": {
-                                "pixel_width": 806,
-                                "pixel_height": 1600,
-                                "product_url_file": item.image || '',
-                                "product_url_thumbnail": item.image || ''
+                                "pixel_width": item.pix_w,      // ← FIXED: From artwork metadata
+                                "pixel_height": item.pix_h,     // ← FIXED: From artwork metadata
+                                "product_url_file": item.image,
+                                "product_url_thumbnail": item.image
                             },
-                            "product_title": item.title || 'Untitled',
+                            "product_title": item.title || 'Untitled',  // ← FIXED: From artwork metadata
                             "template": null,
                             "product_guid": "00000000-0000-0000-0000-000000000000",
                             "custom_data_1": `customer_order:${friendlyOrderNumber}`,
                             "custom_data_2": `stripe_payment_id:${sessionData.payment_intent}`,
                             "custom_data_3": `stripe_session_id:${sessionData.id}`
                         })),
-                        "shipping_code": selectedShippingCode,
+                        "shipping_code": mapShippingRateToFinerworksCode(sessionData.shipping_cost),
                         "test_mode": false,
                         "validate_only": false
                     }],
@@ -365,6 +392,8 @@
             }
         }
 
+
+
         function mapShippingRateToFinerworksCode(shippingCost) {
             if (!shippingCost || !shippingCost.shipping_rate) {
                 return 'SD'; // Default to standard
@@ -379,47 +408,54 @@
             
             return shippingMap[shippingCost.shipping_rate] || 'SD';
         }
-        // New function to reconstruct full cart data
         async function reconstructCartData(minimalCartData) {
-            try {
-                // Try to get full cart data from localStorage first
-                const localCart = JSON.parse(localStorage.getItem('xiaoran_cart') || '[]');
-                
-                if (localCart.length > 0) {
-                    return minimalCartData.map(minItem => {
-                        const fullItem = localCart.find(item => 
-                            item.artworkId === minItem.id && 
-                            item.width_inches === minItem.w && 
-                            item.height_inches === minItem.h
-                        );
-                        return {
-                            ...minItem,
-                            title: fullItem?.title || 'Untitled',
-                            image: fullItem?.image || ''
-                        };
-                    });
-                }
-
-                // Fallback: Load portfolio data to get titles and images
-                const response = await fetch('/js/portfolio.js');
-                const portfolioText = await response.text();
-                
-                // Extract artworks data (simplified approach)
-                return minimalCartData.map(item => ({
-                    ...item,
-                    title: `Artwork ${item.id.slice(-8)}`, // Fallback title
-                    image: `/images/paintings/thumbnails/${item.id}_thumb.jpg` // Fallback image
-                }));
-                
-            } catch (error) {
-                console.error('Failed to reconstruct cart data:', error);
-                return minimalCartData.map(item => ({
-                    ...item,
-                    title: 'Untitled',
-                    image: ''
-                }));
+            console.log('Reconstructing cart data for items:', minimalCartData);
+            
+            // Fetch the artwork metadata JSON
+            const response = await fetch('/data/finerworks_ready_artworks.json');
+            if (!response.ok) {
+                throw new Error('Failed to fetch artwork metadata');
             }
+            
+            const artworksData = await response.json();
+            console.log('Loaded artwork metadata successfully');
+            
+            // Enrich each minimal cart item with full artwork details
+            const enrichedCart = minimalCartData.map(item => {
+                const artwork = artworksData[item.id];
+                
+                if (!artwork) {
+                    // CRITICAL ERROR: This should never happen since shopping.js prevents
+                    // adding items without finerworks data to cart
+                    console.error(`CRITICAL: Artwork not found in metadata for ID: ${item.id}`);
+                    throw new Error(`Artwork data missing for ID: ${item.id}. Order cannot be processed.`);
+                }
+                
+                // Extract the data we need from the artwork metadata
+                const apiObject = artwork.finerworks_image?.finerworks_api_object;
+                
+                if (!apiObject || !apiObject.pix_w || !apiObject.pix_h) {
+                    console.error(`CRITICAL: Missing pixel dimensions for artwork ID: ${item.id}`);
+                    throw new Error(`Artwork pixel dimensions missing for ID: ${item.id}. Order cannot be processed.`);
+                }
+                
+                return {
+                    id: item.id,
+                    q: item.q,
+                    w: item.w,
+                    h: item.h,
+                    title: artwork.artwork_info?.title || 'Untitled',
+                    title_en: artwork.artwork_info?.title_en || '',
+                    pix_w: apiObject.pix_w,
+                    pix_h: apiObject.pix_h,
+                    image: apiObject.private_hires_uri || apiObject.public_preview_uri || ''
+                };
+            });
+            
+            console.log('Enriched cart data:', enrichedCart);
+            return enrichedCart;
         }
+
     </script>
 </body>
 </html>
