@@ -973,12 +973,16 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 10,
-        "height_inches": 10
+        "width_inches": 23,
+        "height_inches": 24
       },
       {
-        "width_inches": 7,
-        "height_inches": 7
+        "width_inches": 16,
+        "height_inches": 17
+      },
+      {
+        "width_inches": 12,
+        "height_inches": 12
       }
     ],
     "finerworks_image": {
@@ -987,21 +991,21 @@
         "description": "Traditional Chinese painting by Xiaoran. Blossoms of Bodhi Illuminate the Eyes",
         "file_name": "019891b0-f39c-7e21-ae47-81a6092c5a54_large.jpg",
         "file_size": 1219051,
-        "pix_w": 2014,
-        "pix_h": 2081,
+        "pix_w": 4630,
+        "pix_h": 4785,
         "hires_file_name": "019891b0-f39c-7e21-ae47-81a6092c5a54_large.jpg",
-        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7e21-ae47-81a6092c5a54_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-7e21-ae47-81a6092c5a54.jpg",
         "thumbnail_file_name": "019891b0-f39c-7e21-ae47-81a6092c5a54_thumb.jpg",
         "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-7e21-ae47-81a6092c5a54_thumb.jpg",
         "preview_file_name": "019891b0-f39c-7e21-ae47-81a6092c5a54_large.jpg",
         "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7e21-ae47-81a6092c5a54_large.jpg"
       },
       "format": "jpeg",
-      "dimensions_text": "2014×2081",
+      "dimensions_text": "4630×4785",
       "file_size_mb": 1.16,
       "has_thumbnail": true,
-      "storage_source": "github",
-      "has_high_res_version": false
+      "storage_source": "s3",
+      "has_high_res_version": true
     },
     "print_ready": true
   },
@@ -2312,7 +2316,7 @@
         "pix_w": 3486,
         "pix_h": 1202,
         "hires_file_name": "019891b0-f39c-7939-897c-cc57bc9b4a35_large.jpg",
-        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7939-897c-cc57bc9b4a35_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-7939-897c-cc57bc9b4a35.jpg",
         "thumbnail_file_name": "019891b0-f39c-7939-897c-cc57bc9b4a35_thumb.jpg",
         "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-7939-897c-cc57bc9b4a35_thumb.jpg",
         "preview_file_name": "019891b0-f39c-7939-897c-cc57bc9b4a35_large.jpg",
@@ -2322,8 +2326,8 @@
       "dimensions_text": "3486×1202",
       "file_size_mb": 1.13,
       "has_thumbnail": true,
-      "storage_source": "github",
-      "has_high_res_version": false
+      "storage_source": "s3",
+      "has_high_res_version": true
     },
     "print_ready": true
   },
@@ -2484,7 +2488,7 @@
         "pix_w": 1392,
         "pix_h": 3010,
         "hires_file_name": "019891b0-f39c-71dd-be15-f32291c15cc6_large.jpg",
-        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-71dd-be15-f32291c15cc6_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-71dd-be15-f32291c15cc6.jpg",
         "thumbnail_file_name": "019891b0-f39c-71dd-be15-f32291c15cc6_thumb.jpg",
         "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-71dd-be15-f32291c15cc6_thumb.jpg",
         "preview_file_name": "019891b0-f39c-71dd-be15-f32291c15cc6_large.jpg",
@@ -2494,8 +2498,8 @@
       "dimensions_text": "1392×3010",
       "file_size_mb": 1.17,
       "has_thumbnail": true,
-      "storage_source": "github",
-      "has_high_res_version": false
+      "storage_source": "s3",
+      "has_high_res_version": true
     },
     "print_ready": true
   },
@@ -2551,8 +2555,35 @@
       "title_en": "Harboring",
       "original_size_cm": "75×22"
     },
-    "print_ready": false,
-    "reason": "Insufficient resolution for 200 PPI printing"
+    "recommended_sizes": [
+      {
+        "width_inches": 7,
+        "height_inches": 24
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "泊",
+        "description": "Traditional Chinese painting by Xiaoran. Harboring",
+        "file_name": "019891b0-f39c-721b-b645-0e2a1c090d9b_large.jpg",
+        "file_size": 1215568,
+        "pix_w": 1485,
+        "pix_h": 5195,
+        "hires_file_name": "019891b0-f39c-721b-b645-0e2a1c090d9b_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-721b-b645-0e2a1c090d9b.jpg",
+        "thumbnail_file_name": "019891b0-f39c-721b-b645-0e2a1c090d9b_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-721b-b645-0e2a1c090d9b_thumb.jpg",
+        "preview_file_name": "019891b0-f39c-721b-b645-0e2a1c090d9b_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-721b-b645-0e2a1c090d9b_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "1485×5195",
+      "file_size_mb": 1.16,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
   },
   "019891b0-f39c-7539-8543-c9a7de487cca": {
     "artwork_info": {
@@ -2674,8 +2705,16 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 14,
-        "height_inches": 7
+        "width_inches": 24,
+        "height_inches": 12
+      },
+      {
+        "width_inches": 17,
+        "height_inches": 8
+      },
+      {
+        "width_inches": 12,
+        "height_inches": 6
       }
     ],
     "finerworks_image": {
@@ -2684,21 +2723,21 @@
         "description": "Traditional Chinese painting by Xiaoran. Whispers of Bamboo in the Breeze",
         "file_name": "019891b0-f39c-71f0-bd5c-b448f22ef5f4_large.jpg",
         "file_size": 894521,
-        "pix_w": 2897,
-        "pix_h": 1446,
+        "pix_w": 6482,
+        "pix_h": 3235,
         "hires_file_name": "019891b0-f39c-71f0-bd5c-b448f22ef5f4_large.jpg",
-        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-71f0-bd5c-b448f22ef5f4_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-71f0-bd5c-b448f22ef5f4.jpg",
         "thumbnail_file_name": "019891b0-f39c-71f0-bd5c-b448f22ef5f4_thumb.jpg",
         "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-71f0-bd5c-b448f22ef5f4_thumb.jpg",
         "preview_file_name": "019891b0-f39c-71f0-bd5c-b448f22ef5f4_large.jpg",
         "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-71f0-bd5c-b448f22ef5f4_large.jpg"
       },
       "format": "jpeg",
-      "dimensions_text": "2897×1446",
+      "dimensions_text": "6482×3235",
       "file_size_mb": 0.85,
       "has_thumbnail": true,
-      "storage_source": "github",
-      "has_high_res_version": false
+      "storage_source": "s3",
+      "has_high_res_version": true
     },
     "print_ready": true
   },
@@ -2711,8 +2750,16 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 15,
-        "height_inches": 7
+        "width_inches": 24,
+        "height_inches": 12
+      },
+      {
+        "width_inches": 17,
+        "height_inches": 8
+      },
+      {
+        "width_inches": 12,
+        "height_inches": 6
       }
     ],
     "finerworks_image": {
@@ -2721,21 +2768,21 @@
         "description": "Traditional Chinese painting by Xiaoran. Melodies of Xiao and Xiang in My Abode – Ink Bamboo",
         "file_name": "019891b0-f39c-7e7e-ab7e-4b6efd6d2dfa_large.jpg",
         "file_size": 869211,
-        "pix_w": 2901,
-        "pix_h": 1444,
+        "pix_w": 6456,
+        "pix_h": 3213,
         "hires_file_name": "019891b0-f39c-7e7e-ab7e-4b6efd6d2dfa_large.jpg",
-        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7e7e-ab7e-4b6efd6d2dfa_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-7e7e-ab7e-4b6efd6d2dfa.jpg",
         "thumbnail_file_name": "019891b0-f39c-7e7e-ab7e-4b6efd6d2dfa_thumb.jpg",
         "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-7e7e-ab7e-4b6efd6d2dfa_thumb.jpg",
         "preview_file_name": "019891b0-f39c-7e7e-ab7e-4b6efd6d2dfa_large.jpg",
         "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-7e7e-ab7e-4b6efd6d2dfa_large.jpg"
       },
       "format": "jpeg",
-      "dimensions_text": "2901×1444",
+      "dimensions_text": "6456×3213",
       "file_size_mb": 0.83,
       "has_thumbnail": true,
-      "storage_source": "github",
-      "has_high_res_version": false
+      "storage_source": "s3",
+      "has_high_res_version": true
     },
     "print_ready": true
   },
@@ -2875,43 +2922,6 @@
     },
     "print_ready": false,
     "reason": "Insufficient resolution for 200 PPI printing"
-  },
-  "019891b0-f39c-721e-8576-4e3f61c0e800": {
-    "artwork_info": {
-      "id": "019891b0-f39c-721e-8576-4e3f61c0e800",
-      "title": "竹影婆娑舞–墨竹",
-      "title_en": "Dancing Shadows of Bamboo",
-      "original_size_cm": "136×70"
-    },
-    "recommended_sizes": [
-      {
-        "width_inches": 7,
-        "height_inches": 14
-      }
-    ],
-    "finerworks_image": {
-      "finerworks_api_object": {
-        "title": "竹影婆娑舞–墨竹",
-        "description": "Traditional Chinese painting by Xiaoran. Dancing Shadows of Bamboo",
-        "file_name": "019891b0-f39c-721e-8576-4e3f61c0e800_large.jpg",
-        "file_size": 779405,
-        "pix_w": 1466,
-        "pix_h": 2860,
-        "hires_file_name": "019891b0-f39c-721e-8576-4e3f61c0e800_large.jpg",
-        "private_hires_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-721e-8576-4e3f61c0e800_large.jpg",
-        "thumbnail_file_name": "019891b0-f39c-721e-8576-4e3f61c0e800_thumb.jpg",
-        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-721e-8576-4e3f61c0e800_thumb.jpg",
-        "preview_file_name": "019891b0-f39c-721e-8576-4e3f61c0e800_large.jpg",
-        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-721e-8576-4e3f61c0e800_large.jpg"
-      },
-      "format": "jpeg",
-      "dimensions_text": "1466×2860",
-      "file_size_mb": 0.74,
-      "has_thumbnail": true,
-      "storage_source": "github",
-      "has_high_res_version": false
-    },
-    "print_ready": true
   },
   "019891b0-f39c-7b83-902a-1f7f7bc72183": {
     "artwork_info": {
@@ -3084,8 +3094,35 @@
       "title_en": "Serenity in Abandon",
       "original_size_cm": "75×22"
     },
-    "print_ready": false,
-    "reason": "Insufficient resolution for 200 PPI printing"
+    "recommended_sizes": [
+      {
+        "width_inches": 6,
+        "height_inches": 19
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "陶然忘機",
+        "description": "Traditional Chinese painting by Xiaoran. Serenity in Abandon",
+        "file_name": "019891b0-f39c-70a8-aa76-019cadc5409d_large.jpg",
+        "file_size": 348429,
+        "pix_w": 1109,
+        "pix_h": 3780,
+        "hires_file_name": "019891b0-f39c-70a8-aa76-019cadc5409d_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/019891b0-f39c-70a8-aa76-019cadc5409d.jpg",
+        "thumbnail_file_name": "019891b0-f39c-70a8-aa76-019cadc5409d_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/019891b0-f39c-70a8-aa76-019cadc5409d_thumb.jpg",
+        "preview_file_name": "019891b0-f39c-70a8-aa76-019cadc5409d_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/019891b0-f39c-70a8-aa76-019cadc5409d_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "1109×3780",
+      "file_size_mb": 0.33,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
   },
   "019891b0-f39c-729c-bef5-b90e2cafb77e": {
     "artwork_info": {
