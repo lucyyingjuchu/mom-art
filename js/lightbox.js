@@ -1028,6 +1028,11 @@ function populateLightbox(artwork) {
         }
     }
 
+    // Sizes taken from the exhibition list include the frame - say so
+    if (artwork.sizeIncludesFrame && artwork.heightCm) {
+        size += currentLang === 'zh' ? '（含框）' : ' (framed)';
+    }
+
     // Set artwork details
     const elements = {
         'artworkTitle': title,
