@@ -99,6 +99,41 @@ function collectFormData(artworkId) {
 }
 
 // ================================
+// ADMIN PASSWORD (sent to githubProxy as X-Admin-Key)
+// ================================
+const ADMIN_KEY_STORAGE = 'xr_admin_key';
+
+function getAdminKey(forcePrompt = false) {
+    let key = null;
+    try { key = sessionStorage.getItem(ADMIN_KEY_STORAGE); } catch (e) {}
+    if (!key || forcePrompt) {
+        key = window.prompt('請輸入管理密碼 / Enter admin password');
+        if (!key) return '';
+        try { sessionStorage.setItem(ADMIN_KEY_STORAGE, key); } catch (e) {}
+    }
+    return key;
+}
+
+function clearAdminKey() {
+    try { sessionStorage.removeItem(ADMIN_KEY_STORAGE); } catch (e) {}
+}
+
+// fetch() to githubProxy with the admin password; re-asks once if it was wrong
+async function adminProxyFetch(method, payload) {
+    for (let attempt = 0; attempt < 2; attempt++) {
+        const response = await fetch('/.netlify/functions/githubProxy', {
+            method,
+            headers: { 'Content-Type': 'application/json', 'X-Admin-Key': getAdminKey(attempt > 0) },
+            body: JSON.stringify(payload)
+        });
+        if (response.status !== 401) return response;
+        clearAdminKey();
+        if (attempt === 0) alert('管理密碼錯誤，請再輸入一次 / Wrong admin password, please try again');
+    }
+    throw new Error('Admin password incorrect');
+}
+
+// ================================
 // MAIN GITHUB UPLOADER CLASS
 // ================================
 
@@ -110,16 +145,7 @@ class GitHubUploader {
     // Upload single file to GitHub via Netlify Function
     async uploadFile(path, content, message) {
         try {
-            const response = await fetch('/.netlify/functions/githubProxy', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    path,
-                    content,
-                    message,
-                    branch: this.config.branch
-                })
-            });
+            const response = await adminProxyFetch('POST', { path, content, message });
             // ADD THIS DEBUG CODE:
             console.log('Response status:', response.status);
             console.log('Response headers:', [...response.headers.entries()]);
@@ -607,16 +633,7 @@ class GitHubUploader {
                 return { success: true, skipped: true };
             }
 
-            const response = await fetch('/.netlify/functions/githubProxy', {
-                method: 'DELETE',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    path,
-                    message,
-                    sha: fileInfo.sha,
-                    branch: this.config.branch
-                })
-            });
+            const response = await adminProxyFetch('DELETE', { path, message, sha: fileInfo.sha });
 
             if (!response.ok) {
                 const errorData = await response.json();
@@ -822,6 +839,12 @@ class GitHubUploader {
     // Test connection WITHOUT creating files
     async testConnection() {
         try {
+            // Confirm the admin password before anything else
+            const verify = await adminProxyFetch('POST', { action: 'verify' });
+            if (!verify.ok) {
+                return { success: false, error: `Admin check failed: ${verify.status}` };
+            }
+
             // Just check if we can access the repository info
             const response = await fetch(`https://api.github.com/repos/${this.config.owner}/${this.config.repo}`, {
                 headers: {
