@@ -119,11 +119,6 @@
     "descriptionEn": "The mountain is high, the moon small, the night sky clear (and one longs to climb the blue heavens and embrace the bright moon).",
     "curatorNoteEn": "A small ink painting on the theme of mountain and moon, unified in a minimal palette. The mountain is built with dry, flying-white strokes and layered ink, the brushwork free yet powerful; mist in pale washes opens the space layer by layer. The moon in the upper right is faint, blending into the atmosphere — present yet almost absent. The high mountain and small moon reveal the vastness of nature and how small we are within it, while the ridges, rising almost to the sky, stir the wish \"to climb the blue heavens and embrace the bright moon.\""
   },
-  "天宇金鏡": {
-    "titleEn": "Golden Mirror of the Heavens",
-    "descriptionEn": "The bright moon rises over the heavenly mountains — alone, in communion with the spirit of heaven and earth.",
-    "curatorNoteEn": "On a dark ground, a golden full moon is left in reserve, hanging high like a golden mirror in the sky. The mountain is woven from silver-white and blue; the strokes look unrestrained but are built up layer by layer into inner depth. The composition is simple — one moon, one peak — creating a lofty spiritual space with the fewest elements. As Zhuangzi said, \"alone, in communion with the spirit of heaven and earth\": keeping the heart free and independent, in tune with nature, embodying openness, acceptance, and a wisdom in which self and world are forgotten."
-  },
   "與誰同坐": {
     "titleEn": "With Whom Shall I Sit?",
     "descriptionEn": "With whom shall I sit? The bright moon, the clear breeze, and I.",
@@ -164,30 +159,10 @@
     "descriptionEn": "Seeing clearly — endless fields of ice lit in a single moment.",
     "curatorNoteEn": "Semi-abstract ink combining flying-white, flowing lines and splashed ink. Piercing, icy strokes give the glacier its hardness and cold, weaving a sense of cosmic time and space. A new moon is faintly edged in gold, revealing points of starlight as snow flies over a thousand mountains — as the saying goes, \"a room dark for a thousand years is lit by a single lamp.\" True light is never dazzling; it keeps a little tenderness within ages of quiet stillness, and lights the world."
   },
-  "回望-由月球回望地球": {
-    "titleEn": "Looking Back – Earth Seen from the Moon",
-    "descriptionEn": "Looking back — a glance full of light and lingering tenderness.",
-    "curatorNoteEn": "Seen from the surface of the moon looking toward Earth, the composition differs from her other works. The foreground is silent, desolate and cold, almost soundless, while the blue-green Earth in the distance floats in the sky like a living, breathing being. The lunar surface below is rendered simply with reserved white, making the universe feel even vaster. Earth and moon travel along their orbits in delicate balance, looking back at each other tenderly — moving us with the mysterious power present everywhere in the cosmos."
-  },
-  "太初-心月照無涯": {
-    "titleEn": "The Beginning – The Moon of the Heart Shines Without End",
-    "descriptionEn": "The beginning — the moon of the heart shines without end.",
-    "curatorNoteEn": "Crimson clouds fill the sky and moonlight streams down. Layers of red and black create the unity of heaven and earth, and golden brush marks reflect shimmering light on the water. The moon hangs high over vast misty waves; solid and empty, motion and stillness answer one another. The painting carries both the vastness of the cosmos and the clarity of the heart's source — like standing at the moment before heaven and earth separated, or the moment of first awakening: light found in silence, the self found in the boundless."
-  },
   "照水紅蕖": {
     "titleEn": "Red Lotus Reflected in Water",
     "descriptionEn": "Red lotus mirrored in water, its fragrance faint and fine.",
     "curatorNoteEn": "A hazy moon above, deep still water below, and red lotus blooming just where water meets sky — a strikingly contemporary scene where solid and empty, motion and stillness reflect one another. The mood is restrained yet full of life. The light does not shine from outside but rises from mist and empty space, close to what Chan Buddhism calls \"the light of one's own nature.\" The lotus is not bound to likeness; still waters run deep, answering the distant moon. In a dreamlike haze, it expresses a bond that is near yet far, never letting go."
-  },
-  "心燈-燭荷": {
-    "titleEn": "Lamp of the Heart – Candle Lotus",
-    "descriptionEn": "In lighting the way for others, we also light our own.",
-    "curatorNoteEn": "In a pond simplified to its essence, a few lotus buds are placed like candles that light up the painting. Against the deep background a faint skylight shows through, a thoughtful touch that brings the whole work to life. There is no moon and no sun, yet there is light — light that comes not from the sky but from awareness within. The highest light goes beyond physical illumination; it is a projection of the spirit, where the Eastern \"image of the mind\" meets Western light and shadow. Its message: in lighting the way for others, we also light our own."
-  },
-  "得意忘象": {
-    "titleEn": "Grasping the Meaning, Forgetting the Image",
-    "descriptionEn": "The original heart.",
-    "curatorNoteEn": "Moving between the figurative and the abstract, faint lotus shapes and soft light create a spiritual field \"between likeness and unlikeness.\" Between ink painting and contemporary art, with a minimal palette, calligraphic lines and layers of soaking ink, it builds a \"space of the spirit\" between landscape and inner image. The work keeps the Eastern ink spirit of living rhythm and of depicting the real through the empty, while carrying the emotional field and sense of space of Western modern abstraction."
   },
   "流霞-動靜不二": {
     "titleEn": "Flowing Clouds of Dusk – Motion and Stillness Are One",
@@ -273,5 +248,30 @@
     "titleEn": "Spring Fills the World",
     "descriptionEn": "Deep among the blossoms, even the clouds are white; on the warm grass the sheep begin to idle. Sitting long, spring says nothing; the wind blows and heaven and earth grow wide. A clear breeze greens the grass, flower shadows fill the spring hills; white sheep deep in the clouds, the wind blows and heaven and earth grow wide.",
     "curatorNoteEn": "A great grove of cherry blossoms above a green meadow, with a few goats scattered across it. In the distance the blossoms merge with drifting clouds — free, soft, open and warm, light and comfortable. The brushwork is varied and rhythmic, seemingly effortless yet precise in every stroke, sweeping out a beautiful scene of spring."
+  },
+  "明月出天山": {
+    "titleEn": "The Bright Moon Rises over the Heavenly Mountains",
+    "descriptionEn": "The bright moon rises over the heavenly mountains — alone, in communion with the spirit of heaven and earth.",
+    "curatorNoteEn": "On a dark ground, a golden full moon is left in reserve, hanging high like a golden mirror in the sky. The mountain is woven from silver-white and blue; the strokes look unrestrained but are built up layer by layer into inner depth. The composition is simple — one moon, one peak — creating a lofty spiritual space with the fewest elements. As Zhuangzi said, \"alone, in communion with the spirit of heaven and earth\": keeping the heart free and independent, in tune with nature, embodying openness, acceptance, and a wisdom in which self and world are forgotten."
+  },
+  "天行健-由月球回望地球": {
+    "titleEn": "Heaven Moves Ever Onward – Earth Seen from the Moon",
+    "descriptionEn": "Looking back — a glance full of light and lingering tenderness.",
+    "curatorNoteEn": "Seen from the surface of the moon looking toward Earth, the composition differs from her other works. The foreground is silent, desolate and cold, almost soundless, while the blue-green Earth in the distance floats in the sky like a living, breathing being. The lunar surface below is rendered simply with reserved white, making the universe feel even vaster. Earth and moon travel along their orbits in delicate balance, looking back at each other tenderly — moving us with the mysterious power present everywhere in the cosmos."
+  },
+  "心月照無涯": {
+    "titleEn": "The Moon of the Heart Shines Without End",
+    "descriptionEn": "The beginning — the moon of the heart shines without end.",
+    "curatorNoteEn": "Crimson clouds fill the sky and moonlight streams down. Layers of red and black create the unity of heaven and earth, and golden brush marks reflect shimmering light on the water. The moon hangs high over vast misty waves; solid and empty, motion and stillness answer one another. The painting carries both the vastness of the cosmos and the clarity of the heart's source — like standing at the moment before heaven and earth separated, or the moment of first awakening: light found in silence, the self found in the boundless."
+  },
+  "燭荷-一燈即明": {
+    "titleEn": "Candle Lotus – A Single Lamp Lights the Dark",
+    "descriptionEn": "In lighting the way for others, we also light our own.",
+    "curatorNoteEn": "In a pond simplified to its essence, a few lotus buds are placed like candles that light up the painting. Against the deep background a faint skylight shows through, a thoughtful touch that brings the whole work to life. There is no moon and no sun, yet there is light — light that comes not from the sky but from awareness within. The highest light goes beyond physical illumination; it is a projection of the spirit, where the Eastern \"image of the mind\" meets Western light and shadow. Its message: in lighting the way for others, we also light our own."
+  },
+  "心燈-得意忘象": {
+    "titleEn": "Lamp of the Heart – Grasping the Meaning, Forgetting the Image",
+    "descriptionEn": "The original heart.",
+    "curatorNoteEn": "Moving between the figurative and the abstract, faint lotus shapes and soft light create a spiritual field \"between likeness and unlikeness.\" Between ink painting and contemporary art, with a minimal palette, calligraphic lines and layers of soaking ink, it builds a \"space of the spirit\" between landscape and inner image. The work keeps the Eastern ink spirit of living rhythm and of depicting the real through the empty, while carrying the emotional field and sense of space of Western modern abstraction."
   }
 }
