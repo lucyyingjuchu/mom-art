@@ -619,6 +619,14 @@
             padding: 0.4rem 0.8rem;
             font-size: 0.8rem;
         }
+    
+        /* Unfinished works: visible here, hidden on the public site */
+        .artwork-card.is-draft { outline: 2px dashed #e67e22; outline-offset: -2px; }
+        .artwork-card.is-draft .artwork-image { opacity: 0.55; }
+        .draft-badge {
+            display: inline-block; margin: 0.4rem 0; padding: 0.2rem 0.6rem;
+            background: #fdebd0; color: #a04000; border-radius: 4px; font-size: 0.8rem;
+        }
     </style>
 </head>
 <body>
@@ -1190,7 +1198,7 @@
                 <div class="search-sort-container">
                     <div class="search-box">
                         <span class="search-icon">🔍</span>
-                        <input type="text" id="searchInput" placeholder="搜尋作品標題、描述..." onkeyup="performSearch()">
+                        <input type="text" id="searchInput" placeholder="搜尋作品標題、描述…（輸入「草稿」只看未上架）" onkeyup="performSearch()">
                     </div>
                     <button class="btn btn-success" onclick="openAddModal()">
                         ➕ 新增作品
@@ -1363,6 +1371,16 @@
             showMessage('已清除所有篩選條件', 'info');
         }
 
+        // Same rule as the public site (js/portfolio.js isPublicReady):
+        // no photo, no title, or status "draft"/hidden => not shown on the website
+        function isDraftArtwork(artwork) {
+            if (artwork.hidden === true || artwork.hidden === 'true') return true;
+            if (String(artwork.status || '').toLowerCase() === 'draft') return true;
+            if (!(artwork.title || '').trim()) return true;
+            const img = (artwork.image || '').trim();
+            return !img || img.includes('placeholder');
+        }
+
         // CLEANED UP: Search function
         function performSearch() {
             const query = document.getElementById('searchInput').value.toLowerCase().trim();
@@ -1384,6 +1402,14 @@
             }
 
             // Then apply search query
+            // Typing 草稿 or draft lists only the works hidden from the website
+            if (query === '草稿' || query === 'draft') {
+                artworks = searchBase.filter(isDraftArtwork);
+                renderArtworks(artworks);
+                updateStats(artworks);
+                return;
+            }
+
             const searchResults = searchBase.filter(artwork => {
                 const title = (artwork.title || '').toLowerCase();
                 const description = (artwork.description || '').toLowerCase();
@@ -1933,7 +1959,7 @@
                 const available = artwork.available !== false && artwork.available !== 'false';
                 
                 return `
-                    <div class="artwork-card">
+                    <div class="artwork-card${isDraftArtwork(artwork) ? ' is-draft' : ''}">
                         <img src="${imageUrl}" alt="${title}" class="artwork-image" 
                              onerror="this.src='./images/placeholder/artwork-placeholder-zh.svg'">
                         <div class="artwork-info">
@@ -1943,6 +1969,7 @@
                                 ${featured ? ' • ⭐ 精選' : ''}
                                 ${available ? ' • 💰 可售' : ' • ❌ 已售'}
                             </div>
+                            ${isDraftArtwork(artwork) ? '<div class="draft-badge">📝 草稿・網站不顯示（缺圖片或標題）</div>' : ''}
                             <div class="artwork-actions">
                                 <button class="btn btn-small" onclick="editArtwork('${artwork.id}')">
                                     ✏️ 編輯
@@ -2025,7 +2052,7 @@
                         <div class="search-sort-container">
                             <div class="search-box">
                                 <span class="search-icon">🔍</span>
-                                <input type="text" id="searchInput" placeholder="搜尋作品標題、描述..." onkeyup="performSearch()">
+                                <input type="text" id="searchInput" placeholder="搜尋作品標題、描述…（輸入「草稿」只看未上架）" onkeyup="performSearch()">
                             </div>
                             <button class="btn btn-success" onclick="openAddModal()">➕ 新增作品</button>
                         </div>

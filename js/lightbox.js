@@ -374,51 +374,24 @@ function removeFullscreenExitGestures() {
 function exitMobileFullscreen() {
     const lightbox = document.querySelector('.lightbox');
     const image = document.getElementById('lightboxImage');
-    
     if (!lightbox || !image) return;
-    
-    // Remove fullscreen class
+
     lightbox.classList.remove('mobile-fullscreen');
 
-    // Add this to exitMobileFullscreen() after removing the fullscreen class:
-    // Switch back to regular resolution image
-    const artwork = artworksData[currentArtworkIndex];
-    if (artwork && artwork.image) {
-        image.src = artwork.image;
-    }
-        
-    // Restore normal mobile image settings
+    // Back to the picture that was showing before fullscreen
+    const view = currentArtworkViews[currentViewIndex];
+    if (view && view.src) image.src = view.src;
+
+    // Undo every style fullscreen set
     image.style.touchAction = 'manipulation';
+    image.style.transform = '';
     image.style.maxWidth = '';
     image.style.maxHeight = '';
     image.style.width = '';
     image.style.height = '';
     image.style.objectFit = '';
-    
-    // Remove fullscreen exit gestures
-    removeFullscreenExitGestures();
-    
-    console.log('Exited mobile fullscreen mode');
-}
 
-
-function exitMobileFullscreen() {
-    const lightbox = document.querySelector('.lightbox');
-    const image = document.getElementById('lightboxImage');
-    
-    if (!lightbox || !image) return;
-    
-    // Remove fullscreen class
-    lightbox.classList.remove('mobile-fullscreen');
-    
-    // Restore normal mobile image settings
-    image.style.touchAction = 'manipulation';
-    image.style.transform = ''; // Clear any zoom/pan transforms
-    // ... rest of existing restore code
-    
     removeFullscreenExitGestures();
-    
-    console.log('Exited mobile fullscreen mode');
 }
 
 // ================================
@@ -1465,8 +1438,8 @@ function addZoomControls() {
         existingControls.remove();
     }
     
-    const lightboxControls = document.querySelector('.lightbox-controls');
-    if (!lightboxControls) return;
+    const imageSection = document.querySelector('.lightbox-image-section');
+    if (!imageSection) return;
     
     const zoomControls = document.createElement('div');
     zoomControls.className = 'zoom-controls';
@@ -1497,7 +1470,7 @@ function addZoomControls() {
         <button class="control-btn zoom-fullscreen-btn" onclick="toggleFullscreenZoom();" title="${t.fullscreen}">⛶</button>
     `;
     
-    lightboxControls.insertBefore(zoomControls, lightboxControls.firstChild);
+    imageSection.appendChild(zoomControls);
     
     console.log('✅ Desktop zoom controls created');
 }
@@ -1748,84 +1721,48 @@ function getArtworkText(artwork, field) {
     return artwork[field] || artwork[field + 'En'] || '';
 }
 
-function addViewIndicators() {
-    console.log('addViewIndicators called. Views:', currentArtworkViews?.length, currentArtworkViews);
+// Labels for the view switcher under the image (Artwork / In a room / Detail)
+const VIEW_LABELS = {
+    zh: { original: '作品', mockup: '實景', detail: '細節' },
+    en: { original: 'Artwork', mockup: 'In a room', detail: 'Detail' }
+};
 
-    const image = document.getElementById('lightboxImage');
-    if (!image) {
-        console.error('Lightbox image not found');
-        return;
-    }
-    
-    // Check if we actually have multiple views from the real data
-    if (!currentArtworkViews || currentArtworkViews.length <= 1) {
-        console.log('No multiple views in data - skipping indicators');
-        return; // NO test creation - use real data only
-    }
-    
-    console.log(`Creating indicators for ${currentArtworkViews.length} REAL views`);
-    
-    // Remove existing indicators
-    const existingIndicators = document.querySelector('.view-indicators');
-    if (existingIndicators) {
-        existingIndicators.remove();
-    }
-    
-    // Create new indicators container
-    const indicators = document.createElement('div');
-    indicators.className = 'view-indicators';
-    
-    const isCompact = currentArtworkViews.length > 4;
-    if (isCompact) {
-        indicators.classList.add('compact-mode');
-    }
-    
-    // Create dots ONLY for real views
+function viewLabel(view, index) {
+    const lang = (typeof portfolio !== 'undefined' && portfolio.currentLanguage === 'en') ? 'en' : 'zh';
+    const type = String(view.type || '');
+    if (type === 'original') return VIEW_LABELS[lang].original;
+    if (type.includes('mockup') || type === 'room') return VIEW_LABELS[lang].mockup;
+    if (type.includes('detail') || type.includes('close')) return VIEW_LABELS[lang].detail;
+    return view.title || `${index + 1}`;
+}
+
+function addViewIndicators() {
+    const imageSection = document.querySelector('.lightbox-image-section');
+    const existing = document.querySelector('.view-indicators');
+    if (existing) existing.remove();
+
+    // Only show the switcher when there is more than one picture
+    if (!imageSection || !currentArtworkViews || currentArtworkViews.length <= 1) return;
+
+    const tabs = document.createElement('div');
+    tabs.className = 'view-indicators';
+    tabs.setAttribute('role', 'tablist');
+
     currentArtworkViews.forEach((view, index) => {
-        const dot = document.createElement('div');
-        dot.className = `view-dot ${index === currentViewIndex ? 'active' : ''}`;
-        
-        let tooltipText = view.title || view.type || `View ${index + 1}`;
-        dot.title = tooltipText;
-        dot.onclick = () => switchArtworkView(index);
-        
-        if (view.icon && !isCompact) {
-            dot.textContent = view.icon;
-            dot.classList.add('icon-dot');
-        }
-        
-        indicators.appendChild(dot);
-        console.log(`Added real dot ${index}: ${tooltipText}`);
+        const tab = document.createElement('button');
+        tab.type = 'button';
+        tab.className = `view-dot${index === currentViewIndex ? ' active' : ''}`;
+        tab.setAttribute('role', 'tab');
+        tab.setAttribute('aria-selected', index === currentViewIndex ? 'true' : 'false');
+        tab.textContent = viewLabel(view, index);
+        tab.addEventListener('click', (e) => {
+            e.stopPropagation(); // don't trigger zoom on the image underneath
+            switchArtworkView(index);
+        });
+        tabs.appendChild(tab);
     });
-    
-    // Always use mobile positioning if touch screen detected
-    if (isMobileDevice()) {
-        console.log('Touch device: Adding indicators to image section');
-        
-        const imageSection = document.querySelector('.lightbox-image-section');
-        if (imageSection) {
-            imageSection.appendChild(indicators);
-            console.log('Mobile indicators added');
-        }
-    // In addViewIndicators(), for desktop positioning:
-    } else {
-        console.log('Desktop: Using image section positioning');
-        
-        const imageSection = document.querySelector('.lightbox-image-section');
-        if (imageSection) {
-            imageSection.appendChild(indicators);
-            
-            indicators.style.position = 'absolute';
-            indicators.style.bottom = '20px'; // Fixed distance from image section bottom
-            indicators.style.left = '50%';
-            indicators.style.transform = 'translateX(-50%)';
-            indicators.style.zIndex = '1001';
-            
-            console.log('Desktop indicators positioned in image section');
-        }
-    }
-    
-    console.log(`Added ${currentArtworkViews.length} real view indicators`);
+
+    imageSection.appendChild(tabs);
 }
 
 function switchArtworkView(index) {
@@ -1847,10 +1784,10 @@ function switchArtworkView(index) {
     console.log(`Switching to view ${index}: ${currentArtworkViews[index].title}`);
     
     // Update dot states immediately
-    dots.forEach(dot => dot.classList.remove('active'));
-    if (dots[index]) {
-        dots[index].classList.add('active');
-    }
+    dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+        dot.setAttribute('aria-selected', i === index ? 'true' : 'false');
+    });
     
     // Add loading state
     image.style.opacity = '0.5';
