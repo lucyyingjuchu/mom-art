@@ -1932,6 +1932,7 @@
             
             const filteredArtworks = artworksToShow.filter(artwork => {
                 if (!searchTerm) return true;
+                if (searchTerm === '草稿' || searchTerm === 'draft') return isDraftArtwork(artwork);
                 
                 const title = (artwork.title || '').toLowerCase();
                 const description = (artwork.description || '').toLowerCase();
