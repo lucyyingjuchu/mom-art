@@ -1019,7 +1019,7 @@ class ChineseArtPortfolio {
         const description = this.getText(artwork, 'description') || '';
         const year = artwork.year || '';
         const size = artwork.sizeCm || '';
-        const medium = artwork.mediumEn || artwork.format || '';
+        const medium = this.getText(artwork, 'format') || '';
         const imageUrl = this.getFeaturedImageUrl(artwork);
         const available = this.getBooleanValue(artwork, 'available', true);
         
