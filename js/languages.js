@@ -298,7 +298,7 @@ const LANGUAGE_DATA = {
             remove: "Remove",
             
             // Shopping messages
-            notAvailable: "The Glclee Fine Art Print of this artwork  is not available for purchase",
+            notAvailable: "A Giclée fine art print of this artwork is not available",
             notAvailableDesc: "If you're interested, please contact us for inquiries.",
             priceLoading: "Price Loading...",
             priceLoadFailed: "Price load failed",

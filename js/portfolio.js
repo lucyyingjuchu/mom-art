@@ -158,6 +158,13 @@ class ChineseArtPortfolio {
                 this.categories = this.getDefaultCategories();
             }
             
+            // Only finished artworks go on the public site. Unfinished ones
+            // (no photo yet, no title, or marked "draft"/hidden) stay in
+            // artworks.json and are still listed on the admin page.
+            this.allArtworks = this.artworks;
+            this.artworks = this.artworks.filter(artwork => this.isPublicReady(artwork));
+            console.log(`🖼️ Public artworks: ${this.artworks.length} of ${this.allArtworks.length} (rest are drafts)`);
+
             this.scripts = data.scripts || {};
             this.techniques = data.techniques || {};
             
@@ -729,6 +736,10 @@ class ChineseArtPortfolio {
         
         return `
             <div class="filter-container">
+                <!-- Phone only: filters fold away behind this button -->
+                <button type="button" class="filter-toggle" onclick="this.parentElement.classList.toggle('open')">
+                    ${this.currentLanguage === 'zh' ? '篩選與搜尋' : 'Filter & search'}
+                </button>
                 <div class="filter-menu">
                     ${categoryManager.generateFilterHTML(stats, this.currentLanguage)}
 
@@ -1423,6 +1434,15 @@ class ChineseArtPortfolio {
         console.log(`🔍 Search results rendered: ${resultsWithImages.length} with images, ${resultsWithoutImages.length} with placeholders`);
     }
 
+    // Is this artwork finished enough to show publicly?
+    isPublicReady(artwork) {
+        if (!artwork) return false;
+        if (artwork.hidden === true || artwork.hidden === 'true') return false;
+        if (String(artwork.status || '').toLowerCase() === 'draft') return false;
+        if (!(artwork.title || '').trim()) return false;
+        return this.hasRealImage(artwork);
+    }
+
     // Helper method to check if artwork has a real image
     hasRealImage(artwork) {
         // Check if artwork has non-empty image paths
@@ -1554,6 +1574,17 @@ class ChineseArtPortfolio {
         galleryImages.forEach(img => {
             this.applyImageProtectionToElement(img);
         });
+    }
+
+    // Discourage casual saving: no dragging, no long-press menu, no right-click
+    applyImageProtectionToElement(img) {
+        if (!img || img.dataset.protected) return;
+        img.dataset.protected = '1';
+        img.setAttribute('draggable', 'false');
+        img.style.userSelect = 'none';
+        img.style.webkitUserSelect = 'none';
+        img.style.webkitTouchCallout = 'none';
+        img.addEventListener('contextmenu', e => e.preventDefault());
     }
 
     // Initialize FAQ section with current language

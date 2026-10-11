@@ -1186,6 +1186,8 @@
         }
     }
     </style>
+    <!-- Phone layout - must stay after the styles above -->
+    <link rel="stylesheet" href="./css/mobile.css">
 </head>
 <body>
     <!-- ================================ -->
@@ -1421,7 +1423,7 @@
                 
                 <div class="connect-grid">
                     <!-- Email - Make entire card clickable -->
-                    <a href="mailto:d9062503@gmail.com" class="connect-item connect-link-card">
+                    <a href="mailto:info@xiaoranart.com" class="connect-item connect-link-card">
                         <div class="connect-icon">✉️</div>
                         <h3><!-- Will be filled by JavaScript --></h3>
                         <p><!-- Will be filled by JavaScript --></p>
@@ -1495,6 +1497,12 @@
                         </div>
                     </div>
 
+                    <!-- Artist's note about the work (作品說明); hidden when empty -->
+                    <div class="artwork-note" id="artworkNote" hidden>
+                        <div class="artwork-note-label" id="artworkNoteLabel"></div>
+                        <p class="artwork-note-text" id="artworkNoteText"></p>
+                    </div>
+
                     <div class="artwork-tags" id="artworkTags">
                         <!-- Tags will be populated here -->
                     </div>
@@ -1539,7 +1547,7 @@
     <script src="./js/shopping.js"></script>
 
     <!-- pinterest tracking functionality -->
-    <script src="pinterest-tracking.js"></script>
+    <script src="./js/pinterest-tracking.js"></script>
 
     <script>
         // Function to toggle collapsible sections
