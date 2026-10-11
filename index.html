@@ -1455,21 +1455,36 @@
     <!-- ================================ -->
     <!-- LIGHTBOX COMPONENT -->
     <!-- ================================ -->
-    <div class="lightbox" id="lightbox">
-        <div class="lightbox-container">
-            <!-- Navigation Arrows -->
-            <button class="nav-arrow prev" onclick="navigateArtwork('prev')" title="<!-- Will be filled by JavaScript -->">‹</button>
-            <button class="nav-arrow next" onclick="navigateArtwork('next')" title="<!-- Will be filled by JavaScript -->">›</button>
-
-            <!-- Main Content -->
-            <div class="lightbox-content">
-                <!-- Image Section with Zoom & Pan -->
-                <div class="lightbox-image-section">
-                    <img class="lightbox-image zoomable" id="lightboxImage" alt="Artwork">
+    <!-- Painting viewer: full-screen, swipe / arrow keys to browse, pinch / scroll to zoom -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="artworkTitle">
+        <div class="lb-topbar">
+            <div class="lb-counter" id="lbCounter"></div>
+            <div class="lb-actions">
+                <div class="lb-zoom" id="lbZoom">
+                    <button class="lb-btn" id="lbZoomOut" type="button" aria-label="Zoom out">−</button>
+                    <button class="lb-zoom-level" id="lbZoomLevel" type="button" aria-label="Fit to screen">100%</button>
+                    <button class="lb-btn" id="lbZoomIn" type="button" aria-label="Zoom in">+</button>
                 </div>
+                <button class="lb-btn lb-info-toggle" id="lbInfoToggle" type="button" aria-label="Details">ⓘ</button>
+                <button class="lb-btn share-btn" id="lbShare" type="button" onclick="shareArtwork()" aria-label="Share"></button>
+                <button class="lb-btn lb-close" id="lbClose" type="button" onclick="closeLightbox()" aria-label="Close">✕</button>
+            </div>
+        </div>
 
-                <!-- Info Section -->
-                <div class="lightbox-info-section">
+        <div class="lb-body">
+            <div class="lb-stage lightbox-image-section" id="lbStage">
+                <img class="lightbox-image" id="lightboxImage" alt="" draggable="false">
+                <button class="nav-arrow prev" type="button" onclick="navigateArtwork('prev')" aria-label="Previous">‹</button>
+                <button class="nav-arrow next" type="button" onclick="navigateArtwork('next')" aria-label="Next">›</button>
+                <div class="lb-hint" id="lbHint"></div>
+            </div>
+
+            <aside class="lightbox-info-section" id="lbPanel">
+                <button class="lb-sheet-handle" id="lbSheetHandle" type="button" aria-label="Details">
+                    <span class="lb-sheet-grip"></span>
+                    <span class="lb-sheet-title" id="lbSheetTitle"></span>
+                </button>
+                <div class="lb-panel-body">
                     <div class="artwork-title" id="artworkTitle">Title</div>
                     <div class="artwork-title-en" id="artworkTitleEn">English Title</div>
                     
@@ -1507,14 +1522,10 @@
                         <!-- Tags will be populated here -->
                     </div>
                 </div>
-            </div>
-
-            <!-- Controls (Zoom buttons will be added dynamically here) -->
-            <div class="lightbox-controls">
-                <button class="control-btn share-btn" onclick="shareArtwork()" title="<!-- Will be filled by JavaScript -->"></button>
-                <button class="control-btn" onclick="closeLightbox()" title="<!-- Will be filled by JavaScript -->">✕</button>
-            </div>
+            </aside>
         </div>
+
+        <div class="lb-filmstrip" id="lbFilmstrip" aria-label="More artworks"></div>
     </div>
     <!-- END LIGHTBOX COMPONENT -->
 
