@@ -3,3 +3,4 @@
 node_modules/
 __pycache__/
 *.pyc
+data/.excel_photos_tmp/

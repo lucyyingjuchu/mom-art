@@ -60,18 +60,19 @@ PHOTO_EXTS = (".jpg", ".jpeg", ".png", ".tif", ".tiff", ".webp", ".heic")
 COLUMN_NAMES = {
     "title":        ["標題", "作品名稱", "名稱", "題目", "畫題", "作品", "title", "name"],
     "titleEn":      ["英文標題", "英文名稱", "englishtitle", "titleen", "title(en)"],
-    "year":         ["年份", "年代", "創作年份", "年", "year", "date"],
+    "year":         ["創作年代", "年份", "年代", "創作年份", "年", "year", "date"],
     "heightCm":     ["高", "高度", "高(cm)", "高cm", "直", "height", "heightcm", "h"],
     "widthCm":      ["寬", "寬度", "寬(cm)", "寬cm", "橫", "width", "widthcm", "w"],
-    "size":         ["尺寸", "尺寸(cm)", "大小", "規格", "size", "dimensions"],
+    "size":         ["畫心尺寸(cm)", "畫心尺寸", "尺寸", "尺寸(cm)", "大小", "規格", "size", "dimensions"],
     "format":       ["形式", "裝裱", "裱法", "格式", "format", "mounting"],
-    "description":  ["描述", "題詩", "題款", "詩文", "說明", "內容", "description", "poem", "inscription"],
+    "description":  ["落款", "描述", "題詩", "題款", "詩文", "內容", "description", "poem", "inscription"],
     "descriptionEn":["英文描述", "英文說明", "descriptionen", "englishdescription"],
-    "curatorNote":  ["備註", "策展說明", "附註", "note", "notes", "curatornote"],
+    "curatorNote":  ["作品說明", "說明", "備註", "策展說明", "附註", "note", "notes", "curatornote"],
     "available":    ["可售", "是否可售", "販售", "狀態", "available", "forsale"],
     "featured":     ["精選", "featured"],
     "price":        ["價格", "售價", "price"],
     "photo":        ["圖片", "照片", "檔名", "圖檔", "圖片檔名", "photo", "image", "file", "filename"],
+    "ignore":       ["編號", "媒材", "no", "no.", "#"],   # recognised so they don't get mistaken for other columns
 }
 
 FORMAT_EN = {
@@ -171,6 +172,33 @@ def index_photos(folder):
     return photos
 
 
+def embedded_photos(ws, out_dir):
+    """Pictures pasted into the sheet -> {row_number: saved_file}. A picture belongs
+    to the row its vertical middle sits in (pictures often overlap row borders)."""
+    os.makedirs(out_dir, exist_ok=True)
+    emu_per_pt = 12700
+    tops = [0]
+    for r in range(1, ws.max_row + 50):
+        tops.append(tops[-1] + (ws.row_dimensions[r].height or 15) * emu_per_pt)
+    found = {}
+    for i, img in enumerate(getattr(ws, "_images", [])):
+        a = img.anchor
+        start = a._from
+        y0 = tops[start.row] + start.rowOff
+        to = getattr(a, "to", None)
+        y1 = tops[to.row] + to.rowOff if to is not None else y0 + a.ext.height
+        middle = (y0 + y1) / 2
+        row = next(r for r in range(1, len(tops)) if tops[r] > middle)
+        path = os.path.join(out_dir, f"row{row:03d}_{i}.png")
+        with open(path, "wb") as f:
+            f.write(img._data())
+        if row in found:
+            print(f"⚠️  Row {row} has more than one picture - using the first, check it by hand")
+            continue
+        found[row] = path
+    return found
+
+
 def match_photo(photos, title, photo_cell):
     if photo_cell:
         key = norm(os.path.splitext(photo_cell)[0])
@@ -221,17 +249,24 @@ def main():
         artworks = json.load(f)
     existing_titles = {norm(a.get("title")) for a in artworks}
     photos = index_photos(args.photos)
+    sheet_photos = embedded_photos(ws, os.path.join("data", ".excel_photos_tmp"))
+    if sheet_photos:
+        print(f"Found {len(sheet_photos)} pictures inside the sheet")
 
     added, skipped, with_photo, drafts = [], [], 0, 0
     for r in range(header_row + 1, ws.max_row + 1):
         get = lambda field: cell_text(ws.cell(r, cols[field]).value) if field in cols else ""
         title = get("title")
         if not title:
-            continue
-        if norm(title) in existing_titles:
+            # Untitled row with a picture or poem: import it as a draft so it shows
+            # up on the admin page for Mom to name, but stays off the public site.
+            if not (sheet_photos.get(r) or get("description")):
+                continue
+        elif norm(title) in existing_titles:
             skipped.append(title)
             continue
-        existing_titles.add(norm(title))
+        else:
+            existing_titles.add(norm(title))
 
         h, w = parse_number(get("heightCm")), parse_number(get("widthCm"))
         if (h is None or w is None) and get("size"):
@@ -262,7 +297,17 @@ def main():
                 "heightInches": round(h / 2.54, 1), "widthInches": round(w / 2.54, 1),
             })
 
-        photo = match_photo(photos, title, get("photo"))
+        photo = sheet_photos.get(r) or match_photo(photos, title, get("photo"))
+
+        # Sizes are 高x寬 (height x width); if the photo's shape says otherwise, swap and warn
+        if photo and h is not None and w is not None:
+            with Image.open(photo) as im:
+                photo_portrait = im.height > im.width
+            if (h > w) != photo_portrait and abs(h - w) > 5:
+                print(f"⚠️  Row {r} {title}: size {h}×{w} doesn't match the photo's shape - stored as {w}×{h}")
+                h, w = w, h
+                artwork.update({"heightCm": h, "widthCm": w,
+                                "heightInches": round(h / 2.54, 1), "widthInches": round(w / 2.54, 1)})
         if photo:
             large = f"{LARGE_DIR}/{art_id}_large.jpg"
             thumb = f"{THUMB_DIR}/{art_id}_thumb.jpg"
@@ -272,20 +317,25 @@ def main():
             artwork["image"] = "./" + thumb
             artwork["imageHigh"] = "./" + large
             artwork["productViews"] = [{"type": "original", "image": "./" + large}]
-            with_photo += 1
+            if title:
+                with_photo += 1
+            else:
+                drafts += 1
         else:
             drafts += 1
 
+        if not title:
+            artwork["status"] = "draft"
         artworks.append(artwork)
         added.append((r, title, os.path.basename(photo) if photo else None, h, w))
 
     print(f"\n{'Row':>4}  {'Photo':<28} Size        Title")
     for r, title, photo, h, w in added:
         size = f"{h}×{w}" if h is not None else "—"
-        print(f"{r:>4}  {(photo or '(none → draft)'):<28} {size:<11} {title}")
+        print(f"{r:>4}  {(photo or '(none → draft)'):<28} {size:<11} {title or '(無題 → draft)'}")
     if skipped:
         print(f"\nAlready on the site, skipped ({len(skipped)}): " + "、".join(skipped))
-    print(f"\n{len(added)} new artworks: {with_photo} with photos (public), {drafts} without photos (draft, admin only)")
+    print(f"\n{len(added)} new artworks: {with_photo} ready (public), {drafts} drafts (no photo or no title - admin only)")
 
     if not args.write:
         print("\nDry run - nothing changed. Add --write to import.")
@@ -296,6 +346,7 @@ def main():
     with open(ARTWORKS_JSON, "w", encoding="utf-8") as f:
         json.dump(artworks, f, ensure_ascii=False, indent=2)
         f.write("\n")
+    shutil.rmtree(os.path.join("data", ".excel_photos_tmp"), ignore_errors=True)
     print(f"✅ Wrote {ARTWORKS_JSON} (backup: {backup})")
 
 

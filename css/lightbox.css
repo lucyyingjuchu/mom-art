@@ -1578,3 +1578,23 @@
 @media (max-width: 768px) {
     .view-dot { padding: 0.6rem 1.1rem; font-size: 0.9rem; }
 }
+
+/* Artist's note (作品說明) under the details */
+.artwork-note {
+    margin: 0 0 1.5rem;
+}
+
+.artwork-note-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #7f8c8d;
+    margin-bottom: 0.4rem;
+}
+
+.artwork-note-text {
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: #34495e;
+    white-space: pre-line;
+}

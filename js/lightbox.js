@@ -1011,7 +1011,7 @@ function populateLightbox(artwork) {
         format = artwork.format || artwork.formatEn || '';
         size = artwork.heightCm && artwork.widthCm ? 
             `${artwork.heightCm} x ${artwork.widthCm} cm` : 
-            artwork.sizeCm || 'Size not specified';
+            artwork.sizeCm || '尺寸未註明';
     } else {
         title = artwork.titleEn || artwork.title || 'Untitled';
         titleEn = '';
@@ -1042,6 +1042,17 @@ function populateLightbox(artwork) {
         const el = document.getElementById(id);
         if (el) el.textContent = text;
     });
+
+    // Artist's note (作品說明) - shown under the details when there is one
+    const noteBox = document.getElementById('artworkNote');
+    if (noteBox) {
+        const note = currentLang === 'zh'
+            ? (artwork.curatorNote || artwork.curatorNoteEn || '')
+            : (artwork.curatorNoteEn || artwork.curatorNote || '');
+        document.getElementById('artworkNoteLabel').textContent = currentLang === 'zh' ? '作品說明' : 'About this work';
+        document.getElementById('artworkNoteText').textContent = note.trim();
+        noteBox.hidden = !note.trim();
+    }
 
     // Update availability status
     const statusEl = document.getElementById('availabilityStatus');
