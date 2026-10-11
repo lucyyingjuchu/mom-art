@@ -144,6 +144,19 @@
     }
 }
 
+/* Featured: show each painting whole on phones - never crop the artwork */
+@media (max-width: 768px) {
+    .featured-grid .featured-item .featured-image-container,
+    .featured-grid .featured-item .featured-image-container img {
+        min-height: 0;
+    }
+
+    .featured-grid .featured-item .featured-image-container img {
+        height: auto;
+        object-fit: contain;
+    }
+}
+
 /* Very narrow phones: one column reads better */
 @media (max-width: 340px) {
     .gallery-grid { grid-template-columns: 1fr; }

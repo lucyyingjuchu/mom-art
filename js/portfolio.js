@@ -945,71 +945,74 @@ class ChineseArtPortfolio {
     }
 
     // Create smart masonry layout that fills rows efficiently
+    // How many columns the featured grid has at this width - must match the
+    // CSS breakpoints in addFeaturedWorksCSS (3 wide, 2 at <=1200px, 1 at <=768px)
+    featuredColumns() {
+        if (window.innerWidth <= 768) return 1;
+        if (window.innerWidth <= 1200) return 2;
+        return 3;
+    }
+
+    // Create a layout whose rows are always full for the current column count,
+    // so a vertical painting never ends up alone on its own row
     createSmartMasonryLayout(worksToShow) {
         const grid = document.getElementById('featuredMasonryGrid');
         if (!grid) return;
-        
-        const processedArtworks = worksToShow.map((artwork, index) => {
-            const spanInfo = this.getArtworkSpan(artwork);
-            return {
-                artwork,
-                span: spanInfo.span,
-                index
-            };
-        });
-        
-        const sortedItems = [...processedArtworks].sort((a, b) => b.span - a.span);
-        
+
+        const columns = this.featuredColumns();
+        this.featuredLayout = { works: worksToShow, columns };
+
+        const items = worksToShow.map((artwork, index) => ({
+            artwork,
+            index,
+            span: Math.min(this.getArtworkSpan(artwork).span, columns)
+        }));
+
+        // Widest first, then fill each row with whatever fits best
+        const remaining = [...items].sort((a, b) => b.span - a.span || a.index - b.index);
         const rows = [];
-        const remainingItems = [...sortedItems];
-        
-        while (remainingItems.length > 0) {
-            const currentRow = [];
-            let currentRowSpan = 0;
-            
-            for (let i = 0; i < remainingItems.length; i++) {
-                const item = remainingItems[i];
-                
-                if (currentRowSpan + item.span <= 3) {
-                    currentRow.push(item);
-                    currentRowSpan += item.span;
-                    remainingItems.splice(i, 1);
-                    break;
-                }
+        while (remaining.length > 0) {
+            const row = [remaining.shift()];
+            let used = row[0].span;
+            while (used < columns) {
+                const room = columns - used;
+                // largest item that fits the space left in this row
+                const i = remaining.findIndex(item => item.span <= room);
+                if (i === -1) break;
+                used += remaining[i].span;
+                row.push(remaining.splice(i, 1)[0]);
             }
-            
-            while (currentRowSpan < 3 && remainingItems.length > 0) {
-                let foundFit = false;
-                
-                for (let i = 0; i < remainingItems.length; i++) {
-                    const item = remainingItems[i];
-                    
-                    if (currentRowSpan + item.span <= 3) {
-                        currentRow.push(item);
-                        currentRowSpan += item.span;
-                        remainingItems.splice(i, 1);
-                        foundFit = true;
-                    }
-                }
-                
-                if (!foundFit) break;
-            }
-            
-            rows.push(currentRow);
+            rows.push(row);
         }
-        
-        const rowsHTML = rows.map((row, rowIndex) => {
+
+        // A last row that is not full: widen its single item so nothing sits alone
+        const last = rows[rows.length - 1];
+        if (rows.length > 1 && last.length === 1 && last[0].span < columns) {
+            last[0].span = columns;
+        }
+
+        grid.innerHTML = rows.map((row, rowIndex) => {
             const totalSpan = row.reduce((sum, item) => sum + item.span, 0);
-            const itemsHTML = row.map(item => this.createFeaturedItemHTML(item)).join('');
-            
             return `
                 <div class="featured-row" data-row="${rowIndex}" data-total-span="${totalSpan}">
-                    ${itemsHTML}
+                    ${row.map(item => this.createFeaturedItemHTML(item)).join('')}
                 </div>
             `;
         }).join('');
-        
-        grid.innerHTML = rowsHTML;
+
+        // Re-plan the rows when the window crosses a column breakpoint
+        if (!this.featuredResizeBound) {
+            this.featuredResizeBound = true;
+            let timer;
+            window.addEventListener('resize', () => {
+                clearTimeout(timer);
+                timer = setTimeout(() => {
+                    if (this.featuredLayout && this.featuredColumns() !== this.featuredLayout.columns) {
+                        this.createSmartMasonryLayout(this.featuredLayout.works);
+                    }
+                }, 150);
+            });
+        }
     }
 
     // Create featured item HTML
@@ -1019,7 +1022,7 @@ class ChineseArtPortfolio {
         const description = this.getText(artwork, 'description') || '';
         const year = artwork.year || '';
         const size = artwork.sizeCm || '';
-        const medium = artwork.mediumEn || artwork.format || '';
+        const medium = this.getText(artwork, 'format') || '';
         const imageUrl = this.getFeaturedImageUrl(artwork);
         const available = this.getBooleanValue(artwork, 'available', true);
         

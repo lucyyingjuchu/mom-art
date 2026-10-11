@@ -309,7 +309,7 @@
     "year": "2011",
     "price": "",
     "available": true,
-    "featured": true,
+    "featured": false,
     "productViews": [
       {
         "type": "original",
@@ -2423,7 +2423,7 @@
     "year": "2021",
     "price": "",
     "available": true,
-    "featured": "true",
+    "featured": false,
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
@@ -2541,7 +2541,7 @@
     "format": "框",
     "description": "巧遇-相逢即是有緣",
     "curatorNote": "",
-    "featured": true,
+    "featured": false,
     "available": true,
     "price": "",
     "autoCategories": {
@@ -3430,7 +3430,7 @@
     "format": "框",
     "description": "忘形",
     "curatorNote": "",
-    "featured": true,
+    "featured": false,
     "available": true,
     "price": "",
     "autoCategories": {
@@ -3470,7 +3470,7 @@
     "format": "框",
     "description": "悠遊",
     "curatorNote": "",
-    "featured": true,
+    "featured": false,
     "available": true,
     "price": "",
     "autoCategories": {
@@ -5433,7 +5433,7 @@
     "year": "2018",
     "price": "",
     "available": true,
-    "featured": true,
+    "featured": false,
     "productViews": [
       {
         "type": "original",
@@ -6669,7 +6669,7 @@
     "year": "2026",
     "price": "",
     "available": true,
-    "featured": false,
+    "featured": true,
     "curatorNote": "此幅以巨制寫 伊瓜蘇瀑布 之雄渾,運筆沉著而氣脈貫通。飛瀑如雷,層層推進,既見自然之壯觀,亦寓人格之精進。「動」中有「德」,「勢」中見「道」,正所謂天行不息,以剛健為骨;水德無聲,以滋養為懷。觀者臨之,不僅震於形勢,更感於內在之修為與胸襟。",
     "curatorNoteEn": "A monumental work capturing the grandeur of Iguazu Falls, the brush steady and the energy unbroken. The falls thunder forward layer upon layer — the majesty of nature, and also the steady growth of character. Within movement there is virtue; within force there is the Way. As heaven moves without rest, strength forms the bones; as water nourishes in silence, generosity fills the heart. Standing before it, one is moved not only by its power but by the inner cultivation and breadth of spirit it carries.",
     "heightCm": 193,
@@ -6749,7 +6749,7 @@
     "year": "2026",
     "price": "",
     "available": true,
-    "featured": false,
+    "featured": true,
     "curatorNote": "秋天的樹林,裝點著紅葉,滿地的落葉,秋詩篇篇,氣韻生動,輕霧穿梭其間,表現出深遠朦朧的層次,地面落葉鋪陳出一條幽徑,引導視線深入畫心。見兩人緩行其間,使畫面由自然之境轉入人文,像是「走著走著,就走進了時間」、亦或是「落葉不是離開,是另一種佇足」。行到無聲處  坐觀有情詩。詩中有畫,畫中有詩。",
     "curatorNoteEn": "An autumn forest dressed in red leaves, the ground covered with fallen ones — poem after poem of autumn, alive with spirit. Light mist drifts through the trees, creating deep, hazy layers, while a path of fallen leaves leads the eye into the heart of the painting. Two figures walk slowly along it, turning a natural scene into a human one — as if \"walking on, we walked into time,\" or as if \"falling leaves are not leaving, but another way of standing still.\" There is painting in the poem, and poetry in the painting.",
     "productViews": [
@@ -7019,7 +7019,7 @@
     "year": "2026",
     "price": "",
     "available": true,
-    "featured": false,
+    "featured": true,
     "curatorNote": "這是在新竹縣五峰鄉山上人家,如夢幻的粉紅櫻花大道與壯麗雲海聞名。此作見群山起伏間,櫻花盛放,深淺相映,如霞似霧;雲瀑自遠方奔騰而至,雲氣翻湧,時聚時散,山中人家隱約其間,若現若藏。畫面以淡墨鋪陳空靈氣氛,以重彩點染花海生機,虛實相生,動靜互映,呈現一種遠離塵囂、恍若桃源的人間仙境。若問人間何處好,半山煙雲半山閒。",
     "curatorNoteEn": "Painted at \"Home on the Mountain\" in Wufeng, Hsinchu, famed for its dreamlike avenues of pink cherry blossoms and spectacular seas of cloud. Among rolling hills the cherry trees bloom in light and deep tones, like dawn clouds or mist; a waterfall of cloud surges in from afar, gathering and dispersing, while mountain homes appear and disappear within it. Pale ink sets an airy mood and rich color brings the sea of blossoms to life — a peaceful paradise far from the noise of the world. Where is the best place on earth? Half the mountain in mist, half the mountain at ease.",
     "productViews": [
@@ -7613,8 +7613,8 @@
   },
   {
     "id": "01a12c08-8bb5-77ae-a7c0-5f7cf426c475",
-    "title": "天宇金鏡",
-    "titleEn": "Golden Mirror of the Heavens",
+    "title": "明月出天山",
+    "titleEn": "The Bright Moon Rises over the Heavenly Mountains",
     "image": "./images/paintings/thumbnails/01a12c08-8bb5-77ae-a7c0-5f7cf426c475_thumb.jpg",
     "imageHigh": "./images/paintings/large/01a12c08-8bb5-77ae-a7c0-5f7cf426c475_large.jpg",
     "description": "明月出天山-獨與天地精神往來",
@@ -7661,7 +7661,7 @@
     "year": "2026",
     "price": "",
     "available": true,
-    "featured": false,
+    "featured": true,
     "curatorNote": "畫作以多層藍黑色鋪陳大地與山體之厚度,形成深邃而沉穩的底蘊。主峰突起,筆勢凝練,勾勒出玉山之巍峩。上方一輪明月,色澤柔和,與山形成剛柔對照。構圖簡約有力,展現出當代水墨中氣勢與內斂並存之美。思及東坡詩句:「與誰同坐,明月、清風、我」唯美,正合畫境,勾勒出了一種極致的孤獨與灑脫,又有超然物外的豁達。",
     "curatorNoteEn": "Layers of blue-black build the weight of earth and mountain, deep and steady. The main peak rises in concentrated strokes, outlining the majesty of Yushan, while a soft-toned moon above sets gentleness against strength. Simple and powerful, it shows the beauty of contemporary ink painting where force and restraint live together. It recalls Su Dongpo's line, \"With whom shall I sit? The bright moon, the clear breeze, and I\" — a picture of complete solitude and freedom, and of a heart at ease beyond worldly things.",
     "productViews": [
@@ -7938,8 +7938,8 @@
   },
   {
     "id": "01a12c08-9182-7522-b1d0-512382018d51",
-    "title": "回望-由月球回望地球",
-    "titleEn": "Looking Back – Earth Seen from the Moon",
+    "title": "天行健-由月球回望地球",
+    "titleEn": "Heaven Moves Ever Onward – Earth Seen from the Moon",
     "image": "./images/paintings/thumbnails/01a12c08-9182-7522-b1d0-512382018d51_thumb.jpg",
     "imageHigh": "./images/paintings/large/01a12c08-9182-7522-b1d0-512382018d51_large.jpg",
     "description": "回望-顧盼生暉意綿綿",
@@ -7973,8 +7973,8 @@
   },
   {
     "id": "01a12c08-9209-7473-9eb7-f22af9600970",
-    "title": "太初-心月照無涯",
-    "titleEn": "The Beginning – The Moon of the Heart Shines Without End",
+    "title": "心月照無涯",
+    "titleEn": "The Moon of the Heart Shines Without End",
     "image": "./images/paintings/thumbnails/01a12c08-9209-7473-9eb7-f22af9600970_thumb.jpg",
     "imageHigh": "./images/paintings/large/01a12c08-9209-7473-9eb7-f22af9600970_large.jpg",
     "description": "太初-心月照無涯",
@@ -8045,8 +8045,8 @@
   },
   {
     "id": "01a12c08-9355-701b-b10b-518c0b56c9af",
-    "title": "心燈-燭荷",
-    "titleEn": "Lamp of the Heart – Candle Lotus",
+    "title": "燭荷-一燈即明",
+    "titleEn": "Candle Lotus – A Single Lamp Lights the Dark",
     "image": "./images/paintings/thumbnails/01a12c08-9355-701b-b10b-518c0b56c9af_thumb.jpg",
     "imageHigh": "./images/paintings/large/01a12c08-9355-701b-b10b-518c0b56c9af_large.jpg",
     "description": "照亮別人的同時,也照亮了自己。",
@@ -8056,7 +8056,7 @@
     "year": "2026",
     "price": "",
     "available": true,
-    "featured": false,
+    "featured": true,
     "curatorNote": "在化繁為簡的荷塘中安置數朵含苞待放的荷花,如蠟燭照亮畫面,在渾厚的背景中,隱約天光微露,深具巧思如畫龍點睛般的使畫面活了起來。畫中沒有月、沒有日,但光卻存在—光,不來自天,而來自內心的「覺性」。藝術的至高境界:最高明的光,超越了物理的照明,而是一種精神的投射。這是東方「心象」與西方「光影」的交會,共同構成了人類豐富的藝術光譜。畫境的感動來自:照亮別人的同時,也照亮了自己。",
     "curatorNoteEn": "In a pond simplified to its essence, a few lotus buds are placed like candles that light up the painting. Against the deep background a faint skylight shows through, a thoughtful touch that brings the whole work to life. There is no moon and no sun, yet there is light — light that comes not from the sky but from awareness within. The highest light goes beyond physical illumination; it is a projection of the spirit, where the Eastern \"image of the mind\" meets Western light and shadow. Its message: in lighting the way for others, we also light our own.",
     "productViews": [
@@ -8082,8 +8082,8 @@
   },
   {
     "id": "01a12c08-93ef-7162-b124-102ca0bf526c",
-    "title": "得意忘象",
-    "titleEn": "Grasping the Meaning, Forgetting the Image",
+    "title": "心燈-得意忘象",
+    "titleEn": "Lamp of the Heart – Grasping the Meaning, Forgetting the Image",
     "image": "./images/paintings/thumbnails/01a12c08-93ef-7162-b124-102ca0bf526c_thumb.jpg",
     "imageHigh": "./images/paintings/large/01a12c08-93ef-7162-b124-102ca0bf526c_large.jpg",
     "description": "初心",
@@ -8200,7 +8200,7 @@
     "year": "2026",
     "price": "",
     "available": true,
-    "featured": false,
+    "featured": true,
     "curatorNote": "此作以深藍色為基調,層層積染,營造出近乎無垠的空間深度。畫面上方金色垂直筆觸,若光柱、火焰、天際樓群,在虛實交融間升騰流轉。金與藍的對比,形成強烈張力,如黑夜中的文明之光,又如幽谷中乍現的覺悟之火。畫面下方沉靜而深遠,上方則充滿向上的能量,構成由沉潛至綻放、由無聲至有象的生命歷程。其間點綴紅綠細線,猶如城市運行的節奏、股市漲跌的曲線,亦如人心跳起伏的波動。全作在抽象語彙中蘊含深刻哲思,展現出老莊「萬物並作,吾以觀復」的觀照精神。",
     "curatorNoteEn": "Deep blue, built up layer by layer, creates an almost infinite depth. Golden vertical strokes rise above like pillars of light, flames or a city skyline, ascending between solid and empty. The contrast of gold and blue is intense — like the light of civilization in the night, or the fire of awakening in a dark valley. The lower part is calm and deep, the upper full of upward energy: a life journey from stillness to blossoming, from silence to form. Fine red and green lines suggest the rhythm of a city, the rise and fall of the stock market, or the beating of a heart. In abstract language it holds a profound idea, the Daoist contemplation: \"All things arise together, and I watch them return.\"",
     "productViews": [
