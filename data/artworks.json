@@ -6664,18 +6664,18 @@
     "imageHigh": "./images/paintings/large/01a12c08-744b-7a49-a73f-aa17ced76313_large.jpg",
     "description": "江流浩蕩、行於天地、周而復始、化育眾生。水墨奔騰,筆底乾坤、去住無心,神遊物外。丙午之靜寫伊瓜蘇大瀑布",
     "descriptionEn": "Vast waters move between heaven and earth, circling back again and again, nurturing all living things. Ink surges, a universe beneath the brush; coming or going without intent, the spirit wanders beyond the world. Painted by Zhijing in the year Bingwu: the great Iguazu Falls.",
-    "format": "",
-    "formatEn": "",
+    "format": "鏡片",
+    "formatEn": "Mounted Panel",
     "year": "2026",
     "price": "",
     "available": true,
     "featured": false,
     "curatorNote": "此幅以巨制寫 伊瓜蘇瀑布 之雄渾,運筆沉著而氣脈貫通。飛瀑如雷,層層推進,既見自然之壯觀,亦寓人格之精進。「動」中有「德」,「勢」中見「道」,正所謂天行不息,以剛健為骨;水德無聲,以滋養為懷。觀者臨之,不僅震於形勢,更感於內在之修為與胸襟。",
     "curatorNoteEn": "A monumental work capturing the grandeur of Iguazu Falls, the brush steady and the energy unbroken. The falls thunder forward layer upon layer — the majesty of nature, and also the steady growth of character. Within movement there is virtue; within force there is the Way. As heaven moves without rest, strength forms the bones; as water nourishes in silence, generosity fills the heart. Standing before it, one is moved not only by its power but by the inner cultivation and breadth of spirit it carries.",
-    "heightCm": 192,
-    "widthCm": 501,
-    "heightInches": 75.6,
-    "widthInches": 197.2,
+    "heightCm": 193,
+    "widthCm": 503.7,
+    "heightInches": 76.0,
+    "widthInches": 198.3,
     "productViews": [
       {
         "type": "original",
@@ -6704,8 +6704,8 @@
     "imageHigh": "./images/paintings/large/01a12c08-760d-7f02-9e34-ee049ef3aa30_large.jpg",
     "description": "百里雲生天地外,千峯曙色映真如;澄懐觀道虛生白,一念空明萬象舒",
     "descriptionEn": "Clouds rise for a hundred miles beyond heaven and earth; dawn on a thousand peaks reflects the true nature of things. With a clear heart one contemplates the Way, and emptiness gives birth to light; in one moment of clarity, all things unfold.",
-    "format": "",
-    "formatEn": "",
+    "format": "鏡片",
+    "formatEn": "Mounted Panel",
     "year": "2026",
     "price": "",
     "available": true,
@@ -6730,7 +6730,11 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "heightCm": 146.5,
+    "widthCm": 365,
+    "heightInches": 57.7,
+    "widthInches": 143.7
   },
   {
     "id": "01a12c08-76a6-7554-a63d-33fd120a3d6e",
@@ -6763,7 +6767,11 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "heightCm": 180,
+    "widthCm": 96,
+    "heightInches": 70.9,
+    "widthInches": 37.8
   },
   {
     "id": "01a12c08-774a-7a4c-97b2-d6513cd07092",
@@ -6800,7 +6808,11 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "heightCm": 185,
+    "widthCm": 96,
+    "heightInches": 72.8,
+    "widthInches": 37.8
   },
   {
     "id": "01a12c08-78c9-726b-a131-b3ded67f2226",
@@ -6848,8 +6860,8 @@
     "imageHigh": "./images/paintings/large/01a12c08-7a4d-70b2-ab6b-737569cdb762_large.jpg",
     "description": "排雲赤壁凌空起,萬頃煙波藴大千;墨染奇峰成畫卷,一行白鷺上青天。",
     "descriptionEn": "Red cliffs rise through the clouds into the sky; vast misty waters hold the whole world. Ink paints wondrous peaks into a scroll; a line of white egrets flies into the blue.",
-    "format": "",
-    "formatEn": "",
+    "format": "軸",
+    "formatEn": "Hanging Scroll",
     "year": "2025",
     "price": "",
     "available": true,
@@ -6900,11 +6912,10 @@
         "image": "./images/paintings/large/01a12c08-7af0-79b2-b048-64ba1e583856_large.jpg"
       }
     ],
-    "heightCm": 88,
-    "widthCm": 172,
-    "heightInches": 34.6,
-    "widthInches": 67.7,
-    "sizeIncludesFrame": true,
+    "heightCm": 68,
+    "widthCm": 134,
+    "heightInches": 26.8,
+    "widthInches": 52.8,
     "autoCategories": {
       "subjects": [
         "landscape",
@@ -6939,11 +6950,10 @@
         "image": "./images/paintings/large/01a12c08-7b4c-795f-857e-219a554dedb2_large.jpg"
       }
     ],
-    "heightCm": 116,
-    "widthCm": 213,
-    "heightInches": 45.7,
-    "widthInches": 83.9,
-    "sizeIncludesFrame": true,
+    "heightCm": 97,
+    "widthCm": 178,
+    "heightInches": 38.2,
+    "widthInches": 70.1,
     "autoCategories": {
       "subjects": [
         "landscape",
@@ -6965,8 +6975,8 @@
     "imageHigh": "./images/paintings/large/01a12c08-7c8e-7d1f-b42b-8c25e42265ea_large.jpg",
     "description": "煙波萬頃入丹青,物外平生自往還;我與秋聲曾有約,年年相見白雲間。遠瀑開秋色,寒雲入翠微。一溪流不盡,人靜見天機。",
     "descriptionEn": "Vast misty waters enter my painting; beyond the world I come and go freely all my life. The sound of autumn and I once made a promise: to meet among the white clouds every year. A distant waterfall opens autumn's colors; cold clouds enter the green hills. A stream flows without end; in stillness one glimpses heaven's secret.",
-    "format": "",
-    "formatEn": "",
+    "format": "框",
+    "formatEn": "Framed",
     "year": "2026",
     "price": "",
     "available": true,
@@ -6979,11 +6989,10 @@
         "image": "./images/paintings/large/01a12c08-7c8e-7d1f-b42b-8c25e42265ea_large.jpg"
       }
     ],
-    "heightCm": 96,
-    "widthCm": 178,
-    "heightInches": 37.8,
-    "widthInches": 70.1,
-    "sizeIncludesFrame": true,
+    "heightCm": 75,
+    "widthCm": 142,
+    "heightInches": 29.5,
+    "widthInches": 55.9,
     "autoCategories": {
       "subjects": [
         "waterfall",
@@ -7019,11 +7028,10 @@
         "image": "./images/paintings/large/01a12c08-7dd5-7e33-8a4f-b8ca88fd825d_large.jpg"
       }
     ],
-    "heightCm": 96,
-    "widthCm": 181,
-    "heightInches": 37.8,
-    "widthInches": 71.3,
-    "sizeIncludesFrame": true,
+    "heightCm": 75,
+    "widthCm": 142,
+    "heightInches": 29.5,
+    "widthInches": 55.9,
     "autoCategories": {
       "subjects": [
         "waterfall",
@@ -7060,11 +7068,10 @@
         "image": "./images/paintings/large/01a12c08-7e53-75bc-b67d-b0f7db8ae950_large.jpg"
       }
     ],
-    "heightCm": 90,
-    "widthCm": 175,
-    "heightInches": 35.4,
-    "widthInches": 68.9,
-    "sizeIncludesFrame": true,
+    "heightCm": 69,
+    "widthCm": 135,
+    "heightInches": 27.2,
+    "widthInches": 53.1,
     "autoCategories": {
       "subjects": [
         "waterfall",
@@ -7100,11 +7107,10 @@
         "image": "./images/paintings/large/01a12c08-7f85-7482-b5c9-28ce6c747ce7_large.jpg"
       }
     ],
-    "heightCm": 94,
-    "widthCm": 178,
-    "heightInches": 37.0,
-    "widthInches": 70.1,
-    "sizeIncludesFrame": true,
+    "heightCm": 70,
+    "widthCm": 135,
+    "heightInches": 27.6,
+    "widthInches": 53.1,
     "autoCategories": {
       "subjects": [
         "landscape",
@@ -7140,11 +7146,10 @@
         "image": "./images/paintings/large/01a12c08-8105-7029-bf94-690d1bd84536_large.jpg"
       }
     ],
-    "heightCm": 99,
-    "widthCm": 182,
-    "heightInches": 39.0,
-    "widthInches": 71.7,
-    "sizeIncludesFrame": true,
+    "heightCm": 76,
+    "widthCm": 140,
+    "heightInches": 29.9,
+    "widthInches": 55.1,
     "autoCategories": {
       "subjects": [
         "landscape",
@@ -7180,11 +7185,10 @@
         "image": "./images/paintings/large/01a12c08-819f-7964-8ff9-2e0d0db13ada_large.jpg"
       }
     ],
-    "heightCm": 110,
-    "widthCm": 163,
-    "heightInches": 43.3,
-    "widthInches": 64.2,
-    "sizeIncludesFrame": true,
+    "heightCm": 88,
+    "widthCm": 120,
+    "heightInches": 34.6,
+    "widthInches": 47.2,
     "autoCategories": {
       "subjects": [
         "landscape",
@@ -7229,7 +7233,11 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "heightCm": 141,
+    "widthCm": 76,
+    "heightInches": 55.5,
+    "widthInches": 29.9
   },
   {
     "id": "01a12c08-83be-7111-815d-140b9e441427",
@@ -7263,7 +7271,11 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "heightCm": 142,
+    "widthCm": 77,
+    "heightInches": 55.9,
+    "widthInches": 30.3
   },
   {
     "id": "01a12c08-851e-7c3b-98af-0ddc3d36f291",
@@ -7297,7 +7309,11 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "heightCm": 142,
+    "widthCm": 75,
+    "heightInches": 55.9,
+    "widthInches": 29.5
   },
   {
     "id": "01a12c08-8670-7105-b4f4-17e755f37bd1",
@@ -7328,7 +7344,11 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "heightCm": 136,
+    "widthCm": 69,
+    "heightInches": 53.5,
+    "widthInches": 27.2
   },
   {
     "id": "01a12c08-8729-74a7-8018-c717bd7fbea6",
@@ -7361,7 +7381,11 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "heightCm": 176,
+    "widthCm": 96,
+    "heightInches": 69.3,
+    "widthInches": 37.8
   },
   {
     "id": "01a12c08-87d3-71d4-b8c7-57e799971b1e",
@@ -7395,7 +7419,11 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "heightCm": 150,
+    "widthCm": 84,
+    "heightInches": 59.1,
+    "widthInches": 33.1
   },
   {
     "id": "01a12c08-8867-7938-9daa-e9d59a505103",
@@ -7405,8 +7433,8 @@
     "imageHigh": "./images/paintings/large/01a12c08-8867-7938-9daa-e9d59a505103_large.jpg",
     "description": "漁帆(船)泊煙渚,天曉向海行。",
     "descriptionEn": "Fishing boats moor by the misty shore; at daybreak they will head out to sea.",
-    "format": "",
-    "formatEn": "",
+    "format": "框",
+    "formatEn": "Framed",
     "year": "2026",
     "price": "",
     "available": true,
@@ -7429,7 +7457,11 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "heightCm": 65,
+    "widthCm": 99,
+    "heightInches": 25.6,
+    "widthInches": 39.0
   },
   {
     "id": "01a12c08-88e7-7031-ae40-cd06faaace50",
@@ -7439,8 +7471,8 @@
     "imageHigh": "./images/paintings/large/01a12c08-88e7-7031-ae40-cd06faaace50_large.jpg",
     "description": "水岸生虛白,舟行待曉風。",
     "descriptionEn": "Empty white rises along the shore; the boats wait for the dawn wind.",
-    "format": "",
-    "formatEn": "",
+    "format": "框",
+    "formatEn": "Framed",
     "year": "2026",
     "price": "",
     "available": true,
@@ -7462,7 +7494,11 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "heightCm": 64,
+    "widthCm": 98,
+    "heightInches": 25.2,
+    "widthInches": 38.6
   },
   {
     "id": "01a12c08-8974-7e58-9392-976477b460ef",
@@ -7472,8 +7508,8 @@
     "imageHigh": "./images/paintings/large/01a12c08-8974-7e58-9392-976477b460ef_large.jpg",
     "description": "水汀含微照,舟影入無聲。",
     "descriptionEn": "The water's edge holds a faint glow; the boats' shadows slip into silence.",
-    "format": "",
-    "formatEn": "",
+    "format": "框",
+    "formatEn": "Framed",
     "year": "2026",
     "price": "",
     "available": true,
@@ -7486,11 +7522,10 @@
         "image": "./images/paintings/large/01a12c08-8974-7e58-9392-976477b460ef_large.jpg"
       }
     ],
-    "heightCm": 85,
-    "widthCm": 130,
-    "heightInches": 33.5,
-    "widthInches": 51.2,
-    "sizeIncludesFrame": true,
+    "heightCm": 66,
+    "widthCm": 96,
+    "heightInches": 26.0,
+    "widthInches": 37.8,
     "autoCategories": {
       "subjects": [
         "landscape"
@@ -7524,11 +7559,10 @@
         "image": "./images/paintings/large/01a12c08-89f9-72ee-8a49-0e273955c94a_large.jpg"
       }
     ],
-    "heightCm": 110,
-    "widthCm": 135,
-    "heightInches": 43.3,
-    "widthInches": 53.1,
-    "sizeIncludesFrame": true,
+    "heightCm": 83,
+    "widthCm": 101,
+    "heightInches": 32.7,
+    "widthInches": 39.8,
     "autoCategories": {
       "subjects": [
         "flowingclouds"
@@ -7562,11 +7596,10 @@
         "image": "./images/paintings/large/01a12c08-8a4b-7777-a0fc-dc13cd47ccab_large.jpg"
       }
     ],
-    "heightCm": 109,
-    "widthCm": 63,
-    "heightInches": 42.9,
-    "widthInches": 24.8,
-    "sizeIncludesFrame": true,
+    "heightCm": 77,
+    "widthCm": 47,
+    "heightInches": 30.3,
+    "widthInches": 18.5,
     "autoCategories": {
       "subjects": [
         "landscape"
@@ -7600,11 +7633,10 @@
         "image": "./images/paintings/large/01a12c08-8bb5-77ae-a7c0-5f7cf426c475_large.jpg"
       }
     ],
-    "heightCm": 127,
-    "widthCm": 60,
-    "heightInches": 50.0,
-    "widthInches": 23.6,
-    "sizeIncludesFrame": true,
+    "heightCm": 100,
+    "widthCm": 34,
+    "heightInches": 39.4,
+    "widthInches": 13.4,
     "autoCategories": {
       "subjects": [
         "landscape"
@@ -7638,11 +7670,10 @@
         "image": "./images/paintings/large/01a12c08-8c41-706c-81b9-bed4223b5b0b_large.jpg"
       }
     ],
-    "heightCm": 133,
-    "widthCm": 84,
-    "heightInches": 52.4,
-    "widthInches": 33.1,
-    "sizeIncludesFrame": true,
+    "heightCm": 101,
+    "widthCm": 67,
+    "heightInches": 39.8,
+    "widthInches": 26.4,
     "autoCategories": {
       "subjects": [],
       "locations": []
@@ -7674,11 +7705,10 @@
         "image": "./images/paintings/large/01a12c08-8ca0-751d-bbfb-5441bc66e8d6_large.jpg"
       }
     ],
-    "heightCm": 131,
-    "widthCm": 79,
-    "heightInches": 51.6,
-    "widthInches": 31.1,
-    "sizeIncludesFrame": true,
+    "heightCm": 100,
+    "widthCm": 60,
+    "heightInches": 39.4,
+    "widthInches": 23.6,
     "autoCategories": {
       "subjects": [
         "landscape"
@@ -7712,11 +7742,10 @@
         "image": "./images/paintings/large/01a12c08-8d3e-782e-b66e-2cd9a498fa2d_large.jpg"
       }
     ],
-    "heightCm": 130,
-    "widthCm": 84,
-    "heightInches": 51.2,
-    "widthInches": 33.1,
-    "sizeIncludesFrame": true,
+    "heightCm": 98,
+    "widthCm": 66,
+    "heightInches": 38.6,
+    "widthInches": 26.0,
     "autoCategories": {
       "subjects": [],
       "locations": []
@@ -7748,11 +7777,10 @@
         "image": "./images/paintings/large/01a12c08-8de6-7852-b660-c075ff2067d1_large.jpg"
       }
     ],
-    "heightCm": 126,
-    "widthCm": 86,
-    "heightInches": 49.6,
-    "widthInches": 33.9,
-    "sizeIncludesFrame": true,
+    "heightCm": 100,
+    "widthCm": 60,
+    "heightInches": 39.4,
+    "widthInches": 23.6,
     "autoCategories": {
       "subjects": [
         "landscape"
@@ -7786,11 +7814,10 @@
         "image": "./images/paintings/large/01a12c08-8eb1-74de-a953-1a918c927ee4_large.jpg"
       }
     ],
-    "heightCm": 134,
-    "widthCm": 82,
-    "heightInches": 52.8,
-    "widthInches": 32.3,
-    "sizeIncludesFrame": true,
+    "heightCm": 100,
+    "widthCm": 65,
+    "heightInches": 39.4,
+    "widthInches": 25.6,
     "autoCategories": {
       "subjects": [],
       "locations": []
@@ -7822,11 +7849,10 @@
         "image": "./images/paintings/large/01a12c08-8f83-785f-a4e1-6c45d9d8d9c2_large.jpg"
       }
     ],
-    "heightCm": 133,
-    "widthCm": 84,
-    "heightInches": 52.4,
-    "widthInches": 33.1,
-    "sizeIncludesFrame": true,
+    "heightCm": 100,
+    "widthCm": 65,
+    "heightInches": 39.4,
+    "widthInches": 25.6,
     "autoCategories": {
       "subjects": [
         "landscape"
@@ -7860,11 +7886,10 @@
         "image": "./images/paintings/large/01a12c08-903b-7173-b9c7-4eb24f9695e6_large.jpg"
       }
     ],
-    "heightCm": 133,
-    "widthCm": 84,
-    "heightInches": 52.4,
-    "widthInches": 33.1,
-    "sizeIncludesFrame": true,
+    "heightCm": 100,
+    "widthCm": 65,
+    "heightInches": 39.4,
+    "widthInches": 25.6,
     "autoCategories": {
       "subjects": [
         "landscape"
@@ -7898,11 +7923,10 @@
         "image": "./images/paintings/large/01a12c08-90d5-71f6-9411-2ec27d458231_large.jpg"
       }
     ],
-    "heightCm": 133,
-    "widthCm": 84,
-    "heightInches": 52.4,
-    "widthInches": 33.1,
-    "sizeIncludesFrame": true,
+    "heightCm": 100,
+    "widthCm": 65,
+    "heightInches": 39.4,
+    "widthInches": 25.6,
     "autoCategories": {
       "subjects": [],
       "locations": []
@@ -7934,11 +7958,10 @@
         "image": "./images/paintings/large/01a12c08-9182-7522-b1d0-512382018d51_large.jpg"
       }
     ],
-    "heightCm": 134,
-    "widthCm": 82,
-    "heightInches": 52.8,
-    "widthInches": 32.3,
-    "sizeIncludesFrame": true,
+    "heightCm": 99,
+    "widthCm": 64,
+    "heightInches": 39.0,
+    "widthInches": 25.2,
     "autoCategories": {
       "subjects": [],
       "locations": []
@@ -7970,11 +7993,10 @@
         "image": "./images/paintings/large/01a12c08-9209-7473-9eb7-f22af9600970_large.jpg"
       }
     ],
-    "heightCm": 133,
-    "widthCm": 84,
-    "heightInches": 52.4,
-    "widthInches": 33.1,
-    "sizeIncludesFrame": true,
+    "heightCm": 99,
+    "widthCm": 65,
+    "heightInches": 39.0,
+    "widthInches": 25.6,
     "autoCategories": {
       "subjects": [],
       "locations": []
@@ -8006,11 +8028,10 @@
         "image": "./images/paintings/large/01a12c08-929f-7ce0-9650-14a0c3ea66d1_large.jpg"
       }
     ],
-    "heightCm": 133,
-    "widthCm": 84,
-    "heightInches": 52.4,
-    "widthInches": 33.1,
-    "sizeIncludesFrame": true,
+    "heightCm": 100,
+    "widthCm": 65,
+    "heightInches": 39.4,
+    "widthInches": 25.6,
     "autoCategories": {
       "subjects": [
         "landscape"
@@ -8044,11 +8065,10 @@
         "image": "./images/paintings/large/01a12c08-9355-701b-b10b-518c0b56c9af_large.jpg"
       }
     ],
-    "heightCm": 134,
-    "widthCm": 82,
-    "heightInches": 52.8,
-    "widthInches": 32.3,
-    "sizeIncludesFrame": true,
+    "heightCm": 100,
+    "widthCm": 65,
+    "heightInches": 39.4,
+    "widthInches": 25.6,
     "autoCategories": {
       "subjects": [
         "flowers"
@@ -8082,11 +8102,10 @@
         "image": "./images/paintings/large/01a12c08-93ef-7162-b124-102ca0bf526c_large.jpg"
       }
     ],
-    "heightCm": 133,
-    "widthCm": 84,
-    "heightInches": 52.4,
-    "widthInches": 33.1,
-    "sizeIncludesFrame": true,
+    "heightCm": 100,
+    "widthCm": 65,
+    "heightInches": 39.4,
+    "widthInches": 25.6,
     "autoCategories": {
       "subjects": [],
       "locations": []
@@ -8118,11 +8137,10 @@
         "image": "./images/paintings/large/01a12c08-9479-729a-8712-a665908575a6_large.jpg"
       }
     ],
-    "heightCm": 128,
-    "widthCm": 87,
-    "heightInches": 50.4,
-    "widthInches": 34.3,
-    "sizeIncludesFrame": true,
+    "heightCm": 95,
+    "widthCm": 69,
+    "heightInches": 37.4,
+    "widthInches": 27.2,
     "autoCategories": {
       "subjects": [
         "flowingclouds"
@@ -8156,11 +8174,10 @@
         "image": "./images/paintings/large/01a12c08-94f1-700d-8ed8-4959350018f9_large.jpg"
       }
     ],
-    "heightCm": 130,
-    "widthCm": 85,
-    "heightInches": 51.2,
-    "widthInches": 33.5,
-    "sizeIncludesFrame": true,
+    "heightCm": 97,
+    "widthCm": 66,
+    "heightInches": 38.2,
+    "widthInches": 26.0,
     "autoCategories": {
       "subjects": [],
       "locations": []
@@ -8192,11 +8209,10 @@
         "image": "./images/paintings/large/01a12c08-958a-7dde-908c-1126e2202a2a_large.jpg"
       }
     ],
-    "heightCm": 130,
-    "widthCm": 84,
-    "heightInches": 51.2,
-    "widthInches": 33.1,
-    "sizeIncludesFrame": true,
+    "heightCm": 100,
+    "widthCm": 65,
+    "heightInches": 39.4,
+    "widthInches": 25.6,
     "autoCategories": {
       "subjects": [],
       "locations": []
@@ -8228,11 +8244,10 @@
         "image": "./images/paintings/large/01a12c08-961d-7601-8d24-5c3fccde7d12_large.jpg"
       }
     ],
-    "heightCm": 130,
-    "widthCm": 84,
-    "heightInches": 51.2,
-    "widthInches": 33.1,
-    "sizeIncludesFrame": true,
+    "heightCm": 100,
+    "widthCm": 65,
+    "heightInches": 39.4,
+    "widthInches": 25.6,
     "autoCategories": {
       "subjects": [
         "landscape"
@@ -8266,11 +8281,10 @@
         "image": "./images/paintings/large/01a12c08-96ac-71f5-8f88-8d7875f7e5dc_large.jpg"
       }
     ],
-    "heightCm": 125,
-    "widthCm": 75,
-    "heightInches": 49.2,
-    "widthInches": 29.5,
-    "sizeIncludesFrame": true,
+    "heightCm": 91,
+    "widthCm": 58,
+    "heightInches": 35.8,
+    "widthInches": 22.8,
     "autoCategories": {
       "subjects": [
         "waterfall",
@@ -8314,7 +8328,11 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "heightCm": 140,
+    "widthCm": 38,
+    "heightInches": 55.1,
+    "widthInches": 15.0
   },
   {
     "id": "01a12c08-98a8-7ba2-b060-fa8b2abcc3de",
@@ -8382,7 +8400,11 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "heightCm": 137,
+    "widthCm": 34,
+    "heightInches": 53.9,
+    "widthInches": 13.4
   },
   {
     "id": "01a12c08-9b7b-7744-bb98-e42bd8d8b969",
@@ -8406,11 +8428,10 @@
         "image": "./images/paintings/large/01a12c08-9b7b-7744-bb98-e42bd8d8b969_large.jpg"
       }
     ],
-    "heightCm": 64,
-    "widthCm": 108,
-    "heightInches": 25.2,
-    "widthInches": 42.5,
-    "sizeIncludesFrame": true,
+    "heightCm": 47,
+    "widthCm": 76,
+    "heightInches": 18.5,
+    "widthInches": 29.9,
     "autoCategories": {
       "subjects": [
         "landscape",
@@ -8445,11 +8466,10 @@
         "image": "./images/paintings/large/01a12c08-9d41-74ca-8229-7e6b61b01e3f_large.jpg"
       }
     ],
-    "heightCm": 64,
-    "widthCm": 108,
-    "heightInches": 25.2,
-    "widthInches": 42.5,
-    "sizeIncludesFrame": true,
+    "heightCm": 46,
+    "widthCm": 77,
+    "heightInches": 18.1,
+    "widthInches": 30.3,
     "autoCategories": {
       "subjects": [
         "landscape",
@@ -8484,11 +8504,10 @@
         "image": "./images/paintings/large/01a12c08-9e9e-7329-88b3-0a0a087136b3_large.jpg"
       }
     ],
-    "heightCm": 90,
-    "widthCm": 109,
-    "heightInches": 35.4,
-    "widthInches": 42.9,
-    "sizeIncludesFrame": true,
+    "heightCm": 70,
+    "widthCm": 73,
+    "heightInches": 27.6,
+    "widthInches": 28.7,
     "autoCategories": {
       "subjects": [
         "landscape",
@@ -8523,11 +8542,10 @@
         "image": "./images/paintings/large/01a12c08-9f30-7fc1-a07d-22ded6129946_large.jpg"
       }
     ],
-    "heightCm": 90,
-    "widthCm": 108,
-    "heightInches": 35.4,
-    "widthInches": 42.5,
-    "sizeIncludesFrame": true,
+    "heightCm": 70,
+    "widthCm": 76,
+    "heightInches": 27.6,
+    "widthInches": 29.9,
     "autoCategories": {
       "subjects": [
         "landscape",
@@ -8562,11 +8580,10 @@
         "image": "./images/paintings/large/01a12c08-a115-781f-8a11-3a51690795dc_large.jpg"
       }
     ],
-    "heightCm": 90,
-    "widthCm": 109,
-    "heightInches": 35.4,
-    "widthInches": 42.9,
-    "sizeIncludesFrame": true,
+    "heightCm": 70,
+    "widthCm": 76,
+    "heightInches": 27.6,
+    "widthInches": 29.9,
     "autoCategories": {
       "subjects": [
         "landscape",
@@ -8601,11 +8618,10 @@
         "image": "./images/paintings/large/01a12c08-a319-7f09-846e-57ec660f5807_large.jpg"
       }
     ],
-    "heightCm": 93,
-    "widthCm": 114,
-    "heightInches": 36.6,
-    "widthInches": 44.9,
-    "sizeIncludesFrame": true,
+    "heightCm": 71,
+    "widthCm": 76,
+    "heightInches": 28.0,
+    "widthInches": 29.9,
     "autoCategories": {
       "subjects": [
         "flowingclouds"
@@ -8639,11 +8655,10 @@
         "image": "./images/paintings/large/01a12c08-a50e-7059-b5c1-ca391d0e4f0b_large.jpg"
       }
     ],
-    "heightCm": 115,
-    "widthCm": 95,
-    "heightInches": 45.3,
-    "widthInches": 37.4,
-    "sizeIncludesFrame": true,
+    "heightCm": 77,
+    "widthCm": 73,
+    "heightInches": 30.3,
+    "widthInches": 28.7,
     "autoCategories": {
       "subjects": [
         "landscape",
@@ -8659,14 +8674,14 @@
   },
   {
     "id": "01a12c08-a5b7-70e7-8529-32dc34f94467",
-    "title": "",
-    "titleEn": "",
+    "title": "不繫之舟",
+    "titleEn": "The Unmoored Boat",
     "image": "./images/paintings/thumbnails/01a12c08-a5b7-70e7-8529-32dc34f94467_thumb.jpg",
     "imageHigh": "./images/paintings/large/01a12c08-a5b7-70e7-8529-32dc34f94467_large.jpg",
     "description": "",
     "descriptionEn": "",
-    "format": "",
-    "formatEn": "",
+    "format": "框",
+    "formatEn": "Framed",
     "year": "2026",
     "price": "",
     "available": true,
@@ -8679,7 +8694,6 @@
         "image": "./images/paintings/large/01a12c08-a5b7-70e7-8529-32dc34f94467_large.jpg"
       }
     ],
-    "status": "draft",
     "autoCategories": {
       "subjects": [],
       "locations": []
@@ -8687,18 +8701,22 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "heightCm": 77,
+    "widthCm": 46,
+    "heightInches": 30.3,
+    "widthInches": 18.1
   },
   {
     "id": "01a12c08-a6cb-7387-b65e-ae888d412c52",
-    "title": "",
-    "titleEn": "",
+    "title": "霜林流丹",
+    "titleEn": "Frosted Woods, Flowing Crimson",
     "image": "./images/paintings/thumbnails/01a12c08-a6cb-7387-b65e-ae888d412c52_thumb.jpg",
     "imageHigh": "./images/paintings/large/01a12c08-a6cb-7387-b65e-ae888d412c52_large.jpg",
     "description": "",
     "descriptionEn": "",
-    "format": "",
-    "formatEn": "",
+    "format": "框",
+    "formatEn": "Framed",
     "year": "2026",
     "price": "",
     "available": true,
@@ -8711,7 +8729,6 @@
         "image": "./images/paintings/large/01a12c08-a6cb-7387-b65e-ae888d412c52_large.jpg"
       }
     ],
-    "status": "draft",
     "autoCategories": {
       "subjects": [],
       "locations": []
@@ -8719,7 +8736,11 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "heightCm": 52,
+    "widthCm": 75,
+    "heightInches": 20.5,
+    "widthInches": 29.5
   },
   {
     "id": "01a12c08-a760-73c3-96a3-cc7d528d191d",
@@ -8758,5 +8779,194 @@
       "subjects": [],
       "locations": []
     }
+  },
+  {
+    "id": "01a12c32-fa30-73db-95d5-fcf84fc9b6df",
+    "title": "春江水暖",
+    "titleEn": "Spring River, Warm Waters",
+    "image": "./images/paintings/thumbnails/01a12c32-fa30-73db-95d5-fcf84fc9b6df_thumb.jpg",
+    "imageHigh": "./images/paintings/large/01a12c32-fa30-73db-95d5-fcf84fc9b6df_large.jpg",
+    "description": "",
+    "descriptionEn": "",
+    "format": "軸",
+    "formatEn": "Hanging Scroll",
+    "year": "",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "curatorNote": "",
+    "curatorNoteEn": "",
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/01a12c32-fa30-73db-95d5-fcf84fc9b6df_large.jpg"
+      }
+    ],
+    "heightCm": 145,
+    "widthCm": 77,
+    "heightInches": 57.1,
+    "widthInches": 30.3
+  },
+  {
+    "id": "01a12c32-fae0-74b5-8639-7f9711bc320e",
+    "title": "三餘圖",
+    "titleEn": "Fish of Abundance",
+    "image": "./images/paintings/thumbnails/01a12c32-fae0-74b5-8639-7f9711bc320e_thumb.jpg",
+    "imageHigh": "./images/paintings/large/01a12c32-fae0-74b5-8639-7f9711bc320e_large.jpg",
+    "description": "",
+    "descriptionEn": "",
+    "format": "框",
+    "formatEn": "Framed",
+    "year": "",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "curatorNote": "",
+    "curatorNoteEn": "",
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/01a12c32-fae0-74b5-8639-7f9711bc320e_large.jpg"
+      }
+    ],
+    "heightCm": 100,
+    "widthCm": 65,
+    "heightInches": 39.4,
+    "widthInches": 25.6
+  },
+  {
+    "id": "01a12c32-fcaf-7ea9-aeb7-470e064888bc",
+    "title": "獨與天地精神往來",
+    "titleEn": "Alone with the Spirit of Heaven and Earth",
+    "image": "./images/paintings/thumbnails/01a12c32-fcaf-7ea9-aeb7-470e064888bc_thumb.jpg",
+    "imageHigh": "./images/paintings/large/01a12c32-fcaf-7ea9-aeb7-470e064888bc_large.jpg",
+    "description": "",
+    "descriptionEn": "",
+    "format": "軸",
+    "formatEn": "Hanging Scroll",
+    "year": "",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "curatorNote": "",
+    "curatorNoteEn": "",
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/01a12c32-fcaf-7ea9-aeb7-470e064888bc_large.jpg"
+      }
+    ],
+    "heightCm": 137,
+    "widthCm": 34,
+    "heightInches": 53.9,
+    "widthInches": 13.4
+  },
+  {
+    "id": "01a12c32-fd1e-7d89-be39-684944073edd",
+    "title": "心隨雲遠",
+    "titleEn": "The Heart Drifts with the Clouds",
+    "image": "./images/paintings/thumbnails/01a12c32-fd1e-7d89-be39-684944073edd_thumb.jpg",
+    "imageHigh": "./images/paintings/large/01a12c32-fd1e-7d89-be39-684944073edd_large.jpg",
+    "description": "",
+    "descriptionEn": "",
+    "format": "框",
+    "formatEn": "Framed",
+    "year": "",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "curatorNote": "",
+    "curatorNoteEn": "",
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/01a12c32-fd1e-7d89-be39-684944073edd_large.jpg"
+      }
+    ],
+    "heightCm": 45,
+    "widthCm": 69,
+    "heightInches": 17.7,
+    "widthInches": 27.2
+  },
+  {
+    "id": "01a12c32-fd8c-7321-8ec9-0e56702657f0",
+    "title": "一枝寒菊",
+    "titleEn": "A Spray of Winter Chrysanthemum",
+    "image": "./images/paintings/thumbnails/01a12c32-fd8c-7321-8ec9-0e56702657f0_thumb.jpg",
+    "imageHigh": "./images/paintings/large/01a12c32-fd8c-7321-8ec9-0e56702657f0_large.jpg",
+    "description": "",
+    "descriptionEn": "",
+    "format": "框",
+    "formatEn": "Framed",
+    "year": "",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "curatorNote": "",
+    "curatorNoteEn": "",
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/01a12c32-fd8c-7321-8ec9-0e56702657f0_large.jpg"
+      }
+    ],
+    "heightCm": 69,
+    "widthCm": 45,
+    "heightInches": 27.2,
+    "widthInches": 17.7
+  },
+  {
+    "id": "01a12c32-fdf8-7498-a075-a3fa93f187a0",
+    "title": "母親的愛",
+    "titleEn": "A Mother's Love",
+    "image": "./images/paintings/thumbnails/01a12c32-fdf8-7498-a075-a3fa93f187a0_thumb.jpg",
+    "imageHigh": "./images/paintings/large/01a12c32-fdf8-7498-a075-a3fa93f187a0_large.jpg",
+    "description": "",
+    "descriptionEn": "",
+    "format": "框",
+    "formatEn": "Framed",
+    "year": "",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "curatorNote": "",
+    "curatorNoteEn": "",
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/01a12c32-fdf8-7498-a075-a3fa93f187a0_large.jpg"
+      }
+    ],
+    "heightCm": 69,
+    "widthCm": 45,
+    "heightInches": 27.2,
+    "widthInches": 17.7
+  },
+  {
+    "id": "01a12c32-fe61-74db-9b2b-f99316181076",
+    "title": "清氣滿乾坤",
+    "titleEn": "Pure Air Fills Heaven and Earth",
+    "image": "./images/paintings/thumbnails/01a12c32-fe61-74db-9b2b-f99316181076_thumb.jpg",
+    "imageHigh": "./images/paintings/large/01a12c32-fe61-74db-9b2b-f99316181076_large.jpg",
+    "description": "",
+    "descriptionEn": "",
+    "format": "框",
+    "formatEn": "Framed",
+    "year": "",
+    "price": "",
+    "available": true,
+    "featured": false,
+    "curatorNote": "",
+    "curatorNoteEn": "",
+    "productViews": [
+      {
+        "type": "original",
+        "image": "./images/paintings/large/01a12c32-fe61-74db-9b2b-f99316181076_large.jpg"
+      }
+    ],
+    "heightCm": 69,
+    "widthCm": 69,
+    "heightInches": 27.2,
+    "widthInches": 27.2
   }
 ]

@@ -1038,7 +1038,7 @@ function populateLightbox(artwork) {
         'artworkTitle': title,
         'artworkTitleEn': titleEn,
         'artworkDescription': description,
-        'artworkYear': artwork.year || 'Unknown',
+        'artworkYear': artwork.year || (currentLang === 'zh' ? '年份不詳' : 'Unknown'),
         'artworkSize': size,
         'artworkFormat': format
     };
