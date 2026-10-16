@@ -1192,6 +1192,7 @@
     }
     </style>
     <!-- Phone layout - must stay after the styles above -->
+    <link rel="stylesheet" href="./css/story-media.css">
     <link rel="stylesheet" href="./css/mobile.css">
 </head>
 <body>
@@ -1273,27 +1274,16 @@
                 </div>
                 <div class="artist-intro">
                     <h2 id="artistIntroTitle"><!-- Will be filled by JavaScript --></h2>
-                    <div class="intro-text">
-                        <p id="artistBioP1"><!-- Will be filled by JavaScript --></p>
-                        <p id="artistBioP2"><!-- Will be filled by JavaScript --></p>  
-                        <p id="artistBioP3"><!-- Will be filled by JavaScript --></p>
+                    <p class="artist-subtitle" id="artistSubtitle"></p>
+                    <blockquote class="artist-quote" id="artistQuote"></blockquote>
+                    <div class="intro-text" id="artistStory">
+                        <!-- Story paragraphs filled by JavaScript from languages.js (about.story) -->
                     </div>
                 </div>
             </div>
 
-            <!-- Featured Video Section -->
-            <div class="featured-video">
-                <h3><!-- Will be filled by JavaScript --></h3>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/aNMLWYIksjw" 
-                            title="第14屆臺中市美術家接力展 【天地有大美】袁之靜水墨展創作紀錄片" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            referrerpolicy="strict-origin-when-cross-origin" 
-                            allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
+            <!-- Videos & press: filled by js/story-media.js from data/press.json -->
+            <div class="press-media" id="pressMedia"></div>
 
             <!-- Professional Information -->
             <div class="professional-info">
@@ -1554,6 +1544,7 @@
     <script src="./js/portfolio.js"></script>
 
     <!-- Load lightbox (depends on portfolio being available) -->
+    <script src="./js/story-media.js"></script>
     <script src="./js/lightbox.js"></script>
 
     <!-- Load contact form functionality -->

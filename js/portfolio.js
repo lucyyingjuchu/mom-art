@@ -431,17 +431,23 @@ class ChineseArtPortfolio {
         const aboutTitle = document.querySelector('.artist-intro h2');
         if (aboutTitle) aboutTitle.textContent = this.t('about.mainTitle');
         
-        const videoTitle = document.querySelector('.featured-video h3');
-        if (videoTitle) videoTitle.textContent = this.t('about.videoTitle');
-        
-        // Artist introduction paragraphs
-        const artistBioP1 = document.getElementById('artistBioP1');
-        const artistBioP2 = document.getElementById('artistBioP2');
-        const artistBioP3 = document.getElementById('artistBioP3');
-        
-        if (artistBioP1) artistBioP1.textContent = this.t('about.introParagraph1');
-        if (artistBioP2) artistBioP2.textContent = this.t('about.introParagraph2');
-        if (artistBioP3) artistBioP3.textContent = this.t('about.introParagraph3');
+        const artistSubtitle = document.getElementById('artistSubtitle');
+        if (artistSubtitle) artistSubtitle.textContent = this.t('about.mainSubtitle');
+
+        const artistQuote = document.getElementById('artistQuote');
+        if (artistQuote) artistQuote.textContent = this.t('about.quote');
+
+        // Artist story (array of paragraphs in languages.js)
+        const artistStory = document.getElementById('artistStory');
+        const story = this.t('about.story');
+        if (artistStory && Array.isArray(story)) {
+            artistStory.innerHTML = '';
+            story.forEach(text => {
+                const p = document.createElement('p');
+                p.textContent = text;
+                artistStory.appendChild(p);
+            });
+        }
         
         // Update section headers - PRESERVE ARROWS
         const sectionHeaders = document.querySelectorAll('.section-header');

@@ -20,7 +20,9 @@ const LANGUAGE_DATA = {
         // Home page
         home: {
             featuredTitle: "Featured Artworks",
-            viewAllButton: "View Complete Gallery"
+            viewAllButton: "View Complete Gallery",
+            latestTitle: "Latest from the Studio",
+            latestMore: "More updates on Facebook"
         },
         
         //Gallery
@@ -48,12 +50,22 @@ const LANGUAGE_DATA = {
         
         // About page
         about: {
-            mainTitle: "Artist Yuan Chi-Jing (Xiaoran) | Painter & Educator",
-            videoTitle: "Documentary Film",
-            // Artist introduction paragraphs
-            introParagraph1: "Yuan Chi-Jing, known as Xiaoran, was raised in a scholarly family with deep roots in classical Chinese literature. From childhood, she studied poetry and calligraphy, developing a profound foundation that would guide her lifelong dedication to Chinese ink painting and art education.",
-            introParagraph2: "She holds an M.F.A. from National Taiwan University of Arts and has practiced painting and calligraphy for over forty years. Throughout her career, she studied under renowned masters including Luo Zhen-xian, Wang Jing-hao, Ou Hao-nian, and many other distinguished artists.",
-            introParagraph3: "Drawing inspiration from nature, she travels to mountains and rivers to observe the interplay of light, form, and spirit. Her work integrates poetry, calligraphy, painting, and seal carving, creating compositions that pursue the classical ideals of depth, height, and transcendent beauty.",            
+            mainTitle: "Yuan Chi-Jing (Xiaoran)",
+            mainSubtitle: "Ink painter · Calligrapher · Teacher",
+            quote: "“The landscapes I see slowly become the landscapes of my heart.”",
+            story: [
+                "Yuan Chi-Jing, who paints under the name Xiaoran, grew up in a scholarly household in Taichung, Taiwan. Her father, Yuan De-jiong, is a veteran Taichung calligrapher, and poetry and brushwork were part of everyday life at home — she learned to read a classical poem and shape a character long before she painted her first mountain.",
+                "As an adult she built a career outside the studio, but she never put the brush down. For more than forty years she studied with over a dozen masters of painting and calligraphy, including Luo Zhen-xian and Ou Hao-nian, and carried her sketchbook into the landscape — from Taiwan's Jade Mountain to Iguazu Falls in South America. Later she returned to school and earned an M.F.A. in Painting and Calligraphy from National Taiwan University of Arts. In 2013 she and her father held a father–daughter exhibition in Taichung: two generations of ink hanging side by side.",
+                "She has spent just as long passing the tradition on. Since 2012 she has taught Chinese painting to international students at National Chung Hsing University, along with classes at the Taichung Dadun Cultural Center and community colleges, organizing exhibitions with her students year after year.",
+                "In recent years her work has quietly changed — moving from recognizable landscapes toward abstraction built from blocks of color, light, and line. Moons on gold xuan paper, and sailboats leaving the harbor for open water, have become her way of writing about life. In 2025 she exhibited “The Great Clod Exhales” at the National Taiwan Museum of Fine Arts. In 2026 she unveiled 63 new works in “The Great Beauty of Heaven and Earth” at the National Changhua Living Art Center, and joined Chen Kuang-yi, Director of the National Taiwan Museum of Fine Arts, for a public conversation on tradition and transformation in ink painting."
+            ],
+            videoTitle: "Videos",
+            mediaTitle: "In the Press",
+            articlesTitle: "News Coverage",
+            captionNote: "In Mandarin with English subtitles",
+            noCaptionNote: "In Mandarin · English subtitles coming soon",
+            dubbedNote: "English dubbed",
+            articlesNote: "News articles are in Chinese.",
             educationTitle: "Education",
             awardsTitle: "Awards & Recognition",
             publicationsTitle: "Publications & Works",
@@ -65,7 +77,8 @@ const LANGUAGE_DATA = {
             // Education content
             education: [
                 "M.F.A., Graduate Institute of Painting and Calligraphy, National Taiwan University of Arts",
-                "Bachelor's Degree, National Chung Hsing University"
+                "Bachelor's Degree, National Chung Hsing University",
+                "Studied under Luo Zhen-xian, Wang Jing-hao, Cai You, Gao Yi-zhang, You Shi-he, Huang Cai-song, Wang Zi-xi, Lin Jin-zhong, Lin Long-da, Li Xiao-kun, Xue Ping-nan, Ou Hao-nian, Su Feng-nan, Xiao Jin-xing, and other masters"
             ],
             
             // Awards content
@@ -117,6 +130,8 @@ const LANGUAGE_DATA = {
             
             // Solo exhibitions
             exhibitions: [
+                "2026 \"The Great Beauty of Heaven and Earth\" — 2026 Yuan Chi-Jing Ink Painting Exhibition (63 new works) | National Changhua Living Art Center",
+                "2025 \"The Great Clod Exhales\" Yuan Chi-Jing Ink Painting Solo Exhibition | National Taiwan Museum of Fine Arts (Bafang Arts Festival)",
                 "2024 \"Heritage of Central Taiwan · The Great Beauty of Heaven and Earth\" | Central Taiwan University of Science and Technology Art Center",
                 "2024 \"The Great Beauty of Heaven and Earth\" Yuan Chi-Jing Ink Painting Exhibition | Taichung Huludun Cultural Center (Taichung Artists Relay Exhibition)",
                 "2023 \"Quiet Contemplation and Freedom\" Yuan Chi-Jing Ink Painting Exhibition | Taichung Dadun Cultural Center",
@@ -364,7 +379,9 @@ const LANGUAGE_DATA = {
             heroDescription: "以自然為師，融詩書畫印於一體<br>深耕中國水墨之美四十餘載<br>在這裡感受傳統國畫的雋永之美<br>體驗筆墨間的詩意與禪境",            
             featuredTitle: "精選作品",
             featuredSubtitle: "傑出作品展示",
-            viewAllButton: "查看完整作品集"
+            viewAllButton: "查看完整作品集",
+            latestTitle: "最新動態",
+            latestMore: "到臉書看更多近況"
         },
 
         //Gallery
@@ -392,12 +409,22 @@ const LANGUAGE_DATA = {
         
         // About page
         about: {
-            mainTitle: "藝術家袁之靜（號曉然）｜書畫創作與教育者",
-            videoTitle: "創作紀錄片",
-            // Artist introduction paragraphs
-            introParagraph1: "袁之靜，號曉然，自幼承庭訓，得傳家風，習詩詞與書法，厚植國學基礎，寄情丹青，深耕中國水墨之美，致力於書畫創作與藝術教育傳承。",
-            introParagraph2: "畢業於國立台灣藝術大學書畫藝術研究所（M.F.A.），並獲國立中興大學學士學位。長年習書作畫逾四十載，師承羅振賢、王景浩、蔡友、高義璋、游世河、黃才松、王子奚、林進忠、林隆達、李蕭錕、薛平南、歐豪年、蘇峰男、蕭進興等多位書畫名家。",
-            introParagraph3: "以自然為師，工作之餘走訪名山大川，從天地萬物中觀照意境與筆法。創作風格融合詩、書、畫、印，講求畫中意境的靈動與書寫節奏的和諧，用詩句構圖、以書法入畫、妥善用印，追求畫面中深遠、高遠、悠遠的精神境界。",
+            mainTitle: "袁之靜（號曉然）",
+            mainSubtitle: "水墨畫家 · 書法家 · 藝術教育者",
+            quote: "「我眼中的風景，慢慢變成心中的風景。」",
+            story: [
+                "袁之靜，號曉然，在台中一個書香之家長大。父親袁德炯是台中資深書法家，詩詞與書法是她從小的家常功課——還沒畫第一座山以前，她已經學會怎麼讀一首詩、怎麼寫好一個字。",
+                "長大後她走進職場，筆卻始終沒有放下。四十多年來，她在工作之餘拜師學藝，向羅振賢、歐豪年等十餘位書畫名家請益；也背起畫具走進山川寫生，從玉山一路畫到南美的伊瓜蘇瀑布。後來她重回校園，取得國立台灣藝術大學書畫藝術研究所碩士學位。2013 年，她與父親在台中大墩文化中心舉辦父女書畫展，兩代人的筆墨並肩掛在同一面牆上。",
+                "她也把這份傳承交給更多人。2012 年起，她在中興大學教國際學生畫國畫，也在大墩文化中心、社區大學開課，一年又一年帶著學生舉辦師生展。",
+                "近年，她的畫悄悄起了變化：從具象的山水，走向色塊、光影與線條交織的抽象。金色宣紙上的月亮、從停泊到啟航的帆船，都成了她寫人生的方式。2025 年她在國立台灣美術館展出《大塊噫氣》；2026 年在國立彰化生活美學館發表 63 件全新作品《天地有大美》，並與國美館館長陳貺怡對談水墨的傳承與轉化。"
+            ],
+            videoTitle: "影音",
+            mediaTitle: "媒體報導",
+            articlesTitle: "新聞報導",
+            captionNote: "",
+            noCaptionNote: "",
+            dubbedNote: "",
+            articlesNote: "點選標題閱讀全文",
             educationTitle: "學歷",
             awardsTitle: "獲獎紀錄",
             publicationsTitle: "出版與著作",
@@ -409,7 +436,8 @@ const LANGUAGE_DATA = {
             // Education content
             education: [
                 "國立台灣藝術大學 書畫藝術研究所 碩士（M.F.A.）",
-                "國立中興大學 學士"
+                "國立中興大學 學士",
+                "師承羅振賢、王景浩、蔡友、高義璋、游世河、黃才松、王子奚、林進忠、林隆達、李蕭錕、薛平南、歐豪年、蘇峰男、蕭進興等書畫名家"
             ],
             
             // Awards content
@@ -461,6 +489,8 @@ const LANGUAGE_DATA = {
             
             // Solo exhibitions
             exhibitions: [
+                "2026 《天地有大美》2026袁之靜水墨創作展（63 件新作）｜國立彰化生活美學館",
+                "2025 《大塊噫氣》袁之靜水墨個展｜國立台灣美術館（八方藝術節）",
                 "2024 《薪傳中台‧天地大美》｜中台科技大學藝文中心",
                 "2024 《天地有大美》袁之靜水墨創作展｜台中市葫蘆墩文化中心（台中市美術家接力展）",
                 "2023 《靜觀自在》袁之靜水墨展｜台中市大墩文化中心",
