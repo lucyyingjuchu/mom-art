@@ -1,10 +1,13 @@
 {
-  "_howTo": "Newest first. A video needs youtubeId. For English: add captionsEn (a file in data/captions/) for synced English subtitles, or dubbedYoutubeIdEn for an English-dubbed upload — the English page then plays that version instead.",
+  "_howTo": "Newest first. A video needs youtubeId. For English: add captionsEn (a file in data/captions/) for synced English subtitles, or dubbedYoutubeIdEn for an English-dubbed upload — the English page then plays that version instead. showOnAbout: true puts the video on the About page too.",
   "videos": [
     {
       "youtubeId": "RnF0Bhpt3MU",
       "date": "2026-10-08",
-      "outlet": { "zh": "觀傳媒", "en": "Watch Media" },
+      "outlet": {
+        "zh": "觀傳媒",
+        "en": "Watch Media"
+      },
       "title": {
         "zh": "天地入畫、心境成墨：袁之靜與國美館館長陳貺怡對談水墨之美",
         "en": "Heaven and Earth in Ink: Yuan Chi-Jing in Conversation with NTMoFA Director Chen Kuang-yi"
@@ -14,12 +17,16 @@
         "en": "At the National Changhua Living Art Center, the artist and the Director of the National Taiwan Museum of Fine Arts discuss three themes — the beauty of nature, the landscape of the heart, and the stories inside a painting — and how ink painting carries tradition into the present."
       },
       "captionsEn": "",
-      "dubbedYoutubeIdEn": ""
+      "dubbedYoutubeIdEn": "",
+      "showOnAbout": false
     },
     {
       "youtubeId": "EZPxcu2UqeY",
       "date": "2026-08-27",
-      "outlet": { "zh": "彰化人彰化事新聞", "en": "Changhua News" },
+      "outlet": {
+        "zh": "彰化人彰化事新聞",
+        "en": "Changhua News"
+      },
       "title": {
         "zh": "《天地有大美》開幕：63 件水墨新作首度公開",
         "en": "“The Great Beauty of Heaven and Earth” Opens: 63 New Ink Works"
@@ -29,12 +36,16 @@
         "en": "The 2026 exhibition opens in Changhua with five series: landscapes, moons, sailboats, abstraction, and flowers and birds."
       },
       "captionsEn": "",
-      "dubbedYoutubeIdEn": ""
+      "dubbedYoutubeIdEn": "",
+      "showOnAbout": false
     },
     {
       "youtubeId": "aNMLWYIksjw",
       "date": "2024",
-      "outlet": { "zh": "第14屆臺中市美術家接力展", "en": "14th Taichung Artists Relay Exhibition" },
+      "outlet": {
+        "zh": "第14屆臺中市美術家接力展",
+        "en": "14th Taichung Artists Relay Exhibition"
+      },
       "title": {
         "zh": "【天地有大美】袁之靜水墨展創作紀錄片",
         "en": "“The Great Beauty of Heaven and Earth” — Documentary"
@@ -44,13 +55,17 @@
         "en": "A look inside the artist's studio and creative process."
       },
       "captionsEn": "",
-      "dubbedYoutubeIdEn": ""
+      "dubbedYoutubeIdEn": "",
+      "showOnAbout": true
     }
   ],
   "articles": [
     {
       "date": "2026-10-08",
-      "outlet": { "zh": "觀傳媒", "en": "Watch Media" },
+      "outlet": {
+        "zh": "觀傳媒",
+        "en": "Watch Media"
+      },
       "title": {
         "zh": "天地入畫、心境成墨 袁之靜與陳貺怡對談水墨之美",
         "en": "Heaven and Earth in Ink: Yuan Chi-Jing and Chen Kuang-yi on the Beauty of Ink Painting"
@@ -59,7 +74,10 @@
     },
     {
       "date": "2026-10-08",
-      "outlet": { "zh": "創新聞", "en": "Chuang News" },
+      "outlet": {
+        "zh": "創新聞",
+        "en": "Chuang News"
+      },
       "title": {
         "zh": "從山水到心象 袁之靜談當代水墨的傳承與轉化",
         "en": "From Landscape to Inner Image: Yuan Chi-Jing on Tradition and Transformation in Contemporary Ink"
@@ -68,7 +86,10 @@
     },
     {
       "date": "2026-10-08",
-      "outlet": { "zh": "三星傳媒", "en": "Tristar News" },
+      "outlet": {
+        "zh": "三星傳媒",
+        "en": "Tristar News"
+      },
       "title": {
         "zh": "「天地之美，心源之境」袁之靜當代水墨的深度對談",
         "en": "“The Beauty of Heaven and Earth, the Source of the Heart”: An In-depth Conversation on Contemporary Ink"
@@ -77,7 +98,10 @@
     },
     {
       "date": "2026-09-07",
-      "outlet": { "zh": "京海傳媒", "en": "Jinghai Media" },
+      "outlet": {
+        "zh": "京海傳媒",
+        "en": "Jinghai Media"
+      },
       "title": {
         "zh": "筆墨寫天地、心境映人生 袁之靜63件水墨新作首度公開",
         "en": "Ink that Writes Heaven and Earth: 63 New Works by Yuan Chi-Jing on View"
@@ -86,7 +110,10 @@
     },
     {
       "date": "2026-08-29",
-      "outlet": { "zh": "民生電子報", "en": "Lifenews" },
+      "outlet": {
+        "zh": "民生電子報",
+        "en": "Lifenews"
+      },
       "title": {
         "zh": "40餘年水墨寫景更寫心 袁之靜「天地有大美」彰化登場",
         "en": "Forty Years of Painting Landscapes — and the Heart: “The Great Beauty of Heaven and Earth” Opens in Changhua"
@@ -95,7 +122,10 @@
     },
     {
       "date": "2026-08-27",
-      "outlet": { "zh": "彰化人彰化事新聞", "en": "Changhua News" },
+      "outlet": {
+        "zh": "彰化人彰化事新聞",
+        "en": "Changhua News"
+      },
       "title": {
         "zh": "「天地有大美」彰化生活美學館登場 袁之靜63件水墨新作首度公開",
         "en": "“The Great Beauty of Heaven and Earth” Opens at the National Changhua Living Art Center"
@@ -104,7 +134,10 @@
     },
     {
       "date": "2025-08-26",
-      "outlet": { "zh": "NOWnews 今日新聞", "en": "NOWnews" },
+      "outlet": {
+        "zh": "NOWnews 今日新聞",
+        "en": "NOWnews"
+      },
       "title": {
         "zh": "大塊噫氣 袁之靜水墨個展壓軸國美館",
         "en": "“The Great Clod Exhales”: Yuan Chi-Jing's Solo Show Closes the Bafang Arts Festival at NTMoFA"

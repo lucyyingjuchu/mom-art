@@ -1,0 +1,366 @@
+{
+  "_howTo": "Newest first. type: solo | duo | group. start/end (YYYY-MM-DD) are optional — when today falls between them the show appears under 'On view now', and a future start appears under 'Upcoming'. link is optional (press or venue page).",
+  "exhibitions": [
+    {
+      "year": 2026,
+      "type": "solo",
+      "start": "2026-08-27",
+      "end": "2026-11-01",
+      "title": {
+        "zh": "《天地有大美》2026袁之靜水墨創作展",
+        "en": "“The Great Beauty of Heaven and Earth” — 2026 Yuan Chi-Jing Ink Painting Exhibition"
+      },
+      "venue": {
+        "zh": "國立彰化生活美學館 第一、二展覽室",
+        "en": "National Changhua Living Art Center, Galleries 1 & 2"
+      },
+      "note": {
+        "zh": "63 件新作首度公開：山水、月亮、帆船、抽象、花鳥五大系列。10/8 與國美館館長陳貺怡對談。",
+        "en": "63 new works in five series — landscapes, moons, sailboats, abstraction, flowers and birds. Includes an Oct 8 conversation with NTMoFA Director Chen Kuang-yi."
+      },
+      "link": "https://www.changhuanews.com/2026/08/news-2705.html"
+    },
+    {
+      "year": 2025,
+      "type": "solo",
+      "start": "",
+      "end": "2025-08-31",
+      "title": {
+        "zh": "《大塊噫氣》袁之靜水墨個展",
+        "en": "\"The Great Clod Exhales\" Yuan Chi-Jing Ink Painting Solo Exhibition"
+      },
+      "venue": {
+        "zh": "國立台灣美術館",
+        "en": "National Taiwan Museum of Fine Arts"
+      },
+      "note": {
+        "zh": "八方藝術節壓軸展覽",
+        "en": "Closing exhibition of the Bafang Arts Festival"
+      },
+      "link": "https://www.nownews.com/news/6723722"
+    },
+    {
+      "year": 2024,
+      "type": "solo",
+      "start": "",
+      "end": "",
+      "title": {
+        "zh": "《薪傳中台‧天地大美》",
+        "en": "\"Heritage of Central Taiwan · The Great Beauty of Heaven and Earth\""
+      },
+      "venue": {
+        "zh": "中台科技大學藝文中心",
+        "en": "Central Taiwan University of Science and Technology Art Center"
+      },
+      "note": {
+        "zh": "",
+        "en": ""
+      },
+      "link": ""
+    },
+    {
+      "year": 2024,
+      "type": "solo",
+      "start": "",
+      "end": "",
+      "title": {
+        "zh": "《天地有大美》袁之靜水墨創作展",
+        "en": "\"The Great Beauty of Heaven and Earth\" Yuan Chi-Jing Ink Painting Exhibition"
+      },
+      "venue": {
+        "zh": "台中市葫蘆墩文化中心（台中市美術家接力展）",
+        "en": "Taichung Huludun Cultural Center (Taichung Artists Relay Exhibition)"
+      },
+      "note": {
+        "zh": "",
+        "en": ""
+      },
+      "link": ""
+    },
+    {
+      "year": 2023,
+      "type": "solo",
+      "start": "",
+      "end": "",
+      "title": {
+        "zh": "《靜觀自在》袁之靜水墨展",
+        "en": "\"Quiet Contemplation and Freedom\" Yuan Chi-Jing Ink Painting Exhibition"
+      },
+      "venue": {
+        "zh": "台中市大墩文化中心",
+        "en": "Taichung Dadun Cultural Center"
+      },
+      "note": {
+        "zh": "",
+        "en": ""
+      },
+      "link": ""
+    },
+    {
+      "year": 2023,
+      "type": "group",
+      "start": "",
+      "end": "",
+      "title": {
+        "zh": "《潤物無聲》袁之靜師生水墨畫展",
+        "en": "\"Silent Nourishment\" Yuan Chi-Jing Teacher-Student Ink Painting Exhibition"
+      },
+      "venue": {
+        "zh": "台中市大墩文化中心",
+        "en": "Taichung Dadun Cultural Center"
+      },
+      "note": {
+        "zh": "",
+        "en": ""
+      },
+      "link": ""
+    },
+    {
+      "year": 2022,
+      "type": "solo",
+      "start": "",
+      "end": "",
+      "title": {
+        "zh": "《妙法自然》袁之靜水墨展",
+        "en": "\"Wonderful Dharma of Nature\" Yuan Chi-Jing Ink Painting Exhibition"
+      },
+      "venue": {
+        "zh": "台中市葫蘆墩文化中心",
+        "en": "Taichung Huludun Cultural Center"
+      },
+      "note": {
+        "zh": "",
+        "en": ""
+      },
+      "link": ""
+    },
+    {
+      "year": 2020,
+      "type": "group",
+      "start": "",
+      "end": "",
+      "title": {
+        "zh": "《夏艷》袁之靜師生國畫展",
+        "en": "\"Summer Brilliance\" Yuan Chi-Jing Teacher-Student Chinese Painting Exhibition"
+      },
+      "venue": {
+        "zh": "台中署立醫院藝術走廊",
+        "en": "Taichung Hospital (Ministry of Health and Welfare) Art Corridor"
+      },
+      "note": {
+        "zh": "",
+        "en": ""
+      },
+      "link": ""
+    },
+    {
+      "year": 2019,
+      "type": "group",
+      "start": "",
+      "end": "",
+      "title": {
+        "zh": "《書情畫意》袁曉然師生成果展",
+        "en": "\"Poetry, Calligraphy and Painting\" Yuan Xiaoran Teacher-Student Achievement Exhibition"
+      },
+      "venue": {
+        "zh": "朝陽科技大學設計禮堂藝廊",
+        "en": "Chaoyang University of Technology Design Hall Gallery"
+      },
+      "note": {
+        "zh": "",
+        "en": ""
+      },
+      "link": ""
+    },
+    {
+      "year": 2019,
+      "type": "group",
+      "start": "",
+      "end": "",
+      "title": {
+        "zh": "師生國畫成果展",
+        "en": "Teacher-Student Chinese Painting Achievement Exhibition"
+      },
+      "venue": {
+        "zh": "台中市大墩文化中心",
+        "en": "Taichung Dadun Cultural Center"
+      },
+      "note": {
+        "zh": "",
+        "en": ""
+      },
+      "link": ""
+    },
+    {
+      "year": 2019,
+      "type": "group",
+      "start": "",
+      "end": "",
+      "title": {
+        "zh": "書情畫意書畫班聯展",
+        "en": "Poetry, Calligraphy and Painting Class Joint Exhibition"
+      },
+      "venue": {
+        "zh": "台中市政府惠中樓藝廊",
+        "en": "Taichung City Government Huizhong Building Gallery"
+      },
+      "note": {
+        "zh": "",
+        "en": ""
+      },
+      "link": ""
+    },
+    {
+      "year": 2018,
+      "type": "solo",
+      "start": "",
+      "end": "",
+      "title": {
+        "zh": "《行雪流水～袁之靜水墨展》",
+        "en": "\"Flowing Snow and Water ~ Yuan Chi-Jing Ink Painting Exhibition\""
+      },
+      "venue": {
+        "zh": "朝陽科技大學設計禮堂藝廊",
+        "en": "Chaoyang University of Technology Design Hall Gallery"
+      },
+      "note": {
+        "zh": "",
+        "en": ""
+      },
+      "link": ""
+    },
+    {
+      "year": 2018,
+      "type": "solo",
+      "start": "",
+      "end": "",
+      "title": {
+        "zh": "《行雲流水》袁之靜水墨展",
+        "en": "\"Flowing Clouds and Water\" Yuan Chi-Jing Ink Painting Exhibition"
+      },
+      "venue": {
+        "zh": "台中市大墩文化中心",
+        "en": "Taichung Dadun Cultural Center"
+      },
+      "note": {
+        "zh": "",
+        "en": ""
+      },
+      "link": ""
+    },
+    {
+      "year": 2018,
+      "type": "group",
+      "start": "",
+      "end": "",
+      "title": {
+        "zh": "《丹青花博》書情畫意班師生聯展",
+        "en": "\"Cinnabar Green Flora Expo\" Poetry, Calligraphy and Painting Class Teacher-Student Joint Exhibition"
+      },
+      "venue": {
+        "zh": "東勢客家文化園區",
+        "en": "Dongshi Hakka Cultural Park"
+      },
+      "note": {
+        "zh": "",
+        "en": ""
+      },
+      "link": ""
+    },
+    {
+      "year": 2017,
+      "type": "group",
+      "start": "",
+      "end": "",
+      "title": {
+        "zh": "書情畫意師生聯展",
+        "en": "Poetry, Calligraphy and Painting Teacher-Student Joint Exhibition"
+      },
+      "venue": {
+        "zh": "國軍台中總醫院藝宣走廊",
+        "en": "Taichung Armed Forces General Hospital Art Corridor"
+      },
+      "note": {
+        "zh": "",
+        "en": ""
+      },
+      "link": ""
+    },
+    {
+      "year": 2017,
+      "type": "group",
+      "start": "",
+      "end": "",
+      "title": {
+        "zh": "《華枝春滿》麗澤國畫班聯展",
+        "en": "\"Flourishing Spring Branches\" Lize Chinese Painting Class Joint Exhibition"
+      },
+      "venue": {
+        "zh": "豐原醫院藝文走廊",
+        "en": "Fengyuan Hospital Art Corridor"
+      },
+      "note": {
+        "zh": "",
+        "en": ""
+      },
+      "link": ""
+    },
+    {
+      "year": 2014,
+      "type": "solo",
+      "start": "",
+      "end": "",
+      "title": {
+        "zh": "《書情畫意》袁之靜書畫創作展",
+        "en": "\"Poetry, Calligraphy and Painting\" Yuan Chi-Jing Painting and Calligraphy Exhibition"
+      },
+      "venue": {
+        "zh": "中台科技大學藝文中心",
+        "en": "Central Taiwan University of Science and Technology Art Center"
+      },
+      "note": {
+        "zh": "",
+        "en": ""
+      },
+      "link": ""
+    },
+    {
+      "year": 2013,
+      "type": "duo",
+      "start": "",
+      "end": "",
+      "title": {
+        "zh": "《書情審意》袁德炯、袁之靜父女書畫展",
+        "en": "\"Poetry, Calligraphy and Artistic Intent\" Yuan De-jiong and Yuan Chi-Jing Father-Daughter Painting and Calligraphy Exhibition"
+      },
+      "venue": {
+        "zh": "台中市大墩文化中心",
+        "en": "Taichung Dadun Cultural Center"
+      },
+      "note": {
+        "zh": "",
+        "en": ""
+      },
+      "link": ""
+    },
+    {
+      "year": 2012,
+      "type": "solo",
+      "start": "",
+      "end": "",
+      "title": {
+        "zh": "《去住無心．煙雲情境》袁之靜水墨創作展",
+        "en": "\"Coming and Going Without Mind · Misty Cloud Scenery\" Yuan Chi-Jing Ink Painting Exhibition"
+      },
+      "venue": {
+        "zh": "國立台灣藝術大學 真善美藝廊",
+        "en": "National Taiwan University of Arts Zhen-Shan-Mei Gallery"
+      },
+      "note": {
+        "zh": "",
+        "en": ""
+      },
+      "link": ""
+    }
+  ]
+}

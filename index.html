@@ -1221,11 +1221,12 @@
     <!-- ================================ -->
     <nav>
         <div class="nav-container">
-            <button class="nav-btn active" onclick="showSection('home')"><!-- Will be filled by JavaScript --></button>
-            <button class="nav-btn" onclick="showSection('gallery')"><!-- Will be filled by JavaScript --></button>
-            <button class="nav-btn" onclick="showSection('about')"><!-- Will be filled by JavaScript --></button>
-            <button class="nav-btn" onclick="showSection('faq')"><!-- Will be filled by JavaScript --></button>
-            <button class="nav-btn" onclick="showSection('connect')"><!-- Will be filled by JavaScript --></button>
+            <button class="nav-btn active" data-nav="home" onclick="showSection('home')"></button>
+            <button class="nav-btn" data-nav="gallery" onclick="showSection('gallery')"></button>
+            <button class="nav-btn" data-nav="news" onclick="showSection('news')"></button>
+            <button class="nav-btn" data-nav="about" onclick="showSection('about')"></button>
+            <button class="nav-btn" data-nav="faq" onclick="showSection('faq')"></button>
+            <button class="nav-btn" data-nav="connect" onclick="showSection('connect')"></button>
         </div>
     </nav>
 
@@ -1265,6 +1266,12 @@
             </div>
         </section>
 
+        <!-- EXHIBITIONS & NEWS SECTION: filled by js/story-media.js
+             from data/exhibitions.json, data/updates.json, data/press.json -->
+        <section id="news" class="section">
+            <div class="news-page" id="newsPage"></div>
+        </section>
+
         <!-- ABOUT SECTION -->
         <section id="about" class="section">
             <div class="about-header">
@@ -1282,8 +1289,9 @@
                 </div>
             </div>
 
-            <!-- Videos & press: filled by js/story-media.js from data/press.json -->
-            <div class="press-media" id="pressMedia"></div>
+            <!-- Documentary + recent highlights: filled by js/story-media.js -->
+            <div class="press-media" id="aboutVideo"></div>
+            <div class="about-highlights" id="aboutHighlights"></div>
 
             <!-- Professional Information -->
             <div class="professional-info">
@@ -1334,30 +1342,6 @@
                         <span class="toggle-arrow">▼</span>
                     </h3>
                     <div id="positions" class="collapsible-content">
-                        <div class="section-content">
-                            <!-- Will be filled by JavaScript -->   
-                        </div>
-                    </div>
-                </div>
-
-                <div class="info-section">
-                    <h3 class="section-header collapsible" onclick="toggleCareerSection('exhibitions')">
-                        🖼 <!-- Will be filled by JavaScript -->
-                        <span class="toggle-arrow">▼</span>
-                    </h3>
-                    <div id="exhibitions" class="collapsible-content">
-                        <div class="section-content">
-                            <!-- Will be filled by JavaScript -->   
-                        </div>
-                    </div>
-                </div>
-
-                <div class="info-section">
-                    <h3 class="section-header collapsible" onclick="toggleCareerSection('group-shows')">
-                        🧑‍🎨 <!-- Will be filled by JavaScript -->
-                        <span class="toggle-arrow">▼</span>
-                    </h3>
-                    <div id="group-shows" class="collapsible-content">
                         <div class="section-content">
                             <!-- Will be filled by JavaScript -->   
                         </div>

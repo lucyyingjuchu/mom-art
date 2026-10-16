@@ -13,6 +13,7 @@ const LANGUAGE_DATA = {
             featured: "Featured",
             gallery: "Gallery",
             about: "About", 
+            exhibitions: "Exhibitions & News",
             faq: "FAQ",
             connect: "Connect"
         },
@@ -66,13 +67,20 @@ const LANGUAGE_DATA = {
             noCaptionNote: "In Mandarin · English subtitles coming soon",
             dubbedNote: "English dubbed",
             articlesNote: "News articles are in Chinese.",
+            highlightsTitle: "Recent Highlights",
+            highlights: [
+                { year: "2026", text: "Solo exhibition “The Great Beauty of Heaven and Earth” — 63 new works, National Changhua Living Art Center" },
+                { year: "2026", text: "Public conversation with Chen Kuang-yi, Director of the National Taiwan Museum of Fine Arts" },
+                { year: "2025", text: "Solo exhibition “The Great Clod Exhales”, National Taiwan Museum of Fine Arts" },
+                { year: "2024", text: "Published the art book “The Great Beauty of Heaven and Earth”" }
+            ],
+            seeAllExhibitions: "Exhibitions & news →",
+            currentBadge: "Current",
             educationTitle: "Education",
             awardsTitle: "Awards & Recognition",
             publicationsTitle: "Publications & Works",
             teachingTitle: "Teaching Experience", 
             positionsTitle: "Current Positions & Affiliations",
-            exhibitionsTitle: "Solo Exhibitions",
-            groupShowsTitle: "Group Exhibitions & Teaching Shows",
             
             // Education content
             education: [
@@ -126,36 +134,30 @@ const LANGUAGE_DATA = {
                 "Zhaozhong Painting Association - Supervisor",
                 "Member of Republic of China Painting Association, Taichung Calligraphy Association, Chinese Art Association, Yitao Painting Association, Chinese Arts Association, Taiwan Traditional and Modern Art Association",
                 "Zhongyuan Painting and Calligraphy Research Institute of Henan Province, China - Senior Art Advisor"
-            ],
-            
-            // Solo exhibitions
-            exhibitions: [
-                "2026 \"The Great Beauty of Heaven and Earth\" — 2026 Yuan Chi-Jing Ink Painting Exhibition (63 new works) | National Changhua Living Art Center",
-                "2025 \"The Great Clod Exhales\" Yuan Chi-Jing Ink Painting Solo Exhibition | National Taiwan Museum of Fine Arts (Bafang Arts Festival)",
-                "2024 \"Heritage of Central Taiwan · The Great Beauty of Heaven and Earth\" | Central Taiwan University of Science and Technology Art Center",
-                "2024 \"The Great Beauty of Heaven and Earth\" Yuan Chi-Jing Ink Painting Exhibition | Taichung Huludun Cultural Center (Taichung Artists Relay Exhibition)",
-                "2023 \"Quiet Contemplation and Freedom\" Yuan Chi-Jing Ink Painting Exhibition | Taichung Dadun Cultural Center",
-                "2022 \"Wonderful Dharma of Nature\" Yuan Chi-Jing Ink Painting Exhibition | Taichung Huludun Cultural Center",
-                "2018 \"Flowing Snow and Water ~ Yuan Chi-Jing Ink Painting Exhibition\" | Chaoyang University of Technology Design Hall Gallery",
-                "2018 \"Flowing Clouds and Water\" Yuan Chi-Jing Ink Painting Exhibition | Taichung Dadun Cultural Center",
-                "2014 \"Poetry, Calligraphy and Painting\" Yuan Chi-Jing Painting and Calligraphy Exhibition | Central Taiwan University of Science and Technology Art Center",
-                "2013 \"Poetry, Calligraphy and Artistic Intent\" Yuan De-jiong and Yuan Chi-Jing Father-Daughter Painting and Calligraphy Exhibition | Taichung Dadun Cultural Center",
-                "2012 \"Coming and Going Without Mind · Misty Cloud Scenery\" Yuan Chi-Jing Ink Painting Exhibition | National Taiwan University of Arts Zhen-Shan-Mei Gallery"
-            ],
-            
-            // Group exhibitions
-            groupShows: [
-                "2023 \"Silent Nourishment\" Yuan Chi-Jing Teacher-Student Ink Painting Exhibition | Taichung Dadun Cultural Center",
-                "2020 \"Summer Brilliance\" Yuan Chi-Jing Teacher-Student Chinese Painting Exhibition | Taichung Veterans General Hospital Art Corridor",
-                "2019 \"Poetry, Calligraphy and Painting\" Yuan Xiaoran Teacher-Student Achievement Exhibition | Chaoyang University of Technology Design Hall Gallery",
-                "2019 Teacher-Student Chinese Painting Achievement Exhibition | Taichung Dadun Cultural Center",
-                "2019 Poetry, Calligraphy and Painting Class Joint Exhibition | Taichung City Government Huizhong Building Gallery",
-                "2018 \"Cinnabar Green Flora Expo\" Poetry, Calligraphy and Painting Class Teacher-Student Joint Exhibition | Dongshi Hakka Cultural Park",
-                "2017 Poetry, Calligraphy and Painting Teacher-Student Joint Exhibition | Taichung Armed Forces General Hospital Art Corridor",
-                "2017 \"Flourishing Spring Branches\" Lize Chinese Painting Class Joint Exhibition | Fengyuan Hospital Art Corridor"
             ]
         },
         
+        exhibitionsPage: {
+            title: "Exhibitions & News",
+            intro: "Where to see the work now, the latest from the studio and the press, and a full exhibition history.",
+            newsTitle: "Latest News",
+            tagStudio: "Studio",
+            tagPress: "Press",
+            videosTitle: "Interviews & Videos",
+            historyTitle: "Exhibition History",
+            showMore: "Show more",
+            onView: "On view now",
+            upcoming: "Upcoming",
+            until: "Through",
+            all: "All",
+            solo: "Solo",
+            duo: "Father–Daughter",
+            group: "Group & Teaching",
+            more: "Press / details",
+            invite: "Interested in hosting an exhibition or visiting the studio?",
+            contact: "Get in touch"
+        },
+
         faq: {
                 title: "Frequently Asked Questions",
                 subtitle: "Our artworks take different journeys to reach you: originals come directly from the artist's studio in Taiwan, while prints are produced in the U.S. to make ink art more accessible worldwide.",
@@ -369,6 +371,7 @@ const LANGUAGE_DATA = {
             featured: "精選",
             gallery: "藝廊",
             about: "關於",
+            exhibitions: "展覽・消息",
             faq: "問答",
             connect: "聯絡"
         },
@@ -425,13 +428,20 @@ const LANGUAGE_DATA = {
             noCaptionNote: "",
             dubbedNote: "",
             articlesNote: "點選標題閱讀全文",
+            highlightsTitle: "近期亮點",
+            highlights: [
+                { year: "2026", text: "個展《天地有大美》63 件新作首度公開｜國立彰化生活美學館" },
+                { year: "2026", text: "與國立台灣美術館館長陳貺怡公開對談水墨的傳承與轉化" },
+                { year: "2025", text: "個展《大塊噫氣》｜國立台灣美術館" },
+                { year: "2024", text: "出版畫冊《天地有大美》" }
+            ],
+            seeAllExhibitions: "展覽與最新消息 →",
+            currentBadge: "現任",
             educationTitle: "學歷",
             awardsTitle: "獲獎紀錄",
             publicationsTitle: "出版與著作",
             teachingTitle: "教學經歷",
             positionsTitle: "現任職務與學會身分", 
-            exhibitionsTitle: "個展一覽",
-            groupShowsTitle: "聯展與教學成果展",
             
             // Education content
             education: [
@@ -485,34 +495,28 @@ const LANGUAGE_DATA = {
                 "昭中畫會 監事",
                 "中華民國畫學會、臺中市書法學會、中國美術協會、藝濤畫會、中國藝術協會、台灣傳統與現代藝術學會 會員",
                 "中國河南省中原書畫研究院 高級藝術顧問"
-            ],
-            
-            // Solo exhibitions
-            exhibitions: [
-                "2026 《天地有大美》2026袁之靜水墨創作展（63 件新作）｜國立彰化生活美學館",
-                "2025 《大塊噫氣》袁之靜水墨個展｜國立台灣美術館（八方藝術節）",
-                "2024 《薪傳中台‧天地大美》｜中台科技大學藝文中心",
-                "2024 《天地有大美》袁之靜水墨創作展｜台中市葫蘆墩文化中心（台中市美術家接力展）",
-                "2023 《靜觀自在》袁之靜水墨展｜台中市大墩文化中心",
-                "2022 《妙法自然》袁之靜水墨展｜台中市葫蘆墩文化中心",
-                "2018 《行雪流水～袁之靜水墨展》｜朝陽科技大學設計禮堂藝廊",
-                "2018 《行雲流水》袁之靜水墨展｜台中市大墩文化中心",
-                "2014 《書情畫意》袁之靜書畫創作展｜中台科技大學藝文中心",
-                "2013 《書情審意》袁德炯、袁之靜父女書畫展｜台中市大墩文化中心",
-                "2012 《去住無心．煙雲情境》袁之靜水墨創作展｜國立台灣藝術大學 真善美藝廊"
-            ],
-            
-            // Group exhibitions
-            groupShows: [
-                "2023 《潤物無聲》袁之靜師生水墨畫展｜台中市大墩文化中心",
-                "2020 《夏艷》袁之靜師生國畫展｜台中署立醫院藝術走廊",
-                "2019 《書情畫意》袁曉然師生成果展｜朝陽科技大學設計禮堂藝廊",
-                "2019 師生國畫成果展｜台中市大墩文化中心",
-                "2019 書情畫意書畫班聯展｜台中市政府惠中樓藝廊",
-                "2018 《丹青花博》書情畫意班師生聯展｜東勢客家文化園區",
-                "2017 書情畫意師生聯展｜國軍台中總醫院藝宣走廊",
-                "2017 《華枝春滿》麗澤國畫班聯展｜豐原醫院藝文走廊"
             ]
+        },
+
+        exhibitionsPage: {
+            title: "展覽・消息",
+            intro: "現在到哪裡看得到作品、畫室與媒體的最新消息，以及完整的展覽經歷。",
+            newsTitle: "最新消息",
+            tagStudio: "畫室近況",
+            tagPress: "媒體報導",
+            videosTitle: "影音採訪",
+            historyTitle: "展覽經歷",
+            showMore: "顯示更多",
+            onView: "現正展出",
+            upcoming: "即將展出",
+            until: "展至",
+            all: "全部",
+            solo: "個展",
+            duo: "父女聯展",
+            group: "聯展・師生展",
+            more: "報導／詳情",
+            invite: "想邀請展出，或預約參觀畫室？",
+            contact: "與我們聯絡"
         },
 
         faq: {
