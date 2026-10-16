@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /admin.html
+Disallow: /order_success_page.html
+
+Sitemap: https://xiaoranart.com/sitemap.xml
