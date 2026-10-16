@@ -734,6 +734,7 @@ class ChineseArtPortfolio {
             else groups.push({ key, year, series, items: [a] });
         }
         let previousYear = null;
+        let idx = 0;
         return groups.map(g => {
             const yearLabel = g.year > 0 ? String(g.year) : (zh ? '年份不詳' : 'Year unknown');
             const heading = g.year !== previousYear ? `<h3 class="gallery-year">${yearLabel}</h3>` : '';
@@ -742,7 +743,7 @@ class ChineseArtPortfolio {
                 <section class="gallery-group">
                     ${heading}
                     ${g.series ? `<h4 class="gallery-series">${g.series}</h4>` : ''}
-                    <div class="gallery-rows">${g.items.map(a => this.createArtworkCard(a)).join('')}</div>
+                    <div class="gallery-rows">${g.items.map(a => this.createArtworkCard(a, idx++)).join('')}</div>
                 </section>`;
         }).join('');
     }
@@ -767,31 +768,65 @@ class ChineseArtPortfolio {
             const width = block.clientWidth;
             if (!width) return;   // gallery tab hidden - the observer lays it out when shown
             const gap = parseFloat(getComputedStyle(block).columnGap) || 0;
-            const items = [...block.children];
+            // always start from the gallery order (rows may have moved items before)
+            block.querySelectorAll('.gallery-break').forEach(br => br.remove());
+            const items = [...block.children].sort((a, b) => a.dataset.idx - b.dataset.idx);
             const box = el => Math.max(parseFloat(el.style.getPropertyValue('--r')) || 1, 0.5);
             const heightFor = row => (width - gap * (row.length - 1)) / row.reduce((s, el) => s + box(el), 0);
-            const place = (row, h) => row.forEach(el => {
-                el.style.flex = `0 0 ${Math.floor(box(el) * h * 100) / 100}px`;
-            });
-            // Vertical paintings get taller rows: the target grows as the row's average
-            // shape gets narrower (up to 2x), so scrolls show ~2 per row on a phone
+            // Vertical paintings get taller rows: the target grows as the row's paintings
+            // get narrower (up to 2x), so scrolls show ~2 per row on a phone
             const targetFor = row => {
                 const avg = row.reduce((s, el) => s + box(el), 0) / row.length;
                 return target * Math.min(2, Math.max(1, 1 / avg));
             };
             const miss = row => Math.abs(Math.log(heightFor(row) / targetFor(row)));
-            let row = [];
-            for (const el of items) {
-                const withIt = [...row, el];
-                if (row.length && heightFor(withIt) < targetFor(withIt) && miss(row) <= miss(withIt)) {
-                    place(row, Math.min(heightFor(row), targetFor(row) * 1.25));
-                    row = [el];
-                } else {
-                    row = withIt;
+
+            // Fit one kind of painting into rows of (nearly) equal height
+            const fitRows = list => {
+                const rows = [];
+                let row = [];
+                for (const el of list) {
+                    const withIt = [...row, el];
+                    if (row.length && heightFor(withIt) < targetFor(withIt) && miss(row) <= miss(withIt)) {
+                        rows.push({ items: row, h: Math.min(heightFor(row), targetFor(row) * 1.25) });
+                        row = [el];
+                    } else {
+                        row = withIt;
+                    }
                 }
+                if (row.length) rows.push({ items: row, h: Math.min(heightFor(row), targetFor(row)) });
+                // A short last row joins the one before it when that keeps paintings at
+                // least 3/4 of the normal size (otherwise it stays, centered by CSS)
+                const last = rows[rows.length - 1], prev = rows[rows.length - 2];
+                if (prev && heightFor(last.items) > last.h * 1.4) {
+                    const both = [...prev.items, ...last.items];
+                    if (heightFor(both) >= 0.75 * targetFor(both)) {
+                        rows.splice(-2, 2, { items: both, h: heightFor(both) });
+                    }
+                }
+                return rows;
+            };
+
+            // Vertical and horizontal paintings never share a row (in a shared row the
+            // vertical one would be squeezed to the height of the wide one). Each kind is
+            // fitted separately, then rows are interleaved by their first painting's place
+            // in the gallery order, so newest-first and series grouping still hold.
+            const isVertical = el => box(el) < 0.9;
+            const rows = [...fitRows(items.filter(isVertical)), ...fitRows(items.filter(el => !isVertical(el)))]
+                .sort((a, b) => a.items[0].dataset.idx - b.items[0].dataset.idx);
+            for (const { items: row, h } of rows) {
+                for (const el of row) {
+                    el.style.flex = `0 0 ${Math.floor(box(el) * h * 100) / 100}px`;
+                    block.appendChild(el);   // DOM order = visual order (keyboard, screen readers)
+                }
+                // end the line here, so two short rows never share one line
+                block.appendChild(Object.assign(document.createElement('div'), { className: 'gallery-break' }));
             }
-            if (row.length) place(row, Math.min(heightFor(row), targetFor(row)));
         });
+        // next/previous in the painting viewer follows what the visitor sees
+        const shown = new Map(this.currentGalleryOrder.map(a => [a.id, a]));
+        const visual = [...grid.querySelectorAll('.gallery-item')].map(el => shown.get(el.dataset.artworkId)).filter(Boolean);
+        if (visual.length === shown.size) this.currentGalleryOrder = visual;
     }
 
     // A photo's real shape differs from the stored one - update it and re-fit (batched)
@@ -810,7 +845,7 @@ class ChineseArtPortfolio {
     }
 
     // Create artwork card HTML - the whole painting, never cropped
-    createArtworkCard(artwork) {
+    createArtworkCard(artwork, idx = 0) {
         const title = this.getText(artwork, 'title') || this.t('common.untitled');
         const imageUrl = artwork.image || artwork.imageHigh || this.getPlaceholderImage();
         const size = artwork.heightCm && artwork.widthCm ?
@@ -820,7 +855,7 @@ class ChineseArtPortfolio {
         const ratio = this.artworkRatio(artwork).toFixed(3);
 
         return `
-            <div class="gallery-item" style="--r:${ratio}" onclick="openLightbox('${artwork.id}', 'gallery')" data-artwork-id="${artwork.id}">
+            <div class="gallery-item" data-idx="${idx}" style="--r:${ratio}" onclick="openLightbox('${artwork.id}', 'gallery')" data-artwork-id="${artwork.id}">
                 <div class="gallery-item-image">
                     <img src="${imageUrl}" alt="${title}" loading="lazy"
                          onload="const r=this.naturalWidth/this.naturalHeight; if (r && Math.abs(r-${ratio})>0.02) portfolio.galleryRatioChanged(this, r)"

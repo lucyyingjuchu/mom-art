@@ -420,8 +420,14 @@
         .gallery-rows {
             display: flex;
             flex-wrap: wrap;
-            gap: 1.75rem 1.25rem;
+            justify-content: center;   /* full rows are unaffected; a short row sits centered */
+            column-gap: 1.25rem;
         }
+
+        .gallery-rows > .gallery-item { margin-bottom: 1.75rem; }
+
+        /* forced line end between fitted rows (added by layoutGalleryRows) */
+        .gallery-break { flex-basis: 100%; height: 0; }
 
         .gallery-item {
             /* very tall scrolls get at least a 1:2 box; the painting sits whole inside it.
