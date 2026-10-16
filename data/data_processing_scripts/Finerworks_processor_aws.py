@@ -78,16 +78,14 @@ class HybridFinerWorksProcessor:
             try:
                 print(f"DEBUG: Attempting to get S3 URL for {artwork_id}.{s3_format}")
                 
-                # Download S3 image directly into memory
-                import urllib.request
                 from io import BytesIO
-                
+
                 s3_url = self.get_s3_image_url(artwork_id, s3_format)
                 print(f"DEBUG: S3 URL: {s3_url}")
-                
-                # Download directly into memory instead of temp file
-                response = urllib.request.urlopen(s3_url)
-                image_data = BytesIO(response.read())
+
+                # Read with our AWS credentials, so this keeps working once the bucket is private
+                obj = self.s3_client.get_object(Bucket=self.s3_bucket_name, Key=f"raw/{artwork_id}.{s3_format}")
+                image_data = BytesIO(obj["Body"].read())
                 
                 # Read dimensions from S3 version
                 with Image.open(image_data) as img:
@@ -359,6 +357,26 @@ class HybridFinerWorksProcessor:
         
         if output_file is None:
             output_file = f"finerworks_ready_{os.path.basename(input_file)}"
+
+        # Works already on sale from the web-size image (before S3 originals) keep their
+        # small print sizes. Any NEW work needs a high-res original in S3 to be sold as a print -
+        # the web images (≤1600px, some cropped from catalogues) aren't good enough.
+        previous = {}
+        if os.path.exists(output_file):
+            with open(output_file, encoding='utf-8') as f:
+                previous = json.load(f)
+        grandfathered = {k for k, v in previous.items()
+                         if v.get('print_ready') and v.get('finerworks_image', {}).get('storage_source') == 'github'}
+
+        # Without S3 every work with an S3 original would silently drop out of the shop - refuse instead
+        try:
+            if not self.s3_client:
+                raise RuntimeError("no S3 client")
+            self.s3_client.head_bucket(Bucket=self.s3_bucket_name)
+        except Exception as e:
+            print(f"❌ Can't reach S3 bucket {self.s3_bucket_name} ({e}). Check the AWS login (aws configure).")
+            print("   Nothing was changed.")
+            return False
         
         processed_count = 0
         print_ready_count = 0
@@ -371,6 +389,10 @@ class HybridFinerWorksProcessor:
             artwork_id = artwork['id']
             title = artwork.get('title', 'Unknown')
             title_en = artwork.get('titleEn', '')
+
+            # Drafts (no photo / no title / status draft) are not on the public site - no prints either
+            if artwork.get('status') == 'draft' or not artwork.get('title') or not artwork.get('image'):
+                continue
             
             print(f"\nProcessing: {title}")
             if title_en:
@@ -401,6 +423,17 @@ class HybridFinerWorksProcessor:
             
             # Determine if print-ready
             can_print = len(optimal_sizes) > 0
+            needs_original = (image_info['source'] != 's3' and artwork_id not in grandfathered)
+            if needs_original:
+                can_print = False
+                prev = previous.get(artwork_id, {})
+                if prev.get('print_ready') and prev.get('finerworks_image', {}).get('storage_source') == 's3':
+                    # Was sold from an S3 original but that read failed just now - keep the old data
+                    print(f"  ⚠️  Couldn't read the S3 original this time - keeping its previous print data")
+                    recommendations[artwork_id] = prev
+                    print_ready_count += 1
+                    processed_count += 1
+                    continue
             
             if can_print:
                 # Create full metadata for print-ready artworks
@@ -438,10 +471,12 @@ class HybridFinerWorksProcessor:
                         'original_size_cm': f"{cleaned_artwork.get('heightCm', '')}×{cleaned_artwork.get('widthCm', '')}"
                     },
                     'print_ready': False,
-                    'reason': f"Insufficient resolution for {self.REQUIRED_PPI} PPI printing"
+                    'reason': ("No high-res original in S3 yet (run print_prep.py)" if needs_original
+                               else f"Insufficient resolution for {self.REQUIRED_PPI} PPI printing")
                 }
-                
-                print(f"  📱 WEB ONLY - resolution too low for printing")
+
+                print("  📱 WEB ONLY - " + ("needs a high-res original (print_prep.py)" if needs_original
+                                          else "resolution too low for printing"))
                 web_only_count += 1
             
             processed_count += 1

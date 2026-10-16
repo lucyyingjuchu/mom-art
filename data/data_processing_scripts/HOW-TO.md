@@ -29,6 +29,32 @@ Titles already on the site are skipped, so re-running is safe.
 
 A work is hidden from the public site and shown as **📝 草稿** on the admin page when it has no photo, no title, or `"status": "draft"`. Add the photo (admin page or importer) and it appears automatically. Type `草稿` in the admin search box to list them.
 
+## Fine-art prints (Finerworks), when new high-res photos arrive (~5 minutes)
+
+Prints are made from a high-res original stored in S3, never from the website images
+(those are ≤1600 px and some are cropped from catalogues). 200 PPI, longest side up to 24",
+three sizes (100 / 70 / 50 %), ratio kept exactly - all calculated automatically.
+
+1. Put the high-res photos/scans in one folder, named by title (`清音.jpg`, `清音-高解析.tif`) or by artwork id.
+2. Dry run - shows each match and the print sizes it allows, changes nothing:
+   `python data/data_processing_scripts/print_prep.py 高解析照片/`
+3. `... print_prep.py 高解析照片/ --upload` → uploads to S3 (skips ones already there; `--replace` to redo)
+   and rebuilds `data/finerworks_ready_artworks.json`.
+4. Commit and push that file. The new print sizes appear in the shop after the deploy.
+
+Needs `pip install boto3` and the AWS login on that computer (`aws configure`). If S3 can't be reached it stops without changing anything.
+Works sold from the web image before this rule (older small prints) keep their sizes.
+
+### One-time: make the originals private
+
+Finerworks gets a signed link (valid 7 days) for each order, so the bucket doesn't need to be public:
+1. AWS → IAM → create a user `xiaoran-print-reader` with only this permission:
+   `s3:GetObject` on `arn:aws:s3:::xiaoran-raw-artworks/raw/*`. Create an access key for it.
+2. Netlify → Environment variables: `PRINT_S3_KEY_ID`, `PRINT_S3_SECRET` = that key. Redeploy.
+3. AWS → S3 → `xiaoran-raw-artworks` → Permissions: delete the public-read bucket policy and turn
+   **Block all public access** on. Opening an original's plain S3 link in a browser should now say AccessDenied.
+4. Place one order with `FINERWORKS_ORDER_MODE=validate` to check Finerworks still accepts it.
+
 ## Pinterest, every month (~10 minutes)
 
 1. New "in a room" mockups: save as `images/mockups/original/<artwork id>_orig_mock.jpg` (2:3, e.g. 1024×1536), then run `python data/data_processing_scripts/update_artworks_multiview.py`. Push.

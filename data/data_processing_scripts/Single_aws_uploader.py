@@ -1,3 +1,4 @@
+# Older one-at-a-time uploader. Use print_prep.py instead (whole folder, matched by title).
 # upload_single.py
 from Finerworks_processor_aws import HybridFinerWorksProcessor
 import os

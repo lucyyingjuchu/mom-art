@@ -17,6 +17,8 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY, {
 });
 const PRINTS = require('../data/finerworks_ready_artworks.json');
 
+const crypto = require('crypto');
+
 const SITE_URL = process.env.URL || 'https://xiaoranart.com';
 const MODE = (process.env.FINERWORKS_ORDER_MODE || 'off').toLowerCase();
 
@@ -79,7 +81,7 @@ function buildFinerworksOrder(session, cart) {
                     product_image: {
                         pixel_width: api.pix_w,
                         pixel_height: api.pix_h,
-                        product_url_file: api.private_hires_uri || api.public_preview_uri,
+                        product_url_file: signedS3Url(api.private_hires_uri) || api.public_preview_uri,
                         product_url_thumbnail: api.public_thumbnail_uri || api.public_preview_uri
                     },
                     product_title: PRINTS[item.id].artwork_info?.title || 'Untitled',
@@ -95,6 +97,37 @@ function buildFinerworksOrder(session, cart) {
             validate_only: MODE !== 'live'
         }]
     };
+}
+
+// High-res originals live in a PRIVATE S3 bucket. Finerworks gets a signed link that
+// works for 7 days, long enough to fetch the file for this order. Needs the Netlify env
+// vars PRINT_S3_KEY_ID / PRINT_S3_SECRET (an AWS key that can only read that bucket).
+// Without them the plain link is sent, as before.
+function signedS3Url(url, now = new Date()) {
+    const keyId = process.env.PRINT_S3_KEY_ID, secret = process.env.PRINT_S3_SECRET;
+    const m = /^https:\/\/([a-z0-9.-]+)\.s3\.([a-z0-9-]+)\.amazonaws\.com(\/[^?#]*)$/.exec(url || '');
+    if (!keyId || !secret || !m) return url;
+    const [, bucket, region, path] = m;
+    const host = `${bucket}.s3.${region}.amazonaws.com`;
+    const amzDate = now.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+    const day = amzDate.slice(0, 8);
+    const scope = `${day}/${region}/s3/aws4_request`;
+    const enc = s => encodeURIComponent(s).replace(/[!'()*]/g, c => '%' + c.charCodeAt(0).toString(16).toUpperCase());
+    const canonicalPath = path.split('/').map(seg => enc(decodeURIComponent(seg))).join('/');
+    const query = [
+        ['X-Amz-Algorithm', 'AWS4-HMAC-SHA256'],
+        ['X-Amz-Credential', `${keyId}/${scope}`],
+        ['X-Amz-Date', amzDate],
+        ['X-Amz-Expires', '604800'],
+        ['X-Amz-SignedHeaders', 'host']
+    ].map(([k, v]) => `${enc(k)}=${enc(v)}`).sort().join('&');
+    const canonical = ['GET', canonicalPath, query, `host:${host}\n`, 'host', 'UNSIGNED-PAYLOAD'].join('\n');
+    const toSign = ['AWS4-HMAC-SHA256', amzDate, scope,
+        crypto.createHash('sha256').update(canonical).digest('hex')].join('\n');
+    const hmac = (k, d) => crypto.createHmac('sha256', k).update(d).digest();
+    const signingKey = hmac(hmac(hmac(hmac('AWS4' + secret, day), region), 's3'), 'aws4_request');
+    const signature = crypto.createHmac('sha256', signingKey).update(toSign).digest('hex');
+    return `https://${host}${canonicalPath}?${query}&X-Amz-Signature=${signature}`;
 }
 
 exports.handler = async (event) => {
@@ -172,3 +205,5 @@ exports.handler = async (event) => {
 
     return reply(200, { ...summary, fulfillment: status });
 };
+
+exports._signedS3Url = signedS3Url; // for tests
