@@ -41,6 +41,25 @@
     },
     {
       "year": 2026,
+      "type": "solo",
+      "start": "2026-04-02",
+      "end": "2026-07-01",
+      "title": {
+        "zh": "《上善若水》2026袁之靜水墨創作展",
+        "en": "“The Highest Good Is Like Water” — 2026 Yuan Chi-Jing Ink Painting Exhibition"
+      },
+      "venue": {
+        "zh": "臺中榮民總醫院 門診前棟 2 樓大廳",
+        "en": "Taichung Veterans General Hospital, Outpatient Building (Front), 2F Lobby"
+      },
+      "note": {
+        "zh": "展題取自老子《道德經》「上善若水，水善利萬物而不爭」。主視覺〈煙波浩渺－伊瓜蘇〉（5×12 尺）以伊瓜蘇萬瀑奔流，寄意醫者仁心如水、潤物濟世。4/21 舉行開幕暨捐贈儀式。",
+        "en": "The title comes from Laozi's Tao Te Ching: “The highest good is like water; water benefits all things and does not compete.” The centerpiece, “Misty Waves, Boundless — Iguazu” (5 × 12 chi, about 1.5 × 3.6 m), uses the endless falls of Iguazu as a tribute to doctors whose compassion, like water, quietly sustains everyone it reaches. Opening and donation ceremony on April 21."
+      },
+      "link": ""
+    },
+    {
+      "year": 2026,
       "type": "group",
       "start": "",
       "end": "2026-06-14",
