@@ -671,20 +671,12 @@ class ChineseArtPortfolio {
         const imageCount = artworksWithImages.length;
         const totalCount = filteredArtworks.length;
 
-        // Update results counter with image statistics
+        // Quiet count under the tabs
         const resultsInfo = document.getElementById('resultsInfo');
         if (resultsInfo) {
-            if (activeFilterCount > 0) {
-                resultsInfo.textContent = this.t('filters.showingFiltered', {
-                    count: totalCount,
-                    total: this.artworks.length,
-                    filters: activeFilterCount
-                }) + ` (${imageCount} ${this.t('gallery.withImages')})`;
-            } else {
-                resultsInfo.textContent = this.t('filters.showingAll', {
-                    total: totalCount
-                }) + ` (${imageCount} ${this.t('gallery.withImages')})`;
-            }
+            resultsInfo.textContent = this.currentLanguage === 'zh'
+                ? `${imageCount} 件作品`
+                : `${imageCount} ${imageCount === 1 ? 'work' : 'works'}`;
         }
 
         // Render artwork cards, grouped by year and series
@@ -885,44 +877,42 @@ class ChineseArtPortfolio {
     }
 
 
-    // UPDATED: Generate dynamic filter menu using CategoryManager
+    // Gallery series tabs: one quiet row, like an artist's catalogue.
+    // Each tab maps to one or more subject categories in category-config.json.
+    getGalleryTabs() {
+        return [
+            { key: 'all',         zh: '全部', en: 'All',             subjects: [] },
+            { key: 'landscape',   zh: '山水', en: 'Landscapes',      subjects: ['landscape', 'waterfall', 'flowingclouds'] },
+            { key: 'flowers',     zh: '花鳥', en: 'Flowers & Birds', subjects: ['flowers', 'bamboo'] },
+            { key: 'moon',        zh: '月光', en: 'Moonlight',       subjects: ['moon'] },
+            { key: 'abstract',    zh: '抽象', en: 'Abstract',        subjects: ['abstract'] },
+            { key: 'calligraphy', zh: '書法', en: 'Calligraphy',     subjects: ['calligraphy'] }
+        ];
+    }
+
     generateFilterMenu() {
-        const stats = this.filterStats;
-        
+        const zh = this.currentLanguage === 'zh';
+        const current = this.galleryTab || 'all';
+        const tabs = this.getGalleryTabs().filter(tab => tab.key === 'all' ||
+            this.getMultiFilteredArtworks({ subject: tab.subjects }, this.artworks).length > 0);
         return `
-            <div class="filter-container">
-                <!-- Phone only: filters fold away behind this button -->
-                <button type="button" class="filter-toggle" onclick="this.parentElement.classList.toggle('open')">
-                    ${this.currentLanguage === 'zh' ? '篩選與搜尋' : 'Filter & search'}
-                </button>
-                <div class="filter-menu">
-                    ${categoryManager.generateFilterHTML(stats, this.currentLanguage)}
-
-                    <!-- Clear Filters Button -->
-                    <div class="filter-section">
-                        <div class="secondary-filters">
-                            <button class="filter-btn clear-all-btn" onclick="portfolio.clearAllFilters()">
-                                ${this.t('filters.clearAll')}
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Search and Sort -->
-                    <div class="search-sort-container">
-                        <div class="search-box">
-                            <span class="search-icon">🔍</span>
-                            <input type="text" placeholder="${this.t('filters.searchPlaceholder')}" id="searchInput">
-                        </div>
-                        <select class="sort-dropdown" id="sortSelect">
-                            <option value="newest">Newest First</option>
-                            <option value="oldest">Oldest First</option>
-                            <option value="title">By Title</option>
-                            <option value="size">By Size</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
+            <nav class="gallery-tabs" aria-label="${zh ? '作品系列' : 'Series'}">
+                ${tabs.map(tab => `<button type="button" class="gallery-tab${tab.key === current ? ' active' : ''}"
+                    data-tab="${tab.key}" aria-pressed="${tab.key === current}">${zh ? tab.zh : tab.en}</button>`).join('')}
+            </nav>
         `;
+    }
+
+    setGalleryTab(key) {
+        const tab = this.getGalleryTabs().find(t => t.key === key) || this.getGalleryTabs()[0];
+        this.galleryTab = tab.key;
+        this.activeFilters = { subject: [...tab.subjects], location: [], availability: [] };
+        document.querySelectorAll('.gallery-tab').forEach(btn => {
+            const on = btn.dataset.tab === tab.key;
+            btn.classList.toggle('active', on);
+            btn.setAttribute('aria-pressed', on);
+        });
+        this.renderGallery();
     }
 
     // UPDATED: Use CategoryManager for labels (integrated with LANGUAGE_DATA)
@@ -972,30 +962,11 @@ class ChineseArtPortfolio {
         }
     }
 
-    // Setup multi-select filter event listeners
+    // Series tab listeners
     setupFilterListeners() {
-        // Multi-select filter buttons
-        document.querySelectorAll('.filter-btn:not(.clear-all-btn), .secondary-filter-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const filterType = e.target.dataset.filterType;
-                const filterValue = e.target.dataset.filterValue;
-                
-                if (filterType && filterValue) {
-                    this.toggleFilter(filterType, filterValue);
-                }
-            });
+        document.querySelectorAll('.gallery-tab').forEach(btn => {
+            btn.addEventListener('click', () => this.setGalleryTab(btn.dataset.tab));
         });
-
-        // ADD THIS: Setup search event listener
-        const searchInput = document.getElementById('searchInput');
-        if (searchInput) {
-            searchInput.addEventListener('input', (e) => {
-                this.performSearch(e.target.value);
-            });
-            console.log('✅ Search event listener attached to input');
-        } else {
-            console.warn('⚠️ Search input not found when setting up listeners');
-        }
     }
     
     // Render featured works on home page with museum-quality presentation

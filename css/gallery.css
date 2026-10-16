@@ -1,0 +1,62 @@
+/* Gallery series tabs — one quiet row of words, artwork first */
+.gallery-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 0.5rem auto 0.25rem;
+    padding: 0 1rem;
+    border-bottom: 1px solid #e9e4dc;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    /* undo the site-wide <nav> bar styling */
+    background: none;
+    box-shadow: none;
+    position: static;
+    top: auto;
+    z-index: auto;
+}
+
+.gallery-tabs::-webkit-scrollbar { display: none; }
+
+.gallery-tab {
+    flex: 0 0 auto;
+    background: none;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    padding: 0.8rem 0.1rem;
+    font: inherit;
+    font-size: 1.02rem;
+    letter-spacing: 0.08em;
+    color: #8a7f72;
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.gallery-tab:hover { color: #2c3e50; }
+
+.gallery-tab.active {
+    color: #2c3e50;
+    border-bottom-color: #a3342c;
+}
+
+#gallery .results-info {
+    text-align: center;
+    color: #a99f92;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    border: 0;
+    margin: 0.6rem 0 1.2rem;
+    padding: 0;
+}
+
+@media (max-width: 768px) {
+    .gallery-tabs {
+        justify-content: flex-start;
+        gap: 1.4rem;
+        margin: 0 -0.75rem 0.25rem;
+        padding: 0 1rem;
+    }
+    .gallery-tab { font-size: 0.98rem; padding: 0.7rem 0.1rem; }
+}
