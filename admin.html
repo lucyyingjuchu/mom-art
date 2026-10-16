@@ -763,6 +763,9 @@
                                 <!-- Auto Categories Section -->
                                 <div class="category-section" id="autoCategoriesSection">
                                     <h5>🤖 自動分類（可移除）</h5>
+                                    <div style="color: #6c757d; font-size: 0.8rem; margin-bottom: 0.4rem;">
+                                        有手動題材時，網站只用手動題材（地點同理）
+                                    </div>
                                     <div class="category-tags" id="autoSubjectTags"></div>
                                     <div class="category-tags" id="autoLocationTags"></div>
                                     <div id="noAutoCategories" style="color: #6c757d; font-size: 0.8rem; display: none;">
@@ -1117,10 +1120,8 @@
             }
             
             // Check if already exists
-            const allExistingCategories = [
-                ...(currentArtworkCategories.autoCategories[categoryType] || []),
-                ...(currentArtworkCategories.manualCategories[categoryType] || [])
-            ];
+            // Only hand-picked tags count: once any are set, the site ignores the automatic guesses
+            const allExistingCategories = currentArtworkCategories.manualCategories[categoryType] || [];
             
             if (allExistingCategories.includes(normalizedKey)) {
                 showMessage('此分類標籤已存在', 'warning');

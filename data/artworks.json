@@ -24,7 +24,18 @@
         "type": "original-mockup",
         "image": "./images/mockups/original/019891b0-f39c-7cee-bc2d-85b83d7ced08_orig_mock.jpg"
       }
-    ]
+    ],
+    "manualCategories": {
+      "subjects": [
+        "flowers",
+        "moon"
+      ],
+      "locations": []
+    },
+    "autoCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "019891b0-f39c-752c-bde4-db1ef1f5529c",
@@ -484,7 +495,8 @@
     "titleEn": "Autumn Waves, Endless Affection - Light and Shadow of Sky and Clouds",
     "manualCategories": {
       "subjects": [
-        "山水"
+        "山水",
+        "flowingclouds"
       ],
       "locations": []
     },
@@ -2875,7 +2887,9 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape"
+      ],
       "locations": []
     },
     "productViews": [
@@ -3604,7 +3618,9 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape"
+      ],
       "locations": []
     },
     "productViews": [
@@ -3720,7 +3736,10 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape",
+        "abstract"
+      ],
       "locations": []
     },
     "productViews": [
@@ -3751,7 +3770,10 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape",
+        "waterfall"
+      ],
       "locations": []
     },
     "productViews": [
@@ -3940,7 +3962,9 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "abstract"
+      ],
       "locations": []
     },
     "productViews": [
@@ -4020,7 +4044,9 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers"
+      ],
       "locations": []
     },
     "productViews": [
@@ -4570,7 +4596,11 @@
     "title": "大造本無方",
     "titleEn": "The Great Creation Has No Form",
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape",
+        "waterfall",
+        "flowingclouds"
+      ],
       "locations": []
     },
     "autoCategories": {
@@ -4906,7 +4936,10 @@
     "title": "月梅圖-形影神",
     "titleEn": "Moon and Plum Blossoms - Form, Shadow, Spirit",
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers",
+        "moon"
+      ],
       "locations": []
     },
     "autoCategories": {
@@ -5859,7 +5892,10 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers",
+        "moon"
+      ],
       "locations": []
     },
     "image": "./images/paintings/thumbnails/019891b0-f39c-7353-828e-07b6ae7b5e06_thumb.jpg",
@@ -6623,7 +6659,8 @@
     "titleEn": "Such Beauty in Rivers and Mountains",
     "manualCategories": {
       "subjects": [
-        "煙雲"
+        "煙雲",
+        "landscape"
       ],
       "locations": []
     },
@@ -6692,8 +6729,13 @@
       ]
     },
     "manualCategories": {
-      "subjects": [],
-      "locations": []
+      "subjects": [
+        "waterfall",
+        "landscape"
+      ],
+      "locations": [
+        "iguazu"
+      ]
     }
   },
   {
@@ -6728,8 +6770,13 @@
       ]
     },
     "manualCategories": {
-      "subjects": [],
-      "locations": []
+      "subjects": [
+        "landscape",
+        "flowingclouds"
+      ],
+      "locations": [
+        "yushan"
+      ]
     },
     "heightCm": 146.5,
     "widthCm": 365,
@@ -6765,7 +6812,9 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape"
+      ],
       "locations": []
     },
     "heightCm": 180,
@@ -6806,8 +6855,13 @@
       ]
     },
     "manualCategories": {
-      "subjects": [],
-      "locations": []
+      "subjects": [
+        "landscape",
+        "flowingclouds"
+      ],
+      "locations": [
+        "yushan"
+      ]
     },
     "heightCm": 185,
     "widthCm": 96,
@@ -6924,8 +6978,12 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
-      "locations": []
+      "subjects": [
+        "landscape"
+      ],
+      "locations": [
+        "taroko"
+      ]
     }
   },
   {
@@ -6963,7 +7021,10 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape",
+        "flowingclouds"
+      ],
       "locations": []
     }
   },
@@ -7002,7 +7063,11 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape",
+        "waterfall",
+        "flowingclouds"
+      ],
       "locations": []
     }
   },
@@ -7042,7 +7107,10 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape",
+        "flowingclouds"
+      ],
       "locations": []
     }
   },
@@ -7081,7 +7149,10 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape",
+        "waterfall"
+      ],
       "locations": []
     }
   },
@@ -7120,7 +7191,9 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape"
+      ],
       "locations": []
     }
   },
@@ -7159,7 +7232,9 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape"
+      ],
       "locations": []
     }
   },
@@ -7197,7 +7272,10 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape",
+        "flowingclouds"
+      ],
       "locations": []
     }
   },
@@ -7231,7 +7309,10 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape",
+        "waterfall"
+      ],
       "locations": []
     },
     "heightCm": 141,
@@ -7269,7 +7350,10 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape",
+        "flowingclouds"
+      ],
       "locations": []
     },
     "heightCm": 142,
@@ -7307,7 +7391,10 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape",
+        "flowingclouds"
+      ],
       "locations": []
     },
     "heightCm": 142,
@@ -7342,7 +7429,9 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "abstract"
+      ],
       "locations": []
     },
     "heightCm": 136,
@@ -7379,7 +7468,9 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "abstract"
+      ],
       "locations": []
     },
     "heightCm": 176,
@@ -7417,7 +7508,9 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "abstract"
+      ],
       "locations": []
     },
     "heightCm": 150,
@@ -7455,7 +7548,9 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "abstract"
+      ],
       "locations": []
     },
     "heightCm": 65,
@@ -7492,7 +7587,9 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "abstract"
+      ],
       "locations": []
     },
     "heightCm": 64,
@@ -7533,7 +7630,9 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "abstract"
+      ],
       "locations": []
     }
   },
@@ -7570,7 +7669,10 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "moon",
+        "abstract"
+      ],
       "locations": []
     }
   },
@@ -7607,7 +7709,11 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape",
+        "moon",
+        "flowingclouds"
+      ],
       "locations": []
     }
   },
@@ -7644,7 +7750,10 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "moon",
+        "landscape"
+      ],
       "locations": []
     }
   },
@@ -7679,7 +7788,10 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "moon",
+        "landscape"
+      ],
       "locations": []
     }
   },
@@ -7716,7 +7828,10 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "moon",
+        "abstract"
+      ],
       "locations": []
     }
   },
@@ -7751,7 +7866,10 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "moon",
+        "abstract"
+      ],
       "locations": []
     }
   },
@@ -7788,7 +7906,10 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "moon",
+        "abstract"
+      ],
       "locations": []
     }
   },
@@ -7823,7 +7944,10 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "moon",
+        "abstract"
+      ],
       "locations": []
     }
   },
@@ -7860,7 +7984,10 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "moon",
+        "abstract"
+      ],
       "locations": []
     }
   },
@@ -7897,7 +8024,10 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "moon",
+        "abstract"
+      ],
       "locations": []
     }
   },
@@ -7932,7 +8062,10 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "moon",
+        "abstract"
+      ],
       "locations": []
     }
   },
@@ -7967,7 +8100,10 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "moon",
+        "abstract"
+      ],
       "locations": []
     }
   },
@@ -8002,7 +8138,10 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "moon",
+        "abstract"
+      ],
       "locations": []
     }
   },
@@ -8039,7 +8178,10 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers",
+        "abstract"
+      ],
       "locations": []
     }
   },
@@ -8076,7 +8218,10 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers",
+        "abstract"
+      ],
       "locations": []
     }
   },
@@ -8111,7 +8256,10 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers",
+        "abstract"
+      ],
       "locations": []
     }
   },
@@ -8148,7 +8296,10 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers",
+        "abstract"
+      ],
       "locations": []
     }
   },
@@ -8183,7 +8334,9 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "abstract"
+      ],
       "locations": []
     }
   },
@@ -8218,7 +8371,9 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "abstract"
+      ],
       "locations": []
     }
   },
@@ -8255,7 +8410,10 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "flowers",
+        "abstract"
+      ],
       "locations": []
     }
   },
@@ -8293,7 +8451,10 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape",
+        "waterfall"
+      ],
       "locations": []
     }
   },
@@ -8326,7 +8487,10 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape",
+        "flowingclouds"
+      ],
       "locations": []
     },
     "heightCm": 140,
@@ -8364,7 +8528,10 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape",
+        "flowingclouds"
+      ],
       "locations": []
     }
   },
@@ -8398,7 +8565,10 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape",
+        "flowingclouds"
+      ],
       "locations": []
     },
     "heightCm": 137,
@@ -8440,7 +8610,9 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape"
+      ],
       "locations": []
     }
   },
@@ -8478,7 +8650,9 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape"
+      ],
       "locations": []
     }
   },
@@ -8516,7 +8690,11 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape",
+        "waterfall",
+        "flowingclouds"
+      ],
       "locations": []
     }
   },
@@ -8554,7 +8732,10 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape",
+        "flowingclouds"
+      ],
       "locations": []
     }
   },
@@ -8592,7 +8773,10 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape",
+        "flowingclouds"
+      ],
       "locations": []
     }
   },
@@ -8629,7 +8813,11 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape",
+        "waterfall",
+        "flowingclouds"
+      ],
       "locations": []
     }
   },
@@ -8668,7 +8856,10 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape",
+        "flowingclouds"
+      ],
       "locations": []
     }
   },
@@ -8699,7 +8890,9 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "abstract"
+      ],
       "locations": []
     },
     "heightCm": 77,
@@ -8734,7 +8927,9 @@
       "locations": []
     },
     "manualCategories": {
-      "subjects": [],
+      "subjects": [
+        "landscape"
+      ],
       "locations": []
     },
     "heightCm": 52,
@@ -8805,7 +9000,17 @@
     "heightCm": 145,
     "widthCm": 77,
     "heightInches": 57.1,
-    "widthInches": 30.3
+    "widthInches": 30.3,
+    "manualCategories": {
+      "subjects": [
+        "landscape"
+      ],
+      "locations": []
+    },
+    "autoCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "01a12c32-fae0-74b5-8639-7f9711bc320e",
@@ -8832,7 +9037,17 @@
     "heightCm": 100,
     "widthCm": 65,
     "heightInches": 39.4,
-    "widthInches": 25.6
+    "widthInches": 25.6,
+    "manualCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": []
+    },
+    "autoCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "01a12c32-fcaf-7ea9-aeb7-470e064888bc",
@@ -8859,7 +9074,17 @@
     "heightCm": 137,
     "widthCm": 34,
     "heightInches": 53.9,
-    "widthInches": 13.4
+    "widthInches": 13.4,
+    "manualCategories": {
+      "subjects": [
+        "landscape"
+      ],
+      "locations": []
+    },
+    "autoCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "01a12c32-fd1e-7d89-be39-684944073edd",
@@ -8886,7 +9111,18 @@
     "heightCm": 45,
     "widthCm": 69,
     "heightInches": 17.7,
-    "widthInches": 27.2
+    "widthInches": 27.2,
+    "manualCategories": {
+      "subjects": [
+        "landscape",
+        "flowingclouds"
+      ],
+      "locations": []
+    },
+    "autoCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "01a12c32-fd8c-7321-8ec9-0e56702657f0",
@@ -8913,7 +9149,17 @@
     "heightCm": 69,
     "widthCm": 45,
     "heightInches": 27.2,
-    "widthInches": 17.7
+    "widthInches": 17.7,
+    "manualCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": []
+    },
+    "autoCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "01a12c32-fdf8-7498-a075-a3fa93f187a0",
@@ -8940,7 +9186,17 @@
     "heightCm": 69,
     "widthCm": 45,
     "heightInches": 27.2,
-    "widthInches": 17.7
+    "widthInches": 17.7,
+    "manualCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": []
+    },
+    "autoCategories": {
+      "subjects": [],
+      "locations": []
+    }
   },
   {
     "id": "01a12c32-fe61-74db-9b2b-f99316181076",
@@ -8967,6 +9223,16 @@
     "heightCm": 69,
     "widthCm": 69,
     "heightInches": 27.2,
-    "widthInches": 27.2
+    "widthInches": 27.2,
+    "manualCategories": {
+      "subjects": [
+        "flowers"
+      ],
+      "locations": []
+    },
+    "autoCategories": {
+      "subjects": [],
+      "locations": []
+    }
   }
 ]

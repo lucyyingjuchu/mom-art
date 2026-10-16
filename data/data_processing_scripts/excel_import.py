@@ -25,7 +25,8 @@ Photos are matched by the sheet's 圖片/檔名 column if there is one, otherwis
 file whose name starts with the artwork title (e.g. "清音.jpg" or "清音-1.JPG").
 
 After importing: fill English titles/poems (Unified_translator.py, or ask Claude),
-then run artwork_categorizer.py for the filter categories.
+then run artwork_categorizer.py. Rows with a 題材 (and/or 地點) column filled in
+keep exactly those filter tags; rows without one get keyword guesses.
 """
 
 import argparse
@@ -50,6 +51,7 @@ except ImportError:
     sys.exit("Please install Pillow first:  pip install openpyxl pillow")
 
 ARTWORKS_JSON = "data/artworks.json"
+CATEGORY_CONFIG = "data/category-config.json"
 THUMB_DIR = "images/paintings/thumbnails"
 LARGE_DIR = "images/paintings/large"
 THUMB_LONG_SIDE = 800
@@ -71,6 +73,8 @@ COLUMN_NAMES = {
     "available":    ["可售", "是否可售", "販售", "狀態", "available", "forsale"],
     "featured":     ["精選", "featured"],
     "price":        ["價格", "售價", "price"],
+    "subjects":     ["題材", "題材分類", "分類", "類別", "subject", "subjects", "category", "categories"],
+    "locations":    ["地點", "地點分類", "景點", "location", "locations", "place"],
     "photo":        ["圖片", "照片", "檔名", "圖檔", "圖片檔名", "photo", "image", "file", "filename"],
     "ignore":       ["編號", "媒材", "no", "no.", "#"],   # recognised so they don't get mistaken for other columns
 }
@@ -221,6 +225,40 @@ def save_resized(src, dest, long_side, quality):
         im.save(dest, "JPEG", quality=quality, optimize=True, progressive=True)
 
 
+def load_category_words():
+    """Map 山水 / Landscape / landscape -> ("subjects", "landscape"), 玉山 -> ("locations", "yushan"), ..."""
+    with open(CATEGORY_CONFIG, encoding="utf-8") as f:
+        cfg = json.load(f)
+    words = {}
+    for kind in ("subjects", "locations"):
+        for key in cfg["categories"][kind]:
+            words[norm(key)] = (kind, key)
+            for lang in ("zh", "en"):
+                label = cfg["displayLabels"][lang][kind].get(key)
+                if label:
+                    words[norm(label)] = (kind, key)
+    words[norm("花卉")] = words[norm("花鳥")]   # common alternative names
+    words[norm("雲")] = words[norm("煙雲")]
+    words[norm("月")] = words[norm("明月")]
+    return words
+
+
+def parse_categories(text, words, where):
+    """'山水、煙雲 / 玉山' -> {"subjects": ["landscape", "flowingclouds"], "locations": ["yushan"]}"""
+    found = {"subjects": [], "locations": []}
+    for part in re.split(r"[、,，;；/／|\s]+", text or ""):
+        if not part:
+            continue
+        hit = words.get(norm(part))
+        if not hit:
+            print(f"⚠️  {where}: unknown category '{part}' ignored (known: 山水 瀑布 煙雲 明月 花鳥 墨竹 書法 抽象, or a place like 玉山)")
+            continue
+        kind, key = hit
+        if key not in found[kind]:
+            found[kind].append(key)
+    return found
+
+
 def main():
     ap = argparse.ArgumentParser(description="Import new artworks from an Excel sheet")
     ap.add_argument("excel", help="the .xlsx file")
@@ -249,6 +287,7 @@ def main():
         artworks = json.load(f)
     existing_titles = {norm(a.get("title")) for a in artworks}
     photos = index_photos(args.photos)
+    category_words = load_category_words()
     sheet_photos = embedded_photos(ws, os.path.join("data", ".excel_photos_tmp"))
     if sheet_photos:
         print(f"Found {len(sheet_photos)} pictures inside the sheet")
@@ -291,6 +330,11 @@ def main():
             "curatorNote": get("curatorNote"),
             "curatorNoteEn": "",
         }
+        # 題材 / 地點 columns -> hand-picked filter tags (these win over the automatic guesses)
+        cats = parse_categories(get("subjects") + " " + get("locations"), category_words, f"Row {r}")
+        if cats["subjects"] or cats["locations"]:
+            artwork["autoCategories"] = {"subjects": [], "locations": []}
+            artwork["manualCategories"] = cats
         if h is not None and w is not None:
             artwork.update({
                 "heightCm": h, "widthCm": w,
@@ -330,9 +374,11 @@ def main():
         added.append((r, title, os.path.basename(photo) if photo else None, h, w))
 
     print(f"\n{'Row':>4}  {'Photo':<28} Size        Title")
-    for r, title, photo, h, w in added:
+    for (r, title, photo, h, w), art in zip(added, artworks[len(artworks) - len(added):]):
         size = f"{h}×{w}" if h is not None else "—"
-        print(f"{r:>4}  {(photo or '(none → draft)'):<28} {size:<11} {title or '(無題 → draft)'}")
+        tags = art.get("manualCategories", {})
+        tags = " ".join(tags.get("subjects", []) + tags.get("locations", [])) or "(no 題材 - will be guessed)"
+        print(f"{r:>4}  {(photo or '(none → draft)'):<28} {size:<11} {title or '(無題 → draft)'}  [{tags}]")
     if skipped:
         print(f"\nAlready on the site, skipped ({len(skipped)}): " + "、".join(skipped))
     print(f"\n{len(added)} new artworks: {with_photo} ready (public), {drafts} drafts (no photo or no title - admin only)")
