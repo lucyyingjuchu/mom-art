@@ -284,8 +284,9 @@ if (!window.categoryManagerLoaded) {
                 categories.push(...this.normalizeCategories(manual));
             }
 
-            // BACKWARD COMPATIBILITY: Handle old flat categories array
-            if (artwork.categories && Array.isArray(artwork.categories)) {
+            // BACKWARD COMPATIBILITY: old flat categories array, only for records that
+            // predate autoCategories/manualCategories (otherwise it re-adds replaced guesses)
+            if (Array.isArray(artwork.categories) && !artwork.autoCategories && !manual) {
                 categories.push(...artwork.categories);
             }
 

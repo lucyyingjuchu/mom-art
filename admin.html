@@ -1789,6 +1789,7 @@
 
                         draft.image = `./images/paintings/thumbnails/${draft.id}_thumb.png`;
                         draft.imageHigh = `./images/paintings/large/${draft.id}_large.png`;
+                        delete draft.imageRatio;   // new photo: the gallery measures it on load
                         
                         URL.revokeObjectURL(uploadedImages[pendingImageKey].localPreview);
                         delete uploadedImages[pendingImageKey];
@@ -1881,13 +1882,18 @@
                 existingArtwork = allArtworks.find(a => a.id === currentEditingId) || {};
             }
             
+            // Start from the existing record so fields the form doesn't show
+            // (English texts, mockup views, series, photo shape, status...) are kept
             const formData = {
+                ...existingArtwork,
                 id: artworkId,
                 title: title,
                 year: year,
                 heightCm: parseFloat(height),
                 widthCm: parseFloat(width),
                 sizeCm: `${height} × ${width} cm`,
+                heightInches: parseFloat((parseFloat(height) / 2.54).toFixed(1)),
+                widthInches: parseFloat((parseFloat(width) / 2.54).toFixed(1)),
                 format: document.getElementById('artworkFormat').value.trim(),
                 description: document.getElementById('artworkDescription').value.trim(),
                 curatorNote: document.getElementById('artworkCuratorNote').value.trim(),
@@ -1910,14 +1916,8 @@
                 imageHigh: existingArtwork.imageHigh || ''
             };
             
-            // Generate flat categories array for backward compatibility
-            const allCategories = [
-                ...formData.autoCategories.subjects,
-                ...formData.autoCategories.locations,
-                ...formData.manualCategories.subjects,
-                ...formData.manualCategories.locations
-            ];
-            formData.categories = [...new Set(allCategories)]; // Remove duplicates
+            // The old flat "categories" list would bring back guesses the hand-picked tags replace
+            delete formData.categories;
             
             console.log(`📋 Form data collected: ${formData.categories.length} total categories`);
             console.log(`   Auto: ${formData.autoCategories.subjects.length} subjects, ${formData.autoCategories.locations.length} locations`);

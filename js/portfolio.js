@@ -646,16 +646,9 @@ class ChineseArtPortfolio {
         // Use CategoryManager for filtering
         const filteredArtworks = this.getMultiFilteredArtworks(this.activeFilters, this.artworks);
 
-        // Separate artworks with real images from those without
+        // Newest first, each year's series kept together (see sortForGallery)
         const artworksWithImages = filteredArtworks.filter(artwork => this.hasRealImage(artwork));
-        const artworksWithoutImages = filteredArtworks.filter(artwork => !this.hasRealImage(artwork));
-
-        // Randomize each group separately
-        const randomizedWithImages = this.shuffleArray(artworksWithImages);
-        const randomizedWithoutImages = this.shuffleArray(artworksWithoutImages);
-
-        // Combine: images first, then placeholders
-        const prioritizedArtworks = [...randomizedWithImages, ...randomizedWithoutImages];
+        const prioritizedArtworks = this.sortForGallery(filteredArtworks);
 
         // 🆕 重要：保存當前藝廊顯示的順序
         this.currentGalleryOrder = prioritizedArtworks;
@@ -682,8 +675,9 @@ class ChineseArtPortfolio {
             }
         }
 
-        // Render artwork cards with prioritized order
-        galleryGrid.innerHTML = prioritizedArtworks.map(artwork => this.createArtworkCard(artwork)).join('');
+        // Render artwork cards, grouped by year and series
+        galleryGrid.innerHTML = this.renderGroupedCards(prioritizedArtworks);
+        this.layoutGalleryRows();
         
         // ADD THIS LINE:
         setTimeout(() => {
@@ -693,36 +687,142 @@ class ChineseArtPortfolio {
         console.log(`🎨 Gallery rendered: ${imageCount} with images, ${totalCount - imageCount} with placeholders`);
     }
 
-    // Create artwork card HTML
+    // ---- Gallery order: newest year first; inside a year, each series stays together
+    // (series in the order they first appear in artworks.json, works in file order).
+    // Works without a series form a group per main subject. Unknown years go last.
+    galleryYear(artwork) {
+        const m = String(artwork.year || '').match(/\d{4}/);
+        return m ? parseInt(m[0], 10) : -1;
+    }
+
+    gallerySeriesKey(artwork) {
+        if (artwork.series) return 'series:' + artwork.series;
+        const cats = (window.categoryManager && window.categoryManager.getArtworkCategories)
+            ? window.categoryManager.getArtworkCategories(artwork) : [];
+        return 'subject:' + (cats[0] || '');
+    }
+
+    sortForGallery(list) {
+        const fileIndex = new Map(this.artworks.map((a, i) => [a.id, i]));
+        const firstSeen = new Map();   // year|series -> first file position
+        for (const a of this.artworks) {
+            const key = this.galleryYear(a) + '|' + this.gallerySeriesKey(a);
+            if (!firstSeen.has(key)) firstSeen.set(key, fileIndex.get(a.id));
+        }
+        const withImage = a => this.hasRealImage(a) ? 0 : 1;
+        return [...list].sort((a, b) =>
+            withImage(a) - withImage(b) ||
+            this.galleryYear(b) - this.galleryYear(a) ||
+            firstSeen.get(this.galleryYear(a) + '|' + this.gallerySeriesKey(a)) -
+                firstSeen.get(this.galleryYear(b) + '|' + this.gallerySeriesKey(b)) ||
+            fileIndex.get(a.id) - fileIndex.get(b.id));
+    }
+
+    // Year headings, a small series label, and one row block per group so every
+    // group's last row stays its natural size
+    renderGroupedCards(sorted) {
+        const zh = this.currentLanguage === 'zh';
+        const groups = [];
+        for (const a of sorted) {
+            const year = this.galleryYear(a);
+            const series = a.series ? (zh ? a.series : (a.seriesEn || a.series)) : '';
+            const key = year + '|' + this.gallerySeriesKey(a);
+            const last = groups[groups.length - 1];
+            if (last && last.key === key) last.items.push(a);
+            else groups.push({ key, year, series, items: [a] });
+        }
+        let previousYear = null;
+        return groups.map(g => {
+            const yearLabel = g.year > 0 ? String(g.year) : (zh ? '年份不詳' : 'Year unknown');
+            const heading = g.year !== previousYear ? `<h3 class="gallery-year">${yearLabel}</h3>` : '';
+            previousYear = g.year;
+            return `
+                <section class="gallery-group">
+                    ${heading}
+                    ${g.series ? `<h4 class="gallery-series">${g.series}</h4>` : ''}
+                    <div class="gallery-rows">${g.items.map(a => this.createArtworkCard(a)).join('')}</div>
+                </section>`;
+        }).join('');
+    }
+
+    // Fit paintings into rows of (nearly) equal height, like a photo book: each row
+    // takes as many works as brings its height closest to the target (--row-h), then
+    // every work in it is scaled to that height. The last row of a group is never
+    // stretched. Re-runs when the gallery's width changes or a photo reports its shape.
+    layoutGalleryRows() {
+        const grid = document.getElementById('galleryGrid');
+        if (!grid) return;
+        if (!this._galleryObserver && window.ResizeObserver) {
+            let lastWidth = 0;
+            this._galleryObserver = new ResizeObserver(entries => {
+                const w = Math.round(entries[0].contentRect.width);
+                if (w && w !== lastWidth) { lastWidth = w; this.layoutGalleryRows(); }
+            });
+            this._galleryObserver.observe(grid);
+        }
+        const target = parseFloat(getComputedStyle(grid).getPropertyValue('--row-h')) || 260;
+        grid.querySelectorAll('.gallery-rows').forEach(block => {
+            const width = block.clientWidth;
+            if (!width) return;   // gallery tab hidden - the observer lays it out when shown
+            const gap = parseFloat(getComputedStyle(block).columnGap) || 0;
+            const items = [...block.children];
+            const box = el => Math.max(parseFloat(el.style.getPropertyValue('--r')) || 1, 0.5);
+            const heightFor = row => (width - gap * (row.length - 1)) / row.reduce((s, el) => s + box(el), 0);
+            const place = (row, h) => row.forEach(el => {
+                el.style.flex = `0 0 ${Math.floor(box(el) * h * 100) / 100}px`;
+            });
+            let row = [];
+            for (const el of items) {
+                const withIt = [...row, el];
+                if (row.length && heightFor(withIt) < target &&
+                    Math.abs(heightFor(row) - target) <= Math.abs(heightFor(withIt) - target)) {
+                    place(row, Math.min(heightFor(row), target * 1.25));
+                    row = [el];
+                } else {
+                    row = withIt;
+                }
+            }
+            if (row.length) place(row, Math.min(heightFor(row), target));
+        });
+    }
+
+    // A photo's real shape differs from the stored one - update it and re-fit (batched)
+    galleryRatioChanged(img, ratio) {
+        img.closest('.gallery-item').style.setProperty('--r', ratio.toFixed(3));
+        clearTimeout(this._relayoutTimer);
+        this._relayoutTimer = setTimeout(() => this.layoutGalleryRows(), 100);
+    }
+
+    // Width ÷ height of the photo, so each painting gets a box of its own shape.
+    // imageRatio is stored in artworks.json; otherwise the cm size, then the photo itself on load.
+    artworkRatio(artwork) {
+        let r = parseFloat(artwork.imageRatio);
+        if (!(r > 0) && artwork.heightCm && artwork.widthCm) r = artwork.widthCm / artwork.heightCm;
+        return r > 0 ? r : 1;
+    }
+
+    // Create artwork card HTML - the whole painting, never cropped
     createArtworkCard(artwork) {
         const title = this.getText(artwork, 'title') || this.t('common.untitled');
-        const description = this.getText(artwork, 'description') || this.t('common.noDescription');
-        
-        // Handle missing images
         const imageUrl = artwork.image || artwork.imageHigh || this.getPlaceholderImage();
-        
-        // Handle missing size - use individual dimensions if available
-        const size = artwork.heightCm && artwork.widthCm ? 
-        `${artwork.heightCm} x ${artwork.widthCm} cm` : 
-        artwork.sizeCm || this.t('common.sizeNotSpecified');
-        // Handle boolean fields with defaults
+        const size = artwork.heightCm && artwork.widthCm ?
+            `${artwork.heightCm} × ${artwork.widthCm} cm` : (artwork.sizeCm || '');
         const available = this.getBooleanValue(artwork, 'available', true);
-        
+        const year = this.galleryYear(artwork) > 0 ? artwork.year : '';
+        const ratio = this.artworkRatio(artwork).toFixed(3);
+
         return `
-            <div class="gallery-item" onclick="openLightbox('${artwork.id}', 'gallery')" data-artwork-id="${artwork.id}">
+            <div class="gallery-item" style="--r:${ratio}" onclick="openLightbox('${artwork.id}', 'gallery')" data-artwork-id="${artwork.id}">
                 <div class="gallery-item-image">
-                    <img src="${imageUrl}" alt="${title}" loading="lazy" 
+                    <img src="${imageUrl}" alt="${title}" loading="lazy"
+                         onload="const r=this.naturalWidth/this.naturalHeight; if (r && Math.abs(r-${ratio})>0.02) portfolio.galleryRatioChanged(this, r)"
                          onerror="this.src='${this.getPlaceholderImage()}'">
                 </div>
                 <div class="gallery-item-info">
                     <h3>${title}</h3>
-                    <p>${description}</p>
                     <div class="artwork-meta">
-                        <span class="year">${artwork.year || this.t('common.unknown')}</span>
-                        <span class="size">${size}</span>
-                        ${available ? 
-                            `<span class="available">${this.t('common.available')}</span>` : 
-                            `<span class="sold">${this.t('common.sold')}</span>`}
+                        ${[year, size].filter(Boolean).map(s => `<span>${s}</span>`).join('')}
+                        ${available ? '' : `<span class="sold">${this.t('common.sold')}</span>`}
                     </div>
                 </div>
             </div>
@@ -1421,18 +1521,16 @@ class ChineseArtPortfolio {
         const galleryGrid = document.getElementById('galleryGrid');
         if (!galleryGrid) return;
 
-        // Separate results with and without images
         const resultsWithImages = results.filter(artwork => this.hasRealImage(artwork));
         const resultsWithoutImages = results.filter(artwork => !this.hasRealImage(artwork));
-
-        // Prioritize images first
-        const prioritizedResults = [...resultsWithImages, ...resultsWithoutImages];
+        const prioritizedResults = this.sortForGallery(results);
 
         // 🆕 重要：搜尋結果也要保存順序
         this.currentGalleryOrder = prioritizedResults;
         console.log(`🔍 Saved search results order: ${prioritizedResults.length} artworks`);
 
-        galleryGrid.innerHTML = prioritizedResults.map(artwork => this.createArtworkCard(artwork)).join('');
+        galleryGrid.innerHTML = this.renderGroupedCards(prioritizedResults);
+        this.layoutGalleryRows();
         
         console.log(`🔍 Search results rendered: ${resultsWithImages.length} with images, ${resultsWithoutImages.length} with placeholders`);
     }

@@ -73,6 +73,7 @@ COLUMN_NAMES = {
     "available":    ["可售", "是否可售", "販售", "狀態", "available", "forsale"],
     "featured":     ["精選", "featured"],
     "price":        ["價格", "售價", "price"],
+    "series":       ["系列", "series"],
     "subjects":     ["題材", "題材分類", "分類", "類別", "subject", "subjects", "category", "categories"],
     "locations":    ["地點", "地點分類", "景點", "location", "locations", "place"],
     "photo":        ["圖片", "照片", "檔名", "圖檔", "圖片檔名", "photo", "image", "file", "filename"],
@@ -330,6 +331,8 @@ def main():
             "curatorNote": get("curatorNote"),
             "curatorNoteEn": "",
         }
+        if get("series"):
+            artwork["series"] = get("series")    # gallery keeps a year's series together
         # 題材 / 地點 columns -> hand-picked filter tags (these win over the automatic guesses)
         cats = parse_categories(get("subjects") + " " + get("locations"), category_words, f"Row {r}")
         if cats["subjects"] or cats["locations"]:
@@ -358,6 +361,9 @@ def main():
             if args.write:
                 save_resized(photo, large, LARGE_LONG_SIDE, 88)
                 save_resized(photo, thumb, THUMB_LONG_SIDE, 82)
+            with Image.open(photo) as im:
+                im = ImageOps.exif_transpose(im)
+                artwork["imageRatio"] = round(im.width / im.height, 3)   # gallery box shape
             artwork["image"] = "./" + thumb
             artwork["imageHigh"] = "./" + large
             artwork["productViews"] = [{"type": "original", "image": "./" + large}]

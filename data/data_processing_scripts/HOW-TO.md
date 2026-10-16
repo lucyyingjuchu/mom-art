@@ -22,7 +22,7 @@ Push to `main` → Netlify deploys in ~1 minute.
 5. Filter categories: `python data/data_processing_scripts/artwork_categorizer.py` (rows with a 題材 / 地點 column keep exactly those tags; the rest get keyword guesses — check them on the admin page)
 6. Commit and push.
 
-Recognised columns (Chinese or English): 標題/作品名稱, 英文標題, 年份, 高, 寬 (or 尺寸 like `135x70`), 形式 (軸/框/鏡片…), 題材 (e.g. `山水、煙雲` — 山水 瀑布 煙雲 明月 花鳥 墨竹 書法 抽象), 地點 (e.g. `玉山`), 題詩/描述, 可售, 精選, 備註, 價格, 圖片. Anything else is listed as "not used" and ignored.
+Recognised columns (Chinese or English): 標題/作品名稱, 英文標題, 年份, 高, 寬 (or 尺寸 like `135x70`), 形式 (軸/框/鏡片…), 系列 (series name, e.g. `明月` — keeps a series together in the gallery), 題材 (e.g. `山水、煙雲` — 山水 瀑布 煙雲 明月 花鳥 墨竹 書法 抽象), 地點 (e.g. `玉山`), 題詩/描述, 可售, 精選, 備註, 價格, 圖片. Anything else is listed as "not used" and ignored.
 Titles already on the site are skipped, so re-running is safe.
 
 ## Filter categories (題材 / 地點)

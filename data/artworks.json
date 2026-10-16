@@ -35,7 +35,8 @@
     "autoCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "imageRatio": 0.504
   },
   {
     "id": "019891b0-f39c-752c-bde4-db1ef1f5529c",
@@ -73,7 +74,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-752c-bde4-db1ef1f5529c_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.535
   },
   {
     "id": "019891b0-f39c-73f8-9534-0b7d90737bde",
@@ -178,7 +180,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-760d-a955-60c68a66d5be_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.534
   },
   {
     "id": "019891b0-f39c-7192-92e6-0e1d7d4a52dc",
@@ -218,7 +221,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7192-92e6-0e1d7d4a52dc_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 1.956
   },
   {
     "id": "019891b0-f39c-7036-9ac1-cbed9f6f03e5",
@@ -257,7 +261,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7036-9ac1-cbed9f6f03e5_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.527
   },
   {
     "id": "019891b0-f39c-7692-b225-e725fef10f3e",
@@ -330,7 +335,8 @@
         "type": "original-mockup",
         "image": "./images/mockups/original/019891b0-f39c-7b65-ab7f-c36ec9a747df_orig_mock.jpg"
       }
-    ]
+    ],
+    "imageRatio": 1.843
   },
   {
     "id": "019891b0-f39c-7186-94bc-b7109c05f639",
@@ -369,7 +375,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7186-94bc-b7109c05f639_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.509
   },
   {
     "id": "019891b0-f39c-7f2c-96ed-160ad3c22a3f",
@@ -407,7 +414,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7f2c-96ed-160ad3c22a3f_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.682
   },
   {
     "id": "019891b0-f39c-7bae-8206-f4788f507776",
@@ -445,7 +453,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7bae-8206-f4788f507776_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.511
   },
   {
     "id": "019891b0-f39c-7a52-b635-427bdcdca491",
@@ -487,7 +496,8 @@
         "type": "original-mockup",
         "image": "./images/mockups/original/019891b0-f39c-7a52-b635-427bdcdca491_orig_mock.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.417
   },
   {
     "id": "019891b0-f39c-7cc4-ae49-d25008e1409d",
@@ -532,7 +542,8 @@
         "type": "original-mockup",
         "image": "./images/mockups/original/019891b0-f39c-7cc4-ae49-d25008e1409d_orig_mock.jpg"
       }
-    ]
+    ],
+    "imageRatio": 1.333
   },
   {
     "id": "019891b0-f39c-79f7-8cab-78ad04b8b05d",
@@ -572,7 +583,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-79f7-8cab-78ad04b8b05d_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 1.081
   },
   {
     "id": "019891b0-f39c-7a23-a18f-085445820f6c",
@@ -610,7 +622,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7a23-a18f-085445820f6c_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.506
   },
   {
     "id": "019891b0-f39c-7e69-8910-34d57c0a6589",
@@ -652,7 +665,8 @@
         "type": "original-mockup",
         "image": "./images/mockups/original/019891b0-f39c-7e69-8910-34d57c0a6589_orig_mock.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.504
   },
   {
     "id": "019891b0-f39c-777e-98f4-ccdf31977c1d",
@@ -724,7 +738,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7839-9ec1-f0013b25f208_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.507
   },
   {
     "id": "019891b0-f39c-76d4-86ba-1ec281b83433",
@@ -764,7 +779,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-76d4-86ba-1ec281b83433_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.525
   },
   {
     "id": "019891b0-f39c-7bc8-ae41-7e14d730d294",
@@ -931,7 +947,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7834-8476-a918927593ab_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.914
   },
   {
     "id": "019891b0-f39c-7220-b00b-be8e9249f911",
@@ -968,7 +985,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7220-b00b-be8e9249f911_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.406
   },
   {
     "id": "019891b0-f39c-748f-a906-1de3f9f5b3b6",
@@ -1007,7 +1025,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-748f-a906-1de3f9f5b3b6_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.99
   },
   {
     "id": "019891b0-f39c-76be-93c8-cf4233295e95",
@@ -1045,7 +1064,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-76be-93c8-cf4233295e95_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 1.53
   },
   {
     "id": "019891b0-f39c-7a7e-b0e7-4bce5225a761",
@@ -1089,7 +1109,8 @@
     "curatorNoteEn": "",
     "formatEn": "Framed",
     "heightInches": 29.5,
-    "widthInches": 55.1
+    "widthInches": 55.1,
+    "imageRatio": 1.839
   },
   {
     "id": "019891b0-f39c-7a5f-a6de-f1a8172971f6",
@@ -1140,7 +1161,8 @@
     "curatorNoteEn": "",
     "formatEn": "Framed",
     "heightInches": 55.1,
-    "widthInches": 29.5
+    "widthInches": 29.5,
+    "imageRatio": 0.506
   },
   {
     "id": "019891b0-f39c-74e9-9011-76112f5b97a4",
@@ -1214,7 +1236,8 @@
         "type": "original-mockup",
         "image": "./images/mockups/original/019891b0-f39c-7b9e-bb65-6852f393b302_orig_mock.jpg"
       }
-    ]
+    ],
+    "imageRatio": 1.691
   },
   {
     "id": "019891b0-f39c-78c6-9e86-b1be74fe48eb",
@@ -1288,7 +1311,8 @@
         "type": "original-mockup",
         "image": "./images/mockups/original/019891b0-f39c-7b84-a80e-a928e6c46860_orig_mock.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.98
   },
   {
     "id": "019891b0-f39c-78c1-b44e-ae82a4e2d985",
@@ -1359,7 +1383,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7507-aa0e-43acd4db1f68_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.509
   },
   {
     "id": "019891b0-f39c-7136-84bc-3625d99f8651",
@@ -1399,7 +1424,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7136-84bc-3625d99f8651_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 1.515
   },
   {
     "id": "019891b0-f39c-745a-b6ad-58e4e8545268",
@@ -1437,7 +1463,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-745a-b6ad-58e4e8545268_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.527
   },
   {
     "id": "019891b0-f39c-7e85-8f83-fd90bbaf222d",
@@ -1477,7 +1504,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7e85-8f83-fd90bbaf222d_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 1.518
   },
   {
     "id": "019891b0-f39c-787c-a46f-62905fa86f16",
@@ -1515,7 +1543,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-787c-a46f-62905fa86f16_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.657
   },
   {
     "id": "019891b0-f39c-794f-912a-d6417dbb78df",
@@ -1660,7 +1689,8 @@
     "curatorNoteEn": "",
     "formatEn": "Framed",
     "heightInches": 53.1,
-    "widthInches": 27.6
+    "widthInches": 27.6,
+    "imageRatio": 0.547
   },
   {
     "id": "019891b0-f39c-74e5-8201-1f0276798b75",
@@ -1736,7 +1766,8 @@
         "type": "original-mockup",
         "image": "./images/mockups/original/019891b0-f39c-7a34-89ac-966e1e93eb42_orig_mock.jpg"
       }
-    ]
+    ],
+    "imageRatio": 1.058
   },
   {
     "id": "019891b0-f39c-7694-879a-47c9954a100b",
@@ -1812,7 +1843,8 @@
         "type": "original-mockup",
         "image": "./images/mockups/original/019891b0-f39c-7c9a-9ae8-6dccaca82b5f_orig_mock.jpg"
       }
-    ]
+    ],
+    "imageRatio": 2.589
   },
   {
     "id": "019891b0-f39c-7f16-a8d3-c83d48beb81e",
@@ -1850,7 +1882,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7f16-a8d3-c83d48beb81e_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.521
   },
   {
     "id": "019891b0-f39c-7643-8153-14cf32b528bc",
@@ -1889,7 +1922,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7643-8153-14cf32b528bc_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 1.86
   },
   {
     "id": "019891b0-f39c-7a2d-b50f-e9e6ec2e46b7",
@@ -1934,7 +1968,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7a2d-b50f-e9e6ec2e46b7_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 1.891
   },
   {
     "id": "019891b0-f39c-77f0-b10f-4fece05d42ba",
@@ -1973,7 +2008,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-77f0-b10f-4fece05d42ba_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.53
   },
   {
     "id": "019891b0-f39c-7f1a-99db-36b8e31758cb",
@@ -2010,7 +2046,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7f1a-99db-36b8e31758cb_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.998
   },
   {
     "id": "019891b0-f39c-7e21-ae47-81a6092c5a54",
@@ -2054,7 +2091,8 @@
         "type": "original-mockup",
         "image": "./images/mockups/original/019891b0-f39c-7e21-ae47-81a6092c5a54_orig_mock.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.968
   },
   {
     "id": "019891b0-f39c-7cd6-a030-0406121e5164",
@@ -2097,7 +2135,8 @@
         "type": "original-mockup",
         "image": "./images/mockups/original/019891b0-f39c-7cd6-a030-0406121e5164_orig_mock.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.537
   },
   {
     "id": "019891b0-f39c-7614-95c9-2db8260fcc98",
@@ -2134,7 +2173,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7614-95c9-2db8260fcc98_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.539
   },
   {
     "id": "019891b0-f39c-7f2c-b8af-cbff485e10a5",
@@ -2174,7 +2214,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7f2c-b8af-cbff485e10a5_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.517
   },
   {
     "id": "019891b0-f39c-728f-a1de-1b6a07cf80ff",
@@ -2212,7 +2253,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-728f-a1de-1b6a07cf80ff_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 1.582
   },
   {
     "id": "019891b0-f39c-7c2c-ab3a-8f771d7ff31d",
@@ -2263,7 +2305,8 @@
     "curatorNoteEn": "",
     "formatEn": "Hanging Scroll",
     "heightInches": 55.1,
-    "widthInches": 29.5
+    "widthInches": 29.5,
+    "imageRatio": 0.51
   },
   {
     "id": "019891b0-f39c-73e0-a9c8-0c6ccf4ed87d",
@@ -2300,7 +2343,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-73e0-a9c8-0c6ccf4ed87d_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 1.003
   },
   {
     "id": "019891b0-f39c-7817-98ab-ec870aa5b2aa",
@@ -2340,7 +2384,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7817-98ab-ec870aa5b2aa_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 1.695
   },
   {
     "id": "019891b0-f39c-7e9f-b136-621667022a8e",
@@ -2381,7 +2426,8 @@
         "type": "original-mockup",
         "image": "./images/mockups/original/019891b0-f39c-7e9f-b136-621667022a8e_orig_mock.jpg"
       }
-    ]
+    ],
+    "imageRatio": 1.014
   },
   {
     "id": "019891b0-f39c-770a-b647-6b0a8efdc639",
@@ -2421,7 +2467,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-770a-b647-6b0a8efdc639_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.975
   },
   {
     "id": "019891b0-f39c-7b7d-8e54-83ae4f652136",
@@ -2463,7 +2510,8 @@
         "type": "original-mockup",
         "image": "./images/mockups/original/019891b0-f39c-7b7d-8e54-83ae4f652136_orig_mock.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.507
   },
   {
     "id": "019891b0-f39c-78da-b5ed-b11a0a0e8bb1",
@@ -2503,7 +2551,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-78da-b5ed-b11a0a0e8bb1_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 1.338
   },
   {
     "id": "019891b0-f39c-7eb1-abf3-a892d0a3a655",
@@ -2542,7 +2591,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7eb1-abf3-a892d0a3a655_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.662
   },
   {
     "id": "019891b0-f39c-7038-a32d-0f2d0cb36be8",
@@ -2582,7 +2632,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7038-a32d-0f2d0cb36be8_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.507
   },
   {
     "id": "019891b0-f39c-755d-a7dc-fb045eb4ef1c",
@@ -2621,7 +2672,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-755d-a7dc-fb045eb4ef1c_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 1.04
   },
   {
     "id": "019891b0-f39c-7bfb-9266-f832146002dd",
@@ -2665,7 +2717,8 @@
         "type": "original-mockup",
         "image": "./images/mockups/original/019891b0-f39c-7bfb-9266-f832146002dd_orig_mock.jpg"
       }
-    ]
+    ],
+    "imageRatio": 1.053
   },
   {
     "id": "019891b0-f39c-7e6a-a74c-8f5ec5c50381",
@@ -2707,7 +2760,8 @@
         "type": "original-mockup",
         "image": "./images/mockups/original/019891b0-f39c-7e6a-a74c-8f5ec5c50381_orig_mock.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.509
   },
   {
     "id": "019891b0-f39c-7fd8-9336-d5c9897af012",
@@ -2744,7 +2798,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7fd8-9336-d5c9897af012_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 1.003
   },
   {
     "id": "019891b0-f39c-7aff-a45f-54ed6d61069b",
@@ -2782,7 +2837,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7aff-a45f-54ed6d61069b_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.521
   },
   {
     "id": "019891b0-f39c-7af0-82e2-2e72570b0aa1",
@@ -2823,7 +2879,8 @@
         "type": "original-mockup",
         "image": "./images/mockups/original/019891b0-f39c-7af0-82e2-2e72570b0aa1_orig_mock.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.627
   },
   {
     "id": "019891b0-f39c-78dc-adb1-0aa1b3b74a00",
@@ -2860,7 +2917,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-78dc-adb1-0aa1b3b74a00_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 2.01
   },
   {
     "id": "019891b0-f39c-7597-8177-ccdf69e29071",
@@ -2897,7 +2955,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7597-8177-ccdf69e29071_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 1.487
   },
   {
     "id": "019891b0-f39c-7edc-9801-8bc9199124f3",
@@ -2970,7 +3029,8 @@
         "type": "original-mockup",
         "image": "./images/mockups/original/019891b0-f39c-7c4a-a8f5-77fdf9b0873a_orig_mock.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.65
   },
   {
     "id": "019891b0-f39c-793d-819d-6c57e1716730",
@@ -3107,7 +3167,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7841-9423-b51b365a7b9c_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 1.013
   },
   {
     "id": "019891b0-f39c-7df5-a02e-1cc15d22bb57",
@@ -3148,7 +3209,8 @@
         "type": "original-mockup",
         "image": "./images/mockups/original/019891b0-f39c-7df5-a02e-1cc15d22bb57_orig_mock.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.749
   },
   {
     "id": "019891b0-f39c-7871-b204-09fa520d0d23",
@@ -3188,7 +3250,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7871-b204-09fa520d0d23_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.654
   },
   {
     "id": "019891b0-f39c-79ee-915a-34d3aa1decd1",
@@ -3226,7 +3289,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-79ee-915a-34d3aa1decd1_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.526
   },
   {
     "id": "019891b0-f39c-7d61-9f3a-c5847a00bde5",
@@ -3269,7 +3333,8 @@
         "type": "original-mockup",
         "image": "./images/mockups/original/019891b0-f39c-7d61-9f3a-c5847a00bde5_orig_mock.jpg"
       }
-    ]
+    ],
+    "imageRatio": 1.9
   },
   {
     "id": "019891b0-f39c-7904-960b-4b52cf3fe52e",
@@ -3308,7 +3373,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7904-960b-4b52cf3fe52e_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 1.966
   },
   {
     "id": "019891b0-f39c-71be-8987-5f3e69224ab5",
@@ -3349,7 +3415,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-71be-8987-5f3e69224ab5_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 2.241
   },
   {
     "id": "019891b0-f39c-7a96-8e1b-28d8310e36dd",
@@ -3390,7 +3457,8 @@
         "type": "original-mockup",
         "image": "./images/mockups/original/019891b0-f39c-7a96-8e1b-28d8310e36dd_orig_mock.jpg"
       }
-    ]
+    ],
+    "imageRatio": 1.004
   },
   {
     "id": "019891b0-f39c-78e8-be37-c859eb030659",
@@ -3433,7 +3501,8 @@
         "type": "original-mockup",
         "image": "./images/mockups/original/019891b0-f39c-78e8-be37-c859eb030659_orig_mock.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.646
   },
   {
     "id": "019891b0-f39c-72a2-ae2f-04a06f5a0c75",
@@ -3473,7 +3542,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-72a2-ae2f-04a06f5a0c75_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.656
   },
   {
     "id": "019891b0-f39c-7939-897c-cc57bc9b4a35",
@@ -3513,7 +3583,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7939-897c-cc57bc9b4a35_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 2.909
   },
   {
     "id": "019891b0-f39c-7f63-87fd-b7a8a860889f",
@@ -3553,7 +3624,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7f63-87fd-b7a8a860889f_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.662
   },
   {
     "id": "019891b0-f39c-7403-80d4-4da1440b7976",
@@ -3591,7 +3663,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7403-80d4-4da1440b7976_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.526
   },
   {
     "id": "019891b0-f39c-792d-b5e8-b80ef8754ca2",
@@ -3628,7 +3701,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-792d-b5e8-b80ef8754ca2_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.651
   },
   {
     "id": "019891b0-f39c-71dd-be15-f32291c15cc6",
@@ -3665,7 +3739,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-71dd-be15-f32291c15cc6_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.461
   },
   {
     "id": "019891b0-f39c-7b75-910e-8ef8046a7bb9",
@@ -3709,7 +3784,8 @@
         "type": "original-mockup",
         "image": "./images/mockups/original/019891b0-f39c-7b75-910e-8ef8046a7bb9_orig_mock.jpg"
       }
-    ]
+    ],
+    "imageRatio": 1.862
   },
   {
     "id": "019891b0-f39c-721b-b645-0e2a1c090d9b",
@@ -3747,7 +3823,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-721b-b645-0e2a1c090d9b_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.285
   },
   {
     "id": "019891b0-f39c-7539-8543-c9a7de487cca",
@@ -3781,7 +3858,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7539-8543-c9a7de487cca_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 1.9
   },
   {
     "id": "019891b0-f39c-7fb1-9331-58595bfdef27",
@@ -3818,7 +3896,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7fb1-9331-58595bfdef27_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.512
   },
   {
     "id": "019891b0-f39c-7995-bcb5-8b510d734e53",
@@ -3855,7 +3934,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7995-bcb5-8b510d734e53_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.512
   },
   {
     "id": "019891b0-f39c-71f0-bd5c-b448f22ef5f4",
@@ -3893,7 +3973,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-71f0-bd5c-b448f22ef5f4_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 2.003
   },
   {
     "id": "019891b0-f39c-7e7e-ab7e-4b6efd6d2dfa",
@@ -3935,7 +4016,8 @@
         "type": "original-mockup",
         "image": "./images/mockups/original/019891b0-f39c-7e7e-ab7e-4b6efd6d2dfa_orig_mock.jpg"
       }
-    ]
+    ],
+    "imageRatio": 2.01
   },
   {
     "id": "019891b0-f39c-7a31-8759-95a350b1e45b",
@@ -3976,7 +4058,8 @@
         "type": "original-mockup",
         "image": "./images/mockups/original/019891b0-f39c-7a31-8759-95a350b1e45b_orig_mock.jpg"
       }
-    ]
+    ],
+    "imageRatio": 1.088
   },
   {
     "id": "019891b0-f39c-7b15-9621-9861ba359745",
@@ -4017,7 +4100,8 @@
         "type": "original-mockup",
         "image": "./images/mockups/original/019891b0-f39c-7b15-9621-9861ba359745_orig_mock.jpg"
       }
-    ]
+    ],
+    "imageRatio": 1.058
   },
   {
     "id": "019891b0-f39c-73f5-98b1-d68da1664faf",
@@ -4058,7 +4142,8 @@
         "type": "original-mockup",
         "image": "./images/mockups/original/019891b0-f39c-73f5-98b1-d68da1664faf_orig_mock.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.255
   },
   {
     "id": "019891b0-f39c-7562-bbed-32c024cd6676",
@@ -4098,7 +4183,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7562-bbed-32c024cd6676_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 5.405
   },
   {
     "id": "019891b0-f39c-7b83-902a-1f7f7bc72183",
@@ -4142,7 +4228,8 @@
         "type": "original-mockup",
         "image": "./images/mockups/original/019891b0-f39c-7b83-902a-1f7f7bc72183_orig_mock.jpg"
       }
-    ]
+    ],
+    "imageRatio": 1.865
   },
   {
     "id": "019891b0-f39c-7809-a063-80f25d10a396",
@@ -4179,7 +4266,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7809-a063-80f25d10a396_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.939
   },
   {
     "id": "019891b0-f39c-763c-819c-62b3e41136e1",
@@ -4216,7 +4304,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-763c-819c-62b3e41136e1_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.916
   },
   {
     "id": "019891b0-f39c-7455-9267-14eb33bed415",
@@ -4260,7 +4349,8 @@
         "type": "original-mockup",
         "image": "./images/mockups/original/019891b0-f39c-7455-9267-14eb33bed415_orig_mock.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.662
   },
   {
     "id": "019891b0-f39c-70a8-aa76-019cadc5409d",
@@ -4297,7 +4387,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-70a8-aa76-019cadc5409d_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.294
   },
   {
     "id": "019891b0-f39c-729c-bef5-b90e2cafb77e",
@@ -4337,7 +4428,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-729c-bef5-b90e2cafb77e_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 2.247
   },
   {
     "id": "019891b0-f39c-7cf8-86a3-61f2f44df76f",
@@ -4380,7 +4472,8 @@
         "type": "original-mockup",
         "image": "./images/mockups/original/019891b0-f39c-7cf8-86a3-61f2f44df76f_orig_mock.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.521
   },
   {
     "id": "019891b0-f39c-719e-a185-2f66d722d5ea",
@@ -4418,7 +4511,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-719e-a185-2f66d722d5ea_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.251
   },
   {
     "id": "019891b0-f39c-7102-a694-48bd9ef009c1",
@@ -4530,7 +4624,8 @@
         "type": "original-mockup",
         "image": "./images/mockups/original/019891b0-f39c-7a90-ab98-022c8b72668e_orig_mock.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.686
   },
   {
     "id": "019891b0-f39c-728a-b3ca-313cab5b59d0",
@@ -4628,7 +4723,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7972-b2d2-06fc3c573914_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.999
   },
   {
     "id": "019891b0-f39c-749a-a0e7-de471740115b",
@@ -4698,7 +4794,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7441-a5a7-dc968e455d98_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.501
   },
   {
     "id": "019891b0-f39c-714c-be36-6f1486418c72",
@@ -4801,7 +4898,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7201-bdba-6943519e8862_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 1.928
   },
   {
     "id": "019891b0-f39c-7aa8-90f8-b40422109aad",
@@ -4969,7 +5067,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7386-a86e-60369bb2ecd5_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.505
   },
   {
     "id": "019891b0-f39c-7a10-8ea8-7399764b770b",
@@ -5168,7 +5267,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7530-ace8-fffa8fead53e_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.986
   },
   {
     "id": "019891b0-f39c-7605-8810-2ec32c05d109",
@@ -5208,7 +5308,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7605-8810-2ec32c05d109_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.53
   },
   {
     "id": "019891b0-f39c-79d8-9ef1-3daa601bdab9",
@@ -5400,7 +5501,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-70a9-9b91-b5a11b16a4e5_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 1.995
   },
   {
     "id": "019891b0-f39c-71ca-b2c1-0ccf8cbe55e2",
@@ -5476,7 +5578,8 @@
         "type": "original-mockup",
         "image": "./images/mockups/original/019891b0-f39c-7b5a-9017-6de6a497f059_orig_mock.jpg"
       }
-    ]
+    ],
+    "imageRatio": 1.99
   },
   {
     "id": "019891b0-f39c-7535-8938-34b23c8840cd",
@@ -5673,7 +5776,8 @@
         "type": "original-mockup",
         "image": "./images/mockups/original/019891b0-f39c-7b3a-a7ae-03eba18e8809_orig_mock.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.46
   },
   {
     "id": "019891b0-f39c-7972-9fe7-988683c4167b",
@@ -5869,7 +5973,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7e2c-aab1-3c1bd010b1f7_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.496
   },
   {
     "id": "019891b0-f39c-7353-828e-07b6ae7b5e06",
@@ -5903,7 +6008,8 @@
     "categories": [
       "landscape",
       "flowers"
-    ]
+    ],
+    "imageRatio": 0.996
   },
   {
     "id": "019891b0-f39c-74ce-98d6-18e6c467339f",
@@ -6070,7 +6176,8 @@
         "type": "original-mockup",
         "image": "./images/mockups/original/019891b0-f39c-7aed-9fac-21a5e94b8c1f_orig_mock.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.505
   },
   {
     "id": "019891b0-f39c-744e-b30c-7599d6a173be",
@@ -6300,7 +6407,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7764-a468-4f7ad6140df2_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.459
   },
   {
     "id": "019891b0-f39c-7ec8-a85c-a9c9c25cf4b5",
@@ -6338,7 +6446,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7ec8-a85c-a9c9c25cf4b5_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 2.0
   },
   {
     "id": "019891b0-f39c-7296-b1fe-00c0dc5bac9e",
@@ -6537,7 +6646,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-79c6-bfe0-4790c6114ae9_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 1.848
   },
   {
     "id": "019891b0-f39c-7109-bdf7-2aff4e78b0ee",
@@ -6577,7 +6687,8 @@
         "type": "original",
         "image": "./images/paintings/large/019891b0-f39c-7109-bdf7-2aff4e78b0ee_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 1.081
   },
   {
     "id": "019891b0-f39c-7c4e-b473-973fecc8171d",
@@ -6622,7 +6733,8 @@
         "type": "original-mockup",
         "image": "./images/mockups/original/019891b0-f39c-7c4e-b473-973fecc8171d_orig_mock.jpg"
       }
-    ]
+    ],
+    "imageRatio": 0.502
   },
   {
     "id": "019891b0-f39c-757c-afd8-62401715ca08",
@@ -6691,7 +6803,8 @@
         "type": "original",
         "image": "./images/paintings/large/artwork-987218839_large.jpg"
       }
-    ]
+    ],
+    "imageRatio": 2.228
   },
   {
     "id": "01a12c08-744b-7a49-a73f-aa17ced76313",
@@ -6736,7 +6849,10 @@
       "locations": [
         "iguazu"
       ]
-    }
+    },
+    "series": "山水",
+    "seriesEn": "Landscapes",
+    "imageRatio": 2.597
   },
   {
     "id": "01a12c08-760d-7f02-9e34-ee049ef3aa30",
@@ -6781,7 +6897,10 @@
     "heightCm": 146.5,
     "widthCm": 365,
     "heightInches": 57.7,
-    "widthInches": 143.7
+    "widthInches": 143.7,
+    "series": "山水",
+    "seriesEn": "Landscapes",
+    "imageRatio": 2.589
   },
   {
     "id": "01a12c08-76a6-7554-a63d-33fd120a3d6e",
@@ -6820,7 +6939,10 @@
     "heightCm": 180,
     "widthCm": 96,
     "heightInches": 70.9,
-    "widthInches": 37.8
+    "widthInches": 37.8,
+    "series": "霜林",
+    "seriesEn": "Autumn Woods",
+    "imageRatio": 0.541
   },
   {
     "id": "01a12c08-774a-7a4c-97b2-d6513cd07092",
@@ -6866,7 +6988,10 @@
     "heightCm": 185,
     "widthCm": 96,
     "heightInches": 72.8,
-    "widthInches": 37.8
+    "widthInches": 37.8,
+    "series": "山水",
+    "seriesEn": "Landscapes",
+    "imageRatio": 0.511
   },
   {
     "id": "01a12c08-78c9-726b-a131-b3ded67f2226",
@@ -6904,7 +7029,8 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "imageRatio": 0.509
   },
   {
     "id": "01a12c08-7a4d-70b2-ab6b-737569cdb762",
@@ -6942,7 +7068,8 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "imageRatio": 0.525
   },
   {
     "id": "01a12c08-7af0-79b2-b048-64ba1e583856",
@@ -6984,7 +7111,10 @@
       "locations": [
         "taroko"
       ]
-    }
+    },
+    "series": "山水",
+    "seriesEn": "Landscapes",
+    "imageRatio": 2.094
   },
   {
     "id": "01a12c08-7b4c-795f-857e-219a554dedb2",
@@ -7026,7 +7156,10 @@
         "flowingclouds"
       ],
       "locations": []
-    }
+    },
+    "series": "山水",
+    "seriesEn": "Landscapes",
+    "imageRatio": 1.822
   },
   {
     "id": "01a12c08-7c8e-7d1f-b42b-8c25e42265ea",
@@ -7069,7 +7202,10 @@
         "flowingclouds"
       ],
       "locations": []
-    }
+    },
+    "series": "山水",
+    "seriesEn": "Landscapes",
+    "imageRatio": 1.887
   },
   {
     "id": "01a12c08-7dd5-7e33-8a4f-b8ca88fd825d",
@@ -7112,7 +7248,10 @@
         "flowingclouds"
       ],
       "locations": []
-    }
+    },
+    "series": "山水",
+    "seriesEn": "Landscapes",
+    "imageRatio": 1.882
   },
   {
     "id": "01a12c08-7e53-75bc-b67d-b0f7db8ae950",
@@ -7154,7 +7293,10 @@
         "waterfall"
       ],
       "locations": []
-    }
+    },
+    "series": "山水",
+    "seriesEn": "Landscapes",
+    "imageRatio": 1.946
   },
   {
     "id": "01a12c08-7f85-7482-b5c9-28ce6c747ce7",
@@ -7195,7 +7337,10 @@
         "landscape"
       ],
       "locations": []
-    }
+    },
+    "series": "山水",
+    "seriesEn": "Landscapes",
+    "imageRatio": 1.928
   },
   {
     "id": "01a12c08-8105-7029-bf94-690d1bd84536",
@@ -7236,7 +7381,10 @@
         "landscape"
       ],
       "locations": []
-    }
+    },
+    "series": "山水",
+    "seriesEn": "Landscapes",
+    "imageRatio": 1.826
   },
   {
     "id": "01a12c08-819f-7964-8ff9-2e0d0db13ada",
@@ -7277,7 +7425,10 @@
         "flowingclouds"
       ],
       "locations": []
-    }
+    },
+    "series": "山水",
+    "seriesEn": "Landscapes",
+    "imageRatio": 1.361
   },
   {
     "id": "01a12c08-82b3-7941-9b50-01a43fc9a318",
@@ -7318,7 +7469,10 @@
     "heightCm": 141,
     "widthCm": 76,
     "heightInches": 55.5,
-    "widthInches": 29.9
+    "widthInches": 29.9,
+    "series": "山水",
+    "seriesEn": "Landscapes",
+    "imageRatio": 0.551
   },
   {
     "id": "01a12c08-83be-7111-815d-140b9e441427",
@@ -7359,7 +7513,10 @@
     "heightCm": 142,
     "widthCm": 77,
     "heightInches": 55.9,
-    "widthInches": 30.3
+    "widthInches": 30.3,
+    "series": "山水",
+    "seriesEn": "Landscapes",
+    "imageRatio": 0.547
   },
   {
     "id": "01a12c08-851e-7c3b-98af-0ddc3d36f291",
@@ -7400,7 +7557,10 @@
     "heightCm": 142,
     "widthCm": 75,
     "heightInches": 55.9,
-    "widthInches": 29.5
+    "widthInches": 29.5,
+    "series": "山水",
+    "seriesEn": "Landscapes",
+    "imageRatio": 0.517
   },
   {
     "id": "01a12c08-8670-7105-b4f4-17e755f37bd1",
@@ -7437,7 +7597,10 @@
     "heightCm": 136,
     "widthCm": 69,
     "heightInches": 53.5,
-    "widthInches": 27.2
+    "widthInches": 27.2,
+    "series": "帆影",
+    "seriesEn": "Waters & Sails",
+    "imageRatio": 0.52
   },
   {
     "id": "01a12c08-8729-74a7-8018-c717bd7fbea6",
@@ -7476,7 +7639,10 @@
     "heightCm": 176,
     "widthCm": 96,
     "heightInches": 69.3,
-    "widthInches": 37.8
+    "widthInches": 37.8,
+    "series": "帆影",
+    "seriesEn": "Waters & Sails",
+    "imageRatio": 0.545
   },
   {
     "id": "01a12c08-87d3-71d4-b8c7-57e799971b1e",
@@ -7516,7 +7682,10 @@
     "heightCm": 150,
     "widthCm": 84,
     "heightInches": 59.1,
-    "widthInches": 33.1
+    "widthInches": 33.1,
+    "series": "帆影",
+    "seriesEn": "Waters & Sails",
+    "imageRatio": 0.539
   },
   {
     "id": "01a12c08-8867-7938-9daa-e9d59a505103",
@@ -7556,7 +7725,10 @@
     "heightCm": 65,
     "widthCm": 99,
     "heightInches": 25.6,
-    "widthInches": 39.0
+    "widthInches": 39.0,
+    "series": "帆影",
+    "seriesEn": "Waters & Sails",
+    "imageRatio": 1.476
   },
   {
     "id": "01a12c08-88e7-7031-ae40-cd06faaace50",
@@ -7595,7 +7767,10 @@
     "heightCm": 64,
     "widthCm": 98,
     "heightInches": 25.2,
-    "widthInches": 38.6
+    "widthInches": 38.6,
+    "series": "帆影",
+    "seriesEn": "Waters & Sails",
+    "imageRatio": 1.518
   },
   {
     "id": "01a12c08-8974-7e58-9392-976477b460ef",
@@ -7634,7 +7809,10 @@
         "abstract"
       ],
       "locations": []
-    }
+    },
+    "series": "帆影",
+    "seriesEn": "Waters & Sails",
+    "imageRatio": 1.49
   },
   {
     "id": "01a12c08-89f9-72ee-8a49-0e273955c94a",
@@ -7674,7 +7852,10 @@
         "abstract"
       ],
       "locations": []
-    }
+    },
+    "series": "明月",
+    "seriesEn": "Moon",
+    "imageRatio": 1.256
   },
   {
     "id": "01a12c08-8a4b-7777-a0fc-dc13cd47ccab",
@@ -7715,7 +7896,10 @@
         "flowingclouds"
       ],
       "locations": []
-    }
+    },
+    "series": "明月",
+    "seriesEn": "Moon",
+    "imageRatio": 0.599
   },
   {
     "id": "01a12c08-8bb5-77ae-a7c0-5f7cf426c475",
@@ -7755,7 +7939,10 @@
         "landscape"
       ],
       "locations": []
-    }
+    },
+    "series": "明月",
+    "seriesEn": "Moon",
+    "imageRatio": 0.335
   },
   {
     "id": "01a12c08-8c41-706c-81b9-bed4223b5b0b",
@@ -7793,7 +7980,10 @@
         "landscape"
       ],
       "locations": []
-    }
+    },
+    "series": "明月",
+    "seriesEn": "Moon",
+    "imageRatio": 0.661
   },
   {
     "id": "01a12c08-8ca0-751d-bbfb-5441bc66e8d6",
@@ -7833,7 +8023,10 @@
         "abstract"
       ],
       "locations": []
-    }
+    },
+    "series": "明月",
+    "seriesEn": "Moon",
+    "imageRatio": 0.604
   },
   {
     "id": "01a12c08-8d3e-782e-b66e-2cd9a498fa2d",
@@ -7871,7 +8064,10 @@
         "abstract"
       ],
       "locations": []
-    }
+    },
+    "series": "明月",
+    "seriesEn": "Moon",
+    "imageRatio": 0.664
   },
   {
     "id": "01a12c08-8de6-7852-b660-c075ff2067d1",
@@ -7911,7 +8107,10 @@
         "abstract"
       ],
       "locations": []
-    }
+    },
+    "series": "明月",
+    "seriesEn": "Moon",
+    "imageRatio": 0.586
   },
   {
     "id": "01a12c08-8eb1-74de-a953-1a918c927ee4",
@@ -7949,7 +8148,10 @@
         "abstract"
       ],
       "locations": []
-    }
+    },
+    "series": "明月",
+    "seriesEn": "Moon",
+    "imageRatio": 0.634
   },
   {
     "id": "01a12c08-8f83-785f-a4e1-6c45d9d8d9c2",
@@ -7989,7 +8191,10 @@
         "abstract"
       ],
       "locations": []
-    }
+    },
+    "series": "明月",
+    "seriesEn": "Moon",
+    "imageRatio": 0.636
   },
   {
     "id": "01a12c08-903b-7173-b9c7-4eb24f9695e6",
@@ -8029,7 +8234,10 @@
         "abstract"
       ],
       "locations": []
-    }
+    },
+    "series": "明月",
+    "seriesEn": "Moon",
+    "imageRatio": 0.645
   },
   {
     "id": "01a12c08-90d5-71f6-9411-2ec27d458231",
@@ -8067,7 +8275,10 @@
         "abstract"
       ],
       "locations": []
-    }
+    },
+    "series": "明月",
+    "seriesEn": "Moon",
+    "imageRatio": 0.654
   },
   {
     "id": "01a12c08-9182-7522-b1d0-512382018d51",
@@ -8105,7 +8316,10 @@
         "abstract"
       ],
       "locations": []
-    }
+    },
+    "series": "明月",
+    "seriesEn": "Moon",
+    "imageRatio": 0.651
   },
   {
     "id": "01a12c08-9209-7473-9eb7-f22af9600970",
@@ -8143,7 +8357,10 @@
         "abstract"
       ],
       "locations": []
-    }
+    },
+    "series": "明月",
+    "seriesEn": "Moon",
+    "imageRatio": 0.641
   },
   {
     "id": "01a12c08-929f-7ce0-9650-14a0c3ea66d1",
@@ -8183,7 +8400,10 @@
         "abstract"
       ],
       "locations": []
-    }
+    },
+    "series": "光",
+    "seriesEn": "Light",
+    "imageRatio": 0.672
   },
   {
     "id": "01a12c08-9355-701b-b10b-518c0b56c9af",
@@ -8223,7 +8443,10 @@
         "abstract"
       ],
       "locations": []
-    }
+    },
+    "series": "光",
+    "seriesEn": "Light",
+    "imageRatio": 0.667
   },
   {
     "id": "01a12c08-93ef-7162-b124-102ca0bf526c",
@@ -8261,7 +8484,10 @@
         "abstract"
       ],
       "locations": []
-    }
+    },
+    "series": "光",
+    "seriesEn": "Light",
+    "imageRatio": 0.629
   },
   {
     "id": "01a12c08-9479-729a-8712-a665908575a6",
@@ -8301,7 +8527,10 @@
         "abstract"
       ],
       "locations": []
-    }
+    },
+    "series": "光",
+    "seriesEn": "Light",
+    "imageRatio": 0.75
   },
   {
     "id": "01a12c08-94f1-700d-8ed8-4959350018f9",
@@ -8338,7 +8567,10 @@
         "abstract"
       ],
       "locations": []
-    }
+    },
+    "series": "光",
+    "seriesEn": "Light",
+    "imageRatio": 0.684
   },
   {
     "id": "01a12c08-958a-7dde-908c-1126e2202a2a",
@@ -8375,7 +8607,10 @@
         "abstract"
       ],
       "locations": []
-    }
+    },
+    "series": "光",
+    "seriesEn": "Light",
+    "imageRatio": 0.671
   },
   {
     "id": "01a12c08-961d-7601-8d24-5c3fccde7d12",
@@ -8415,7 +8650,10 @@
         "abstract"
       ],
       "locations": []
-    }
+    },
+    "series": "光",
+    "seriesEn": "Light",
+    "imageRatio": 0.651
   },
   {
     "id": "01a12c08-96ac-71f5-8f88-8d7875f7e5dc",
@@ -8456,7 +8694,10 @@
         "waterfall"
       ],
       "locations": []
-    }
+    },
+    "series": "山水",
+    "seriesEn": "Landscapes",
+    "imageRatio": 0.642
   },
   {
     "id": "01a12c08-9747-78f0-aa9d-a3fad98f6d87",
@@ -8496,7 +8737,10 @@
     "heightCm": 140,
     "widthCm": 38,
     "heightInches": 55.1,
-    "widthInches": 15.0
+    "widthInches": 15.0,
+    "series": "山水",
+    "seriesEn": "Landscapes",
+    "imageRatio": 0.268
   },
   {
     "id": "01a12c08-98a8-7ba2-b060-fa8b2abcc3de",
@@ -8533,7 +8777,10 @@
         "flowingclouds"
       ],
       "locations": []
-    }
+    },
+    "series": "山水",
+    "seriesEn": "Landscapes",
+    "imageRatio": 0.255
   },
   {
     "id": "01a12c08-9a25-756b-8649-4f135033e118",
@@ -8574,7 +8821,10 @@
     "heightCm": 137,
     "widthCm": 34,
     "heightInches": 53.9,
-    "widthInches": 13.4
+    "widthInches": 13.4,
+    "series": "山水",
+    "seriesEn": "Landscapes",
+    "imageRatio": 0.246
   },
   {
     "id": "01a12c08-9b7b-7744-bb98-e42bd8d8b969",
@@ -8614,7 +8864,10 @@
         "landscape"
       ],
       "locations": []
-    }
+    },
+    "series": "山水",
+    "seriesEn": "Landscapes",
+    "imageRatio": 1.626
   },
   {
     "id": "01a12c08-9d41-74ca-8229-7e6b61b01e3f",
@@ -8654,7 +8907,10 @@
         "landscape"
       ],
       "locations": []
-    }
+    },
+    "series": "山水",
+    "seriesEn": "Landscapes",
+    "imageRatio": 1.623
   },
   {
     "id": "01a12c08-9e9e-7329-88b3-0a0a087136b3",
@@ -8696,7 +8952,10 @@
         "flowingclouds"
       ],
       "locations": []
-    }
+    },
+    "series": "山水",
+    "seriesEn": "Landscapes",
+    "imageRatio": 1.024
   },
   {
     "id": "01a12c08-9f30-7fc1-a07d-22ded6129946",
@@ -8737,7 +8996,10 @@
         "flowingclouds"
       ],
       "locations": []
-    }
+    },
+    "series": "山水",
+    "seriesEn": "Landscapes",
+    "imageRatio": 1.093
   },
   {
     "id": "01a12c08-a115-781f-8a11-3a51690795dc",
@@ -8778,7 +9040,10 @@
         "flowingclouds"
       ],
       "locations": []
-    }
+    },
+    "series": "山水",
+    "seriesEn": "Landscapes",
+    "imageRatio": 1.078
   },
   {
     "id": "01a12c08-a319-7f09-846e-57ec660f5807",
@@ -8819,7 +9084,10 @@
         "flowingclouds"
       ],
       "locations": []
-    }
+    },
+    "series": "山水",
+    "seriesEn": "Landscapes",
+    "imageRatio": 1.103
   },
   {
     "id": "01a12c08-a50e-7059-b5c1-ca391d0e4f0b",
@@ -8861,7 +9129,10 @@
         "flowingclouds"
       ],
       "locations": []
-    }
+    },
+    "series": "山水",
+    "seriesEn": "Landscapes",
+    "imageRatio": 0.934
   },
   {
     "id": "01a12c08-a5b7-70e7-8529-32dc34f94467",
@@ -8898,7 +9169,10 @@
     "heightCm": 77,
     "widthCm": 46,
     "heightInches": 30.3,
-    "widthInches": 18.1
+    "widthInches": 18.1,
+    "series": "霜林",
+    "seriesEn": "Autumn Woods",
+    "imageRatio": 0.604
   },
   {
     "id": "01a12c08-a6cb-7387-b65e-ae888d412c52",
@@ -8935,7 +9209,10 @@
     "heightCm": 52,
     "widthCm": 75,
     "heightInches": 20.5,
-    "widthInches": 29.5
+    "widthInches": 29.5,
+    "series": "霜林",
+    "seriesEn": "Autumn Woods",
+    "imageRatio": 1.479
   },
   {
     "id": "01a12c08-a760-73c3-96a3-cc7d528d191d",
@@ -8973,7 +9250,8 @@
     "manualCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "imageRatio": 0.661
   },
   {
     "id": "01a12c32-fa30-73db-95d5-fcf84fc9b6df",
@@ -9010,7 +9288,8 @@
     "autoCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "imageRatio": 0.526
   },
   {
     "id": "01a12c32-fae0-74b5-8639-7f9711bc320e",
@@ -9047,7 +9326,8 @@
     "autoCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "imageRatio": 0.677
   },
   {
     "id": "01a12c32-fcaf-7ea9-aeb7-470e064888bc",
@@ -9084,7 +9364,8 @@
     "autoCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "imageRatio": 0.266
   },
   {
     "id": "01a12c32-fd1e-7d89-be39-684944073edd",
@@ -9122,7 +9403,8 @@
     "autoCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "imageRatio": 1.512
   },
   {
     "id": "01a12c32-fd8c-7321-8ec9-0e56702657f0",
@@ -9159,7 +9441,8 @@
     "autoCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "imageRatio": 0.654
   },
   {
     "id": "01a12c32-fdf8-7498-a075-a3fa93f187a0",
@@ -9196,7 +9479,8 @@
     "autoCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "imageRatio": 0.649
   },
   {
     "id": "01a12c32-fe61-74db-9b2b-f99316181076",
@@ -9233,6 +9517,7 @@
     "autoCategories": {
       "subjects": [],
       "locations": []
-    }
+    },
+    "imageRatio": 0.995
   }
 ]
