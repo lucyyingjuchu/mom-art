@@ -23,6 +23,25 @@
     {
       "year": 2026,
       "type": "group",
+      "start": "2026-08-01",
+      "end": "2026-08-26",
+      "title": {
+        "zh": "〔擺盪之水〕臺灣當代藝術中的伏流與漫延（2026 威尼斯雙年展衛星展）",
+        "en": "“Unstable Waters: Undercurrents and Diffusions in Contemporary Art from Taiwan” (2026 Venice Biennale satellite exhibition)"
+      },
+      "venue": {
+        "zh": "義大利威尼斯 亞布里奇宮（Palazzo Albrizzi-Capello）",
+        "en": "Palazzo Albrizzi-Capello, Venice, Italy"
+      },
+      "note": {
+        "zh": "策展人黃智陽；與黃光男、杜忠誥、李蕭錕、羅振賢等 34 位臺灣當代水墨書畫藝術家聯展。",
+        "en": "Curated by Huang Chih-yang, with 34 contemporary Taiwanese ink and calligraphy artists including Huang Kuang-nan, Tu Chung-kao, Li Hsiao-kun and Luo Zhen-xian."
+      },
+      "link": "https://artemperor.tw/tidbits/20178"
+    },
+    {
+      "year": 2026,
+      "type": "group",
       "start": "",
       "end": "2026-06-14",
       "title": {
