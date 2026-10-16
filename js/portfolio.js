@@ -726,7 +726,9 @@ class ChineseArtPortfolio {
         for (const a of sorted) {
             const year = this.galleryYear(a);
             const series = a.series ? (zh ? a.series : (a.seriesEn || a.series)) : '';
-            const key = year + '|' + this.gallerySeriesKey(a);
+            // named series get their own block; other works of a year flow together
+            // (still sorted by subject) so small groups don't leave lone paintings
+            const key = year + '|' + (a.series || '');
             const last = groups[groups.length - 1];
             if (last && last.key === key) last.items.push(a);
             else groups.push({ key, year, series, items: [a] });
@@ -771,18 +773,24 @@ class ChineseArtPortfolio {
             const place = (row, h) => row.forEach(el => {
                 el.style.flex = `0 0 ${Math.floor(box(el) * h * 100) / 100}px`;
             });
+            // Vertical paintings get taller rows: the target grows as the row's average
+            // shape gets narrower (up to 2x), so scrolls show ~2 per row on a phone
+            const targetFor = row => {
+                const avg = row.reduce((s, el) => s + box(el), 0) / row.length;
+                return target * Math.min(2, Math.max(1, 1 / avg));
+            };
+            const miss = row => Math.abs(Math.log(heightFor(row) / targetFor(row)));
             let row = [];
             for (const el of items) {
                 const withIt = [...row, el];
-                if (row.length && heightFor(withIt) < target &&
-                    Math.abs(heightFor(row) - target) <= Math.abs(heightFor(withIt) - target)) {
-                    place(row, Math.min(heightFor(row), target * 1.25));
+                if (row.length && heightFor(withIt) < targetFor(withIt) && miss(row) <= miss(withIt)) {
+                    place(row, Math.min(heightFor(row), targetFor(row) * 1.25));
                     row = [el];
                 } else {
                     row = withIt;
                 }
             }
-            if (row.length) place(row, Math.min(heightFor(row), target));
+            if (row.length) place(row, Math.min(heightFor(row), targetFor(row)));
         });
     }
 
