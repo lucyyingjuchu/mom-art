@@ -679,13 +679,6 @@ class ChineseArtPortfolio {
                 : `${imageCount} ${imageCount === 1 ? 'work' : 'works'}`;
         }
 
-        // Wall view: true scale, one wall per year / series. Grid: scaled rows.
-        if (this.isWallView()) {
-            galleryGrid.classList.add('is-wall');
-            galleryGrid.innerHTML = this.renderWallView(prioritizedArtworks);
-            return;
-        }
-        galleryGrid.classList.remove('is-wall');
         // Render artwork cards, grouped by year and series
         galleryGrid.innerHTML = this.renderGroupedCards(prioritizedArtworks);
         this.layoutGalleryRows();
@@ -727,87 +720,6 @@ class ChineseArtPortfolio {
             firstSeen.get(this.galleryYear(a) + '|' + this.gallerySeriesKey(a)) -
                 firstSeen.get(this.galleryYear(b) + '|' + this.gallerySeriesKey(b)) ||
             fileIndex.get(a.id) - fileIndex.get(b.id));
-    }
-
-    // ---- Wall view: every painting at its true size relative to the others, hung
-    // with its centre at eye level (150 cm) on a wall, next to a 170 cm visitor.
-    // Visitors scroll sideways along each wall, as if walking through the room.
-    renderWallView(sorted) {
-        const zh = this.currentLanguage === 'zh';
-        const esc = str => String(str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-        const dims = a => {
-            let h = parseFloat(a.heightCm), w = parseFloat(a.widthCm);
-            if (!(h > 0 && w > 0)) {   // size unknown: assume a standard 4-chi work of its shape
-                const r = this.artworkRatio(a);
-                h = Math.sqrt(9248 / r); w = h * r;
-            }
-            return { h, w, known: parseFloat(a.heightCm) > 0 && parseFloat(a.widthCm) > 0 };
-        };
-        const tallest = Math.max(180, ...sorted.map(a => dims(a).h));
-        const wallCm = Math.max(260, tallest + 60);
-        const wallPx = window.innerWidth < 768 ? 360 : Math.min(560, Math.max(420, window.innerHeight * 0.62));
-        const ppc = wallPx / wallCm;               // pixels per centimetre, same on every wall
-        const gapPx = Math.max(24, 50 * ppc);       // 50 cm between paintings
-        const eye = 150;                            // museum hanging height (centre of the work)
-
-        const person = `
-            <figure class="wall-person" style="height:${170 * ppc}px;width:${46 * ppc}px" aria-hidden="true">
-                <svg viewBox="0 0 46 170" preserveAspectRatio="xMidYMax meet">
-                    <circle cx="23" cy="11" r="10"/>
-                    <path d="M11 26 h24 l4 58 h-7 l-1 -40 h-2 v126 h-9 v-74 h-2 v74 h-9 v-126 h-2 l-1 40 h-7 z"/>
-                </svg>
-            </figure>`;
-
-        const groups = [];
-        for (const a of sorted) {
-            const year = this.galleryYear(a);
-            const series = a.series ? (zh ? a.series : (a.seriesEn || a.series)) : '';
-            const key = year + '|' + (a.series || '');
-            const last = groups[groups.length - 1];
-            if (last && last.key === key) last.items.push(a);
-            else groups.push({ key, year, series, items: [a] });
-        }
-
-        let previousYear = null;
-        const walls = groups.map(g => {
-            const yearLabel = g.year > 0 ? String(g.year) : (zh ? '年份不詳' : 'Year unknown');
-            const heading = g.year !== previousYear ? `<h3 class="gallery-year">${yearLabel}</h3>` : '';
-            previousYear = g.year;
-            const works = g.items.map(a => {
-                const { h, w, known } = dims(a);
-                const topCm = Math.max(20, wallCm - eye - h / 2);
-                const title = esc(this.getText(a, 'title') || this.t('common.untitled'));
-                const year = this.galleryYear(a) > 0 ? a.year : '';
-                const size = known ? `${a.heightCm} × ${a.widthCm} cm` : '';
-                return `
-                    <figure class="wall-work" style="width:${(w * ppc).toFixed(1)}px;margin-top:${(topCm * ppc).toFixed(1)}px;margin-right:${gapPx.toFixed(1)}px"
-                            onclick="openLightbox('${a.id}', 'gallery')" data-artwork-id="${a.id}">
-                        <img src="${esc(a.image || a.imageHigh || this.getPlaceholderImage())}" alt="${title}" loading="lazy"
-                             style="width:${(w * ppc).toFixed(1)}px;height:${(h * ppc).toFixed(1)}px">
-                        <figcaption><span>${title}</span><small>${[year, size].filter(Boolean).join(' · ')}</small></figcaption>
-                    </figure>`;
-            }).join('');
-            return `
-                <section class="gallery-group wall-group">
-                    ${heading}
-                    ${g.series ? `<h4 class="gallery-series">${esc(g.series)}</h4>` : ''}
-                    <div class="wall-frame">
-                        <div class="wall" style="height:${wallPx}px" tabindex="0" aria-label="${zh ? '展牆，可左右捲動' : 'Gallery wall, scroll sideways'}">
-                            <div class="wall-track" style="padding-left:${gapPx.toFixed(1)}px">${person}${works}</div>
-                        </div>
-                        <button type="button" class="wall-arrow prev" aria-label="${zh ? '往左' : 'Scroll left'}"
-                            onclick="const w=this.parentElement.querySelector('.wall'); w.scrollBy({left:-w.clientWidth*0.8, behavior:'smooth'})">‹</button>
-                        <button type="button" class="wall-arrow next" aria-label="${zh ? '往右' : 'Scroll right'}"
-                            onclick="const w=this.parentElement.querySelector('.wall'); w.scrollBy({left:w.clientWidth*0.8, behavior:'smooth'})">›</button>
-                    </div>
-                </section>`;
-        }).join('');
-
-        return `
-            <p class="wall-note">${zh
-                ? `依原作真實比例懸掛，畫心中心距地 150 公分；人形高 170 公分。左右滑動，點畫作可放大欣賞。`
-                : `Hung at true relative scale, centred 150 cm above the floor; the figure is 170 cm tall. Scroll sideways; tap a painting to look closer.`}</p>
-            ${walls}`;
     }
 
     // Year headings, a small series label, and one row block per group so every
@@ -1053,16 +965,11 @@ class ChineseArtPortfolio {
         const current = this.galleryTab || 'all';
         const tabs = this.getGalleryTabs().filter(tab => tab.key === 'all' ||
             this.getMultiFilteredArtworks({ subject: tab.subjects }, this.artworks).length > 0);
-        const wall = this.isWallView();
         return `
             <nav class="gallery-tabs" aria-label="${zh ? '作品系列' : 'Series'}">
                 ${tabs.map(tab => `<button type="button" class="gallery-tab${tab.key === current ? ' active' : ''}"
                     data-tab="${tab.key}" aria-pressed="${tab.key === current}">${zh ? tab.zh : tab.en}</button>`).join('')}
             </nav>
-            <div class="gallery-view-toggle" role="group" aria-label="${zh ? '檢視方式' : 'View'}">
-                <button type="button" data-view="grid" class="${wall ? '' : 'active'}" aria-pressed="${!wall}">${zh ? '作品牆' : 'Grid'}</button>
-                <button type="button" data-view="wall" class="${wall ? 'active' : ''}" aria-pressed="${wall}">${zh ? '展牆檢視 · 真實比例' : 'Wall view · true scale'}</button>
-            </div>
         `;
     }
 
@@ -1125,32 +1032,11 @@ class ChineseArtPortfolio {
         }
     }
 
-    // Series tab + view toggle listeners
+    // Series tab listeners
     setupFilterListeners() {
         document.querySelectorAll('.gallery-tab').forEach(btn => {
             btn.addEventListener('click', () => this.setGalleryTab(btn.dataset.tab));
         });
-        document.querySelectorAll('.gallery-view-toggle button').forEach(btn => {
-            btn.addEventListener('click', () => this.setWallView(btn.dataset.view === 'wall'));
-        });
-    }
-
-    isWallView() {
-        if (this._wallView === undefined) {
-            try { this._wallView = localStorage.getItem('galleryView') === 'wall'; } catch (e) { this._wallView = false; }
-        }
-        return this._wallView;
-    }
-
-    setWallView(on) {
-        this._wallView = !!on;
-        try { localStorage.setItem('galleryView', on ? 'wall' : 'grid'); } catch (e) { /* private mode */ }
-        document.querySelectorAll('.gallery-view-toggle button').forEach(btn => {
-            const active = (btn.dataset.view === 'wall') === this._wallView;
-            btn.classList.toggle('active', active);
-            btn.setAttribute('aria-pressed', active);
-        });
-        this.renderGallery();
     }
     
     // Render featured works on home page with museum-quality presentation
