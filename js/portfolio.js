@@ -845,6 +845,33 @@ class ChineseArtPortfolio {
             }
             const rows = [...kinds.values()].flatMap(list => fitRows(list))
                 .sort((a, b) => a.items[0].dataset.idx - b.items[0].dataset.idx);
+            // Tidy-up: a row holding a single painting that fills less than half the width
+            // joins the neighbouring row (the previous one if possible), unless that would
+            // put a small piece next to a large work.
+            const rowWidth = r => r.items.reduce((sum, el) => sum + box(el) * r.h, 0);
+            const canShare = list => !(list.some(el => sizeClass(el) === 'S') && list.some(el => sizeClass(el) === 'L'));
+            // If only a large work is next door, they share a row drawn at medium size.
+            const mediumTarget = list => {
+                const avg = list.reduce((sum, el) => sum + box(el), 0) / list.length;
+                return Math.min(target * Math.min(2, Math.max(1, 1 / avg)), maxH);
+            };
+            for (const strict of [true, false]) {
+                for (let i = 0; i < rows.length; i++) {
+                    const r = rows[i];
+                    if (r.items.length !== 1 || rowWidth(r) >= width * 0.5) continue;
+                    for (const j of [i - 1, i + 1]) {
+                        const other = rows[j];
+                        if (!other) continue;
+                        const both = j < i ? [...other.items, ...r.items] : [...r.items, ...other.items];
+                        const ok = canShare(both);
+                        if (strict && !ok) continue;
+                        const h = Math.min(heightFor(both), ok ? targetFor(both) : mediumTarget(both));
+                        rows.splice(Math.min(i, j), 2, { items: both, h });
+                        i = Math.max(-1, Math.min(i, j) - 1);   // re-check from the merged row
+                        break;
+                    }
+                }
+            }
             for (const { items: row, h } of rows) {
                 for (const el of row) {
                     el.style.flex = `0 0 ${Math.floor(box(el) * h * 100) / 100}px`;
