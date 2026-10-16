@@ -1,7 +1,7 @@
 {
   "categories": {
     "subjects": [
-      "waterfall", "landscape", "flowingclouds", "flowers", 
+      "waterfall", "landscape", "flowingclouds", "moon", "flowers", 
       "bamboo", "calligraphy", "abstract", "traditional"
     ],
     "locations": [
@@ -16,6 +16,7 @@
         "waterfall": "瀑布",
         "landscape": "山水",
         "flowingclouds": "煙雲", 
+        "moon": "明月",
         "flowers": "花鳥",
         "bamboo": "墨竹",
         "calligraphy": "書法",
@@ -54,6 +55,7 @@
         "waterfall": "Waterfalls",
         "landscape": "Landscape",
         "flowingclouds": "Flowing Clouds", 
+        "moon": "Moon",
         "flowers": "Flowers & Birds",
         "bamboo": "Bamboo",
         "calligraphy": "Calligraphy",
@@ -92,6 +94,7 @@
     "waterfall": ["瀑布", "waterfall", "falls", "cascade","瀑"],
     "landscape": ["山水", "landscape", "mountain", "scenery", "風景","天","湖","海","河","溪","森","林","樹","田","楓","秋","冬","春","壑","峰","嶺","嶼","山","島"],
     "flowingclouds": ["煙雲", "雲", "flowingclouds", "clouds", "mist", "vapor","煙", "霧","霞","雨"],
+    "moon": ["明月", "月亮", "月華", "月娘", "月出", "moon"],
     "flowers": ["花鳥", "flowers", "birds", "floral", "botanical", "花卉", "紫藤", "菊", "牡丹", "梅","櫻", "蘭", "荷","蓮", "鳥","康乃馨","杜鵑"],
     "bamboo": ["墨竹", "竹", "bamboo", "ink bamboo"],
     "calligraphy": ["書法", "calligraphy", "書", "writing", "script","經","詩","字","文","詞","序","賦","帖","論","章","集","草","篆","隸"],

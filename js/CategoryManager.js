@@ -268,31 +268,20 @@ if (!window.categoryManagerLoaded) {
         getArtworkCategories(artwork) {
             const categories = [];
 
-            // NEW STRUCTURE: Merge autoCategories and manualCategories
-            if (artwork.autoCategories) {
-                if (artwork.autoCategories.subjects) {
-                    categories.push(...artwork.autoCategories.subjects);
-                }
-                if (artwork.autoCategories.locations) {
-                    categories.push(...artwork.autoCategories.locations);
-                }
-            }
+            // Hand-picked tags (manualCategories) win over keyword guesses (autoCategories):
+            // if someone chose subjects by hand, the guessed subjects are ignored; same for locations.
+            const manual = artwork.manualCategories;
+            const manualObj = manual && !Array.isArray(manual) && typeof manual === 'object' ? manual : null;
+            const auto = artwork.autoCategories || {};
+            const manualSubjects = manualObj?.subjects || [];
+            const manualLocations = manualObj?.locations || [];
 
-            if (artwork.manualCategories) {
-                // Handle both old (array) and new (object) manual category formats
-                if (Array.isArray(artwork.manualCategories)) {
-                    // Old format: ["花鳥", "黃山"] - convert Chinese to English
-                    const normalizedManual = this.normalizeCategories(artwork.manualCategories);
-                    categories.push(...normalizedManual);
-                } else if (typeof artwork.manualCategories === 'object') {
-                    // New format: {subjects: ["flowers"], locations: ["huangshan"]}
-                    if (artwork.manualCategories.subjects) {
-                        categories.push(...artwork.manualCategories.subjects);
-                    }
-                    if (artwork.manualCategories.locations) {
-                        categories.push(...artwork.manualCategories.locations);
-                    }
-                }
+            categories.push(...(manualSubjects.length ? manualSubjects : (auto.subjects || [])));
+            categories.push(...(manualLocations.length ? manualLocations : (auto.locations || [])));
+
+            if (Array.isArray(manual)) {
+                // Old format: ["花鳥", "黃山"] - convert Chinese to English
+                categories.push(...this.normalizeCategories(manual));
             }
 
             // BACKWARD COMPATIBILITY: Handle old flat categories array

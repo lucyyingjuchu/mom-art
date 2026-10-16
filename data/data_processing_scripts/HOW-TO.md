@@ -19,11 +19,15 @@ Push to `main` → Netlify deploys in ~1 minute.
    `python data/data_processing_scripts/excel_import.py 作品清單.xlsx --photos 照片/`
 3. If it looks right, add `--write`.
 4. English titles/poems: ask Claude, or run `Unified_translator.py` (fills only empty English fields).
-5. Filter categories: `python data/data_processing_scripts/artwork_categorizer.py`
+5. Filter categories: `python data/data_processing_scripts/artwork_categorizer.py` (rows with a 題材 / 地點 column keep exactly those tags; the rest get keyword guesses — check them on the admin page)
 6. Commit and push.
 
-Recognised columns (Chinese or English): 標題/作品名稱, 英文標題, 年份, 高, 寬 (or 尺寸 like `135x70`), 形式 (軸/框/鏡片…), 題詩/描述, 可售, 精選, 備註, 價格, 圖片. Anything else is listed as "not used" and ignored.
+Recognised columns (Chinese or English): 標題/作品名稱, 英文標題, 年份, 高, 寬 (or 尺寸 like `135x70`), 形式 (軸/框/鏡片…), 題材 (e.g. `山水、煙雲` — 山水 瀑布 煙雲 明月 花鳥 墨竹 書法 抽象), 地點 (e.g. `玉山`), 題詩/描述, 可售, 精選, 備註, 價格, 圖片. Anything else is listed as "not used" and ignored.
 Titles already on the site are skipped, so re-running is safe.
+
+## Filter categories (題材 / 地點)
+
+Hand-picked tags (admin page ✏️ 手動分類, or the Excel 題材 column) replace the automatic keyword guesses: once a work has any hand-picked 題材, the site shows only those. Add a new 題材 in `data/category-config.json` (list + zh/en label).
 
 ## Drafts (unfinished works)
 
