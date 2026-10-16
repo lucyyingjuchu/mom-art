@@ -1,6 +1,25 @@
 {
-  "_howTo": "Newest first. type: solo | duo | group. start/end (YYYY-MM-DD) are optional — when today falls between them the show appears under 'On view now', and a future start appears under 'Upcoming'. link is optional (press or venue page).",
+  "_howTo": "Newest first. type: solo | duo | group. start/end (YYYY-MM-DD) are optional — when today falls between them the show appears under 'On view now', and a future start appears under 'Upcoming'. link is optional (press or venue page). start may be month-only (YYYY-MM) while exact dates are not yet announced.",
   "exhibitions": [
+    {
+      "year": 2026,
+      "type": "solo",
+      "start": "2026-12",
+      "end": "",
+      "title": {
+        "zh": "袁之靜水墨展（展名即將公布）",
+        "en": "Yuan Chi-Jing Ink Painting Exhibition (title to be announced)"
+      },
+      "venue": {
+        "zh": "台中豐原（場館與展期即將公布）",
+        "en": "Fengyuan, Taichung (venue and dates to be announced)"
+      },
+      "note": {
+        "zh": "",
+        "en": ""
+      },
+      "link": ""
+    },
     {
       "year": 2026,
       "type": "solo",

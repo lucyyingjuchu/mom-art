@@ -30,6 +30,10 @@
         if (!d) return '';
         const [y, m, day] = String(d).split('-');
         if (!m) return y;
+        if (!day) {
+            const monthsLong = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            return lang() === 'zh' ? `${y} 年 ${parseInt(m, 10)} 月` : `${monthsLong[parseInt(m, 10) - 1]} ${y}`;
+        }
         if (lang() === 'zh') return withYear ? `${y}.${m}.${day}` : `${parseInt(m, 10)}/${parseInt(day, 10)}`;
         const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
         const md = `${months[parseInt(m, 10) - 1]} ${parseInt(day, 10)}`;
@@ -61,7 +65,7 @@
         const link = safeUrl(e.link);
         const dates = e.start && e.end
             ? `${formatDate(e.start)} – ${formatDate(e.end, lang() !== 'zh' ? true : false)}`
-            : '';
+            : formatDate(e.start);
         return `
         <article class="show-card">
             <span class="show-label">${esc(label)}</span>
