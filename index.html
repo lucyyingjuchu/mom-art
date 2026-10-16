@@ -389,79 +389,90 @@
             flex-wrap: wrap;
         }
 
+        /* Gallery: every painting whole, in a box of its own shape. Rows are
+           justified - each item's width grows in proportion to its ratio (--r),
+           so all paintings in a row share one height. */
         .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.5rem;
+            --row-h: 280px;
             min-height: 50vh;
         }
 
-        .gallery-item {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            height: fit-content;
+        .gallery-group { margin-bottom: 2.5rem; }
+
+        .gallery-year {
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: #2c3e50;
+            letter-spacing: 0.05em;
+            margin: 0 0 0.75rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 1px solid #e5e2dc;
         }
 
-        .gallery-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        .gallery-series {
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: #8a8478;
+            letter-spacing: 0.08em;
+            margin: 0 0 0.9rem;
+        }
+
+        .gallery-rows {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;   /* full rows are unaffected; a short row sits centered */
+            column-gap: 1.25rem;
+        }
+
+        .gallery-rows > .gallery-item { margin-bottom: 1.75rem; }
+
+        /* forced line end between fitted rows (added by layoutGalleryRows) */
+        .gallery-break { flex-basis: 100%; height: 0; }
+
+        .gallery-item {
+            /* very tall scrolls get at least a 1:2 box; the painting sits whole inside it.
+               Widths are fitted per row by layoutGalleryRows(); this is the no-JS start */
+            --box: max(var(--r, 1), 0.5);
+            flex: 0 0 min(100%, calc(var(--box) * var(--row-h)));
+            min-width: 0;
+            cursor: pointer;
         }
 
         .gallery-item-image {
-            position: relative;
             width: 100%;
-            aspect-ratio: 4/3;
-            overflow: hidden;
-            background: #f8f9fa;
+            aspect-ratio: var(--box);
         }
 
         .gallery-item img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            object-position: center;
+            object-fit: contain;
             display: block;
+            filter: drop-shadow(0 1px 3px rgba(0,0,0,0.14));
+            transition: filter 0.3s ease, transform 0.3s ease;
         }
 
-        .gallery-item-info {
-            padding: 1rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
+        .gallery-item:hover img {
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
+            transform: translateY(-2px);
         }
+
+        .gallery-item-info { padding: 0.6rem 0 0; }
 
         .gallery-item h3 {
-            font-size: 1.1rem;
+            font-size: 0.95rem;
+            font-weight: 400;
             color: #2c3e50;
-            margin-bottom: 0.5rem;
-            line-height: 1.3;
+            line-height: 1.35;
+            margin: 0 0 0.2rem;
         }
 
-        .gallery-item p {
-            color: #6c757d;
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            line-height: 1.4;
-            flex-grow: 1;
-        }
-
-        .artwork-meta {
+        .gallery-item .artwork-meta {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 0.5rem;
-            font-size: 0.8rem;
-            color: #6c757d;
+            flex-wrap: wrap;
+            gap: 0.1rem 0.75rem;
+            font-size: 0.78rem;
+            color: #8a8478;
         }
 
         .available {
@@ -483,12 +494,6 @@
             to { opacity: 1; }
         }
 
-        .gallery-item:nth-child(1) { animation-delay: 0.1s; }
-        .gallery-item:nth-child(2) { animation-delay: 0.2s; }
-        .gallery-item:nth-child(3) { animation-delay: 0.3s; }
-        .gallery-item:nth-child(4) { animation-delay: 0.4s; }
-        .gallery-item:nth-child(5) { animation-delay: 0.5s; }
-        .gallery-item:nth-child(6) { animation-delay: 0.6s; }
 
         /* ================================ */
         /* PROFESSIONAL ABOUT SECTION - CLEANED UP */
