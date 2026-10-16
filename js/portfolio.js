@@ -779,9 +779,20 @@ class ChineseArtPortfolio {
             const heightFor = row => (width - gap * (row.length - 1)) / row.reduce((s, el) => s + box(el), 0);
             // Vertical paintings get taller rows: the target grows as the row's paintings
             // get narrower (up to 2x), so scrolls show ~2 per row on a phone
+            // Physical size sets the scale (see artworkSizeClass). Unknown sizes count as medium.
+            const sizeClass = el => el.dataset.size || 'M';
+            // A row holding a large original is drawn bigger: 1.7x when the large work
+            // stands alone, 1.35x when it shares the row with medium works. Rows of small
+            // pieces are drawn at 0.75x.
+            const sizeFactor = row => {
+                if (row.some(el => sizeClass(el) === 'L')) return row.length === 1 ? 1.7 : 1.35;
+                return row.every(el => sizeClass(el) === 'S') ? 0.75 : 1;
+            };
+            const maxH = Math.max(target, window.innerHeight * 0.8);   // a painting fits on screen
             const targetFor = row => {
                 const avg = row.reduce((s, el) => s + box(el), 0) / row.length;
-                return target * Math.min(2, Math.max(1, 1 / avg));
+                const t = target * Math.min(2, Math.max(1, 1 / avg)) * sizeFactor(row);
+                return Math.min(t, maxH);
             };
             const miss = row => Math.abs(Math.log(heightFor(row) / targetFor(row)));
 
@@ -815,8 +826,24 @@ class ChineseArtPortfolio {
             // vertical one would be squeezed to the height of the wide one). Each kind is
             // fitted separately, then rows are interleaved by their first painting's place
             // in the gallery order, so newest-first and series grouping still hold.
+            // Small pieces don't share a row with larger works either, or they would be
+            // blown up to the larger work's height.
             const isVertical = el => box(el) < 0.9;
-            const rows = [...fitRows(items.filter(isVertical)), ...fitRows(items.filter(el => !isVertical(el)))]
+            const kinds = new Map();
+            for (const el of items) {
+                // large and medium works may share a row; small pieces keep to themselves
+                const k = (isVertical(el) ? 'v' : 'h') + (sizeClass(el) === 'S' ? 'S' : 'LM');
+                if (!kinds.has(k)) kinds.set(k, []);
+                kinds.get(k).push(el);
+            }
+            // A lone small piece shares a row with the small pieces of the other shape
+            // (never with larger works, which would blow it up)
+            const vS = kinds.get('vS') || [], hS = kinds.get('hS') || [];
+            if ((vS.length === 1 || hS.length === 1) && vS.length + hS.length > 1) {
+                kinds.delete('vS'); kinds.delete('hS');
+                kinds.set('S', [...vS, ...hS].sort((a, b) => a.dataset.idx - b.dataset.idx));
+            }
+            const rows = [...kinds.values()].flatMap(list => fitRows(list))
                 .sort((a, b) => a.items[0].dataset.idx - b.items[0].dataset.idx);
             for (const { items: row, h } of rows) {
                 for (const el of row) {
@@ -848,6 +875,17 @@ class ChineseArtPortfolio {
         return r > 0 ? r : 1;
     }
 
+    // The painting's physical size class: 'L' large, 'M' medium, 'S' small, '' unknown.
+    // Large = longest side 175 cm+, or as much area as a 115 cm square (big near-square works);
+    // small = longest side under 90 cm. The gallery shows big originals bigger.
+    artworkSizeClass(artwork) {
+        const h = parseFloat(artwork.heightCm), w = parseFloat(artwork.widthCm);
+        if (!(h > 0 && w > 0)) return '';
+        const longest = Math.max(h, w);
+        if (longest >= 175 || Math.sqrt(h * w) >= 115) return 'L';
+        return longest < 90 ? 'S' : 'M';
+    }
+
     // Create artwork card HTML - the whole painting, never cropped
     createArtworkCard(artwork, idx = 0) {
         const title = this.getText(artwork, 'title') || this.t('common.untitled');
@@ -859,7 +897,7 @@ class ChineseArtPortfolio {
         const ratio = this.artworkRatio(artwork).toFixed(3);
 
         return `
-            <div class="gallery-item" data-idx="${idx}" style="--r:${ratio}" onclick="openLightbox('${artwork.id}', 'gallery')" data-artwork-id="${artwork.id}">
+            <div class="gallery-item" data-idx="${idx}" data-size="${this.artworkSizeClass(artwork)}" style="--r:${ratio}" onclick="openLightbox('${artwork.id}', 'gallery')" data-artwork-id="${artwork.id}">
                 <div class="gallery-item-image">
                     <img src="${imageUrl}" alt="${title}" loading="lazy"
                          onload="const r=this.naturalWidth/this.naturalHeight; if (r && Math.abs(r-${ratio})>0.02) portfolio.galleryRatioChanged(this, r)"
