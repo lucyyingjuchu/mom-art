@@ -404,14 +404,12 @@ class ChineseArtPortfolio {
         console.log('🚀 updateStaticText() started');
 
     // NAVIGATION
-    const navButtons = document.querySelectorAll('.nav-btn');
-    if (navButtons.length >= 5) {
-        navButtons[0].textContent = this.t('nav.featured');
-        navButtons[1].textContent = this.t('nav.gallery'); 
-        navButtons[2].textContent = this.t('nav.about');
-        navButtons[3].textContent = this.t('nav.faq');      // NEW FAQ BUTTON
-        navButtons[4].textContent = this.t('nav.connect');
-    }
+    const navKeys = { home: 'nav.featured', gallery: 'nav.gallery', news: 'nav.exhibitions',
+                      about: 'nav.about', faq: 'nav.faq', connect: 'nav.connect' };
+    document.querySelectorAll('.nav-btn[data-nav]').forEach(btn => {
+        const key = navKeys[btn.dataset.nav];
+        if (key) btn.textContent = this.t(key);
+    });
         
         // HEADER
         const logoElement = document.querySelector('.logo');
@@ -431,21 +429,27 @@ class ChineseArtPortfolio {
         const aboutTitle = document.querySelector('.artist-intro h2');
         if (aboutTitle) aboutTitle.textContent = this.t('about.mainTitle');
         
-        const videoTitle = document.querySelector('.featured-video h3');
-        if (videoTitle) videoTitle.textContent = this.t('about.videoTitle');
-        
-        // Artist introduction paragraphs
-        const artistBioP1 = document.getElementById('artistBioP1');
-        const artistBioP2 = document.getElementById('artistBioP2');
-        const artistBioP3 = document.getElementById('artistBioP3');
-        
-        if (artistBioP1) artistBioP1.textContent = this.t('about.introParagraph1');
-        if (artistBioP2) artistBioP2.textContent = this.t('about.introParagraph2');
-        if (artistBioP3) artistBioP3.textContent = this.t('about.introParagraph3');
+        const artistSubtitle = document.getElementById('artistSubtitle');
+        if (artistSubtitle) artistSubtitle.textContent = this.t('about.mainSubtitle');
+
+        const artistQuote = document.getElementById('artistQuote');
+        if (artistQuote) artistQuote.textContent = this.t('about.quote');
+
+        // Artist story (array of paragraphs in languages.js)
+        const artistStory = document.getElementById('artistStory');
+        const story = this.t('about.story');
+        if (artistStory && Array.isArray(story)) {
+            artistStory.innerHTML = '';
+            story.forEach(text => {
+                const p = document.createElement('p');
+                p.textContent = text;
+                artistStory.appendChild(p);
+            });
+        }
         
         // Update section headers - PRESERVE ARROWS
         const sectionHeaders = document.querySelectorAll('.section-header');
-        const headerKeys = ['educationTitle', 'awardsTitle', 'publicationsTitle', 'teachingTitle', 'positionsTitle', 'exhibitionsTitle', 'groupShowsTitle'];
+        const headerKeys = ['educationTitle', 'awardsTitle', 'publicationsTitle', 'teachingTitle', 'positionsTitle'];
         
         sectionHeaders.forEach((header, index) => {
             if (headerKeys[index]) {
@@ -470,8 +474,6 @@ class ChineseArtPortfolio {
         this.updateAboutListContent('publications', this.t('about.publications'));
         this.updateAboutListContent('teaching', this.t('about.teaching'));
         this.updateAboutListContent('positions', this.t('about.positions'));
-        this.updateAboutListContent('exhibitions', this.t('about.exhibitions'));
-        this.updateAboutListContent('group-shows', this.t('about.groupShows'));
         
         // CONNECT PAGE
         const connectTitle = document.querySelector('#connect h2');
@@ -612,7 +614,17 @@ class ChineseArtPortfolio {
         }
         
         // Create the list content
-        contentContainer.innerHTML = `<ul>${items.map(item => `<li>${item}</li>`).join('')}</ul>`;
+        const thisYear = new Date().getFullYear();
+        const current = this.t('about.currentBadge');
+        const esc = (str) => String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        contentContainer.innerHTML = `<ul class="cv-list">${items.map(item => {
+            const m = String(item).match(/^(\d{4})\s+(.*)$/);
+            const isCurrent = /迄今|Present/.test(item) || sectionId === 'positions';
+            const recent = m && (thisYear - parseInt(m[1], 10) <= 2);
+            const year = m ? `<span class="cv-year">${m[1]}</span>` : '';
+            const badge = isCurrent && sectionId !== 'positions' ? `<span class="cv-badge">${esc(current)}</span>` : '';
+            return `<li class="${recent ? 'cv-recent' : ''}">${year}<span class="cv-text">${esc(m ? m[2] : item)}${badge}</span></li>`;
+        }).join('')}</ul>`;
     }
 
     // Update lightbox text
@@ -1816,12 +1828,13 @@ window.showSection = function(sectionId) {
     document.querySelectorAll('.section').forEach(section => {
         section.classList.remove('active');
     });
-    document.getElementById(sectionId).classList.add('active');
-    
+    const target = document.getElementById(sectionId);
+    if (target) target.classList.add('active');
+
     document.querySelectorAll('.nav-btn').forEach(btn => {
-        btn.classList.remove('active');
+        btn.classList.toggle('active', btn.dataset.nav === sectionId);
     });
-    event.target.classList.add('active');
+    window.scrollTo({ top: 0 });
 };
 
 window.filterGallery = function(filterType, filterValue) {

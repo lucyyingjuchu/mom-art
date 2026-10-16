@@ -1192,6 +1192,7 @@
     }
     </style>
     <!-- Phone layout - must stay after the styles above -->
+    <link rel="stylesheet" href="./css/story-media.css">
     <link rel="stylesheet" href="./css/mobile.css">
 </head>
 <body>
@@ -1220,11 +1221,12 @@
     <!-- ================================ -->
     <nav>
         <div class="nav-container">
-            <button class="nav-btn active" onclick="showSection('home')"><!-- Will be filled by JavaScript --></button>
-            <button class="nav-btn" onclick="showSection('gallery')"><!-- Will be filled by JavaScript --></button>
-            <button class="nav-btn" onclick="showSection('about')"><!-- Will be filled by JavaScript --></button>
-            <button class="nav-btn" onclick="showSection('faq')"><!-- Will be filled by JavaScript --></button>
-            <button class="nav-btn" onclick="showSection('connect')"><!-- Will be filled by JavaScript --></button>
+            <button class="nav-btn active" data-nav="home" onclick="showSection('home')"></button>
+            <button class="nav-btn" data-nav="gallery" onclick="showSection('gallery')"></button>
+            <button class="nav-btn" data-nav="news" onclick="showSection('news')"></button>
+            <button class="nav-btn" data-nav="about" onclick="showSection('about')"></button>
+            <button class="nav-btn" data-nav="faq" onclick="showSection('faq')"></button>
+            <button class="nav-btn" data-nav="connect" onclick="showSection('connect')"></button>
         </div>
     </nav>
 
@@ -1264,6 +1266,12 @@
             </div>
         </section>
 
+        <!-- EXHIBITIONS & NEWS SECTION: filled by js/story-media.js
+             from data/exhibitions.json, data/updates.json, data/press.json -->
+        <section id="news" class="section">
+            <div class="news-page" id="newsPage"></div>
+        </section>
+
         <!-- ABOUT SECTION -->
         <section id="about" class="section">
             <div class="about-header">
@@ -1273,27 +1281,17 @@
                 </div>
                 <div class="artist-intro">
                     <h2 id="artistIntroTitle"><!-- Will be filled by JavaScript --></h2>
-                    <div class="intro-text">
-                        <p id="artistBioP1"><!-- Will be filled by JavaScript --></p>
-                        <p id="artistBioP2"><!-- Will be filled by JavaScript --></p>  
-                        <p id="artistBioP3"><!-- Will be filled by JavaScript --></p>
+                    <p class="artist-subtitle" id="artistSubtitle"></p>
+                    <blockquote class="artist-quote" id="artistQuote"></blockquote>
+                    <div class="intro-text" id="artistStory">
+                        <!-- Story paragraphs filled by JavaScript from languages.js (about.story) -->
                     </div>
                 </div>
             </div>
 
-            <!-- Featured Video Section -->
-            <div class="featured-video">
-                <h3><!-- Will be filled by JavaScript --></h3>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/aNMLWYIksjw" 
-                            title="第14屆臺中市美術家接力展 【天地有大美】袁之靜水墨展創作紀錄片" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            referrerpolicy="strict-origin-when-cross-origin" 
-                            allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
+            <!-- Documentary + recent highlights: filled by js/story-media.js -->
+            <div class="press-media" id="aboutVideo"></div>
+            <div class="about-highlights" id="aboutHighlights"></div>
 
             <!-- Professional Information -->
             <div class="professional-info">
@@ -1344,30 +1342,6 @@
                         <span class="toggle-arrow">▼</span>
                     </h3>
                     <div id="positions" class="collapsible-content">
-                        <div class="section-content">
-                            <!-- Will be filled by JavaScript -->   
-                        </div>
-                    </div>
-                </div>
-
-                <div class="info-section">
-                    <h3 class="section-header collapsible" onclick="toggleCareerSection('exhibitions')">
-                        🖼 <!-- Will be filled by JavaScript -->
-                        <span class="toggle-arrow">▼</span>
-                    </h3>
-                    <div id="exhibitions" class="collapsible-content">
-                        <div class="section-content">
-                            <!-- Will be filled by JavaScript -->   
-                        </div>
-                    </div>
-                </div>
-
-                <div class="info-section">
-                    <h3 class="section-header collapsible" onclick="toggleCareerSection('group-shows')">
-                        🧑‍🎨 <!-- Will be filled by JavaScript -->
-                        <span class="toggle-arrow">▼</span>
-                    </h3>
-                    <div id="group-shows" class="collapsible-content">
                         <div class="section-content">
                             <!-- Will be filled by JavaScript -->   
                         </div>
@@ -1554,6 +1528,7 @@
     <script src="./js/portfolio.js"></script>
 
     <!-- Load lightbox (depends on portfolio being available) -->
+    <script src="./js/story-media.js"></script>
     <script src="./js/lightbox.js"></script>
 
     <!-- Load contact form functionality -->
