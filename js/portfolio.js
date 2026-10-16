@@ -679,6 +679,13 @@ class ChineseArtPortfolio {
                 : `${imageCount} ${imageCount === 1 ? 'work' : 'works'}`;
         }
 
+        // Wall view: true scale, one wall per year / series. Grid: scaled rows.
+        if (this.isWallView()) {
+            galleryGrid.classList.add('is-wall');
+            galleryGrid.innerHTML = this.renderWallView(prioritizedArtworks);
+            return;
+        }
+        galleryGrid.classList.remove('is-wall');
         // Render artwork cards, grouped by year and series
         galleryGrid.innerHTML = this.renderGroupedCards(prioritizedArtworks);
         this.layoutGalleryRows();
@@ -720,6 +727,87 @@ class ChineseArtPortfolio {
             firstSeen.get(this.galleryYear(a) + '|' + this.gallerySeriesKey(a)) -
                 firstSeen.get(this.galleryYear(b) + '|' + this.gallerySeriesKey(b)) ||
             fileIndex.get(a.id) - fileIndex.get(b.id));
+    }
+
+    // ---- Wall view: every painting at its true size relative to the others, hung
+    // with its centre at eye level (150 cm) on a wall, next to a 170 cm visitor.
+    // Visitors scroll sideways along each wall, as if walking through the room.
+    renderWallView(sorted) {
+        const zh = this.currentLanguage === 'zh';
+        const esc = str => String(str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        const dims = a => {
+            let h = parseFloat(a.heightCm), w = parseFloat(a.widthCm);
+            if (!(h > 0 && w > 0)) {   // size unknown: assume a standard 4-chi work of its shape
+                const r = this.artworkRatio(a);
+                h = Math.sqrt(9248 / r); w = h * r;
+            }
+            return { h, w, known: parseFloat(a.heightCm) > 0 && parseFloat(a.widthCm) > 0 };
+        };
+        const tallest = Math.max(180, ...sorted.map(a => dims(a).h));
+        const wallCm = Math.max(260, tallest + 60);
+        const wallPx = window.innerWidth < 768 ? 360 : Math.min(560, Math.max(420, window.innerHeight * 0.62));
+        const ppc = wallPx / wallCm;               // pixels per centimetre, same on every wall
+        const gapPx = Math.max(24, 50 * ppc);       // 50 cm between paintings
+        const eye = 150;                            // museum hanging height (centre of the work)
+
+        const person = `
+            <figure class="wall-person" style="height:${170 * ppc}px;width:${46 * ppc}px" aria-hidden="true">
+                <svg viewBox="0 0 46 170" preserveAspectRatio="xMidYMax meet">
+                    <circle cx="23" cy="11" r="10"/>
+                    <path d="M11 26 h24 l4 58 h-7 l-1 -40 h-2 v126 h-9 v-74 h-2 v74 h-9 v-126 h-2 l-1 40 h-7 z"/>
+                </svg>
+            </figure>`;
+
+        const groups = [];
+        for (const a of sorted) {
+            const year = this.galleryYear(a);
+            const series = a.series ? (zh ? a.series : (a.seriesEn || a.series)) : '';
+            const key = year + '|' + (a.series || '');
+            const last = groups[groups.length - 1];
+            if (last && last.key === key) last.items.push(a);
+            else groups.push({ key, year, series, items: [a] });
+        }
+
+        let previousYear = null;
+        const walls = groups.map(g => {
+            const yearLabel = g.year > 0 ? String(g.year) : (zh ? '年份不詳' : 'Year unknown');
+            const heading = g.year !== previousYear ? `<h3 class="gallery-year">${yearLabel}</h3>` : '';
+            previousYear = g.year;
+            const works = g.items.map(a => {
+                const { h, w, known } = dims(a);
+                const topCm = Math.max(20, wallCm - eye - h / 2);
+                const title = esc(this.getText(a, 'title') || this.t('common.untitled'));
+                const year = this.galleryYear(a) > 0 ? a.year : '';
+                const size = known ? `${a.heightCm} × ${a.widthCm} cm` : '';
+                return `
+                    <figure class="wall-work" style="width:${(w * ppc).toFixed(1)}px;margin-top:${(topCm * ppc).toFixed(1)}px;margin-right:${gapPx.toFixed(1)}px"
+                            onclick="openLightbox('${a.id}', 'gallery')" data-artwork-id="${a.id}">
+                        <img src="${esc(a.image || a.imageHigh || this.getPlaceholderImage())}" alt="${title}" loading="lazy"
+                             style="width:${(w * ppc).toFixed(1)}px;height:${(h * ppc).toFixed(1)}px">
+                        <figcaption><span>${title}</span><small>${[year, size].filter(Boolean).join(' · ')}</small></figcaption>
+                    </figure>`;
+            }).join('');
+            return `
+                <section class="gallery-group wall-group">
+                    ${heading}
+                    ${g.series ? `<h4 class="gallery-series">${esc(g.series)}</h4>` : ''}
+                    <div class="wall-frame">
+                        <div class="wall" style="height:${wallPx}px" tabindex="0" aria-label="${zh ? '展牆，可左右捲動' : 'Gallery wall, scroll sideways'}">
+                            <div class="wall-track" style="padding-left:${gapPx.toFixed(1)}px">${person}${works}</div>
+                        </div>
+                        <button type="button" class="wall-arrow prev" aria-label="${zh ? '往左' : 'Scroll left'}"
+                            onclick="const w=this.parentElement.querySelector('.wall'); w.scrollBy({left:-w.clientWidth*0.8, behavior:'smooth'})">‹</button>
+                        <button type="button" class="wall-arrow next" aria-label="${zh ? '往右' : 'Scroll right'}"
+                            onclick="const w=this.parentElement.querySelector('.wall'); w.scrollBy({left:w.clientWidth*0.8, behavior:'smooth'})">›</button>
+                    </div>
+                </section>`;
+        }).join('');
+
+        return `
+            <p class="wall-note">${zh
+                ? `依原作真實比例懸掛，畫心中心距地 150 公分；人形高 170 公分。左右滑動，點畫作可放大欣賞。`
+                : `Hung at true relative scale, centred 150 cm above the floor; the figure is 170 cm tall. Scroll sideways; tap a painting to look closer.`}</p>
+            ${walls}`;
     }
 
     // Year headings, a small series label, and one row block per group so every
@@ -779,20 +867,21 @@ class ChineseArtPortfolio {
             const heightFor = row => (width - gap * (row.length - 1)) / row.reduce((s, el) => s + box(el), 0);
             // Vertical paintings get taller rows: the target grows as the row's paintings
             // get narrower (up to 2x), so scrolls show ~2 per row on a phone
-            // Physical size sets the scale (see artworkSizeClass). Unknown sizes count as medium.
+            // Size class (see artworkSizeClass) keeps small pieces out of rows with larger works.
             const sizeClass = el => el.dataset.size || 'M';
-            // A row holding a large original is drawn bigger: 1.7x when the large work
-            // stands alone, 1.35x when it shares the row with medium works. Rows of small
-            // pieces are drawn at 0.75x.
-            const sizeFactor = row => {
-                if (row.some(el => sizeClass(el) === 'L')) return row.length === 1 ? 1.7 : 1.35;
-                return row.every(el => sizeClass(el) === 'S') ? 0.75 : 1;
+            // Continuous scale: on-screen area grows with the square root of the painting's
+            // real area, so on-screen width/height grow with the square root of its real
+            // size. A 504 cm painting vs a 35 cm one: 14x apart on the wall, ~4x on screen.
+            // Calibrated so a standard 4-chi work (68 x 136 cm) is 2 rows tall upright, 1 row lying.
+            const REF_CM = 96;   // sqrt(68 * 136)
+            const naturalH = el => {
+                const cm = parseFloat(el.dataset.cm) || REF_CM;
+                return target * Math.sqrt(2 * cm / (REF_CM * box(el)));
             };
             const maxH = Math.max(target, window.innerHeight * 0.8);   // a painting fits on screen
             const targetFor = row => {
-                const avg = row.reduce((s, el) => s + box(el), 0) / row.length;
-                const t = target * Math.min(2, Math.max(1, 1 / avg)) * sizeFactor(row);
-                return Math.min(t, maxH);
+                const logMean = row.reduce((sum, el) => sum + Math.log(naturalH(el)), 0) / row.length;
+                return Math.min(Math.exp(logMean), maxH);
             };
             const miss = row => Math.abs(Math.log(heightFor(row) / targetFor(row)));
 
@@ -850,22 +939,20 @@ class ChineseArtPortfolio {
             // put a small piece next to a large work.
             const rowWidth = r => r.items.reduce((sum, el) => sum + box(el) * r.h, 0);
             const canShare = list => !(list.some(el => sizeClass(el) === 'S') && list.some(el => sizeClass(el) === 'L'));
-            // If only a large work is next door, they share a row drawn at medium size.
-            const mediumTarget = list => {
-                const avg = list.reduce((sum, el) => sum + box(el), 0) / list.length;
-                return Math.min(target * Math.min(2, Math.max(1, 1 / avg)), maxH);
-            };
+            // Second pass: a lone small piece whose only neighbours are large works joins
+            // them anyway (the continuous scale puts that row between the two sizes).
             for (const strict of [true, false]) {
                 for (let i = 0; i < rows.length; i++) {
                     const r = rows[i];
                     if (r.items.length !== 1 || rowWidth(r) >= width * 0.5) continue;
+                    // a large work alone is a deliberate feature; only small pieces go looking
+                    if (!strict && sizeClass(r.items[0]) === 'L') continue;
                     for (const j of [i - 1, i + 1]) {
                         const other = rows[j];
                         if (!other) continue;
                         const both = j < i ? [...other.items, ...r.items] : [...r.items, ...other.items];
-                        const ok = canShare(both);
-                        if (strict && !ok) continue;
-                        const h = Math.min(heightFor(both), ok ? targetFor(both) : mediumTarget(both));
+                        if (strict && !canShare(both)) continue;
+                        const h = Math.min(heightFor(both), targetFor(both));
                         rows.splice(Math.min(i, j), 2, { items: both, h });
                         i = Math.max(-1, Math.min(i, j) - 1);   // re-check from the merged row
                         break;
@@ -902,6 +989,12 @@ class ChineseArtPortfolio {
         return r > 0 ? r : 1;
     }
 
+    // Side of a square with the painting's area, in cm (0 if unknown)
+    artworkScaleCm(artwork) {
+        const h = parseFloat(artwork.heightCm), w = parseFloat(artwork.widthCm);
+        return h > 0 && w > 0 ? Math.round(Math.sqrt(h * w)) : 0;
+    }
+
     // The painting's physical size class: 'L' large, 'M' medium, 'S' small, '' unknown.
     // Large = longest side 175 cm+, or as much area as a 115 cm square (big near-square works);
     // small = longest side under 90 cm. The gallery shows big originals bigger.
@@ -924,7 +1017,7 @@ class ChineseArtPortfolio {
         const ratio = this.artworkRatio(artwork).toFixed(3);
 
         return `
-            <div class="gallery-item" data-idx="${idx}" data-size="${this.artworkSizeClass(artwork)}" style="--r:${ratio}" onclick="openLightbox('${artwork.id}', 'gallery')" data-artwork-id="${artwork.id}">
+            <div class="gallery-item" data-idx="${idx}" data-size="${this.artworkSizeClass(artwork)}" data-cm="${this.artworkScaleCm(artwork)}" style="--r:${ratio}" onclick="openLightbox('${artwork.id}', 'gallery')" data-artwork-id="${artwork.id}">
                 <div class="gallery-item-image">
                     <img src="${imageUrl}" alt="${title}" loading="lazy"
                          onload="const r=this.naturalWidth/this.naturalHeight; if (r && Math.abs(r-${ratio})>0.02) portfolio.galleryRatioChanged(this, r)"
@@ -960,11 +1053,16 @@ class ChineseArtPortfolio {
         const current = this.galleryTab || 'all';
         const tabs = this.getGalleryTabs().filter(tab => tab.key === 'all' ||
             this.getMultiFilteredArtworks({ subject: tab.subjects }, this.artworks).length > 0);
+        const wall = this.isWallView();
         return `
             <nav class="gallery-tabs" aria-label="${zh ? '作品系列' : 'Series'}">
                 ${tabs.map(tab => `<button type="button" class="gallery-tab${tab.key === current ? ' active' : ''}"
                     data-tab="${tab.key}" aria-pressed="${tab.key === current}">${zh ? tab.zh : tab.en}</button>`).join('')}
             </nav>
+            <div class="gallery-view-toggle" role="group" aria-label="${zh ? '檢視方式' : 'View'}">
+                <button type="button" data-view="grid" class="${wall ? '' : 'active'}" aria-pressed="${!wall}">${zh ? '作品牆' : 'Grid'}</button>
+                <button type="button" data-view="wall" class="${wall ? 'active' : ''}" aria-pressed="${wall}">${zh ? '展牆檢視 · 真實比例' : 'Wall view · true scale'}</button>
+            </div>
         `;
     }
 
@@ -1027,11 +1125,32 @@ class ChineseArtPortfolio {
         }
     }
 
-    // Series tab listeners
+    // Series tab + view toggle listeners
     setupFilterListeners() {
         document.querySelectorAll('.gallery-tab').forEach(btn => {
             btn.addEventListener('click', () => this.setGalleryTab(btn.dataset.tab));
         });
+        document.querySelectorAll('.gallery-view-toggle button').forEach(btn => {
+            btn.addEventListener('click', () => this.setWallView(btn.dataset.view === 'wall'));
+        });
+    }
+
+    isWallView() {
+        if (this._wallView === undefined) {
+            try { this._wallView = localStorage.getItem('galleryView') === 'wall'; } catch (e) { this._wallView = false; }
+        }
+        return this._wallView;
+    }
+
+    setWallView(on) {
+        this._wallView = !!on;
+        try { localStorage.setItem('galleryView', on ? 'wall' : 'grid'); } catch (e) { /* private mode */ }
+        document.querySelectorAll('.gallery-view-toggle button').forEach(btn => {
+            const active = (btn.dataset.view === 'wall') === this._wallView;
+            btn.classList.toggle('active', active);
+            btn.setAttribute('aria-pressed', active);
+        });
+        this.renderGallery();
     }
     
     // Render featured works on home page with museum-quality presentation
