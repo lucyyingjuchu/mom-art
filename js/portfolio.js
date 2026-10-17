@@ -8,18 +8,14 @@ class ChineseArtPortfolio {
     constructor() {
         this.artworks = [];
         this.categories = {};
-        // Detect user's language preference
-        const browserLang = navigator.language || navigator.userLanguage;
-        console.log('Detected browser language:', browserLang);
-
-        // Default to English for US market, Chinese for Chinese-speaking regions
-        if (browserLang.startsWith('zh')) {
-            this.currentLanguage = 'zh';
-            console.log('Setting language to Chinese based on browser');
-        } else {
-            this.currentLanguage = 'en';
-            console.log('Setting language to English (default)');
-        }
+        // Language comes from the URL: /zh/ = Chinese, / = English.
+        // (Netlify sends Chinese-language browsers from / to /zh/ — see netlify.toml.)
+        // Old links like /?artwork=12&lang=zh still open in Chinese and move to /zh/.
+        const onZhPath = /^\/zh(\/|$)/.test(window.location.pathname);
+        const langParam = new URLSearchParams(window.location.search).get('lang');
+        this.currentLanguage = (onZhPath || langParam === 'zh') ? 'zh' : 'en';
+        if (langParam === 'en' && onZhPath) this.currentLanguage = 'en';
+        this.syncLanguageURL();
         this.filterStats = {};
         this.currentGalleryOrder = []; // 當前藝廊顯示的作品順序
 
@@ -379,6 +375,7 @@ class ChineseArtPortfolio {
     // Toggle language
     toggleLanguage() {
         this.currentLanguage = this.currentLanguage === 'en' ? 'zh' : 'en';
+        this.syncLanguageURL();
         this.updateAllUI();
         // Update lightbox if it's open
         if (typeof window.updateLightboxLanguage === 'function') {
@@ -386,6 +383,21 @@ class ChineseArtPortfolio {
         }
         // Notify shopping cart of language change
         document.dispatchEvent(new CustomEvent('languageChanged'));
+    }
+
+    // Keep the address bar (/ vs /zh/), <html lang> and Netlify's language
+    // cookie in step with the current language, without reloading the page.
+    syncLanguageURL() {
+        const zh = this.currentLanguage === 'zh';
+        document.documentElement.lang = zh ? 'zh-Hant' : 'en';
+        // nf_lang makes Netlify remember the visitor's choice on later visits
+        document.cookie = `nf_lang=${zh ? 'zh' : 'en'}; path=/; max-age=31536000; SameSite=Lax`;
+        const url = new URL(window.location.href);
+        url.searchParams.delete('lang');
+        url.pathname = zh ? '/zh/' : '/';
+        if (url.href !== window.location.href) {
+            window.history.replaceState(window.history.state, '', url);
+        }
     }
 
     // Update all UI elements when language changes
@@ -1009,11 +1021,10 @@ class ChineseArtPortfolio {
 
     // Update webpage title based on current language
     updatePageTitle() {
-        // Browser-tab / Google title. Both languages keep the artist's name in it,
-        // because Google renders the page in English.
+        // Same titles as the static <title> in index.html / scripts/build-zh.js
         const title = this.currentLanguage === 'zh'
-            ? '袁之靜（曉然）| 國畫・書法 · Yuan Chih-Jin'
-            : 'Yuan Chih-Jin (Xiaoran) 袁之靜 | Chinese Ink Painting & Calligraphy';
+            ? '袁之靜（曉然）｜國畫・書法官方網站'
+            : 'Yuan Chih-Jin (Xiaoran) | Chinese Ink Painting & Calligraphy';
         if (title) {
             document.title = title;
             console.log(`📝 Page title updated to: ${title}`);
@@ -1929,8 +1940,9 @@ function handleArtworkURL() {
         }
         
         // Set language from URL parameter before opening lightbox
-        if (langParam && (langParam === 'zh' || langParam === 'en')) {
+        if (langParam && (langParam === 'zh' || langParam === 'en') && portfolio.currentLanguage !== langParam) {
             portfolio.currentLanguage = langParam;
+            portfolio.syncLanguageURL();
             portfolio.updateAllUI();
         }
         
