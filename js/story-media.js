@@ -14,6 +14,7 @@
     let historyFilter = 'all';
     let newsLimit = 6;
     let videoLimit = 6;
+    let newsTab = 'news';
     const captionCache = {};
     const players = [];
 
@@ -162,8 +163,13 @@
             </div>
             ${shows ? `<div class="show-cards">${shows}</div>` : ''}
 
+            <nav class="gallery-tabs sub-tabs">
+                ${[['news', news.length], ['videos', videos.length], ['history', true]].filter(([, has]) => has).map(([key]) =>
+                    `<button type="button" class="gallery-tab${newsTab === key ? ' active' : ''}" data-tab="${key}" aria-pressed="${newsTab === key}">${esc(t('exhibitionsPage.tab' + key[0].toUpperCase() + key.slice(1)))}</button>`).join('')}
+            </nav>
+
             ${news.length ? `
-            <section class="news-block">
+            <section class="news-block" data-panel="news">
                 <h3>${esc(t('exhibitionsPage.newsTitle'))}</h3>
                 <ul class="news-list">${news.slice(0, newsLimit).map(newsItemHTML).join('')}</ul>
                 <div class="news-actions">
@@ -174,13 +180,13 @@
             </section>` : ''}
 
             ${videos.length ? `
-            <section class="news-block">
+            <section class="news-block" data-panel="videos">
                 <h3>${esc(t('exhibitionsPage.videosTitle'))}</h3>
                 <div class="press-videos">${videos.slice(0, videoLimit).map(videoCardHTML).join('')}</div>
                 ${videos.length > videoLimit ? `<div class="news-actions"><button class="news-more-btn" data-action="more-videos">${esc(t('exhibitionsPage.showMore'))}</button></div>` : ''}
             </section>` : ''}
 
-            <section class="news-block" id="exhibitionHistory">
+            <section class="news-block" id="exhibitionHistory" data-panel="history">
                 <h3>${esc(t('exhibitionsPage.historyTitle'))}</h3>
                 <div class="history-filters" role="group">
                     ${['all', 'solo', 'duo', 'group'].map((f) =>
@@ -193,6 +199,26 @@
                 <p>${esc(t('exhibitionsPage.invite'))}</p>
                 <button onclick="showSection('connect')">${esc(t('exhibitionsPage.contact'))}</button>
             </aside>`;
+
+        box.classList.add('news-tabbed');
+        const showTab = () => {
+            if (!box.querySelector(`[data-panel="${newsTab}"]`)) {
+                const first = box.querySelector('.sub-tabs .gallery-tab');
+                if (first) newsTab = first.dataset.tab;
+            }
+            box.querySelectorAll('[data-panel]').forEach((el) => el.classList.toggle('subtab-hidden', el.dataset.panel !== newsTab));
+            box.querySelectorAll('.sub-tabs .gallery-tab').forEach((b) => {
+                const on = b.dataset.tab === newsTab;
+                b.classList.toggle('active', on);
+                b.setAttribute('aria-pressed', on);
+            });
+        };
+        box.querySelectorAll('.sub-tabs .gallery-tab').forEach((btn) => btn.addEventListener('click', () => {
+            newsTab = btn.dataset.tab;
+            stopPlayers();
+            showTab();
+        }));
+        showTab();
 
         box.querySelectorAll('.history-filters button').forEach((btn) => btn.addEventListener('click', () => {
             historyFilter = btn.dataset.filter;

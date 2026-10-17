@@ -486,3 +486,9 @@ a.news-item:hover p { color: #a3342c; }
     .news-header h2 { font-size: 1.5rem; }
     .about-highlights { padding: 1.1rem 1rem; }
 }
+
+/* ---------- Sub-tabs (About, Exhibitions & News, FAQ) ---------- */
+.subtab-hidden { display: none !important; }
+.sub-tabs { margin: 0.5rem auto 2rem; max-width: 1100px; }
+.news-tabbed .news-block > h3,
+.faq-tabbed .faq-section-header { display: none; }

@@ -71,6 +71,9 @@ const LANGUAGE_DATA = {
             highlightsTitle: "Recent Highlights",
             seeAllExhibitions: "Exhibitions & news →",
             currentBadge: "Current",
+            tabStory: "Story",
+            tabVideos: "Videos",
+            tabCareer: "Credentials",
             educationTitle: "Education",
             awardsTitle: "Awards & Recognition",
             publicationsTitle: "Publications & Works",
@@ -82,6 +85,9 @@ const LANGUAGE_DATA = {
             title: "Exhibitions & News",
             intro: "Where to see the work now, the latest from the studio and the press, and a full exhibition history.",
             newsTitle: "Latest News",
+            tabNews: "Latest News",
+            tabVideos: "Videos",
+            tabHistory: "Exhibition History",
             tagStudio: "Studio",
             tagPress: "Press",
             videosTitle: "Interviews & Videos",
@@ -100,6 +106,7 @@ const LANGUAGE_DATA = {
         },
 
         faq: {
+                tabs: { authenticity: "Authenticity", shipping: "Shipping", pricing: "Pricing" },
                 title: "Frequently Asked Questions",
                 subtitle: "Our artworks take different journeys to reach you: originals come directly from the artist's studio in Taiwan, while prints are produced in the U.S. to make ink art more accessible worldwide.",
                 
@@ -380,6 +387,9 @@ const LANGUAGE_DATA = {
             highlightsTitle: "近期亮點",
             seeAllExhibitions: "展覽與最新消息 →",
             currentBadge: "現任",
+            tabStory: "介紹",
+            tabVideos: "影片",
+            tabCareer: "經歷",
             educationTitle: "學歷",
             awardsTitle: "獲獎紀錄",
             publicationsTitle: "出版與著作",
@@ -391,6 +401,9 @@ const LANGUAGE_DATA = {
             title: "展覽・消息",
             intro: "現在到哪裡看得到作品、畫室與媒體的最新消息，以及完整的展覽經歷。",
             newsTitle: "最新消息",
+            tabNews: "最新消息",
+            tabVideos: "影片",
+            tabHistory: "展覽紀錄",
             tagStudio: "畫室近況",
             tagPress: "媒體報導",
             videosTitle: "影音採訪",
@@ -409,6 +422,7 @@ const LANGUAGE_DATA = {
         },
 
         faq: {
+                tabs: { authenticity: "真品與創作", shipping: "運送", pricing: "價格與付款" },
                 title: "常見問題",
                 subtitle: "作品各自有不同的旅程：原作由藝術家工作室於台灣直寄；\n藝術微噴版畫(fine art giclée prints)則於美國製作並寄送，讓水墨藝術更容易走向世界。",
                 
