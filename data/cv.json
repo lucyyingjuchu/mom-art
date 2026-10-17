@@ -1,5 +1,5 @@
 {
-  "_howTo": "About-page CV. Each entry has zh and en. Start an entry with a 4-digit year (\"2024 ...\") to show it in the year column; entries containing 迄今 / Present get a Current badge. Newest first. Edit here — no code changes needed.",
+  "_howTo": "About-page CV. Each entry has zh and en. Start an entry with a 4-digit year (\"2024 ...\") to show it in the year column; entries containing 迄今 / Present get a Current badge. Newest first. Sections: education, awards, publications, teaching, positions (current), pastPositions. Edit here — no code changes needed.",
   "education": [
     {
       "zh": "國立台灣藝術大學 書畫藝術研究所 碩士（M.F.A.）",
@@ -42,9 +42,17 @@
     {
       "zh": "2006 國際女畫家百人水墨畫展 正選（中華藝術同心會）",
       "en": "2006 International Women Artists Hundred Ink Painting Exhibition - Selected (Chinese Art Unity Association)"
+    },
+    {
+      "zh": "臺中市女性藝術家",
+      "en": "Taichung Women Artists"
     }
   ],
   "publications": [
+    {
+      "zh": "《天地有大美—2026袁之靜水墨創作展專輯》ISBN 978-626-395-410-6（2026）",
+      "en": "\"The Great Beauty of Heaven and Earth — 2026 Yuan Chih-Jin Ink Painting Exhibition\" catalogue, ISBN 978-626-395-410-6 (2026)"
+    },
     {
       "zh": "《天地有大美》ISBN 978-626-7374-49-8（2024）",
       "en": "\"The Great Beauty of Heaven and Earth\" ISBN 978-626-7374-49-8 (2024)"
@@ -60,8 +68,12 @@
   ],
   "teaching": [
     {
-      "zh": "國立中興大學 國際學生文化交流課程∕華語國畫班 兼任講師（2012—迄今）",
-      "en": "National Chung Hsing University - International Student Cultural Exchange Program / Chinese Painting Class for Chinese Language Students, Adjunct Lecturer (2012—Present)"
+      "zh": "教育部 114 年度推動書法教育種子教師培訓計畫 授課教師（2025）",
+      "en": "Ministry of Education 2025 Calligraphy Education Seed Teacher Training Program - Instructor (2025)"
+    },
+    {
+      "zh": "國立中興大學 國際學生文化交流課程∕華語國畫班 兼任講師（2012 起）",
+      "en": "National Chung Hsing University - International Student Cultural Exchange Program / Chinese Painting Class for Chinese Language Students, Adjunct Lecturer (from 2012)"
     },
     {
       "zh": "國立中興大學 微型課程講師（2018—2020）",
@@ -98,44 +110,56 @@
       "en": "Xiaoran Cultural Arts Studio - Director"
     },
     {
-      "zh": "台灣省中國書畫學會 榮譽理事長∕現任理事長",
-      "en": "Taiwan Province Chinese Painting and Calligraphy Association - Honorary President / Current President"
+      "zh": "臺灣省中國書畫學會 榮譽理事長",
+      "en": "Taiwan Province Chinese Painting and Calligraphy Association - Honorary President"
     },
     {
-      "zh": "中華書畫藝術研究會 秘書長",
-      "en": "Chinese Painting and Calligraphy Art Research Association - Secretary General"
+      "zh": "臺中市大墩文化中心 藝文研習班教師",
+      "en": "Taichung Dadun Cultural Center - Art Workshop Teacher"
     },
     {
-      "zh": "臺藝大國際當代藝術聯盟 常務理事",
-      "en": "NTUA International Contemporary Art Alliance - Executive Director"
-    },
-    {
-      "zh": "臺中市華藝女子畫會 常務理事",
-      "en": "Taichung Women Artists Painting Association - Executive Director"
-    },
-    {
-      "zh": "中台科技大學 藝術中心 諮詢委員",
+      "zh": "中臺科技大學 藝術中心 諮詢委員",
       "en": "Central Taiwan University of Science and Technology Art Center - Advisory Committee Member"
     },
     {
-      "zh": "臺中市大坑麗澤文化資產研究學會 理事長",
-      "en": "Taichung Dakeng Lize Cultural Heritage Research Association - President"
-    },
-    {
       "zh": "傅狷夫書畫學會 理事",
-      "en": "Fu Chien-fu Painting and Calligraphy Association - Director"
+      "en": "Fu Chuan-fu Painting and Calligraphy Association - Director"
     },
     {
       "zh": "臺中市墨緣雅集畫會 理事",
       "en": "Taichung Moyuan Yaji Painting Association - Director"
     },
     {
-      "zh": "臺中市中華書畫協會 理事",
-      "en": "Taichung Chinese Painting and Calligraphy Association - Director"
+      "zh": "朝中畫會 理事",
+      "en": "Chaozhong Painting Association - Director"
     },
     {
-      "zh": "昭中畫會 監事",
-      "en": "Zhaozhong Painting Association - Supervisor"
+      "zh": "臺灣媽祖文化研究協會 理事",
+      "en": "Taiwan Mazu Culture Research Association - Director"
+    },
+    {
+      "zh": "臺藝大國際當代藝術聯盟 監事",
+      "en": "NTUA International Contemporary Art Alliance - Supervisor"
+    },
+    {
+      "zh": "臺中市大坑麗澤文化資產研究學會 監事",
+      "en": "Taichung Dakeng Lize Cultural Heritage Research Association - Supervisor"
+    },
+    {
+      "zh": "國家藝術聯盟 藝術特使",
+      "en": "National Art Alliance - Art Ambassador"
+    },
+    {
+      "zh": "中華書畫藝術研究會 秘書長",
+      "en": "Chinese Painting and Calligraphy Art Research Association - Secretary General"
+    },
+    {
+      "zh": "臺中市華藝女子畫會 常務理事",
+      "en": "Taichung Women Artists Painting Association - Executive Director"
+    },
+    {
+      "zh": "臺中市中華書畫協會 理事",
+      "en": "Taichung Chinese Painting and Calligraphy Association - Director"
     },
     {
       "zh": "中華民國畫學會、臺中市書法學會、中國美術協會、藝濤畫會、中國藝術協會、台灣傳統與現代藝術學會 會員",
@@ -144,6 +168,20 @@
     {
       "zh": "中國河南省中原書畫研究院 高級藝術顧問",
       "en": "Zhongyuan Painting and Calligraphy Research Institute of Henan Province, China - Senior Art Advisor"
+    }
+  ],
+  "pastPositions": [
+    {
+      "zh": "臺灣省中國書畫學會 理事長",
+      "en": "Taiwan Province Chinese Painting and Calligraphy Association - President"
+    },
+    {
+      "zh": "臺中市大坑麗澤文化資產研究學會 理事長",
+      "en": "Taichung Dakeng Lize Cultural Heritage Research Association - President"
+    },
+    {
+      "zh": "國立中興大學、朝陽科技大學、中臺科技大學 兼任講師",
+      "en": "Adjunct Lecturer - National Chung Hsing University, Chaoyang University of Technology, Central Taiwan University of Science and Technology"
     }
   ]
 }

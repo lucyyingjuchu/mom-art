@@ -1,5 +1,5 @@
 {
-  "_howTo": "Newest first. type: solo | duo | group. start/end (YYYY-MM-DD) are optional — when today falls between them the show appears under 'On view now', and a future start appears under 'Upcoming'. link is optional (press or venue page). start may be month-only (YYYY-MM) while exact dates are not yet announced. highlight: true puts a show in the About page's 'Recent Highlights' (the 4 newest flagged ones are shown automatically).",
+  "_howTo": "Newest first. type: solo | duo | group. start/end (YYYY-MM-DD) are optional — when today falls between them the show appears under 'On view now', and a future start appears under 'Upcoming'. link is optional (press or venue page). start may be month-only (YYYY-MM) while exact dates are not yet announced. highlight: true puts a show in the About page's 'Recent Highlights' (the 4 newest flagged ones are shown automatically). summary: one line shown above the exhibition history (counts of shows not listed individually).",
   "exhibitions": [
     {
       "year": 2026,
@@ -20,6 +20,25 @@
       },
       "link": "https://www.changhuanews.com/2026/08/news-2705.html",
       "highlight": true
+    },
+    {
+      "year": 2026,
+      "type": "solo",
+      "start": "",
+      "end": "",
+      "title": {
+        "zh": "上水雅集個展－袁之靜《天地有大美．三才共清和》",
+        "en": "Shangshui Yaji Solo Exhibition — Yuan Chih-Jin: “The Great Beauty of Heaven and Earth · Heaven, Earth and Humankind in Clear Harmony”"
+      },
+      "venue": {
+        "zh": "上水雅集",
+        "en": "Shangshui Yaji"
+      },
+      "note": {
+        "zh": "",
+        "en": ""
+      },
+      "link": ""
     },
     {
       "year": 2026,
@@ -200,8 +219,8 @@
       "start": "2024-05-13",
       "end": "2024-06-13",
       "title": {
-        "zh": "《薪傳中台‧天地大美》",
-        "en": "\"Heritage of Central Taiwan · The Great Beauty of Heaven and Earth\""
+        "zh": "《薪傳中臺．天地大美》2024 天地有大美系列巡迴展（二）",
+        "en": "“Heritage of Central Taiwan · The Great Beauty of Heaven and Earth” — 2024 Touring Exhibition (II)"
       },
       "venue": {
         "zh": "中臺科技大學藝文中心",
@@ -371,8 +390,8 @@
       "start": "",
       "end": "",
       "title": {
-        "zh": "《行雪流水～袁之靜水墨展》",
-        "en": "\"Flowing Snow and Water ~ Yuan Chih-Jin Ink Painting Exhibition\""
+        "zh": "《2018 行雲流水～袁之靜水墨展》",
+        "en": "“Drifting Clouds, Flowing Water” 2018 — Yuan Chih-Jin Ink Painting Exhibition"
       },
       "venue": {
         "zh": "朝陽科技大學設計禮堂藝廊",
@@ -485,8 +504,8 @@
       "start": "",
       "end": "",
       "title": {
-        "zh": "《書情審意》袁德炯、袁之靜父女書畫展",
-        "en": "\"Poetry, Calligraphy and Artistic Intent\" Yuan De-jiong and Yuan Chih-Jin Father-Daughter Painting and Calligraphy Exhibition"
+        "zh": "《書情畫意》袁德炯、袁之靜父女書畫展",
+        "en": "“Poetry, Calligraphy and Painting” — Yuan De-jiong and Yuan Chih-Jin Father–Daughter Exhibition"
       },
       "venue": {
         "zh": "台中市大墩文化中心",
@@ -517,5 +536,9 @@
       },
       "link": ""
     }
-  ]
+  ],
+  "summary": {
+    "zh": "另有師生展 12 次、國內外書畫聯展 200 餘次。",
+    "en": "She has also held 12 teacher–student exhibitions and taken part in more than 200 group exhibitions in Taiwan and abroad."
+  }
 }

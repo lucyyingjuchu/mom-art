@@ -184,6 +184,7 @@
 
             <section class="news-block" id="exhibitionHistory" data-panel="history">
                 <h3>${esc(t('exhibitionsPage.historyTitle'))}</h3>
+                ${exhibitionsData && pick(exhibitionsData.summary) ? `<p class="history-summary">${esc(pick(exhibitionsData.summary))}</p>` : ''}
                 <div class="history-filters" role="group">
                     ${['all', 'solo', 'duo', 'group'].map((f) =>
                         `<button data-filter="${f}" class="${historyFilter === f ? 'active' : ''}">${esc(t('exhibitionsPage.' + f))}</button>`).join('')}
@@ -261,7 +262,7 @@
 
     function renderCV() {
         if (!cvData || typeof portfolio === 'undefined' || !portfolio.updateAboutListContent) return;
-        ['education', 'awards', 'publications', 'teaching', 'positions'].forEach((key) => {
+        ['education', 'awards', 'publications', 'teaching', 'positions', 'pastPositions'].forEach((key) => {
             if (Array.isArray(cvData[key])) portfolio.updateAboutListContent(key, cvData[key].map(pick));
         });
     }

@@ -461,7 +461,7 @@ class ChineseArtPortfolio {
         
         // Update section headers - PRESERVE ARROWS
         const sectionHeaders = document.querySelectorAll('.section-header');
-        const headerKeys = ['educationTitle', 'awardsTitle', 'publicationsTitle', 'teachingTitle', 'positionsTitle'];
+        const headerKeys = ['educationTitle', 'awardsTitle', 'publicationsTitle', 'teachingTitle', 'positionsTitle', 'pastPositionsTitle'];
         
         sectionHeaders.forEach((header, index) => {
             if (headerKeys[index]) {

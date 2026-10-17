@@ -544,3 +544,5 @@ a.news-item:hover p { color: #a3342c; }
 /* The nav already says FAQ, and the "where things ship from" note is answered under Shipping */
 .faq-tabbed #faqTitle,
 .faq-tabbed #faqSubtitle { display: none; }
+
+.history-summary { color: #6b6158; margin: 0 0 1rem; line-height: 1.7; }
