@@ -775,6 +775,25 @@
     color: #6c757d;
 }
 
+/* To-scale size picture (shopping.js createSizeDiagram) */
+.size-diagram { margin: 0 0 1.25rem; }
+.size-diagram svg { display: block; width: 100%; height: auto; overflow: visible; }
+.size-diagram text { fill: #6c757d; font-family: inherit; }
+.size-diagram .sd-floor { stroke: #d5d9dd; stroke-width: 1; }
+.size-diagram .sd-person { fill: #c9ced3; }
+.size-diagram .sd-board { fill: #8a939b; }
+.size-diagram .sd-curl { fill: #f3f1ec; stroke: #c9ced3; stroke-width: 0.5; }
+.size-diagram .sd-curl-back { fill: #f8f9fa; }
+.size-diagram .sd-print { cursor: pointer; }
+.size-diagram .sd-outline { fill: none; stroke: transparent; stroke-width: 1.5; }
+.size-diagram .sd-print.selected .sd-outline { stroke: #2c3e50; }
+.size-diagram .sd-print.selected text { fill: #2c3e50; font-weight: 600; }
+.size-diagram figcaption { margin-top: 0.4rem; font-size: 0.78rem; color: #6c757d; display: flex; align-items: center; gap: 0.35rem; flex-wrap: wrap; }
+.size-diagram .sd-key { display: inline-block; width: 12px; height: 9px; background: #e9ecef; margin-left: 0.6rem; }
+.size-diagram .sd-key:first-child { margin-left: 0; }
+.size-diagram .sd-key-board { box-shadow: 2px 2px 0 #8a939b; }
+.size-diagram .sd-key-rolled { clip-path: polygon(0 0, 100% 0, 100% 55%, 55% 100%, 0 100%); }
+
 /* Size selection */
 .size-selection {
     margin-bottom: 1.5rem;

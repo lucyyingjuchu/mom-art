@@ -281,6 +281,8 @@ class ShoppingCart {
             <h4>${this.getText('shopping.selectSizeTitle')}</h4>
             <p class="size-subtitle">${this.getText('shopping.selectSizeSubtitle')}</p>
             
+            ${this.createSizeDiagram(artwork, sizes)}
+            
             <div class="size-selection">
                 <label class="size-label">${this.getText('shopping.availableSizes')}</label>
                 <div class="size-options" id="sizeOptions">
@@ -326,7 +328,7 @@ class ShoppingCart {
     
     attachShoppingSectionListeners(section) {
         // Size selection
-        section.querySelectorAll('.size-option').forEach(option => {
+        section.querySelectorAll('.size-option, .size-diagram .sd-print').forEach(option => {
             option.addEventListener('click', () => {
                 const sizeIndex = parseInt(option.dataset.sizeIndex);
                 this.selectSize(sizeIndex);
@@ -355,6 +357,59 @@ class ShoppingCart {
         });
     }
         
+    // To-scale picture of every print size next to a 170 cm person: mounted sizes as
+    // a board with a visible edge, rolled sizes as a sheet with a curled corner.
+    createSizeDiagram(artwork, sizes) {
+        const img = artwork.image || artwork.imageHigh;
+        if (!img || !sizes.length) return '';
+        const PERSON_IN = 67;                       // 170 cm
+        const W = 560, H = 230, FLOOR = H - 34, TOP = 10, GAP = 26, LEFT = 14;
+        const personW = PERSON_IN * 0.28;
+        const totalW = personW + sizes.reduce((sum, s) => sum + s.width_inches, 0);
+        const maxH = Math.max(PERSON_IN, ...sizes.map(s => s.height_inches));
+        const k = Math.min((W - LEFT * 2 - GAP * sizes.length) / totalW, (FLOOR - TOP) / maxH);
+        const esc = t => String(t).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+        const ph = PERSON_IN * k, pw = personW * k, cx = LEFT + pw / 2;
+        const person = `
+            <g class="sd-person" aria-hidden="true">
+                <circle cx="${cx}" cy="${FLOOR - ph + ph * 0.07}" r="${ph * 0.07}"/>
+                <path d="M${cx - pw * 0.5} ${FLOOR - ph * 0.5} Q${cx - pw * 0.5} ${FLOOR - ph * 0.83} ${cx} ${FLOOR - ph * 0.83}
+                         Q${cx + pw * 0.5} ${FLOOR - ph * 0.83} ${cx + pw * 0.5} ${FLOOR - ph * 0.5}
+                         L${cx + pw * 0.28} ${FLOOR - ph * 0.5} L${cx + pw * 0.3} ${FLOOR} L${cx - pw * 0.3} ${FLOOR} L${cx - pw * 0.28} ${FLOOR - ph * 0.5} Z"/>
+                <text x="${cx}" y="${FLOOR + 16}" text-anchor="middle">170 cm</text>
+            </g>`;
+        let x = LEFT + pw + GAP;
+        const items = sizes.map((s, i) => {
+            const w = s.width_inches * k, h = s.height_inches * k, y = FLOOR - h;
+            const rolled = s.style === 'rolled';
+            const c = Math.min(14, w * 0.25, h * 0.25);   // curl size
+            const g = `
+                <g class="sd-print${rolled ? ' sd-rolled' : ''}" data-size-index="${i}">
+                    ${rolled ? '' : `<rect class="sd-board" x="${x + 2.5}" y="${y + 2.5}" width="${w}" height="${h}"/>`}
+                    <image href="${esc(img)}" x="${x}" y="${y}" width="${w}" height="${h}" preserveAspectRatio="none"/>
+                    ${rolled ? `<path class="sd-curl" d="M${x + w - c} ${y + h} L${x + w} ${y + h - c} Q${x + w - c * 0.35} ${y + h - c * 0.35} ${x + w - c} ${y + h} Z"/>
+                                <path class="sd-curl-back" d="M${x + w - c} ${y + h} L${x + w} ${y + h} L${x + w} ${y + h - c} Z"/>` : ''}
+                    <rect class="sd-outline" x="${x - 2}" y="${y - 2}" width="${w + 4}" height="${h + 4}" rx="2"/>
+                    <text x="${x + w / 2}" y="${FLOOR + 16}" text-anchor="middle">${s.width_inches}×${s.height_inches}″</text>
+                </g>`;
+            x += w + GAP;
+            return g;
+        }).join('');
+        const used = Math.min(W, x - GAP + LEFT);
+        const top = Math.max(0, Math.floor(FLOOR - maxH * k - TOP));   // crop empty sky above wide works
+        return `
+            <figure class="size-diagram">
+                <svg viewBox="0 ${top} ${used} ${H - top}" style="font-size:${Math.max(11, used * 0.03).toFixed(1)}px" role="img" aria-label="${esc(this.getText('shopping.diagramLabel'))}">
+                    <line class="sd-floor" x1="0" y1="${FLOOR}" x2="${used}" y2="${FLOOR}"/>
+                    ${person}${items}
+                </svg>
+                <figcaption>
+                    <span class="sd-key sd-key-board"></span>${this.getText('shopping.styleMounted')}
+                    <span class="sd-key sd-key-rolled"></span>${this.getText('shopping.styleRolled')}
+                </figcaption>
+            </figure>`;
+    }
+
     getSizeDescription(size) {
         const widthCm = Math.round(size.width_inches * 2.54);
         const heightCm = Math.round(size.height_inches * 2.54);
@@ -437,10 +492,12 @@ class ShoppingCart {
             option.classList.remove('selected');
         });
         
-        const selectedOption = document.querySelector(`[data-size-index="${sizeIndex}"]`);
+        const selectedOption = document.querySelector(`.size-option[data-size-index="${sizeIndex}"]`);
         if (selectedOption) {
             selectedOption.classList.add('selected');
         }
+        document.querySelectorAll('.size-diagram .sd-print').forEach(g =>
+            g.classList.toggle('selected', g.dataset.sizeIndex === String(sizeIndex)));
         
         // Update state
         this.selectedSize = sizeIndex;
