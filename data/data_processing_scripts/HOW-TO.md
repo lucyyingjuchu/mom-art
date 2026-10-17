@@ -35,11 +35,12 @@ A work is hidden from the public site and shown as **📝 草稿** on the admin 
 
 ## Pinterest, every month (~10 minutes)
 
-1. New "in a room" mockups: save as `images/mockups/original/<artwork id>_orig_mock.jpg` (2:3, e.g. 1024×1536), then run `python data/data_processing_scripts/update_artworks_multiview.py`. Push.
-2. `python data/data_processing_scripts/pinterest_csv.py` → `pinterest_<date>.csv` with the next 30 pins, one per day.
-   Options: `--count 12 --every 2` (12 pins, every other day), `--start 2026-11-01`.
-3. Pinterest on a computer → **Create → Bulk create Pins** → upload the CSV.
-4. `python data/data_processing_scripts/pinterest_csv.py --mark-posted pinterest_<date>.csv`, then commit `data/pinterest_log.json` so next month continues where this one stopped.
+1. `python data/data_processing_scripts/pinterest_csv.py --count 42 --per-day 3` → `pinterest_<date>.csv` with the next 42 pins, 3 a day (two weeks).
+   Options: `--count 12 --every 2` (12 pins, every other day), `--start 2026-11-01`,
+   `--with-mockups` (also pin "in a room" mockups from `images/mockups/original/`).
+   Pins use only real photos of the artworks; 2026 works are skipped until their high-res files are in (`SKIP_YEARS`).
+2. Pinterest on a computer → **Create → Bulk create Pins** → upload the CSV.
+3. `python data/data_processing_scripts/pinterest_csv.py --mark-posted pinterest_<date>.csv`, then commit `data/pinterest_log.json` so next month continues where this one stopped.
 
 Boards are set at the top of `pinterest_csv.py` (`BOARDS`, `MOCKUP_BOARD`); Pinterest creates any that don't exist yet. Each Pin links straight to that artwork on the site.
 
