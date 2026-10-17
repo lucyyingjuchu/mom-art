@@ -56,7 +56,7 @@ const LANGUAGE_DATA = {
             quote: "“The landscapes I see slowly become the landscapes of my heart.”",
             story: [
                 "Yuan Chih-Jin, who paints under the name Xiaoran, grew up in a scholarly household in Taichung, Taiwan. Her father, the calligrapher Yuan De-jiong, filled their home with poetry and brushwork — she learned to read a classical poem and shape a character long before she painted her first mountain. In 2013, father and daughter exhibited side by side.",
-                "She built a career outside the studio but never put the brush down. Over four decades she studied with more than a dozen masters, including Luo Zhen-xian and Ou Hao-nian, and carried her sketchbook from Jade Mountain to Iguazu Falls. Later she returned to school and earned an M.F.A. in Painting and Calligraphy from National Taiwan University of Arts.",
+                "She built a career outside the studio but never put the brush down, and later returned to school for an M.F.A. in Painting and Calligraphy at National Taiwan University of Arts. Over four decades she has studied with more than a dozen masters, including Luo Zhen-xian and Ou Hao-nian, and carried her sketchbook from Jade Mountain to Iguazu Falls.",
                 "Teaching has always run alongside her painting. Since 2012 she has taught Chinese painting to international students at National Chung Hsing University and led classes at the Dadun Cultural Center and community colleges, showing with her students year after year. She also serves as President of the Taiwan Province Chinese Painting and Calligraphy Association.",
                 "Her work has gradually moved from recognizable landscapes toward abstraction — blocks of color, light and line, moons on gold xuan paper, sailboats leaving the harbor. It has been shown across Taiwan and as far as Venice, yet every painting still begins the same way: with a walk, a sketch, and a quiet heart."
             ],
@@ -371,7 +371,7 @@ const LANGUAGE_DATA = {
             quote: "「我眼中的風景，慢慢變成心中的風景。」",
             story: [
                 "袁之靜，號曉然，在台中的書香之家長大。父親袁德炯是資深書法家，詩詞與筆墨是她從小的日常——還沒畫第一座山，她已經會讀詩、寫字。2013 年，父女倆在大墩文化中心聯展，兩代筆墨並肩而掛。",
-                "她在職場打拚多年，筆卻從未放下。四十多年來，她向羅振賢、歐豪年等十餘位書畫名家請益，背著畫具從玉山畫到伊瓜蘇瀑布，後來重回校園，取得國立台灣藝術大學書畫藝術研究所碩士。",
+                "她在職場打拚多年，筆卻從未放下，後來重回校園，取得國立台灣藝術大學書畫藝術研究所碩士。四十多年來，她向羅振賢、歐豪年等十餘位書畫名家請益，也背著畫具走進山川寫生，從玉山一路畫到伊瓜蘇瀑布。",
                 "教學與創作一直並行。2012 年起，她在中興大學教國際學生畫國畫，也在大墩文化中心、社區大學開課，年年帶著學生舉辦師生展。她現任台灣省中國書畫學會理事長。",
                 "近年，她的畫從具象山水慢慢走向色塊、光影與線條交織的抽象：金色宣紙上的月亮、駛出港灣的帆船。作品展遍台灣，也遠赴義大利威尼斯；但每一幅畫，她仍用同樣的方式開始——走進山水、寫生，然後靜下心來。"
             ],
