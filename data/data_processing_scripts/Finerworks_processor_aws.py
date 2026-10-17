@@ -78,18 +78,15 @@ class HybridFinerWorksProcessor:
             try:
                 print(f"DEBUG: Attempting to get S3 URL for {artwork_id}.{s3_format}")
                 
-                # Download S3 image directly into memory
-                import urllib.request
+                # The bucket is private, so read through the S3 API (needs AWS keys).
+                # Only the start of the file is needed for the pixel size.
                 from io import BytesIO
-                
                 s3_url = self.get_s3_image_url(artwork_id, s3_format)
-                print(f"DEBUG: S3 URL: {s3_url}")
+                key = f"raw/{artwork_id}.{s3_format}"
+                head = self.s3_client.get_object(Bucket=self.s3_bucket_name, Key=key,
+                                                 Range="bytes=0-4194303")["Body"].read()
+                image_data = BytesIO(head)
                 
-                # Download directly into memory instead of temp file
-                response = urllib.request.urlopen(s3_url)
-                image_data = BytesIO(response.read())
-                
-                # Read dimensions from S3 version
                 with Image.open(image_data) as img:
                     width, height = img.size
                 
