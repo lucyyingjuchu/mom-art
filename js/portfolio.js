@@ -486,11 +486,23 @@ class ChineseArtPortfolio {
         document.querySelectorAll('#connect [data-i18n]').forEach(el => {
             el.textContent = this.t(el.dataset.i18n);
         });
-        // Topic buttons open an email with the subject filled in
-        document.querySelectorAll('#connect .contact-topic').forEach(el => {
-            const subject = this.t('connect.subject.' + el.dataset.topic);
-            el.href = 'mailto:info@xiaoranart.com?subject=' + encodeURIComponent(subject);
-        });
+        // "Copy" button next to the email address (for computers with no mail app)
+        const copyBtn = document.querySelector('#connect .contact-copy');
+        if (copyBtn) {
+            copyBtn.onclick = () => {
+                const email = copyBtn.dataset.email;
+                const done = () => {
+                    copyBtn.textContent = this.t('connect.copied');
+                    clearTimeout(copyBtn._reset);
+                    copyBtn._reset = setTimeout(() => { copyBtn.textContent = this.t('connect.copy'); }, 2000);
+                };
+                if (navigator.clipboard && window.isSecureContext) {
+                    navigator.clipboard.writeText(email).then(done, () => window.prompt('', email));
+                } else {
+                    window.prompt('', email);  // old browsers: show it so it can be copied by hand
+                }
+            };
+        }
         // English visitors see Pinterest (English-friendly) first; Chinese visitors, Facebook
         const pin = document.querySelector('#connect [data-social="pinterest"]');
         if (pin) pin.style.order = this.currentLanguage === 'en' ? '-1' : '';
