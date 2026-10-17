@@ -1,5 +1,5 @@
 {
-  "_howTo": "Newest first. type: solo | duo | group. start/end (YYYY-MM-DD) are optional — when today falls between them the show appears under 'On view now', and a future start appears under 'Upcoming'. link is optional (press or venue page). start may be month-only (YYYY-MM) while exact dates are not yet announced.",
+  "_howTo": "Newest first. type: solo | duo | group. start/end (YYYY-MM-DD) are optional — when today falls between them the show appears under 'On view now', and a future start appears under 'Upcoming'. link is optional (press or venue page). start may be month-only (YYYY-MM) while exact dates are not yet announced. highlight: true puts a show in the About page's 'Recent Highlights' (the 4 newest flagged ones are shown automatically).",
   "exhibitions": [
     {
       "year": 2026,
@@ -18,7 +18,8 @@
         "zh": "策展人賴慕芬。63 件新作首度公開：山水、月亮、帆船、抽象、花鳥五大系列。8/29 開幕茶會逾 300 位來賓；10/8 與國美館館長陳貺怡對談。",
         "en": "Curated by Lai Mu-fen. 63 new works in five series — landscapes, moons, sailboats, abstraction, flowers and birds. Over 300 guests at the August 29 opening; October 8 conversation with NTMoFA Director Chen Kuang-yi."
       },
-      "link": "https://www.changhuanews.com/2026/08/news-2705.html"
+      "link": "https://www.changhuanews.com/2026/08/news-2705.html",
+      "highlight": true
     },
     {
       "year": 2026,
@@ -56,7 +57,8 @@
         "zh": "策展人黃智陽；與黃光男、杜忠誥、李蕭錕、羅振賢等 34 位臺灣當代水墨書畫藝術家聯展。",
         "en": "Curated by Huang Chih-yang, with 34 contemporary Taiwanese ink and calligraphy artists including Huang Kuang-nan, Tu Chung-kao, Li Hsiao-kun and Luo Zhen-xian."
       },
-      "link": "https://artemperor.tw/tidbits/20178"
+      "link": "https://artemperor.tw/tidbits/20178",
+      "highlight": true
     },
     {
       "year": 2026,
@@ -75,7 +77,8 @@
         "zh": "展題取自老子《道德經》「上善若水，水善利萬物而不爭」，以水墨向醫者仁心致敬。主視覺〈上善若水－浩瀚伊瓜蘇〉（5×12 尺）。4/21 開幕，並捐贈書法作品〈上善若水〉予臺中榮總。",
         "en": "The title comes from Laozi's Tao Te Ching: “The highest good is like water; water benefits all things and does not compete.” A tribute to the compassion of doctors, centered on “The Highest Goodness: Boundless Iguazu” (5 × 12 chi, about 1.5 × 3.6 m). At the April 21 opening she donated the calligraphy work “The Highest Good Is Like Water” to the hospital."
       },
-      "link": "https://lycshow.blogspot.com/2026/04/2026.html"
+      "link": "https://lycshow.blogspot.com/2026/04/2026.html",
+      "highlight": true
     },
     {
       "year": 2026,
@@ -151,7 +154,8 @@
         "zh": "國美館首屆「八方藝術節」壓軸展，策展人賴慕芬。展題出自《莊子．齊物論》。",
         "en": "Closing exhibition of the museum's first Bafang Arts Festival, curated by Lai Mu-fen. The title comes from Zhuangzi."
       },
-      "link": "https://www.nownews.com/news/6723722"
+      "link": "https://www.nownews.com/news/6723722",
+      "highlight": true
     },
     {
       "year": 2025,

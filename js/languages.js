@@ -58,7 +58,7 @@ const LANGUAGE_DATA = {
                 "Yuan Chih-Jin, who paints under the name Xiaoran, grew up in a scholarly household in Taichung, Taiwan. Her father, Yuan De-jiong, is a veteran Taichung calligrapher, and poetry and brushwork were part of everyday life at home — she learned to read a classical poem and shape a character long before she painted her first mountain.",
                 "As an adult she built a career outside the studio, but she never put the brush down. For more than forty years she studied with over a dozen masters of painting and calligraphy, including Luo Zhen-xian and Ou Hao-nian, and carried her sketchbook into the landscape — from Taiwan's Jade Mountain to Iguazu Falls in South America. Later she returned to school and earned an M.F.A. in Painting and Calligraphy from National Taiwan University of Arts. In 2013 she and her father held a father–daughter exhibition in Taichung: two generations of ink hanging side by side.",
                 "She has spent just as long passing the tradition on. Since 2012 she has taught Chinese painting to international students at National Chung Hsing University, along with classes at the Taichung Dadun Cultural Center and community colleges, organizing exhibitions with her students year after year.",
-                "In recent years her work has quietly changed — moving from recognizable landscapes toward abstraction built from blocks of color, light, and line. Moons on gold xuan paper, and sailboats leaving the harbor for open water, have become her way of writing about life. In 2025 she exhibited “The Great Clod Exhales” at the National Taiwan Museum of Fine Arts. In the summer of 2026 her work traveled to Venice, Italy, in an exhibition of contemporary Taiwanese ink painters, and that same year she unveiled 63 new works in “The Great Beauty of Heaven and Earth” at the National Changhua Living Art Center, and joined Chen Kuang-yi, Director of the National Taiwan Museum of Fine Arts, for a public conversation on tradition and transformation in ink painting."
+                "In recent years her work has quietly changed — moving from recognizable landscapes toward abstraction built from blocks of color, light, and line. Moons on gold xuan paper, and sailboats leaving the harbor for open water, have become her way of writing about life. Her work has been shown at the National Taiwan Museum of Fine Arts and has traveled as far as Venice, Italy — yet she still begins each painting the same way: with a walk, a sketch, and a quiet heart."
             ],
             videoTitle: "Videos",
             mediaTitle: "In the Press",
@@ -68,12 +68,6 @@ const LANGUAGE_DATA = {
             dubbedNote: "English dubbed",
             articlesNote: "News articles are in Chinese.",
             highlightsTitle: "Recent Highlights",
-            highlights: [
-                { year: "2026", text: "Solo exhibition “The Great Beauty of Heaven and Earth” — 63 new works, National Changhua Living Art Center" },
-                { year: "2026", text: "Public conversation with Chen Kuang-yi, Director of the National Taiwan Museum of Fine Arts" },
-                { year: "2026", text: "Group exhibition “Unstable Waters” in Venice, Italy — a 2026 Venice Biennale satellite show of contemporary Taiwanese ink" },
-                { year: "2025", text: "Solo exhibition “The Great Clod Exhales”, National Taiwan Museum of Fine Arts" }
-            ],
             seeAllExhibitions: "Exhibitions & news →",
             currentBadge: "Current",
             educationTitle: "Education",
@@ -431,7 +425,7 @@ const LANGUAGE_DATA = {
                 "袁之靜，號曉然，在台中一個書香之家長大。父親袁德炯是台中資深書法家，詩詞與書法是她從小的家常功課——還沒畫第一座山以前，她已經學會怎麼讀一首詩、怎麼寫好一個字。",
                 "長大後她走進職場，筆卻始終沒有放下。四十多年來，她在工作之餘拜師學藝，向羅振賢、歐豪年等十餘位書畫名家請益；也背起畫具走進山川寫生，從玉山一路畫到南美的伊瓜蘇瀑布。後來她重回校園，取得國立台灣藝術大學書畫藝術研究所碩士學位。2013 年，她與父親在台中大墩文化中心舉辦父女書畫展，兩代人的筆墨並肩掛在同一面牆上。",
                 "她也把這份傳承交給更多人。2012 年起，她在中興大學教國際學生畫國畫，也在大墩文化中心、社區大學開課，一年又一年帶著學生舉辦師生展。",
-                "近年，她的畫悄悄起了變化：從具象的山水，走向色塊、光影與線條交織的抽象。金色宣紙上的月亮、從停泊到啟航的帆船，都成了她寫人生的方式。2025 年她在國立台灣美術館展出《大塊噫氣》；2026 年夏天，她的作品隨臺灣當代水墨書畫家聯展來到義大利威尼斯，同年在國立彰化生活美學館發表 63 件全新作品《天地有大美》，並與國美館館長陳貺怡對談水墨的傳承與轉化。"
+                "近年，她的畫悄悄起了變化：從具象的山水，走向色塊、光影與線條交織的抽象。金色宣紙上的月亮、從停泊到啟航的帆船，都成了她寫人生的方式。她的作品曾在國立台灣美術館展出，也遠赴義大利威尼斯；但每一幅畫，她仍用同樣的方式開始——走進山水、寫生，然後靜下心來。"
             ],
             videoTitle: "影音",
             mediaTitle: "媒體報導",
@@ -441,12 +435,6 @@ const LANGUAGE_DATA = {
             dubbedNote: "",
             articlesNote: "點選標題閱讀全文",
             highlightsTitle: "近期亮點",
-            highlights: [
-                { year: "2026", text: "個展《天地有大美》63 件新作首度公開｜國立彰化生活美學館" },
-                { year: "2026", text: "與國立台灣美術館館長陳貺怡公開對談水墨的傳承與轉化" },
-                { year: "2026", text: "義大利威尼斯聯展〔擺盪之水〕｜2026 威尼斯雙年展衛星展" },
-                { year: "2025", text: "個展《大塊噫氣》｜國立台灣美術館" }
-            ],
             seeAllExhibitions: "展覽與最新消息 →",
             currentBadge: "現任",
             educationTitle: "學歷",

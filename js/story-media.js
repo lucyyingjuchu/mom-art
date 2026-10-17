@@ -216,10 +216,17 @@
         }
         const hl = document.getElementById('aboutHighlights');
         if (hl) {
-            const items = t('about.highlights');
-            hl.innerHTML = Array.isArray(items) ? `
+            // Generated from data/exhibitions.json: the 4 most recent shows marked
+            // "highlight": true (falls back to the latest solo shows). Adding a new
+            // highlighted exhibition pushes the oldest one off — nothing to edit here.
+            const list = ((exhibitionsData && exhibitionsData.exhibitions) || [])
+                .slice().sort((a, b) => String(b.start || b.year).localeCompare(String(a.start || a.year)));
+            let items = list.filter((e) => e.highlight);
+            if (!items.length) items = list.filter((e) => e.type === 'solo');
+            items = items.slice(0, 4);
+            hl.innerHTML = items.length ? `
                 <h3>${esc(t('about.highlightsTitle'))}</h3>
-                <ul>${items.map((h) => `<li><span class="cv-year">${esc(h.year)}</span><span>${esc(h.text)}</span></li>`).join('')}</ul>
+                <ul>${items.map((e) => `<li><span class="cv-year">${esc(e.year)}</span><span>${esc(pick(e.title))} — ${esc(pick(e.venue))}</span></li>`).join('')}</ul>
                 <button class="update-more" onclick="showSection('news')">${esc(t('about.seeAllExhibitions'))}</button>` : '';
         }
     }
