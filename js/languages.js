@@ -117,7 +117,7 @@ const LANGUAGE_DATA = {
                         questions: [
                             {
                                 question: "Where are the artworks created?",
-                                answer: "All original ink wash paintings are created in Taiwan by artist **Xiao-Ran (袁之靜)** on traditional Xuan paper. Each piece is one-of-a-kind, hand-painted, inscribed, signed, and sealed by the artist."
+                                answer: "All original ink wash paintings are created in Taiwan by the artist **Yuan Chih-Jin (Xiaoran)** on traditional Xuan paper. Each piece is one-of-a-kind, hand-painted, inscribed, signed, and sealed by the artist."
                             },
                             {
 
