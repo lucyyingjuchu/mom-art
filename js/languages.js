@@ -58,7 +58,7 @@ const LANGUAGE_DATA = {
                 "Yuan Chih-Jin, who paints under the name Xiaoran, grew up in a scholarly household in Taichung, Taiwan. Her father, Yuan De-jiong, is a veteran Taichung calligrapher, and poetry and brushwork were part of everyday life at home — she learned to read a classical poem and shape a character long before she painted her first mountain.",
                 "As an adult she built a career outside the studio, but she never put the brush down. For more than forty years she studied with over a dozen masters of painting and calligraphy, including Luo Zhen-xian and Ou Hao-nian, and carried her sketchbook into the landscape — from Taiwan's Jade Mountain to Iguazu Falls in South America. Later she returned to school and earned an M.F.A. in Painting and Calligraphy from National Taiwan University of Arts. In 2013 she and her father held a father–daughter exhibition in Taichung: two generations of ink hanging side by side.",
                 "She has spent just as long passing the tradition on. Since 2012 she has taught Chinese painting to international students at National Chung Hsing University, along with classes at the Taichung Dadun Cultural Center and community colleges, organizing exhibitions with her students year after year.",
-                "In recent years her work has quietly changed — moving from recognizable landscapes toward abstraction built from blocks of color, light, and line. Moons on gold xuan paper, and sailboats leaving the harbor for open water, have become her way of writing about life. Her work has been shown at the National Taiwan Museum of Fine Arts and has traveled as far as Venice, Italy — yet she still begins each painting the same way: with a walk, a sketch, and a quiet heart."
+                "In recent years her work has quietly changed — moving from recognizable landscapes toward abstraction built from blocks of color, light, and line. Moons on gold xuan paper, and sailboats leaving the harbor for open water, have become her way of writing about life. Her work has traveled as far as Venice, Italy — yet she still begins each painting the same way: with a walk, a sketch, and a quiet heart."
             ],
             videoTitle: "Videos",
             mediaTitle: "In the Press",
@@ -371,7 +371,7 @@ const LANGUAGE_DATA = {
                 "袁之靜，號曉然，在台中一個書香之家長大。父親袁德炯是台中資深書法家，詩詞與書法是她從小的家常功課——還沒畫第一座山以前，她已經學會怎麼讀一首詩、怎麼寫好一個字。",
                 "長大後她走進職場，筆卻始終沒有放下。四十多年來，她在工作之餘拜師學藝，向羅振賢、歐豪年等十餘位書畫名家請益；也背起畫具走進山川寫生，從玉山一路畫到南美的伊瓜蘇瀑布。後來她重回校園，取得國立台灣藝術大學書畫藝術研究所碩士學位。2013 年，她與父親在台中大墩文化中心舉辦父女書畫展，兩代人的筆墨並肩掛在同一面牆上。",
                 "她也把這份傳承交給更多人。2012 年起，她在中興大學教國際學生畫國畫，也在大墩文化中心、社區大學開課，一年又一年帶著學生舉辦師生展。",
-                "近年，她的畫悄悄起了變化：從具象的山水，走向色塊、光影與線條交織的抽象。金色宣紙上的月亮、從停泊到啟航的帆船，都成了她寫人生的方式。她的作品曾在國立台灣美術館展出，也遠赴義大利威尼斯；但每一幅畫，她仍用同樣的方式開始——走進山水、寫生，然後靜下心來。"
+                "近年，她的畫悄悄起了變化：從具象的山水，走向色塊、光影與線條交織的抽象。金色宣紙上的月亮、從停泊到啟航的帆船，都成了她寫人生的方式。她的作品曾遠赴義大利威尼斯展出；但每一幅畫，她仍用同樣的方式開始——走進山水、寫生，然後靜下心來。"
             ],
             videoTitle: "影音",
             mediaTitle: "媒體報導",
