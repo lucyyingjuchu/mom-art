@@ -51,11 +51,11 @@ const LANGUAGE_DATA = {
         
         // About page
         about: {
-            mainTitle: "Yuan Chi-Jing (Xiaoran)",
+            mainTitle: "Yuan Chih-Jin (Xiaoran)",
             mainSubtitle: "Ink painter · Calligrapher · Teacher",
             quote: "“The landscapes I see slowly become the landscapes of my heart.”",
             story: [
-                "Yuan Chi-Jing, who paints under the name Xiaoran, grew up in a scholarly household in Taichung, Taiwan. Her father, Yuan De-jiong, is a veteran Taichung calligrapher, and poetry and brushwork were part of everyday life at home — she learned to read a classical poem and shape a character long before she painted her first mountain.",
+                "Yuan Chih-Jin, who paints under the name Xiaoran, grew up in a scholarly household in Taichung, Taiwan. Her father, Yuan De-jiong, is a veteran Taichung calligrapher, and poetry and brushwork were part of everyday life at home — she learned to read a classical poem and shape a character long before she painted her first mountain.",
                 "As an adult she built a career outside the studio, but she never put the brush down. For more than forty years she studied with over a dozen masters of painting and calligraphy, including Luo Zhen-xian and Ou Hao-nian, and carried her sketchbook into the landscape — from Taiwan's Jade Mountain to Iguazu Falls in South America. Later she returned to school and earned an M.F.A. in Painting and Calligraphy from National Taiwan University of Arts. In 2013 she and her father held a father–daughter exhibition in Taichung: two generations of ink hanging side by side.",
                 "She has spent just as long passing the tradition on. Since 2012 she has taught Chinese painting to international students at National Chung Hsing University, along with classes at the Taichung Dadun Cultural Center and community colleges, organizing exhibitions with her students year after year.",
                 "In recent years her work has quietly changed — moving from recognizable landscapes toward abstraction built from blocks of color, light, and line. Moons on gold xuan paper, and sailboats leaving the harbor for open water, have become her way of writing about life. In 2025 she exhibited “The Great Clod Exhales” at the National Taiwan Museum of Fine Arts. In the summer of 2026 her work traveled to Venice, Italy, in an exhibition of contemporary Taiwanese ink painters, and that same year she unveiled 63 new works in “The Great Beauty of Heaven and Earth” at the National Changhua Living Art Center, and joined Chen Kuang-yi, Director of the National Taiwan Museum of Fine Arts, for a public conversation on tradition and transformation in ink painting."

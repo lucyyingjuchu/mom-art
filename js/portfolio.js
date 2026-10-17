@@ -1009,8 +1009,12 @@ class ChineseArtPortfolio {
 
     // Update webpage title based on current language
     updatePageTitle() {
-        const title = this.t('header.title');
-        if (title && title !== 'header.title') { // Check if translation exists
+        // Browser-tab / Google title. Both languages keep the artist's name in it,
+        // because Google renders the page in English.
+        const title = this.currentLanguage === 'zh'
+            ? '袁之靜（曉然）| 國畫・書法 · Yuan Chih-Jin'
+            : 'Yuan Chih-Jin (Xiaoran) 袁之靜 | Chinese Ink Painting & Calligraphy';
+        if (title) {
             document.title = title;
             console.log(`📝 Page title updated to: ${title}`);
         } else {

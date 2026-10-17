@@ -3,8 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artist Portfolio - Paintings & Calligraphy</title>
+    <title>袁之靜（曉然）Yuan Chih-Jin | 國畫・書法 Chinese Ink Painting & Calligraphy</title>
     <link rel="icon" type="image/x-icon" href="./images/logo/text_white/favicon.ico">
+
+    <!-- ===== SEO: help Google connect 袁之靜 / 曉然 / Yuan Chih-Jin to this site ===== -->
+    <meta name="description" content="袁之靜（號曉然）官方網站：台中水墨畫家、書法家，四十餘年詩書畫印創作。Official site of Yuan Chih-Jin (Xiaoran), Taiwanese ink painter and calligrapher — original paintings, calligraphy and fine art prints.">
+    <meta name="author" content="袁之靜 Yuan Chih-Jin">
+    <link rel="canonical" href="https://xiaoranart.com/">
+
+    <!-- Link previews on Facebook / LINE / Pinterest / iMessage -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="曉然文化藝術 Xiaoran Cultural Arts">
+    <meta property="og:title" content="袁之靜（曉然）Yuan Chih-Jin — 國畫・書法 Ink Painting & Calligraphy">
+    <meta property="og:description" content="袁之靜（號曉然）官方網站｜Official site of Taiwanese ink painter and calligrapher Yuan Chih-Jin (Xiaoran).">
+    <meta property="og:url" content="https://xiaoranart.com/">
+    <meta property="og:image" content="https://xiaoranart.com/images/artist/portrait.jpg">
+    <meta property="og:locale" content="zh_TW">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Structured data: tells Google these names and profiles are one person -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://xiaoranart.com/#artist",
+          "name": "袁之靜",
+          "alternateName": ["曉然", "袁之静", "Yuan Chih-Jin", "Xiaoran", "Yuan Chi-Jing"],
+          "url": "https://xiaoranart.com/",
+          "image": "https://xiaoranart.com/images/artist/portrait.jpg",
+          "jobTitle": ["水墨畫家", "書法家", "Ink painter", "Calligrapher"],
+          "description": "台灣水墨畫家、書法家，號曉然。Taiwanese ink painter and calligrapher Yuan Chih-Jin (Xiaoran).",
+          "knowsAbout": ["國畫", "書法", "Chinese ink painting", "Chinese calligraphy"],
+          "address": { "@type": "PostalAddress", "addressLocality": "台中市", "addressCountry": "TW" },
+          "sameAs": [
+            "https://www.instagram.com/yuanchihjin/",
+            "https://www.facebook.com/profile.php?id=100064374351505"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://xiaoranart.com/#website",
+          "url": "https://xiaoranart.com/",
+          "name": "曉然文化藝術",
+          "alternateName": ["Xiaoran Cultural Arts", "袁之靜 曉然文化藝術", "xiaoranart"],
+          "inLanguage": ["zh-Hant", "en"],
+          "about": { "@id": "https://xiaoranart.com/#artist" },
+          "publisher": { "@id": "https://xiaoranart.com/#artist" }
+        }
+      ]
+    }
+    </script>
 
     <!-- External Lightbox CSS -->
     <link rel="stylesheet" href="./css/lightbox.css">
@@ -1208,10 +1259,11 @@
         </div>
         <!-- Logo and title container -->
         <div class="logo-title-container">
-            <img src="./images/logo/text_transparent/logo512.png" alt="Artist Logo" class="header-logo" 
+            <img src="./images/logo/text_transparent/logo512.png" alt="袁之靜 曉然文化藝術 logo" class="header-logo"
                 onerror="this.style.display='none'">
             <div class="title-text">
-                <div class="logo"><!-- Will be filled by JavaScript --></div>
+                <!-- Text here is what Google sees before JavaScript runs; JS replaces it per language -->
+                <h1 class="logo">袁之靜 - 曉然文化藝術</h1>
                 <div class="subtitle"><!-- Will be filled by JavaScript --></div>
             </div>
         </div>
