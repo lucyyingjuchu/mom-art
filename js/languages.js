@@ -153,7 +153,9 @@ const LANGUAGE_DATA = {
         // Connect page
         connect: {
             title: "Contact",
-            subtitle: "For collecting originals, exhibitions and collaborations, or painting and calligraphy classes, please write to the studio.",
+            subtitle: "For exhibitions, collaborations, or painting and calligraphy classes, please write to the studio.",
+            collectNote: "Interested in a specific work? Use “Original Art Inquiry” on its page.",
+            collectLink: "Go to the Gallery",
             emailTitle: "Email",
             copy: "Copy",
             copied: "Copied",
@@ -459,7 +461,9 @@ const LANGUAGE_DATA = {
         // Connect page
         connect: {
             title: "聯絡",
-            subtitle: "收藏原作、邀展合作或書畫課程，歡迎來信畫室。",
+            subtitle: "邀展合作或書畫課程，歡迎來信畫室。",
+            collectNote: "想收藏某件作品？請在作品頁點「點此洽詢購買原作」。",
+            collectLink: "前往藝廊",
             emailTitle: "電子郵件",
             copy: "複製",
             copied: "已複製",

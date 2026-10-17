@@ -16,9 +16,19 @@
 .contact-lead {
     color: #6c6255;
     line-height: 1.8;
+    margin: 0 auto 0.4rem;
+    max-width: 560px;
+}
+
+.contact-collect {
+    color: #8a7f72;
+    font-size: 0.85rem;
+    line-height: 1.7;
     margin: 0 auto 2rem;
     max-width: 560px;
 }
+
+.contact-collect a { color: #2c3e50; margin-left: 0.3rem; white-space: nowrap; }
 
 /* Email: the main way in */
 .contact-mail {
