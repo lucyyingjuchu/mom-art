@@ -884,6 +884,10 @@ class ChineseArtPortfolio {
             for (const { items: row, h } of rows) {
                 for (const el of row) {
                     el.style.flex = `0 0 ${Math.floor(box(el) * h * 100) / 100}px`;
+                    const img = el.querySelector('img[srcset]');
+                    // browser picks thumb or large; screens denser than 2x are treated as 2x
+                    // (no visible difference, saves phones from downloading every large file)
+                    if (img) img.sizes = `${Math.ceil(box(el) * h * Math.min(1, 2 / (window.devicePixelRatio || 1)))}px`;
                     block.appendChild(el);   // DOM order = visual order (keyboard, screen readers)
                 }
                 // end the line here, so two short rows never share one line
@@ -928,6 +932,18 @@ class ChineseArtPortfolio {
         return longest < 90 ? 'S' : 'M';
     }
 
+    // Thumbnails are 800 px on the long side; a wide painting that fills a row on a
+    // large screen needs the large file, or it looks soft. srcset lets the browser pick;
+    // layoutGalleryRows() sets each image's real display width in `sizes`.
+    gallerySrcset(artwork, ratio) {
+        const thumb = artwork.image, large = artwork.imageHigh;
+        if (!thumb || !large || thumb === large) return '';
+        const r = parseFloat(ratio) || 1;
+        const extreme = r > 2.2 || r < 0.45;   // panoramas / tall scrolls get 2400 px large files
+        const w = long => Math.round(r >= 1 ? long : long * r);
+        return `srcset="${thumb} ${w(800)}w, ${large} ${w(extreme ? 2400 : 1600)}w" sizes="300px"`;
+    }
+
     // Create artwork card HTML - the whole painting, never cropped
     createArtworkCard(artwork, idx = 0) {
         const title = this.getText(artwork, 'title') || this.t('common.untitled');
@@ -941,7 +957,7 @@ class ChineseArtPortfolio {
         return `
             <div class="gallery-item" data-idx="${idx}" data-size="${this.artworkSizeClass(artwork)}" data-cm="${this.artworkScaleCm(artwork)}" style="--r:${ratio}" onclick="openLightbox('${artwork.id}', 'gallery')" data-artwork-id="${artwork.id}">
                 <div class="gallery-item-image">
-                    <img src="${imageUrl}" alt="${title}" loading="lazy"
+                    <img src="${imageUrl}" ${this.gallerySrcset(artwork, ratio)} alt="${title}" loading="lazy"
                          onload="const r=this.naturalWidth/this.naturalHeight; if (r && Math.abs(r-${ratio})>0.02) portfolio.galleryRatioChanged(this, r)"
                          onerror="this.src='${this.getPlaceholderImage()}'">
                 </div>
