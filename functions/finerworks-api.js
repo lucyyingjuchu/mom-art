@@ -6,7 +6,8 @@
 // by submit-order.js after Stripe confirms payment.
 
 const SITE_URL = process.env.URL || 'https://xiaoranart.com';
-const SKU_PATTERN = /^5M210M37S\d{1,2}X\d{1,2}$/; // Canson Arches print, W x H inches
+// Canson Arches Aquarelle Rag: 37S = mounted on thick board, 8S = print only (borderless)
+const SKU_PATTERN = /^5M210M(37|8)S\d{1,2}X\d{1,2}$/;
 
 const headers = {
     'Access-Control-Allow-Origin': SITE_URL,
@@ -30,7 +31,7 @@ exports.handler = async (event) => {
 
     const { endpoint, data } = request;
     if (endpoint !== 'get_prices') return reply(403, { error: 'Endpoint not allowed' });
-    if (!Array.isArray(data) || data.length === 0 || data.length > 5 ||
+    if (!Array.isArray(data) || data.length === 0 || data.length > 50 ||
         !data.every(d => SKU_PATTERN.test(String(d.product_sku)) && Number(d.product_qty) === 1)) {
         return reply(400, { error: 'Invalid price request' });
     }
@@ -47,7 +48,8 @@ exports.handler = async (event) => {
                 'web_api_key': process.env.FINERWORKS_WEB_API_KEY,
                 'app_key': process.env.FINERWORKS_APP_KEY
             },
-            body: JSON.stringify(data.map(d => ({ product_qty: 1, product_sku: d.product_sku })))
+            // v3 get_prices wants an object {products:[...]}, not a bare array
+            body: JSON.stringify({ products: data.map(d => ({ product_qty: 1, product_sku: d.product_sku })) })
         });
         const result = await res.json().catch(() => ({}));
         return reply(res.status, result);

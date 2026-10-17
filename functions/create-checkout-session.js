@@ -21,35 +21,26 @@ const headers = {
     'Content-Type': 'application/json'
 };
 
-// Same fallback table as js/shopping.js calculateFallbackPrice()
-function fallbackPrice(area) {
-    if (area < 80) return 23.00;
-    if (area < 150) return 28.00;
-    if (area < 250) return 38.00;
-    return 48.00;
-}
-
-// Same calculation as js/shopping.js fetchPrice(), done server-side
+// Finerworks cost x MARKUP, worked out on the server. If the price list can't be
+// reached we refuse the checkout rather than guess: the old fallback table
+// ($23-48) was far below what Finerworks charges for these sizes.
 async function priceFor(w, h) {
-    try {
-        const res = await fetch('https://api.finerworks.com/v3/get_prices', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'web_api_key': process.env.FINERWORKS_WEB_API_KEY,
-                'app_key': process.env.FINERWORKS_APP_KEY
-            },
-            body: JSON.stringify([{ product_qty: 1, product_sku: `5M210M37S${w}X${h}` }])
-        });
-        const data = await res.json();
-        if (res.ok && data.prices && data.prices.length > 0) {
-            const base = parseFloat(data.prices[0].total_price || data.prices[0].product_price || 25.00);
-            return Math.round(base * MARKUP * 100) / 100;
-        }
-    } catch (err) {
-        console.error('Finerworks price lookup failed, using fallback:', err.message);
+    const res = await fetch('https://api.finerworks.com/v3/get_prices', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'web_api_key': process.env.FINERWORKS_WEB_API_KEY,
+            'app_key': process.env.FINERWORKS_APP_KEY
+        },
+        body: JSON.stringify({ products: [{ product_qty: 1, product_sku: `5M210M37S${w}X${h}` }] })
+    });
+    const data = await res.json().catch(() => ({}));
+    const p = data.prices && data.prices[0];
+    const base = p && parseFloat(p.total_price || p.product_price);
+    if (!res.ok || !base) {
+        throw new Error(`Finerworks price lookup failed for ${w}x${h}: ${res.status} ${JSON.stringify(data).slice(0, 200)}`);
     }
-    return fallbackPrice(w * h);
+    return Math.round(base * MARKUP * 100) / 100;
 }
 
 // Stripe metadata values are capped at 500 characters, so a long cart is split

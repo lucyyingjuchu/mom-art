@@ -418,26 +418,18 @@ class ShoppingCart {
             const result = await response.json();
             console.log('💰 Price API result:', result);
             
-            if (response.ok && result.prices && result.prices.length > 0) {
-                const basePrice = parseFloat(result.prices[0].total_price || result.prices[0].product_price || 25.00);
-                return Math.round(basePrice * 2.5 * 100) / 100;
-            } else {
-                console.warn('💰 Price API failed, using fallback');
-                return this.calculateFallbackPrice(size.width_inches * size.height_inches);
+            const p = result.prices && result.prices[0];
+            const basePrice = p && parseFloat(p.total_price || p.product_price);
+            if (!response.ok || !basePrice) {
+                // No guessed fallback price: the checkout uses the real Finerworks price,
+                // so showing a made-up number here would only mislead.
+                throw new Error('Price API failed: ' + response.status);
             }
-            
+            return Math.round(basePrice * 2.5 * 100) / 100;
         } catch (error) {
             console.error('💰 Price fetch error:', error);
-            return this.calculateFallbackPrice(size.width_inches * size.height_inches);
+            throw error;
         }
-    }
-    
-    calculateFallbackPrice(area) {
-        // Fallback pricing based on your existing price data
-        if (area < 80) return 23.00;
-        if (area < 150) return 28.00;
-        if (area < 250) return 38.00;
-        return 48.00;
     }
     
     selectSize(sizeIndex) {
