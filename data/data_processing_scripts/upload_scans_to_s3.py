@@ -77,5 +77,23 @@ def main():
         sys.exit(1)
 
 
+class _Tee:
+    def __init__(self, *s): self.s = s
+    def write(self, x):
+        for f in self.s: f.write(x); f.flush()
+    def flush(self):
+        for f in self.s: f.flush()
+
+
 if __name__ == "__main__":
-    main()
+    _log = open(os.path.join(HERE, "upload_log.txt"), "w", encoding="utf-8")
+    sys.stdout = sys.stderr = _Tee(sys.__stdout__, _log)
+    try:
+        main()
+    except SystemExit as e:
+        if e.code not in (None, 0):
+            print(e.code if isinstance(e.code, str) else f"exit {e.code}")
+        raise
+    except Exception:
+        import traceback; traceback.print_exc()
+        sys.exit(1)
