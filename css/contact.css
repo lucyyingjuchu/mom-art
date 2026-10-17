@@ -16,9 +16,19 @@
 .contact-lead {
     color: #6c6255;
     line-height: 1.8;
+    margin: 0 auto 0.4rem;
+    max-width: 560px;
+}
+
+.contact-collect {
+    color: #8a7f72;
+    font-size: 0.85rem;
+    line-height: 1.7;
     margin: 0 auto 2rem;
     max-width: 560px;
 }
+
+.contact-collect a { color: #2c3e50; margin-left: 0.3rem; white-space: nowrap; }
 
 /* Email: the main way in */
 .contact-mail {
@@ -49,31 +59,27 @@
 
 .contact-mail-address:hover { color: #a3342c; border-color: #a3342c; }
 
-.contact-mail-hint {
-    color: #8a7f72;
-    font-size: 0.9rem;
-    margin: 1rem 0 0.8rem;
-}
-
-.contact-topics {
+.contact-mail-row {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
-    gap: 0.6rem;
+    gap: 0.4rem 0.8rem;
 }
 
-.contact-topic {
-    padding: 0.5rem 1.1rem;
+.contact-copy {
+    padding: 0.3rem 0.8rem;
     border-radius: 999px;
     border: 1px solid #c9bba8;
     background: #fff;
-    color: #2c3e50;
-    text-decoration: none;
-    font-size: 0.95rem;
+    color: #6c6255;
+    font: inherit;
+    font-size: 0.8rem;
+    cursor: pointer;
     transition: all 0.2s ease;
 }
 
-.contact-topic:hover { background: #2c3e50; border-color: #2c3e50; color: #fff; }
+.contact-copy:hover { background: #2c3e50; border-color: #2c3e50; color: #fff; }
 
 .contact-prints {
     margin: 1.2rem 0 0;
@@ -91,51 +97,47 @@
     margin: 0 0 1rem;
 }
 
+/* Social links: one small row - the email above is the main way in */
 .contact-social {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
     margin-bottom: 2.5rem;
 }
 
 .contact-social-card {
-    display: flex;
-    flex-direction: column;
+    display: inline-flex;
     align-items: center;
-    gap: 0.35rem;
-    padding: 1.3rem 1rem;
+    gap: 0.45rem;
+    padding: 0.5rem 0.95rem;
     border: 1px solid #e9e4dc;
-    border-radius: 10px;
+    border-radius: 999px;
     background: #fff;
     color: #2c3e50;
     text-decoration: none;
-    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    font-size: 0.95rem;
+    transition: border-color 0.2s ease, background 0.2s ease;
 }
 
 .contact-social-card[hidden] { display: none; }
 
-.contact-social-card:hover {
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-    transform: translateY(-2px);
-}
+.contact-social-card:hover { border-color: #c9bba8; background: #fbf8f3; }
 
 .contact-social-card svg {
-    width: 26px;
-    height: 26px;
+    width: 18px;
+    height: 18px;
     fill: currentColor;
-    color: #2c3e50;
-    margin-bottom: 0.2rem;
+    flex: 0 0 auto;
 }
 
-.contact-social-name { font-weight: 600; letter-spacing: 0.04em; }
-.contact-social-desc { font-size: 0.85rem; color: #8a7f72; line-height: 1.5; }
+.contact-social-name { font-weight: 600; letter-spacing: 0.03em; }
+/* Language of the posts: 中文 / 英文 */
+.contact-social-desc { font-size: 0.75rem; color: #8a7f72; }
+.contact-social-desc::before { content: "· "; }
 
 @media (max-width: 768px) {
     .contact-page h2 { font-size: 1.5rem; }
     .contact-mail { padding: 1.5rem 1rem 1.3rem; }
     .contact-mail-address { font-size: 1.15rem; }
-    .contact-social { grid-template-columns: 1fr; }
-    .contact-social-card { flex-direction: row; justify-content: flex-start; text-align: left; gap: 0.8rem; padding: 1rem 1.1rem; }
-    .contact-social-card svg { margin: 0; flex: 0 0 auto; }
-    .contact-social-desc { margin-left: auto; text-align: right; }
 }
