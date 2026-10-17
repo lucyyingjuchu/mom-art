@@ -999,3 +999,81 @@
     color: #34495e;
     white-space: pre-line;
 }
+
+/* ---------- prints entry points (added by shopping.js) ----------
+   The print section sits at the bottom of the details, so many visitors
+   never learn prints exist. A quiet line under the availability badge,
+   and on phones a pill in the collapsed sheet, lead down to it. */
+.prints-teaser {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    width: 100%;
+    margin: 0 0 1.25rem;
+    padding: 0.7rem 0.1rem;
+    background: none;
+    border: none;
+    border-top: 1px solid #e3e6e9;
+    border-bottom: 1px solid #e3e6e9;
+    color: #2c3e50;
+    font: inherit;
+    font-size: 0.92rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    text-align: left;
+    cursor: pointer;
+}
+
+.prints-teaser-arrow {
+    color: #8a939b;
+    transition: transform 0.2s ease;
+}
+
+.prints-teaser:hover .prints-teaser-text { text-decoration: underline; text-underline-offset: 3px; }
+.prints-teaser:hover .prints-teaser-arrow { transform: translateY(2px); color: #2c3e50; }
+.prints-teaser:focus-visible { outline: 2px solid #2c3e50; outline-offset: 2px; }
+
+.prints-pill { display: none; }
+
+@keyframes printsHighlight {
+    from { background-color: #fff6df; }
+    to { background-color: #f8f9fa; }
+}
+
+.lightbox .lightbox-info-section .shopping-section.prints-highlight {
+    animation: printsHighlight 1.6s ease-out;
+}
+
+@media (max-width: 768px) {
+    /* title moves left to make room for the pill on the right */
+    .lb-sheet-handle:has(.prints-pill) .lb-sheet-title {
+        align-self: stretch;
+        text-align: left;
+        padding-right: 9.5rem;
+    }
+
+    .prints-pill {
+        display: inline-flex;
+        align-items: center;
+        position: absolute;
+        right: 16px;
+        bottom: 12px;
+        max-width: 9rem;
+        padding: 0.35rem 0.8rem;
+        border-radius: 999px;
+        background: #2c3e50;
+        color: #fff;
+        font: 500 0.8rem/1.2 system-ui, -apple-system, "PingFang TC", "Microsoft JhengHei", sans-serif;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        cursor: pointer;
+    }
+
+    .lightbox.sheet-open .prints-pill { display: none; }
+    .lightbox.sheet-open .lb-sheet-handle:has(.prints-pill) .lb-sheet-title { padding-right: 0; }
+
+    /* land below the sticky sheet handle, not under it */
+    .lightbox .lightbox-info-section .shopping-section { scroll-margin-top: var(--lb-sheet-peek); }
+}

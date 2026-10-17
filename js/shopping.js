@@ -147,6 +147,9 @@ class ShoppingCart {
     }
     
     async enhanceLightboxWithShopping(artwork) {
+        // Ignore results that arrive after the visitor has moved to another artwork
+        const token = this.enhanceToken = (this.enhanceToken || 0) + 1;
+
         // Fetch shopping data separately
         try {
             const response = await fetch('./data/finerworks_ready_artworks.json');
@@ -169,24 +172,94 @@ class ShoppingCart {
             this.currentArtwork = artwork;
         }
         
+        if (token !== this.enhanceToken) return;
         this.selectedSize = null;
-        
+
         // Find the lightbox info section
         const infoSection = document.querySelector('.lightbox-info-section');
         if (!infoSection) return;
-        
+
         // Remove existing shopping section
         const existingShopping = infoSection.querySelector('.shopping-section');
         if (existingShopping) {
             existingShopping.remove();
         }
-        
+
         // Create new shopping section
         const shoppingSection = this.createShoppingSection(this.currentArtwork);
+        shoppingSection.id = 'printsSection';
         infoSection.appendChild(shoppingSection);
-        
-        // Load prices for this artwork
-        this.loadPricesForArtwork(this.currentArtwork);
+
+        // Tell visitors near the top that prints exist (the section itself is far down)
+        const hasPrints = (this.currentArtwork.recommended_sizes || []).length > 0;
+        this.renderPrintsEntryPoints(hasPrints, null);
+
+        // Load prices for this artwork, then show the starting price in the entry points
+        const lowest = await this.loadPricesForArtwork(this.currentArtwork);
+        if (token === this.enhanceToken && hasPrints && lowest) {
+            this.renderPrintsEntryPoints(true, lowest);
+        }
+    }
+
+    // Two small links to the print section: one under the availability badge,
+    // and on phones a pill in the collapsed details sheet, which is all a
+    // phone visitor sees before pulling the sheet up.
+    renderPrintsEntryPoints(hasPrints, lowestPrice) {
+        document.getElementById('printsTeaser')?.remove();
+        document.getElementById('printsPill')?.remove();
+        if (!hasPrints) return;
+
+        const price = !lowestPrice ? ''
+            : Number.isInteger(lowestPrice) ? `$${lowestPrice}` : `$${lowestPrice.toFixed(2)}`;
+        const fill = (key) => this.getText(key).replace('{price}', price);
+
+        const teaser = document.createElement('button');
+        teaser.type = 'button';
+        teaser.id = 'printsTeaser';
+        teaser.className = 'prints-teaser';
+        teaser.innerHTML = '<span class="prints-teaser-text"></span><span class="prints-teaser-arrow" aria-hidden="true">↓</span>';
+        teaser.querySelector('.prints-teaser-text').textContent =
+            fill(price ? 'shopping.printsTeaserFrom' : 'shopping.printsTeaser');
+        teaser.addEventListener('click', () => this.goToPrintsSection());
+
+        const status = document.getElementById('availabilityStatus');
+        if (status) status.insertAdjacentElement('afterend', teaser);
+
+        const handle = document.getElementById('lbSheetHandle');
+        if (handle) {
+            const pill = document.createElement('span');
+            pill.id = 'printsPill';
+            pill.className = 'prints-pill';
+            pill.setAttribute('role', 'button');
+            pill.textContent = fill(price ? 'shopping.printsPillFrom' : 'shopping.printsPill');
+            // Keep the tap from also counting as a tap on the sheet handle
+            pill.addEventListener('pointerdown', e => e.stopPropagation());
+            pill.addEventListener('pointerup', e => e.stopPropagation());
+            pill.addEventListener('click', e => {
+                e.stopPropagation();
+                this.goToPrintsSection();
+            });
+            handle.appendChild(pill);
+        }
+    }
+
+    goToPrintsSection() {
+        const section = document.getElementById('printsSection');
+        const box = document.getElementById('lightbox');
+        if (!section || !box) return;
+
+        const phone = window.matchMedia('(max-width: 768px)').matches;
+        const opening = phone && !box.classList.contains('sheet-open');
+        if (phone) box.classList.add('sheet-open');
+        box.classList.remove('immersive');
+
+        // On phones, wait for the sheet to finish sliding up before scrolling inside it
+        setTimeout(() => {
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            section.classList.remove('prints-highlight');
+            void section.offsetWidth;
+            section.classList.add('prints-highlight');
+        }, opening ? 320 : 0);
     }
     
     createShoppingSection(artwork) {
@@ -294,8 +367,10 @@ class ShoppingCart {
         }
     }
     
+    // Returns the lowest price found, for the "from $XX" line
     async loadPricesForArtwork(artwork) {
         const sizes = artwork.recommended_sizes || [];
+        let lowest = null;
         
         for (let i = 0; i < sizes.length; i++) {
             const size = sizes[i];
@@ -304,6 +379,7 @@ class ShoppingCart {
             try {
                 const price = await this.fetchPrice(artwork, size);
                 this.prices[i] = price;
+                if (lowest === null || price < lowest) lowest = price;
                 
                 if (priceElement) {
                     priceElement.innerHTML = `<div class="price-amount">$${price.toFixed(2)}</div>`;
@@ -315,6 +391,7 @@ class ShoppingCart {
                 }
             }
         }
+        return lowest;
     }
     
     async fetchPrice(artwork, size) {

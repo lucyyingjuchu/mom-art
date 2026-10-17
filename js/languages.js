@@ -274,6 +274,12 @@ const LANGUAGE_DATA = {
             notAvailableDesc: "If you're interested, please contact us for inquiries.",
             priceLoading: "Price Loading...",
             priceLoadFailed: "Price load failed",
+
+            // Prints entry points near the top of the artwork details
+            printsTeaser: "Fine art prints available",
+            printsTeaserFrom: "Fine art prints available · from {price}",
+            printsPill: "Prints",
+            printsPillFrom: "Prints from {price}",
             
             // Checkout form
             checkoutTitle: "Checkout Information",
@@ -588,6 +594,12 @@ const LANGUAGE_DATA = {
             notAvailableDesc: "如有興趣，請透過聯絡方式詢問。",
             priceLoading: "價格載入中...",
             priceLoadFailed: "價格載入失敗",
+
+            // 作品資訊上方的版畫入口
+            printsTeaser: "提供藝術微噴版畫",
+            printsTeaserFrom: "提供藝術微噴版畫 · {price} 起",
+            printsPill: "版畫",
+            printsPillFrom: "版畫 {price} 起",
             
             // Checkout form
             checkoutTitle: "結帳資訊",
