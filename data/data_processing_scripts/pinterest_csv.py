@@ -11,8 +11,9 @@ last one stopped, so you never post the same picture twice.
     python data/data_processing_scripts/pinterest_csv.py --count 12 --every 2 --start 2026-11-01
     python data/data_processing_scripts/pinterest_csv.py --mark-posted pinterest_2026-10-12.csv
 
-Pins come from public artworks with an English title. "In a room" mockups (2:3,
-the shape Pinterest likes best) alternate with the artwork photos.
+Pins come from public artworks with an English title and a real photo of the
+artwork. Works from SKIP_YEARS (2026: no high-res digital files yet) are left out.
+"In a room" mockups are only added with --with-mockups.
 
 Workflow (about 10 minutes a month):
   1. Run this script -> pinterest_YYYY-MM-DD.csv appears in the repo root.
@@ -31,7 +32,10 @@ from datetime import date, datetime, timedelta, timezone
 SITE = "https://xiaoranart.com"
 ARTWORKS_JSON = "data/artworks.json"
 LOG_JSON = "data/pinterest_log.json"
-POST_HOUR_UTC = 1          # 01:00 UTC = 9pm New York / 9am Taipei - evening in the US
+ARTIST = "Yuan Chih-Jin"   # official English name (passport) - never another spelling
+SKIP_YEARS = {"2026"}      # no high-res digital files yet; remove once they're in
+# Publish times in UTC, one per pin per day (--per-day picks the first N)
+POST_HOURS_UTC = [1, 14, 18]   # 9pm / 10am / 2pm New York
 
 # Category (from artworks.json autoCategories/manualCategories) -> Pinterest board.
 # Boards that don't exist yet are created by Pinterest on upload.
@@ -91,8 +95,8 @@ def describe(art, is_mockup):
     title_en = art.get("titleEn") or ""
     size = f"{art['heightCm']} × {art['widthCm']} cm" if art.get("heightCm") and art.get("widthCm") else ""
     poem = clip(art.get("descriptionEn") or "", 220)
-    lead = ("How this original Chinese ink painting looks on the wall. " if is_mockup
-            else "Original Chinese ink painting by Xiaoran (曉然). ")
+    lead = (f"How this original Chinese ink painting by {ARTIST} looks on the wall. " if is_mockup
+            else f"Original Chinese ink painting by {ARTIST} (Xiaoran 曉然). ")
     parts = [lead + f"{title_en} 「{art['title']}」."]
     if poem:
         parts.append(poem)
@@ -103,16 +107,18 @@ def describe(art, is_mockup):
     return clip(" ".join(parts), 500)
 
 
-def candidate_pins(artworks):
+def candidate_pins(artworks, with_mockups=False):
     mockups, originals = [], []
     for art in artworks:
         if not is_public(art) or not art.get("titleEn"):
             continue  # needs an English title for an English-language Pin
+        if str(art.get("year") or "")[:4] in SKIP_YEARS or not art.get("imageHigh"):
+            continue
         cats = categories(art)
         board = next((BOARDS[c] for c in cats if c in BOARDS), DEFAULT_BOARD)
         keywords = ", ".join([BASE_KEYWORDS] + [KEYWORDS[c] for c in cats if c in KEYWORDS])
         link = f"{SITE}/?artwork={art['id']}&lang=en"
-        for view in art.get("productViews") or []:
+        for view in (art.get("productViews") or []) if with_mockups else []:
             if "mockup" in str(view.get("type", "")):
                 mockups.append({
                     "key": f"{art['id']}:mockup:{view.get('image')}",
@@ -125,8 +131,8 @@ def candidate_pins(artworks):
                 })
         originals.append({
             "key": f"{art['id']}:original",
-            "Title": clip(f"{art['titleEn']} – original Chinese painting", 100),
-            "Media URL": abs_url(art.get("imageHigh") or art.get("image")),
+            "Title": clip(f"{art['titleEn']} – Chinese ink painting by {ARTIST}", 100),
+            "Media URL": abs_url(art.get("imageHigh")),
             "Pinterest board": board,
             "Description": describe(art, False),
             "Link": link,
@@ -155,7 +161,10 @@ def save_log(log):
 def main():
     ap = argparse.ArgumentParser(description="Make the next Pinterest bulk-upload CSV")
     ap.add_argument("--count", type=int, default=30, help="pins in this batch (Pinterest max 200)")
-    ap.add_argument("--every", type=int, default=1, help="days between pins")
+    ap.add_argument("--every", type=int, default=1, help="days between posting days")
+    ap.add_argument("--per-day", type=int, default=1, choices=range(1, len(POST_HOURS_UTC) + 1),
+                    help="pins per posting day")
+    ap.add_argument("--with-mockups", action="store_true", help="also pin the 'in a room' mockup images")
     ap.add_argument("--start", help="first publish date YYYY-MM-DD (default: tomorrow)")
     ap.add_argument("--mark-posted", metavar="CSV", help="record a CSV you uploaded so it isn't repeated")
     args = ap.parse_args()
@@ -176,7 +185,7 @@ def main():
     with open(ARTWORKS_JSON, encoding="utf-8") as f:
         artworks = json.load(f)
 
-    pins = [p for p in candidate_pins(artworks) if p["Media URL"] and p["Media URL"] not in log["posted"]]
+    pins = [p for p in candidate_pins(artworks, args.with_mockups) if p["Media URL"] and p["Media URL"] not in log["posted"]]
     if not pins:
         print("Every public artwork has already been pinned. Add mockups or new works, or clear data/pinterest_log.json to start a second round.")
         return
@@ -190,11 +199,12 @@ def main():
         writer = csv.DictWriter(f, fieldnames=columns, extrasaction="ignore")
         writer.writeheader()
         for i, pin in enumerate(batch):
-            when = datetime.combine(start + timedelta(days=i * args.every), datetime.min.time(),
-                                    tzinfo=timezone.utc).replace(hour=POST_HOUR_UTC)
+            day = start + timedelta(days=(i // args.per_day) * args.every)
+            when = datetime.combine(day, datetime.min.time(),
+                                    tzinfo=timezone.utc).replace(hour=POST_HOURS_UTC[i % args.per_day])
             writer.writerow({**pin, "Thumbnail": "", "Publish date": when.strftime("%Y-%m-%dT%H:%M:%S")})
 
-    last = start + timedelta(days=(len(batch) - 1) * args.every)
+    last = start + timedelta(days=((len(batch) - 1) // args.per_day) * args.every)
     print(f"✅ {out_name}: {len(batch)} pins, {start} → {last}  ({len(pins) - len(batch)} more waiting)")
     print("Next: Pinterest → Create → Bulk create Pins → upload it, then:")
     print(f"      python data/data_processing_scripts/pinterest_csv.py --mark-posted {out_name}")
