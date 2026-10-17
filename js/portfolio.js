@@ -480,12 +480,7 @@ class ChineseArtPortfolio {
             }
         });
         
-        // Update about section lists content
-        this.updateAboutListContent('education', this.t('about.education'));
-        this.updateAboutListContent('awards', this.t('about.awards'));
-        this.updateAboutListContent('publications', this.t('about.publications'));
-        this.updateAboutListContent('teaching', this.t('about.teaching'));
-        this.updateAboutListContent('positions', this.t('about.positions'));
+        // About CV lists come from data/cv.json, rendered by js/story-media.js
         
         // CONNECT PAGE: every element with data-i18n gets its text from languages.js
         document.querySelectorAll('#connect [data-i18n]').forEach(el => {

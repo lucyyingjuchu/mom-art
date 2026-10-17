@@ -1,5 +1,7 @@
-// Exhibitions & News page, home-page updates, and About-page video + highlights.
-// Data: data/exhibitions.json, data/updates.json (studio news from Facebook), data/press.json.
+// Exhibitions & News page, home-page show card, and About-page video + CV.
+// Data: data/exhibitions.json, data/updates.json (studio news from Facebook), data/press.json, data/cv.json.
+// Each piece of content has one home: dated things (shows, news, event videos) live on
+// Exhibitions & News; About holds only evergreen content (story, documentary, CV).
 // English page: a video plays its English-dubbed upload when one exists,
 // otherwise the original with synced English subtitles from data/captions/.
 (function () {
@@ -8,6 +10,7 @@
     let exhibitionsData = null;
     let updatesData = null;
     let pressData = null;
+    let cvData = null;
     let historyFilter = 'all';
     let newsLimit = 6;
     const captionCache = {};
@@ -136,7 +139,8 @@
         const shows = currentShowsHTML();
         const news = newsItems();
         const fb = updatesData && safeUrl(updatesData.facebookUrl);
-        const videos = ((pressData && pressData.videos) || []);
+        // The About documentary lives on About only
+        const videos = ((pressData && pressData.videos) || []).filter((v) => !v.showOnAbout);
 
         box.innerHTML = `
             <div class="news-header">
@@ -214,21 +218,14 @@
             videoBox.innerHTML = vids.length ? `<div class="press-videos press-videos-single">${vids.map(videoCardHTML).join('')}</div>` : '';
             bindVideos(videoBox, vids);
         }
-        const hl = document.getElementById('aboutHighlights');
-        if (hl) {
-            // Generated from data/exhibitions.json: the 4 most recent shows marked
-            // "highlight": true (falls back to the latest solo shows). Adding a new
-            // highlighted exhibition pushes the oldest one off — nothing to edit here.
-            const list = ((exhibitionsData && exhibitionsData.exhibitions) || [])
-                .slice().sort((a, b) => String(b.start || b.year).localeCompare(String(a.start || a.year)));
-            let items = list.filter((e) => e.highlight);
-            if (!items.length) items = list.filter((e) => e.type === 'solo');
-            items = items.slice(0, 4);
-            hl.innerHTML = items.length ? `
-                <h3>${esc(t('about.highlightsTitle'))}</h3>
-                <ul>${items.map((e) => `<li><span class="cv-year">${esc(e.year)}</span><span>${esc(pick(e.title))} — ${esc(pick(e.venue))}</span></li>`).join('')}</ul>
-                <button class="update-more" onclick="showSection('news')">${esc(t('about.seeAllExhibitions'))}</button>` : '';
-        }
+        renderCV();
+    }
+
+    function renderCV() {
+        if (!cvData || typeof portfolio === 'undefined' || !portfolio.updateAboutListContent) return;
+        ['education', 'awards', 'publications', 'teaching', 'positions'].forEach((key) => {
+            if (Array.isArray(cvData[key])) portfolio.updateAboutListContent(key, cvData[key].map(pick));
+        });
     }
 
     // ---------- Videos ----------
@@ -338,10 +335,11 @@
     }
 
     async function init() {
-        [exhibitionsData, updatesData, pressData] = await Promise.all([
+        [exhibitionsData, updatesData, pressData, cvData] = await Promise.all([
             loadJSON('./data/exhibitions.json'),
             loadJSON('./data/updates.json'),
-            loadJSON('./data/press.json')
+            loadJSON('./data/press.json'),
+            loadJSON('./data/cv.json')
         ]);
         renderAll();
     }

@@ -74,61 +74,7 @@ const LANGUAGE_DATA = {
             awardsTitle: "Awards & Recognition",
             publicationsTitle: "Publications & Works",
             teachingTitle: "Teaching Experience", 
-            positionsTitle: "Current Positions & Affiliations",
-            
-            // Education content
-            education: [
-                "M.F.A., Graduate Institute of Painting and Calligraphy, National Taiwan University of Arts",
-                "Bachelor's Degree, National Chung Hsing University",
-                "Studied under Luo Zhen-xian, Wang Jing-hao, Cai You, Gao Yi-zhang, You Shi-he, Huang Cai-song, Wang Zi-xi, Lin Jin-zhong, Lin Long-da, Li Xiao-kun, Xue Ping-nan, Ou Hao-nian, Su Feng-nan, Xiao Jin-xing, and other masters"
-            ],
-            
-            // Awards content
-            awards: [
-                "2024 Taichung Artists Relay Exhibition 'Artistic Heritage Transmission' - Selected",
-                "2024 Taichung Contemporary Artists - Selected", 
-                "2010 Taichung County Art Exhibition - Calligraphy Category Second Place",
-                "2010 Nantou County 11th Yushan Art Award - Calligraphy Category Selected",
-                "2009 Taichung County Art Exhibition - Calligraphy Category Excellence Award",
-                "2008 Taichung County Art Exhibition - Calligraphy Category Selected",
-                "2006 International Women Artists Hundred Ink Painting Exhibition - Selected (Chinese Art Unity Association)"
-            ],
-            
-            // Publications content
-            publications: [
-                "\"The Great Beauty of Heaven and Earth\" ISBN 978-626-7374-49-8 (2024)",
-                "\"Poetry, Calligraphy and Painting\" ISBN 978-957-43-0510-0 (2014)",
-                "\"Coming and Going Without Mind · Misty Cloud Scenery\" Master's Thesis on Ink Painting Creation (2012)"
-            ],
-            
-            // Teaching experience
-            teaching: [
-                "National Chung Hsing University - International Student Cultural Exchange Program / Chinese Painting Class for Chinese Language Students, Adjunct Lecturer (2012—Present)",
-                "National Chung Hsing University - Micro-course Lecturer (2018—2020)",
-                "Central Taiwan University of Science and Technology - Art Course Adjunct Lecturer (2012—2019)",
-                "Chaoyang University of Technology - Calligraphy and Ink Painting Course Adjunct Lecturer (2018—2019)",
-                "Taichung Dadun Cultural Center - Art Workshop Teacher (2017—Present)",
-                "Taichung Houyi Community University - New Realm of Ink Painting Course Teacher (2017—2020)",
-                "Xiaoran Cultural Arts Studio - Director (2017—Present)",
-                "Taichung Dakeng Community University - Lize Chinese Painting Society Instructor (2012—2017)"
-            ],
-            
-            // Current positions
-            positions: [
-                "Xiaoran Cultural Arts Studio - Director",
-                "Taiwan Province Chinese Painting and Calligraphy Association - Honorary President / Current President",
-                "Chinese Painting and Calligraphy Art Research Association - Secretary General",  
-                "NTUA International Contemporary Art Alliance - Executive Director",
-                "Taichung Women Artists Painting Association - Executive Director",
-                "Central Taiwan University of Science and Technology Art Center - Advisory Committee Member",
-                "Taichung Dakeng Lize Cultural Heritage Research Association - President",
-                "Fu Chien-fu Painting and Calligraphy Association - Director",
-                "Taichung Moyuan Yaji Painting Association - Director",
-                "Taichung Chinese Painting and Calligraphy Association - Director",
-                "Zhaozhong Painting Association - Supervisor",
-                "Member of Republic of China Painting Association, Taichung Calligraphy Association, Chinese Art Association, Yitao Painting Association, Chinese Arts Association, Taiwan Traditional and Modern Art Association",
-                "Zhongyuan Painting and Calligraphy Research Institute of Henan Province, China - Senior Art Advisor"
-            ]
+            positionsTitle: "Current Positions & Affiliations"
         },
         
         exhibitionsPage: {
@@ -441,61 +387,7 @@ const LANGUAGE_DATA = {
             awardsTitle: "獲獎紀錄",
             publicationsTitle: "出版與著作",
             teachingTitle: "教學經歷",
-            positionsTitle: "現任職務與學會身分", 
-            
-            // Education content
-            education: [
-                "國立台灣藝術大學 書畫藝術研究所 碩士（M.F.A.）",
-                "國立中興大學 學士",
-                "師承羅振賢、王景浩、蔡友、高義璋、游世河、黃才松、王子奚、林進忠、林隆達、李蕭錕、薛平南、歐豪年、蘇峰男、蕭進興等書畫名家"
-            ],
-            
-            // Awards content
-            awards: [
-                "2024 台中市美術家接力展「藝術薪火相傳」 入選",
-                "2024 台中市當代藝術家 遴選",
-                "2010 台中縣美展 書法類第二名",
-                "2010 南投縣第十一屆玉山美術獎 書法類入選",
-                "2009 台中縣美展 書法類優選",
-                "2008 台中縣美展 書法類入選",
-                "2006 國際女畫家百人水墨畫展 正選（中華藝術同心會）"
-            ],
-            
-            // Publications content
-            publications: [
-                "《天地有大美》ISBN 978-626-7374-49-8（2024）",
-                "《書情畫意》ISBN 978-957-43-0510-0（2014）",
-                "《去住無心‧煙雲情境》水墨創作研究碩士論文（2012）"
-            ],
-            
-            // Teaching experience
-            teaching: [
-                "國立中興大學 國際學生文化交流課程∕華語國畫班 兼任講師（2012—迄今）",
-                "國立中興大學 微型課程講師（2018—2020）",
-                "中台科技大學 藝術課程兼任講師（2012—2019）",
-                "朝陽科技大學 書法與水墨畫課程兼任講師（2018—2019）",
-                "臺中市大墩文化中心 藝文研習班教師（2017—迄今）",
-                "臺中市後驛社區大學 水墨新境課程教師（2017—2020）",
-                "曉然文化藝術工作室 負責人（2017—迄今）",
-                "臺中市大坑社區大學 麗澤國畫社授課教師（2012—2017）"
-            ],
-            
-            // Current positions
-            positions: [
-                "曉然文化藝術工作室 負責人",
-                "台灣省中國書畫學會 榮譽理事長∕現任理事長",
-                "中華書畫藝術研究會 秘書長",
-                "臺藝大國際當代藝術聯盟 常務理事",
-                "臺中市華藝女子畫會 常務理事",
-                "中台科技大學 藝術中心 諮詢委員",
-                "臺中市大坑麗澤文化資產研究學會 理事長",
-                "傅狷夫書畫學會 理事",
-                "臺中市墨緣雅集畫會 理事",
-                "臺中市中華書畫協會 理事",
-                "昭中畫會 監事",
-                "中華民國畫學會、臺中市書法學會、中國美術協會、藝濤畫會、中國藝術協會、台灣傳統與現代藝術學會 會員",
-                "中國河南省中原書畫研究院 高級藝術顧問"
-            ]
+            positionsTitle: "現任職務與學會身分"
         },
 
         exhibitionsPage: {
