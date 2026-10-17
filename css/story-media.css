@@ -541,3 +541,6 @@ a.news-item:hover p { color: #a3342c; }
     .professional-info.cv-grid { columns: 1; padding: 0 0.25rem; }
     .cv-grid .section-header { padding: 0 0 0.5rem; font-size: 1rem; }
 }
+/* The nav already says FAQ, and the "where things ship from" note is answered under Shipping */
+.faq-tabbed #faqTitle,
+.faq-tabbed #faqSubtitle { display: none; }
