@@ -487,32 +487,20 @@ class ChineseArtPortfolio {
         this.updateAboutListContent('teaching', this.t('about.teaching'));
         this.updateAboutListContent('positions', this.t('about.positions'));
         
-        // CONNECT PAGE
-        const connectTitle = document.querySelector('#connect h2');
-        if (connectTitle) connectTitle.textContent = this.t('connect.title');
-        
-        const connectSubtitle = document.querySelector('#connect .connect-content > p');
-        if (connectSubtitle) connectSubtitle.textContent = this.t('connect.subtitle');
-        
-        // Connect page elements
-        const emailTitle = document.querySelector('#connect .connect-item:first-child h3');
-        if (emailTitle) emailTitle.textContent = this.t('connect.emailTitle');
+        // CONNECT PAGE: every element with data-i18n gets its text from languages.js
+        document.querySelectorAll('#connect [data-i18n]').forEach(el => {
+            el.textContent = this.t(el.dataset.i18n);
+        });
+        // Topic buttons open an email with the subject filled in
+        document.querySelectorAll('#connect .contact-topic').forEach(el => {
+            const subject = this.t('connect.subject.' + el.dataset.topic);
+            el.href = 'mailto:info@xiaoranart.com?subject=' + encodeURIComponent(subject);
+        });
+        // Social cards without a link yet stay hidden
+        document.querySelectorAll('#connect .contact-social-card').forEach(el => {
+            el.hidden = !el.getAttribute('href');
+        });
 
-        const emailDesc = document.querySelector('#connect .connect-item:first-child p');
-        if (emailDesc) emailDesc.textContent = this.t('connect.emailDesc');
-
-        const facebookTitle = document.querySelector('#connect .connect-item:last-child h3');
-        if (facebookTitle) facebookTitle.textContent = this.t('connect.facebookTitle');
-
-        const facebookDesc = document.querySelector('#connect .connect-item:last-child p');
-        if (facebookDesc) facebookDesc.textContent = this.t('connect.facebookDesc');
-
-        // Location text
-        const locationText = document.getElementById('locationText');
-        if (locationText) {
-            locationText.textContent = this.t('connect.locationText');
-        }
-        
         const locationMap = document.getElementById('locationMap');
         if (locationMap) {
             if (this.currentLanguage === 'en') {

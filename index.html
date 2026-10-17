@@ -1255,6 +1255,7 @@
     <!-- Phone layout - must stay after the styles above -->
     <link rel="stylesheet" href="./css/story-media.css">
     <link rel="stylesheet" href="./css/gallery.css">
+    <link rel="stylesheet" href="./css/contact.css">
     <link rel="stylesheet" href="./css/mobile.css">
 </head>
 <body>
@@ -1457,40 +1458,56 @@
         </section>
 
 
-        <!-- CONNECT SECTION -->
+        <!-- CONNECT SECTION: text from languages.js (data-i18n), links below.
+             Instagram / Pinterest cards stay hidden until their href is filled in. -->
         <section id="connect" class="section">
-            <div class="connect-content">
-                <h2><!-- Will be filled by JavaScript --></h2>
-                <p><!-- Will be filled by JavaScript --></p>
-                
-                <div class="connect-grid">
-                    <!-- Email - Make entire card clickable -->
-                    <a href="mailto:info@xiaoranart.com" class="connect-item connect-link-card">
-                        <div class="connect-icon">✉️</div>
-                        <h3><!-- Will be filled by JavaScript --></h3>
-                        <p><!-- Will be filled by JavaScript --></p>
-                    </a>
+            <div class="contact-page">
+                <h2 data-i18n="connect.title"></h2>
+                <p class="contact-lead" data-i18n="connect.subtitle"></p>
 
-                    <!-- Facebook - Make entire card clickable -->
-                    <a href="https://www.facebook.com/xiao.ran.714035" target="_blank" class="connect-item connect-link-card">
-                        <div class="connect-icon">
-                            <img src="./images/contact/256px-Facebook_Logo_2023.png" alt="Facebook" onerror="this.style.display='none'; this.parentElement.innerHTML='📘';">
-                        </div>
-                        <h3><!-- Will be filled by JavaScript --></h3>
-                        <p><!-- Will be filled by JavaScript --></p>
+                <div class="contact-mail">
+                    <svg class="contact-mail-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+                    <a class="contact-mail-address" href="mailto:info@xiaoranart.com">info@xiaoranart.com</a>
+                    <p class="contact-mail-hint" data-i18n="connect.emailDesc"></p>
+                    <div class="contact-topics">
+                        <a class="contact-topic" data-topic="collect" data-i18n="connect.topicCollect"></a>
+                        <a class="contact-topic" data-topic="exhibit" data-i18n="connect.topicExhibit"></a>
+                        <a class="contact-topic" data-topic="classes" data-i18n="connect.topicClasses"></a>
+                    </div>
+                    <p class="contact-prints"><span data-i18n="connect.printsNote"></span>
+                        <a href="#" onclick="showSection('faq'); return false;" data-i18n="connect.printsLink"></a></p>
+                </div>
+
+                <h3 class="contact-follow-title" data-i18n="connect.followTitle"></h3>
+                <div class="contact-social">
+                    <a class="contact-social-card" href="https://www.facebook.com/xiao.ran.714035" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8.5V6.8c0-.8.2-1.3 1.4-1.3H17V2.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v1.8H7.7v3.3h2.7V21h3.6v-9.2h2.7l.4-3.3H14z"/></svg>
+                        <span class="contact-social-name" data-i18n="connect.facebookTitle"></span>
+                        <span class="contact-social-desc" data-i18n="connect.facebookDesc"></span>
+                    </a>
+                    <a class="contact-social-card" href="" target="_blank" rel="noopener" data-social="instagram">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.3" cy="6.7" r="1.2"/></svg>
+                        <span class="contact-social-name">Instagram</span>
+                        <span class="contact-social-desc" data-i18n="connect.instagramDesc"></span>
+                    </a>
+                    <a class="contact-social-card" href="" target="_blank" rel="noopener" data-social="pinterest">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.2 2.5c-5.3 0-8 3.8-8 7 0 1.9.7 3.6 2.3 4.2.3.1.5 0 .6-.3l.2-.9c.1-.3 0-.4-.2-.7-.5-.6-.8-1.3-.8-2.4 0-3.1 2.3-5.8 6-5.8 3.3 0 5.1 2 5.1 4.7 0 3.5-1.6 6.5-3.9 6.5-1.3 0-2.2-1-1.9-2.3.4-1.5 1.1-3.2 1.1-4.3 0-1-.5-1.8-1.6-1.8-1.3 0-2.3 1.3-2.3 3.1 0 1.1.4 1.9.4 1.9l-1.5 6.4c-.4 1.9-.1 4.2 0 4.4 0 .1.2.2.3.1.1-.1 1.4-1.8 1.9-3.4l.7-2.9c.4.7 1.5 1.4 2.6 1.4 3.5 0 5.8-3.2 5.8-7.4 0-3.2-2.7-6.2-6.8-6.2z"/></svg>
+                        <span class="contact-social-name">Pinterest</span>
+                        <span class="contact-social-desc" data-i18n="connect.pinterestDesc"></span>
                     </a>
                 </div>
+
                 <div class="location-info">
                     <div class="location-text-row">
                         <div class="location-icon">📍</div>
-                        <span id="locationText">台中市, 台灣</span>
+                        <span id="locationText" data-i18n="connect.locationText">台中市, 台灣</span>
                     </div>
-                    <!-- Add ID for conditional display -->
                     <div class="location-map" id="locationMap" style="display: none;">
-                        <img src="./images/contact/TaichungTaiwan.png" alt="Taichung, Taiwan" 
-                            onerror="this.src='https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop'">
+                        <img src="./images/contact/TaichungTaiwan.png" alt="Taichung, Taiwan"
+                            onerror="this.closest('.location-map').remove()">
                     </div>
                 </div>
+            </div>
         </section>
     </main>
 
