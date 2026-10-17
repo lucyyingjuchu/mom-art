@@ -152,12 +152,8 @@
         const shows = currentShowsHTML();
         const news = newsItems();
         const fb = updatesData && safeUrl(updatesData.facebookUrl);
-        // About videos also show here while they are recent (past 12 months);
-        // once older they live on About only, so the two pages don't repeat each other.
-        const yearAgo = new Date(); yearAgo.setFullYear(yearAgo.getFullYear() - 1);
-        const cutoff = yearAgo.toISOString().slice(0, 10);
-        const videos = ((pressData && pressData.videos) || [])
-            .filter((v) => !v.showOnAbout || String(v.date) >= cutoff);
+        // The full video archive, newest first; 6 at a time with "show more"
+        const videos = (pressData && pressData.videos) || [];
 
         box.innerHTML = `
             <div class="news-header">
