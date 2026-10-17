@@ -492,3 +492,52 @@ a.news-item:hover p { color: #a3342c; }
 .sub-tabs { margin: 0.5rem auto 2rem; max-width: 1100px; }
 .news-tabbed .news-block > h3,
 .faq-tabbed .faq-section-header { display: none; }
+
+/* ---------- About › Credentials: a quiet CV, everything open ---------- */
+.professional-info.cv-grid {
+    display: block;
+    columns: 2 380px;
+    column-gap: 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.cv-grid .info-section {
+    break-inside: avoid;
+    background: none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: visible;
+    margin: 0 0 2.2rem;
+}
+.cv-grid .section-header {
+    background: none;
+    border: 0;
+    border-bottom: 1px solid #e9e4dc;
+    padding: 0 0 0.55rem;
+    margin: 0 0 0.6rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: #2c3e50;
+}
+.cv-grid .section-header::before {
+    content: "";
+    display: inline-block;
+    width: 3px;
+    height: 0.95em;
+    margin-right: 0.6rem;
+    background: #a3342c;
+    vertical-align: -0.1em;
+}
+.cv-grid .section-content { padding: 0; }
+.cv-grid .section-content li {
+    padding: 0.42rem 0;
+    border-bottom: 0;
+    color: #3d4a57;
+    line-height: 1.6;
+}
+@media (max-width: 768px) {
+    .professional-info.cv-grid { columns: 1; padding: 0 0.25rem; }
+    .cv-grid .section-header { padding: 0 0 0.5rem; font-size: 1rem; }
+}
