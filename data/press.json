@@ -181,15 +181,15 @@
       },
       "title": {
         "zh": "《天地有大美》2026 袁之靜水墨創作展 長片",
-        "en": "“The Great Beauty of Heaven and Earth” — Feature Film"
+        "en": "“The Great Beauty of Heaven and Earth” — 2026 Feature Film"
       },
       "summary": {
-        "zh": "美學館為本展製作的 23 分鐘專題影片（華語）。",
-        "en": "A 23-minute feature produced by the museum for the exhibition (in Mandarin)."
+        "zh": "國立彰化生活美學館為 2026 個展製作的 23 分鐘專題影片。",
+        "en": "A 23-minute film produced by the National Changhua Living Art Center for the 2026 solo exhibition."
       },
       "captionsEn": "",
       "dubbedYoutubeIdEn": "",
-      "showOnAbout": false
+      "showOnAbout": true
     },
     {
       "youtubeId": "EZPxcu2UqeY",
@@ -446,8 +446,8 @@
         "en": "14th Taichung Artists Relay Exhibition"
       },
       "title": {
-        "zh": "【天地有大美】袁之靜水墨展創作紀錄片",
-        "en": "“The Great Beauty of Heaven and Earth” — Documentary"
+        "zh": "【天地有大美】袁之靜水墨展創作紀錄片（2024）",
+        "en": "“The Great Beauty of Heaven and Earth” — 2024 Documentary"
       },
       "summary": {
         "zh": "走進藝術家的畫室與創作過程。",

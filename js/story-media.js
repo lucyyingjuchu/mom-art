@@ -152,8 +152,12 @@
         const shows = currentShowsHTML();
         const news = newsItems();
         const fb = updatesData && safeUrl(updatesData.facebookUrl);
-        // The About documentary lives on About only
-        const videos = ((pressData && pressData.videos) || []).filter((v) => !v.showOnAbout);
+        // About videos also show here while they are recent (past 12 months);
+        // once older they live on About only, so the two pages don't repeat each other.
+        const yearAgo = new Date(); yearAgo.setFullYear(yearAgo.getFullYear() - 1);
+        const cutoff = yearAgo.toISOString().slice(0, 10);
+        const videos = ((pressData && pressData.videos) || [])
+            .filter((v) => !v.showOnAbout || String(v.date) >= cutoff);
 
         box.innerHTML = `
             <div class="news-header">
@@ -231,7 +235,7 @@
         const videoBox = document.getElementById('aboutVideo');
         if (videoBox && pressData) {
             const vids = (pressData.videos || []).filter((v) => v.showOnAbout);
-            videoBox.innerHTML = vids.length ? `<div class="press-videos press-videos-single">${vids.map(videoCardHTML).join('')}</div>` : '';
+            videoBox.innerHTML = vids.length ? `<div class="press-videos press-videos-about${vids.length === 1 ? ' press-videos-single' : ''}">${vids.map(videoCardHTML).join('')}</div>` : '';
             bindVideos(videoBox, vids);
         }
         renderCV();

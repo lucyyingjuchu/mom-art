@@ -435,7 +435,9 @@ a.news-item:hover p { color: #a3342c; }
 .news-invite p { margin: 0 0 0.9rem; color: #2c3e50; }
 
 /* ---------- About: highlights + CV lists ---------- */
-.press-videos-single { max-width: 720px; margin: 0 auto 2.5rem; grid-template-columns: 1fr; }
+.press-videos-about { max-width: 1100px; margin: 0 auto 2.5rem; }
+.press-videos-single { max-width: 720px; grid-template-columns: 1fr; }
+@media (min-width: 768px) { .press-videos-about:not(.press-videos-single) { grid-template-columns: 1fr 1fr; } }
 
 .about-highlights {
     max-width: 1200px;
