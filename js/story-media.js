@@ -61,7 +61,7 @@
         };
     }
 
-    function showCard(e, label) {
+    function showCard(e, label, compact) {
         const link = safeUrl(e.link);
         const dates = e.start && e.end
             ? `${formatDate(e.start)} – ${formatDate(e.end, lang() !== 'zh' ? true : false)}`
@@ -72,16 +72,16 @@
             <h3>${esc(pick(e.title))}</h3>
             <p class="show-venue">${esc(pick(e.venue))}</p>
             ${dates ? `<p class="show-dates">${esc(dates)}</p>` : ''}
-            ${pick(e.note) ? `<p class="show-note">${esc(pick(e.note))}</p>` : ''}
-            ${link ? `<a href="${esc(link)}" target="_blank" rel="noopener">${esc(t('exhibitionsPage.more'))} →</a>` : ''}
+            ${!compact && pick(e.note) ? `<p class="show-note">${esc(pick(e.note))}</p>` : ''}
+            ${!compact && link ? `<a href="${esc(link)}" target="_blank" rel="noopener">${esc(t('exhibitionsPage.more'))} →</a>` : ''}
         </article>`;
     }
 
-    function currentShowsHTML() {
+    function currentShowsHTML(compact) {
         const { onView, upcoming } = currentShows();
         return [
-            ...onView.map((e) => showCard(e, t('exhibitionsPage.onView'))),
-            ...upcoming.map((e) => showCard(e, t('exhibitionsPage.upcoming')))
+            ...onView.map((e) => showCard(e, t('exhibitionsPage.onView'), compact)),
+            ...upcoming.map((e) => showCard(e, t('exhibitionsPage.upcoming'), compact))
         ].join('');
     }
 
@@ -120,12 +120,12 @@
             box.className = 'latest-updates';
             home.insertBefore(box, home.firstChild);
         }
-        const shows = currentShowsHTML();
-        const items = newsItems().filter((n) => n.tag === 'studio').slice(0, 3);
-        if (!shows && !items.length) { box.innerHTML = ''; return; }
+        // Home stays light: just the current/upcoming show (title, venue, dates).
+        // Notes and studio news live on the Exhibitions & News page.
+        const shows = currentShowsHTML(true);
+        if (!shows) { box.innerHTML = ''; return; }
         box.innerHTML = `
-            ${shows ? `<div class="show-cards">${shows}</div>` : ''}
-            ${items.length ? `<h2>${esc(t('home.latestTitle'))}</h2><ul class="news-list news-list-compact">${items.map(newsItemHTML).join('')}</ul>` : ''}
+            <div class="show-cards">${shows}</div>
             <button class="update-more" onclick="showSection('news')">${esc(t('about.seeAllExhibitions'))}</button>`;
     }
 
