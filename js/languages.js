@@ -15,7 +15,7 @@ const LANGUAGE_DATA = {
             about: "About", 
             exhibitions: "Exhibitions & News",
             faq: "FAQ",
-            connect: "Connect"
+            connect: "Contact"
         },
         
         // Home page
@@ -211,14 +211,26 @@ const LANGUAGE_DATA = {
 
         // Connect page
         connect: {
-            title: "Connect With Me",
-            subtitle: "Follow my artistic journey and stay updated with new works, exhibitions, and creative insights.",
+            title: "Contact",
+            subtitle: "For collecting originals, exhibitions and collaborations, or painting and calligraphy classes, please write to the studio.",
             emailTitle: "Email",
-            emailDesc: "For inquiries, commissions, or collaborations",
-            facebookTitle: "Facebook Fan Page", 
-            facebookDesc: "Latest artworks and behind-the-scenes content",
-            facebookButton: "Visit Fan Page",
-            locationText: "Based in Taichung, Taiwan"
+            emailDesc: "Choose a topic to start your email, or write to us directly.",
+            topicCollect: "Collecting an original",
+            topicExhibit: "Exhibitions & collaboration",
+            topicClasses: "Classes",
+            subject: {
+                collect: "Collecting inquiry",
+                exhibit: "Exhibition / collaboration inquiry",
+                classes: "Class inquiry"
+            },
+            printsNote: "Questions about prints, shipping or framing?",
+            printsLink: "See the FAQ",
+            followTitle: "Follow the studio",
+            facebookTitle: "Facebook",
+            facebookDesc: "Studio news and exhibitions (in Chinese)",
+            instagramDesc: "Works and studio life (in Chinese)",
+            pinterestDesc: "Artwork collections and ideas for your walls",
+            locationText: "Studio in Taichung, Taiwan"
         },
         
         // Lightbox
@@ -571,13 +583,25 @@ const LANGUAGE_DATA = {
         
         // Connect page
         connect: {
-            title: "與我聯絡",
-            subtitle: "關注我的藝術旅程，獲取最新作品、展覽和創作見解。",
+            title: "聯絡",
+            subtitle: "收藏原作、邀展合作或書畫課程，歡迎來信畫室。",
             emailTitle: "電子郵件",
-            emailDesc: "諮詢、委託或合作事宜",
-            facebookTitle: "臉書粉絲專頁",
-            facebookDesc: "最新作品與幕後花絮",
-            facebookButton: "造訪粉絲頁",
+            emailDesc: "選一個主題開始寫信，或直接來信。",
+            topicCollect: "收藏原作",
+            topicExhibit: "邀展・合作",
+            topicClasses: "書畫課程",
+            subject: {
+                collect: "收藏洽詢",
+                exhibit: "邀展／合作洽詢",
+                classes: "書畫課程洽詢"
+            },
+            printsNote: "版畫、運送或裝裱的問題？",
+            printsLink: "請看常見問題",
+            followTitle: "追蹤畫室",
+            facebookTitle: "Facebook",
+            facebookDesc: "最新作品、展覽與導覽",
+            instagramDesc: "作品與畫室日常",
+            pinterestDesc: "作品圖集與居家掛畫靈感",
             locationText: "工作室位於台灣台中"
         },
         
