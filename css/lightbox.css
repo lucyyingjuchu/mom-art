@@ -767,6 +767,14 @@
     font-size: 1.2rem;
 }
 
+/* one line on paper and mounting, right under the heading */
+.shopping-section .size-subtitle {
+    margin: -1rem 0 1.25rem;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: #6c757d;
+}
+
 /* Size selection */
 .size-selection {
     margin-bottom: 1.5rem;

@@ -24,7 +24,7 @@ const headers = {
 // Finerworks cost x MARKUP, worked out on the server. If the price list can't be
 // reached we refuse the checkout rather than guess: the old fallback table
 // ($23-48) was far below what Finerworks charges for these sizes.
-async function priceFor(w, h) {
+async function priceFor(sku) {
     const res = await fetch('https://api.finerworks.com/v3/get_prices', {
         method: 'POST',
         headers: {
@@ -32,13 +32,13 @@ async function priceFor(w, h) {
             'web_api_key': process.env.FINERWORKS_WEB_API_KEY,
             'app_key': process.env.FINERWORKS_APP_KEY
         },
-        body: JSON.stringify({ products: [{ product_qty: 1, product_sku: `5M210M37S${w}X${h}` }] })
+        body: JSON.stringify({ products: [{ product_qty: 1, product_sku: sku }] })
     });
     const data = await res.json().catch(() => ({}));
     const p = data.prices && data.prices[0];
     const base = p && parseFloat(p.total_price || p.product_price);
     if (!res.ok || !base) {
-        throw new Error(`Finerworks price lookup failed for ${w}x${h}: ${res.status} ${JSON.stringify(data).slice(0, 200)}`);
+        throw new Error(`Finerworks price lookup failed for ${sku}: ${res.status} ${JSON.stringify(data).slice(0, 200)}`);
     }
     return Math.round(base * MARKUP * 100) / 100;
 }
@@ -77,7 +77,7 @@ exports.handler = async (event) => {
 
             const w = parseInt(item.width_inches, 10);
             const h = parseInt(item.height_inches, 10);
-            const offered = (print.recommended_sizes || []).some(s => s.width_inches === w && s.height_inches === h);
+            const offered = (print.recommended_sizes || []).find(s => s.width_inches === w && s.height_inches === h);
             if (!offered) {
                 return { statusCode: 400, headers, body: JSON.stringify({ error: 'That print size is not offered' }) };
             }
@@ -87,7 +87,9 @@ exports.handler = async (event) => {
                 return { statusCode: 400, headers, body: JSON.stringify({ error: 'Invalid quantity' }) };
             }
 
-            const price = await priceFor(w, h);
+            const sku = offered.sku || `5M210M37S${w}X${h}`;
+            const rolled = offered.style === 'rolled';
+            const price = await priceFor(sku);
             const info = print.artwork_info || {};
             const api = print.finerworks_image?.finerworks_api_object || {};
             const wCm = Math.round(w * 2.54);
@@ -98,7 +100,7 @@ exports.handler = async (event) => {
                     currency: 'usd',
                     product_data: {
                         name: info.title_en ? `${info.title_en} ${info.title || ''}`.trim() : (info.title || 'Xiaoran Art Print'),
-                        description: `Giclée fine art print, ${w}" × ${h}" (${wCm} × ${hCm} cm)`,
+                        description: `Giclée fine art print, ${w}" × ${h}" (${wCm} × ${hCm} cm), ${rolled ? 'rolled print (unmounted)' : 'mounted on board'}`,
                         images: api.public_thumbnail_uri ? [api.public_thumbnail_uri] : []
                     },
                     unit_amount: Math.round(price * 100)

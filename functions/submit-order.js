@@ -75,7 +75,7 @@ function buildFinerworksOrder(session, cart) {
                 return {
                     product_order_po: `${orderId}-${i + 1}`,
                     product_qty: item.q,
-                    product_sku: `5M210M37S${item.w}X${item.h}`,
+                    product_sku: ((PRINTS[item.id].recommended_sizes || []).find(s => s.width_inches === item.w && s.height_inches === item.h) || {}).sku || `5M210M37S${item.w}X${item.h}`,
                     product_image: {
                         pixel_width: api.pix_w,
                         pixel_height: api.pix_h,

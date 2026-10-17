@@ -279,6 +279,7 @@ class ShoppingCart {
         
         section.innerHTML = `
             <h4>${this.getText('shopping.selectSizeTitle')}</h4>
+            <p class="size-subtitle">${this.getText('shopping.selectSizeSubtitle')}</p>
             
             <div class="size-selection">
                 <label class="size-label">${this.getText('shopping.availableSizes')}</label>
@@ -360,11 +361,9 @@ class ShoppingCart {
         
         const currentLang = this.getCurrentLanguage();
         
-        if (currentLang === 'zh') {
-            return `${widthCm} × ${heightCm} 公分`;
-        } else {
-            return `${widthCm} × ${heightCm} cm`;
-        }
+        const cm = currentLang === 'zh' ? `${widthCm} × ${heightCm} 公分` : `${widthCm} × ${heightCm} cm`;
+        const style = size.style === 'rolled' ? 'shopping.styleRolled' : 'shopping.styleMounted';
+        return `${cm} · ${this.getText(style)}`;
     }
     
     // Returns the lowest price found, for the "from $XX" line
@@ -398,7 +397,7 @@ class ShoppingCart {
         // FIXED: Use 210 for Canson Infinity Arches instead of 175
         const priceRequest = {
             "product_qty": 1,
-            "product_sku": `5M210M37S${size.width_inches}X${size.height_inches}`
+            "product_sku": size.sku || `5M210M37S${size.width_inches}X${size.height_inches}`
         };
         
         console.log('💰 Fetching price for:', priceRequest);
