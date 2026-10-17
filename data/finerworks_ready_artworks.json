@@ -3604,5 +3604,2792 @@
     },
     "print_ready": false,
     "reason": "Insufficient resolution for 200 PPI printing"
+  },
+  "01a12c08-744b-7a49-a73f-aa17ced76313": {
+    "artwork_info": {
+      "id": "01a12c08-744b-7a49-a73f-aa17ced76313",
+      "title": "江流浩蕩-伊瓜蘇瀑布",
+      "title_en": "Mighty Waters – Iguazu Falls",
+      "original_size_cm": "193×503.7"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 24,
+        "height_inches": 9
+      },
+      {
+        "width_inches": 17,
+        "height_inches": 6
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "江流浩蕩-伊瓜蘇瀑布",
+        "description": "Traditional Chinese painting by Xiaoran. Mighty Waters – Iguazu Falls",
+        "file_name": "01a12c08-744b-7a49-a73f-aa17ced76313_large.jpg",
+        "file_size": 430560,
+        "pix_w": 22630,
+        "pix_h": 8646,
+        "hires_file_name": "01a12c08-744b-7a49-a73f-aa17ced76313_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-744b-7a49-a73f-aa17ced76313.jpg",
+        "thumbnail_file_name": "01a12c08-744b-7a49-a73f-aa17ced76313_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-744b-7a49-a73f-aa17ced76313_thumb.jpg",
+        "preview_file_name": "01a12c08-744b-7a49-a73f-aa17ced76313_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-744b-7a49-a73f-aa17ced76313_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "22630×8646",
+      "file_size_mb": 0.41,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-760d-7f02-9e34-ee049ef3aa30": {
+    "artwork_info": {
+      "id": "01a12c08-760d-7f02-9e34-ee049ef3aa30",
+      "title": "千峯曙色-玉山日初雲海",
+      "title_en": "Dawn over a Thousand Peaks – Sunrise and Sea of Clouds at Yushan",
+      "original_size_cm": "146.5×365"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 24,
+        "height_inches": 10
+      },
+      {
+        "width_inches": 17,
+        "height_inches": 7
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "千峯曙色-玉山日初雲海",
+        "description": "Traditional Chinese painting by Xiaoran. Dawn over a Thousand Peaks – Sunrise and Sea of Clouds at Yushan",
+        "file_name": "01a12c08-760d-7f02-9e34-ee049ef3aa30_large.jpg",
+        "file_size": 387077,
+        "pix_w": 15860,
+        "pix_h": 6319,
+        "hires_file_name": "01a12c08-760d-7f02-9e34-ee049ef3aa30_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-760d-7f02-9e34-ee049ef3aa30.jpg",
+        "thumbnail_file_name": "01a12c08-760d-7f02-9e34-ee049ef3aa30_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-760d-7f02-9e34-ee049ef3aa30_thumb.jpg",
+        "preview_file_name": "01a12c08-760d-7f02-9e34-ee049ef3aa30_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-760d-7f02-9e34-ee049ef3aa30_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "15860×6319",
+      "file_size_mb": 0.37,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-76a6-7554-a63d-33fd120a3d6e": {
+    "artwork_info": {
+      "id": "01a12c08-76a6-7554-a63d-33fd120a3d6e",
+      "title": "霜林涵秀",
+      "title_en": "Frosted Woods in Autumn Splendor",
+      "original_size_cm": "180×96"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 13,
+        "height_inches": 24
+      },
+      {
+        "width_inches": 9,
+        "height_inches": 17
+      },
+      {
+        "width_inches": 6,
+        "height_inches": 12
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "霜林涵秀",
+        "description": "Traditional Chinese painting by Xiaoran. Frosted Woods in Autumn Splendor",
+        "file_name": "01a12c08-76a6-7554-a63d-33fd120a3d6e_large.jpg",
+        "file_size": 484612,
+        "pix_w": 3232,
+        "pix_h": 6066,
+        "hires_file_name": "01a12c08-76a6-7554-a63d-33fd120a3d6e_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-76a6-7554-a63d-33fd120a3d6e.jpg",
+        "thumbnail_file_name": "01a12c08-76a6-7554-a63d-33fd120a3d6e_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-76a6-7554-a63d-33fd120a3d6e_thumb.jpg",
+        "preview_file_name": "01a12c08-76a6-7554-a63d-33fd120a3d6e_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-76a6-7554-a63d-33fd120a3d6e_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "3232×6066",
+      "file_size_mb": 0.46,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-774a-7a4c-97b2-d6513cd07092": {
+    "artwork_info": {
+      "id": "01a12c08-774a-7a4c-97b2-d6513cd07092",
+      "title": "玉山雲瀑",
+      "title_en": "Cloud Falls of Yushan",
+      "original_size_cm": "185×96"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 12,
+        "height_inches": 24
+      },
+      {
+        "width_inches": 9,
+        "height_inches": 17
+      },
+      {
+        "width_inches": 6,
+        "height_inches": 12
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "玉山雲瀑",
+        "description": "Traditional Chinese painting by Xiaoran. Cloud Falls of Yushan",
+        "file_name": "01a12c08-774a-7a4c-97b2-d6513cd07092_large.jpg",
+        "file_size": 317232,
+        "pix_w": 3199,
+        "pix_h": 6275,
+        "hires_file_name": "01a12c08-774a-7a4c-97b2-d6513cd07092_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-774a-7a4c-97b2-d6513cd07092.jpg",
+        "thumbnail_file_name": "01a12c08-774a-7a4c-97b2-d6513cd07092_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-774a-7a4c-97b2-d6513cd07092_thumb.jpg",
+        "preview_file_name": "01a12c08-774a-7a4c-97b2-d6513cd07092_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-774a-7a4c-97b2-d6513cd07092_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "3199×6275",
+      "file_size_mb": 0.3,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-78c9-726b-a131-b3ded67f2226": {
+    "artwork_info": {
+      "id": "01a12c08-78c9-726b-a131-b3ded67f2226",
+      "title": "火炎雄渾-火炎山",
+      "title_en": "Majestic Fire – Huoyan Mountain",
+      "original_size_cm": "185×85"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 8,
+        "height_inches": 16
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "火炎雄渾-火炎山",
+        "description": "Traditional Chinese painting by Xiaoran. Majestic Fire – Huoyan Mountain",
+        "file_name": "01a12c08-78c9-726b-a131-b3ded67f2226_large.jpg",
+        "file_size": 447472,
+        "pix_w": 1541,
+        "pix_h": 3102,
+        "hires_file_name": "01a12c08-78c9-726b-a131-b3ded67f2226_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-78c9-726b-a131-b3ded67f2226.jpg",
+        "thumbnail_file_name": "01a12c08-78c9-726b-a131-b3ded67f2226_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-78c9-726b-a131-b3ded67f2226_thumb.jpg",
+        "preview_file_name": "01a12c08-78c9-726b-a131-b3ded67f2226_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-78c9-726b-a131-b3ded67f2226_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "1541×3102",
+      "file_size_mb": 0.43,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-7a4d-70b2-ab6b-737569cdb762": {
+    "artwork_info": {
+      "id": "01a12c08-7a4d-70b2-ab6b-737569cdb762",
+      "title": "排雲赤壁-火炎山",
+      "title_en": "Red Cliffs Parting the Clouds – Huoyan Mountain",
+      "original_size_cm": "185×85"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 12,
+        "height_inches": 24
+      },
+      {
+        "width_inches": 8,
+        "height_inches": 17
+      },
+      {
+        "width_inches": 6,
+        "height_inches": 12
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "排雲赤壁-火炎山",
+        "description": "Traditional Chinese painting by Xiaoran. Red Cliffs Parting the Clouds – Huoyan Mountain",
+        "file_name": "01a12c08-7a4d-70b2-ab6b-737569cdb762_large.jpg",
+        "file_size": 343767,
+        "pix_w": 3280,
+        "pix_h": 6520,
+        "hires_file_name": "01a12c08-7a4d-70b2-ab6b-737569cdb762_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-7a4d-70b2-ab6b-737569cdb762.jpg",
+        "thumbnail_file_name": "01a12c08-7a4d-70b2-ab6b-737569cdb762_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-7a4d-70b2-ab6b-737569cdb762_thumb.jpg",
+        "preview_file_name": "01a12c08-7a4d-70b2-ab6b-737569cdb762_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-7a4d-70b2-ab6b-737569cdb762_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "3280×6520",
+      "file_size_mb": 0.33,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-7af0-79b2-b048-64ba1e583856": {
+    "artwork_info": {
+      "id": "01a12c08-7af0-79b2-b048-64ba1e583856",
+      "title": "別有洞天-九曲洞",
+      "title_en": "A Hidden World – Tunnel of Nine Turns",
+      "original_size_cm": "68×134"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 24,
+        "height_inches": 12
+      },
+      {
+        "width_inches": 17,
+        "height_inches": 9
+      },
+      {
+        "width_inches": 12,
+        "height_inches": 6
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "別有洞天-九曲洞",
+        "description": "Traditional Chinese painting by Xiaoran. A Hidden World – Tunnel of Nine Turns",
+        "file_name": "01a12c08-7af0-79b2-b048-64ba1e583856_large.jpg",
+        "file_size": 234159,
+        "pix_w": 6118,
+        "pix_h": 3106,
+        "hires_file_name": "01a12c08-7af0-79b2-b048-64ba1e583856_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-7af0-79b2-b048-64ba1e583856.jpg",
+        "thumbnail_file_name": "01a12c08-7af0-79b2-b048-64ba1e583856_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-7af0-79b2-b048-64ba1e583856_thumb.jpg",
+        "preview_file_name": "01a12c08-7af0-79b2-b048-64ba1e583856_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-7af0-79b2-b048-64ba1e583856_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "6118×3106",
+      "file_size_mb": 0.22,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-7b4c-795f-857e-219a554dedb2": {
+    "artwork_info": {
+      "id": "01a12c08-7b4c-795f-857e-219a554dedb2",
+      "title": "雲捲秋光-清秋",
+      "title_en": "Clouds Rolling in Autumn Light – Clear Autumn",
+      "original_size_cm": "97×178"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 24,
+        "height_inches": 13
+      },
+      {
+        "width_inches": 17,
+        "height_inches": 9
+      },
+      {
+        "width_inches": 12,
+        "height_inches": 7
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "雲捲秋光-清秋",
+        "description": "Traditional Chinese painting by Xiaoran. Clouds Rolling in Autumn Light – Clear Autumn",
+        "file_name": "01a12c08-7b4c-795f-857e-219a554dedb2_large.jpg",
+        "file_size": 403916,
+        "pix_w": 6069,
+        "pix_h": 3308,
+        "hires_file_name": "01a12c08-7b4c-795f-857e-219a554dedb2_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-7b4c-795f-857e-219a554dedb2.jpg",
+        "thumbnail_file_name": "01a12c08-7b4c-795f-857e-219a554dedb2_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-7b4c-795f-857e-219a554dedb2_thumb.jpg",
+        "preview_file_name": "01a12c08-7b4c-795f-857e-219a554dedb2_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-7b4c-795f-857e-219a554dedb2_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "6069×3308",
+      "file_size_mb": 0.39,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-7c8e-7d1f-b42b-8c25e42265ea": {
+    "artwork_info": {
+      "id": "01a12c08-7c8e-7d1f-b42b-8c25e42265ea",
+      "title": "煙波物外-秋聲",
+      "title_en": "Misty Waters Beyond the World – The Sound of Autumn",
+      "original_size_cm": "75×142"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 24,
+        "height_inches": 12
+      },
+      {
+        "width_inches": 17,
+        "height_inches": 9
+      },
+      {
+        "width_inches": 12,
+        "height_inches": 6
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "煙波物外-秋聲",
+        "description": "Traditional Chinese painting by Xiaoran. Misty Waters Beyond the World – The Sound of Autumn",
+        "file_name": "01a12c08-7c8e-7d1f-b42b-8c25e42265ea_large.jpg",
+        "file_size": 386908,
+        "pix_w": 5648,
+        "pix_h": 2921,
+        "hires_file_name": "01a12c08-7c8e-7d1f-b42b-8c25e42265ea_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-7c8e-7d1f-b42b-8c25e42265ea.jpg",
+        "thumbnail_file_name": "01a12c08-7c8e-7d1f-b42b-8c25e42265ea_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-7c8e-7d1f-b42b-8c25e42265ea_thumb.jpg",
+        "preview_file_name": "01a12c08-7c8e-7d1f-b42b-8c25e42265ea_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-7c8e-7d1f-b42b-8c25e42265ea_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "5648×2921",
+      "file_size_mb": 0.37,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-7dd5-7e33-8a4f-b8ca88fd825d": {
+    "artwork_info": {
+      "id": "01a12c08-7dd5-7e33-8a4f-b8ca88fd825d",
+      "title": "櫻紅雲瀑-山上人家",
+      "title_en": "Cherry Blossoms and Cloud Falls – Home on the Mountain",
+      "original_size_cm": "75×142"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 24,
+        "height_inches": 12
+      },
+      {
+        "width_inches": 17,
+        "height_inches": 9
+      },
+      {
+        "width_inches": 12,
+        "height_inches": 6
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "櫻紅雲瀑-山上人家",
+        "description": "Traditional Chinese painting by Xiaoran. Cherry Blossoms and Cloud Falls – Home on the Mountain",
+        "file_name": "01a12c08-7dd5-7e33-8a4f-b8ca88fd825d_large.jpg",
+        "file_size": 358866,
+        "pix_w": 5756,
+        "pix_h": 2975,
+        "hires_file_name": "01a12c08-7dd5-7e33-8a4f-b8ca88fd825d_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-7dd5-7e33-8a4f-b8ca88fd825d.jpg",
+        "thumbnail_file_name": "01a12c08-7dd5-7e33-8a4f-b8ca88fd825d_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-7dd5-7e33-8a4f-b8ca88fd825d_thumb.jpg",
+        "preview_file_name": "01a12c08-7dd5-7e33-8a4f-b8ca88fd825d_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-7dd5-7e33-8a4f-b8ca88fd825d_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "5756×2975",
+      "file_size_mb": 0.34,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-7e53-75bc-b67d-b0f7db8ae950": {
+    "artwork_info": {
+      "id": "01a12c08-7e53-75bc-b67d-b0f7db8ae950",
+      "title": "松下聽泉",
+      "title_en": "Listening to the Spring Beneath the Pines",
+      "original_size_cm": "69×135"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 24,
+        "height_inches": 12
+      },
+      {
+        "width_inches": 17,
+        "height_inches": 8
+      },
+      {
+        "width_inches": 12,
+        "height_inches": 6
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "松下聽泉",
+        "description": "Traditional Chinese painting by Xiaoran. Listening to the Spring Beneath the Pines",
+        "file_name": "01a12c08-7e53-75bc-b67d-b0f7db8ae950_large.jpg",
+        "file_size": 349189,
+        "pix_w": 6294,
+        "pix_h": 3178,
+        "hires_file_name": "01a12c08-7e53-75bc-b67d-b0f7db8ae950_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-7e53-75bc-b67d-b0f7db8ae950.jpg",
+        "thumbnail_file_name": "01a12c08-7e53-75bc-b67d-b0f7db8ae950_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-7e53-75bc-b67d-b0f7db8ae950_thumb.jpg",
+        "preview_file_name": "01a12c08-7e53-75bc-b67d-b0f7db8ae950_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-7e53-75bc-b67d-b0f7db8ae950_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "6294×3178",
+      "file_size_mb": 0.33,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-7f85-7482-b5c9-28ce6c747ce7": {
+    "artwork_info": {
+      "id": "01a12c08-7f85-7482-b5c9-28ce6c747ce7",
+      "title": "杏雪吹雲",
+      "title_en": "Apricot Snow Blowing into Clouds",
+      "original_size_cm": "70×135"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 24,
+        "height_inches": 12
+      },
+      {
+        "width_inches": 17,
+        "height_inches": 9
+      },
+      {
+        "width_inches": 12,
+        "height_inches": 6
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "杏雪吹雲",
+        "description": "Traditional Chinese painting by Xiaoran. Apricot Snow Blowing into Clouds",
+        "file_name": "01a12c08-7f85-7482-b5c9-28ce6c747ce7_large.jpg",
+        "file_size": 395334,
+        "pix_w": 5392,
+        "pix_h": 2732,
+        "hires_file_name": "01a12c08-7f85-7482-b5c9-28ce6c747ce7_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-7f85-7482-b5c9-28ce6c747ce7.jpg",
+        "thumbnail_file_name": "01a12c08-7f85-7482-b5c9-28ce6c747ce7_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-7f85-7482-b5c9-28ce6c747ce7_thumb.jpg",
+        "preview_file_name": "01a12c08-7f85-7482-b5c9-28ce6c747ce7_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-7f85-7482-b5c9-28ce6c747ce7_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "5392×2732",
+      "file_size_mb": 0.38,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-8105-7029-bf94-690d1bd84536": {
+    "artwork_info": {
+      "id": "01a12c08-8105-7029-bf94-690d1bd84536",
+      "title": "春滿人間",
+      "title_en": "Spring Fills the World",
+      "original_size_cm": "76×140"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 24,
+        "height_inches": 13
+      },
+      {
+        "width_inches": 17,
+        "height_inches": 9
+      },
+      {
+        "width_inches": 12,
+        "height_inches": 7
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "春滿人間",
+        "description": "Traditional Chinese painting by Xiaoran. Spring Fills the World",
+        "file_name": "01a12c08-8105-7029-bf94-690d1bd84536_large.jpg",
+        "file_size": 506165,
+        "pix_w": 5686,
+        "pix_h": 3089,
+        "hires_file_name": "01a12c08-8105-7029-bf94-690d1bd84536_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-8105-7029-bf94-690d1bd84536.jpg",
+        "thumbnail_file_name": "01a12c08-8105-7029-bf94-690d1bd84536_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-8105-7029-bf94-690d1bd84536_thumb.jpg",
+        "preview_file_name": "01a12c08-8105-7029-bf94-690d1bd84536_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-8105-7029-bf94-690d1bd84536_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "5686×3089",
+      "file_size_mb": 0.48,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-819f-7964-8ff9-2e0d0db13ada": {
+    "artwork_info": {
+      "id": "01a12c08-819f-7964-8ff9-2e0d0db13ada",
+      "title": "遠水秋山",
+      "title_en": "Distant Waters, Autumn Mountains",
+      "original_size_cm": "88×120"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 24,
+        "height_inches": 17
+      },
+      {
+        "width_inches": 17,
+        "height_inches": 12
+      },
+      {
+        "width_inches": 12,
+        "height_inches": 9
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "遠水秋山",
+        "description": "Traditional Chinese painting by Xiaoran. Distant Waters, Autumn Mountains",
+        "file_name": "01a12c08-819f-7964-8ff9-2e0d0db13ada_large.jpg",
+        "file_size": 479678,
+        "pix_w": 6030,
+        "pix_h": 4278,
+        "hires_file_name": "01a12c08-819f-7964-8ff9-2e0d0db13ada_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-819f-7964-8ff9-2e0d0db13ada.jpg",
+        "thumbnail_file_name": "01a12c08-819f-7964-8ff9-2e0d0db13ada_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-819f-7964-8ff9-2e0d0db13ada_thumb.jpg",
+        "preview_file_name": "01a12c08-819f-7964-8ff9-2e0d0db13ada_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-819f-7964-8ff9-2e0d0db13ada_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "6030×4278",
+      "file_size_mb": 0.46,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-82b3-7941-9b50-01a43fc9a318": {
+    "artwork_info": {
+      "id": "01a12c08-82b3-7941-9b50-01a43fc9a318",
+      "title": "萬年峽谷",
+      "title_en": "Ten-Thousand-Year Canyon",
+      "original_size_cm": "141×76"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 13,
+        "height_inches": 24
+      },
+      {
+        "width_inches": 9,
+        "height_inches": 17
+      },
+      {
+        "width_inches": 6,
+        "height_inches": 12
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "萬年峽谷",
+        "description": "Traditional Chinese painting by Xiaoran. Ten-Thousand-Year Canyon",
+        "file_name": "01a12c08-82b3-7941-9b50-01a43fc9a318_large.jpg",
+        "file_size": 383527,
+        "pix_w": 3038,
+        "pix_h": 5650,
+        "hires_file_name": "01a12c08-82b3-7941-9b50-01a43fc9a318_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-82b3-7941-9b50-01a43fc9a318.jpg",
+        "thumbnail_file_name": "01a12c08-82b3-7941-9b50-01a43fc9a318_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-82b3-7941-9b50-01a43fc9a318_thumb.jpg",
+        "preview_file_name": "01a12c08-82b3-7941-9b50-01a43fc9a318_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-82b3-7941-9b50-01a43fc9a318_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "3038×5650",
+      "file_size_mb": 0.37,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-83be-7111-815d-140b9e441427": {
+    "artwork_info": {
+      "id": "01a12c08-83be-7111-815d-140b9e441427",
+      "title": "千峰瑞雪",
+      "title_en": "Auspicious Snow on a Thousand Peaks",
+      "original_size_cm": "142×77"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 13,
+        "height_inches": 24
+      },
+      {
+        "width_inches": 9,
+        "height_inches": 17
+      },
+      {
+        "width_inches": 6,
+        "height_inches": 12
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "千峰瑞雪",
+        "description": "Traditional Chinese painting by Xiaoran. Auspicious Snow on a Thousand Peaks",
+        "file_name": "01a12c08-83be-7111-815d-140b9e441427_large.jpg",
+        "file_size": 410571,
+        "pix_w": 3124,
+        "pix_h": 5843,
+        "hires_file_name": "01a12c08-83be-7111-815d-140b9e441427_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-83be-7111-815d-140b9e441427.jpg",
+        "thumbnail_file_name": "01a12c08-83be-7111-815d-140b9e441427_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-83be-7111-815d-140b9e441427_thumb.jpg",
+        "preview_file_name": "01a12c08-83be-7111-815d-140b9e441427_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-83be-7111-815d-140b9e441427_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "3124×5843",
+      "file_size_mb": 0.39,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-851e-7c3b-98af-0ddc3d36f291": {
+    "artwork_info": {
+      "id": "01a12c08-851e-7c3b-98af-0ddc3d36f291",
+      "title": "雲行無盡-風有自己的方向",
+      "title_en": "Endless Drifting Clouds – The Wind Has Its Own Direction",
+      "original_size_cm": "142×75"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 12,
+        "height_inches": 24
+      },
+      {
+        "width_inches": 9,
+        "height_inches": 17
+      },
+      {
+        "width_inches": 6,
+        "height_inches": 12
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "雲行無盡-風有自己的方向",
+        "description": "Traditional Chinese painting by Xiaoran. Endless Drifting Clouds – The Wind Has Its Own Direction",
+        "file_name": "01a12c08-851e-7c3b-98af-0ddc3d36f291_large.jpg",
+        "file_size": 295264,
+        "pix_w": 2973,
+        "pix_h": 5728,
+        "hires_file_name": "01a12c08-851e-7c3b-98af-0ddc3d36f291_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-851e-7c3b-98af-0ddc3d36f291.jpg",
+        "thumbnail_file_name": "01a12c08-851e-7c3b-98af-0ddc3d36f291_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-851e-7c3b-98af-0ddc3d36f291_thumb.jpg",
+        "preview_file_name": "01a12c08-851e-7c3b-98af-0ddc3d36f291_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-851e-7c3b-98af-0ddc3d36f291_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "2973×5728",
+      "file_size_mb": 0.28,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-8670-7105-b4f4-17e755f37bd1": {
+    "artwork_info": {
+      "id": "01a12c08-8670-7105-b4f4-17e755f37bd1",
+      "title": "此心安處",
+      "title_en": "Where the Heart Is at Peace",
+      "original_size_cm": "136×69"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 12,
+        "height_inches": 24
+      },
+      {
+        "width_inches": 8,
+        "height_inches": 17
+      },
+      {
+        "width_inches": 6,
+        "height_inches": 12
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "此心安處",
+        "description": "Traditional Chinese painting by Xiaoran. Where the Heart Is at Peace",
+        "file_name": "01a12c08-8670-7105-b4f4-17e755f37bd1_large.jpg",
+        "file_size": 326504,
+        "pix_w": 2808,
+        "pix_h": 5563,
+        "hires_file_name": "01a12c08-8670-7105-b4f4-17e755f37bd1_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-8670-7105-b4f4-17e755f37bd1.jpg",
+        "thumbnail_file_name": "01a12c08-8670-7105-b4f4-17e755f37bd1_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-8670-7105-b4f4-17e755f37bd1_thumb.jpg",
+        "preview_file_name": "01a12c08-8670-7105-b4f4-17e755f37bd1_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-8670-7105-b4f4-17e755f37bd1_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "2808×5563",
+      "file_size_mb": 0.31,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-8729-74a7-8018-c717bd7fbea6": {
+    "artwork_info": {
+      "id": "01a12c08-8729-74a7-8018-c717bd7fbea6",
+      "title": "水域・帆影・去留之間",
+      "title_en": "Water, Sails, Between Leaving and Staying",
+      "original_size_cm": "176×96"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 13,
+        "height_inches": 24
+      },
+      {
+        "width_inches": 9,
+        "height_inches": 17
+      },
+      {
+        "width_inches": 6,
+        "height_inches": 12
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "水域・帆影・去留之間",
+        "description": "Traditional Chinese painting by Xiaoran. Water, Sails, Between Leaving and Staying",
+        "file_name": "01a12c08-8729-74a7-8018-c717bd7fbea6_large.jpg",
+        "file_size": 495693,
+        "pix_w": 3248,
+        "pix_h": 6084,
+        "hires_file_name": "01a12c08-8729-74a7-8018-c717bd7fbea6_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-8729-74a7-8018-c717bd7fbea6.jpg",
+        "thumbnail_file_name": "01a12c08-8729-74a7-8018-c717bd7fbea6_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-8729-74a7-8018-c717bd7fbea6_thumb.jpg",
+        "preview_file_name": "01a12c08-8729-74a7-8018-c717bd7fbea6_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-8729-74a7-8018-c717bd7fbea6_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "3248×6084",
+      "file_size_mb": 0.47,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-87d3-71d4-b8c7-57e799971b1e": {
+    "artwork_info": {
+      "id": "01a12c08-87d3-71d4-b8c7-57e799971b1e",
+      "title": "眾妙之門",
+      "title_en": "The Gate to All Mysteries",
+      "original_size_cm": "150×84"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 13,
+        "height_inches": 24
+      },
+      {
+        "width_inches": 9,
+        "height_inches": 17
+      },
+      {
+        "width_inches": 6,
+        "height_inches": 12
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "眾妙之門",
+        "description": "Traditional Chinese painting by Xiaoran. The Gate to All Mysteries",
+        "file_name": "01a12c08-87d3-71d4-b8c7-57e799971b1e_large.jpg",
+        "file_size": 275832,
+        "pix_w": 3397,
+        "pix_h": 6326,
+        "hires_file_name": "01a12c08-87d3-71d4-b8c7-57e799971b1e_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-87d3-71d4-b8c7-57e799971b1e.jpg",
+        "thumbnail_file_name": "01a12c08-87d3-71d4-b8c7-57e799971b1e_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-87d3-71d4-b8c7-57e799971b1e_thumb.jpg",
+        "preview_file_name": "01a12c08-87d3-71d4-b8c7-57e799971b1e_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-87d3-71d4-b8c7-57e799971b1e_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "3397×6326",
+      "file_size_mb": 0.26,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-8867-7938-9daa-e9d59a505103": {
+    "artwork_info": {
+      "id": "01a12c08-8867-7938-9daa-e9d59a505103",
+      "title": "靜泊",
+      "title_en": "Quiet Mooring",
+      "original_size_cm": "65×99"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 24,
+        "height_inches": 15
+      },
+      {
+        "width_inches": 17,
+        "height_inches": 11
+      },
+      {
+        "width_inches": 12,
+        "height_inches": 8
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "靜泊",
+        "description": "Traditional Chinese painting by Xiaoran. Quiet Mooring",
+        "file_name": "01a12c08-8867-7938-9daa-e9d59a505103_large.jpg",
+        "file_size": 486983,
+        "pix_w": 5336,
+        "pix_h": 3435,
+        "hires_file_name": "01a12c08-8867-7938-9daa-e9d59a505103_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-8867-7938-9daa-e9d59a505103.jpg",
+        "thumbnail_file_name": "01a12c08-8867-7938-9daa-e9d59a505103_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-8867-7938-9daa-e9d59a505103_thumb.jpg",
+        "preview_file_name": "01a12c08-8867-7938-9daa-e9d59a505103_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-8867-7938-9daa-e9d59a505103_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "5336×3435",
+      "file_size_mb": 0.46,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-88e7-7031-ae40-cd06faaace50": {
+    "artwork_info": {
+      "id": "01a12c08-88e7-7031-ae40-cd06faaace50",
+      "title": "甦醒",
+      "title_en": "Awakening",
+      "original_size_cm": "64×98"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 24,
+        "height_inches": 15
+      },
+      {
+        "width_inches": 17,
+        "height_inches": 11
+      },
+      {
+        "width_inches": 12,
+        "height_inches": 8
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "甦醒",
+        "description": "Traditional Chinese painting by Xiaoran. Awakening",
+        "file_name": "01a12c08-88e7-7031-ae40-cd06faaace50_large.jpg",
+        "file_size": 415059,
+        "pix_w": 5352,
+        "pix_h": 3456,
+        "hires_file_name": "01a12c08-88e7-7031-ae40-cd06faaace50_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-88e7-7031-ae40-cd06faaace50.jpg",
+        "thumbnail_file_name": "01a12c08-88e7-7031-ae40-cd06faaace50_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-88e7-7031-ae40-cd06faaace50_thumb.jpg",
+        "preview_file_name": "01a12c08-88e7-7031-ae40-cd06faaace50_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-88e7-7031-ae40-cd06faaace50_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "5352×3456",
+      "file_size_mb": 0.4,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-8974-7e58-9392-976477b460ef": {
+    "artwork_info": {
+      "id": "01a12c08-8974-7e58-9392-976477b460ef",
+      "title": "啟航",
+      "title_en": "Setting Sail",
+      "original_size_cm": "66×96"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 24,
+        "height_inches": 16
+      },
+      {
+        "width_inches": 17,
+        "height_inches": 11
+      },
+      {
+        "width_inches": 12,
+        "height_inches": 8
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "啟航",
+        "description": "Traditional Chinese painting by Xiaoran. Setting Sail",
+        "file_name": "01a12c08-8974-7e58-9392-976477b460ef_large.jpg",
+        "file_size": 473482,
+        "pix_w": 5448,
+        "pix_h": 3640,
+        "hires_file_name": "01a12c08-8974-7e58-9392-976477b460ef_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-8974-7e58-9392-976477b460ef.jpg",
+        "thumbnail_file_name": "01a12c08-8974-7e58-9392-976477b460ef_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-8974-7e58-9392-976477b460ef_thumb.jpg",
+        "preview_file_name": "01a12c08-8974-7e58-9392-976477b460ef_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-8974-7e58-9392-976477b460ef_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "5448×3640",
+      "file_size_mb": 0.45,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-89f9-72ee-8a49-0e273955c94a": {
+    "artwork_info": {
+      "id": "01a12c08-89f9-72ee-8a49-0e273955c94a",
+      "title": "覺照",
+      "title_en": "Illumination",
+      "original_size_cm": "83×101"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 23,
+        "height_inches": 19
+      },
+      {
+        "width_inches": 16,
+        "height_inches": 13
+      },
+      {
+        "width_inches": 12,
+        "height_inches": 9
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "覺照",
+        "description": "Traditional Chinese painting by Xiaoran. Illumination",
+        "file_name": "01a12c08-89f9-72ee-8a49-0e273955c94a_large.jpg",
+        "file_size": 456350,
+        "pix_w": 4636,
+        "pix_h": 3720,
+        "hires_file_name": "01a12c08-89f9-72ee-8a49-0e273955c94a_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-89f9-72ee-8a49-0e273955c94a.jpg",
+        "thumbnail_file_name": "01a12c08-89f9-72ee-8a49-0e273955c94a_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-89f9-72ee-8a49-0e273955c94a_thumb.jpg",
+        "preview_file_name": "01a12c08-89f9-72ee-8a49-0e273955c94a_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-89f9-72ee-8a49-0e273955c94a_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "4636×3720",
+      "file_size_mb": 0.44,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-8a4b-7777-a0fc-dc13cd47ccab": {
+    "artwork_info": {
+      "id": "01a12c08-8a4b-7777-a0fc-dc13cd47ccab",
+      "title": "山高月小",
+      "title_en": "High Mountain, Small Moon",
+      "original_size_cm": "77×47"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 14,
+        "height_inches": 24
+      },
+      {
+        "width_inches": 10,
+        "height_inches": 17
+      },
+      {
+        "width_inches": 7,
+        "height_inches": 12
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "山高月小",
+        "description": "Traditional Chinese painting by Xiaoran. High Mountain, Small Moon",
+        "file_name": "01a12c08-8a4b-7777-a0fc-dc13cd47ccab_large.jpg",
+        "file_size": 425596,
+        "pix_w": 3454,
+        "pix_h": 5735,
+        "hires_file_name": "01a12c08-8a4b-7777-a0fc-dc13cd47ccab_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-8a4b-7777-a0fc-dc13cd47ccab.jpg",
+        "thumbnail_file_name": "01a12c08-8a4b-7777-a0fc-dc13cd47ccab_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-8a4b-7777-a0fc-dc13cd47ccab_thumb.jpg",
+        "preview_file_name": "01a12c08-8a4b-7777-a0fc-dc13cd47ccab_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-8a4b-7777-a0fc-dc13cd47ccab_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "3454×5735",
+      "file_size_mb": 0.41,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-8bb5-77ae-a7c0-5f7cf426c475": {
+    "artwork_info": {
+      "id": "01a12c08-8bb5-77ae-a7c0-5f7cf426c475",
+      "title": "明月出天山",
+      "title_en": "The Bright Moon Rises over the Heavenly Mountains",
+      "original_size_cm": "100×34"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 8,
+        "height_inches": 24
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "明月出天山",
+        "description": "Traditional Chinese painting by Xiaoran. The Bright Moon Rises over the Heavenly Mountains",
+        "file_name": "01a12c08-8bb5-77ae-a7c0-5f7cf426c475_large.jpg",
+        "file_size": 588136,
+        "pix_w": 1853,
+        "pix_h": 5663,
+        "hires_file_name": "01a12c08-8bb5-77ae-a7c0-5f7cf426c475_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-8bb5-77ae-a7c0-5f7cf426c475.jpg",
+        "thumbnail_file_name": "01a12c08-8bb5-77ae-a7c0-5f7cf426c475_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-8bb5-77ae-a7c0-5f7cf426c475_thumb.jpg",
+        "preview_file_name": "01a12c08-8bb5-77ae-a7c0-5f7cf426c475_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-8bb5-77ae-a7c0-5f7cf426c475_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "1853×5663",
+      "file_size_mb": 0.56,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-8c41-706c-81b9-bed4223b5b0b": {
+    "artwork_info": {
+      "id": "01a12c08-8c41-706c-81b9-bed4223b5b0b",
+      "title": "與誰同坐",
+      "title_en": "With Whom Shall I Sit?",
+      "original_size_cm": "101×67"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 16,
+        "height_inches": 24
+      },
+      {
+        "width_inches": 11,
+        "height_inches": 17
+      },
+      {
+        "width_inches": 8,
+        "height_inches": 12
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "與誰同坐",
+        "description": "Traditional Chinese painting by Xiaoran. With Whom Shall I Sit?",
+        "file_name": "01a12c08-8c41-706c-81b9-bed4223b5b0b_large.jpg",
+        "file_size": 297903,
+        "pix_w": 3734,
+        "pix_h": 5700,
+        "hires_file_name": "01a12c08-8c41-706c-81b9-bed4223b5b0b_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-8c41-706c-81b9-bed4223b5b0b.jpg",
+        "thumbnail_file_name": "01a12c08-8c41-706c-81b9-bed4223b5b0b_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-8c41-706c-81b9-bed4223b5b0b_thumb.jpg",
+        "preview_file_name": "01a12c08-8c41-706c-81b9-bed4223b5b0b_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-8c41-706c-81b9-bed4223b5b0b_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "3734×5700",
+      "file_size_mb": 0.28,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-8ca0-751d-bbfb-5441bc66e8d6": {
+    "artwork_info": {
+      "id": "01a12c08-8ca0-751d-bbfb-5441bc66e8d6",
+      "title": "流光-月娘嫁水",
+      "title_en": "Flowing Light – The Moon Marries the Water",
+      "original_size_cm": "100×60"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 14,
+        "height_inches": 24
+      },
+      {
+        "width_inches": 10,
+        "height_inches": 17
+      },
+      {
+        "width_inches": 7,
+        "height_inches": 12
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "流光-月娘嫁水",
+        "description": "Traditional Chinese painting by Xiaoran. Flowing Light – The Moon Marries the Water",
+        "file_name": "01a12c08-8ca0-751d-bbfb-5441bc66e8d6_large.jpg",
+        "file_size": 465572,
+        "pix_w": 3470,
+        "pix_h": 5889,
+        "hires_file_name": "01a12c08-8ca0-751d-bbfb-5441bc66e8d6_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-8ca0-751d-bbfb-5441bc66e8d6.jpg",
+        "thumbnail_file_name": "01a12c08-8ca0-751d-bbfb-5441bc66e8d6_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-8ca0-751d-bbfb-5441bc66e8d6_thumb.jpg",
+        "preview_file_name": "01a12c08-8ca0-751d-bbfb-5441bc66e8d6_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-8ca0-751d-bbfb-5441bc66e8d6_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "3470×5889",
+      "file_size_mb": 0.44,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-8d3e-782e-b66e-2cd9a498fa2d": {
+    "artwork_info": {
+      "id": "01a12c08-8d3e-782e-b66e-2cd9a498fa2d",
+      "title": "初昇-風煙浩渺",
+      "title_en": "First Rising – Wind and Mist Without End",
+      "original_size_cm": "98×66"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 16,
+        "height_inches": 24
+      },
+      {
+        "width_inches": 11,
+        "height_inches": 17
+      },
+      {
+        "width_inches": 8,
+        "height_inches": 12
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "初昇-風煙浩渺",
+        "description": "Traditional Chinese painting by Xiaoran. First Rising – Wind and Mist Without End",
+        "file_name": "01a12c08-8d3e-782e-b66e-2cd9a498fa2d_large.jpg",
+        "file_size": 399553,
+        "pix_w": 3468,
+        "pix_h": 5276,
+        "hires_file_name": "01a12c08-8d3e-782e-b66e-2cd9a498fa2d_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-8d3e-782e-b66e-2cd9a498fa2d.jpg",
+        "thumbnail_file_name": "01a12c08-8d3e-782e-b66e-2cd9a498fa2d_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-8d3e-782e-b66e-2cd9a498fa2d_thumb.jpg",
+        "preview_file_name": "01a12c08-8d3e-782e-b66e-2cd9a498fa2d_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-8d3e-782e-b66e-2cd9a498fa2d_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "3468×5276",
+      "file_size_mb": 0.38,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-8de6-7852-b660-c075ff2067d1": {
+    "artwork_info": {
+      "id": "01a12c08-8de6-7852-b660-c075ff2067d1",
+      "title": "相契-水月交融",
+      "title_en": "Kindred – Water and Moon Entwined",
+      "original_size_cm": "100×60"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 14,
+        "height_inches": 24
+      },
+      {
+        "width_inches": 10,
+        "height_inches": 17
+      },
+      {
+        "width_inches": 7,
+        "height_inches": 12
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "相契-水月交融",
+        "description": "Traditional Chinese painting by Xiaoran. Kindred – Water and Moon Entwined",
+        "file_name": "01a12c08-8de6-7852-b660-c075ff2067d1_large.jpg",
+        "file_size": 459682,
+        "pix_w": 3368,
+        "pix_h": 5721,
+        "hires_file_name": "01a12c08-8de6-7852-b660-c075ff2067d1_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-8de6-7852-b660-c075ff2067d1.jpg",
+        "thumbnail_file_name": "01a12c08-8de6-7852-b660-c075ff2067d1_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-8de6-7852-b660-c075ff2067d1_thumb.jpg",
+        "preview_file_name": "01a12c08-8de6-7852-b660-c075ff2067d1_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-8de6-7852-b660-c075ff2067d1_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "3368×5721",
+      "file_size_mb": 0.44,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-8eb1-74de-a953-1a918c927ee4": {
+    "artwork_info": {
+      "id": "01a12c08-8eb1-74de-a953-1a918c927ee4",
+      "title": "無住-光行太初",
+      "title_en": "Unabiding – Light Travels from the Beginning",
+      "original_size_cm": "100×65"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 15,
+        "height_inches": 24
+      },
+      {
+        "width_inches": 11,
+        "height_inches": 17
+      },
+      {
+        "width_inches": 8,
+        "height_inches": 12
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "無住-光行太初",
+        "description": "Traditional Chinese painting by Xiaoran. Unabiding – Light Travels from the Beginning",
+        "file_name": "01a12c08-8eb1-74de-a953-1a918c927ee4_large.jpg",
+        "file_size": 510067,
+        "pix_w": 3461,
+        "pix_h": 5376,
+        "hires_file_name": "01a12c08-8eb1-74de-a953-1a918c927ee4_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-8eb1-74de-a953-1a918c927ee4.jpg",
+        "thumbnail_file_name": "01a12c08-8eb1-74de-a953-1a918c927ee4_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-8eb1-74de-a953-1a918c927ee4_thumb.jpg",
+        "preview_file_name": "01a12c08-8eb1-74de-a953-1a918c927ee4_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-8eb1-74de-a953-1a918c927ee4_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "3461×5376",
+      "file_size_mb": 0.49,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-8f83-785f-a4e1-6c45d9d8d9c2": {
+    "artwork_info": {
+      "id": "01a12c08-8f83-785f-a4e1-6c45d9d8d9c2",
+      "title": "天網-萬縷流光",
+      "title_en": "Heaven's Net – Ten Thousand Strands of Light",
+      "original_size_cm": "100×65"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 15,
+        "height_inches": 24
+      },
+      {
+        "width_inches": 11,
+        "height_inches": 17
+      },
+      {
+        "width_inches": 8,
+        "height_inches": 12
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "天網-萬縷流光",
+        "description": "Traditional Chinese painting by Xiaoran. Heaven's Net – Ten Thousand Strands of Light",
+        "file_name": "01a12c08-8f83-785f-a4e1-6c45d9d8d9c2_large.jpg",
+        "file_size": 687696,
+        "pix_w": 3469,
+        "pix_h": 5376,
+        "hires_file_name": "01a12c08-8f83-785f-a4e1-6c45d9d8d9c2_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-8f83-785f-a4e1-6c45d9d8d9c2.jpg",
+        "thumbnail_file_name": "01a12c08-8f83-785f-a4e1-6c45d9d8d9c2_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-8f83-785f-a4e1-6c45d9d8d9c2_thumb.jpg",
+        "preview_file_name": "01a12c08-8f83-785f-a4e1-6c45d9d8d9c2_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-8f83-785f-a4e1-6c45d9d8d9c2_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "3469×5376",
+      "file_size_mb": 0.66,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-903b-7173-b9c7-4eb24f9695e6": {
+    "artwork_info": {
+      "id": "01a12c08-903b-7173-b9c7-4eb24f9695e6",
+      "title": "光渡-月行寒山",
+      "title_en": "Crossing Light – The Moon over Cold Mountains",
+      "original_size_cm": "100×65"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 15,
+        "height_inches": 24
+      },
+      {
+        "width_inches": 11,
+        "height_inches": 17
+      },
+      {
+        "width_inches": 8,
+        "height_inches": 12
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "光渡-月行寒山",
+        "description": "Traditional Chinese painting by Xiaoran. Crossing Light – The Moon over Cold Mountains",
+        "file_name": "01a12c08-903b-7173-b9c7-4eb24f9695e6_large.jpg",
+        "file_size": 558242,
+        "pix_w": 3440,
+        "pix_h": 5369,
+        "hires_file_name": "01a12c08-903b-7173-b9c7-4eb24f9695e6_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-903b-7173-b9c7-4eb24f9695e6.jpg",
+        "thumbnail_file_name": "01a12c08-903b-7173-b9c7-4eb24f9695e6_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-903b-7173-b9c7-4eb24f9695e6_thumb.jpg",
+        "preview_file_name": "01a12c08-903b-7173-b9c7-4eb24f9695e6_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-903b-7173-b9c7-4eb24f9695e6_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "3440×5369",
+      "file_size_mb": 0.53,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-90d5-71f6-9411-2ec27d458231": {
+    "artwork_info": {
+      "id": "01a12c08-90d5-71f6-9411-2ec27d458231",
+      "title": "照見-萬頃冰原",
+      "title_en": "Seeing Clearly – Endless Fields of Ice",
+      "original_size_cm": "100×65"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 15,
+        "height_inches": 24
+      },
+      {
+        "width_inches": 11,
+        "height_inches": 17
+      },
+      {
+        "width_inches": 8,
+        "height_inches": 12
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "照見-萬頃冰原",
+        "description": "Traditional Chinese painting by Xiaoran. Seeing Clearly – Endless Fields of Ice",
+        "file_name": "01a12c08-90d5-71f6-9411-2ec27d458231_large.jpg",
+        "file_size": 658825,
+        "pix_w": 3504,
+        "pix_h": 5434,
+        "hires_file_name": "01a12c08-90d5-71f6-9411-2ec27d458231_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-90d5-71f6-9411-2ec27d458231.jpg",
+        "thumbnail_file_name": "01a12c08-90d5-71f6-9411-2ec27d458231_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-90d5-71f6-9411-2ec27d458231_thumb.jpg",
+        "preview_file_name": "01a12c08-90d5-71f6-9411-2ec27d458231_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-90d5-71f6-9411-2ec27d458231_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "3504×5434",
+      "file_size_mb": 0.63,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-9182-7522-b1d0-512382018d51": {
+    "artwork_info": {
+      "id": "01a12c08-9182-7522-b1d0-512382018d51",
+      "title": "天行健-由月球回望地球",
+      "title_en": "Heaven Moves Ever Onward – Earth Seen from the Moon",
+      "original_size_cm": "99×64"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 15,
+        "height_inches": 24
+      },
+      {
+        "width_inches": 11,
+        "height_inches": 17
+      },
+      {
+        "width_inches": 8,
+        "height_inches": 12
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "天行健-由月球回望地球",
+        "description": "Traditional Chinese painting by Xiaoran. Heaven Moves Ever Onward – Earth Seen from the Moon",
+        "file_name": "01a12c08-9182-7522-b1d0-512382018d51_large.jpg",
+        "file_size": 322202,
+        "pix_w": 3447,
+        "pix_h": 5405,
+        "hires_file_name": "01a12c08-9182-7522-b1d0-512382018d51_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-9182-7522-b1d0-512382018d51.jpg",
+        "thumbnail_file_name": "01a12c08-9182-7522-b1d0-512382018d51_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-9182-7522-b1d0-512382018d51_thumb.jpg",
+        "preview_file_name": "01a12c08-9182-7522-b1d0-512382018d51_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-9182-7522-b1d0-512382018d51_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "3447×5405",
+      "file_size_mb": 0.31,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-9209-7473-9eb7-f22af9600970": {
+    "artwork_info": {
+      "id": "01a12c08-9209-7473-9eb7-f22af9600970",
+      "title": "心月-覺照無涯",
+      "title_en": "Moon of the Heart – Boundless Awakening",
+      "original_size_cm": "99×65"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 15,
+        "height_inches": 24
+      },
+      {
+        "width_inches": 11,
+        "height_inches": 17
+      },
+      {
+        "width_inches": 8,
+        "height_inches": 12
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "心月-覺照無涯",
+        "description": "Traditional Chinese painting by Xiaoran. Moon of the Heart – Boundless Awakening",
+        "file_name": "01a12c08-9209-7473-9eb7-f22af9600970_large.jpg",
+        "file_size": 339746,
+        "pix_w": 3411,
+        "pix_h": 5334,
+        "hires_file_name": "01a12c08-9209-7473-9eb7-f22af9600970_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-9209-7473-9eb7-f22af9600970.jpg",
+        "thumbnail_file_name": "01a12c08-9209-7473-9eb7-f22af9600970_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-9209-7473-9eb7-f22af9600970_thumb.jpg",
+        "preview_file_name": "01a12c08-9209-7473-9eb7-f22af9600970_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-9209-7473-9eb7-f22af9600970_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "3411×5334",
+      "file_size_mb": 0.32,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-929f-7ce0-9650-14a0c3ea66d1": {
+    "artwork_info": {
+      "id": "01a12c08-929f-7ce0-9650-14a0c3ea66d1",
+      "title": "照水紅蕖",
+      "title_en": "Red Lotus Reflected in Water",
+      "original_size_cm": "100×65"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 15,
+        "height_inches": 24
+      },
+      {
+        "width_inches": 11,
+        "height_inches": 17
+      },
+      {
+        "width_inches": 8,
+        "height_inches": 12
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "照水紅蕖",
+        "description": "Traditional Chinese painting by Xiaoran. Red Lotus Reflected in Water",
+        "file_name": "01a12c08-929f-7ce0-9650-14a0c3ea66d1_large.jpg",
+        "file_size": 458288,
+        "pix_w": 3490,
+        "pix_h": 5406,
+        "hires_file_name": "01a12c08-929f-7ce0-9650-14a0c3ea66d1_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-929f-7ce0-9650-14a0c3ea66d1.jpg",
+        "thumbnail_file_name": "01a12c08-929f-7ce0-9650-14a0c3ea66d1_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-929f-7ce0-9650-14a0c3ea66d1_thumb.jpg",
+        "preview_file_name": "01a12c08-929f-7ce0-9650-14a0c3ea66d1_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-929f-7ce0-9650-14a0c3ea66d1_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "3490×5406",
+      "file_size_mb": 0.44,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-9355-701b-b10b-518c0b56c9af": {
+    "artwork_info": {
+      "id": "01a12c08-9355-701b-b10b-518c0b56c9af",
+      "title": "燭荷-一燈即明",
+      "title_en": "Candle Lotus – A Single Lamp Lights the Dark",
+      "original_size_cm": "100×65"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 16,
+        "height_inches": 24
+      },
+      {
+        "width_inches": 11,
+        "height_inches": 17
+      },
+      {
+        "width_inches": 8,
+        "height_inches": 12
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "燭荷-一燈即明",
+        "description": "Traditional Chinese painting by Xiaoran. Candle Lotus – A Single Lamp Lights the Dark",
+        "file_name": "01a12c08-9355-701b-b10b-518c0b56c9af_large.jpg",
+        "file_size": 369344,
+        "pix_w": 3447,
+        "pix_h": 5334,
+        "hires_file_name": "01a12c08-9355-701b-b10b-518c0b56c9af_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-9355-701b-b10b-518c0b56c9af.jpg",
+        "thumbnail_file_name": "01a12c08-9355-701b-b10b-518c0b56c9af_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-9355-701b-b10b-518c0b56c9af_thumb.jpg",
+        "preview_file_name": "01a12c08-9355-701b-b10b-518c0b56c9af_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-9355-701b-b10b-518c0b56c9af_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "3447×5334",
+      "file_size_mb": 0.35,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-93ef-7162-b124-102ca0bf526c": {
+    "artwork_info": {
+      "id": "01a12c08-93ef-7162-b124-102ca0bf526c",
+      "title": "心燈-得意忘象",
+      "title_en": "Lamp of the Heart – Grasping the Meaning, Forgetting the Image",
+      "original_size_cm": "100×65"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 16,
+        "height_inches": 24
+      },
+      {
+        "width_inches": 11,
+        "height_inches": 17
+      },
+      {
+        "width_inches": 8,
+        "height_inches": 12
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "心燈-得意忘象",
+        "description": "Traditional Chinese painting by Xiaoran. Lamp of the Heart – Grasping the Meaning, Forgetting the Image",
+        "file_name": "01a12c08-93ef-7162-b124-102ca0bf526c_large.jpg",
+        "file_size": 513503,
+        "pix_w": 11811,
+        "pix_h": 18032,
+        "hires_file_name": "01a12c08-93ef-7162-b124-102ca0bf526c_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-93ef-7162-b124-102ca0bf526c.jpg",
+        "thumbnail_file_name": "01a12c08-93ef-7162-b124-102ca0bf526c_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-93ef-7162-b124-102ca0bf526c_thumb.jpg",
+        "preview_file_name": "01a12c08-93ef-7162-b124-102ca0bf526c_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-93ef-7162-b124-102ca0bf526c_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "11811×18032",
+      "file_size_mb": 0.49,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-9479-729a-8712-a665908575a6": {
+    "artwork_info": {
+      "id": "01a12c08-9479-729a-8712-a665908575a6",
+      "title": "紅柳白翎-動靜自安然",
+      "title_en": "Red Willows, White Plumes – At Peace in Motion and Stillness",
+      "original_size_cm": "95×69"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 17,
+        "height_inches": 24
+      },
+      {
+        "width_inches": 12,
+        "height_inches": 17
+      },
+      {
+        "width_inches": 8,
+        "height_inches": 12
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "紅柳白翎-動靜自安然",
+        "description": "Traditional Chinese painting by Xiaoran. Red Willows, White Plumes – At Peace in Motion and Stillness",
+        "file_name": "01a12c08-9479-729a-8712-a665908575a6_large.jpg",
+        "file_size": 287780,
+        "pix_w": 3691,
+        "pix_h": 5226,
+        "hires_file_name": "01a12c08-9479-729a-8712-a665908575a6_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-9479-729a-8712-a665908575a6.jpg",
+        "thumbnail_file_name": "01a12c08-9479-729a-8712-a665908575a6_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-9479-729a-8712-a665908575a6_thumb.jpg",
+        "preview_file_name": "01a12c08-9479-729a-8712-a665908575a6_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-9479-729a-8712-a665908575a6_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "3691×5226",
+      "file_size_mb": 0.27,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-94f1-700d-8ed8-4959350018f9": {
+    "artwork_info": {
+      "id": "01a12c08-94f1-700d-8ed8-4959350018f9",
+      "title": "虛實-合抱之木",
+      "title_en": "Empty and Solid – The Great Tree",
+      "original_size_cm": "97×66"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 16,
+        "height_inches": 24
+      },
+      {
+        "width_inches": 11,
+        "height_inches": 17
+      },
+      {
+        "width_inches": 8,
+        "height_inches": 12
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "虛實-合抱之木",
+        "description": "Traditional Chinese painting by Xiaoran. Empty and Solid – The Great Tree",
+        "file_name": "01a12c08-94f1-700d-8ed8-4959350018f9_large.jpg",
+        "file_size": 559440,
+        "pix_w": 3497,
+        "pix_h": 5232,
+        "hires_file_name": "01a12c08-94f1-700d-8ed8-4959350018f9_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-94f1-700d-8ed8-4959350018f9.jpg",
+        "thumbnail_file_name": "01a12c08-94f1-700d-8ed8-4959350018f9_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-94f1-700d-8ed8-4959350018f9_thumb.jpg",
+        "preview_file_name": "01a12c08-94f1-700d-8ed8-4959350018f9_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-94f1-700d-8ed8-4959350018f9_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "3497×5232",
+      "file_size_mb": 0.53,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-958a-7dde-908c-1126e2202a2a": {
+    "artwork_info": {
+      "id": "01a12c08-958a-7dde-908c-1126e2202a2a",
+      "title": "光流-有無相生",
+      "title_en": "Streams of Light – Being and Non-Being Give Rise to Each Other",
+      "original_size_cm": "100×65"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 16,
+        "height_inches": 24
+      },
+      {
+        "width_inches": 11,
+        "height_inches": 17
+      },
+      {
+        "width_inches": 8,
+        "height_inches": 12
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "光流-有無相生",
+        "description": "Traditional Chinese painting by Xiaoran. Streams of Light – Being and Non-Being Give Rise to Each Other",
+        "file_name": "01a12c08-958a-7dde-908c-1126e2202a2a_large.jpg",
+        "file_size": 386500,
+        "pix_w": 3590,
+        "pix_h": 5362,
+        "hires_file_name": "01a12c08-958a-7dde-908c-1126e2202a2a_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-958a-7dde-908c-1126e2202a2a.jpg",
+        "thumbnail_file_name": "01a12c08-958a-7dde-908c-1126e2202a2a_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-958a-7dde-908c-1126e2202a2a_thumb.jpg",
+        "preview_file_name": "01a12c08-958a-7dde-908c-1126e2202a2a_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-958a-7dde-908c-1126e2202a2a_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "3590×5362",
+      "file_size_mb": 0.37,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-961d-7601-8d24-5c3fccde7d12": {
+    "artwork_info": {
+      "id": "01a12c08-961d-7601-8d24-5c3fccde7d12",
+      "title": "野百合也有春天",
+      "title_en": "Even the Wild Lily Has Its Spring",
+      "original_size_cm": "100×65"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 15,
+        "height_inches": 24
+      },
+      {
+        "width_inches": 11,
+        "height_inches": 17
+      },
+      {
+        "width_inches": 8,
+        "height_inches": 12
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "野百合也有春天",
+        "description": "Traditional Chinese painting by Xiaoran. Even the Wild Lily Has Its Spring",
+        "file_name": "01a12c08-961d-7601-8d24-5c3fccde7d12_large.jpg",
+        "file_size": 540333,
+        "pix_w": 3505,
+        "pix_h": 5456,
+        "hires_file_name": "01a12c08-961d-7601-8d24-5c3fccde7d12_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-961d-7601-8d24-5c3fccde7d12.jpg",
+        "thumbnail_file_name": "01a12c08-961d-7601-8d24-5c3fccde7d12_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-961d-7601-8d24-5c3fccde7d12_thumb.jpg",
+        "preview_file_name": "01a12c08-961d-7601-8d24-5c3fccde7d12_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-961d-7601-8d24-5c3fccde7d12_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "3505×5456",
+      "file_size_mb": 0.52,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-96ac-71f5-8f88-8d7875f7e5dc": {
+    "artwork_info": {
+      "id": "01a12c08-96ac-71f5-8f88-8d7875f7e5dc",
+      "title": "秋光飛瀑",
+      "title_en": "Autumn Light and Flying Falls",
+      "original_size_cm": "91×58"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 15,
+        "height_inches": 24
+      },
+      {
+        "width_inches": 11,
+        "height_inches": 17
+      },
+      {
+        "width_inches": 8,
+        "height_inches": 12
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "秋光飛瀑",
+        "description": "Traditional Chinese painting by Xiaoran. Autumn Light and Flying Falls",
+        "file_name": "01a12c08-96ac-71f5-8f88-8d7875f7e5dc_large.jpg",
+        "file_size": 411332,
+        "pix_w": 3440,
+        "pix_h": 5456,
+        "hires_file_name": "01a12c08-96ac-71f5-8f88-8d7875f7e5dc_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-96ac-71f5-8f88-8d7875f7e5dc.jpg",
+        "thumbnail_file_name": "01a12c08-96ac-71f5-8f88-8d7875f7e5dc_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-96ac-71f5-8f88-8d7875f7e5dc_thumb.jpg",
+        "preview_file_name": "01a12c08-96ac-71f5-8f88-8d7875f7e5dc_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-96ac-71f5-8f88-8d7875f7e5dc_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "3440×5456",
+      "file_size_mb": 0.39,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-9747-78f0-aa9d-a3fad98f6d87": {
+    "artwork_info": {
+      "id": "01a12c08-9747-78f0-aa9d-a3fad98f6d87",
+      "title": "青松嵐影",
+      "title_en": "Green Pines in Mountain Mist",
+      "original_size_cm": "140×38"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 6,
+        "height_inches": 24
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "青松嵐影",
+        "description": "Traditional Chinese painting by Xiaoran. Green Pines in Mountain Mist",
+        "file_name": "01a12c08-9747-78f0-aa9d-a3fad98f6d87_large.jpg",
+        "file_size": 512510,
+        "pix_w": 1522,
+        "pix_h": 5707,
+        "hires_file_name": "01a12c08-9747-78f0-aa9d-a3fad98f6d87_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-9747-78f0-aa9d-a3fad98f6d87.jpg",
+        "thumbnail_file_name": "01a12c08-9747-78f0-aa9d-a3fad98f6d87_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-9747-78f0-aa9d-a3fad98f6d87_thumb.jpg",
+        "preview_file_name": "01a12c08-9747-78f0-aa9d-a3fad98f6d87_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-9747-78f0-aa9d-a3fad98f6d87_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "1522×5707",
+      "file_size_mb": 0.49,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-9a25-756b-8649-4f135033e118": {
+    "artwork_info": {
+      "id": "01a12c08-9a25-756b-8649-4f135033e118",
+      "title": "清氣滿山",
+      "title_en": "Clear Air Fills the Mountains",
+      "original_size_cm": "137×34"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 6,
+        "height_inches": 24
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "清氣滿山",
+        "description": "Traditional Chinese painting by Xiaoran. Clear Air Fills the Mountains",
+        "file_name": "01a12c08-9a25-756b-8649-4f135033e118_large.jpg",
+        "file_size": 463711,
+        "pix_w": 1361,
+        "pix_h": 5571,
+        "hires_file_name": "01a12c08-9a25-756b-8649-4f135033e118_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-9a25-756b-8649-4f135033e118.jpg",
+        "thumbnail_file_name": "01a12c08-9a25-756b-8649-4f135033e118_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-9a25-756b-8649-4f135033e118_thumb.jpg",
+        "preview_file_name": "01a12c08-9a25-756b-8649-4f135033e118_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-9a25-756b-8649-4f135033e118_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "1361×5571",
+      "file_size_mb": 0.44,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-9b7b-7744-bb98-e42bd8d8b969": {
+    "artwork_info": {
+      "id": "01a12c08-9b7b-7744-bb98-e42bd8d8b969",
+      "title": "煙林水色",
+      "title_en": "Misty Woods, Colors of Water",
+      "original_size_cm": "47×76"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 24,
+        "height_inches": 15
+      },
+      {
+        "width_inches": 17,
+        "height_inches": 10
+      },
+      {
+        "width_inches": 12,
+        "height_inches": 7
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "煙林水色",
+        "description": "Traditional Chinese painting by Xiaoran. Misty Woods, Colors of Water",
+        "file_name": "01a12c08-9b7b-7744-bb98-e42bd8d8b969_large.jpg",
+        "file_size": 650469,
+        "pix_w": 6079,
+        "pix_h": 3707,
+        "hires_file_name": "01a12c08-9b7b-7744-bb98-e42bd8d8b969_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-9b7b-7744-bb98-e42bd8d8b969.jpg",
+        "thumbnail_file_name": "01a12c08-9b7b-7744-bb98-e42bd8d8b969_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-9b7b-7744-bb98-e42bd8d8b969_thumb.jpg",
+        "preview_file_name": "01a12c08-9b7b-7744-bb98-e42bd8d8b969_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-9b7b-7744-bb98-e42bd8d8b969_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "6079×3707",
+      "file_size_mb": 0.62,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-9d41-74ca-8229-7e6b61b01e3f": {
+    "artwork_info": {
+      "id": "01a12c08-9d41-74ca-8229-7e6b61b01e3f",
+      "title": "山光含煙翠",
+      "title_en": "Mountain Light Veiled in Green Mist",
+      "original_size_cm": "46×77"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 24,
+        "height_inches": 15
+      },
+      {
+        "width_inches": 17,
+        "height_inches": 10
+      },
+      {
+        "width_inches": 12,
+        "height_inches": 7
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "山光含煙翠",
+        "description": "Traditional Chinese painting by Xiaoran. Mountain Light Veiled in Green Mist",
+        "file_name": "01a12c08-9d41-74ca-8229-7e6b61b01e3f_large.jpg",
+        "file_size": 491693,
+        "pix_w": 5793,
+        "pix_h": 3519,
+        "hires_file_name": "01a12c08-9d41-74ca-8229-7e6b61b01e3f_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-9d41-74ca-8229-7e6b61b01e3f.jpg",
+        "thumbnail_file_name": "01a12c08-9d41-74ca-8229-7e6b61b01e3f_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-9d41-74ca-8229-7e6b61b01e3f_thumb.jpg",
+        "preview_file_name": "01a12c08-9d41-74ca-8229-7e6b61b01e3f_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-9d41-74ca-8229-7e6b61b01e3f_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "5793×3519",
+      "file_size_mb": 0.47,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-9e9e-7329-88b3-0a0a087136b3": {
+    "artwork_info": {
+      "id": "01a12c08-9e9e-7329-88b3-0a0a087136b3",
+      "title": "白水丹楓-秋光",
+      "title_en": "White Water and Red Maples – Autumn Light",
+      "original_size_cm": "70×73"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 21,
+        "height_inches": 20
+      },
+      {
+        "width_inches": 15,
+        "height_inches": 14
+      },
+      {
+        "width_inches": 11,
+        "height_inches": 10
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "白水丹楓-秋光",
+        "description": "Traditional Chinese painting by Xiaoran. White Water and Red Maples – Autumn Light",
+        "file_name": "01a12c08-9e9e-7329-88b3-0a0a087136b3_large.jpg",
+        "file_size": 639721,
+        "pix_w": 4292,
+        "pix_h": 3998,
+        "hires_file_name": "01a12c08-9e9e-7329-88b3-0a0a087136b3_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-9e9e-7329-88b3-0a0a087136b3.jpg",
+        "thumbnail_file_name": "01a12c08-9e9e-7329-88b3-0a0a087136b3_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-9e9e-7329-88b3-0a0a087136b3_thumb.jpg",
+        "preview_file_name": "01a12c08-9e9e-7329-88b3-0a0a087136b3_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-9e9e-7329-88b3-0a0a087136b3_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "4292×3998",
+      "file_size_mb": 0.61,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-9f30-7fc1-a07d-22ded6129946": {
+    "artwork_info": {
+      "id": "01a12c08-9f30-7fc1-a07d-22ded6129946",
+      "title": "天光竹影-月世界",
+      "title_en": "Skylight and Bamboo Shadows – Moon World",
+      "original_size_cm": "70×76"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 22,
+        "height_inches": 20
+      },
+      {
+        "width_inches": 16,
+        "height_inches": 14
+      },
+      {
+        "width_inches": 11,
+        "height_inches": 10
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "天光竹影-月世界",
+        "description": "Traditional Chinese painting by Xiaoran. Skylight and Bamboo Shadows – Moon World",
+        "file_name": "01a12c08-9f30-7fc1-a07d-22ded6129946_large.jpg",
+        "file_size": 732727,
+        "pix_w": 4453,
+        "pix_h": 4051,
+        "hires_file_name": "01a12c08-9f30-7fc1-a07d-22ded6129946_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-9f30-7fc1-a07d-22ded6129946.jpg",
+        "thumbnail_file_name": "01a12c08-9f30-7fc1-a07d-22ded6129946_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-9f30-7fc1-a07d-22ded6129946_thumb.jpg",
+        "preview_file_name": "01a12c08-9f30-7fc1-a07d-22ded6129946_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-9f30-7fc1-a07d-22ded6129946_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "4453×4051",
+      "file_size_mb": 0.7,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-a115-781f-8a11-3a51690795dc": {
+    "artwork_info": {
+      "id": "01a12c08-a115-781f-8a11-3a51690795dc",
+      "title": "月世界金秋",
+      "title_en": "Golden Autumn in the Moon World",
+      "original_size_cm": "70×76"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 23,
+        "height_inches": 21
+      },
+      {
+        "width_inches": 16,
+        "height_inches": 15
+      },
+      {
+        "width_inches": 12,
+        "height_inches": 10
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "月世界金秋",
+        "description": "Traditional Chinese painting by Xiaoran. Golden Autumn in the Moon World",
+        "file_name": "01a12c08-a115-781f-8a11-3a51690795dc_large.jpg",
+        "file_size": 751636,
+        "pix_w": 4617,
+        "pix_h": 4180,
+        "hires_file_name": "01a12c08-a115-781f-8a11-3a51690795dc_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-a115-781f-8a11-3a51690795dc.jpg",
+        "thumbnail_file_name": "01a12c08-a115-781f-8a11-3a51690795dc_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-a115-781f-8a11-3a51690795dc_thumb.jpg",
+        "preview_file_name": "01a12c08-a115-781f-8a11-3a51690795dc_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-a115-781f-8a11-3a51690795dc_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "4617×4180",
+      "file_size_mb": 0.72,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-a319-7f09-846e-57ec660f5807": {
+    "artwork_info": {
+      "id": "01a12c08-a319-7f09-846e-57ec660f5807",
+      "title": "煙嵐深處",
+      "title_en": "Deep in the Mountain Mist",
+      "original_size_cm": "71×76"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 22,
+        "height_inches": 20
+      },
+      {
+        "width_inches": 16,
+        "height_inches": 14
+      },
+      {
+        "width_inches": 11,
+        "height_inches": 10
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "煙嵐深處",
+        "description": "Traditional Chinese painting by Xiaoran. Deep in the Mountain Mist",
+        "file_name": "01a12c08-a319-7f09-846e-57ec660f5807_large.jpg",
+        "file_size": 769617,
+        "pix_w": 4448,
+        "pix_h": 4041,
+        "hires_file_name": "01a12c08-a319-7f09-846e-57ec660f5807_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-a319-7f09-846e-57ec660f5807.jpg",
+        "thumbnail_file_name": "01a12c08-a319-7f09-846e-57ec660f5807_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-a319-7f09-846e-57ec660f5807_thumb.jpg",
+        "preview_file_name": "01a12c08-a319-7f09-846e-57ec660f5807_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-a319-7f09-846e-57ec660f5807_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "4448×4041",
+      "file_size_mb": 0.73,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-a50e-7059-b5c1-ca391d0e4f0b": {
+    "artwork_info": {
+      "id": "01a12c08-a50e-7059-b5c1-ca391d0e4f0b",
+      "title": "禾木秋煙",
+      "title_en": "Autumn Mist at Hemu",
+      "original_size_cm": "77×73"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 22,
+        "height_inches": 23
+      },
+      {
+        "width_inches": 15,
+        "height_inches": 16
+      },
+      {
+        "width_inches": 11,
+        "height_inches": 11
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "禾木秋煙",
+        "description": "Traditional Chinese painting by Xiaoran. Autumn Mist at Hemu",
+        "file_name": "01a12c08-a50e-7059-b5c1-ca391d0e4f0b_large.jpg",
+        "file_size": 679049,
+        "pix_w": 4315,
+        "pix_h": 4573,
+        "hires_file_name": "01a12c08-a50e-7059-b5c1-ca391d0e4f0b_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-a50e-7059-b5c1-ca391d0e4f0b.jpg",
+        "thumbnail_file_name": "01a12c08-a50e-7059-b5c1-ca391d0e4f0b_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-a50e-7059-b5c1-ca391d0e4f0b_thumb.jpg",
+        "preview_file_name": "01a12c08-a50e-7059-b5c1-ca391d0e4f0b_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-a50e-7059-b5c1-ca391d0e4f0b_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "4315×4573",
+      "file_size_mb": 0.65,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-a5b7-70e7-8529-32dc34f94467": {
+    "artwork_info": {
+      "id": "01a12c08-a5b7-70e7-8529-32dc34f94467",
+      "title": "墨染丹霞天地寬",
+      "title_en": "Crimson Clouds in Ink, Heaven and Earth Wide Open",
+      "original_size_cm": "76×46"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 12,
+        "height_inches": 21
+      },
+      {
+        "width_inches": 9,
+        "height_inches": 15
+      },
+      {
+        "width_inches": 6,
+        "height_inches": 10
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "墨染丹霞天地寬",
+        "description": "Traditional Chinese painting by Xiaoran. Crimson Clouds in Ink, Heaven and Earth Wide Open",
+        "file_name": "01a12c08-a5b7-70e7-8529-32dc34f94467_large.jpg",
+        "file_size": 364674,
+        "pix_w": 2492,
+        "pix_h": 4156,
+        "hires_file_name": "01a12c08-a5b7-70e7-8529-32dc34f94467_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-a5b7-70e7-8529-32dc34f94467.jpg",
+        "thumbnail_file_name": "01a12c08-a5b7-70e7-8529-32dc34f94467_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-a5b7-70e7-8529-32dc34f94467_thumb.jpg",
+        "preview_file_name": "01a12c08-a5b7-70e7-8529-32dc34f94467_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-a5b7-70e7-8529-32dc34f94467_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "2492×4156",
+      "file_size_mb": 0.35,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-a6cb-7387-b65e-ae888d412c52": {
+    "artwork_info": {
+      "id": "01a12c08-a6cb-7387-b65e-ae888d412c52",
+      "title": "霜林流丹",
+      "title_en": "Frosted Woods, Flowing Crimson",
+      "original_size_cm": "52×75"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 22,
+        "height_inches": 15
+      },
+      {
+        "width_inches": 15,
+        "height_inches": 10
+      },
+      {
+        "width_inches": 11,
+        "height_inches": 7
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "霜林流丹",
+        "description": "Traditional Chinese painting by Xiaoran. Frosted Woods, Flowing Crimson",
+        "file_name": "01a12c08-a6cb-7387-b65e-ae888d412c52_large.jpg",
+        "file_size": 626686,
+        "pix_w": 4415,
+        "pix_h": 2959,
+        "hires_file_name": "01a12c08-a6cb-7387-b65e-ae888d412c52_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-a6cb-7387-b65e-ae888d412c52.jpg",
+        "thumbnail_file_name": "01a12c08-a6cb-7387-b65e-ae888d412c52_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-a6cb-7387-b65e-ae888d412c52_thumb.jpg",
+        "preview_file_name": "01a12c08-a6cb-7387-b65e-ae888d412c52_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-a6cb-7387-b65e-ae888d412c52_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "4415×2959",
+      "file_size_mb": 0.6,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c08-a760-73c3-96a3-cc7d528d191d": {
+    "artwork_info": {
+      "id": "01a12c08-a760-73c3-96a3-cc7d528d191d",
+      "title": "武陵煙聲舞秋紅",
+      "title_en": "Wuling: Misty Falls amid Dancing Autumn Reds",
+      "original_size_cm": "70×47"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 16,
+        "height_inches": 24
+      },
+      {
+        "width_inches": 11,
+        "height_inches": 17
+      },
+      {
+        "width_inches": 8,
+        "height_inches": 12
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "武陵煙聲舞秋紅",
+        "description": "Traditional Chinese painting by Xiaoran. Wuling: Misty Falls amid Dancing Autumn Reds",
+        "file_name": "01a12c08-a760-73c3-96a3-cc7d528d191d_large.jpg",
+        "file_size": 429369,
+        "pix_w": 3335,
+        "pix_h": 5089,
+        "hires_file_name": "01a12c08-a760-73c3-96a3-cc7d528d191d_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c08-a760-73c3-96a3-cc7d528d191d.jpg",
+        "thumbnail_file_name": "01a12c08-a760-73c3-96a3-cc7d528d191d_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c08-a760-73c3-96a3-cc7d528d191d_thumb.jpg",
+        "preview_file_name": "01a12c08-a760-73c3-96a3-cc7d528d191d_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c08-a760-73c3-96a3-cc7d528d191d_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "3335×5089",
+      "file_size_mb": 0.41,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c32-fa30-73db-95d5-fcf84fc9b6df": {
+    "artwork_info": {
+      "id": "01a12c32-fa30-73db-95d5-fcf84fc9b6df",
+      "title": "春江水暖",
+      "title_en": "Spring River, Warm Waters",
+      "original_size_cm": "145×77"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 12,
+        "height_inches": 24
+      },
+      {
+        "width_inches": 9,
+        "height_inches": 17
+      },
+      {
+        "width_inches": 6,
+        "height_inches": 12
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "春江水暖",
+        "description": "Traditional Chinese painting by Xiaoran. Spring River, Warm Waters",
+        "file_name": "01a12c32-fa30-73db-95d5-fcf84fc9b6df_large.jpg",
+        "file_size": 559558,
+        "pix_w": 2930,
+        "pix_h": 5707,
+        "hires_file_name": "01a12c32-fa30-73db-95d5-fcf84fc9b6df_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c32-fa30-73db-95d5-fcf84fc9b6df.jpg",
+        "thumbnail_file_name": "01a12c32-fa30-73db-95d5-fcf84fc9b6df_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c32-fa30-73db-95d5-fcf84fc9b6df_thumb.jpg",
+        "preview_file_name": "01a12c32-fa30-73db-95d5-fcf84fc9b6df_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c32-fa30-73db-95d5-fcf84fc9b6df_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "2930×5707",
+      "file_size_mb": 0.53,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c32-fae0-74b5-8639-7f9711bc320e": {
+    "artwork_info": {
+      "id": "01a12c32-fae0-74b5-8639-7f9711bc320e",
+      "title": "三餘圖",
+      "title_en": "Fish of Abundance",
+      "original_size_cm": "100×65"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 16,
+        "height_inches": 24
+      },
+      {
+        "width_inches": 11,
+        "height_inches": 17
+      },
+      {
+        "width_inches": 8,
+        "height_inches": 12
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "三餘圖",
+        "description": "Traditional Chinese painting by Xiaoran. Fish of Abundance",
+        "file_name": "01a12c32-fae0-74b5-8639-7f9711bc320e_large.jpg",
+        "file_size": 330294,
+        "pix_w": 3511,
+        "pix_h": 5311,
+        "hires_file_name": "01a12c32-fae0-74b5-8639-7f9711bc320e_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c32-fae0-74b5-8639-7f9711bc320e.jpg",
+        "thumbnail_file_name": "01a12c32-fae0-74b5-8639-7f9711bc320e_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c32-fae0-74b5-8639-7f9711bc320e_thumb.jpg",
+        "preview_file_name": "01a12c32-fae0-74b5-8639-7f9711bc320e_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c32-fae0-74b5-8639-7f9711bc320e_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "3511×5311",
+      "file_size_mb": 0.31,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c32-fcaf-7ea9-aeb7-470e064888bc": {
+    "artwork_info": {
+      "id": "01a12c32-fcaf-7ea9-aeb7-470e064888bc",
+      "title": "獨與天地精神往來",
+      "title_en": "Alone with the Spirit of Heaven and Earth",
+      "original_size_cm": "137×34"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 6,
+        "height_inches": 24
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "獨與天地精神往來",
+        "description": "Traditional Chinese painting by Xiaoran. Alone with the Spirit of Heaven and Earth",
+        "file_name": "01a12c32-fcaf-7ea9-aeb7-470e064888bc_large.jpg",
+        "file_size": 352549,
+        "pix_w": 1484,
+        "pix_h": 6087,
+        "hires_file_name": "01a12c32-fcaf-7ea9-aeb7-470e064888bc_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c32-fcaf-7ea9-aeb7-470e064888bc.jpg",
+        "thumbnail_file_name": "01a12c32-fcaf-7ea9-aeb7-470e064888bc_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c32-fcaf-7ea9-aeb7-470e064888bc_thumb.jpg",
+        "preview_file_name": "01a12c32-fcaf-7ea9-aeb7-470e064888bc_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c32-fcaf-7ea9-aeb7-470e064888bc_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "1484×6087",
+      "file_size_mb": 0.34,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c32-fd1e-7d89-be39-684944073edd": {
+    "artwork_info": {
+      "id": "01a12c32-fd1e-7d89-be39-684944073edd",
+      "title": "心隨雲遠",
+      "title_en": "The Heart Drifts with the Clouds",
+      "original_size_cm": "45×69"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 24,
+        "height_inches": 15
+      },
+      {
+        "width_inches": 17,
+        "height_inches": 11
+      },
+      {
+        "width_inches": 12,
+        "height_inches": 8
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "心隨雲遠",
+        "description": "Traditional Chinese painting by Xiaoran. The Heart Drifts with the Clouds",
+        "file_name": "01a12c32-fd1e-7d89-be39-684944073edd_large.jpg",
+        "file_size": 344421,
+        "pix_w": 5474,
+        "pix_h": 3527,
+        "hires_file_name": "01a12c32-fd1e-7d89-be39-684944073edd_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c32-fd1e-7d89-be39-684944073edd.jpg",
+        "thumbnail_file_name": "01a12c32-fd1e-7d89-be39-684944073edd_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c32-fd1e-7d89-be39-684944073edd_thumb.jpg",
+        "preview_file_name": "01a12c32-fd1e-7d89-be39-684944073edd_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c32-fd1e-7d89-be39-684944073edd_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "5474×3527",
+      "file_size_mb": 0.33,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c32-fd8c-7321-8ec9-0e56702657f0": {
+    "artwork_info": {
+      "id": "01a12c32-fd8c-7321-8ec9-0e56702657f0",
+      "title": "一枝寒菊",
+      "title_en": "A Spray of Winter Chrysanthemum",
+      "original_size_cm": "69×45"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 16,
+        "height_inches": 24
+      },
+      {
+        "width_inches": 11,
+        "height_inches": 17
+      },
+      {
+        "width_inches": 8,
+        "height_inches": 12
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "一枝寒菊",
+        "description": "Traditional Chinese painting by Xiaoran. A Spray of Winter Chrysanthemum",
+        "file_name": "01a12c32-fd8c-7321-8ec9-0e56702657f0_large.jpg",
+        "file_size": 374661,
+        "pix_w": 3650,
+        "pix_h": 5581,
+        "hires_file_name": "01a12c32-fd8c-7321-8ec9-0e56702657f0_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c32-fd8c-7321-8ec9-0e56702657f0.jpg",
+        "thumbnail_file_name": "01a12c32-fd8c-7321-8ec9-0e56702657f0_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c32-fd8c-7321-8ec9-0e56702657f0_thumb.jpg",
+        "preview_file_name": "01a12c32-fd8c-7321-8ec9-0e56702657f0_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c32-fd8c-7321-8ec9-0e56702657f0_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "3650×5581",
+      "file_size_mb": 0.36,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c32-fdf8-7498-a075-a3fa93f187a0": {
+    "artwork_info": {
+      "id": "01a12c32-fdf8-7498-a075-a3fa93f187a0",
+      "title": "母親的愛",
+      "title_en": "A Mother's Love",
+      "original_size_cm": "69×45"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 15,
+        "height_inches": 24
+      },
+      {
+        "width_inches": 11,
+        "height_inches": 17
+      },
+      {
+        "width_inches": 8,
+        "height_inches": 12
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "母親的愛",
+        "description": "Traditional Chinese painting by Xiaoran. A Mother's Love",
+        "file_name": "01a12c32-fdf8-7498-a075-a3fa93f187a0_large.jpg",
+        "file_size": 326270,
+        "pix_w": 3054,
+        "pix_h": 4758,
+        "hires_file_name": "01a12c32-fdf8-7498-a075-a3fa93f187a0_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c32-fdf8-7498-a075-a3fa93f187a0.jpg",
+        "thumbnail_file_name": "01a12c32-fdf8-7498-a075-a3fa93f187a0_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c32-fdf8-7498-a075-a3fa93f187a0_thumb.jpg",
+        "preview_file_name": "01a12c32-fdf8-7498-a075-a3fa93f187a0_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c32-fdf8-7498-a075-a3fa93f187a0_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "3054×4758",
+      "file_size_mb": 0.31,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
+  },
+  "01a12c32-fe61-74db-9b2b-f99316181076": {
+    "artwork_info": {
+      "id": "01a12c32-fe61-74db-9b2b-f99316181076",
+      "title": "清氣滿乾坤",
+      "title_en": "Pure Air Fills Heaven and Earth",
+      "original_size_cm": "69×69"
+    },
+    "recommended_sizes": [
+      {
+        "width_inches": 23,
+        "height_inches": 23
+      },
+      {
+        "width_inches": 16,
+        "height_inches": 16
+      },
+      {
+        "width_inches": 11,
+        "height_inches": 11
+      }
+    ],
+    "finerworks_image": {
+      "finerworks_api_object": {
+        "title": "清氣滿乾坤",
+        "description": "Traditional Chinese painting by Xiaoran. Pure Air Fills Heaven and Earth",
+        "file_name": "01a12c32-fe61-74db-9b2b-f99316181076_large.jpg",
+        "file_size": 792842,
+        "pix_w": 4553,
+        "pix_h": 4535,
+        "hires_file_name": "01a12c32-fe61-74db-9b2b-f99316181076_large.jpg",
+        "private_hires_uri": "https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/raw/01a12c32-fe61-74db-9b2b-f99316181076.jpg",
+        "thumbnail_file_name": "01a12c32-fe61-74db-9b2b-f99316181076_thumb.jpg",
+        "public_thumbnail_uri": "https://xiaoran.netlify.app/images/paintings/thumbnails/01a12c32-fe61-74db-9b2b-f99316181076_thumb.jpg",
+        "preview_file_name": "01a12c32-fe61-74db-9b2b-f99316181076_large.jpg",
+        "public_preview_uri": "https://xiaoran.netlify.app/images/paintings/large/01a12c32-fe61-74db-9b2b-f99316181076_large.jpg"
+      },
+      "format": "jpeg",
+      "dimensions_text": "4553×4535",
+      "file_size_mb": 0.76,
+      "has_thumbnail": true,
+      "storage_source": "s3",
+      "has_high_res_version": true
+    },
+    "print_ready": true
   }
 }

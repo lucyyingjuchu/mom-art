@@ -5,3 +5,4 @@ __pycache__/
 *.pyc
 data/.excel_photos_tmp/
 zh/
+upload_log.txt
