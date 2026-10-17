@@ -214,9 +214,9 @@
 
         .artworks-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
+            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+            gap: 1.2rem;
+            margin-bottom: 1.5rem;
         }
 
         .artwork-card {
@@ -228,22 +228,26 @@
         }
 
         .artwork-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
         }
 
+        /* The whole painting, never cropped - same as the website */
         .artwork-image {
+            display: block;
             width: 100%;
-            height: 250px;
-            object-fit: cover;
-            background: #f8f9fa;
+            height: 220px;
+            object-fit: contain;
+            background: #f4f1ec;
+            padding: 0.6rem;
+            cursor: pointer;
         }
 
         .artwork-info {
-            padding: 1.5rem;
+            padding: 0.9rem 1rem 1rem;
         }
 
         .artwork-title {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: bold;
             margin-bottom: 0.5rem;
             color: #2c3e50;
@@ -620,6 +624,57 @@
             font-size: 0.8rem;
         }
     
+        /* Series tabs - same as the website's gallery */
+        .admin-tabs {
+            display: flex; flex-wrap: wrap; align-items: center; gap: 0.3rem 1.6rem;
+            border-bottom: 1px solid #e9e4dc; margin-bottom: 1rem;
+        }
+        .admin-tab {
+            background: none; border: 0; border-bottom: 2px solid transparent; margin-bottom: -1px;
+            padding: 0.6rem 0.1rem; font: inherit; font-size: 1.02rem; letter-spacing: 0.06em;
+            color: #8a7f72; cursor: pointer;
+        }
+        .admin-tab:hover { color: #2c3e50; }
+        .admin-tab.active { color: #2c3e50; border-bottom-color: #a3342c; }
+        .admin-tab .count { font-size: 0.8rem; color: #b0a698; margin-left: 0.2rem; }
+        .admin-tab-divider { width: 1px; height: 1.2rem; background: #e0d9cf; }
+        .admin-toolbar { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+        .admin-toolbar .search-box { flex: 1; min-width: 220px; }
+        .admin-hint { color: #8a7f72; font-size: 0.85rem; margin-top: 0.6rem; }
+
+        /* Year / series headings, like the website */
+        .list-year { font-size: 1.6rem; color: #2c3e50; margin: 1.5rem 0 0.4rem; letter-spacing: 0.08em; }
+        .list-series { font-size: 1rem; color: #8a7f72; font-weight: normal; margin: 0.4rem 0 0.6rem; letter-spacing: 0.1em; }
+        .list-series small { color: #b0a698; margin-left: 0.4rem; }
+
+        .card-badges { display: flex; flex-wrap: wrap; gap: 0.3rem; margin: 0.4rem 0 0.6rem; }
+        .badge { padding: 0.1rem 0.5rem; border-radius: 4px; font-size: 0.78rem; background: #eef1f4; color: #4a5560; }
+        .badge.sold { background: #f8e1df; color: #a3342c; }
+        .badge.print { background: #e3f1e6; color: #2e6b3a; }
+        .badge.featured { background: #fff4d6; color: #8a6400; }
+        .badge.warn { background: #fdebd0; color: #a04000; }
+
+        .tab-preview { font-size: 0.85rem; color: #2c3e50; background: #f4f1ec; border-radius: 6px; padding: 0.4rem 0.6rem; margin-bottom: 0.6rem; }
+        .field-hint { color: #8a7f72; font-size: 0.8rem; margin-top: 0.25rem; }
+        details.english-fields { margin-top: 0.5rem; border: 1px solid #e3e6ea; border-radius: 8px; padding: 0.5rem 0.8rem; }
+        details.english-fields summary { cursor: pointer; color: #495057; font-weight: 600; }
+        details.english-fields .form-group { margin-top: 0.8rem; }
+
+        @media (max-width: 768px) {
+            .stats { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; margin-bottom: 1rem; }
+            .stat-card { padding: 0.8rem 0.5rem; }
+            .stat-number { font-size: 1.6rem; }
+            .stat-label { margin-top: 0.1rem; font-size: 0.85rem; }
+            .admin-tabs { flex-wrap: nowrap; overflow-x: auto; gap: 1.2rem; }
+            .admin-tab { flex: 0 0 auto; }
+            .admin-toolbar .search-box { min-width: 0; flex-basis: 100%; order: -1; }
+            .artworks-grid { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
+            .artwork-image { height: 150px; padding: 0.4rem; }
+            .artwork-info { padding: 0.6rem; }
+            .artwork-title { font-size: 0.95rem; }
+            .artwork-actions .btn { padding: 0.3rem 0.5rem; font-size: 0.8rem; }
+        }
+
         /* Unfinished works: visible here, hidden on the public site */
         .artwork-card.is-draft { outline: 2px dashed #e67e22; outline-offset: -2px; }
         .artwork-card.is-draft .artwork-image { opacity: 0.55; }
@@ -659,19 +714,19 @@
         <div class="stats">
             <div class="stat-card">
                 <span class="stat-number" id="totalArtworks">0</span>
-                <div class="stat-label">總作品數</div>
+                <div class="stat-label">全部作品</div>
             </div>
             <div class="stat-card">
-                <span class="stat-number" id="featuredCount">0</span>
-                <div class="stat-label">精選作品</div>
+                <span class="stat-number" id="publicCount">0</span>
+                <div class="stat-label">網站上顯示</div>
             </div>
             <div class="stat-card">
-                <span class="stat-number" id="recentCount">0</span>
-                <div class="stat-label">近期作品 (2020+)</div>
+                <span class="stat-number" id="draftCount">0</span>
+                <div class="stat-label">草稿（網站不顯示）</div>
             </div>
             <div class="stat-card">
-                <span class="stat-number" id="availableCount">0</span>
-                <div class="stat-label">可售作品</div>
+                <span class="stat-number" id="printCount">0</span>
+                <div class="stat-label">可買版畫</div>
             </div>
         </div>
 
@@ -683,8 +738,8 @@
         </div>
 
         <!-- Artworks Grid -->
-        <div class="artworks-grid" id="artworksGrid">
-            <div style="grid-column: 1 / -1; text-align: center; padding: 3rem; color: #7f8c8d;">
+        <div class="artworks-list" id="artworksGrid">
+            <div style="text-align: center; padding: 3rem; color: #7f8c8d;">
                 <h3>載入作品中...</h3>
                 <p>請稍候，正在取得最新資料。</p>
             </div>
@@ -734,6 +789,29 @@
                                     <option value="橫軸">橫軸</option>
                                 </select>
                             </div>
+
+                            <div class="form-group">
+                                <label for="artworkSeries">系列</label>
+                                <input type="text" id="artworkSeries" list="seriesOptions" placeholder="例如：山水、霜林（可空白）">
+                                <datalist id="seriesOptions"></datalist>
+                                <div class="field-hint">同一年同系列的作品，在網站上會排在一起並標上系列名稱</div>
+                            </div>
+
+                            <details class="english-fields">
+                                <summary>English 英文版內容</summary>
+                                <div class="form-group">
+                                    <label for="artworkTitleEn">English title</label>
+                                    <input type="text" id="artworkTitleEn">
+                                </div>
+                                <div class="form-group">
+                                    <label for="artworkDescriptionEn">Inscription (落款)</label>
+                                    <textarea id="artworkDescriptionEn"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="artworkCuratorNoteEn">Description (描述)</label>
+                                    <textarea id="artworkCuratorNoteEn"></textarea>
+                                </div>
+                            </details>
                         </div>
                         
                         <!-- Right Column -->
@@ -751,6 +829,7 @@
                             <!-- CLEANED UP CATEGORY MANAGEMENT -->
                             <div class="form-group">
                                 <label>分類標籤管理</label>
+                                <div class="tab-preview" id="tabPreview"></div>
                                 
                                 <!-- Available Category Labels Display -->
                                 <div class="category-section">
@@ -797,7 +876,7 @@
                                 <div style="display: flex; gap: 1rem;">
                                     <label>
                                         <input type="checkbox" id="artworkFeatured">
-                                        精選作品
+                                        首頁精選
                                     </label>
                                     <label>
                                         <input type="checkbox" id="artworkAvailable" checked>
@@ -867,13 +946,9 @@
         let pendingPublications = []; // Track what needs publishing
         let isConnected = false; // Track GitHub connection status
         
-        // CLEANED UP: Filter tracking using CategoryManager structure
-        let activeAdminFilters = {
-            subject: [],
-            location: [],
-            availability: [],
-            featured: [] // NEW: Added featured filter for admin
-        };
+        // Which tab is open: the website's series tabs, plus 草稿 and 首頁精選
+        let adminTab = 'all';
+        let printReadyIds = new Set(); // works with print sizes (data/finerworks_ready_artworks.json)
         
         // CLEANED UP: Category management - no more hardcoded categories
         let currentArtworkCategories = {
@@ -1065,7 +1140,16 @@
             if (noManualCategories) {
                 noManualCategories.style.display = hasManualCategories ? 'none' : 'block';
             }
-        }  
+
+            // Which gallery tabs this work will appear under on the website
+            const preview = document.getElementById('tabPreview');
+            if (preview && window.categoryManager && categoryManager.getArtworkTabs) {
+                const tabs = categoryManager.getArtworkTabs({ autoCategories, manualCategories });
+                preview.innerHTML = tabs.length
+                    ? `🖼️ 網站分頁：全部、${tabs.map(t => t.zh).join('、')}`
+                    : '🖼️ 網站分頁：只在「全部」（加上題材，例如山水、花鳥、明月，才會出現在對應分頁）';
+            }
+        }
 
         function removeAutoCategory(categoryType, categoryKey) {
             if (!currentArtworkCategories.autoCategories[categoryType]) return;
@@ -1151,64 +1235,47 @@
             }
         }
 
-        // CLEANED UP: Generate admin filter menu using CategoryManager
+        // Tabs + search + add button. The tabs are the website's own gallery tabs
+        // (shared through CategoryManager), plus 草稿 and 首頁精選 for managing.
         function generateAdminFilters() {
-            if (!categoryManager.loaded || !allArtworks.length) {
-                document.getElementById('adminFilterMenu').innerHTML = '<p>正在載入篩選器...</p>';
-                return;
-            }
+            const cm = window.categoryManager;
+            const count = key => allArtworks.filter(a => matchesTab(a, key)).length;
+            const tabs = (cm && cm.getGalleryTabs ? cm.getGalleryTabs() : [{ key: 'all', zh: '全部' }])
+                .filter(t => t.key === 'all' || count(t.key) > 0);
+            const tabButton = (key, label) =>
+                `<button type="button" class="admin-tab${key === adminTab ? ' active' : ''}" data-tab="${key}" onclick="setAdminTab('${key}')">${label}<span class="count">${count(key)}</span></button>`;
 
-            // Use CategoryManager to calculate statistics
-            const stats = categoryManager.calculateStats(allArtworks);
-            
-            // Add featured statistics manually (not handled by CategoryManager)
-            stats.featured = { 
-                true: allArtworks.filter(a => a.featured === true || a.featured === 'true').length,
-                false: allArtworks.filter(a => !(a.featured === true || a.featured === 'true')).length
-            };
-            
-            console.log('📊 Admin filter stats:', stats);
-            
-            let html = categoryManager.generateFilterHTML(stats, 'zh');
-            
-            // Add featured filter section
-            html += `
-                <div class="filter-section">
-                    <h4>⭐ 精選狀態</h4>
-                    <div class="secondary-filters">
-                        <button class="secondary-filter-btn" data-filter-type="featured" data-filter-value="true">
-                            精選作品 (${stats.featured.true})
-                        </button>
-                        <button class="secondary-filter-btn" data-filter-type="featured" data-filter-value="false">
-                            一般作品 (${stats.featured.false})
-                        </button>
-                    </div>
-                </div>
-            `;
-            
-            // Add clear filters and search
-            html += `
-                <div class="filter-section">
-                    <div class="secondary-filters">
-                        <button class="btn" onclick="clearAllAdminFilters()" style="background: #6c757d;">
-                            🗑️ 清除所有篩選
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="search-sort-container">
+            document.getElementById('adminFilterMenu').innerHTML = `
+                <nav class="admin-tabs">
+                    ${tabs.map(t => tabButton(t.key, t.zh)).join('')}
+                    <span class="admin-tab-divider"></span>
+                    ${tabButton('drafts', '📝 草稿')}
+                    ${tabButton('featured', '⭐ 首頁精選')}
+                </nav>
+                <div class="admin-toolbar">
+                    <button class="btn btn-success" onclick="openAddModal()">➕ 新增作品</button>
                     <div class="search-box">
-                        <span class="search-icon">🔍</span>
-                        <input type="text" id="searchInput" placeholder="搜尋作品標題、描述…（輸入「草稿」只看未上架）" onkeyup="performSearch()">
+                        <input type="search" id="searchInput" placeholder="🔍 搜尋標題、落款、描述、年份、系列…" oninput="performSearch()">
                     </div>
-                    <button class="btn btn-success" onclick="openAddModal()">
-                        ➕ 新增作品
-                    </button>
                 </div>
+                <div class="admin-hint">排列方式和網站相同：新的年份在前，同一年裡同系列排在一起。</div>
             `;
-            
-            document.getElementById('adminFilterMenu').innerHTML = html;
-            setupAdminFilterListeners();
+        }
+
+        function matchesTab(artwork, key) {
+            if (key === 'all') return true;
+            if (key === 'drafts') return isDraftArtwork(artwork);
+            if (key === 'featured') return artwork.featured === true || artwork.featured === 'true';
+            const cm = window.categoryManager;
+            const tab = cm && cm.getGalleryTabs ? cm.getGalleryTabs().find(t => t.key === key) : null;
+            return tab ? cm.artworkMatchesFilters(artwork, { subject: tab.subjects }) : true;
+        }
+
+        function setAdminTab(key) {
+            adminTab = key;
+            document.querySelectorAll('.admin-tab').forEach(btn =>
+                btn.classList.toggle('active', btn.dataset.tab === key));
+            applyAdminFilters();
         }
 
         function displayAvailableCategoryLabels() {
@@ -1274,102 +1341,27 @@
                         categoryManager.getCategoryLabel(categoryKey, 'zh') : categoryKey;
             showMessage(`已快速添加${categoryType === 'subjects' ? '題材' : '地點'}分類「${label}」`, 'success');
         }
-        // Setup filter event listeners
-        function setupAdminFilterListeners() {
-            document.querySelectorAll('.secondary-filter-btn').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    const filterType = e.target.dataset.filterType;
-                    const filterValue = e.target.dataset.filterValue;
-                    
-                    if (filterType && filterValue) {
-                        toggleAdminFilter(filterType, filterValue);
-                    }
-                });
-            });
-        }
-
-        // Toggle admin filter
-        function toggleAdminFilter(filterType, filterValue) {
-            if (!activeAdminFilters[filterType]) {
-                activeAdminFilters[filterType] = [];
-            }
-            
-            const index = activeAdminFilters[filterType].indexOf(filterValue);
-            if (index === -1) {
-                activeAdminFilters[filterType].push(filterValue);
-            } else {
-                activeAdminFilters[filterType].splice(index, 1);
-            }
-            
-            applyAdminFilters();
-            updateAdminFilterUI();
-        }
-
-        // CLEANED UP: Apply admin filters using CategoryManager
+        // Open tab + search box -> the list shown (always rebuilt from the master array)
         function applyAdminFilters() {
-            let filteredArtworks = [...allArtworks]; // CRITICAL: Always start from master array
-
-            // Use CategoryManager for filtering
-            if (categoryManager.loaded && categoryManager.artworkMatchesFilters) {
-                filteredArtworks = allArtworks.filter(artwork => {
-                    return categoryManager.artworkMatchesFilters(artwork, activeAdminFilters);
-                });
-            } else {
-                // Fallback filtering if CategoryManager not ready
-                console.warn('⚠️ CategoryManager not ready, using fallback filtering');
-                // Apply basic filtering logic here if needed
-            }
-
-            // Apply featured filter (not handled by CategoryManager)
-            if (activeAdminFilters.featured && activeAdminFilters.featured.length > 0) {
-                filteredArtworks = filteredArtworks.filter(artwork => {
-                    return activeAdminFilters.featured.some(filter => {
-                        const featured = artwork.featured === true || artwork.featured === 'true';
-                        return filter === 'true' ? featured : !featured;
-                    });
-                });
-            }
-
-            // CRITICAL: Update ONLY the display array, never the master array
-            artworks = filteredArtworks;
+            const query = (document.getElementById('searchInput')?.value || '').toLowerCase().trim();
+            artworks = allArtworks.filter(a => matchesTab(a, adminTab)).filter(a => {
+                if (!query) return true;
+                if (query === '草稿' || query === 'draft') return isDraftArtwork(a);
+                return [a.title, a.titleEn, a.description, a.curatorNote, a.year, a.series, a.sizeCm]
+                    .some(v => String(v || '').toLowerCase().includes(query));
+            });
             renderArtworks(artworks);
-            updateStats(artworks);
-
-            // Update results info
-            const activeFilterCount = Object.values(activeAdminFilters).flat().length;
-            console.log(`Applied ${activeFilterCount} filters, showing ${artworks.length}/${allArtworks.length} artworks`);
-        }
-
-        function updateAdminFilterUI() {
-            document.querySelectorAll('.secondary-filter-btn').forEach(btn => {
-                const filterType = btn.dataset.filterType;
-                const filterValue = btn.dataset.filterValue;
-                
-                if (filterType && filterValue && activeAdminFilters[filterType]) {
-                    if (activeAdminFilters[filterType].includes(filterValue)) {
-                        btn.classList.add('active');
-                    } else {
-                        btn.classList.remove('active');
-                    }
-                }
+            updateStats();
+            document.querySelectorAll('.admin-tab').forEach(btn => {
+                const c = btn.querySelector('.count');
+                if (c) c.textContent = allArtworks.filter(a => matchesTab(a, btn.dataset.tab)).length;
             });
         }
 
         function clearAllAdminFilters() {
-            activeAdminFilters = {
-                subject: [],
-                location: [],
-                availability: [],
-                featured: []
-            };
-            
-            // CRITICAL: Reset display array from master array
-            artworks = [...allArtworks];
-            renderArtworks();
-            updateStats();
-            updateAdminFilterUI();
-            document.getElementById('searchInput').value = '';
-            showMessage('已清除所有篩選條件', 'info');
+            const input = document.getElementById('searchInput');
+            if (input) input.value = '';
+            setAdminTab('all');
         }
 
         // Same rule as the public site (js/portfolio.js isPublicReady):
@@ -1382,53 +1374,8 @@
             return !img || img.includes('placeholder');
         }
 
-        // CLEANED UP: Search function
         function performSearch() {
-            const query = document.getElementById('searchInput').value.toLowerCase().trim();
-            
-            if (query === '') {
-                applyAdminFilters(); // Show filtered results without search
-                return;
-            }
-
-            // CRITICAL: Start from master array, then apply filters
-            let searchBase = [...allArtworks];
-            
-            // Apply existing filters first
-            const hasActiveFilters = Object.values(activeAdminFilters).some(arr => arr.length > 0);
-            if (hasActiveFilters && categoryManager.loaded) {
-                searchBase = searchBase.filter(artwork => {
-                    return categoryManager.artworkMatchesFilters(artwork, activeAdminFilters);
-                });
-            }
-
-            // Then apply search query
-            // Typing 草稿 or draft lists only the works hidden from the website
-            if (query === '草稿' || query === 'draft') {
-                artworks = searchBase.filter(isDraftArtwork);
-                renderArtworks(artworks);
-                updateStats(artworks);
-                return;
-            }
-
-            const searchResults = searchBase.filter(artwork => {
-                const title = (artwork.title || '').toLowerCase();
-                const description = (artwork.description || '').toLowerCase();
-                const year = (artwork.year || '').toString();
-                const sizeCm = (artwork.sizeCm || '').toLowerCase();
-                
-                return title.includes(query) || 
-                    description.includes(query) || 
-                    year.includes(query) ||
-                    sizeCm.includes(query);
-            });
-
-            // CRITICAL: Update only display array
-            artworks = searchResults;
-            renderArtworks();
-            updateStats();
-            
-            console.log(`Search "${query}": ${searchResults.length} results from ${searchBase.length} filtered artworks`);
+            applyAdminFilters();
         }
 
         // Check if editing should be disabled
@@ -1462,6 +1409,7 @@
             document.getElementById('modalTitle').textContent = '新增作品';
             document.getElementById('artworkForm').reset();
             document.getElementById('artworkAvailable').checked = true;
+            fillSeriesOptions();
             document.getElementById('previewImage').style.display = 'none';
             document.getElementById('uploadText').innerHTML = '📸 點擊上傳圖片或拖放檔案<br><small>支持 JPG、PNG、WebP 格式，最大 50MB</small>';
             document.getElementById('publishBtn').disabled = true;
@@ -1501,6 +1449,11 @@
             document.getElementById('artworkHeight').value = artwork.heightCm || '';
             document.getElementById('artworkWidth').value = artwork.widthCm || '';
             document.getElementById('artworkFormat').value = artwork.format || '';
+            document.getElementById('artworkSeries').value = artwork.series || '';
+            document.getElementById('artworkTitleEn').value = artwork.titleEn || '';
+            document.getElementById('artworkDescriptionEn').value = artwork.descriptionEn || '';
+            document.getElementById('artworkCuratorNoteEn').value = artwork.curatorNoteEn || '';
+            fillSeriesOptions();
             document.getElementById('artworkDescription').value = artwork.description || '';
             document.getElementById('artworkCuratorNote').value = artwork.curatorNote || '';
             document.getElementById('artworkFeatured').checked = artwork.featured === true || artwork.featured === 'true';
@@ -1787,9 +1740,17 @@
                             { id: draft.id, title: draft.title }
                         );
 
-                        draft.image = `./images/paintings/thumbnails/${draft.id}_thumb.png`;
-                        draft.imageHigh = `./images/paintings/large/${draft.id}_large.png`;
-                        delete draft.imageRatio;   // new photo: the gallery measures it on load
+                        // use the paths the uploader actually wrote (.jpg)
+                        draft.image = uploadResult.artworkData.image;
+                        draft.imageHigh = uploadResult.artworkData.imageHigh;
+                        // the gallery sizes each painting by its photo's shape
+                        try {
+                            const bmp = await createImageBitmap(uploadedImages[pendingImageKey].file);
+                            draft.imageRatio = Math.round(bmp.width / bmp.height * 1000) / 1000;
+                            bmp.close();
+                        } catch (e) {
+                            delete draft.imageRatio;   // the gallery measures it on load
+                        }
                         
                         URL.revokeObjectURL(uploadedImages[pendingImageKey].localPreview);
                         delete uploadedImages[pendingImageKey];
@@ -1895,6 +1856,10 @@
                 heightInches: parseFloat((parseFloat(height) / 2.54).toFixed(1)),
                 widthInches: parseFloat((parseFloat(width) / 2.54).toFixed(1)),
                 format: document.getElementById('artworkFormat').value.trim(),
+                series: document.getElementById('artworkSeries').value.trim(),
+                titleEn: document.getElementById('artworkTitleEn').value.trim(),
+                descriptionEn: document.getElementById('artworkDescriptionEn').value.trim(),
+                curatorNoteEn: document.getElementById('artworkCuratorNoteEn').value.trim(),
                 description: document.getElementById('artworkDescription').value.trim(),
                 curatorNote: document.getElementById('artworkCuratorNote').value.trim(),
                 featured: document.getElementById('artworkFeatured').checked,
@@ -1918,84 +1883,124 @@
             
             // The old flat "categories" list would bring back guesses the hand-picked tags replace
             delete formData.categories;
-            
-            console.log(`📋 Form data collected: ${formData.categories.length} total categories`);
+
+            // English series name and mounting: reuse what other works with the same
+            // Chinese name already use (the English site shows these)
+            formData.seriesEn = englishFor('series', 'seriesEn', formData, existingArtwork);
+            formData.formatEn = englishFor('format', 'formatEn', formData, existingArtwork);
+            if (!formData.series) { delete formData.series; delete formData.seriesEn; }
+
+            console.log(`📋 Form data collected for ${artworkId}`);
             console.log(`   Auto: ${formData.autoCategories.subjects.length} subjects, ${formData.autoCategories.locations.length} locations`);
             console.log(`   Manual: ${formData.manualCategories.subjects.length} subjects, ${formData.manualCategories.locations.length} locations`);
             
             return formData;
         }
 
+        // English counterpart of a Chinese field (series, format): keep the work's own if the
+        // Chinese didn't change, otherwise borrow it from another work with the same Chinese
+        function englishFor(field, fieldEn, formData, existing) {
+            const zh = formData[field] || '';
+            if (!zh) return '';
+            if (existing[field] === zh && existing[fieldEn]) return existing[fieldEn];
+            const other = allArtworks.find(a => a[field] === zh && a[fieldEn]);
+            return other ? other[fieldEn] : '';
+        }
+
+        // Existing series names for the 系列 suggestions
+        function fillSeriesOptions() {
+            const names = [...new Set(allArtworks.map(a => a.series).filter(Boolean))];
+            document.getElementById('seriesOptions').innerHTML =
+                names.map(n => `<option value="${n}">`).join('');
+        }
+
         // Utility functions
+        // Same order and grouping as the website: year headings, series labels
         function renderArtworks(artworksToShow = artworks) {
             const grid = document.getElementById('artworksGrid');
-            const searchTerm = document.getElementById('searchInput')?.value?.toLowerCase() || '';
-            
-            const filteredArtworks = artworksToShow.filter(artwork => {
-                if (!searchTerm) return true;
-                if (searchTerm === '草稿' || searchTerm === 'draft') return isDraftArtwork(artwork);
-                
-                const title = (artwork.title || '').toLowerCase();
-                const description = (artwork.description || '').toLowerCase();
-                const year = (artwork.year || '').toString();
-                return title.includes(searchTerm) || description.includes(searchTerm) || year.includes(searchTerm);
-            });
+            const empty = (title, text) =>
+                `<div style="text-align: center; padding: 3rem; color: #7f8c8d;"><h3>${title}</h3><p>${text}</p></div>`;
 
-            if (filteredArtworks.length === 0 && allArtworks.length === 0) {
-                grid.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 3rem; color: #7f8c8d;"><h3>尚無作品</h3><p>點擊「新增作品」開始！</p></div>';
+            if (allArtworks.length === 0) {
+                grid.innerHTML = empty('尚無作品', '點擊「新增作品」開始！');
+                return;
+            }
+            if (artworksToShow.length === 0) {
+                grid.innerHTML = empty('沒有符合的作品', '請換個分頁或搜尋字詞。');
                 return;
             }
 
-            if (filteredArtworks.length === 0 && allArtworks.length > 0) {
-                grid.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 3rem; color: #7f8c8d;"><h3>沒有符合的作品</h3><p>請嘗試其他搜尋關鍵字。</p></div>';
-                return;
+            const cm = window.categoryManager;
+            const yearOf = a => cm && cm.galleryYear ? cm.galleryYear(a) : (parseInt(a.year) || -1);
+            const sorted = cm && cm.sortForGallery ? cm.sortForGallery(artworksToShow, allArtworks) : artworksToShow;
+
+            const groups = [];
+            for (const a of sorted) {
+                const year = yearOf(a);
+                const key = year + '|' + (a.series || '');
+                const last = groups[groups.length - 1];
+                if (last && last.key === key) last.items.push(a);
+                else groups.push({ key, year, series: a.series || '', seriesEn: a.seriesEn || '', items: [a] });
             }
 
-            grid.innerHTML = filteredArtworks.map(artwork => {
-                const imageUrl = artwork.image || './images/placeholder/artwork-placeholder-zh.svg';
-                const title = artwork.title || '未命名';
-                const year = artwork.year || '年份不詳';
-                const size = artwork.heightCm && artwork.widthCm ? 
-                    `${artwork.heightCm} x ${artwork.widthCm} cm` : 
-                    artwork.sizeCm || artwork.size || '尺寸未註明';                const featured = artwork.featured === 'true' || artwork.featured === true;
-                const available = artwork.available !== false && artwork.available !== 'false';
-                
-                return `
-                    <div class="artwork-card${isDraftArtwork(artwork) ? ' is-draft' : ''}">
-                        <img src="${imageUrl}" alt="${title}" class="artwork-image" 
-                             onerror="this.src='./images/placeholder/artwork-placeholder-zh.svg'">
-                        <div class="artwork-info">
-                            <div class="artwork-title">${title}</div>
-                            <div class="artwork-meta">
-                                ${year} • ${size}
-                                ${featured ? ' • ⭐ 精選' : ''}
-                                ${available ? ' • 💰 可售' : ' • ❌ 已售'}
-                            </div>
-                            ${isDraftArtwork(artwork) ? '<div class="draft-badge">📝 草稿・網站不顯示（缺圖片或標題）</div>' : ''}
-                            <div class="artwork-actions">
-                                <button class="btn btn-small" onclick="editArtwork('${artwork.id}')">
-                                    ✏️ 編輯
-                                </button>
-                                <button class="btn btn-danger btn-small" onclick="deleteArtwork('${artwork.id}')">
-                                    🗑️ 刪除
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                `;
+            let previousYear = null;
+            grid.innerHTML = groups.map(g => {
+                const heading = g.year !== previousYear
+                    ? `<h3 class="list-year">${g.year > 0 ? g.year : '年份不詳'}</h3>` : '';
+                previousYear = g.year;
+                const series = g.series
+                    ? `<h4 class="list-series">系列：${g.series}${g.seriesEn ? `<small>${g.seriesEn}</small>` : ''}</h4>` : '';
+                return `${heading}${series}<div class="artworks-grid">${g.items.map(renderArtworkCard).join('')}</div>`;
             }).join('');
         }
 
-        function updateStats(artworksToShow = allArtworks) {
-            const total = artworksToShow.length;
-            const featured = artworksToShow.filter(a => a.featured === 'true' || a.featured === true).length;
-            const recent = artworksToShow.filter(a => parseInt(a.year) >= 2020).length;
-            const available = artworksToShow.filter(a => a.available !== false && a.available !== 'false').length;
-            
-            document.getElementById('totalArtworks').textContent = total;
-            document.getElementById('featuredCount').textContent = featured;
-            document.getElementById('recentCount').textContent = recent;
-            document.getElementById('availableCount').textContent = available;
+        function renderArtworkCard(artwork) {
+            const cm = window.categoryManager;
+            const imageUrl = artwork.image || './images/placeholder/artwork-placeholder-zh.svg';
+            const title = artwork.title || '未命名';
+            const year = artwork.year || '年份不詳';
+            const size = artwork.heightCm && artwork.widthCm
+                ? `${artwork.heightCm} × ${artwork.widthCm} cm`
+                : artwork.sizeCm || artwork.size || '尺寸未註明';
+            const draft = isDraftArtwork(artwork);
+            const featured = artwork.featured === 'true' || artwork.featured === true;
+            const sold = artwork.available === false || artwork.available === 'false';
+            const tabs = cm && cm.getArtworkTabs ? cm.getArtworkTabs(artwork) : [];
+
+            const badges = [
+                draft ? '<span class="badge warn">📝 草稿・網站不顯示</span>' : '',
+                sold ? '<span class="badge sold">已售</span>' : '',
+                featured ? '<span class="badge featured">⭐ 首頁精選</span>' : '',
+                printReadyIds.has(artwork.id) ? '<span class="badge print">🖨️ 可買版畫</span>' : '',
+                ...tabs.map(t => `<span class="badge">${t.zh}</span>`),
+                !draft && !tabs.length ? '<span class="badge warn">沒有題材・只在「全部」</span>' : ''
+            ].join('');
+
+            return `
+                <div class="artwork-card${draft ? ' is-draft' : ''}">
+                    <img src="${imageUrl}" alt="${title}" class="artwork-image" loading="lazy"
+                         onclick="editArtwork('${artwork.id}')"
+                         onerror="this.src='./images/placeholder/artwork-placeholder-zh.svg'">
+                    <div class="artwork-info">
+                        <div class="artwork-title">${title}</div>
+                        <div class="artwork-meta">${year} • ${size}</div>
+                        <div class="card-badges">${badges}</div>
+                        <div class="artwork-actions">
+                            <button class="btn btn-small" onclick="editArtwork('${artwork.id}')">✏️ 編輯</button>
+                            <button class="btn btn-danger btn-small" onclick="deleteArtwork('${artwork.id}')">🗑️ 刪除</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Counts for the whole collection (not just the open tab)
+        function updateStats() {
+            const shown = allArtworks.filter(a => !isDraftArtwork(a));
+            document.getElementById('totalArtworks').textContent = allArtworks.length;
+            document.getElementById('publicCount').textContent = shown.length;
+            document.getElementById('draftCount').textContent = allArtworks.length - shown.length;
+            document.getElementById('printCount').textContent = shown.filter(a => printReadyIds.has(a.id)).length;
         }
 
         function showMessage(message, type) {
@@ -2036,30 +2041,25 @@
                     }
                 }
                 
-                const response = await fetch('./data/artworks.json');
+                const response = await fetch('./data/artworks.json', { cache: 'no-store' });
                 const data = await response.json();
                 
                 allArtworks = Array.isArray(data) ? data : [];
                 artworks = [...allArtworks];
                 window.artworks = getMasterArtworksArray();
-                
-                renderArtworks();
-                updateStats();
-                
-                if (categoryManagerReady) {
-                    generateAdminFilters();
-                } else {
-                    // Simple fallback filter menu
-                    document.getElementById('adminFilterMenu').innerHTML = `
-                        <div class="search-sort-container">
-                            <div class="search-box">
-                                <span class="search-icon">🔍</span>
-                                <input type="text" id="searchInput" placeholder="搜尋作品標題、描述…（輸入「草稿」只看未上架）" onkeyup="performSearch()">
-                            </div>
-                            <button class="btn btn-success" onclick="openAddModal()">➕ 新增作品</button>
-                        </div>
-                    `;
+
+                // Which works have print sizes (shown as 🖨️ 可買版畫)
+                try {
+                    const prints = await (await fetch('./data/finerworks_ready_artworks.json')).json();
+                    printReadyIds = new Set(Object.keys(prints).filter(id =>
+                        prints[id] && prints[id].print_ready !== false && (prints[id].recommended_sizes || []).length));
+                } catch (e) {
+                    console.warn('Print list not loaded:', e);
                 }
+
+                if (!categoryManagerReady) console.warn('⚠️ CategoryManager not ready - tabs show 全部 only');
+                generateAdminFilters();
+                applyAdminFilters();
                 
             } catch (error) {
                 console.error('Error loading artworks:', error);
@@ -2224,7 +2224,7 @@
                     publishBtn.disabled = false;
                     saveStatus.innerHTML = '⚠️ 草稿已儲存在本地 - 瀏覽器關閉將會遺失';
                     
-                    showMessage(`草稿已儲存！包含 ${formData.categories.length} 個分類標籤。點擊「發布」使其生效。`, 'success');
+                    showMessage('草稿已儲存！點擊「發布」使其生效。', 'success');
                     
                 } catch (error) {
                     showMessage(error.message, 'error');

@@ -705,31 +705,12 @@ class ChineseArtPortfolio {
     // (series in the order they first appear in artworks.json, works in file order).
     // Works without a series form a group per main subject. Unknown years go last.
     galleryYear(artwork) {
-        const m = String(artwork.year || '').match(/\d{4}/);
-        return m ? parseInt(m[0], 10) : -1;
-    }
-
-    gallerySeriesKey(artwork) {
-        if (artwork.series) return 'series:' + artwork.series;
-        const cats = (window.categoryManager && window.categoryManager.getArtworkCategories)
-            ? window.categoryManager.getArtworkCategories(artwork) : [];
-        return 'subject:' + (cats[0] || '');
+        return window.categoryManager.galleryYear(artwork);
     }
 
     sortForGallery(list) {
-        const fileIndex = new Map(this.artworks.map((a, i) => [a.id, i]));
-        const firstSeen = new Map();   // year|series -> first file position
-        for (const a of this.artworks) {
-            const key = this.galleryYear(a) + '|' + this.gallerySeriesKey(a);
-            if (!firstSeen.has(key)) firstSeen.set(key, fileIndex.get(a.id));
-        }
-        const withImage = a => this.hasRealImage(a) ? 0 : 1;
-        return [...list].sort((a, b) =>
-            withImage(a) - withImage(b) ||
-            this.galleryYear(b) - this.galleryYear(a) ||
-            firstSeen.get(this.galleryYear(a) + '|' + this.gallerySeriesKey(a)) -
-                firstSeen.get(this.galleryYear(b) + '|' + this.gallerySeriesKey(b)) ||
-            fileIndex.get(a.id) - fileIndex.get(b.id));
+        return window.categoryManager.sortForGallery(list, this.artworks,
+            a => this.hasRealImage(a) ? 0 : 1);
     }
 
     // Year headings, a small series label, and one row block per group so every
@@ -960,14 +941,7 @@ class ChineseArtPortfolio {
     // Gallery series tabs: one quiet row, like an artist's catalogue.
     // Each tab maps to one or more subject categories in category-config.json.
     getGalleryTabs() {
-        return [
-            { key: 'all',         zh: '全部', en: 'All',             subjects: [] },
-            { key: 'landscape',   zh: '山水', en: 'Landscapes',      subjects: ['landscape', 'waterfall', 'flowingclouds'] },
-            { key: 'flowers',     zh: '花鳥', en: 'Flowers & Birds', subjects: ['flowers', 'bamboo'] },
-            { key: 'moon',        zh: '月光', en: 'Moonlight',       subjects: ['moon'] },
-            { key: 'abstract',    zh: '抽象', en: 'Abstract',        subjects: ['abstract'] },
-            { key: 'calligraphy', zh: '書法', en: 'Calligraphy',     subjects: ['calligraphy'] }
-        ];
+        return window.categoryManager.getGalleryTabs();
     }
 
     generateFilterMenu() {
