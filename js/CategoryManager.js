@@ -294,6 +294,56 @@ if (!window.categoryManagerLoaded) {
             return [...new Set(categories)].filter(cat => cat !== 'traditional');
         }
 
+        // ---- Shared by the gallery (js/portfolio.js) and the admin page, so both
+        // show the same tabs and the same order.
+
+        // Gallery series tabs. Each tab maps to one or more subject categories.
+        getGalleryTabs() {
+            return [
+                { key: 'all',         zh: '全部', en: 'All',             subjects: [] },
+                { key: 'landscape',   zh: '山水', en: 'Landscapes',      subjects: ['landscape', 'waterfall', 'flowingclouds'] },
+                { key: 'flowers',     zh: '花鳥', en: 'Flowers & Birds', subjects: ['flowers', 'bamboo'] },
+                { key: 'moon',        zh: '月光', en: 'Moonlight',       subjects: ['moon'] },
+                { key: 'abstract',    zh: '抽象', en: 'Abstract',        subjects: ['abstract'] },
+                { key: 'calligraphy', zh: '書法', en: 'Calligraphy',     subjects: ['calligraphy'] }
+            ];
+        }
+
+        // Tabs an artwork appears under (besides 全部)
+        getArtworkTabs(artwork) {
+            const cats = this.getArtworkCategories(artwork);
+            return this.getGalleryTabs().filter(t => t.subjects.some(s => cats.includes(s)));
+        }
+
+        galleryYear(artwork) {
+            const m = String(artwork.year || '').match(/\d{4}/);
+            return m ? parseInt(m[0], 10) : -1;
+        }
+
+        gallerySeriesKey(artwork) {
+            if (artwork.series) return 'series:' + artwork.series;
+            return 'subject:' + (this.getArtworkCategories(artwork)[0] || '');
+        }
+
+        // Gallery order: newest year first; inside a year each series stays together
+        // (series in the order they first appear in fileOrder, works in file order).
+        // Works without a series form a group per main subject. Unknown years go last.
+        // rankFirst (optional) returns 0/1 to push some works to the end (e.g. no photo).
+        sortForGallery(list, fileOrder, rankFirst = () => 0) {
+            const fileIndex = new Map(fileOrder.map((a, i) => [a.id, i]));
+            const groupKey = a => this.galleryYear(a) + '|' + this.gallerySeriesKey(a);
+            const firstSeen = new Map();
+            for (const a of fileOrder) {
+                const key = groupKey(a);
+                if (!firstSeen.has(key)) firstSeen.set(key, fileIndex.get(a.id));
+            }
+            return [...list].sort((a, b) =>
+                rankFirst(a) - rankFirst(b) ||
+                this.galleryYear(b) - this.galleryYear(a) ||
+                firstSeen.get(groupKey(a)) - firstSeen.get(groupKey(b)) ||
+                fileIndex.get(a.id) - fileIndex.get(b.id));
+        }
+
         getArtworkAvailability(artwork) {
             const available = artwork.available;
             
