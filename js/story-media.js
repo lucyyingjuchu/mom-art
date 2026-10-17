@@ -157,10 +157,6 @@
         const videos = (pressData && pressData.videos) || [];
 
         box.innerHTML = `
-            <div class="news-header">
-                <h2>${esc(t('exhibitionsPage.title'))}</h2>
-                <p>${esc(t('exhibitionsPage.intro'))}</p>
-            </div>
             ${shows ? `<div class="show-cards">${shows}</div>` : ''}
 
             <nav class="gallery-tabs sub-tabs">
