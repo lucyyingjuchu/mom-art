@@ -55,12 +55,20 @@
     }
 
     // ---------- Shared pieces ----------
+    function sixMonthsOut() {
+        const d = new Date();
+        d.setMonth(d.getMonth() + 6);
+        return d.toISOString().slice(0, 10);
+    }
+
     function currentShows() {
         const now = today();
         const list = (exhibitionsData && exhibitionsData.exhibitions) || [];
         return {
             onView: list.filter((e) => e.start && e.end && e.start <= now && now <= e.end),
-            upcoming: list.filter((e) => e.start && e.start > now).sort((a, b) => a.start.localeCompare(b.start))
+            // Upcoming = opening within the next 6 months (start may be YYYY-MM or YYYY-MM-DD)
+            upcoming: list.filter((e) => e.start && e.start > now && e.start <= sixMonthsOut())
+                .sort((a, b) => a.start.localeCompare(b.start))
         };
     }
 
@@ -125,7 +133,11 @@
         }
         // Home stays light: just the current/upcoming show (title, venue, dates).
         // Notes and studio news live on the Exhibitions & News page.
-        const shows = currentShowsHTML(true);
+        // On view now; if nothing is on, the shows opening in the next 6 months
+        const { onView, upcoming } = currentShows();
+        const shows = onView.length
+            ? onView.map((e) => showCard(e, t('exhibitionsPage.onView'), true)).join('')
+            : upcoming.map((e) => showCard(e, t('exhibitionsPage.upcoming'), true)).join('');
         if (!shows) { box.innerHTML = ''; return; }
         box.innerHTML = `
             <div class="show-cards">${shows}</div>
