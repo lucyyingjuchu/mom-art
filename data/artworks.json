@@ -6812,16 +6812,16 @@
     "titleEn": "Mighty Waters – Iguazu Falls",
     "image": "./images/paintings/thumbnails/01a12c08-744b-7a49-a73f-aa17ced76313_thumb.jpg",
     "imageHigh": "./images/paintings/large/01a12c08-744b-7a49-a73f-aa17ced76313_large.jpg",
-    "description": "江流浩蕩、行於天地、周而復始、化育眾生。水墨奔騰,筆底乾坤、去住無心,神遊物外。丙午之靜寫伊瓜蘇大瀑布",
-    "descriptionEn": "Vast waters move between heaven and earth, circling back again and again, nurturing all living things. Ink surges, a universe beneath the brush; coming or going without intent, the spirit wanders beyond the world. Painted by Chih-Jin in the year Bingwu: the great Iguazu Falls.",
+    "description": "江流浩蕩、行於天地、周而復始、化育眾生。水墨奔騰，筆底乾坤、去住無心，神遊物外。",
+    "descriptionEn": "Vast waters move between heaven and earth, circling back again and again, nurturing all living things. Ink surges, a universe beneath the brush; coming or going without intent, the spirit wanders beyond the world.",
     "format": "鏡片",
     "formatEn": "Mounted Panel",
     "year": "2026",
     "price": "",
     "available": true,
     "featured": true,
-    "curatorNote": "此幅以巨制寫 伊瓜蘇瀑布 之雄渾,運筆沉著而氣脈貫通。飛瀑如雷,層層推進,既見自然之壯觀,亦寓人格之精進。「動」中有「德」,「勢」中見「道」,正所謂天行不息,以剛健為骨;水德無聲,以滋養為懷。觀者臨之,不僅震於形勢,更感於內在之修為與胸襟。",
-    "curatorNoteEn": "A monumental work capturing the grandeur of Iguazu Falls, the brush steady and the energy unbroken. The falls thunder forward layer upon layer — the majesty of nature, and also the steady growth of character. Within movement there is virtue; within force there is the Way. As heaven moves without rest, strength forms the bones; as water nourishes in silence, generosity fills the heart. Standing before it, one is moved not only by its power but by the inner cultivation and breadth of spirit it carries.",
+    "curatorNote": "此畫寫伊瓜蘇瀑布之雄渾，運筆沉著而氣脈貫通。飛瀑如雷，層層推進，既見自然之壯觀，亦寓人格之精進。「動」中有「德」，「勢」中見「道」，正所謂天行不息，以剛健為骨；水德無聲，以滋養為懷。觀者臨之，不僅震於形勢，更感於內在之修為與胸襟。2019年8月，和恩師羅振賢院長等一行9人，飄洋過海，千山萬水到南美洲巴西與阿根廷交界處的伊瓜蘇瀑布寫生，深深地被伊瓜蘇瀑布的浩瀚和澎湃所感動，所以借畫筆把這份感動記錄下來。此幅為6.4尺x16.5尺之巨作，以此寬廣畫面，方能傳伊瓜蘇瀑布之神韻，為此次畫展的主視覺。畫中用單一的墨色，敷以淡彩。在單純的色調中營造出無限寬廣、深遠、靈動和澎湃的空間，這個畫面，是與內心相應的，畫有多寬廣，心就有多開闊",
+    "curatorNoteEn": "A monumental work capturing the grandeur of Iguazu Falls, the brush steady and the energy unbroken. The falls thunder forward layer upon layer — the majesty of nature, and also the steady growth of character. Within movement there is virtue; within force there is the Way. As heaven moves without rest, strength forms the bones; as water nourishes in silence, generosity fills the heart. Standing before it, one is moved not only by its power but by the inner cultivation and breadth of spirit it carries. In August 2019 the artist travelled with her teacher Luo Zhen-xian and a party of nine across the ocean to Iguazu Falls, on the border of Brazil and Argentina, to paint from life. Deeply moved by the immensity and power of the falls, she set that feeling down with her brush. At 6.4 by 16.5 chi, only a painting this wide could carry the spirit of Iguazu; it is the main image of the exhibition. Painted in a single ink tone with light color, its simple palette opens an infinitely wide, deep, lively and surging space — a picture that answers the heart: as wide as the painting is, so open is the heart.",
     "heightCm": 193,
     "widthCm": 503.7,
     "heightInches": 76.0,
@@ -6852,7 +6852,11 @@
     },
     "series": "山水",
     "seriesEn": "Landscapes",
-    "imageRatio": 2.597
+    "imageRatio": 2.617,
+    "printFile": {
+      "scan": "1.jpg",
+      "pixels": "22630x8646"
+    }
   },
   {
     "id": "01a12c08-760d-7f02-9e34-ee049ef3aa30",
@@ -6860,7 +6864,7 @@
     "titleEn": "Dawn over a Thousand Peaks – Sunrise and Sea of Clouds at Yushan",
     "image": "./images/paintings/thumbnails/01a12c08-760d-7f02-9e34-ee049ef3aa30_thumb.jpg",
     "imageHigh": "./images/paintings/large/01a12c08-760d-7f02-9e34-ee049ef3aa30_large.jpg",
-    "description": "百里雲生天地外,千峯曙色映真如;澄懐觀道虛生白,一念空明萬象舒",
+    "description": "百里雲生天地外，千峯曙色映真如；澄懷觀道虛生白，一念空明萬象舒。",
     "descriptionEn": "Clouds rise for a hundred miles beyond heaven and earth; dawn on a thousand peaks reflects the true nature of things. With a clear heart one contemplates the Way, and emptiness gives birth to light; in one moment of clarity, all things unfold.",
     "format": "鏡片",
     "formatEn": "Mounted Panel",
@@ -6868,8 +6872,8 @@
     "price": "",
     "available": true,
     "featured": false,
-    "curatorNote": "此幅寫 玉山 之巍峩,以雲煙為氣脈,以曙光為精神。山勢沉雄而不滯,層巒疊嶂間,留白生煙,使天地呼吸自成節奏。畫中之妙,在「動中有靜」:雲氣流轉,象徵時序遞嬗;峰巔不移,寓示志節堅貞。尤以一線晨光,破霧而出,既照山河,亦照人心——象徵新生之機與自強之志。觀之,不僅見自然之壯麗,更得生命向上、與天地同在之氣象。",
-    "curatorNoteEn": "This painting portrays the towering majesty of Yushan (Jade Mountain), with mist as its breath and the light of dawn as its spirit. The mountain is massive yet never heavy; among the layered ridges, empty space becomes drifting cloud, giving heaven and earth their own rhythm of breathing. Its beauty lies in stillness within motion: the flowing clouds speak of passing time, the unmoving summit of steadfast resolve. Above all, a single line of morning light breaks through the mist, illuminating both the land and the human heart — a sign of renewal and of the will to keep striving.",
+    "curatorNote": "此幅寫玉山之巍峩，以雲煙為氣脈，以曙光為精神。山勢沉雄而不滯，層巒疊嶂間，留白生煙，使天地呼吸自成節奏。畫中之妙，在「動中有靜」：雲氣流轉，象徵時序遞嬗；峰巔不移，寓示志節堅貞。尤以一線晨光，破雲而出，既照山河，亦照人心，象徵新生之機與自強之志。觀之，不僅見自然之壯麗，更體生命向上、與天地同在之氣象。",
+    "curatorNoteEn": "This painting portrays the towering majesty of Yushan (Jade Mountain), with mist as its breath and the light of dawn as its spirit. The mountain is massive yet never heavy; among the layered ridges, empty space becomes drifting cloud, giving heaven and earth their own rhythm of breathing. Its beauty lies in stillness within motion: the flowing clouds speak of passing time, the unmoving summit of steadfast resolve. Above all, a single line of morning light breaks through the clouds, illuminating both the land and the human heart — a sign of renewal and of the will to keep striving. To look at it is to see not only the splendor of nature, but the spirit of life rising upward, at one with heaven and earth.",
     "productViews": [
       {
         "type": "original",
@@ -6900,7 +6904,11 @@
     "widthInches": 143.7,
     "series": "山水",
     "seriesEn": "Landscapes",
-    "imageRatio": 2.589
+    "imageRatio": 2.51,
+    "printFile": {
+      "scan": "2-封面用.jpg",
+      "pixels": "15860x6319"
+    }
   },
   {
     "id": "01a12c08-76a6-7554-a63d-33fd120a3d6e",
@@ -6942,7 +6950,11 @@
     "widthInches": 37.8,
     "series": "霜林",
     "seriesEn": "Autumn Woods",
-    "imageRatio": 0.541
+    "imageRatio": 0.533,
+    "printFile": {
+      "scan": "3.jpg",
+      "pixels": "3232x6066"
+    }
   },
   {
     "id": "01a12c08-774a-7a4c-97b2-d6513cd07092",
@@ -6991,7 +7003,11 @@
     "widthInches": 37.8,
     "series": "山水",
     "seriesEn": "Landscapes",
-    "imageRatio": 0.511
+    "imageRatio": 0.51,
+    "printFile": {
+      "scan": "4 拷貝.jpg",
+      "pixels": "3199x6275"
+    }
   },
   {
     "id": "01a12c08-78c9-726b-a131-b3ded67f2226",
@@ -6999,7 +7015,7 @@
     "titleEn": "Majestic Fire – Huoyan Mountain",
     "image": "./images/paintings/thumbnails/01a12c08-78c9-726b-a131-b3ded67f2226_thumb.jpg",
     "imageHigh": "./images/paintings/large/01a12c08-78c9-726b-a131-b3ded67f2226_large.jpg",
-    "description": "火炎雄渾造化功,千岩萬壑入胸中;乾坤一色虛生白,雲淡風輕今古同。",
+    "description": "火炎雄渾造化功，千岩萬壑入胸中；乾坤一色虛生白，雲淡風輕今古同。",
     "descriptionEn": "The mighty Fire Mountain is nature's own creation; a thousand cliffs and ten thousand ravines enter my heart. Heaven and earth become one color, emptiness gives birth to light; light clouds and gentle wind, the same now as in ancient times.",
     "format": "軸",
     "formatEn": "Hanging Scroll",
@@ -7007,8 +7023,8 @@
     "price": "",
     "available": true,
     "featured": false,
-    "curatorNote": "這幅畫以濃淡相間的墨色和渲染技巧,描繪出三義火焰山的險峻氣勢。以高聳峻拔之勢構成畫面主體。山岩如斧劈刀削,自煙雲深處拔地而起,層層崖壁在濃墨與赭色交融之間,呈現火焰山特有的嶙峋肌理與歲月痕跡。雲煙穿行峰壑之間,使剛勁山骨帶有流動氣息;而幾株寒林白樹點綴其間,更使畫面在雄渾中透出孤寂與清逸。整幅作品氣勢開闊而筆意內斂,在「高遠」與「空靜」之間,形成一種深具東方哲思的精神山水。",
-    "curatorNoteEn": "Through alternating dense and pale ink and soft washes, this painting captures the steep, dramatic presence of Huoyan (Fire) Mountain in Sanyi. Towering cliffs, as if cut by axe and blade, rise out of deep mist; ink and ochre blend across layered rock faces to reveal the mountain's rugged texture and the marks of time. Clouds drift through the peaks, giving movement to the hard bones of the mountain, while a few pale winter trees add a note of solitude and grace. Expansive in spirit yet restrained in brushwork, it is a landscape of the mind between loftiness and quiet emptiness.",
+    "curatorNote": "此畫以濃淡相間的墨色和渲染技巧，描繪出三義火炎山的險峻氣勢，構成畫面主體。山岩如斧劈刀削，自煙雲深處拔地而起，層層崖壁在濃墨與赭色交融之間，呈現火炎山特有的嶙峋肌理與歲月痕跡。雲煙穿行峰壑之間，而幾株寒林白樹點綴其間，更使畫面在雄渾中透出孤寂與清逸。整幅作品氣勢開闊而筆意內斂，在「高遠」與「空靜」之間，形成一種深具東方哲思的山水。",
+    "curatorNoteEn": "Through alternating dense and pale ink and soft washes, this painting captures the steep, dramatic presence of Huoyan (Fire) Mountain in Sanyi, the main subject of the picture. Cliffs, as if cut by axe and blade, rise out of deep mist; ink and ochre blend across layered rock faces to reveal the mountain's rugged texture and the marks of time. Clouds drift between the peaks, and a few pale winter trees scattered among them bring solitude and grace to the grandeur. Expansive in spirit yet restrained in brushwork, it is a landscape of deep Eastern thought, poised between loftiness and quiet emptiness.",
     "heightCm": 185,
     "widthCm": 85,
     "heightInches": 72.8,
@@ -7030,7 +7046,11 @@
       "subjects": [],
       "locations": []
     },
-    "imageRatio": 0.509
+    "imageRatio": 0.497,
+    "printFile": {
+      "scan": "5.jpg",
+      "pixels": "1541x3102"
+    }
   },
   {
     "id": "01a12c08-7a4d-70b2-ab6b-737569cdb762",
@@ -7038,7 +7058,7 @@
     "titleEn": "Red Cliffs Parting the Clouds – Huoyan Mountain",
     "image": "./images/paintings/thumbnails/01a12c08-7a4d-70b2-ab6b-737569cdb762_thumb.jpg",
     "imageHigh": "./images/paintings/large/01a12c08-7a4d-70b2-ab6b-737569cdb762_large.jpg",
-    "description": "排雲赤壁凌空起,萬頃煙波藴大千;墨染奇峰成畫卷,一行白鷺上青天。",
+    "description": "排雲赤壁凌空起，萬頃煙波蘊大千；墨染奇峰成畫卷，一行白鷺上青天。",
     "descriptionEn": "Red cliffs rise through the clouds into the sky; vast misty waters hold the whole world. Ink paints wondrous peaks into a scroll; a line of white egrets flies into the blue.",
     "format": "軸",
     "formatEn": "Hanging Scroll",
@@ -7046,8 +7066,8 @@
     "price": "",
     "available": true,
     "featured": false,
-    "curatorNote": "此幅三義火焰山巨作,展現台灣山岳地貌特有的峻拔與蒼茫。畫面主峰凌空而起,峭壁層疊,如刀削斧劈,山勢雄渾。以單純墨色為主調,輔以淡赭微染,使山岩在沉厚墨韻之中透出夕照餘暉,彷彿落日將盡,天地猶存最後一縷溫暖光色。遠山煙嵐迷濛,白雲在峰巒間流動起伏,使剛仞的山谷之中含虛靜氣息。其間一行白鷺凌空而去,成為整幅畫最具生命性的精神亮點。",
-    "curatorNoteEn": "This large work of Huoyan Mountain in Sanyi shows the steep, boundless character of Taiwan's mountain landscape. The main peak soars upward, its layered cliffs sharp as if carved. Painted mainly in pure ink with light touches of ochre, the rock glows with the last warmth of the setting sun. Distant hills fade into mist, white clouds rise and fall among the ridges, and the rugged valleys breathe with quiet. A line of white egrets flies off into the sky — the living, spiritual highlight of the whole painting.",
+    "curatorNote": "此幅三義火炎山作品，以單純墨色為主調，輔以淡赭微染，使山岩在沉厚墨韻之中透出夕照餘暉，彷彿落日將盡，天地猶存最後一縷溫暖光色。",
+    "curatorNoteEn": "This work of Huoyan Mountain in Sanyi is painted mainly in pure ink with light touches of ochre, so that the rock glows through the deep ink with the last light of the setting sun — as if, as the day ends, heaven and earth still hold one final ray of warmth.",
     "heightCm": 185,
     "widthCm": 85,
     "heightInches": 72.8,
@@ -7069,7 +7089,11 @@
       "subjects": [],
       "locations": []
     },
-    "imageRatio": 0.525
+    "imageRatio": 0.503,
+    "printFile": {
+      "scan": "6.jpg",
+      "pixels": "3280x6520"
+    }
   },
   {
     "id": "01a12c08-7af0-79b2-b048-64ba1e583856",
@@ -7114,7 +7138,11 @@
     },
     "series": "山水",
     "seriesEn": "Landscapes",
-    "imageRatio": 2.094
+    "imageRatio": 1.97,
+    "printFile": {
+      "scan": "7.jpg",
+      "pixels": "6118x3106"
+    }
   },
   {
     "id": "01a12c08-7b4c-795f-857e-219a554dedb2",
@@ -7159,7 +7187,11 @@
     },
     "series": "山水",
     "seriesEn": "Landscapes",
-    "imageRatio": 1.822
+    "imageRatio": 1.835,
+    "printFile": {
+      "scan": "8.jpg",
+      "pixels": "6069x3308"
+    }
   },
   {
     "id": "01a12c08-7c8e-7d1f-b42b-8c25e42265ea",
@@ -7205,7 +7237,11 @@
     },
     "series": "山水",
     "seriesEn": "Landscapes",
-    "imageRatio": 1.887
+    "imageRatio": 1.934,
+    "printFile": {
+      "scan": "9.jpg",
+      "pixels": "5648x2921"
+    }
   },
   {
     "id": "01a12c08-7dd5-7e33-8a4f-b8ca88fd825d",
@@ -7251,7 +7287,11 @@
     },
     "series": "山水",
     "seriesEn": "Landscapes",
-    "imageRatio": 1.882
+    "imageRatio": 1.935,
+    "printFile": {
+      "scan": "10.jpg",
+      "pixels": "5756x2975"
+    }
   },
   {
     "id": "01a12c08-7e53-75bc-b67d-b0f7db8ae950",
@@ -7296,7 +7336,11 @@
     },
     "series": "山水",
     "seriesEn": "Landscapes",
-    "imageRatio": 1.946
+    "imageRatio": 1.98,
+    "printFile": {
+      "scan": "11.jpg",
+      "pixels": "6294x3178"
+    }
   },
   {
     "id": "01a12c08-7f85-7482-b5c9-28ce6c747ce7",
@@ -7304,7 +7348,7 @@
     "titleEn": "Apricot Snow Blowing into Clouds",
     "image": "./images/paintings/thumbnails/01a12c08-7f85-7482-b5c9-28ce6c747ce7_thumb.jpg",
     "imageHigh": "./images/paintings/large/01a12c08-7f85-7482-b5c9-28ce6c747ce7_large.jpg",
-    "description": "杏雪吹雲白,青青草色新;悠然閒自適,平淡見天真。",
+    "description": "杏雪吹雲白，青青草色新；悠然閒自適，平淡見天真。",
     "descriptionEn": "Apricot blossoms like snow blow into white clouds; the green grass is fresh and new. Leisurely and content, in simplicity one finds what is true.",
     "format": "框",
     "formatEn": "Framed",
@@ -7340,7 +7384,11 @@
     },
     "series": "山水",
     "seriesEn": "Landscapes",
-    "imageRatio": 1.928
+    "imageRatio": 1.974,
+    "printFile": {
+      "scan": "12.jpg",
+      "pixels": "5392x2732"
+    }
   },
   {
     "id": "01a12c08-8105-7029-bf94-690d1bd84536",
@@ -7348,8 +7396,8 @@
     "titleEn": "Spring Fills the World",
     "image": "./images/paintings/thumbnails/01a12c08-8105-7029-bf94-690d1bd84536_thumb.jpg",
     "imageHigh": "./images/paintings/large/01a12c08-8105-7029-bf94-690d1bd84536_large.jpg",
-    "description": "花深雲亦白  草暖羊初閒  坐久春無語  風吹天地寬  清風吹草綠  花影滿春山  羊白雲深處  風吹天地寬",
-    "descriptionEn": "Deep among the blossoms, even the clouds are white; on the warm grass the sheep begin to idle. Sitting long, spring says nothing; the wind blows and heaven and earth grow wide. A clear breeze greens the grass, flower shadows fill the spring hills; white sheep deep in the clouds, the wind blows and heaven and earth grow wide.",
+    "description": "白雲無心，花開自在；群羊忘機，春滿人間。",
+    "descriptionEn": "White clouds without intent, flowers blooming freely; the flock forgets all cares — spring fills the world.",
     "format": "框",
     "formatEn": "Framed",
     "year": "2026",
@@ -7384,7 +7432,11 @@
     },
     "series": "山水",
     "seriesEn": "Landscapes",
-    "imageRatio": 1.826
+    "imageRatio": 1.841,
+    "printFile": {
+      "scan": "13.jpg",
+      "pixels": "5686x3089"
+    }
   },
   {
     "id": "01a12c08-819f-7964-8ff9-2e0d0db13ada",
@@ -7428,7 +7480,11 @@
     },
     "series": "山水",
     "seriesEn": "Landscapes",
-    "imageRatio": 1.361
+    "imageRatio": 1.41,
+    "printFile": {
+      "scan": "14.jpg",
+      "pixels": "6030x4278"
+    }
   },
   {
     "id": "01a12c08-82b3-7941-9b50-01a43fc9a318",
@@ -7472,7 +7528,11 @@
     "widthInches": 29.9,
     "series": "山水",
     "seriesEn": "Landscapes",
-    "imageRatio": 0.551
+    "imageRatio": 0.538,
+    "printFile": {
+      "scan": "15.jpg",
+      "pixels": "3038x5650"
+    }
   },
   {
     "id": "01a12c08-83be-7111-815d-140b9e441427",
@@ -7516,7 +7576,11 @@
     "widthInches": 30.3,
     "series": "山水",
     "seriesEn": "Landscapes",
-    "imageRatio": 0.547
+    "imageRatio": 0.535,
+    "printFile": {
+      "scan": "16.jpg",
+      "pixels": "3124x5843"
+    }
   },
   {
     "id": "01a12c08-851e-7c3b-98af-0ddc3d36f291",
@@ -7560,7 +7624,11 @@
     "widthInches": 29.5,
     "series": "山水",
     "seriesEn": "Landscapes",
-    "imageRatio": 0.517
+    "imageRatio": 0.519,
+    "printFile": {
+      "scan": "17.jpg",
+      "pixels": "2973x5728"
+    }
   },
   {
     "id": "01a12c08-8670-7105-b4f4-17e755f37bd1",
@@ -7600,7 +7668,11 @@
     "widthInches": 27.2,
     "series": "帆影",
     "seriesEn": "Waters & Sails",
-    "imageRatio": 0.52
+    "imageRatio": 0.505,
+    "printFile": {
+      "scan": "18.jpg",
+      "pixels": "2808x5563"
+    }
   },
   {
     "id": "01a12c08-8729-74a7-8018-c717bd7fbea6",
@@ -7608,7 +7680,7 @@
     "titleEn": "Water, Sails, Between Leaving and Staying",
     "image": "./images/paintings/thumbnails/01a12c08-8729-74a7-8018-c717bd7fbea6_thumb.jpg",
     "imageHigh": "./images/paintings/large/01a12c08-8729-74a7-8018-c717bd7fbea6_large.jpg",
-    "description": "遠水涵虛白,帆桅入渺溟。翩翩何所似?去住影隨形。",
+    "description": "遠水涵虛白，帆桅入渺溟。翩翩何所似？去住影隨形。",
     "descriptionEn": "Distant waters hold empty white; masts and sails enter the boundless haze. What do they resemble as they drift? Going or staying, the shadow follows the form.",
     "format": "軸",
     "formatEn": "Hanging Scroll",
@@ -7616,7 +7688,7 @@
     "price": "",
     "available": true,
     "featured": false,
-    "curatorNote": "畫中巧妙的用留白呈現微茫的水域及帆影翩翩,似幻似真,在虛實之間浮動。縱向線條如船桅、如雨、如時間的切片,將空間分割又重新連結;橫向的帆船與水中倒影、浮洲和遠方的如夢似真彼岸互相映照,使畫面形成時間(縱)與空間(橫)的交會,虛實相生,動靜合一。水域帆影,去留之間,風,知道方向!船自來去影自留,去住之間,留下剎那的永恆。",
+    "curatorNote": "畫中巧妙的用留白呈現微茫的水域及帆影翩翩，在虛實之間浮動。縱向線條如船桅、如雨、如時間的切片，將空間分割又重新連結；橫向的帆船與水中倒影、浮洲和遠方似幻似真的彼岸互相映照，使畫面形成時間（縱）與空間（橫）的交會，虛實相生，動靜合一。水域帆影，去留之間，風，知道方向！船自來去影自留，去住之間，留下剎那的永恆。",
     "curatorNoteEn": "Reserved white space suggests a faint expanse of water and drifting sails, between dream and reality. Vertical lines — like masts, like rain, like slices of time — divide the space and connect it again; horizontal boats, their reflections, floating islets and a dreamlike far shore mirror one another, so that time (vertical) and space (horizontal) meet. Solid and empty arise together; motion and stillness become one. Between leaving and staying, the wind knows the way. Boats come and go while their reflections remain — an instant made eternal.",
     "productViews": [
       {
@@ -7642,7 +7714,11 @@
     "widthInches": 37.8,
     "series": "帆影",
     "seriesEn": "Waters & Sails",
-    "imageRatio": 0.545
+    "imageRatio": 0.534,
+    "printFile": {
+      "scan": "20.jpg",
+      "pixels": "3248x6084"
+    }
   },
   {
     "id": "01a12c08-87d3-71d4-b8c7-57e799971b1e",
@@ -7650,15 +7726,15 @@
     "titleEn": "The Gate to All Mysteries",
     "image": "./images/paintings/thumbnails/01a12c08-87d3-71d4-b8c7-57e799971b1e_thumb.jpg",
     "imageHigh": "./images/paintings/large/01a12c08-87d3-71d4-b8c7-57e799971b1e_large.jpg",
-    "description": "眾妙浮平水,飄然入海天。玄門無去住,萬象自生煙。              半壁(一紙)空濛入太玄,微光如水度寒煙。孤舟不向人間去,坐看虛無生萬(忘)川。",
-    "descriptionEn": "All mysteries float on the calm water, drifting lightly into sea and sky. The mysterious gate knows no coming or going; all things give rise to mist of their own. Half a wall of haze enters the great mystery; faint light like water crosses the cold mist. A lone boat does not head for the human world; it sits and watches emptiness give birth to ten thousand streams.",
+    "description": "眾妙浮平水，飄然入海天。玄門無去住，萬象自生煙。",
+    "descriptionEn": "All mysteries float on the calm water, drifting lightly into sea and sky. The mysterious gate knows no coming or going; all things give rise to mist of their own.",
     "format": "軸",
     "formatEn": "Hanging Scroll",
     "year": "2026",
     "price": "",
     "available": true,
     "featured": false,
-    "curatorNote": "畫作上方框住,似一道門,正如道德經所云「玄之又玄,眾妙之門」。圖中留出大面積的白,在虛無縹緲中,光影、霧氣流動而來,和下方靈動的水面,以重疊的筆觸結合,流動而含蓄。畫中藉由水氣、光影與墨韻,構築出一種介於存在與虛無之間的空間感。前方點綴若有若無的船,形成一種由實入虛、由景入境,可意會而不可言傳的境界。畫作展現虛實交界的心靈空間,由現象走向本體,接近老子所說「道」的意涵。",
+    "curatorNote": "畫作上方框住，似一道門，正如道德經所云「玄之又玄，眾妙之門」。圖中留出大面積的白，在虛無縹緲中，光影、霧氣流動而來，和下方靈動的水面，以重疊的筆觸結合，流動而含蓄。畫中藉由水氣、光影與墨韻，構築出一種介於存在與虛無之間的空間感。前方點綴若有若無的船，形成一種由實入虛、由景入境，可意會而不可言傳的境界。畫作展現虛實交界的心靈空間，由現象走向本體，接近老子所說「道」的意涵。",
     "curatorNoteEn": "The top of the painting is framed like a doorway — as the Tao Te Ching says, \"Mystery upon mystery, the gate to all wonders.\" Large areas of white are left open; within this ethereal void, light and mist flow in and meet the lively water below in overlapping strokes, fluid and understated. Through vapor, light and the rhythm of ink, the painting builds a space between being and non-being. A boat, barely there, moves from the solid into the empty, from scene into state of mind — something felt rather than said. It is a spiritual space at the border of form and emptiness, close to what Laozi called the Tao.",
     "productViews": [
       {
@@ -7685,7 +7761,11 @@
     "widthInches": 33.1,
     "series": "帆影",
     "seriesEn": "Waters & Sails",
-    "imageRatio": 0.539
+    "imageRatio": 0.537,
+    "printFile": {
+      "scan": "21.jpg",
+      "pixels": "3397x6326"
+    }
   },
   {
     "id": "01a12c08-8867-7938-9daa-e9d59a505103",
@@ -7693,7 +7773,7 @@
     "titleEn": "Quiet Mooring",
     "image": "./images/paintings/thumbnails/01a12c08-8867-7938-9daa-e9d59a505103_thumb.jpg",
     "imageHigh": "./images/paintings/large/01a12c08-8867-7938-9daa-e9d59a505103_large.jpg",
-    "description": "漁帆(船)泊煙渚,天曉向海行。",
+    "description": "漁帆泊煙渚，天曉向海行。",
     "descriptionEn": "Fishing boats moor by the misty shore; at daybreak they will head out to sea.",
     "format": "框",
     "formatEn": "Framed",
@@ -7701,8 +7781,8 @@
     "price": "",
     "available": true,
     "featured": false,
-    "curatorNote": "這幅畫以深淺、乾濕相間的墨韻,表現出在一個港口的水域中,天將破曉,一抹天際微明隱隱透出,隱約見船影停泊在港中,船上有數人,等待啟航的號角吹起,就要迎向朝陽,航入茫茫的大海,又是美好一天的開始。天地初醒、萬象將生,而停泊是一種沉潛等待,等待天一但破曉,便向光而行。",
-    "curatorNoteEn": "In ink of varied depth and moisture, a harbor at the edge of dawn: a faint brightening along the horizon, boats moored in the water, a few people aboard waiting for the call to set sail toward the rising sun and the open sea — the start of another good day. Heaven and earth are just waking. Mooring is a time of quiet gathering, waiting for the moment day breaks to sail toward the light.",
+    "curatorNote": "此幅畫以深淺、乾濕相間的墨韻，表現出在一個港口的水域中，天將破曉，一抹微明隱隱透出。遠方見船影停泊在港中，船上有人，等待啟航的號角吹起，又是美好一天的開始。",
+    "curatorNoteEn": "In ink of varied depth and moisture, a harbor at the edge of dawn: a faint light glimmers through. In the distance boats lie moored, people aboard waiting for the horn to sound their departure — the start of another good day.",
     "productViews": [
       {
         "type": "original",
@@ -7728,7 +7808,11 @@
     "widthInches": 39.0,
     "series": "帆影",
     "seriesEn": "Waters & Sails",
-    "imageRatio": 1.476
+    "imageRatio": 1.553,
+    "printFile": {
+      "scan": "22.jpg",
+      "pixels": "5336x3435"
+    }
   },
   {
     "id": "01a12c08-88e7-7031-ae40-cd06faaace50",
@@ -7736,16 +7820,16 @@
     "titleEn": "Awakening",
     "image": "./images/paintings/thumbnails/01a12c08-88e7-7031-ae40-cd06faaace50_thumb.jpg",
     "imageHigh": "./images/paintings/large/01a12c08-88e7-7031-ae40-cd06faaace50_large.jpg",
-    "description": "水岸生虛白,舟行待曉風。",
-    "descriptionEn": "Empty white rises along the shore; the boats wait for the dawn wind.",
+    "description": "甦醒—水岸生虛白，舟行待曉風。",
+    "descriptionEn": "Awakening — empty white rises along the shore; the boats wait for the dawn wind.",
     "format": "框",
     "formatEn": "Framed",
     "year": "2026",
     "price": "",
     "available": true,
     "featured": false,
-    "curatorNote": "畫面中見天光隱隱,在靜謐中,見村莊錯落,有數艘漁船泊於岸邊,桅桿錯落間,有一艘漁船,趁著旭日出昇前整裝待發,間有數隻飛鳥相伴,寧靜中充滿了欣欣向榮的氣韻。在水墨煙熅中,細緻的表現了光影,在水氣瀰漫中,既有江村晨曦的溫度,也含人間歲月的深情;彷彿在告訴我們,要效法大自然中的月落日昇,「天行健,君子以自強不息」!",
-    "curatorNoteEn": "A faint glow of sky over a quiet village. Fishing boats rest along the shore among a forest of masts, and one boat readies itself to set out before sunrise, a few birds keeping it company. The stillness is full of life. In misty ink, light and shadow are rendered with great delicacy — the warmth of dawn over a river village and the deep feeling of passing years — as if reminding us to follow nature's setting moon and rising sun: \"As heaven moves ever onward, so the noble person strives without ceasing.\"",
+    "curatorNote": "畫面中見天光隱隱，漁村靜謐，數艘漁船泊於岸邊，桅桿錯落間，有一漁船，趁著旭日初昇前整裝待發，間有數隻飛鳥相伴，寧靜中充滿了欣欣向榮的氣韻。在水墨煙熅、水氣瀰漫中，細緻的表現了光影。",
+    "curatorNoteEn": "A faint glow of sky over a quiet fishing village. Boats rest along the shore among scattered masts, and one readies itself to set out before the sun rises, a few birds keeping it company — a stillness full of thriving life. In misty, vapor-filled ink, light and shadow are rendered with great delicacy.",
     "productViews": [
       {
         "type": "original",
@@ -7770,7 +7854,11 @@
     "widthInches": 38.6,
     "series": "帆影",
     "seriesEn": "Waters & Sails",
-    "imageRatio": 1.518
+    "imageRatio": 1.549,
+    "printFile": {
+      "scan": "23.jpg",
+      "pixels": "5352x3456"
+    }
   },
   {
     "id": "01a12c08-8974-7e58-9392-976477b460ef",
@@ -7778,16 +7866,16 @@
     "titleEn": "Setting Sail",
     "image": "./images/paintings/thumbnails/01a12c08-8974-7e58-9392-976477b460ef_thumb.jpg",
     "imageHigh": "./images/paintings/large/01a12c08-8974-7e58-9392-976477b460ef_large.jpg",
-    "description": "水汀含微照,舟影入無聲。",
-    "descriptionEn": "The water's edge holds a faint glow; the boats' shadows slip into silence.",
+    "description": "啟航—水汀含微照，舟影入無聲。",
+    "descriptionEn": "Setting sail — the water's edge holds a faint glow; the boats' shadows slip into silence.",
     "format": "框",
     "formatEn": "Framed",
     "year": "2026",
     "price": "",
     "available": true,
     "featured": false,
-    "curatorNote": "這幅畫同屬港口系列,以墨韻營造水岸晨霧之境,天地低迴,光色微茫,畫中船屋錯落,映照於靜水之間,水中倒影與實景互相滲透,如夢似真。在水面中央以「將行未行」的一葉輕舟和數艘正在行走的船,作為畫眼,細膩而動人。漁港在晨光中甦醒。舟未遠行,卻已令人感到遠方;天未全明,卻已照見希望。彷彿將在長夜後、黎明前,重新啟航。",
-    "curatorNoteEn": "Part of the harbor series, this painting uses the rhythm of ink to create a misty waterfront at dawn, the sky low and the light soft. Boats and houses stand mirrored in still water, reflection and reality blending like a dream. At the center, a small boat about to depart and several boats already moving form the focal point — delicate and moving. The fishing harbor wakes in the morning light. The boat has not yet sailed far, yet one already feels the distance; the sky is not fully bright, yet hope is already visible — setting out again after the long night, just before dawn.",
+    "curatorNote": "此幅畫同屬港口系列，以墨韻營造水岸晨霧之境，天地低迴，光色微茫。在水面中央以「將行未行」的一葉輕舟和數艘正在行走的船，作為畫眼。漁港在晨光中甦醒，彷彿將在長夜後、黎明前，重新啟航。「靜泊」、「甦醒」、「啟航」循序漸進，迎向光明。",
+    "curatorNoteEn": "Part of the harbor series, this painting uses the rhythm of ink to create a misty waterfront at dawn, the sky low and the light soft. At the center of the water, a small boat about to set out and several boats already under way form the focal point. The fishing harbor wakes in the morning light, as if setting sail anew after the long night, just before dawn. Moored, Awakening and Setting Sail follow one another, step by step, toward the light.",
     "productViews": [
       {
         "type": "original",
@@ -7812,7 +7900,11 @@
     },
     "series": "帆影",
     "seriesEn": "Waters & Sails",
-    "imageRatio": 1.49
+    "imageRatio": 1.497,
+    "printFile": {
+      "scan": "24.jpg",
+      "pixels": "5448x3640"
+    }
   },
   {
     "id": "01a12c08-89f9-72ee-8a49-0e273955c94a",
@@ -7855,7 +7947,11 @@
     },
     "series": "明月",
     "seriesEn": "Moon",
-    "imageRatio": 1.256
+    "imageRatio": 1.246,
+    "printFile": {
+      "scan": "25.jpg",
+      "pixels": "4636x3720"
+    }
   },
   {
     "id": "01a12c08-8a4b-7777-a0fc-dc13cd47ccab",
@@ -7899,7 +7995,11 @@
     },
     "series": "明月",
     "seriesEn": "Moon",
-    "imageRatio": 0.599
+    "imageRatio": 0.602,
+    "printFile": {
+      "scan": "26.jpg",
+      "pixels": "3454x5735"
+    }
   },
   {
     "id": "01a12c08-8bb5-77ae-a7c0-5f7cf426c475",
@@ -7942,7 +8042,11 @@
     },
     "series": "明月",
     "seriesEn": "Moon",
-    "imageRatio": 0.335
+    "imageRatio": 0.327,
+    "printFile": {
+      "scan": "27.jpg",
+      "pixels": "1853x5663"
+    }
   },
   {
     "id": "01a12c08-8c41-706c-81b9-bed4223b5b0b",
@@ -7983,7 +8087,11 @@
     },
     "series": "明月",
     "seriesEn": "Moon",
-    "imageRatio": 0.661
+    "imageRatio": 0.655,
+    "printFile": {
+      "scan": "28.jpg",
+      "pixels": "3734x5700"
+    }
   },
   {
     "id": "01a12c08-8ca0-751d-bbfb-5441bc66e8d6",
@@ -7991,8 +8099,8 @@
     "titleEn": "Flowing Light – The Moon Marries the Water",
     "image": "./images/paintings/thumbnails/01a12c08-8ca0-751d-bbfb-5441bc66e8d6_thumb.jpg",
     "imageHigh": "./images/paintings/large/01a12c08-8ca0-751d-bbfb-5441bc66e8d6_large.jpg",
-    "description": "月娘嫁水天涯隨",
-    "descriptionEn": "The Moon Maiden weds the water and follows it to the ends of the earth.",
+    "description": "流光—月娘嫁水天涯隨",
+    "descriptionEn": "Flowing light — the Moon Maiden weds the water and follows it to the ends of the earth.",
     "format": "框",
     "formatEn": "Framed",
     "year": "2026",
@@ -8026,24 +8134,28 @@
     },
     "series": "明月",
     "seriesEn": "Moon",
-    "imageRatio": 0.604
+    "imageRatio": 0.589,
+    "printFile": {
+      "scan": "29.jpg",
+      "pixels": "3470x5889"
+    }
   },
   {
     "id": "01a12c08-8d3e-782e-b66e-2cd9a498fa2d",
-    "title": "初昇-月華如洗",
-    "titleEn": "First Rising – Moonlight Washes Clean",
+    "title": "初昇-風煙浩渺",
+    "titleEn": "First Rising – Wind and Mist Without End",
     "image": "./images/paintings/thumbnails/01a12c08-8d3e-782e-b66e-2cd9a498fa2d_thumb.jpg",
     "imageHigh": "./images/paintings/large/01a12c08-8d3e-782e-b66e-2cd9a498fa2d_large.jpg",
-    "description": "墨染清暉滿蒼穹",
-    "descriptionEn": "Ink dyes the clear glow across the whole sky.",
+    "description": "初昇—風煙浩渺月華濃",
+    "descriptionEn": "First rising — wind and mist stretch without end; the moonlight lies thick.",
     "format": "框",
     "formatEn": "Framed",
     "year": "2026",
     "price": "",
     "available": true,
     "featured": false,
-    "curatorNote": "畫面以墨色鋪陳天地之基調,初昇的上弦月隱於天際,見寒塘靜謐,煙霧蒸騰中,幾點白鷺輕盈。蒼茫中有光、寂靜中有聲。月不圓滿,卻合老子言:「大成若缺」,而水際幾點白鷺,使畫面從空寂中生出靈動之氣,構成一種「大寂中見微動」的境界,極為高妙。",
-    "curatorNoteEn": "Ink sets the tone of heaven and earth. A young crescent moon rises faintly at the sky's edge over a quiet, cold pond, where a few white egrets move lightly through the rising mist. In the vastness there is light; in the silence, sound. The moon is not full, yet it accords with Laozi: \"Great perfection seems incomplete.\" The egrets at the water's edge bring life to the stillness — a realm where small movements are seen within great silence.",
+    "curatorNote": "畫面以墨色鋪陳天地之基調，初昇的弦月隱於天際，見寒塘靜謐，月華如洗，煙霧蒸騰中，幾點白鷺輕盈。蒼茫中有光、寂靜中有聲。月不圓滿，卻合老子言：「大成若缺」，而水際幾點白鷺，使畫面從空寂中生出靈動之氣，構成一種「大寂中見微動」的境界，極為高妙。",
+    "curatorNoteEn": "Ink sets the tone of heaven and earth. A young crescent moon rises faintly at the sky's edge over a quiet, cold pond washed in moonlight, where a few white egrets move lightly through the rising mist. In the vastness there is light; in the silence, sound. The moon is not full, yet it accords with Laozi: \"Great perfection seems incomplete.\" The egrets at the water's edge bring life to the stillness — a realm where small movements are seen within great silence.",
     "productViews": [
       {
         "type": "original",
@@ -8067,7 +8179,11 @@
     },
     "series": "明月",
     "seriesEn": "Moon",
-    "imageRatio": 0.664
+    "imageRatio": 0.657,
+    "printFile": {
+      "scan": "30.jpg",
+      "pixels": "3468x5276"
+    }
   },
   {
     "id": "01a12c08-8de6-7852-b660-c075ff2067d1",
@@ -8075,8 +8191,8 @@
     "titleEn": "Kindred – Water and Moon Entwined",
     "image": "./images/paintings/thumbnails/01a12c08-8de6-7852-b660-c075ff2067d1_thumb.jpg",
     "imageHigh": "./images/paintings/large/01a12c08-8de6-7852-b660-c075ff2067d1_large.jpg",
-    "description": "月生化境,心自成光。",
-    "descriptionEn": "The moon gives rise to a transformed realm; the heart becomes its own light.",
+    "description": "相契—月生化境，心自成光。",
+    "descriptionEn": "Kindred — the moon gives rise to a transformed realm; the heart becomes its own light.",
     "format": "框",
     "formatEn": "Framed",
     "year": "2026",
@@ -8110,7 +8226,11 @@
     },
     "series": "明月",
     "seriesEn": "Moon",
-    "imageRatio": 0.586
+    "imageRatio": 0.589,
+    "printFile": {
+      "scan": "31.jpg",
+      "pixels": "3368x5721"
+    }
   },
   {
     "id": "01a12c08-8eb1-74de-a953-1a918c927ee4",
@@ -8118,15 +8238,15 @@
     "titleEn": "Unabiding – Light Travels from the Beginning",
     "image": "./images/paintings/thumbnails/01a12c08-8eb1-74de-a953-1a918c927ee4_thumb.jpg",
     "imageHigh": "./images/paintings/large/01a12c08-8eb1-74de-a953-1a918c927ee4_large.jpg",
-    "description": "月出虛空,光行無住。",
-    "descriptionEn": "The moon rises in the void; its light travels without abiding.",
+    "description": "無住—月出虛空，光行無住。",
+    "descriptionEn": "Non-abiding — the moon rises in the void; its light travels without abiding.",
     "format": "框",
     "formatEn": "Framed",
     "year": "2026",
     "price": "",
     "available": true,
     "featured": false,
-    "curatorNote": "天際月色隱約,似來自亙古的跫音,靜靜關照著宇宙星球。畫中白色塊面及線條,似星軌,雲河,表達了橫向的動感;而金色的線條,以流星般的速度感排空而下,如光速、意識流,使這幅畫在橫與豎、靜與動之間,產線產生撞擊,透視到「宇宙場域」,是一種線性空間,多重層次同時存在。",
+    "curatorNote": "天際月色隱約，似來自亙古的跫音，靜靜關照著宇宙星球。畫中白色塊面及線條，似星軌，雲河，表達了橫向的動感；而金色的線條，以流星般的速度感排空而下，如光速、意識流，使這幅畫在橫與豎、靜與動之間，產生撞擊，透視到「宇宙場域」，是一種線性空間，多重層次同時存在。",
     "curatorNoteEn": "The moon glimmers at the edge of the sky like footsteps from time immemorial, quietly watching over the planets of the universe. White planes and lines, like star trails and the Milky Way, carry horizontal motion, while golden lines streak down like meteors — like the speed of light, like a stream of consciousness. Horizontal and vertical, stillness and motion collide, opening a view into a cosmic field: a linear space where many layers exist at once.",
     "productViews": [
       {
@@ -8151,7 +8271,11 @@
     },
     "series": "明月",
     "seriesEn": "Moon",
-    "imageRatio": 0.634
+    "imageRatio": 0.644,
+    "printFile": {
+      "scan": "32.jpg",
+      "pixels": "3461x5376"
+    }
   },
   {
     "id": "01a12c08-8f83-785f-a4e1-6c45d9d8d9c2",
@@ -8159,15 +8283,15 @@
     "titleEn": "Heaven's Net – Ten Thousand Strands of Light",
     "image": "./images/paintings/thumbnails/01a12c08-8f83-785f-a4e1-6c45d9d8d9c2_thumb.jpg",
     "imageHigh": "./images/paintings/large/01a12c08-8f83-785f-a4e1-6c45d9d8d9c2_large.jpg",
-    "description": "天網-萬縷流光入畫中",
-    "descriptionEn": "Heaven's net — ten thousand strands of flowing light enter the painting.",
+    "description": "天網—萬縷流光開大千",
+    "descriptionEn": "Heaven's net — ten thousand strands of flowing light open the great universe.",
     "format": "框",
     "formatEn": "Framed",
     "year": "2026",
     "price": "",
     "available": true,
     "featured": false,
-    "curatorNote": "在遼闊的宇宙中,一輪金色的明月,緩緩昇起,白色線條交錯,其中像是雷射光的流動,或是代表光速,用靈動的畫面呈現「天網」,非常有創意。「天網」在形容宇宙的光線與氣場,將浩瀚星空、光束與能量場,擬人化或詩意化的絕美意象。將無形的宇宙氣場與穿透星際的光線,具象化為一張交織相連、充滿靈性與生命力的巨大光網。",
+    "curatorNote": "在遼闊的宇宙中，一輪金色的明月，緩緩昇起，白色線條交錯，像是雷射光的流動，或是代表光速，用靈動的畫面呈現「天網」，頗富新意。「天網」形容宇宙的光線與氣場，將浩瀚星空、光束與能量場，表達擬人化或詩意化的絕美意象。將無形的宇宙氣場與穿透星際的光線，具象化為一張交織相連、充滿靈性與生命力的巨大光網。",
     "curatorNoteEn": "In the vast universe a golden moon slowly rises while white lines cross and interweave like flowing laser light or the speed of light — a lively, highly original image of a \"heavenly net.\" The net describes the light and energy of the cosmos: the starry sky, beams and fields of energy made poetic and almost alive. The invisible energy of the universe and light passing between the stars become a vast, interconnected net of light, full of spirit and life.",
     "productViews": [
       {
@@ -8194,7 +8318,11 @@
     },
     "series": "明月",
     "seriesEn": "Moon",
-    "imageRatio": 0.636
+    "imageRatio": 0.645,
+    "printFile": {
+      "scan": "33.jpg",
+      "pixels": "3469x5376"
+    }
   },
   {
     "id": "01a12c08-903b-7173-b9c7-4eb24f9695e6",
@@ -8202,7 +8330,7 @@
     "titleEn": "Crossing Light – The Moon over Cold Mountains",
     "image": "./images/paintings/thumbnails/01a12c08-903b-7173-b9c7-4eb24f9695e6_thumb.jpg",
     "imageHigh": "./images/paintings/large/01a12c08-903b-7173-b9c7-4eb24f9695e6_large.jpg",
-    "description": "光渡-月行萬古,光渡寒山。",
+    "description": "光渡—月行萬古，光渡寒山。",
     "descriptionEn": "Crossing light — the moon travels through the ages; its light crosses the cold mountains.",
     "format": "框",
     "formatEn": "Framed",
@@ -8210,8 +8338,8 @@
     "price": "",
     "available": true,
     "featured": false,
-    "curatorNote": "在遼闊的天際間,是有冰山羅列,一輪新月由古至今,恆常不變,「月行萬古,光渡寒山。」另用線條展現來自宇宙的天光,充滿了律動感及無限的張力,。月-始終沉默,冰山無語、天地蒼茫,而光仍持續前行,「獨與天地精神往來。」誠願觀者「在無垠之中,仍守住內心的光。」",
-    "curatorNoteEn": "Across the vast sky, icy mountains stand in rows, and a new moon shines unchanged from ancient times to now: \"the moon travels through the ages; its light crosses the cold mountains.\" Lines express light coming from the universe, full of rhythm and boundless tension. The moon is always silent, the ice mountains wordless, heaven and earth vast — yet the light keeps moving forward, \"alone, in communion with the spirit of heaven and earth.\" The artist's wish for the viewer: \"in the boundless, keep the light within your heart.\"",
+    "curatorNote": "在遼闊的天際間，似有冰山羅列，一輪新月由古至今，恆常不變，另用線條展現來自宇宙的天光，充滿了律動感及無限的張力。月，始終沉默，冰山無語、天地蒼茫，而光仍持續前行，誠願觀者「在無垠之中，仍守住內心的光。」",
+    "curatorNoteEn": "Across the vast sky, icy mountains seem to stand in rows, and a new moon shines unchanged from ancient times to now. Lines express light coming from the universe, full of rhythm and boundless tension. The moon is always silent, the ice mountains wordless, heaven and earth vast — yet the light keeps moving forward. The artist's wish for the viewer: “in the boundless, keep the light within your heart.”",
     "productViews": [
       {
         "type": "original",
@@ -8237,7 +8365,11 @@
     },
     "series": "明月",
     "seriesEn": "Moon",
-    "imageRatio": 0.645
+    "imageRatio": 0.641,
+    "printFile": {
+      "scan": "34.jpg",
+      "pixels": "3440x5369"
+    }
   },
   {
     "id": "01a12c08-90d5-71f6-9411-2ec27d458231",
@@ -8245,7 +8377,7 @@
     "titleEn": "Seeing Clearly – Endless Fields of Ice",
     "image": "./images/paintings/thumbnails/01a12c08-90d5-71f6-9411-2ec27d458231_thumb.jpg",
     "imageHigh": "./images/paintings/large/01a12c08-90d5-71f6-9411-2ec27d458231_large.jpg",
-    "description": "照見-萬頃冰原一照明",
+    "description": "照見—萬頃冰原一照明",
     "descriptionEn": "Seeing clearly — endless fields of ice lit in a single moment.",
     "format": "框",
     "formatEn": "Framed",
@@ -8253,7 +8385,7 @@
     "price": "",
     "available": true,
     "featured": false,
-    "curatorNote": "半抽象水墨,結合飛白、流線與潑灑技法,整片冰山用穿透及凜冽的筆觸,表達其硬度及溫度,交織成宇宙間的時空感。新月用隱約的方式鑲上淺淺的金邊,照見點點星光,飛雪紛紛、千山萬壑,正如「千年暗室,一燈即明。」真正的光,從來不是炫目的,是在萬古侘寂中,仍保有一點溫柔,照亮世間。",
+    "curatorNote": "此乃半抽象水墨，結合飛白、流線與潑灑技法，整片冰山用穿透及凜冽的筆觸，表達其硬度及溫度，而交織成宇宙間的時空感。新月用隱約的方式鑲上淺淺的金邊，照見點點星光，飛雪紛紛、千山萬壑，正如「千年暗室，一燈即明。」真正的光，從來不是炫目的，是在萬古侘寂中，仍保有一點溫柔，照亮世間。",
     "curatorNoteEn": "Semi-abstract ink combining flying-white, flowing lines and splashed ink. Piercing, icy strokes give the glacier its hardness and cold, weaving a sense of cosmic time and space. A new moon is faintly edged in gold, revealing points of starlight as snow flies over a thousand mountains — as the saying goes, \"a room dark for a thousand years is lit by a single lamp.\" True light is never dazzling; it keeps a little tenderness within ages of quiet stillness, and lights the world.",
     "productViews": [
       {
@@ -8278,7 +8410,11 @@
     },
     "series": "明月",
     "seriesEn": "Moon",
-    "imageRatio": 0.654
+    "imageRatio": 0.645,
+    "printFile": {
+      "scan": "35.jpg",
+      "pixels": "3504x5434"
+    }
   },
   {
     "id": "01a12c08-9182-7522-b1d0-512382018d51",
@@ -8286,15 +8422,15 @@
     "titleEn": "Heaven Moves Ever Onward – Earth Seen from the Moon",
     "image": "./images/paintings/thumbnails/01a12c08-9182-7522-b1d0-512382018d51_thumb.jpg",
     "imageHigh": "./images/paintings/large/01a12c08-9182-7522-b1d0-512382018d51_large.jpg",
-    "description": "回望-顧盼生暉意綿綿",
-    "descriptionEn": "Looking back — a glance full of light and lingering tenderness.",
+    "description": "天行健—回眸一笑攬乾坤",
+    "descriptionEn": "Heaven moves with vigor — one smiling glance back embraces heaven and earth.",
     "format": "框",
     "formatEn": "Framed",
     "year": "2026",
     "price": "",
     "available": true,
     "featured": false,
-    "curatorNote": "畫的視角是由月球表面看上地球,在構圖上,有別於其他作品,畫面裡,寂靜荒寒,近乎無聲;而遠方那顆藍綠色的地球,卻像一顆呼吸的生命,浮於天際。下方月面荒寒沉靜,用簡約技法留白,而更顯宇宙之遼闊。地球與月球,在天際星軌間,行走、奔馳、巧妙的平衡、溫柔的回眸,使人感動於宇宙神秘的力量無所不在~",
+    "curatorNote": "畫的視角是由月球表面看上地球，在構圖上，有別於其他作品，畫面裡，寂靜荒寒，近乎無聲；而遠方那顆藍綠色的地球，卻像一顆呼吸的生命，浮於天際。下方月面沉靜，用簡約技法留白，而更顯宇宙之遼闊。地球與月球，在天際星軌間，行走、奔馳、巧妙的平衡、溫柔的回眸，使人感動於宇宙神秘的力量無所不在。",
     "curatorNoteEn": "Seen from the surface of the moon looking toward Earth, the composition differs from her other works. The foreground is silent, desolate and cold, almost soundless, while the blue-green Earth in the distance floats in the sky like a living, breathing being. The lunar surface below is rendered simply with reserved white, making the universe feel even vaster. Earth and moon travel along their orbits in delicate balance, looking back at each other tenderly — moving us with the mysterious power present everywhere in the cosmos.",
     "productViews": [
       {
@@ -8319,23 +8455,27 @@
     },
     "series": "明月",
     "seriesEn": "Moon",
-    "imageRatio": 0.651
+    "imageRatio": 0.638,
+    "printFile": {
+      "scan": "36.jpg",
+      "pixels": "3447x5405"
+    }
   },
   {
     "id": "01a12c08-9209-7473-9eb7-f22af9600970",
-    "title": "心月照無涯",
-    "titleEn": "The Moon of the Heart Shines Without End",
+    "title": "心月-覺照無涯",
+    "titleEn": "Moon of the Heart – Boundless Awakening",
     "image": "./images/paintings/thumbnails/01a12c08-9209-7473-9eb7-f22af9600970_thumb.jpg",
     "imageHigh": "./images/paintings/large/01a12c08-9209-7473-9eb7-f22af9600970_large.jpg",
-    "description": "太初-心月照無涯",
-    "descriptionEn": "The beginning — the moon of the heart shines without end.",
+    "description": "心月—初心覺照漫無涯",
+    "descriptionEn": "Moon of the heart — the first mind's awakening shines without end.",
     "format": "框",
     "formatEn": "Framed",
     "year": "2026",
     "price": "",
     "available": true,
     "featured": false,
-    "curatorNote": "朱霞漫天,月華流照。畫作以紅黑交疊之色塊營造天地渾然之氣,以金色筆痕映現波光流轉。月影高懸,映照煙波浩渺,虛實相生,動靜互映。畫面既有宇宙蒼茫之感,亦寓心源澄明之境。觀之如臨天地混沌之初,又似初心覺照之時,於寂靜中見光明,於無垠處見自我。",
+    "curatorNote": "朱霞漫天，月華流照。畫作以紅黑交疊之色塊營造天地渾然之氣，以金色筆痕呈現波光流轉。月影高懸，照見煙波浩渺，虛實相生，動靜互映。畫面既有宇宙蒼茫之感，亦寓心源澄明之境。觀之如臨天地混沌之初，又似初心覺照之時，於寂靜中見光明，於無垠處見自我。",
     "curatorNoteEn": "Crimson clouds fill the sky and moonlight streams down. Layers of red and black create the unity of heaven and earth, and golden brush marks reflect shimmering light on the water. The moon hangs high over vast misty waves; solid and empty, motion and stillness answer one another. The painting carries both the vastness of the cosmos and the clarity of the heart's source — like standing at the moment before heaven and earth separated, or the moment of first awakening: light found in silence, the self found in the boundless.",
     "productViews": [
       {
@@ -8360,7 +8500,11 @@
     },
     "series": "明月",
     "seriesEn": "Moon",
-    "imageRatio": 0.641
+    "imageRatio": 0.639,
+    "printFile": {
+      "scan": "37.jpg",
+      "pixels": "3411x5334"
+    }
   },
   {
     "id": "01a12c08-929f-7ce0-9650-14a0c3ea66d1",
@@ -8403,7 +8547,11 @@
     },
     "series": "光",
     "seriesEn": "Light",
-    "imageRatio": 0.672
+    "imageRatio": 0.646,
+    "printFile": {
+      "scan": "38.jpg",
+      "pixels": "3490x5406"
+    }
   },
   {
     "id": "01a12c08-9355-701b-b10b-518c0b56c9af",
@@ -8411,15 +8559,15 @@
     "titleEn": "Candle Lotus – A Single Lamp Lights the Dark",
     "image": "./images/paintings/thumbnails/01a12c08-9355-701b-b10b-518c0b56c9af_thumb.jpg",
     "imageHigh": "./images/paintings/large/01a12c08-9355-701b-b10b-518c0b56c9af_large.jpg",
-    "description": "照亮別人的同時,也照亮了自己。",
-    "descriptionEn": "In lighting the way for others, we also light our own.",
+    "description": "燭荷‒一燈即明",
+    "descriptionEn": "Candle lotus — a single lamp brings light.",
     "format": "框",
     "formatEn": "Framed",
     "year": "2026",
     "price": "",
     "available": true,
     "featured": true,
-    "curatorNote": "在化繁為簡的荷塘中安置數朵含苞待放的荷花,如蠟燭照亮畫面,在渾厚的背景中,隱約天光微露,深具巧思如畫龍點睛般的使畫面活了起來。畫中沒有月、沒有日,但光卻存在—光,不來自天,而來自內心的「覺性」。藝術的至高境界:最高明的光,超越了物理的照明,而是一種精神的投射。這是東方「心象」與西方「光影」的交會,共同構成了人類豐富的藝術光譜。畫境的感動來自:照亮別人的同時,也照亮了自己。",
+    "curatorNote": "在化繁為簡的荷塘中，安置數朵含苞待放的荷花，如蠟燭照亮畫面，在渾厚的背景中，隱約天光微露，深具巧思如畫龍點睛般的使畫面活了起來。畫中沒有月、沒有日，但光卻存在-光，不來自天，而來自內心的「覺性」。藝術的至高境界：最高明的光，超越了物理的照明，而是一種精神的投射。這是東方「心象」與西方「光影」的交會，共同構成了人類豐富的藝術光譜。畫境的感動來自：照亮別人的同時，也照亮了自己。",
     "curatorNoteEn": "In a pond simplified to its essence, a few lotus buds are placed like candles that light up the painting. Against the deep background a faint skylight shows through, a thoughtful touch that brings the whole work to life. There is no moon and no sun, yet there is light — light that comes not from the sky but from awareness within. The highest light goes beyond physical illumination; it is a projection of the spirit, where the Eastern \"image of the mind\" meets Western light and shadow. Its message: in lighting the way for others, we also light our own.",
     "productViews": [
       {
@@ -8446,7 +8594,11 @@
     },
     "series": "光",
     "seriesEn": "Light",
-    "imageRatio": 0.667
+    "imageRatio": 0.646,
+    "printFile": {
+      "scan": "39.jpg",
+      "pixels": "3447x5334"
+    }
   },
   {
     "id": "01a12c08-93ef-7162-b124-102ca0bf526c",
@@ -8462,8 +8614,8 @@
     "price": "",
     "available": true,
     "featured": false,
-    "curatorNote": "作品游移於具象與抽象之間,以若隱若現的荷影與微光,構成一種「「似與不似」的精神場域。品游移於具象與抽象、水墨與當代藝術之間,以低限色調、書寫性線條與層層滲化的墨韻,層層構築出一種介於風景與心象之間的「精神空間」。作品保留了東方水墨「氣韻生動」與「以虛寫實」的精神,同時又帶有西方現代抽象繪畫中的情緒場域與空間感。",
-    "curatorNoteEn": "Moving between the figurative and the abstract, faint lotus shapes and soft light create a spiritual field \"between likeness and unlikeness.\" Between ink painting and contemporary art, with a minimal palette, calligraphic lines and layers of soaking ink, it builds a \"space of the spirit\" between landscape and inner image. The work keeps the Eastern ink spirit of living rhythm and of depicting the real through the empty, while carrying the emotional field and sense of space of Western modern abstraction.",
+    "curatorNote": "本作品游移於具象與抽象之間，以若隱若現的荷影與微光，構成一種「似與不似」的精神場域。",
+    "curatorNoteEn": "Moving between the figurative and the abstract, faint lotus shapes and soft light create a spiritual field “between likeness and unlikeness.”",
     "productViews": [
       {
         "type": "original",
@@ -8487,15 +8639,19 @@
     },
     "series": "光",
     "seriesEn": "Light",
-    "imageRatio": 0.629
+    "imageRatio": 0.655,
+    "printFile": {
+      "scan": "40-NEW.jpg",
+      "pixels": "11811x18032"
+    }
   },
   {
     "id": "01a12c08-9479-729a-8712-a665908575a6",
-    "title": "流霞-動靜不二",
-    "titleEn": "Flowing Clouds of Dusk – Motion and Stillness Are One",
+    "title": "紅柳白翎-動靜自安然",
+    "titleEn": "Red Willows, White Plumes – At Peace in Motion and Stillness",
     "image": "./images/paintings/thumbnails/01a12c08-9479-729a-8712-a665908575a6_thumb.jpg",
     "imageHigh": "./images/paintings/large/01a12c08-9479-729a-8712-a665908575a6_large.jpg",
-    "description": "紅柳流霞影,白翎入晚煙。風來無去住,動靜自安然。",
+    "description": "紅柳流霞影，白翎入晚煙。風來無去住，動靜自安然。",
     "descriptionEn": "Red willows mirror the flowing sunset clouds; white plumes drift into the evening mist. The wind comes, with no going or staying; in motion and in stillness, all is at peace.",
     "format": "框",
     "formatEn": "Framed",
@@ -8530,15 +8686,19 @@
     },
     "series": "光",
     "seriesEn": "Light",
-    "imageRatio": 0.75
+    "imageRatio": 0.706,
+    "printFile": {
+      "scan": "41.jpg",
+      "pixels": "3691x5226"
+    }
   },
   {
     "id": "01a12c08-94f1-700d-8ed8-4959350018f9",
-    "title": "虛實 - 合抱之木",
+    "title": "虛實-合抱之木",
     "titleEn": "Empty and Solid – The Great Tree",
     "image": "./images/paintings/thumbnails/01a12c08-94f1-700d-8ed8-4959350018f9_thumb.jpg",
     "imageHigh": "./images/paintings/large/01a12c08-94f1-700d-8ed8-4959350018f9_large.jpg",
-    "description": "合抱之木,生于毫末,千里之行,始於足下。",
+    "description": "合抱之木，生于毫末，千里之行，始於足下。",
     "descriptionEn": "A tree that fills one's arms grows from a tiny shoot; a journey of a thousand miles begins with a single step.",
     "format": "框",
     "formatEn": "Framed",
@@ -8570,7 +8730,11 @@
     },
     "series": "光",
     "seriesEn": "Light",
-    "imageRatio": 0.684
+    "imageRatio": 0.668,
+    "printFile": {
+      "scan": "42.jpg",
+      "pixels": "3497x5232"
+    }
   },
   {
     "id": "01a12c08-958a-7dde-908c-1126e2202a2a",
@@ -8610,7 +8774,11 @@
     },
     "series": "光",
     "seriesEn": "Light",
-    "imageRatio": 0.671
+    "imageRatio": 0.67,
+    "printFile": {
+      "scan": "43.jpg",
+      "pixels": "3590x5362"
+    }
   },
   {
     "id": "01a12c08-961d-7601-8d24-5c3fccde7d12",
@@ -8653,7 +8821,11 @@
     },
     "series": "光",
     "seriesEn": "Light",
-    "imageRatio": 0.651
+    "imageRatio": 0.642,
+    "printFile": {
+      "scan": "44.jpg",
+      "pixels": "3505x5456"
+    }
   },
   {
     "id": "01a12c08-96ac-71f5-8f88-8d7875f7e5dc",
@@ -8697,7 +8869,11 @@
     },
     "series": "山水",
     "seriesEn": "Landscapes",
-    "imageRatio": 0.642
+    "imageRatio": 0.63,
+    "printFile": {
+      "scan": "45.jpg",
+      "pixels": "3440x5456"
+    }
   },
   {
     "id": "01a12c08-9747-78f0-aa9d-a3fad98f6d87",
@@ -8740,7 +8916,11 @@
     "widthInches": 15.0,
     "series": "山水",
     "seriesEn": "Landscapes",
-    "imageRatio": 0.268
+    "imageRatio": 0.267,
+    "printFile": {
+      "scan": "47.jpg",
+      "pixels": "1522x5707"
+    }
   },
   {
     "id": "01a12c08-98a8-7ba2-b060-fa8b2abcc3de",
@@ -8824,7 +9004,11 @@
     "widthInches": 13.4,
     "series": "山水",
     "seriesEn": "Landscapes",
-    "imageRatio": 0.246
+    "imageRatio": 0.244,
+    "printFile": {
+      "scan": "48.jpg",
+      "pixels": "1361x5571"
+    }
   },
   {
     "id": "01a12c08-9b7b-7744-bb98-e42bd8d8b969",
@@ -8867,7 +9051,11 @@
     },
     "series": "山水",
     "seriesEn": "Landscapes",
-    "imageRatio": 1.626
+    "imageRatio": 1.64,
+    "printFile": {
+      "scan": "49.jpg",
+      "pixels": "6079x3707"
+    }
   },
   {
     "id": "01a12c08-9d41-74ca-8229-7e6b61b01e3f",
@@ -8910,7 +9098,11 @@
     },
     "series": "山水",
     "seriesEn": "Landscapes",
-    "imageRatio": 1.623
+    "imageRatio": 1.646,
+    "printFile": {
+      "scan": "50.jpg",
+      "pixels": "5793x3519"
+    }
   },
   {
     "id": "01a12c08-9e9e-7329-88b3-0a0a087136b3",
@@ -8955,7 +9147,11 @@
     },
     "series": "山水",
     "seriesEn": "Landscapes",
-    "imageRatio": 1.024
+    "imageRatio": 1.074,
+    "printFile": {
+      "scan": "51.jpg",
+      "pixels": "4292x3998"
+    }
   },
   {
     "id": "01a12c08-9f30-7fc1-a07d-22ded6129946",
@@ -8999,7 +9195,11 @@
     },
     "series": "山水",
     "seriesEn": "Landscapes",
-    "imageRatio": 1.093
+    "imageRatio": 1.099,
+    "printFile": {
+      "scan": "52.jpg",
+      "pixels": "4453x4051"
+    }
   },
   {
     "id": "01a12c08-a115-781f-8a11-3a51690795dc",
@@ -9043,7 +9243,11 @@
     },
     "series": "山水",
     "seriesEn": "Landscapes",
-    "imageRatio": 1.078
+    "imageRatio": 1.105,
+    "printFile": {
+      "scan": "53.jpg",
+      "pixels": "4617x4180"
+    }
   },
   {
     "id": "01a12c08-a319-7f09-846e-57ec660f5807",
@@ -9087,7 +9291,11 @@
     },
     "series": "山水",
     "seriesEn": "Landscapes",
-    "imageRatio": 1.103
+    "imageRatio": 1.101,
+    "printFile": {
+      "scan": "54.jpg",
+      "pixels": "4448x4041"
+    }
   },
   {
     "id": "01a12c08-a50e-7059-b5c1-ca391d0e4f0b",
@@ -9132,16 +9340,20 @@
     },
     "series": "山水",
     "seriesEn": "Landscapes",
-    "imageRatio": 0.934
+    "imageRatio": 0.944,
+    "printFile": {
+      "scan": "55.jpg",
+      "pixels": "4315x4573"
+    }
   },
   {
     "id": "01a12c08-a5b7-70e7-8529-32dc34f94467",
-    "title": "不繫之舟",
-    "titleEn": "The Unmoored Boat",
+    "title": "墨染丹霞天地寬",
+    "titleEn": "Crimson Clouds in Ink, Heaven and Earth Wide Open",
     "image": "./images/paintings/thumbnails/01a12c08-a5b7-70e7-8529-32dc34f94467_thumb.jpg",
     "imageHigh": "./images/paintings/large/01a12c08-a5b7-70e7-8529-32dc34f94467_large.jpg",
-    "description": "",
-    "descriptionEn": "",
+    "description": "人在丹霞深處過，心隨落羽不須歸。",
+    "descriptionEn": "Passing deep among the crimson clouds, the heart follows the falling feathers and need not return.",
     "format": "框",
     "formatEn": "Framed",
     "year": "2026",
@@ -9166,13 +9378,17 @@
       ],
       "locations": []
     },
-    "heightCm": 77,
+    "heightCm": 76,
     "widthCm": 46,
-    "heightInches": 30.3,
+    "heightInches": 29.9,
     "widthInches": 18.1,
     "series": "霜林",
     "seriesEn": "Autumn Woods",
-    "imageRatio": 0.604
+    "imageRatio": 0.6,
+    "printFile": {
+      "scan": "56.jpg",
+      "pixels": "2492x4156"
+    }
   },
   {
     "id": "01a12c08-a6cb-7387-b65e-ae888d412c52",
@@ -9180,8 +9396,8 @@
     "titleEn": "Frosted Woods, Flowing Crimson",
     "image": "./images/paintings/thumbnails/01a12c08-a6cb-7387-b65e-ae888d412c52_thumb.jpg",
     "imageHigh": "./images/paintings/large/01a12c08-a6cb-7387-b65e-ae888d412c52_large.jpg",
-    "description": "",
-    "descriptionEn": "",
+    "description": "風過疏林紅葉舞，此心安處是吾鄉。",
+    "descriptionEn": "Wind through the sparse woods sets red leaves dancing; wherever the heart is at peace, there is home.",
     "format": "框",
     "formatEn": "Framed",
     "year": "2026",
@@ -9212,7 +9428,11 @@
     "widthInches": 29.5,
     "series": "霜林",
     "seriesEn": "Autumn Woods",
-    "imageRatio": 1.479
+    "imageRatio": 1.492,
+    "printFile": {
+      "scan": "57.jpg",
+      "pixels": "4415x2959"
+    }
   },
   {
     "id": "01a12c08-a760-73c3-96a3-cc7d528d191d",
@@ -9251,7 +9471,11 @@
       "subjects": [],
       "locations": []
     },
-    "imageRatio": 0.661
+    "imageRatio": 0.655,
+    "printFile": {
+      "scan": "58 拷貝.jpg",
+      "pixels": "3335x5089"
+    }
   },
   {
     "id": "01a12c32-fa30-73db-95d5-fcf84fc9b6df",
@@ -9289,7 +9513,11 @@
       "subjects": [],
       "locations": []
     },
-    "imageRatio": 0.526
+    "imageRatio": 0.513,
+    "printFile": {
+      "scan": "19.jpg",
+      "pixels": "2930x5707"
+    }
   },
   {
     "id": "01a12c32-fae0-74b5-8639-7f9711bc320e",
@@ -9297,11 +9525,11 @@
     "titleEn": "Fish of Abundance",
     "image": "./images/paintings/thumbnails/01a12c32-fae0-74b5-8639-7f9711bc320e_thumb.jpg",
     "imageHigh": "./images/paintings/large/01a12c32-fae0-74b5-8639-7f9711bc320e_large.jpg",
-    "description": "",
-    "descriptionEn": "",
+    "description": "三餘—乘物以遊心",
+    "descriptionEn": "Three abundances — ride along with things and let the heart wander free.",
     "format": "框",
     "formatEn": "Framed",
-    "year": "",
+    "year": "2026",
     "price": "",
     "available": true,
     "featured": false,
@@ -9327,7 +9555,11 @@
       "subjects": [],
       "locations": []
     },
-    "imageRatio": 0.677
+    "imageRatio": 0.661,
+    "printFile": {
+      "scan": "46.jpg",
+      "pixels": "3511x5311"
+    }
   },
   {
     "id": "01a12c32-fcaf-7ea9-aeb7-470e064888bc",
@@ -9365,7 +9597,11 @@
       "subjects": [],
       "locations": []
     },
-    "imageRatio": 0.266
+    "imageRatio": 0.244,
+    "printFile": {
+      "scan": "59.jpg",
+      "pixels": "1484x6087"
+    }
   },
   {
     "id": "01a12c32-fd1e-7d89-be39-684944073edd",
@@ -9404,7 +9640,11 @@
       "subjects": [],
       "locations": []
     },
-    "imageRatio": 1.512
+    "imageRatio": 1.552,
+    "printFile": {
+      "scan": "60.jpg",
+      "pixels": "5474x3527"
+    }
   },
   {
     "id": "01a12c32-fd8c-7321-8ec9-0e56702657f0",
@@ -9442,7 +9682,11 @@
       "subjects": [],
       "locations": []
     },
-    "imageRatio": 0.654
+    "imageRatio": 0.654,
+    "printFile": {
+      "scan": "61.jpg",
+      "pixels": "3650x5581"
+    }
   },
   {
     "id": "01a12c32-fdf8-7498-a075-a3fa93f187a0",
@@ -9480,7 +9724,11 @@
       "subjects": [],
       "locations": []
     },
-    "imageRatio": 0.649
+    "imageRatio": 0.642,
+    "printFile": {
+      "scan": "62.jpg",
+      "pixels": "3054x4758"
+    }
   },
   {
     "id": "01a12c32-fe61-74db-9b2b-f99316181076",
@@ -9488,11 +9736,11 @@
     "titleEn": "Pure Air Fills Heaven and Earth",
     "image": "./images/paintings/thumbnails/01a12c32-fe61-74db-9b2b-f99316181076_thumb.jpg",
     "imageHigh": "./images/paintings/large/01a12c32-fe61-74db-9b2b-f99316181076_large.jpg",
-    "description": "",
-    "descriptionEn": "",
+    "description": "冰心師造化，清氣滿乾坤。",
+    "descriptionEn": "A heart pure as ice learns from nature; clear air fills heaven and earth.",
     "format": "框",
     "formatEn": "Framed",
-    "year": "",
+    "year": "2026",
     "price": "",
     "available": true,
     "featured": false,
@@ -9518,6 +9766,10 @@
       "subjects": [],
       "locations": []
     },
-    "imageRatio": 0.995
+    "imageRatio": 1.004,
+    "printFile": {
+      "scan": "63.jpg",
+      "pixels": "4553x4535"
+    }
   }
 ]

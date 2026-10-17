@@ -12,7 +12,7 @@ last one stopped, so you never post the same picture twice.
     python data/data_processing_scripts/pinterest_csv.py --mark-posted pinterest_2026-10-12.csv
 
 Pins come from public artworks with an English title and a real photo of the
-artwork. Works from SKIP_YEARS (2026: no high-res digital files yet) are left out.
+artwork. Works from SKIP_YEARS are left out (empty now that the 2026 scans are in).
 "In a room" mockups are only added with --with-mockups.
 
 Workflow (about 10 minutes a month):
@@ -33,7 +33,7 @@ SITE = "https://xiaoranart.com"
 ARTWORKS_JSON = "data/artworks.json"
 LOG_JSON = "data/pinterest_log.json"
 ARTIST = "Yuan Chih-Jin"   # official English name (passport) - never another spelling
-SKIP_YEARS = {"2026"}      # no high-res digital files yet; remove once they're in
+SKIP_YEARS = set()         # e.g. {"2027"} to hold back a year until its photos are ready
 # Publish times in UTC, one per pin per day (--per-day picks the first N)
 POST_HOURS_UTC = [1, 14, 18]   # 9pm / 10am / 2pm New York
 
