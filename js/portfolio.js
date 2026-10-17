@@ -496,6 +496,9 @@ class ChineseArtPortfolio {
             const subject = this.t('connect.subject.' + el.dataset.topic);
             el.href = 'mailto:info@xiaoranart.com?subject=' + encodeURIComponent(subject);
         });
+        // English visitors see Pinterest (English-friendly) first; Chinese visitors, Facebook
+        const pin = document.querySelector('#connect [data-social="pinterest"]');
+        if (pin) pin.style.order = this.currentLanguage === 'en' ? '-1' : '';
         // Social cards without a link yet stay hidden
         document.querySelectorAll('#connect .contact-social-card').forEach(el => {
             el.hidden = !el.getAttribute('href');

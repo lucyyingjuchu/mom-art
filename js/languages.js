@@ -227,8 +227,8 @@ const LANGUAGE_DATA = {
             printsLink: "See the FAQ",
             followTitle: "Follow the studio",
             facebookTitle: "Facebook",
-            facebookDesc: "New works, exhibitions and guided tours",
-            instagramDesc: "Works and studio life",
+            facebookDesc: "Studio news and exhibitions (in Chinese)",
+            instagramDesc: "Works and studio life (in Chinese)",
             pinterestDesc: "Artwork collections and ideas for your walls",
             locationText: "Studio in Taichung, Taiwan"
         },
