@@ -671,20 +671,12 @@ class ChineseArtPortfolio {
         const imageCount = artworksWithImages.length;
         const totalCount = filteredArtworks.length;
 
-        // Update results counter with image statistics
+        // Quiet count under the tabs
         const resultsInfo = document.getElementById('resultsInfo');
         if (resultsInfo) {
-            if (activeFilterCount > 0) {
-                resultsInfo.textContent = this.t('filters.showingFiltered', {
-                    count: totalCount,
-                    total: this.artworks.length,
-                    filters: activeFilterCount
-                }) + ` (${imageCount} ${this.t('gallery.withImages')})`;
-            } else {
-                resultsInfo.textContent = this.t('filters.showingAll', {
-                    total: totalCount
-                }) + ` (${imageCount} ${this.t('gallery.withImages')})`;
-            }
+            resultsInfo.textContent = this.currentLanguage === 'zh'
+                ? `${imageCount} 件作品`
+                : `${imageCount} ${imageCount === 1 ? 'work' : 'works'}`;
         }
 
         // Render artwork cards, grouped by year and series
@@ -787,9 +779,21 @@ class ChineseArtPortfolio {
             const heightFor = row => (width - gap * (row.length - 1)) / row.reduce((s, el) => s + box(el), 0);
             // Vertical paintings get taller rows: the target grows as the row's paintings
             // get narrower (up to 2x), so scrolls show ~2 per row on a phone
+            // Size class (see artworkSizeClass) keeps small pieces out of rows with larger works.
+            const sizeClass = el => el.dataset.size || 'M';
+            // Continuous scale: on-screen area grows with the square root of the painting's
+            // real area, so on-screen width/height grow with the square root of its real
+            // size. A 504 cm painting vs a 35 cm one: 14x apart on the wall, ~4x on screen.
+            // Calibrated so a standard 4-chi work (68 x 136 cm) is 2 rows tall upright, 1 row lying.
+            const REF_CM = 96;   // sqrt(68 * 136)
+            const naturalH = el => {
+                const cm = parseFloat(el.dataset.cm) || REF_CM;
+                return target * Math.sqrt(2 * cm / (REF_CM * box(el)));
+            };
+            const maxH = Math.max(target, window.innerHeight * 0.8);   // a painting fits on screen
             const targetFor = row => {
-                const avg = row.reduce((s, el) => s + box(el), 0) / row.length;
-                return target * Math.min(2, Math.max(1, 1 / avg));
+                const logMean = row.reduce((sum, el) => sum + Math.log(naturalH(el)), 0) / row.length;
+                return Math.min(Math.exp(logMean), maxH);
             };
             const miss = row => Math.abs(Math.log(heightFor(row) / targetFor(row)));
 
@@ -823,9 +827,50 @@ class ChineseArtPortfolio {
             // vertical one would be squeezed to the height of the wide one). Each kind is
             // fitted separately, then rows are interleaved by their first painting's place
             // in the gallery order, so newest-first and series grouping still hold.
+            // Small pieces don't share a row with larger works either, or they would be
+            // blown up to the larger work's height.
             const isVertical = el => box(el) < 0.9;
-            const rows = [...fitRows(items.filter(isVertical)), ...fitRows(items.filter(el => !isVertical(el)))]
+            const kinds = new Map();
+            for (const el of items) {
+                // large and medium works may share a row; small pieces keep to themselves
+                const k = (isVertical(el) ? 'v' : 'h') + (sizeClass(el) === 'S' ? 'S' : 'LM');
+                if (!kinds.has(k)) kinds.set(k, []);
+                kinds.get(k).push(el);
+            }
+            // A lone small piece shares a row with the small pieces of the other shape
+            // (never with larger works, which would blow it up)
+            const vS = kinds.get('vS') || [], hS = kinds.get('hS') || [];
+            if ((vS.length === 1 || hS.length === 1) && vS.length + hS.length > 1) {
+                kinds.delete('vS'); kinds.delete('hS');
+                kinds.set('S', [...vS, ...hS].sort((a, b) => a.dataset.idx - b.dataset.idx));
+            }
+            const rows = [...kinds.values()].flatMap(list => fitRows(list))
                 .sort((a, b) => a.items[0].dataset.idx - b.items[0].dataset.idx);
+            // Tidy-up: a row holding a single painting that fills less than half the width
+            // joins the neighbouring row (the previous one if possible), unless that would
+            // put a small piece next to a large work.
+            const rowWidth = r => r.items.reduce((sum, el) => sum + box(el) * r.h, 0);
+            const canShare = list => !(list.some(el => sizeClass(el) === 'S') && list.some(el => sizeClass(el) === 'L'));
+            // Second pass: a lone small piece whose only neighbours are large works joins
+            // them anyway (the continuous scale puts that row between the two sizes).
+            for (const strict of [true, false]) {
+                for (let i = 0; i < rows.length; i++) {
+                    const r = rows[i];
+                    if (r.items.length !== 1 || rowWidth(r) >= width * 0.5) continue;
+                    // a large work alone is a deliberate feature; only small pieces go looking
+                    if (!strict && sizeClass(r.items[0]) === 'L') continue;
+                    for (const j of [i - 1, i + 1]) {
+                        const other = rows[j];
+                        if (!other) continue;
+                        const both = j < i ? [...other.items, ...r.items] : [...r.items, ...other.items];
+                        if (strict && !canShare(both)) continue;
+                        const h = Math.min(heightFor(both), targetFor(both));
+                        rows.splice(Math.min(i, j), 2, { items: both, h });
+                        i = Math.max(-1, Math.min(i, j) - 1);   // re-check from the merged row
+                        break;
+                    }
+                }
+            }
             for (const { items: row, h } of rows) {
                 for (const el of row) {
                     el.style.flex = `0 0 ${Math.floor(box(el) * h * 100) / 100}px`;
@@ -856,6 +901,23 @@ class ChineseArtPortfolio {
         return r > 0 ? r : 1;
     }
 
+    // Side of a square with the painting's area, in cm (0 if unknown)
+    artworkScaleCm(artwork) {
+        const h = parseFloat(artwork.heightCm), w = parseFloat(artwork.widthCm);
+        return h > 0 && w > 0 ? Math.round(Math.sqrt(h * w)) : 0;
+    }
+
+    // The painting's physical size class: 'L' large, 'M' medium, 'S' small, '' unknown.
+    // Large = longest side 175 cm+, or as much area as a 115 cm square (big near-square works);
+    // small = longest side under 90 cm. The gallery shows big originals bigger.
+    artworkSizeClass(artwork) {
+        const h = parseFloat(artwork.heightCm), w = parseFloat(artwork.widthCm);
+        if (!(h > 0 && w > 0)) return '';
+        const longest = Math.max(h, w);
+        if (longest >= 175 || Math.sqrt(h * w) >= 115) return 'L';
+        return longest < 90 ? 'S' : 'M';
+    }
+
     // Create artwork card HTML - the whole painting, never cropped
     createArtworkCard(artwork, idx = 0) {
         const title = this.getText(artwork, 'title') || this.t('common.untitled');
@@ -867,7 +929,7 @@ class ChineseArtPortfolio {
         const ratio = this.artworkRatio(artwork).toFixed(3);
 
         return `
-            <div class="gallery-item" data-idx="${idx}" style="--r:${ratio}" onclick="openLightbox('${artwork.id}', 'gallery')" data-artwork-id="${artwork.id}">
+            <div class="gallery-item" data-idx="${idx}" data-size="${this.artworkSizeClass(artwork)}" data-cm="${this.artworkScaleCm(artwork)}" style="--r:${ratio}" onclick="openLightbox('${artwork.id}', 'gallery')" data-artwork-id="${artwork.id}">
                 <div class="gallery-item-image">
                     <img src="${imageUrl}" alt="${title}" loading="lazy"
                          onload="const r=this.naturalWidth/this.naturalHeight; if (r && Math.abs(r-${ratio})>0.02) portfolio.galleryRatioChanged(this, r)"
@@ -885,44 +947,42 @@ class ChineseArtPortfolio {
     }
 
 
-    // UPDATED: Generate dynamic filter menu using CategoryManager
+    // Gallery series tabs: one quiet row, like an artist's catalogue.
+    // Each tab maps to one or more subject categories in category-config.json.
+    getGalleryTabs() {
+        return [
+            { key: 'all',         zh: '全部', en: 'All',             subjects: [] },
+            { key: 'landscape',   zh: '山水', en: 'Landscapes',      subjects: ['landscape', 'waterfall', 'flowingclouds'] },
+            { key: 'flowers',     zh: '花鳥', en: 'Flowers & Birds', subjects: ['flowers', 'bamboo'] },
+            { key: 'moon',        zh: '月光', en: 'Moonlight',       subjects: ['moon'] },
+            { key: 'abstract',    zh: '抽象', en: 'Abstract',        subjects: ['abstract'] },
+            { key: 'calligraphy', zh: '書法', en: 'Calligraphy',     subjects: ['calligraphy'] }
+        ];
+    }
+
     generateFilterMenu() {
-        const stats = this.filterStats;
-        
+        const zh = this.currentLanguage === 'zh';
+        const current = this.galleryTab || 'all';
+        const tabs = this.getGalleryTabs().filter(tab => tab.key === 'all' ||
+            this.getMultiFilteredArtworks({ subject: tab.subjects }, this.artworks).length > 0);
         return `
-            <div class="filter-container">
-                <!-- Phone only: filters fold away behind this button -->
-                <button type="button" class="filter-toggle" onclick="this.parentElement.classList.toggle('open')">
-                    ${this.currentLanguage === 'zh' ? '篩選與搜尋' : 'Filter & search'}
-                </button>
-                <div class="filter-menu">
-                    ${categoryManager.generateFilterHTML(stats, this.currentLanguage)}
-
-                    <!-- Clear Filters Button -->
-                    <div class="filter-section">
-                        <div class="secondary-filters">
-                            <button class="filter-btn clear-all-btn" onclick="portfolio.clearAllFilters()">
-                                ${this.t('filters.clearAll')}
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Search and Sort -->
-                    <div class="search-sort-container">
-                        <div class="search-box">
-                            <span class="search-icon">🔍</span>
-                            <input type="text" placeholder="${this.t('filters.searchPlaceholder')}" id="searchInput">
-                        </div>
-                        <select class="sort-dropdown" id="sortSelect">
-                            <option value="newest">Newest First</option>
-                            <option value="oldest">Oldest First</option>
-                            <option value="title">By Title</option>
-                            <option value="size">By Size</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
+            <nav class="gallery-tabs" aria-label="${zh ? '作品系列' : 'Series'}">
+                ${tabs.map(tab => `<button type="button" class="gallery-tab${tab.key === current ? ' active' : ''}"
+                    data-tab="${tab.key}" aria-pressed="${tab.key === current}">${zh ? tab.zh : tab.en}</button>`).join('')}
+            </nav>
         `;
+    }
+
+    setGalleryTab(key) {
+        const tab = this.getGalleryTabs().find(t => t.key === key) || this.getGalleryTabs()[0];
+        this.galleryTab = tab.key;
+        this.activeFilters = { subject: [...tab.subjects], location: [], availability: [] };
+        document.querySelectorAll('.gallery-tab').forEach(btn => {
+            const on = btn.dataset.tab === tab.key;
+            btn.classList.toggle('active', on);
+            btn.setAttribute('aria-pressed', on);
+        });
+        this.renderGallery();
     }
 
     // UPDATED: Use CategoryManager for labels (integrated with LANGUAGE_DATA)
@@ -976,30 +1036,11 @@ class ChineseArtPortfolio {
         }
     }
 
-    // Setup multi-select filter event listeners
+    // Series tab listeners
     setupFilterListeners() {
-        // Multi-select filter buttons
-        document.querySelectorAll('.filter-btn:not(.clear-all-btn), .secondary-filter-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const filterType = e.target.dataset.filterType;
-                const filterValue = e.target.dataset.filterValue;
-                
-                if (filterType && filterValue) {
-                    this.toggleFilter(filterType, filterValue);
-                }
-            });
+        document.querySelectorAll('.gallery-tab').forEach(btn => {
+            btn.addEventListener('click', () => this.setGalleryTab(btn.dataset.tab));
         });
-
-        // ADD THIS: Setup search event listener
-        const searchInput = document.getElementById('searchInput');
-        if (searchInput) {
-            searchInput.addEventListener('input', (e) => {
-                this.performSearch(e.target.value);
-            });
-            console.log('✅ Search event listener attached to input');
-        } else {
-            console.warn('⚠️ Search input not found when setting up listeners');
-        }
     }
     
     // Render featured works on home page with museum-quality presentation

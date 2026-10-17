@@ -21,6 +21,25 @@
       "showOnAbout": false
     },
     {
+      "youtubeId": "UK1MugAjevE",
+      "date": "2026-09",
+      "outlet": {
+        "zh": "國立彰化生活美學館",
+        "en": "National Changhua Living Art Center"
+      },
+      "title": {
+        "zh": "《天地有大美》2026 袁之靜水墨創作展 台語短片",
+        "en": "“The Great Beauty of Heaven and Earth” — Short Film (in Taiwanese)"
+      },
+      "summary": {
+        "zh": "美學館製作的台語介紹短片。",
+        "en": "A short introduction produced by the museum, narrated in Taiwanese."
+      },
+      "captionsEn": "",
+      "dubbedYoutubeIdEn": "",
+      "showOnAbout": false
+    },
+    {
       "youtubeId": "JKPb-KwMohY",
       "date": "2026-08-29",
       "outlet": {
@@ -53,6 +72,44 @@
       "summary": {
         "zh": "2026 袁之靜水墨創作展在國立彰化生活美學館開幕，展出山水、月亮、帆船、抽象、花鳥五大系列。",
         "en": "The 2026 exhibition opens in Changhua with five series: landscapes, moons, sailboats, abstraction, and flowers and birds."
+      },
+      "captionsEn": "",
+      "dubbedYoutubeIdEn": "",
+      "showOnAbout": false
+    },
+    {
+      "youtubeId": "VaKUyVd9BXI",
+      "date": "2026-08-27",
+      "outlet": {
+        "zh": "公益頻道",
+        "en": "Public Service Channel"
+      },
+      "title": {
+        "zh": "《天地有大美》2026 袁之靜水墨創作展",
+        "en": "“The Great Beauty of Heaven and Earth” 2026 Exhibition"
+      },
+      "summary": {
+        "zh": "展覽介紹：63 件首度公開作品，五大系列。",
+        "en": "An introduction to the 63 new works and five series."
+      },
+      "captionsEn": "",
+      "dubbedYoutubeIdEn": "",
+      "showOnAbout": false
+    },
+    {
+      "youtubeId": "KQQfTD0ueNE",
+      "date": "2024-04",
+      "outlet": {
+        "zh": "臺中市葫蘆墩文化中心",
+        "en": "Taichung Huludun Cultural Center"
+      },
+      "title": {
+        "zh": "第14屆臺中市美術家接力展【天地有大美】袁之靜水墨展 展場紀錄片",
+        "en": "14th Taichung Artists Relay — Exhibition and Opening Film"
+      },
+      "summary": {
+        "zh": "2024 葫蘆墩文化中心佈展與開幕紀錄。",
+        "en": "Installation and opening of the 2024 Huludun exhibition."
       },
       "captionsEn": "",
       "dubbedYoutubeIdEn": "",
@@ -128,6 +185,18 @@
       "url": "https://www.tristarnews.com.tw/news_ii.html?ID=38531"
     },
     {
+      "date": "2026-10",
+      "outlet": {
+        "zh": "城市廣播",
+        "en": "City FM"
+      },
+      "title": {
+        "zh": "「天地有大美」袁之靜水墨展深度對談 從自然觀照到心象創作探索當代水墨",
+        "en": "In Conversation: From Observing Nature to Painting the Inner Landscape"
+      },
+      "url": "https://cityfm.tw/Client/P01.aspx?AC=K1510754138593000000&AK=P2624252697145000000&C2=Single&MenuItem=I1513874547038000000"
+    },
+    {
       "date": "2026-09-07",
       "outlet": {
         "zh": "京海傳媒",
@@ -138,6 +207,18 @@
         "en": "Ink that Writes Heaven and Earth: 63 New Works by Yuan Chih-Jin on View"
       },
       "url": "https://www.jinghaimedia.com/archives/62766"
+    },
+    {
+      "date": "2026-08-31",
+      "outlet": {
+        "zh": "PeoPo 公民新聞",
+        "en": "PeoPo Citizen News"
+      },
+      "title": {
+        "zh": "傳統水墨遇上AI創新，袁之靜《天地有大美》展現穿越古今的藝術驚嘆",
+        "en": "Traditional Ink Meets Innovation: “The Great Beauty of Heaven and Earth” Spans Past and Present"
+      },
+      "url": "https://www.peopo.org/news/856531"
     },
     {
       "date": "2026-08-29",
@@ -200,6 +281,18 @@
       "url": "https://taiwanreports.com/archives/1008910"
     },
     {
+      "date": "2026-08-01",
+      "outlet": {
+        "zh": "非池中藝術網",
+        "en": "Art Emperor"
+      },
+      "title": {
+        "zh": "義大利威尼斯亞布里奇宮：2026 威尼斯雙年展衛星展－臺灣當代水墨書畫界藝術盛宴",
+        "en": "Palazzo Albrizzi-Capello, Venice: 2026 Venice Biennale Satellite Exhibition of Contemporary Taiwanese Ink and Calligraphy"
+      },
+      "url": "https://artemperor.tw/tidbits/20178"
+    },
+    {
       "date": "2026-06-04",
       "outlet": {
         "zh": "睿傳媒",
@@ -234,6 +327,18 @@
         "en": "“Heritage of Central Taiwan · The Great Beauty of Heaven and Earth” — Touring Exhibition II Opens May 16, 2024"
       },
       "url": "https://tw.news.yahoo.com/%E8%96%AA%E5%82%B3%E4%B8%AD%E8%87%BA-%E5%A4%A9%E5%9C%B0%E5%A4%A7%E7%BE%8E-2024-%E8%A2%81%E4%B9%8B%E9%9D%9C%E5%A4%A9%E5%9C%B0%E6%9C%89%E5%A4%A7%E7%BE%8E%E7%B3%BB%E5%88%97%E5%B7%A1%E8%BF%B4%E5%B1%95%E4%BA%8C-%E4%BB%8A5-123451183.html"
+    },
+    {
+      "date": "2024-04-04",
+      "outlet": {
+        "zh": "焦點傳媒（蕃新聞）",
+        "en": "News586"
+      },
+      "title": {
+        "zh": "美術家接力展藝術家袁之靜 水墨重彩營造阿凡達般的山川幻境",
+        "en": "Taichung Artists Relay: Yuan Chi-Jing's Rich Ink and Color Create Avatar-like Dreamscapes"
+      },
+      "url": "https://n.yam.com/Article/20240404953985"
     }
   ]
 }
