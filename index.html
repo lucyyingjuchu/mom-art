@@ -2,24 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- All relative paths (./css, ./data, ./images) resolve from the site root,
+         so they work on both / and /zh/ (the address bar switches between them) -->
+    <base href="/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>袁之靜（曉然）Yuan Chih-Jin | 國畫・書法 Chinese Ink Painting & Calligraphy</title>
+    <!-- ===== Language & SEO block =====
+         This file is the ENGLISH page (https://xiaoranart.com/).
+         The Chinese page /zh/ is generated from it at deploy time by scripts/build-zh.js,
+         which swaps in the Chinese title/description/etc. Change Chinese SEO text there. ===== -->
+    <title>Yuan Chih-Jin (Xiaoran) | Chinese Ink Painting &amp; Calligraphy</title>
     <link rel="icon" type="image/x-icon" href="./images/logo/text_white/favicon.ico">
-
-    <!-- ===== SEO: help Google connect 袁之靜 / 曉然 / Yuan Chih-Jin to this site ===== -->
-    <meta name="description" content="袁之靜（號曉然）官方網站：台中水墨畫家、書法家，四十餘年詩書畫印創作。Official site of Yuan Chih-Jin (Xiaoran), Taiwanese ink painter and calligrapher — original paintings, calligraphy and fine art prints.">
+    <meta name="description" content="Official site of Yuan Chih-Jin (Xiaoran 袁之靜), Taiwanese ink painter and calligrapher. Original paintings, calligraphy and fine art prints.">
     <meta name="author" content="袁之靜 Yuan Chih-Jin">
     <link rel="canonical" href="https://xiaoranart.com/">
 
+    <!-- Tell Google the two language versions are translations of each other -->
+    <link rel="alternate" hreflang="en" href="https://xiaoranart.com/">
+    <link rel="alternate" hreflang="zh" href="https://xiaoranart.com/zh/">
+    <link rel="alternate" hreflang="x-default" href="https://xiaoranart.com/">
+
     <!-- Link previews on Facebook / LINE / Pinterest / iMessage -->
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="曉然文化藝術 Xiaoran Cultural Arts">
-    <meta property="og:title" content="袁之靜（曉然）Yuan Chih-Jin — 國畫・書法 Ink Painting & Calligraphy">
-    <meta property="og:description" content="袁之靜（號曉然）官方網站｜Official site of Taiwanese ink painter and calligrapher Yuan Chih-Jin (Xiaoran).">
+    <meta property="og:site_name" content="Xiaoran Cultural Arts">
+    <meta property="og:title" content="Yuan Chih-Jin (Xiaoran) | Chinese Ink Painting &amp; Calligraphy">
+    <meta property="og:description" content="Official site of Taiwanese ink painter and calligrapher Yuan Chih-Jin (Xiaoran).">
     <meta property="og:url" content="https://xiaoranart.com/">
     <meta property="og:image" content="https://xiaoranart.com/images/artist/portrait.jpg">
-    <meta property="og:locale" content="zh_TW">
-    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="zh_TW">
     <meta name="twitter:card" content="summary_large_image">
 
     <!-- Structured data: tells Google these names and profiles are one person -->
@@ -31,7 +41,7 @@
           "@type": "Person",
           "@id": "https://xiaoranart.com/#artist",
           "name": "袁之靜",
-          "alternateName": ["曉然", "袁之静", "Yuan Chih-Jin", "Xiaoran", "Yuan Chi-Jing"],
+          "alternateName": ["曉然", "袁之静", "Yuan Chih-Jin", "Xiaoran"],
           "url": "https://xiaoranart.com/",
           "image": "https://xiaoranart.com/images/artist/portrait.jpg",
           "jobTitle": ["水墨畫家", "書法家", "Ink painter", "Calligrapher"],
@@ -1263,7 +1273,7 @@
                 onerror="this.style.display='none'">
             <div class="title-text">
                 <!-- Text here is what Google sees before JavaScript runs; JS replaces it per language -->
-                <h1 class="logo">袁之靜 - 曉然文化藝術</h1>
+                <h1 class="logo">Xiaoran Cultural Arts</h1>
                 <div class="subtitle"><!-- Will be filled by JavaScript --></div>
             </div>
         </div>

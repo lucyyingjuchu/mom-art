@@ -1,8 +1,21 @@
 [build]
   functions = "functions"
+  # Generates the Chinese page /zh/index.html from index.html (see scripts/build-zh.js)
+  command = "node scripts/build-zh.js"
 
 [build.environment]
   SECRETS_SCAN_OMIT_PATHS = "js/contact-form.js"
+
+# ---- Language: Chinese-language browsers (zh-TW, zh-CN, zh-HK…) go to /zh/ ----
+# Others stay on the English home page. The nf_lang cookie (set by the 中/En
+# button in js/portfolio.js) overrides the browser language on later visits.
+# Query strings such as ?artwork=12 are carried over automatically.
+[[redirects]]
+  from = "/"
+  to = "/zh/"
+  status = 302
+  force = true
+  conditions = {Language = ["zh"]}
 
 # ---- Keep working files off the public website ----
 [[redirects]]
@@ -25,6 +38,12 @@
 
 [[redirects]]
   from = "/functions/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/scripts/*"
   to = "/404.html"
   status = 404
   force = true
