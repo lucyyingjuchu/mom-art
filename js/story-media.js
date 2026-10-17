@@ -13,6 +13,7 @@
     let cvData = null;
     let historyFilter = 'all';
     let newsLimit = 6;
+    let videoLimit = 6;
     const captionCache = {};
     const players = [];
 
@@ -175,7 +176,8 @@
             ${videos.length ? `
             <section class="news-block">
                 <h3>${esc(t('exhibitionsPage.videosTitle'))}</h3>
-                <div class="press-videos">${videos.map(videoCardHTML).join('')}</div>
+                <div class="press-videos">${videos.slice(0, videoLimit).map(videoCardHTML).join('')}</div>
+                ${videos.length > videoLimit ? `<div class="news-actions"><button class="news-more-btn" data-action="more-videos">${esc(t('exhibitionsPage.showMore'))}</button></div>` : ''}
             </section>` : ''}
 
             <section class="news-block" id="exhibitionHistory">
@@ -199,6 +201,8 @@
         }));
         const more = box.querySelector('[data-action="more"]');
         if (more) more.addEventListener('click', () => { newsLimit += 10; renderNewsPage(); });
+        const moreVideos = box.querySelector('[data-action="more-videos"]');
+        if (moreVideos) moreVideos.addEventListener('click', () => { videoLimit += 6; renderNewsPage(); });
         bindVideos(box, videos);
     }
 

@@ -2,6 +2,25 @@
   "_howTo": "Newest first. A video needs youtubeId. For English: add captionsEn (a file in data/captions/) for synced English subtitles, or dubbedYoutubeIdEn for an English-dubbed upload — the English page then plays that version instead. showOnAbout: true puts the video on the About page too.",
   "videos": [
     {
+      "youtubeId": "KJk9B8HN8ck",
+      "date": "2026-10-14",
+      "outlet": {
+        "zh": "凱擘大彰化新聞",
+        "en": "Kbro Changhua News"
+      },
+      "title": {
+        "zh": "深度對話：探討水墨藝術的延續與轉化",
+        "en": "In Conversation: Continuity and Transformation in Ink Painting"
+      },
+      "summary": {
+        "zh": "袁之靜與國美館館長陳貺怡在彰化生活美學館對談水墨的發展與未來。",
+        "en": "The artist and NTMoFA Director Chen Kuang-yi discuss where ink painting is heading."
+      },
+      "captionsEn": "",
+      "dubbedYoutubeIdEn": "",
+      "showOnAbout": false
+    },
+    {
       "youtubeId": "RnF0Bhpt3MU",
       "date": "2026-10-08",
       "outlet": {
@@ -21,19 +40,95 @@
       "showOnAbout": false
     },
     {
-      "youtubeId": "UK1MugAjevE",
-      "date": "2026-09",
+      "youtubeId": "kN_ExLGParQ",
+      "date": "2026-10-08",
       "outlet": {
-        "zh": "國立彰化生活美學館",
-        "en": "National Changhua Living Art Center"
+        "zh": "互傳媒新聞",
+        "en": "HOO Media"
       },
       "title": {
-        "zh": "《天地有大美》2026 袁之靜水墨創作展 台語短片",
-        "en": "“The Great Beauty of Heaven and Earth” — Short Film (in Taiwanese)"
+        "zh": "《天地有大美》對談：與國美館館長談水墨傳承與轉化",
+        "en": "“The Great Beauty of Heaven and Earth” — Conversation with the NTMoFA Director"
       },
       "summary": {
-        "zh": "美學館製作的台語介紹短片。",
-        "en": "A short introduction produced by the museum, narrated in Taiwanese."
+        "zh": "「天地之美，心源之境」對談活動報導。",
+        "en": "Coverage of the public conversation on tradition and transformation in ink painting."
+      },
+      "captionsEn": "",
+      "dubbedYoutubeIdEn": "",
+      "showOnAbout": false
+    },
+    {
+      "youtubeId": "cs7dwYW3qqI",
+      "date": "2026-09-02",
+      "outlet": {
+        "zh": "凱擘大彰化新聞",
+        "en": "Kbro Changhua News"
+      },
+      "title": {
+        "zh": "《天地有大美》袁之靜個展 分享 63 件水墨新作",
+        "en": "“The Great Beauty of Heaven and Earth”: 63 New Ink Works"
+      },
+      "summary": {
+        "zh": "63 件首次公開的作品，涵蓋山水、月亮、帆船、抽象、花鳥五大系列。",
+        "en": "63 works shown for the first time, across landscapes, moons, sailboats, abstraction, and flowers and birds."
+      },
+      "captionsEn": "",
+      "dubbedYoutubeIdEn": "",
+      "showOnAbout": false
+    },
+    {
+      "youtubeId": "1SjftG-zFsI",
+      "date": "2026-08-31",
+      "outlet": {
+        "zh": "暢NEWS",
+        "en": "Song News"
+      },
+      "title": {
+        "zh": "袁之靜水墨寫人生：五大系列展現「由景入心」",
+        "en": "Ink as a Life: Five Series, “From Scenery to the Heart”"
+      },
+      "summary": {
+        "zh": "從山川、月色、港灣到花鳥，近年從具象走向抽象。",
+        "en": "From mountains, moonlight and harbors to flowers and birds — and a recent turn from representation toward abstraction."
+      },
+      "captionsEn": "",
+      "dubbedYoutubeIdEn": "",
+      "showOnAbout": false
+    },
+    {
+      "youtubeId": "Pz8oONQyaYU",
+      "date": "2026-08-31",
+      "outlet": {
+        "zh": "公民報導",
+        "en": "Citizen Report"
+      },
+      "title": {
+        "zh": "《天地有大美》水墨展：63 件作品看見當代新美學",
+        "en": "“The Great Beauty of Heaven and Earth”: Contemporary Ink in 63 Works"
+      },
+      "summary": {
+        "zh": "以幾何構圖與抽象思維融入水墨，呈現傳統水墨的新面貌。",
+        "en": "Geometric composition and abstraction brought into ink painting."
+      },
+      "captionsEn": "",
+      "dubbedYoutubeIdEn": "",
+      "showOnAbout": false
+    },
+    {
+      "youtubeId": "6Vi6_7UXSQU",
+      "date": "2026-08-30",
+      "outlet": {
+        "zh": "儲經宇",
+        "en": "Chu Ching-yu"
+      },
+      "title": {
+        "zh": "「天地有大美」袁之靜 40 年水墨創作 彰化生活美學館展出",
+        "en": "“The Great Beauty of Heaven and Earth” — Forty Years of Ink at the Changhua Living Art Center"
+      },
+      "summary": {
+        "zh": "展場與開幕紀錄。",
+        "en": "A record of the exhibition and its opening."
       },
       "captionsEn": "",
       "dubbedYoutubeIdEn": "",
@@ -53,6 +148,25 @@
       "summary": {
         "zh": "開幕當天，談「詩中有畫，畫中有詩」與「筆墨寫天地，詩心寫人生」的創作理念。",
         "en": "At the opening, the artist speaks about her guiding ideas — “a painting within the poem, a poem within the painting” and “ink to write heaven and earth, a poet's heart to write life.”"
+      },
+      "captionsEn": "",
+      "dubbedYoutubeIdEn": "",
+      "showOnAbout": false
+    },
+    {
+      "youtubeId": "UK1MugAjevE",
+      "date": "2026-08-28",
+      "outlet": {
+        "zh": "國立彰化生活美學館",
+        "en": "National Changhua Living Art Center"
+      },
+      "title": {
+        "zh": "《天地有大美》2026 袁之靜水墨創作展 台語短片",
+        "en": "“The Great Beauty of Heaven and Earth” — Short Film (in Taiwanese)"
+      },
+      "summary": {
+        "zh": "美學館製作的台語介紹短片。",
+        "en": "A short introduction produced by the museum, narrated in Taiwanese."
       },
       "captionsEn": "",
       "dubbedYoutubeIdEn": "",
@@ -116,8 +230,198 @@
       "showOnAbout": false
     },
     {
+      "youtubeId": "SZw-ZzSErM0",
+      "date": "2026-08-27",
+      "outlet": {
+        "zh": "觀傳媒",
+        "en": "Watch Media"
+      },
+      "title": {
+        "zh": "63 件水墨新作首展：《天地有大美》登場",
+        "en": "“The Great Beauty of Heaven and Earth” Opens with 63 New Works"
+      },
+      "summary": {
+        "zh": "彰化生活美學館開展報導。",
+        "en": "Opening coverage from the Changhua Living Art Center."
+      },
+      "captionsEn": "",
+      "dubbedYoutubeIdEn": "",
+      "showOnAbout": false
+    },
+    {
+      "youtubeId": "YZ3aWgP8kHM",
+      "date": "2026-08-27",
+      "outlet": {
+        "zh": "國立彰化生活美學館",
+        "en": "National Changhua Living Art Center"
+      },
+      "title": {
+        "zh": "《天地有大美》2026 袁之靜水墨創作展 短片",
+        "en": "“The Great Beauty of Heaven and Earth” — Short Film"
+      },
+      "summary": {
+        "zh": "美學館製作的華語介紹短片。",
+        "en": "A short introduction produced by the museum, in Mandarin."
+      },
+      "captionsEn": "",
+      "dubbedYoutubeIdEn": "",
+      "showOnAbout": false
+    },
+    {
+      "youtubeId": "fOU8fWLajK0",
+      "date": "2026-08-26",
+      "outlet": {
+        "zh": "互傳媒新聞",
+        "en": "HOO Media"
+      },
+      "title": {
+        "zh": "《天地有大美》彰化生活美學館開展：63 件水墨新作首度公開",
+        "en": "“The Great Beauty of Heaven and Earth” Opens at the Changhua Living Art Center"
+      },
+      "summary": {
+        "zh": "8/27–11/1 於第一、二展覽室展出五大系列。",
+        "en": "On view Aug 27 – Nov 1 in Galleries 1 and 2, in five series."
+      },
+      "captionsEn": "",
+      "dubbedYoutubeIdEn": "",
+      "showOnAbout": false
+    },
+    {
+      "youtubeId": "AOH9AjeLcFE",
+      "date": "2026-06-06",
+      "outlet": {
+        "zh": "蘇月燕",
+        "en": "Su Yueh-yen"
+      },
+      "title": {
+        "zh": "《山水相逢》袁之靜師生創作展（雲林）",
+        "en": "“Where Mountains Meet Water” — Teacher–Student Exhibition, Yunlin"
+      },
+      "summary": {
+        "zh": "開幕與展場完整紀錄。",
+        "en": "Full recording of the opening and the exhibition."
+      },
+      "captionsEn": "",
+      "dubbedYoutubeIdEn": "",
+      "showOnAbout": false
+    },
+    {
+      "youtubeId": "VDozo-eznRk",
+      "date": "2026-01-15",
+      "outlet": {
+        "zh": "儲經宇",
+        "en": "Chu Ching-yu"
+      },
+      "title": {
+        "zh": "《初心·出新》袁之靜師生書畫展（部立豐原醫院）",
+        "en": "“Original Heart, New Work” — Teacher–Student Exhibition, Fengyuan Hospital"
+      },
+      "summary": {
+        "zh": "展場紀錄。",
+        "en": "A record of the exhibition."
+      },
+      "captionsEn": "",
+      "dubbedYoutubeIdEn": "",
+      "showOnAbout": false
+    },
+    {
+      "youtubeId": "HwxwTweTKIc",
+      "date": "2025-08-28",
+      "outlet": {
+        "zh": "暢NEWS",
+        "en": "Song News"
+      },
+      "title": {
+        "zh": "《大塊噫氣》開展：袁之靜水墨新作展現文人心境",
+        "en": "“The Breath of the Great Earth” Opens"
+      },
+      "summary": {
+        "zh": "八方藝術節壓軸展，於國立台灣美術館以詩、書、畫、印交融呈現。",
+        "en": "The closing show of the Bafang Arts Festival at the National Taiwan Museum of Fine Arts, joining poetry, calligraphy, painting and seal carving."
+      },
+      "captionsEn": "",
+      "dubbedYoutubeIdEn": "",
+      "showOnAbout": false
+    },
+    {
+      "youtubeId": "cm872Xw1gB0",
+      "date": "2025-08-28",
+      "outlet": {
+        "zh": "台灣生活新聞",
+        "en": "Taiwan Daily Network"
+      },
+      "title": {
+        "zh": "《大塊噫氣》個展：詩書畫印交融創作",
+        "en": "“The Breath of the Great Earth”: Poetry, Calligraphy, Painting and Seal"
+      },
+      "summary": {
+        "zh": "談「師法自然」與四十年創作。",
+        "en": "On learning from nature and forty years of work."
+      },
+      "captionsEn": "",
+      "dubbedYoutubeIdEn": "",
+      "showOnAbout": false
+    },
+    {
+      "youtubeId": "5ZCaOST3jyI",
+      "date": "2025-05-28",
+      "outlet": {
+        "zh": "新唐人電視台",
+        "en": "NTD Television"
+      },
+      "title": {
+        "zh": "袁之靜水墨創作展在高雄：結合傳統展創意",
+        "en": "Ink Painting Exhibition in Kaohsiung"
+      },
+      "summary": {
+        "zh": "《澄懷·味象》高雄展覽報導。",
+        "en": "Coverage of the Kaohsiung exhibition."
+      },
+      "captionsEn": "",
+      "dubbedYoutubeIdEn": "",
+      "showOnAbout": false
+    },
+    {
+      "youtubeId": "r1zZLEYUZsM",
+      "date": "2024-04-21",
+      "outlet": {
+        "zh": "臺中市葫蘆墩文化中心",
+        "en": "Taichung Huludun Cultural Center"
+      },
+      "title": {
+        "zh": "美莫美於天地有大美：袁之靜水墨創作展",
+        "en": "“The Great Beauty of Heaven and Earth” (2024)"
+      },
+      "summary": {
+        "zh": "圖象、心象、抽象三大系列。",
+        "en": "Three series: image, mind-image, and abstraction."
+      },
+      "captionsEn": "",
+      "dubbedYoutubeIdEn": "",
+      "showOnAbout": false
+    },
+    {
+      "youtubeId": "ewA7_IqBlR8",
+      "date": "2024-04-16",
+      "outlet": {
+        "zh": "凱擘台中新聞",
+        "en": "Kbro Taichung News"
+      },
+      "title": {
+        "zh": "豐原區袁之靜水墨創作展：美莫美於天地有大美",
+        "en": "Huludun Exhibition: “The Great Beauty of Heaven and Earth”"
+      },
+      "summary": {
+        "zh": "臺中市美術家接力展，50 多幅作品在葫蘆墩文化中心展出。",
+        "en": "Taichung Artists Relay exhibition — over 50 works at the Huludun Cultural Center."
+      },
+      "captionsEn": "",
+      "dubbedYoutubeIdEn": "",
+      "showOnAbout": false
+    },
+    {
       "youtubeId": "KQQfTD0ueNE",
-      "date": "2024-04",
+      "date": "2024-04-11",
       "outlet": {
         "zh": "臺中市葫蘆墩文化中心",
         "en": "Taichung Huludun Cultural Center"
@@ -136,7 +440,7 @@
     },
     {
       "youtubeId": "aNMLWYIksjw",
-      "date": "2024",
+      "date": "2024-03-27",
       "outlet": {
         "zh": "第14屆臺中市美術家接力展",
         "en": "14th Taichung Artists Relay Exhibition"
@@ -152,6 +456,120 @@
       "captionsEn": "",
       "dubbedYoutubeIdEn": "",
       "showOnAbout": true
+    },
+    {
+      "youtubeId": "Pa1m_-W3s4Y",
+      "date": "2023-12-25",
+      "outlet": {
+        "zh": "暢NEWS",
+        "en": "Song News"
+      },
+      "title": {
+        "zh": "《靜觀自在》袁之靜 2023 水墨創作展 大墩開展",
+        "en": "“Quiet Contemplation” 2023 Exhibition Opens at Dadun"
+      },
+      "summary": {
+        "zh": "台中市大墩文化中心大墩藝廊三展出。",
+        "en": "At Dadun Gallery III, Taichung Dadun Cultural Center."
+      },
+      "captionsEn": "",
+      "dubbedYoutubeIdEn": "",
+      "showOnAbout": false
+    },
+    {
+      "youtubeId": "9v3GPIQz9D8",
+      "date": "2022-05-05",
+      "outlet": {
+        "zh": "臺中市葫蘆墩文化中心",
+        "en": "Taichung Huludun Cultural Center"
+      },
+      "title": {
+        "zh": "《妙法自然》袁之靜 2022 水墨創作展",
+        "en": "“Wondrous Way of Nature” 2022 Exhibition"
+      },
+      "summary": {
+        "zh": "山水與花鳥兩部分：雲煙、瀑布、紫藤、荷、菊、梅、竹。",
+        "en": "Landscapes and flowers-and-birds: mist, waterfalls, wisteria, lotus, chrysanthemum, plum and bamboo."
+      },
+      "captionsEn": "",
+      "dubbedYoutubeIdEn": "",
+      "showOnAbout": false
+    },
+    {
+      "youtubeId": "YsV6yBWRAXI",
+      "date": "2021-12-16",
+      "outlet": {
+        "zh": "林俊男",
+        "en": "Lin Chun-nan"
+      },
+      "title": {
+        "zh": "袁之靜解說作品〈冬瀑〉（大甲高工藝文展）",
+        "en": "The Artist on “Winter Falls” (Dajia Vocational High School)"
+      },
+      "summary": {
+        "zh": "藝術家親自解說作品〈冬瀑〉。",
+        "en": "The artist talks through her painting “Winter Falls.”"
+      },
+      "captionsEn": "",
+      "dubbedYoutubeIdEn": "",
+      "showOnAbout": false
+    },
+    {
+      "youtubeId": "vSmWEN2X-QQ",
+      "date": "2018-03-23",
+      "outlet": {
+        "zh": "台灣生活新聞",
+        "en": "Taiwan Daily Network"
+      },
+      "title": {
+        "zh": "《行雲流水》袁之靜水墨畫展",
+        "en": "“Drifting Clouds, Flowing Water” (2018)"
+      },
+      "summary": {
+        "zh": "大墩文化中心個展，以詩、書、畫、印呈現。",
+        "en": "Solo show at the Dadun Cultural Center joining poetry, calligraphy, painting and seal."
+      },
+      "captionsEn": "",
+      "dubbedYoutubeIdEn": "",
+      "showOnAbout": false
+    },
+    {
+      "youtubeId": "eLd-QhUxOAE",
+      "date": "2018-03-16",
+      "outlet": {
+        "zh": "ART TV TAIWAN",
+        "en": "ART TV TAIWAN"
+      },
+      "title": {
+        "zh": "《行雲流水》袁之靜水墨展 2018",
+        "en": "“Drifting Clouds, Flowing Water” 2018"
+      },
+      "summary": {
+        "zh": "3/17–4/8 台中市大墩文化中心大墩藝廊（三）。",
+        "en": "Mar 17 – Apr 8, Dadun Gallery III, Taichung Dadun Cultural Center."
+      },
+      "captionsEn": "",
+      "dubbedYoutubeIdEn": "",
+      "showOnAbout": false
+    },
+    {
+      "youtubeId": "1a4-cXJweog",
+      "date": "2017-12-20",
+      "outlet": {
+        "zh": "中臺藝文中心",
+        "en": "CTUST Art Center"
+      },
+      "title": {
+        "zh": "袁之靜作品〈合歡煙雲〉",
+        "en": "“Mist over Hehuan Mountain”"
+      },
+      "summary": {
+        "zh": "作品介紹。",
+        "en": "A look at the painting."
+      },
+      "captionsEn": "",
+      "dubbedYoutubeIdEn": "",
+      "showOnAbout": false
     }
   ],
   "articles": [
