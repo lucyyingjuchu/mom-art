@@ -10,7 +10,7 @@ const root = path.join(__dirname, '..');
 let html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 
 const SITE = 'https://xiaoranart.com';
-const TITLE = '袁之靜（曉然）｜國畫・書法官方網站';
+const TITLE = '袁之靜（曉然）｜水墨畫・書法官方網站';
 const DESC = '袁之靜（號曉然）官方網站：台中水墨畫家、書法家，四十餘年詩書畫印創作。原作與藝術微噴版畫。';
 
 // [pattern, replacement] — the build fails loudly if any pattern is missing,
