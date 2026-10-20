@@ -340,7 +340,7 @@ class ShoppingCart {
                     ${sizes.map((size, index) => `
                         <div class="size-option" data-size-index="${index}">
                             <div class="size-info">
-                                <div class="size-dimensions">${size.width_inches}" × ${size.height_inches}"</div>
+                                <div class="size-dimensions">${size.height_inches}" × ${size.width_inches}"</div>
                                 <div class="size-description">${this.getSizeDescription(size)}</div>
                             </div>
                             <div class="size-price">
@@ -445,7 +445,7 @@ class ShoppingCart {
                     ${rolled ? `<path class="sd-curl" d="M${x + w - c} ${y + h} L${x + w} ${y + h - c} Q${x + w - c * 0.35} ${y + h - c * 0.35} ${x + w - c} ${y + h} Z"/>
                                 <path class="sd-curl-back" d="M${x + w - c} ${y + h} L${x + w} ${y + h} L${x + w} ${y + h - c} Z"/>` : ''}
                     <rect class="sd-outline" x="${x - 2}" y="${y - 2}" width="${w + 4}" height="${h + 4}" rx="2"/>
-                    <text x="${x + w / 2}" y="${FLOOR + 16}" text-anchor="middle">${s.width_inches}×${s.height_inches}″</text>
+                    <text x="${x + w / 2}" y="${FLOOR + 16}" text-anchor="middle">${s.height_inches}×${s.width_inches}″</text>
                 </g>`;
             x += w + GAP;
             return g;
@@ -468,9 +468,9 @@ class ShoppingCart {
     getSizeDescription(size) {
         const zh = this.getCurrentLanguage() === 'zh';
         const cm = (w, h) => `${Math.round(w * 2.54)} × ${Math.round(h * 2.54)} ${zh ? '公分' : 'cm'}`;
-        const parts = [cm(size.width_inches, size.height_inches)];
+        const parts = [cm(size.height_inches, size.width_inches)];   // H × W, like the originals
         if (size.image_width_inches) {
-            parts.push(`${this.getText('shopping.imageSize')} ${cm(size.image_width_inches, size.image_height_inches)}`);
+            parts.push(`${this.getText('shopping.imageSize')} ${cm(size.image_height_inches, size.image_width_inches)}`);
         }
         if (size.style === 'mounted') parts.push(this.getText('shopping.styleMounted'));
         return parts.join(' · ');
@@ -608,7 +608,7 @@ class ShoppingCart {
             title: title,
             titleEn: titleEn,
             image: image,
-            size: `${size.width_inches}" × ${size.height_inches}"`,
+            size: `${size.height_inches}" × ${size.width_inches}"`,   // H × W
             price: price,
             quantity: quantity,
             sizeIndex: this.selectedSize,

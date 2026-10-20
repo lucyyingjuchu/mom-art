@@ -118,7 +118,7 @@ exports.handler = async (event) => {
                     currency: 'usd',
                     product_data: {
                         name: info.title_en ? `${info.title_en} ${info.title || ''}`.trim() : (info.title || 'Xiaoran Art Print'),
-                        description: `Giclée fine art print, ${w}" × ${h}" (${wCm} × ${hCm} cm), ${rolled ? 'rolled print (unmounted)' : 'mounted on board'}`,
+                        description: `Giclée fine art print, ${h}" × ${w}" (${hCm} × ${wCm} cm, H × W) on paper, with white border, ${rolled ? 'rolled in a tube (unmounted)' : 'mounted on board'}`,
                         images: api.public_thumbnail_uri ? [api.public_thumbnail_uri] : []
                     },
                     unit_amount: Math.round(price * 100)
