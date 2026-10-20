@@ -35,6 +35,50 @@ const SHIPPING_CODES = {
     'shr_1SB6Jt7iRKbAsUAgkz0FedRW': 'SD'   // International
 };
 
+// ---- Print files are private on S3 ------------------------------------------
+// The full-resolution scans in s3://xiaoran-raw-artworks are not public. Each
+// order gives Finerworks a signed link that works for 7 days (AWS Signature V4,
+// query-string form; no SDK needed). Netlify env vars, read-only key:
+//   S3_PRINT_ACCESS_KEY_ID, S3_PRINT_SECRET_ACCESS_KEY
+const crypto = require('crypto');
+const S3_REGION = 'us-east-1';
+
+function presignS3Url(url, { accessKeyId, secretAccessKey, region = S3_REGION, expires = 604800, now = new Date() }) {
+    const u = new URL(url);
+    const amzDate = now.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');   // YYYYMMDDTHHMMSSZ
+    const day = amzDate.slice(0, 8);
+    const scope = `${day}/${region}/s3/aws4_request`;
+    const enc = s => encodeURIComponent(s).replace(/[!'()*]/g, c => '%' + c.charCodeAt(0).toString(16).toUpperCase());
+    const params = {
+        'X-Amz-Algorithm': 'AWS4-HMAC-SHA256',
+        'X-Amz-Credential': `${accessKeyId}/${scope}`,
+        'X-Amz-Date': amzDate,
+        'X-Amz-Expires': String(expires),
+        'X-Amz-SignedHeaders': 'host'
+    };
+    const query = Object.keys(params).sort().map(k => `${enc(k)}=${enc(params[k])}`).join('&');
+    const path = u.pathname.split('/').map(seg => enc(decodeURIComponent(seg))).join('/');
+    const canonical = ['GET', path, query, `host:${u.host}\n`, 'host', 'UNSIGNED-PAYLOAD'].join('\n');
+    const toSign = ['AWS4-HMAC-SHA256', amzDate, scope,
+        crypto.createHash('sha256').update(canonical).digest('hex')].join('\n');
+    const hmac = (key, data) => crypto.createHmac('sha256', key).update(data).digest();
+    const kSigning = ['s3', 'aws4_request'].reduce(hmac, hmac(hmac('AWS4' + secretAccessKey, day), region));
+    const signature = crypto.createHmac('sha256', kSigning).update(toSign).digest('hex');
+    return `${u.origin}${path}?${query}&X-Amz-Signature=${signature}`;
+}
+
+function printFileUrl(api) {
+    const url = api.private_hires_uri;
+    if (!url) return api.public_preview_uri;
+    const accessKeyId = process.env.S3_PRINT_ACCESS_KEY_ID;
+    const secretAccessKey = process.env.S3_PRINT_SECRET_ACCESS_KEY;
+    if (!/\.amazonaws\.com\//.test(url) || !accessKeyId || !secretAccessKey) {
+        if (/\.amazonaws\.com\//.test(url)) console.warn('S3_PRINT_* keys not set - sending unsigned print URL');
+        return url;
+    }
+    return presignS3Url(url, { accessKeyId, secretAccessKey });
+}
+
 function readCart(metadata) {
     let json = metadata.cart_data || '';
     for (let n = 2; metadata[`cart_data_${n}`]; n++) json += metadata[`cart_data_${n}`];
@@ -79,7 +123,7 @@ function buildFinerworksOrder(session, cart) {
                     product_image: {
                         pixel_width: api.pix_w,
                         pixel_height: api.pix_h,
-                        product_url_file: api.private_hires_uri || api.public_preview_uri,
+                        product_url_file: printFileUrl(api),
                         product_url_thumbnail: api.public_thumbnail_uri || api.public_preview_uri
                     },
                     product_title: PRINTS[item.id].artwork_info?.title || 'Untitled',
@@ -96,6 +140,8 @@ function buildFinerworksOrder(session, cart) {
         }]
     };
 }
+
+exports.presignS3Url = presignS3Url;   // for the test in scripts/
 
 exports.handler = async (event) => {
     if (event.httpMethod === 'OPTIONS') return { statusCode: 204, headers, body: '' };
