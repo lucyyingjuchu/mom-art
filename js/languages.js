@@ -336,7 +336,7 @@ const LANGUAGE_DATA = {
         // Header
         header: {
             title: "袁之靜 - 曉然文化藝術",
-            subtitle: "詩書畫印，天地有大美:水墨畫、書法作品"
+            subtitle: "詩書畫印，天地有大美：水墨畫、書法作品"
         },
         
         // Navigation  
