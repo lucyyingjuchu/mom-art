@@ -3998,22 +3998,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 90,
-        "height_inches": 34,
-        "style": "rolled",
-        "sku": "5M210M8S90X34"
-      },
-      {
         "width_inches": 62,
         "height_inches": 24,
         "style": "rolled",
         "sku": "5M210M8S62X24"
       },
       {
-        "width_inches": 45,
-        "height_inches": 17,
+        "width_inches": 43,
+        "height_inches": 16,
         "style": "rolled",
-        "sku": "5M210M8S45X17"
+        "sku": "5M210M8S43X16"
+      },
+      {
+        "width_inches": 31,
+        "height_inches": 12,
+        "style": "rolled",
+        "sku": "5M210M8S31X12"
       }
     ],
     "finerworks_image": {
@@ -4049,22 +4049,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 88,
-        "height_inches": 35,
+        "width_inches": 62,
+        "height_inches": 25,
         "style": "rolled",
-        "sku": "5M210M8S88X35"
+        "sku": "5M210M8S62X25"
       },
       {
-        "width_inches": 61,
-        "height_inches": 24,
+        "width_inches": 43,
+        "height_inches": 17,
         "style": "rolled",
-        "sku": "5M210M8S61X24"
+        "sku": "5M210M8S43X17"
       },
       {
-        "width_inches": 44,
-        "height_inches": 18,
+        "width_inches": 31,
+        "height_inches": 12,
         "style": "rolled",
-        "sku": "5M210M8S44X18"
+        "sku": "5M210M8S31X12"
       }
     ],
     "finerworks_image": {

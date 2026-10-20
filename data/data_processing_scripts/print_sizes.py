@@ -5,7 +5,8 @@ Print size rule for xiaoranart.com (Finerworks, Canson Arches Aquarelle Rag 310)
 Largest print = the smallest of
   * what the file supports at MIN_PPI (180 pixels per inch),
   * the original painting's size (a print is never bigger than the original),
-  * the paper's limit (40 x 90 in).
+  * 40 x 62 in (the paper goes to 40 x 90, but prints longer than ~62 in have no
+    international shipping rate at Finerworks, so we don't offer them).
 Offered sizes: 100 %, 70 % and 50 % of that, whole inches, same proportions as
 the painting (never cropped or stretched); the short side must be at least 6 in.
 
@@ -27,7 +28,7 @@ STEPS = (1.0, 0.7, 0.5)
 MIN_SHORT_IN = 6
 MOUNTED_MAX = (20, 30)     # short side, long side (inches)
 OFFER_MOUNTED = False
-PAPER_MAX = (40, 90)
+PAPER_MAX = (40, 62)       # paper is 40 x 90, but Finerworks can't quote shipping abroad above ~62 in (Oct 2026)
 CM_PER_IN = 2.54
 
 
