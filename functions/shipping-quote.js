@@ -68,7 +68,8 @@ exports.handler = async (event) => {
             code: o.shipping_code, method: o.shipping_method, rate: o.rate, carrier: o.carrier, transit: o.transit_time
         }));
         return reply(res.ok ? 200 : res.status, { country, options, preferred: order.preferred_option || null,
-            error: options.length ? undefined : (data.status && data.status.message) || 'no options' });
+            error: options.length ? undefined : (data.status && data.status.message) || 'no options',
+            debug: options.length ? undefined : JSON.stringify(data).slice(0, 800) });
     } catch (err) {
         return reply(502, { error: err.message });
     }
