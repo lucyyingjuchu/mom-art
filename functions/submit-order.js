@@ -28,11 +28,12 @@ const headers = {
 };
 const reply = (statusCode, body) => ({ statusCode, headers, body: JSON.stringify(body) });
 
+// Fixed Stripe rates used before Oct 2026 (kept for orders placed back then)
 const SHIPPING_CODES = {
-    'shr_1SB6Nn7iRKbAsUAgKtbaJiJv': 'EC',  // US Economy
-    'shr_1SB6NM7iRKbAsUAgQbsfDSWl': 'SD',  // US Standard
-    'shr_1SB6Mo7iRKbAsUAgoS492PyL': 'EX',  // US Express
-    'shr_1SB6Jt7iRKbAsUAgkz0FedRW': 'SD'   // International
+    'shr_1SB6Nn7iRKbAsUAgKtbaJiJv': 'FT',  // US Economy
+    'shr_1SB6NM7iRKbAsUAgQbsfDSWl': 'GD',  // US Standard
+    'shr_1SB6Mo7iRKbAsUAgoS492PyL': 'ET',  // US Express
+    'shr_1SB6Jt7iRKbAsUAgkz0FedRW': 'GT'   // International
 };
 
 // ---- Print files are private on S3 ------------------------------------------
@@ -67,6 +68,20 @@ function presignS3Url(url, { accessKeyId, secretAccessKey, region = S3_REGION, e
     return `${u.origin}${path}?${query}&X-Amz-Signature=${signature}`;
 }
 
+const S3_BUCKET_URL = 'https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/';
+
+// The print file for one size: the painting on whole-inch paper with a white border
+// (raw/sized/<id>_<W>x<H>.jpg, made by make_print_files.py). Older entries without a
+// sized file fall back to the artwork's single raw file.
+function sizedPrintImage(print, w, h) {
+    const size = (print.recommended_sizes || []).find(s => s.width_inches === w && s.height_inches === h);
+    const api = print.finerworks_image?.finerworks_api_object || {};
+    if (size && size.file_key) {
+        return { size, url: S3_BUCKET_URL + size.file_key, pixW: size.file_pix_w, pixH: size.file_pix_h, api };
+    }
+    return { size, url: api.private_hires_uri, pixW: api.pix_w, pixH: api.pix_h, api };
+}
+
 function printFileUrl(api) {
     const url = api.private_hires_uri;
     if (!url) return api.public_preview_uri;
@@ -79,13 +94,31 @@ function printFileUrl(api) {
     return presignS3Url(url, { accessKeyId, secretAccessKey });
 }
 
+// The Finerworks service the customer chose: stored on the Stripe shipping rate
+// (metadata.fw_code) by create-checkout-session.js; older sessions used fixed rates.
+async function finerworksShippingCode(session) {
+    const rateId = session.shipping_cost?.shipping_rate;
+    if (rateId && SHIPPING_CODES[rateId]) return SHIPPING_CODES[rateId];
+    if (rateId) {
+        try {
+            const rate = await stripe.shippingRates.retrieve(rateId);
+            if (rate.metadata?.fw_code) return rate.metadata.fw_code;
+            const codes = JSON.parse(session.metadata?.ship_codes || '{}');
+            if (codes[rate.display_name]) return codes[rate.display_name];
+        } catch (err) {
+            console.error('Could not read shipping rate', rateId, err.message);
+        }
+    }
+    return 'GD';   // Standard
+}
+
 function readCart(metadata) {
     let json = metadata.cart_data || '';
     for (let n = 2; metadata[`cart_data_${n}`]; n++) json += metadata[`cart_data_${n}`];
     return JSON.parse(json || '[]');
 }
 
-function buildFinerworksOrder(session, cart) {
+function buildFinerworksOrder(session, cart, shippingCode) {
     const shipping = session.collected_information?.shipping_details || session.shipping_details || {};
     const customer = session.customer_details || {};
     const address = shipping.address || customer.address || {};
@@ -105,8 +138,8 @@ function buildFinerworksOrder(session, cart) {
                 address_1: address.line1 || '',
                 address_2: address.line2 || '',
                 city: address.city || '',
-                state_code: (country === 'US' || country === 'AU') ? state : null,
-                province: (country === 'US' || country === 'AU') ? null : (state || null),
+                state_code: country === 'US' ? state : null,
+                province: country === 'US' ? null : (state || null),   // Finerworks: province outside the U.S. (AU too)
                 zip_postal_code: address.postal_code || '',
                 country_code: country.toLowerCase(),
                 phone: customer.phone || '',
@@ -114,16 +147,18 @@ function buildFinerworksOrder(session, cart) {
                 address_order_po: orderId
             },
             order_items: cart.map((item, i) => {
-                const api = PRINTS[item.id]?.finerworks_image?.finerworks_api_object;
-                if (!api || !api.pix_w || !api.pix_h) throw new Error(`Print data missing for ${item.id}`);
+                const print = PRINTS[item.id];
+                const file = print && sizedPrintImage(print, item.w, item.h);
+                if (!file || !file.size || !file.url || !file.pixW || !file.pixH) throw new Error(`Print data missing for ${item.id} ${item.w}x${item.h}`);
+                const api = file.api;
                 return {
                     product_order_po: `${orderId}-${i + 1}`,
                     product_qty: item.q,
-                    product_sku: ((PRINTS[item.id].recommended_sizes || []).find(s => s.width_inches === item.w && s.height_inches === item.h) || {}).sku || `5M210M37S${item.w}X${item.h}`,
+                    product_sku: file.size.sku || `5M210M8S${item.w}X${item.h}`,
                     product_image: {
-                        pixel_width: api.pix_w,
-                        pixel_height: api.pix_h,
-                        product_url_file: printFileUrl(api),
+                        pixel_width: file.pixW,
+                        pixel_height: file.pixH,
+                        product_url_file: printFileUrl({ ...api, private_hires_uri: file.url }),
                         product_url_thumbnail: api.public_thumbnail_uri || api.public_preview_uri
                     },
                     product_title: PRINTS[item.id].artwork_info?.title || 'Untitled',
@@ -134,7 +169,7 @@ function buildFinerworksOrder(session, cart) {
                     custom_data_3: `stripe_session_id:${session.id}`
                 };
             }),
-            shipping_code: SHIPPING_CODES[session.shipping_cost?.shipping_rate] || 'SD',
+            shipping_code: shippingCode,
             test_mode: false,
             validate_only: MODE !== 'live'
         }]
@@ -142,6 +177,7 @@ function buildFinerworksOrder(session, cart) {
 }
 
 exports.presignS3Url = presignS3Url;   // also used by print-file-check.js
+exports.sizedPrintImage = sizedPrintImage;
 
 exports.handler = async (event) => {
     if (event.httpMethod === 'OPTIONS') return { statusCode: 204, headers, body: '' };
@@ -183,7 +219,7 @@ exports.handler = async (event) => {
 
     let status;
     try {
-        const order = buildFinerworksOrder(session, cart);
+        const order = buildFinerworksOrder(session, cart, await finerworksShippingCode(session));
         if (MODE === 'off') {
             console.log('FINERWORKS_ORDER_MODE=off - order NOT sent:', JSON.stringify(order));
             status = 'recorded';
