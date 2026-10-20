@@ -427,7 +427,18 @@ class ChineseArtPortfolio {
         const logoElement = document.querySelector('.logo');
         const subtitleElement = document.querySelector('.subtitle');
         
-        if (logoElement) logoElement.textContent = this.t('header.title');
+        if (logoElement) {
+            // "Name - Studio": on phones the two parts sit on separate lines (css/mobile.css)
+            const [name, studio] = this.t('header.title').split(' - ');
+            logoElement.textContent = '';
+            const a = document.createElement('span'); a.className = 'logo-name'; a.textContent = name;
+            logoElement.append(a);
+            if (studio) {
+                const sep = document.createElement('span'); sep.className = 'logo-sep'; sep.textContent = ' - ';
+                const b = document.createElement('span'); b.className = 'logo-studio'; b.textContent = studio;
+                logoElement.append(sep, b);
+            }
+        }
         if (subtitleElement) subtitleElement.textContent = this.t('header.subtitle');
 
         // HOME PAGE

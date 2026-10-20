@@ -4,8 +4,9 @@ const LANGUAGE_DATA = {
     en: {
         // Header
         header: {
-            title: "Xiaoran Cultural Arts",
-            subtitle: "Where stillness meets the flowing brush: Chinese Paintings & Calligraphy"
+            title: "Yuan Chih-Jin - Xiaoran Cultural Arts",
+            // Translation of 詩書畫印，天地有大美
+            subtitle: "Poetry, Calligraphy, Ink Painting & Seal — the Great Beauty of Heaven and Earth"
         },
         
         // Navigation
@@ -335,7 +336,7 @@ const LANGUAGE_DATA = {
         // Header
         header: {
             title: "袁之靜 - 曉然文化藝術",
-            subtitle: "詩書畫印，天地有大美:水墨畫、書法作品"
+            subtitle: "詩書畫印，天地有大美：水墨畫、書法作品"
         },
         
         // Navigation  

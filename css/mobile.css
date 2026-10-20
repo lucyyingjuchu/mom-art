@@ -34,6 +34,10 @@
         margin-bottom: 0.1rem;
     }
 
+    /* Artist name on one line, studio name on the next */
+    .logo .logo-sep { display: none; }
+    .logo .logo-studio { display: block; }
+
     .subtitle {
         font-size: 0.78rem;
         line-height: 1.35;
