@@ -1,19 +1,13 @@
 // functions/shipping-quote.js
 //
-// Finerworks shipping options for a set of print SKUs to a country, using a
-// placeholder address in that country (no customer data). Used to work out
-// shipping prices; read-only, it never places an order.
-//   POST { country: "US", items: [{ sku: "5M210M8S20X31", qty: 1 }] }
+// Read-only shipping quote for print SKUs: what Finerworks charges us and what the
+// customer would pay (rounded up to .99). Never places an order.
+//   POST { country: "US" | "CA", items: [{ sku: "5M210M8S20X31", qty: 1 }] }
+
+const { quoteShipping, customerOptions, COUNTRIES } = require('./_shared/fw-shipping');
 
 const SITE_URL = process.env.URL || 'https://xiaoranart.com';
 const SKU_PATTERN = /^5M210M(37|8)S\d{1,2}X\d{1,2}$/;
-const PLACEHOLDER = {
-    US: { city: 'Kansas City', state_code: 'MO', zip_postal_code: '64105' },
-    CA: { city: 'Toronto', province: 'ON', zip_postal_code: 'M5V 2T6' },
-    GB: { city: 'London', province: 'London', zip_postal_code: 'SW1A 1AA' },
-    AU: { city: 'Sydney', province: 'NSW', zip_postal_code: '2000' },
-    TW: { city: 'Taichung', province: 'Taichung', zip_postal_code: '402' }
-};
 const headers = {
     'Access-Control-Allow-Origin': SITE_URL,
     'Access-Control-Allow-Headers': 'Content-Type',
@@ -28,57 +22,14 @@ exports.handler = async (event) => {
     let req;
     try { req = JSON.parse(event.body || '{}'); } catch { return reply(400, { error: 'Invalid JSON' }); }
     const country = String(req.country || 'US').toUpperCase();
-    const place = PLACEHOLDER[country];
     const items = Array.isArray(req.items) ? req.items : [];
-    if (!place || !items.length || items.length > 10 ||
+    if (!COUNTRIES.includes(country) || !items.length || items.length > 10 ||
         !items.every(i => SKU_PATTERN.test(String(i.sku)) && Number.isInteger(i.qty) && i.qty >= 1 && i.qty <= 10)) {
         return reply(400, { error: 'Invalid request' });
     }
-    const body = {
-        orders: [{
-            order_po: 'quote',
-            recipient: {
-                first_name: 'Quote', last_name: 'Only', company_name: null,
-                address_1: '1 Main St', address_2: null, address_3: null,
-                city: place.city, state_code: place.state_code || null, province: place.province || null,
-                zip_postal_code: place.zip_postal_code, country_code: country.toLowerCase(),
-                phone: null, email: null, address_order_po: null
-            },
-            order_items: items.map((i, n) => ({
-                product_order_po: `quote-${n + 1}`, product_qty: i.qty, product_sku: i.sku,
-                // Finerworks wants an image for every item; any public picture of the right
-                // proportions will do for a quote (nothing is printed)
-                product_image: (() => {
-                    const [, w, h] = i.sku.match(/S(\d+)X(\d+)$/);
-                    return { pixel_width: w * 200, pixel_height: h * 200,
-                        product_url_file: `${SITE_URL}/images/logo/text_white/android-chrome-512x512.png`,
-                        product_url_thumbnail: `${SITE_URL}/images/logo/text_white/android-chrome-512x512.png` };
-                })(),
-                product_title: 'quote', template: null,
-                product_guid: '00000000-0000-0000-0000-000000000000'
-            })),
-            shipping_code: 'SD',
-            test_mode: true
-        }]
-    };
     try {
-        const res = await fetch('https://api.finerworks.com/v3/list_shipping_options_multiple', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'web_api_key': process.env.FINERWORKS_WEB_API_KEY,
-                'app_key': process.env.FINERWORKS_APP_KEY
-            },
-            body: JSON.stringify(body)
-        });
-        const data = await res.json().catch(() => ({}));
-        const order = (data.orders || [])[0] || {};
-        const options = (order.options || []).map(o => ({
-            code: o.shipping_code, method: o.shipping_method, rate: o.rate, carrier: o.carrier, transit: o.transit_time
-        }));
-        return reply(res.ok ? 200 : res.status, { country, options, preferred: order.preferred_option || null,
-            error: options.length ? undefined : (data.status && data.status.message) || 'no options',
-            debug: options.length ? undefined : JSON.stringify(data).slice(0, 800) });
+        const options = await quoteShipping(country, items);
+        return reply(200, { country, finerworks: options, customer: customerOptions(options) });
     } catch (err) {
         return reply(502, { error: err.message });
     }

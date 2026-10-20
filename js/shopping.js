@@ -168,6 +168,14 @@ class ShoppingCart {
                     <span class="cart-total-label">${this.getText('shopping.total')}</span>
                     <span class="cart-total-amount" id="cartTotalAmount">$0.00</span>
                 </div>
+                <div class="cart-ship-to">
+                    <label for="shipCountry" class="cart-ship-label">${this.getText('shopping.shipTo')}</label>
+                    <select id="shipCountry" class="cart-ship-select">
+                        <option value="US">United States</option>
+                        <option value="CA">Canada</option>
+                    </select>
+                </div>
+                <p class="cart-ship-note">${this.getText('shopping.shipNote')}</p>
                 <button class="checkout-btn" onclick="shoppingCart.checkout()">
                     ${this.getText('shopping.checkout')}
                 </button>
@@ -176,6 +184,10 @@ class ShoppingCart {
         
         document.body.appendChild(overlay);
         document.body.appendChild(sidebar);
+        try {
+            const saved = localStorage.getItem('xiaoran_ship_country');
+            if (saved === 'US' || saved === 'CA') sidebar.querySelector('#shipCountry').value = saved;
+        } catch (e) {}
     }
     
     async enhanceLightboxWithShopping(artwork) {
@@ -425,7 +437,11 @@ class ShoppingCart {
             const g = `
                 <g class="sd-print${rolled ? ' sd-rolled' : ''}" data-size-index="${i}">
                     ${rolled ? '' : `<rect class="sd-board" x="${x + 2.5}" y="${y + 2.5}" width="${w}" height="${h}"/>`}
-                    <image href="${esc(img)}" x="${x}" y="${y}" width="${w}" height="${h}" preserveAspectRatio="none"/>
+                    ${s.image_width_inches ? `<rect class="sd-paper" x="${x}" y="${y}" width="${w}" height="${h}"/>` : ''}
+                    <image href="${esc(img)}" preserveAspectRatio="none"
+                        x="${x + (s.image_width_inches ? (s.width_inches - s.image_width_inches) / 2 * k : 0)}"
+                        y="${y + (s.image_height_inches ? (s.height_inches - s.image_height_inches) / 2 * k : 0)}"
+                        width="${(s.image_width_inches || s.width_inches) * k}" height="${(s.image_height_inches || s.height_inches) * k}"/>
                     ${rolled ? `<path class="sd-curl" d="M${x + w - c} ${y + h} L${x + w} ${y + h - c} Q${x + w - c * 0.35} ${y + h - c * 0.35} ${x + w - c} ${y + h} Z"/>
                                 <path class="sd-curl-back" d="M${x + w - c} ${y + h} L${x + w} ${y + h} L${x + w} ${y + h - c} Z"/>` : ''}
                     <rect class="sd-outline" x="${x - 2}" y="${y - 2}" width="${w + 4}" height="${h + 4}" rx="2"/>
@@ -450,14 +466,14 @@ class ShoppingCart {
     }
 
     getSizeDescription(size) {
-        const widthCm = Math.round(size.width_inches * 2.54);
-        const heightCm = Math.round(size.height_inches * 2.54);
-        
-        const currentLang = this.getCurrentLanguage();
-        
-        const cm = currentLang === 'zh' ? `${widthCm} × ${heightCm} 公分` : `${widthCm} × ${heightCm} cm`;
-        const style = size.style === 'rolled' ? 'shopping.styleRolled' : 'shopping.styleMounted';
-        return `${cm} · ${this.getText(style)}`;
+        const zh = this.getCurrentLanguage() === 'zh';
+        const cm = (w, h) => `${Math.round(w * 2.54)} × ${Math.round(h * 2.54)} ${zh ? '公分' : 'cm'}`;
+        const parts = [cm(size.width_inches, size.height_inches)];
+        if (size.image_width_inches) {
+            parts.push(`${this.getText('shopping.imageSize')} ${cm(size.image_width_inches, size.image_height_inches)}`);
+        }
+        if (size.style === 'mounted') parts.push(this.getText('shopping.styleMounted'));
+        return parts.join(' · ');
     }
     
     // Returns the lowest price found, for the "from $XX" line
@@ -737,8 +753,8 @@ class ShoppingCart {
                         title="點擊查看作品詳情">
                     <div class="cart-item-details">
                         <div class="cart-item-title">${displayTitle}</div>
-                        <div class="cart-item-size">${this.getText('lightbox.dimensionsLabel')}: ${item.size}</div>
-                        <div class="cart-item-price">${(item.price * item.quantity).toFixed(2)}</div>
+                        <div class="cart-item-size">${this.getText('shopping.printSizeLabel')}: ${item.size}</div>
+                        <div class="cart-item-price">$${(item.price * item.quantity).toFixed(2)}</div>
                         <div class="cart-item-quantity">
                             <button class="cart-qty-btn" onclick="shoppingCart.updateQuantity('${item.id}', ${item.quantity - 1})">−</button>
                             <input type="number" class="cart-qty-input" value="${item.quantity}" min="1" max="10" 
@@ -755,7 +771,7 @@ class ShoppingCart {
         const total = this.items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
         const cartTotalAmount = document.getElementById('cartTotalAmount');
         if (cartTotalAmount) {
-            cartTotalAmount.textContent = `${total.toFixed(2)}`;
+            cartTotalAmount.textContent = `$${total.toFixed(2)}`;
         }
         
         // Update footer text
@@ -827,7 +843,7 @@ class ShoppingCart {
             const response = await fetch('/.netlify/functions/create-checkout-session', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ cartItems: this.items })
+                body: JSON.stringify({ cartItems: this.items, country: this.shipCountry() })
             });
 
             const result = await response.json();
@@ -839,11 +855,19 @@ class ShoppingCart {
             
         } catch (error) {
             console.error('Checkout error:', error);
-            alert('There was an error starting the checkout process. Please try again.');
+            alert(error.message && !/Failed to create/.test(error.message) ? error.message : 'There was an error starting the checkout process. Please try again.');
         }
     }
 
     
+    // U.S. or Canada (remembered); shipping is priced for it at checkout
+    shipCountry() {
+        const sel = document.getElementById('shipCountry');
+        const c = sel ? sel.value : 'US';
+        try { localStorage.setItem('xiaoran_ship_country', c); } catch (e) {}
+        return c;
+    }
+
     openArtworkLightbox(artworkId) {
         console.log('Opening lightbox for artwork:', artworkId);
         

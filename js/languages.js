@@ -145,11 +145,11 @@ const LANGUAGE_DATA = {
                             },
                             {
                                 question: "How are prints shipped?",
-                                answer: "Every print is made on 100% cotton fine art paper and **shipped unmounted, rolled in a sturdy tube**, ready for your framer.\nEach artwork's print section shows every size to scale."
+                                answer: "Every print is made on 100% cotton fine art paper: the whole painting at its true proportions - never cropped or stretched - with a white museum border. Prints are **shipped unmounted, rolled in a sturdy tube**, ready for your framer.\nEach artwork's print section shows every size to scale."
                             },
                             {
                                 question: "How long will shipping take?",
-                                answer: "**Originals**: Delivery times vary by region — within Taiwan it is usually faster, while international orders take about 10–20 business days.\n**Prints**: Within the U.S., delivery speed depend on the shipping method chosen in the shopping cart. For addresses outside the U.S., it usually takes about 5–10 business days.\n"
+                                answer: "**Originals**: Delivery times vary by region — within Taiwan it is usually faster, while international orders take about 10–20 business days.\n**Prints**: we ship to the **U.S. and Canada**. Printing takes about 2–3 business days; shipping options and prices for your order are shown at checkout (U.S. typically 3–7 business days, Canada about 5–10).\n"
                             }
                         ]
                     },
@@ -267,7 +267,11 @@ const LANGUAGE_DATA = {
             cartEmpty: "Your cart is empty",
             cartEmptyDesc: "Browse artworks and add your favorite giclée fine art prints to the cart",
             selectSizeTitle: "Giclée Fine Art Prints",
-            selectSizeSubtitle: "100% cotton fine art paper, shipped unmounted (rolled in a tube), ready for your framer.",
+            selectSizeSubtitle: "100% cotton fine art paper. The whole painting, at its true proportions, with a white museum border; shipped unmounted, rolled in a tube, ready for your framer.",
+            imageSize: "image",
+            shipTo: "Ship to",
+            printSizeLabel: "Paper size (W × H)",
+            shipNote: "Shipping is worked out at checkout from your print sizes - prints travel rolled in a sturdy tube.",
             styleMounted: "Mounted on board",
             styleRolled: "Rolled print",
             diagramLabel: "Print sizes to scale, next to a 170 cm person",
@@ -594,7 +598,11 @@ const LANGUAGE_DATA = {
             cartEmpty: "購物車是空的",
             cartEmptyDesc: "瀏覽藝廊，將喜愛的微噴印刷品加入購物車",
             selectSizeTitle: "藝術微噴印刷",
-            selectSizeSubtitle: "100% 棉質藝術紙，不裱板，以紙筒捲裝寄送，請交由裱框店裝框。",
+            selectSizeSubtitle: "100% 棉質藝術紙。完整畫面、原作比例，四周留美術館式白邊；不裱板，以紙筒捲裝寄送，請交由裱框店裝框。",
+            imageSize: "畫面",
+            shipTo: "寄送至",
+            printSizeLabel: "紙張尺寸(寬×高)",
+            shipNote: "運費會在結帳時依版畫尺寸計算，版畫以紙筒捲裝寄送。",
             styleMounted: "裱厚卡紙",
             styleRolled: "捲裝寄送",
             diagramLabel: "各印刷尺寸與 170 公分人形的比例示意",

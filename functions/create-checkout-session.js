@@ -8,6 +8,7 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY, {
     apiVersion: '2025-08-27.basil'
 });
 const PRINTS = require('../data/finerworks_ready_artworks.json');
+const { quoteShipping, customerOptions, COUNTRIES } = require('./_shared/fw-shipping');
 
 const SITE_URL = process.env.URL || 'https://xiaoranart.com';
 const MAX_QTY = 10;
@@ -73,13 +74,18 @@ exports.handler = async (event) => {
     }
 
     try {
-        const { cartItems } = JSON.parse(event.body || '{}');
+        const { cartItems, country: rawCountry } = JSON.parse(event.body || '{}');
+        const country = String(rawCountry || 'US').toUpperCase();
+        if (!COUNTRIES.includes(country)) {
+            return { statusCode: 400, headers, body: JSON.stringify({ error: 'We ship prints to the U.S. and Canada' }) };
+        }
         if (!Array.isArray(cartItems) || cartItems.length === 0 || cartItems.length > MAX_LINES) {
             return { statusCode: 400, headers, body: JSON.stringify({ error: 'Cart is empty or invalid' }) };
         }
 
         const lineItems = [];
         const minimalCartData = [];
+        const shipItems = [];
 
         for (const item of cartItems) {
             const print = PRINTS[item.artworkId];
@@ -120,7 +126,28 @@ exports.handler = async (event) => {
                 quantity: qty
             });
             minimalCartData.push({ id: item.artworkId, q: qty, p: price, w, h });
+            shipItems.push({ sku, qty });
         }
+
+        // Real Finerworks shipping for this cart and country, rounded up to .99.
+        // The Finerworks code rides along in the rate's metadata so submit-order.js
+        // books exactly the service the customer paid for.
+        const shipping = customerOptions(await quoteShipping(country, shipItems));
+        if (!shipping.length) {
+            return { statusCode: 400, headers, body: JSON.stringify({ error: 'No shipping available for this order - please contact us' }) };
+        }
+        const shippingOptions = shipping.map(o => ({
+            shipping_rate_data: {
+                type: 'fixed_amount',
+                display_name: `${o.label} (rolled in a tube)`,
+                fixed_amount: { amount: Math.round(o.price * 100), currency: 'usd' },
+                ...(o.days.length === 2 ? { delivery_estimate: {
+                    minimum: { unit: 'business_day', value: o.days[0] + 3 },   // + printing time
+                    maximum: { unit: 'business_day', value: o.days[1] + 3 }
+                } } : {}),
+                metadata: { fw_code: o.code }
+            }
+        }));
 
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ['card'],
@@ -128,14 +155,9 @@ exports.handler = async (event) => {
             mode: 'payment',
             ui_mode: 'hosted',
             shipping_address_collection: {
-                allowed_countries: ['US', 'CA', 'TW', 'GB', 'AU']
+                allowed_countries: [country]
             },
-            shipping_options: [
-                { shipping_rate: 'shr_1SB6Nn7iRKbAsUAgKtbaJiJv' },  // US Economy
-                { shipping_rate: 'shr_1SB6NM7iRKbAsUAgQbsfDSWl' },  // US Standard
-                { shipping_rate: 'shr_1SB6Mo7iRKbAsUAgoS492PyL' },  // US Express
-                { shipping_rate: 'shr_1SB6Jt7iRKbAsUAgkz0FedRW' }   // International
-            ],
+            shipping_options: shippingOptions,
             custom_text: {
                 shipping_address: {
                     message: 'Processing time: Your artwork will be printed in around 2-3 business days, then shipped via your selected method.'
@@ -144,6 +166,8 @@ exports.handler = async (event) => {
             metadata: {
                 ...cartMetadata(minimalCartData),
                 order_id: 'XIAORAN_' + Date.now(),
+                ship_country: country,
+                ship_codes: JSON.stringify(Object.fromEntries(shipping.map(o => [`${o.label} (rolled in a tube)`, o.code]))).slice(0, 490),
                 item_count: String(minimalCartData.length)
             },
             success_url: `${SITE_URL}/order_success_page.html?session_id={CHECKOUT_SESSION_ID}`,

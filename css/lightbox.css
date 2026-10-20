@@ -782,6 +782,7 @@
 .size-diagram .sd-floor { stroke: #d5d9dd; stroke-width: 1; }
 .size-diagram .sd-person { fill: #c9ced3; }
 .size-diagram .sd-board { fill: #8a939b; }
+.size-diagram .sd-paper { fill: #fdfcf9; stroke: #d5d9dd; stroke-width: 0.6; }
 .size-diagram .sd-curl { fill: #f3f1ec; stroke: #c9ced3; stroke-width: 0.5; }
 .size-diagram .sd-curl-back { fill: #f8f9fa; }
 .size-diagram .sd-print { cursor: pointer; }

@@ -108,10 +108,16 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 8,
-        "height_inches": 6,
+        "width_inches": 10,
+        "height_inches": 8,
+        "image_width_inches": 8.72,
+        "image_height_inches": 6.54,
+        "border_inches": 0.64,
+        "file_pix_w": 1835,
+        "file_pix_h": 1468,
         "style": "rolled",
-        "sku": "5M210M8S8X6"
+        "sku": "5M210M8S10X8",
+        "file_key": "raw/sized/019891b0-f39c-7cc4-ae49-d25008e1409d_10x8.jpg"
       }
     ],
     "finerworks_image": {
@@ -147,10 +153,28 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 8,
-        "height_inches": 7,
+        "width_inches": 10,
+        "height_inches": 9,
+        "image_width_inches": 8.17,
+        "image_height_inches": 7.56,
+        "border_inches": 0.72,
+        "file_pix_w": 1882,
+        "file_pix_h": 1694,
         "style": "rolled",
-        "sku": "5M210M8S8X7"
+        "sku": "5M210M8S10X9",
+        "file_key": "raw/sized/019891b0-f39c-79f7-8cab-78ad04b8b05d_10x9.jpg"
+      },
+      {
+        "width_inches": 8,
+        "height_inches": 8,
+        "image_width_inches": 6.72,
+        "image_height_inches": 6.22,
+        "border_inches": 0.64,
+        "file_pix_w": 1831,
+        "file_pix_h": 1831,
+        "style": "rolled",
+        "sku": "5M210M8S8X8",
+        "file_key": "raw/sized/019891b0-f39c-79f7-8cab-78ad04b8b05d_8x8.jpg"
       }
     ],
     "finerworks_image": {
@@ -226,10 +250,28 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 7,
-        "height_inches": 8,
+        "width_inches": 9,
+        "height_inches": 10,
+        "image_width_inches": 7.56,
+        "image_height_inches": 8.27,
+        "border_inches": 0.72,
+        "file_pix_w": 1740,
+        "file_pix_h": 1934,
         "style": "rolled",
-        "sku": "5M210M8S7X8"
+        "sku": "5M210M8S9X10",
+        "file_key": "raw/sized/019891b0-f39c-7834-8476-a918927593ab_9x10.jpg"
+      },
+      {
+        "width_inches": 8,
+        "height_inches": 9,
+        "image_width_inches": 6.72,
+        "image_height_inches": 7.35,
+        "border_inches": 0.64,
+        "file_pix_w": 1740,
+        "file_pix_h": 1958,
+        "style": "rolled",
+        "sku": "5M210M8S8X9",
+        "file_key": "raw/sized/019891b0-f39c-7834-8476-a918927593ab_8x9.jpg"
       }
     ],
     "finerworks_image": {
@@ -265,10 +307,28 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 7,
-        "height_inches": 17,
+        "width_inches": 9,
+        "height_inches": 19,
+        "image_width_inches": 7.14,
+        "image_height_inches": 17.56,
+        "border_inches": 0.72,
+        "file_pix_w": 1645,
+        "file_pix_h": 3473,
         "style": "rolled",
-        "sku": "5M210M8S7X17"
+        "sku": "5M210M8S9X19",
+        "file_key": "raw/sized/019891b0-f39c-7220-b00b-be8e9249f911_9x19.jpg"
+      },
+      {
+        "width_inches": 8,
+        "height_inches": 15,
+        "image_width_inches": 5.58,
+        "image_height_inches": 13.72,
+        "border_inches": 0.64,
+        "file_pix_w": 1872,
+        "file_pix_h": 3509,
+        "style": "rolled",
+        "sku": "5M210M8S8X15",
+        "file_key": "raw/sized/019891b0-f39c-7220-b00b-be8e9249f911_8x15.jpg"
       }
     ],
     "finerworks_image": {
@@ -304,10 +364,16 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 7,
-        "height_inches": 7,
+        "width_inches": 8,
+        "height_inches": 8,
+        "image_width_inches": 6.65,
+        "image_height_inches": 6.72,
+        "border_inches": 0.64,
+        "file_pix_w": 1585,
+        "file_pix_h": 1585,
         "style": "rolled",
-        "sku": "5M210M8S7X7"
+        "sku": "5M210M8S8X8",
+        "file_key": "raw/sized/019891b0-f39c-748f-a906-1de3f9f5b3b6_8x8.jpg"
       }
     ],
     "finerworks_image": {
@@ -343,22 +409,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 27,
-        "height_inches": 18,
+        "width_inches": 30,
+        "height_inches": 21,
+        "image_width_inches": 26.64,
+        "image_height_inches": 17.4,
+        "border_inches": 1.68,
+        "file_pix_w": 6559,
+        "file_pix_h": 4591,
         "style": "rolled",
-        "sku": "5M210M8S27X18"
+        "sku": "5M210M8S30X21",
+        "file_key": "raw/sized/019891b0-f39c-76be-93c8-cf4233295e95_30x21.jpg"
       },
       {
-        "width_inches": 19,
-        "height_inches": 12,
+        "width_inches": 22,
+        "height_inches": 15,
+        "image_width_inches": 19.29,
+        "image_height_inches": 12.6,
+        "border_inches": 1.2,
+        "file_pix_w": 6600,
+        "file_pix_h": 4500,
         "style": "rolled",
-        "sku": "5M210M8S19X12"
+        "sku": "5M210M8S22X15",
+        "file_key": "raw/sized/019891b0-f39c-76be-93c8-cf4233295e95_22x15.jpg"
       },
       {
-        "width_inches": 13,
-        "height_inches": 8,
+        "width_inches": 16,
+        "height_inches": 11,
+        "image_width_inches": 14.15,
+        "image_height_inches": 9.24,
+        "border_inches": 0.88,
+        "file_pix_w": 4800,
+        "file_pix_h": 3300,
         "style": "rolled",
-        "sku": "5M210M8S13X8"
+        "sku": "5M210M8S16X11",
+        "file_key": "raw/sized/019891b0-f39c-76be-93c8-cf4233295e95_16x11.jpg"
       }
     ],
     "finerworks_image": {
@@ -394,10 +478,16 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 13,
-        "height_inches": 7,
+        "width_inches": 14,
+        "height_inches": 8,
+        "image_width_inches": 12.36,
+        "image_height_inches": 6.72,
+        "border_inches": 0.64,
+        "file_pix_w": 2675,
+        "file_pix_h": 1529,
         "style": "rolled",
-        "sku": "5M210M8S13X7"
+        "sku": "5M210M8S14X8",
+        "file_key": "raw/sized/019891b0-f39c-7a7e-b0e7-4bce5225a761_14x8.jpg"
       }
     ],
     "finerworks_image": {
@@ -433,10 +523,16 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 7,
-        "height_inches": 13,
+        "width_inches": 8,
+        "height_inches": 14,
+        "image_width_inches": 6.45,
+        "image_height_inches": 12.72,
+        "border_inches": 0.64,
+        "file_pix_w": 1486,
+        "file_pix_h": 2600,
         "style": "rolled",
-        "sku": "5M210M8S7X13"
+        "sku": "5M210M8S8X14",
+        "file_key": "raw/sized/019891b0-f39c-7a5f-a6de-f1a8172971f6_8x14.jpg"
       }
     ],
     "finerworks_image": {
@@ -472,16 +568,28 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 14,
-        "height_inches": 8,
+        "width_inches": 16,
+        "height_inches": 10,
+        "image_width_inches": 14.18,
+        "image_height_inches": 8.4,
+        "border_inches": 0.8,
+        "file_pix_w": 3002,
+        "file_pix_h": 1876,
         "style": "rolled",
-        "sku": "5M210M8S14X8"
+        "sku": "5M210M8S16X10",
+        "file_key": "raw/sized/019891b0-f39c-7b9e-bb65-6852f393b302_16x10.jpg"
       },
       {
-        "width_inches": 10,
-        "height_inches": 6,
+        "width_inches": 12,
+        "height_inches": 8,
+        "image_width_inches": 10.72,
+        "image_height_inches": 6.35,
+        "border_inches": 0.64,
+        "file_pix_w": 2978,
+        "file_pix_h": 1985,
         "style": "rolled",
-        "sku": "5M210M8S10X6"
+        "sku": "5M210M8S12X8",
+        "file_key": "raw/sized/019891b0-f39c-7b9e-bb65-6852f393b302_12x8.jpg"
       }
     ],
     "finerworks_image": {
@@ -517,10 +625,28 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 7,
-        "height_inches": 7,
+        "width_inches": 9,
+        "height_inches": 9,
+        "image_width_inches": 7.41,
+        "image_height_inches": 7.56,
+        "border_inches": 0.72,
+        "file_pix_w": 1687,
+        "file_pix_h": 1687,
         "style": "rolled",
-        "sku": "5M210M8S7X7"
+        "sku": "5M210M8S9X9",
+        "file_key": "raw/sized/019891b0-f39c-7b84-a80e-a928e6c46860_9x9.jpg"
+      },
+      {
+        "width_inches": 8,
+        "height_inches": 8,
+        "image_width_inches": 6.58,
+        "image_height_inches": 6.72,
+        "border_inches": 0.64,
+        "file_pix_w": 1687,
+        "file_pix_h": 1687,
+        "style": "rolled",
+        "sku": "5M210M8S8X8",
+        "file_key": "raw/sized/019891b0-f39c-7b84-a80e-a928e6c46860_8x8.jpg"
       }
     ],
     "finerworks_image": {
@@ -556,10 +682,16 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 7,
-        "height_inches": 13,
+        "width_inches": 8,
+        "height_inches": 14,
+        "image_width_inches": 6.47,
+        "image_height_inches": 12.72,
+        "border_inches": 0.64,
+        "file_pix_w": 1486,
+        "file_pix_h": 2600,
         "style": "rolled",
-        "sku": "5M210M8S7X13"
+        "sku": "5M210M8S8X14",
+        "file_key": "raw/sized/019891b0-f39c-7507-aa0e-43acd4db1f68_8x14.jpg"
       }
     ],
     "finerworks_image": {
@@ -595,16 +727,28 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 13,
-        "height_inches": 9,
+        "width_inches": 14,
+        "height_inches": 10,
+        "image_width_inches": 12.4,
+        "image_height_inches": 8.18,
+        "border_inches": 0.8,
+        "file_pix_w": 2667,
+        "file_pix_h": 1905,
         "style": "rolled",
-        "sku": "5M210M8S13X9"
+        "sku": "5M210M8S14X10",
+        "file_key": "raw/sized/019891b0-f39c-7136-84bc-3625d99f8651_14x10.jpg"
       },
       {
-        "width_inches": 9,
-        "height_inches": 6,
+        "width_inches": 11,
+        "height_inches": 8,
+        "image_width_inches": 9.72,
+        "image_height_inches": 6.42,
+        "border_inches": 0.64,
+        "file_pix_w": 2673,
+        "file_pix_h": 1944,
         "style": "rolled",
-        "sku": "5M210M8S9X6"
+        "sku": "5M210M8S11X8",
+        "file_key": "raw/sized/019891b0-f39c-7136-84bc-3625d99f8651_11x8.jpg"
       }
     ],
     "finerworks_image": {
@@ -640,10 +784,16 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 7,
-        "height_inches": 13,
+        "width_inches": 8,
+        "height_inches": 14,
+        "image_width_inches": 6.71,
+        "image_height_inches": 12.72,
+        "border_inches": 0.64,
+        "file_pix_w": 1486,
+        "file_pix_h": 2600,
         "style": "rolled",
-        "sku": "5M210M8S7X13"
+        "sku": "5M210M8S8X14",
+        "file_key": "raw/sized/019891b0-f39c-745a-b6ad-58e4e8545268_8x14.jpg"
       }
     ],
     "finerworks_image": {
@@ -679,16 +829,28 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 13,
-        "height_inches": 9,
+        "width_inches": 14,
+        "height_inches": 10,
+        "image_width_inches": 12.4,
+        "image_height_inches": 8.16,
+        "border_inches": 0.8,
+        "file_pix_w": 2667,
+        "file_pix_h": 1905,
         "style": "rolled",
-        "sku": "5M210M8S13X9"
+        "sku": "5M210M8S14X10",
+        "file_key": "raw/sized/019891b0-f39c-7e85-8f83-fd90bbaf222d_14x10.jpg"
       },
       {
-        "width_inches": 9,
-        "height_inches": 6,
+        "width_inches": 11,
+        "height_inches": 8,
+        "image_width_inches": 9.72,
+        "image_height_inches": 6.4,
+        "border_inches": 0.64,
+        "file_pix_w": 2673,
+        "file_pix_h": 1944,
         "style": "rolled",
-        "sku": "5M210M8S9X6"
+        "sku": "5M210M8S11X8",
+        "file_key": "raw/sized/019891b0-f39c-7e85-8f83-fd90bbaf222d_11x8.jpg"
       }
     ],
     "finerworks_image": {
@@ -724,16 +886,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 11,
-        "height_inches": 16,
+        "width_inches": 13,
+        "height_inches": 19,
+        "image_width_inches": 10.92,
+        "image_height_inches": 16.6,
+        "border_inches": 1.04,
+        "file_pix_w": 2350,
+        "file_pix_h": 3435,
         "style": "rolled",
-        "sku": "5M210M8S11X16"
+        "sku": "5M210M8S13X19",
+        "file_key": "raw/sized/019891b0-f39c-787c-a46f-62905fa86f16_13x19.jpg"
       },
       {
-        "width_inches": 7,
-        "height_inches": 11,
+        "width_inches": 9,
+        "height_inches": 13,
+        "image_width_inches": 7.56,
+        "image_height_inches": 11.49,
+        "border_inches": 0.72,
+        "file_pix_w": 2350,
+        "file_pix_h": 3394,
         "style": "rolled",
-        "sku": "5M210M8S7X11"
+        "sku": "5M210M8S9X13",
+        "file_key": "raw/sized/019891b0-f39c-787c-a46f-62905fa86f16_9x13.jpg"
+      },
+      {
+        "width_inches": 8,
+        "height_inches": 11,
+        "image_width_inches": 6.4,
+        "image_height_inches": 9.72,
+        "border_inches": 0.64,
+        "file_pix_w": 2400,
+        "file_pix_h": 3300,
+        "style": "rolled",
+        "sku": "5M210M8S8X11",
+        "file_key": "raw/sized/019891b0-f39c-787c-a46f-62905fa86f16_8x11.jpg"
       }
     ],
     "finerworks_image": {
@@ -779,22 +965,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 13,
-        "height_inches": 12,
+        "width_inches": 15,
+        "height_inches": 14,
+        "image_width_inches": 12.43,
+        "image_height_inches": 11.76,
+        "border_inches": 1.12,
+        "file_pix_w": 2849,
+        "file_pix_h": 2660,
         "style": "rolled",
-        "sku": "5M210M8S13X12"
+        "sku": "5M210M8S15X14",
+        "file_key": "raw/sized/019891b0-f39c-7a34-89ac-966e1e93eb42_15x14.jpg"
       },
       {
-        "width_inches": 9,
-        "height_inches": 9,
+        "width_inches": 11,
+        "height_inches": 11,
+        "image_width_inches": 9.24,
+        "image_height_inches": 8.74,
+        "border_inches": 0.88,
+        "file_pix_w": 2812,
+        "file_pix_h": 2812,
         "style": "rolled",
-        "sku": "5M210M8S9X9"
+        "sku": "5M210M8S11X11",
+        "file_key": "raw/sized/019891b0-f39c-7a34-89ac-966e1e93eb42_11x11.jpg"
       },
       {
-        "width_inches": 6,
-        "height_inches": 6,
+        "width_inches": 8,
+        "height_inches": 8,
+        "image_width_inches": 6.72,
+        "image_height_inches": 6.36,
+        "border_inches": 0.64,
+        "file_pix_w": 2400,
+        "file_pix_h": 2400,
         "style": "rolled",
-        "sku": "5M210M8S6X6"
+        "sku": "5M210M8S8X8",
+        "file_key": "raw/sized/019891b0-f39c-7a34-89ac-966e1e93eb42_8x8.jpg"
       }
     ],
     "finerworks_image": {
@@ -840,10 +1044,16 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 7,
-        "height_inches": 13,
+        "width_inches": 8,
+        "height_inches": 14,
+        "image_width_inches": 6.64,
+        "image_height_inches": 12.72,
+        "border_inches": 0.64,
+        "file_pix_w": 1486,
+        "file_pix_h": 2600,
         "style": "rolled",
-        "sku": "5M210M8S7X13"
+        "sku": "5M210M8S8X14",
+        "file_key": "raw/sized/019891b0-f39c-7f16-a8d3-c83d48beb81e_8x14.jpg"
       }
     ],
     "finerworks_image": {
@@ -879,10 +1089,16 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 13,
-        "height_inches": 7,
+        "width_inches": 14,
+        "height_inches": 8,
+        "image_width_inches": 12.5,
+        "image_height_inches": 6.72,
+        "border_inches": 0.64,
+        "file_pix_w": 2646,
+        "file_pix_h": 1512,
         "style": "rolled",
-        "sku": "5M210M8S13X7"
+        "sku": "5M210M8S14X8",
+        "file_key": "raw/sized/019891b0-f39c-7643-8153-14cf32b528bc_14x8.jpg"
       }
     ],
     "finerworks_image": {
@@ -918,10 +1134,16 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 13,
-        "height_inches": 7,
+        "width_inches": 14,
+        "height_inches": 8,
+        "image_width_inches": 12.71,
+        "image_height_inches": 6.72,
+        "border_inches": 0.64,
+        "file_pix_w": 2602,
+        "file_pix_h": 1487,
         "style": "rolled",
-        "sku": "5M210M8S13X7"
+        "sku": "5M210M8S14X8",
+        "file_key": "raw/sized/019891b0-f39c-7a2d-b50f-e9e6ec2e46b7_14x8.jpg"
       }
     ],
     "finerworks_image": {
@@ -957,10 +1179,16 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 7,
-        "height_inches": 13,
+        "width_inches": 8,
+        "height_inches": 14,
+        "image_width_inches": 6.72,
+        "image_height_inches": 12.66,
+        "border_inches": 0.64,
+        "file_pix_w": 1493,
+        "file_pix_h": 2612,
         "style": "rolled",
-        "sku": "5M210M8S7X13"
+        "sku": "5M210M8S8X14",
+        "file_key": "raw/sized/019891b0-f39c-77f0-b10f-4fece05d42ba_8x14.jpg"
       }
     ],
     "finerworks_image": {
@@ -996,16 +1224,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 11,
-        "height_inches": 11,
+        "width_inches": 13,
+        "height_inches": 13,
+        "image_width_inches": 10.9,
+        "image_height_inches": 10.92,
+        "border_inches": 1.04,
+        "file_pix_w": 2439,
+        "file_pix_h": 2439,
         "style": "rolled",
-        "sku": "5M210M8S11X11"
+        "sku": "5M210M8S13X13",
+        "file_key": "raw/sized/019891b0-f39c-7f1a-99db-36b8e31758cb_13x13.jpg"
       },
       {
-        "width_inches": 7,
-        "height_inches": 7,
+        "width_inches": 9,
+        "height_inches": 9,
+        "image_width_inches": 7.55,
+        "image_height_inches": 7.56,
+        "border_inches": 0.72,
+        "file_pix_w": 2439,
+        "file_pix_h": 2439,
         "style": "rolled",
-        "sku": "5M210M8S7X7"
+        "sku": "5M210M8S9X9",
+        "file_key": "raw/sized/019891b0-f39c-7f1a-99db-36b8e31758cb_9x9.jpg"
+      },
+      {
+        "width_inches": 8,
+        "height_inches": 8,
+        "image_width_inches": 6.71,
+        "image_height_inches": 6.72,
+        "border_inches": 0.64,
+        "file_pix_w": 2400,
+        "file_pix_h": 2400,
+        "style": "rolled",
+        "sku": "5M210M8S8X8",
+        "file_key": "raw/sized/019891b0-f39c-7f1a-99db-36b8e31758cb_8x8.jpg"
       }
     ],
     "finerworks_image": {
@@ -1041,22 +1293,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 25,
-        "height_inches": 26,
+        "width_inches": 30,
+        "height_inches": 31,
+        "image_width_inches": 25.2,
+        "image_height_inches": 26.04,
+        "border_inches": 2.4,
+        "file_pix_w": 5512,
+        "file_pix_h": 5696,
         "style": "rolled",
-        "sku": "5M210M8S25X26"
+        "sku": "5M210M8S30X31",
+        "file_key": "raw/sized/019891b0-f39c-7e21-ae47-81a6092c5a54_30x31.jpg"
       },
       {
-        "width_inches": 17,
-        "height_inches": 18,
+        "width_inches": 21,
+        "height_inches": 22,
+        "image_width_inches": 17.64,
+        "image_height_inches": 18.23,
+        "border_inches": 1.68,
+        "file_pix_w": 5512,
+        "file_pix_h": 5774,
         "style": "rolled",
-        "sku": "5M210M8S17X18"
+        "sku": "5M210M8S21X22",
+        "file_key": "raw/sized/019891b0-f39c-7e21-ae47-81a6092c5a54_21x22.jpg"
       },
       {
-        "width_inches": 13,
-        "height_inches": 13,
+        "width_inches": 16,
+        "height_inches": 16,
+        "image_width_inches": 13.0,
+        "image_height_inches": 13.44,
+        "border_inches": 1.28,
+        "file_pix_w": 4800,
+        "file_pix_h": 4800,
         "style": "rolled",
-        "sku": "5M210M8S13X13"
+        "sku": "5M210M8S16X16",
+        "file_key": "raw/sized/019891b0-f39c-7e21-ae47-81a6092c5a54_16x16.jpg"
       }
     ],
     "finerworks_image": {
@@ -1092,16 +1362,28 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 9,
-        "height_inches": 16,
+        "width_inches": 10,
+        "height_inches": 17,
+        "image_width_inches": 8.29,
+        "image_height_inches": 15.4,
+        "border_inches": 0.8,
+        "file_pix_w": 1948,
+        "file_pix_h": 3312,
         "style": "rolled",
-        "sku": "5M210M8S9X16"
+        "sku": "5M210M8S10X17",
+        "file_key": "raw/sized/019891b0-f39c-7cd6-a030-0406121e5164_10x17.jpg"
       },
       {
-        "width_inches": 6,
-        "height_inches": 11,
+        "width_inches": 8,
+        "height_inches": 13,
+        "image_width_inches": 6.31,
+        "image_height_inches": 11.72,
+        "border_inches": 0.64,
+        "file_pix_w": 2048,
+        "file_pix_h": 3328,
         "style": "rolled",
-        "sku": "5M210M8S6X11"
+        "sku": "5M210M8S8X13",
+        "file_key": "raw/sized/019891b0-f39c-7cd6-a030-0406121e5164_8x13.jpg"
       }
     ],
     "finerworks_image": {
@@ -1147,16 +1429,28 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 8,
-        "height_inches": 16,
+        "width_inches": 10,
+        "height_inches": 18,
+        "image_width_inches": 8.4,
+        "image_height_inches": 16.23,
+        "border_inches": 0.8,
+        "file_pix_w": 1849,
+        "file_pix_h": 3328,
         "style": "rolled",
-        "sku": "5M210M8S8X16"
+        "sku": "5M210M8S10X18",
+        "file_key": "raw/sized/019891b0-f39c-7f2c-b8af-cbff485e10a5_10x18.jpg"
       },
       {
-        "width_inches": 6,
-        "height_inches": 11,
+        "width_inches": 8,
+        "height_inches": 14,
+        "image_width_inches": 6.58,
+        "image_height_inches": 12.72,
+        "border_inches": 0.64,
+        "file_pix_w": 1887,
+        "file_pix_h": 3302,
         "style": "rolled",
-        "sku": "5M210M8S6X11"
+        "sku": "5M210M8S8X14",
+        "file_key": "raw/sized/019891b0-f39c-7f2c-b8af-cbff485e10a5_8x14.jpg"
       }
     ],
     "finerworks_image": {
@@ -1192,16 +1486,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 16,
-        "height_inches": 10,
+        "width_inches": 18,
+        "height_inches": 12,
+        "image_width_inches": 15.96,
+        "image_height_inches": 10.08,
+        "border_inches": 0.96,
+        "file_pix_w": 3384,
+        "file_pix_h": 2256,
         "style": "rolled",
-        "sku": "5M210M8S16X10"
+        "sku": "5M210M8S18X12",
+        "file_key": "raw/sized/019891b0-f39c-728f-a1de-1b6a07cf80ff_18x12.jpg"
+      },
+      {
+        "width_inches": 13,
+        "height_inches": 9,
+        "image_width_inches": 11.56,
+        "image_height_inches": 7.3,
+        "border_inches": 0.72,
+        "file_pix_w": 3374,
+        "file_pix_h": 2336,
+        "style": "rolled",
+        "sku": "5M210M8S13X9",
+        "file_key": "raw/sized/019891b0-f39c-728f-a1de-1b6a07cf80ff_13x9.jpg"
       },
       {
         "width_inches": 11,
-        "height_inches": 7,
+        "height_inches": 8,
+        "image_width_inches": 9.72,
+        "image_height_inches": 6.14,
+        "border_inches": 0.64,
+        "file_pix_w": 3300,
+        "file_pix_h": 2400,
         "style": "rolled",
-        "sku": "5M210M8S11X7"
+        "sku": "5M210M8S11X8",
+        "file_key": "raw/sized/019891b0-f39c-728f-a1de-1b6a07cf80ff_11x8.jpg"
       }
     ],
     "finerworks_image": {
@@ -1237,16 +1555,28 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 8,
-        "height_inches": 15,
+        "width_inches": 9,
+        "height_inches": 16,
+        "image_width_inches": 7.44,
+        "image_height_inches": 14.56,
+        "border_inches": 0.72,
+        "file_pix_w": 1771,
+        "file_pix_h": 3148,
         "style": "rolled",
-        "sku": "5M210M8S8X15"
+        "sku": "5M210M8S9X16",
+        "file_key": "raw/sized/019891b0-f39c-7c2c-ab3a-8f771d7ff31d_9x16.jpg"
       },
       {
-        "width_inches": 6,
-        "height_inches": 11,
+        "width_inches": 8,
+        "height_inches": 14,
+        "image_width_inches": 6.5,
+        "image_height_inches": 12.72,
+        "border_inches": 0.64,
+        "file_pix_w": 1802,
+        "file_pix_h": 3153,
         "style": "rolled",
-        "sku": "5M210M8S6X11"
+        "sku": "5M210M8S8X14",
+        "file_key": "raw/sized/019891b0-f39c-7c2c-ab3a-8f771d7ff31d_8x14.jpg"
       }
     ],
     "finerworks_image": {
@@ -1282,22 +1612,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 16,
-        "height_inches": 16,
+        "width_inches": 19,
+        "height_inches": 19,
+        "image_width_inches": 15.96,
+        "image_height_inches": 15.93,
+        "border_inches": 1.52,
+        "file_pix_w": 3571,
+        "file_pix_h": 3571,
         "style": "rolled",
-        "sku": "5M210M8S16X16"
+        "sku": "5M210M8S19X19",
+        "file_key": "raw/sized/019891b0-f39c-73e0-a9c8-0c6ccf4ed87d_19x19.jpg"
       },
       {
-        "width_inches": 11,
-        "height_inches": 11,
+        "width_inches": 14,
+        "height_inches": 14,
+        "image_width_inches": 11.76,
+        "image_height_inches": 11.74,
+        "border_inches": 1.12,
+        "file_pix_w": 3571,
+        "file_pix_h": 3571,
         "style": "rolled",
-        "sku": "5M210M8S11X11"
+        "sku": "5M210M8S14X14",
+        "file_key": "raw/sized/019891b0-f39c-73e0-a9c8-0c6ccf4ed87d_14x14.jpg"
       },
       {
-        "width_inches": 8,
-        "height_inches": 8,
+        "width_inches": 10,
+        "height_inches": 10,
+        "image_width_inches": 8.4,
+        "image_height_inches": 8.38,
+        "border_inches": 0.8,
+        "file_pix_w": 3000,
+        "file_pix_h": 3000,
         "style": "rolled",
-        "sku": "5M210M8S8X8"
+        "sku": "5M210M8S10X10",
+        "file_key": "raw/sized/019891b0-f39c-73e0-a9c8-0c6ccf4ed87d_10x10.jpg"
       }
     ],
     "finerworks_image": {
@@ -1333,16 +1681,28 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 16,
-        "height_inches": 9,
+        "width_inches": 17,
+        "height_inches": 11,
+        "image_width_inches": 15.24,
+        "image_height_inches": 8.99,
+        "border_inches": 0.88,
+        "file_pix_w": 3346,
+        "file_pix_h": 2165,
         "style": "rolled",
-        "sku": "5M210M8S16X9"
+        "sku": "5M210M8S17X11",
+        "file_key": "raw/sized/019891b0-f39c-7817-98ab-ec870aa5b2aa_17x11.jpg"
       },
       {
-        "width_inches": 11,
-        "height_inches": 6,
+        "width_inches": 13,
+        "height_inches": 8,
+        "image_width_inches": 11.39,
+        "image_height_inches": 6.72,
+        "border_inches": 0.64,
+        "file_pix_w": 3424,
+        "file_pix_h": 2107,
         "style": "rolled",
-        "sku": "5M210M8S11X6"
+        "sku": "5M210M8S13X8",
+        "file_key": "raw/sized/019891b0-f39c-7817-98ab-ec870aa5b2aa_13x8.jpg"
       }
     ],
     "finerworks_image": {
@@ -1378,22 +1738,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 16,
-        "height_inches": 16,
+        "width_inches": 19,
+        "height_inches": 19,
+        "image_width_inches": 15.96,
+        "image_height_inches": 15.76,
+        "border_inches": 1.52,
+        "file_pix_w": 3571,
+        "file_pix_h": 3571,
         "style": "rolled",
-        "sku": "5M210M8S16X16"
+        "sku": "5M210M8S19X19",
+        "file_key": "raw/sized/019891b0-f39c-7e9f-b136-621667022a8e_19x19.jpg"
       },
       {
-        "width_inches": 11,
-        "height_inches": 11,
+        "width_inches": 14,
+        "height_inches": 14,
+        "image_width_inches": 11.76,
+        "image_height_inches": 11.61,
+        "border_inches": 1.12,
+        "file_pix_w": 3571,
+        "file_pix_h": 3571,
         "style": "rolled",
-        "sku": "5M210M8S11X11"
+        "sku": "5M210M8S14X14",
+        "file_key": "raw/sized/019891b0-f39c-7e9f-b136-621667022a8e_14x14.jpg"
       },
       {
-        "width_inches": 8,
-        "height_inches": 8,
+        "width_inches": 10,
+        "height_inches": 10,
+        "image_width_inches": 8.4,
+        "image_height_inches": 8.29,
+        "border_inches": 0.8,
+        "file_pix_w": 3000,
+        "file_pix_h": 3000,
         "style": "rolled",
-        "sku": "5M210M8S8X8"
+        "sku": "5M210M8S10X10",
+        "file_key": "raw/sized/019891b0-f39c-7e9f-b136-621667022a8e_10x10.jpg"
       }
     ],
     "finerworks_image": {
@@ -1429,22 +1807,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 16,
-        "height_inches": 16,
+        "width_inches": 19,
+        "height_inches": 19,
+        "image_width_inches": 15.58,
+        "image_height_inches": 15.96,
+        "border_inches": 1.52,
+        "file_pix_w": 3571,
+        "file_pix_h": 3571,
         "style": "rolled",
-        "sku": "5M210M8S16X16"
+        "sku": "5M210M8S19X19",
+        "file_key": "raw/sized/019891b0-f39c-770a-b647-6b0a8efdc639_19x19.jpg"
       },
       {
-        "width_inches": 11,
-        "height_inches": 11,
+        "width_inches": 14,
+        "height_inches": 14,
+        "image_width_inches": 11.48,
+        "image_height_inches": 11.76,
+        "border_inches": 1.12,
+        "file_pix_w": 3571,
+        "file_pix_h": 3571,
         "style": "rolled",
-        "sku": "5M210M8S11X11"
+        "sku": "5M210M8S14X14",
+        "file_key": "raw/sized/019891b0-f39c-770a-b647-6b0a8efdc639_14x14.jpg"
       },
       {
-        "width_inches": 8,
-        "height_inches": 8,
+        "width_inches": 10,
+        "height_inches": 10,
+        "image_width_inches": 8.2,
+        "image_height_inches": 8.4,
+        "border_inches": 0.8,
+        "file_pix_w": 3000,
+        "file_pix_h": 3000,
         "style": "rolled",
-        "sku": "5M210M8S8X8"
+        "sku": "5M210M8S10X10",
+        "file_key": "raw/sized/019891b0-f39c-770a-b647-6b0a8efdc639_10x10.jpg"
       }
     ],
     "finerworks_image": {
@@ -1480,16 +1876,28 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 8,
-        "height_inches": 16,
+        "width_inches": 10,
+        "height_inches": 18,
+        "image_width_inches": 8.33,
+        "image_height_inches": 16.4,
+        "border_inches": 0.8,
+        "file_pix_w": 1829,
+        "file_pix_h": 3293,
         "style": "rolled",
-        "sku": "5M210M8S8X16"
+        "sku": "5M210M8S10X18",
+        "file_key": "raw/sized/019891b0-f39c-7b7d-8e54-83ae4f652136_10x18.jpg"
       },
       {
-        "width_inches": 6,
-        "height_inches": 11,
+        "width_inches": 8,
+        "height_inches": 14,
+        "image_width_inches": 6.46,
+        "image_height_inches": 12.72,
+        "border_inches": 0.64,
+        "file_pix_w": 1887,
+        "file_pix_h": 3302,
         "style": "rolled",
-        "sku": "5M210M8S6X11"
+        "sku": "5M210M8S8X14",
+        "file_key": "raw/sized/019891b0-f39c-7b7d-8e54-83ae4f652136_8x14.jpg"
       }
     ],
     "finerworks_image": {
@@ -1525,22 +1933,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 16,
-        "height_inches": 12,
+        "width_inches": 19,
+        "height_inches": 15,
+        "image_width_inches": 16.6,
+        "image_height_inches": 12.41,
+        "border_inches": 1.2,
+        "file_pix_w": 3434,
+        "file_pix_h": 2711,
         "style": "rolled",
-        "sku": "5M210M8S16X12"
+        "sku": "5M210M8S19X15",
+        "file_key": "raw/sized/019891b0-f39c-78da-b5ed-b11a0a0e8bb1_19x15.jpg"
       },
       {
-        "width_inches": 11,
+        "width_inches": 14,
+        "height_inches": 11,
+        "image_width_inches": 12.24,
+        "image_height_inches": 9.15,
+        "border_inches": 0.88,
+        "file_pix_w": 3431,
+        "file_pix_h": 2696,
+        "style": "rolled",
+        "sku": "5M210M8S14X11",
+        "file_key": "raw/sized/019891b0-f39c-78da-b5ed-b11a0a0e8bb1_14x11.jpg"
+      },
+      {
+        "width_inches": 10,
         "height_inches": 8,
+        "image_width_inches": 8.72,
+        "image_height_inches": 6.52,
+        "border_inches": 0.64,
+        "file_pix_w": 3000,
+        "file_pix_h": 2400,
         "style": "rolled",
-        "sku": "5M210M8S11X8"
-      },
-      {
-        "width_inches": 8,
-        "height_inches": 6,
-        "style": "rolled",
-        "sku": "5M210M8S8X6"
+        "sku": "5M210M8S10X8",
+        "file_key": "raw/sized/019891b0-f39c-78da-b5ed-b11a0a0e8bb1_10x8.jpg"
       }
     ],
     "finerworks_image": {
@@ -1576,10 +2002,28 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 7,
-        "height_inches": 11,
+        "width_inches": 9,
+        "height_inches": 12,
+        "image_width_inches": 7.0,
+        "image_height_inches": 10.56,
+        "border_inches": 0.72,
+        "file_pix_w": 1743,
+        "file_pix_h": 2324,
         "style": "rolled",
-        "sku": "5M210M8S7X11"
+        "sku": "5M210M8S9X12",
+        "file_key": "raw/sized/019891b0-f39c-7eb1-abf3-a892d0a3a655_9x12.jpg"
+      },
+      {
+        "width_inches": 8,
+        "height_inches": 10,
+        "image_width_inches": 5.78,
+        "image_height_inches": 8.72,
+        "border_inches": 0.64,
+        "file_pix_w": 1876,
+        "file_pix_h": 2345,
+        "style": "rolled",
+        "sku": "5M210M8S8X10",
+        "file_key": "raw/sized/019891b0-f39c-7eb1-abf3-a892d0a3a655_8x10.jpg"
       }
     ],
     "finerworks_image": {
@@ -1615,16 +2059,28 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 8,
-        "height_inches": 16,
+        "width_inches": 10,
+        "height_inches": 18,
+        "image_width_inches": 8.34,
+        "image_height_inches": 16.4,
+        "border_inches": 0.8,
+        "file_pix_w": 1829,
+        "file_pix_h": 3293,
         "style": "rolled",
-        "sku": "5M210M8S8X16"
+        "sku": "5M210M8S10X18",
+        "file_key": "raw/sized/019891b0-f39c-7038-a32d-0f2d0cb36be8_10x18.jpg"
       },
       {
-        "width_inches": 6,
-        "height_inches": 11,
+        "width_inches": 8,
+        "height_inches": 14,
+        "image_width_inches": 6.47,
+        "image_height_inches": 12.72,
+        "border_inches": 0.64,
+        "file_pix_w": 1887,
+        "file_pix_h": 3302,
         "style": "rolled",
-        "sku": "5M210M8S6X11"
+        "sku": "5M210M8S8X14",
+        "file_key": "raw/sized/019891b0-f39c-7038-a32d-0f2d0cb36be8_8x14.jpg"
       }
     ],
     "finerworks_image": {
@@ -1660,22 +2116,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 16,
-        "height_inches": 15,
+        "width_inches": 20,
+        "height_inches": 19,
+        "image_width_inches": 16.6,
+        "image_height_inches": 15.96,
+        "border_inches": 1.52,
+        "file_pix_w": 3615,
+        "file_pix_h": 3435,
         "style": "rolled",
-        "sku": "5M210M8S16X15"
+        "sku": "5M210M8S20X19",
+        "file_key": "raw/sized/019891b0-f39c-755d-a7dc-fb045eb4ef1c_20x19.jpg"
       },
       {
-        "width_inches": 11,
-        "height_inches": 11,
+        "width_inches": 14,
+        "height_inches": 14,
+        "image_width_inches": 11.76,
+        "image_height_inches": 11.31,
+        "border_inches": 1.12,
+        "file_pix_w": 3571,
+        "file_pix_h": 3571,
         "style": "rolled",
-        "sku": "5M210M8S11X11"
+        "sku": "5M210M8S14X14",
+        "file_key": "raw/sized/019891b0-f39c-755d-a7dc-fb045eb4ef1c_14x14.jpg"
       },
       {
-        "width_inches": 8,
-        "height_inches": 8,
+        "width_inches": 10,
+        "height_inches": 10,
+        "image_width_inches": 8.4,
+        "image_height_inches": 8.08,
+        "border_inches": 0.8,
+        "file_pix_w": 3000,
+        "file_pix_h": 3000,
         "style": "rolled",
-        "sku": "5M210M8S8X8"
+        "sku": "5M210M8S10X10",
+        "file_key": "raw/sized/019891b0-f39c-755d-a7dc-fb045eb4ef1c_10x10.jpg"
       }
     ],
     "finerworks_image": {
@@ -1711,22 +2185,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 16,
-        "height_inches": 15,
+        "width_inches": 19,
+        "height_inches": 18,
+        "image_width_inches": 15.91,
+        "image_height_inches": 15.12,
+        "border_inches": 1.44,
+        "file_pix_w": 3583,
+        "file_pix_h": 3394,
         "style": "rolled",
-        "sku": "5M210M8S16X15"
+        "sku": "5M210M8S19X18",
+        "file_key": "raw/sized/019891b0-f39c-7bfb-9266-f832146002dd_19x18.jpg"
       },
       {
-        "width_inches": 11,
+        "width_inches": 14,
+        "height_inches": 13,
+        "image_width_inches": 11.49,
+        "image_height_inches": 10.92,
+        "border_inches": 1.04,
+        "file_pix_w": 3655,
+        "file_pix_h": 3394,
+        "style": "rolled",
+        "sku": "5M210M8S14X13",
+        "file_key": "raw/sized/019891b0-f39c-7bfb-9266-f832146002dd_14x13.jpg"
+      },
+      {
+        "width_inches": 10,
         "height_inches": 10,
+        "image_width_inches": 8.4,
+        "image_height_inches": 7.98,
+        "border_inches": 0.8,
+        "file_pix_w": 3000,
+        "file_pix_h": 3000,
         "style": "rolled",
-        "sku": "5M210M8S11X10"
-      },
-      {
-        "width_inches": 8,
-        "height_inches": 8,
-        "style": "rolled",
-        "sku": "5M210M8S8X8"
+        "sku": "5M210M8S10X10",
+        "file_key": "raw/sized/019891b0-f39c-7bfb-9266-f832146002dd_10x10.jpg"
       }
     ],
     "finerworks_image": {
@@ -1762,16 +2254,28 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 8,
-        "height_inches": 16,
+        "width_inches": 10,
+        "height_inches": 18,
+        "image_width_inches": 8.35,
+        "image_height_inches": 16.4,
+        "border_inches": 0.8,
+        "file_pix_w": 1829,
+        "file_pix_h": 3293,
         "style": "rolled",
-        "sku": "5M210M8S8X16"
+        "sku": "5M210M8S10X18",
+        "file_key": "raw/sized/019891b0-f39c-7e6a-a74c-8f5ec5c50381_10x18.jpg"
       },
       {
-        "width_inches": 6,
-        "height_inches": 11,
+        "width_inches": 8,
+        "height_inches": 14,
+        "image_width_inches": 6.48,
+        "image_height_inches": 12.72,
+        "border_inches": 0.64,
+        "file_pix_w": 1887,
+        "file_pix_h": 3302,
         "style": "rolled",
-        "sku": "5M210M8S6X11"
+        "sku": "5M210M8S8X14",
+        "file_key": "raw/sized/019891b0-f39c-7e6a-a74c-8f5ec5c50381_8x14.jpg"
       }
     ],
     "finerworks_image": {
@@ -1807,22 +2311,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 16,
-        "height_inches": 16,
+        "width_inches": 19,
+        "height_inches": 19,
+        "image_width_inches": 15.96,
+        "image_height_inches": 15.93,
+        "border_inches": 1.52,
+        "file_pix_w": 3571,
+        "file_pix_h": 3571,
         "style": "rolled",
-        "sku": "5M210M8S16X16"
+        "sku": "5M210M8S19X19",
+        "file_key": "raw/sized/019891b0-f39c-7fd8-9336-d5c9897af012_19x19.jpg"
       },
       {
-        "width_inches": 11,
-        "height_inches": 11,
+        "width_inches": 14,
+        "height_inches": 14,
+        "image_width_inches": 11.76,
+        "image_height_inches": 11.74,
+        "border_inches": 1.12,
+        "file_pix_w": 3571,
+        "file_pix_h": 3571,
         "style": "rolled",
-        "sku": "5M210M8S11X11"
+        "sku": "5M210M8S14X14",
+        "file_key": "raw/sized/019891b0-f39c-7fd8-9336-d5c9897af012_14x14.jpg"
       },
       {
-        "width_inches": 8,
-        "height_inches": 8,
+        "width_inches": 10,
+        "height_inches": 10,
+        "image_width_inches": 8.4,
+        "image_height_inches": 8.38,
+        "border_inches": 0.8,
+        "file_pix_w": 3000,
+        "file_pix_h": 3000,
         "style": "rolled",
-        "sku": "5M210M8S8X8"
+        "sku": "5M210M8S10X10",
+        "file_key": "raw/sized/019891b0-f39c-7fd8-9336-d5c9897af012_10x10.jpg"
       }
     ],
     "finerworks_image": {
@@ -1858,16 +2380,28 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 8,
-        "height_inches": 16,
+        "width_inches": 10,
+        "height_inches": 18,
+        "image_width_inches": 8.4,
+        "image_height_inches": 16.09,
+        "border_inches": 0.8,
+        "file_pix_w": 1864,
+        "file_pix_h": 3356,
         "style": "rolled",
-        "sku": "5M210M8S8X16"
+        "sku": "5M210M8S10X18",
+        "file_key": "raw/sized/019891b0-f39c-7aff-a45f-54ed6d61069b_10x18.jpg"
       },
       {
-        "width_inches": 6,
-        "height_inches": 11,
+        "width_inches": 8,
+        "height_inches": 14,
+        "image_width_inches": 6.64,
+        "image_height_inches": 12.72,
+        "border_inches": 0.64,
+        "file_pix_w": 1887,
+        "file_pix_h": 3302,
         "style": "rolled",
-        "sku": "5M210M8S6X11"
+        "sku": "5M210M8S8X14",
+        "file_key": "raw/sized/019891b0-f39c-7aff-a45f-54ed6d61069b_8x14.jpg"
       }
     ],
     "finerworks_image": {
@@ -1903,16 +2437,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 10,
-        "height_inches": 16,
+        "width_inches": 12,
+        "height_inches": 18,
+        "image_width_inches": 10.08,
+        "image_height_inches": 16.04,
+        "border_inches": 0.96,
+        "file_pix_w": 2244,
+        "file_pix_h": 3366,
         "style": "rolled",
-        "sku": "5M210M8S10X16"
+        "sku": "5M210M8S12X18",
+        "file_key": "raw/sized/019891b0-f39c-7af0-82e2-2e72570b0aa1_12x18.jpg"
       },
       {
-        "width_inches": 7,
-        "height_inches": 11,
+        "width_inches": 8,
+        "height_inches": 12,
+        "image_width_inches": 6.72,
+        "image_height_inches": 10.69,
+        "border_inches": 0.64,
+        "file_pix_w": 2244,
+        "file_pix_h": 3366,
         "style": "rolled",
-        "sku": "5M210M8S7X11"
+        "sku": "5M210M8S8X12",
+        "file_key": "raw/sized/019891b0-f39c-7af0-82e2-2e72570b0aa1_8x12.jpg"
+      },
+      {
+        "width_inches": 8,
+        "height_inches": 11,
+        "image_width_inches": 6.11,
+        "image_height_inches": 9.72,
+        "border_inches": 0.64,
+        "file_pix_w": 2400,
+        "file_pix_h": 3300,
+        "style": "rolled",
+        "sku": "5M210M8S8X11",
+        "file_key": "raw/sized/019891b0-f39c-7af0-82e2-2e72570b0aa1_8x11.jpg"
       }
     ],
     "finerworks_image": {
@@ -1948,10 +2506,28 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 16,
-        "height_inches": 8,
+        "width_inches": 18,
+        "height_inches": 10,
+        "image_width_inches": 16.4,
+        "image_height_inches": 8.17,
+        "border_inches": 0.8,
+        "file_pix_w": 3293,
+        "file_pix_h": 1829,
         "style": "rolled",
-        "sku": "5M210M8S16X8"
+        "sku": "5M210M8S18X10",
+        "file_key": "raw/sized/019891b0-f39c-78dc-adb1-0aa1b3b74a00_18x10.jpg"
+      },
+      {
+        "width_inches": 14,
+        "height_inches": 8,
+        "image_width_inches": 12.72,
+        "image_height_inches": 6.33,
+        "border_inches": 0.64,
+        "file_pix_w": 3302,
+        "file_pix_h": 1887,
+        "style": "rolled",
+        "sku": "5M210M8S14X8",
+        "file_key": "raw/sized/019891b0-f39c-78dc-adb1-0aa1b3b74a00_14x8.jpg"
       }
     ],
     "finerworks_image": {
@@ -1987,16 +2563,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 16,
-        "height_inches": 11,
+        "width_inches": 18,
+        "height_inches": 13,
+        "image_width_inches": 15.92,
+        "image_height_inches": 10.72,
+        "border_inches": 1.04,
+        "file_pix_w": 3392,
+        "file_pix_h": 2450,
         "style": "rolled",
-        "sku": "5M210M8S16X11"
+        "sku": "5M210M8S18X13",
+        "file_key": "raw/sized/019891b0-f39c-7597-8177-ccdf69e29071_18x13.jpg"
+      },
+      {
+        "width_inches": 14,
+        "height_inches": 10,
+        "image_width_inches": 12.4,
+        "image_height_inches": 8.35,
+        "border_inches": 0.8,
+        "file_pix_w": 3387,
+        "file_pix_h": 2419,
+        "style": "rolled",
+        "sku": "5M210M8S14X10",
+        "file_key": "raw/sized/019891b0-f39c-7597-8177-ccdf69e29071_14x10.jpg"
       },
       {
         "width_inches": 11,
-        "height_inches": 7,
+        "height_inches": 8,
+        "image_width_inches": 9.72,
+        "image_height_inches": 6.55,
+        "border_inches": 0.64,
+        "file_pix_w": 3300,
+        "file_pix_h": 2400,
         "style": "rolled",
-        "sku": "5M210M8S11X7"
+        "sku": "5M210M8S11X8",
+        "file_key": "raw/sized/019891b0-f39c-7597-8177-ccdf69e29071_11x8.jpg"
       }
     ],
     "finerworks_image": {
@@ -2032,16 +2632,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 10,
-        "height_inches": 16,
+        "width_inches": 12,
+        "height_inches": 17,
+        "image_width_inches": 9.81,
+        "image_height_inches": 15.08,
+        "border_inches": 0.96,
+        "file_pix_w": 2387,
+        "file_pix_h": 3382,
         "style": "rolled",
-        "sku": "5M210M8S10X16"
+        "sku": "5M210M8S12X17",
+        "file_key": "raw/sized/019891b0-f39c-7c4a-a8f5-77fdf9b0873a_12x17.jpg"
       },
       {
-        "width_inches": 7,
-        "height_inches": 11,
+        "width_inches": 9,
+        "height_inches": 13,
+        "image_width_inches": 7.52,
+        "image_height_inches": 11.56,
+        "border_inches": 0.72,
+        "file_pix_w": 2336,
+        "file_pix_h": 3374,
         "style": "rolled",
-        "sku": "5M210M8S7X11"
+        "sku": "5M210M8S9X13",
+        "file_key": "raw/sized/019891b0-f39c-7c4a-a8f5-77fdf9b0873a_9x13.jpg"
+      },
+      {
+        "width_inches": 8,
+        "height_inches": 11,
+        "image_width_inches": 6.32,
+        "image_height_inches": 9.72,
+        "border_inches": 0.64,
+        "file_pix_w": 2400,
+        "file_pix_h": 3300,
+        "style": "rolled",
+        "sku": "5M210M8S8X11",
+        "file_key": "raw/sized/019891b0-f39c-7c4a-a8f5-77fdf9b0873a_8x11.jpg"
       }
     ],
     "finerworks_image": {
@@ -2077,22 +2701,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 16,
-        "height_inches": 16,
+        "width_inches": 19,
+        "height_inches": 19,
+        "image_width_inches": 15.96,
+        "image_height_inches": 15.77,
+        "border_inches": 1.52,
+        "file_pix_w": 3571,
+        "file_pix_h": 3571,
         "style": "rolled",
-        "sku": "5M210M8S16X16"
+        "sku": "5M210M8S19X19",
+        "file_key": "raw/sized/019891b0-f39c-7841-9423-b51b365a7b9c_19x19.jpg"
       },
       {
-        "width_inches": 11,
-        "height_inches": 11,
+        "width_inches": 14,
+        "height_inches": 14,
+        "image_width_inches": 11.76,
+        "image_height_inches": 11.62,
+        "border_inches": 1.12,
+        "file_pix_w": 3571,
+        "file_pix_h": 3571,
         "style": "rolled",
-        "sku": "5M210M8S11X11"
+        "sku": "5M210M8S14X14",
+        "file_key": "raw/sized/019891b0-f39c-7841-9423-b51b365a7b9c_14x14.jpg"
       },
       {
-        "width_inches": 8,
-        "height_inches": 8,
+        "width_inches": 10,
+        "height_inches": 10,
+        "image_width_inches": 8.4,
+        "image_height_inches": 8.3,
+        "border_inches": 0.8,
+        "file_pix_w": 3000,
+        "file_pix_h": 3000,
         "style": "rolled",
-        "sku": "5M210M8S8X8"
+        "sku": "5M210M8S10X10",
+        "file_key": "raw/sized/019891b0-f39c-7841-9423-b51b365a7b9c_10x10.jpg"
       }
     ],
     "finerworks_image": {
@@ -2128,10 +2770,16 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 6,
-        "height_inches": 8,
+        "width_inches": 8,
+        "height_inches": 10,
+        "image_width_inches": 6.53,
+        "image_height_inches": 8.72,
+        "border_inches": 0.64,
+        "file_pix_w": 1468,
+        "file_pix_h": 1835,
         "style": "rolled",
-        "sku": "5M210M8S6X8"
+        "sku": "5M210M8S8X10",
+        "file_key": "raw/sized/019891b0-f39c-7df5-a02e-1cc15d22bb57_8x10.jpg"
       }
     ],
     "finerworks_image": {
@@ -2167,16 +2815,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 10,
-        "height_inches": 16,
+        "width_inches": 12,
+        "height_inches": 17,
+        "image_width_inches": 9.86,
+        "image_height_inches": 15.08,
+        "border_inches": 0.96,
+        "file_pix_w": 2387,
+        "file_pix_h": 3382,
         "style": "rolled",
-        "sku": "5M210M8S10X16"
+        "sku": "5M210M8S12X17",
+        "file_key": "raw/sized/019891b0-f39c-7871-b204-09fa520d0d23_12x17.jpg"
       },
       {
-        "width_inches": 7,
-        "height_inches": 11,
+        "width_inches": 9,
+        "height_inches": 13,
+        "image_width_inches": 7.56,
+        "image_height_inches": 11.56,
+        "border_inches": 0.72,
+        "file_pix_w": 2336,
+        "file_pix_h": 3374,
         "style": "rolled",
-        "sku": "5M210M8S7X11"
+        "sku": "5M210M8S9X13",
+        "file_key": "raw/sized/019891b0-f39c-7871-b204-09fa520d0d23_9x13.jpg"
+      },
+      {
+        "width_inches": 8,
+        "height_inches": 11,
+        "image_width_inches": 6.36,
+        "image_height_inches": 9.72,
+        "border_inches": 0.64,
+        "file_pix_w": 2400,
+        "file_pix_h": 3300,
+        "style": "rolled",
+        "sku": "5M210M8S8X11",
+        "file_key": "raw/sized/019891b0-f39c-7871-b204-09fa520d0d23_8x11.jpg"
       }
     ],
     "finerworks_image": {
@@ -2212,16 +2884,28 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 10,
-        "height_inches": 19,
+        "width_inches": 12,
+        "height_inches": 21,
+        "image_width_inches": 9.75,
+        "image_height_inches": 19.08,
+        "border_inches": 0.96,
+        "file_pix_w": 2219,
+        "file_pix_h": 3883,
         "style": "rolled",
-        "sku": "5M210M8S10X19"
+        "sku": "5M210M8S12X21",
+        "file_key": "raw/sized/019891b0-f39c-79ee-915a-34d3aa1decd1_12x21.jpg"
       },
       {
-        "width_inches": 7,
-        "height_inches": 13,
+        "width_inches": 9,
+        "height_inches": 16,
+        "image_width_inches": 7.44,
+        "image_height_inches": 14.56,
+        "border_inches": 0.72,
+        "file_pix_w": 2181,
+        "file_pix_h": 3877,
         "style": "rolled",
-        "sku": "5M210M8S7X13"
+        "sku": "5M210M8S9X16",
+        "file_key": "raw/sized/019891b0-f39c-79ee-915a-34d3aa1decd1_9x16.jpg"
       }
     ],
     "finerworks_image": {
@@ -2257,10 +2941,28 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 15,
-        "height_inches": 8,
+        "width_inches": 17,
+        "height_inches": 10,
+        "image_width_inches": 15.4,
+        "image_height_inches": 8.11,
+        "border_inches": 0.8,
+        "file_pix_w": 3114,
+        "file_pix_h": 1832,
         "style": "rolled",
-        "sku": "5M210M8S15X8"
+        "sku": "5M210M8S17X10",
+        "file_key": "raw/sized/019891b0-f39c-7d61-9f3a-c5847a00bde5_17x10.jpg"
+      },
+      {
+        "width_inches": 14,
+        "height_inches": 8,
+        "image_width_inches": 12.72,
+        "image_height_inches": 6.7,
+        "border_inches": 0.64,
+        "file_pix_w": 3105,
+        "file_pix_h": 1774,
+        "style": "rolled",
+        "sku": "5M210M8S14X8",
+        "file_key": "raw/sized/019891b0-f39c-7d61-9f3a-c5847a00bde5_14x8.jpg"
       }
     ],
     "finerworks_image": {
@@ -2296,22 +2998,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 47,
-        "height_inches": 24,
+        "width_inches": 52,
+        "height_inches": 29,
+        "image_width_inches": 47.36,
+        "image_height_inches": 24.09,
+        "border_inches": 2.32,
+        "file_pix_w": 9421,
+        "file_pix_h": 5254,
         "style": "rolled",
-        "sku": "5M210M8S47X24"
+        "sku": "5M210M8S52X29",
+        "file_key": "raw/sized/019891b0-f39c-7904-960b-4b52cf3fe52e_52x29.jpg"
       },
       {
-        "width_inches": 33,
-        "height_inches": 17,
+        "width_inches": 36,
+        "height_inches": 20,
+        "image_width_inches": 32.8,
+        "image_height_inches": 16.69,
+        "border_inches": 1.6,
+        "file_pix_w": 9417,
+        "file_pix_h": 5232,
         "style": "rolled",
-        "sku": "5M210M8S33X17"
+        "sku": "5M210M8S36X20",
+        "file_key": "raw/sized/019891b0-f39c-7904-960b-4b52cf3fe52e_36x20.jpg"
       },
       {
-        "width_inches": 23,
-        "height_inches": 12,
+        "width_inches": 27,
+        "height_inches": 15,
+        "image_width_inches": 24.6,
+        "image_height_inches": 12.52,
+        "border_inches": 1.2,
+        "file_pix_w": 8100,
+        "file_pix_h": 4500,
         "style": "rolled",
-        "sku": "5M210M8S23X12"
+        "sku": "5M210M8S27X15",
+        "file_key": "raw/sized/019891b0-f39c-7904-960b-4b52cf3fe52e_27x15.jpg"
       }
     ],
     "finerworks_image": {
@@ -2347,10 +3067,28 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 17,
-        "height_inches": 8,
+        "width_inches": 18,
+        "height_inches": 9,
+        "image_width_inches": 16.56,
+        "image_height_inches": 7.4,
+        "border_inches": 0.72,
+        "file_pix_w": 3329,
+        "file_pix_h": 1665,
         "style": "rolled",
-        "sku": "5M210M8S17X8"
+        "sku": "5M210M8S18X9",
+        "file_key": "raw/sized/019891b0-f39c-71be-8987-5f3e69224ab5_18x9.jpg"
+      },
+      {
+        "width_inches": 14,
+        "height_inches": 8,
+        "image_width_inches": 12.72,
+        "image_height_inches": 5.69,
+        "border_inches": 0.64,
+        "file_pix_w": 3371,
+        "file_pix_h": 1926,
+        "style": "rolled",
+        "sku": "5M210M8S14X8",
+        "file_key": "raw/sized/019891b0-f39c-71be-8987-5f3e69224ab5_14x8.jpg"
       }
     ],
     "finerworks_image": {
@@ -2386,22 +3124,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 25,
-        "height_inches": 25,
+        "width_inches": 29,
+        "height_inches": 29,
+        "image_width_inches": 24.36,
+        "image_height_inches": 24.27,
+        "border_inches": 2.32,
+        "file_pix_w": 5360,
+        "file_pix_h": 5360,
         "style": "rolled",
-        "sku": "5M210M8S25X25"
+        "sku": "5M210M8S29X29",
+        "file_key": "raw/sized/019891b0-f39c-7a96-8e1b-28d8310e36dd_29x29.jpg"
       },
       {
-        "width_inches": 17,
-        "height_inches": 17,
+        "width_inches": 21,
+        "height_inches": 21,
+        "image_width_inches": 17.64,
+        "image_height_inches": 17.58,
+        "border_inches": 1.68,
+        "file_pix_w": 5360,
+        "file_pix_h": 5360,
         "style": "rolled",
-        "sku": "5M210M8S17X17"
+        "sku": "5M210M8S21X21",
+        "file_key": "raw/sized/019891b0-f39c-7a96-8e1b-28d8310e36dd_21x21.jpg"
       },
       {
-        "width_inches": 12,
-        "height_inches": 12,
+        "width_inches": 15,
+        "height_inches": 15,
+        "image_width_inches": 12.6,
+        "image_height_inches": 12.56,
+        "border_inches": 1.2,
+        "file_pix_w": 4500,
+        "file_pix_h": 4500,
         "style": "rolled",
-        "sku": "5M210M8S12X12"
+        "sku": "5M210M8S15X15",
+        "file_key": "raw/sized/019891b0-f39c-7a96-8e1b-28d8310e36dd_15x15.jpg"
       }
     ],
     "finerworks_image": {
@@ -2437,22 +3193,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 19,
-        "height_inches": 29,
+        "width_inches": 22,
+        "height_inches": 32,
+        "image_width_inches": 18.43,
+        "image_height_inches": 28.48,
+        "border_inches": 1.76,
+        "file_pix_w": 4728,
+        "file_pix_h": 6878,
         "style": "rolled",
-        "sku": "5M210M8S19X29"
+        "sku": "5M210M8S22X32",
+        "file_key": "raw/sized/019891b0-f39c-78e8-be37-c859eb030659_22x32.jpg"
       },
       {
-        "width_inches": 13,
-        "height_inches": 20,
+        "width_inches": 16,
+        "height_inches": 23,
+        "image_width_inches": 13.22,
+        "image_height_inches": 20.44,
+        "border_inches": 1.28,
+        "file_pix_w": 4791,
+        "file_pix_h": 6888,
         "style": "rolled",
-        "sku": "5M210M8S13X20"
+        "sku": "5M210M8S16X23",
+        "file_key": "raw/sized/019891b0-f39c-78e8-be37-c859eb030659_16x23.jpg"
       },
       {
-        "width_inches": 9,
-        "height_inches": 14,
+        "width_inches": 11,
+        "height_inches": 16,
+        "image_width_inches": 9.21,
+        "image_height_inches": 14.24,
+        "border_inches": 0.88,
+        "file_pix_w": 3300,
+        "file_pix_h": 4800,
         "style": "rolled",
-        "sku": "5M210M8S9X14"
+        "sku": "5M210M8S11X16",
+        "file_key": "raw/sized/019891b0-f39c-78e8-be37-c859eb030659_11x16.jpg"
       }
     ],
     "finerworks_image": {
@@ -2488,22 +3262,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 18,
-        "height_inches": 27,
+        "width_inches": 21,
+        "height_inches": 30,
+        "image_width_inches": 17.51,
+        "image_height_inches": 26.64,
+        "border_inches": 1.68,
+        "file_pix_w": 4872,
+        "file_pix_h": 6961,
         "style": "rolled",
-        "sku": "5M210M8S18X27"
+        "sku": "5M210M8S21X30",
+        "file_key": "raw/sized/019891b0-f39c-72a2-ae2f-04a06f5a0c75_21x30.jpg"
       },
       {
-        "width_inches": 12,
-        "height_inches": 19,
+        "width_inches": 16,
+        "height_inches": 23,
+        "image_width_inches": 13.43,
+        "image_height_inches": 20.44,
+        "border_inches": 1.28,
+        "file_pix_w": 4800,
+        "file_pix_h": 6900,
         "style": "rolled",
-        "sku": "5M210M8S12X19"
+        "sku": "5M210M8S16X23",
+        "file_key": "raw/sized/019891b0-f39c-72a2-ae2f-04a06f5a0c75_16x23.jpg"
       },
       {
-        "width_inches": 9,
-        "height_inches": 13,
+        "width_inches": 11,
+        "height_inches": 16,
+        "image_width_inches": 9.24,
+        "image_height_inches": 14.06,
+        "border_inches": 0.88,
+        "file_pix_w": 3300,
+        "file_pix_h": 4800,
         "style": "rolled",
-        "sku": "5M210M8S9X13"
+        "sku": "5M210M8S11X16",
+        "file_key": "raw/sized/019891b0-f39c-72a2-ae2f-04a06f5a0c75_11x16.jpg"
       }
     ],
     "finerworks_image": {
@@ -2539,10 +3331,16 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 19,
-        "height_inches": 7,
+        "width_inches": 20,
+        "height_inches": 8,
+        "image_width_inches": 18.72,
+        "image_height_inches": 6.45,
+        "border_inches": 0.64,
+        "file_pix_w": 3724,
+        "file_pix_h": 1490,
         "style": "rolled",
-        "sku": "5M210M8S19X7"
+        "sku": "5M210M8S20X8",
+        "file_key": "raw/sized/019891b0-f39c-7939-897c-cc57bc9b4a35_20x8.jpg"
       }
     ],
     "finerworks_image": {
@@ -2578,22 +3376,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 17,
-        "height_inches": 26,
+        "width_inches": 21,
+        "height_inches": 30,
+        "image_width_inches": 17.64,
+        "image_height_inches": 26.58,
+        "border_inches": 1.68,
+        "file_pix_w": 4406,
+        "file_pix_h": 6294,
         "style": "rolled",
-        "sku": "5M210M8S17X26"
+        "sku": "5M210M8S21X30",
+        "file_key": "raw/sized/019891b0-f39c-7f63-87fd-b7a8a860889f_21x30.jpg"
       },
       {
-        "width_inches": 12,
-        "height_inches": 18,
+        "width_inches": 15,
+        "height_inches": 21,
+        "image_width_inches": 12.34,
+        "image_height_inches": 18.6,
+        "border_inches": 1.2,
+        "file_pix_w": 4498,
+        "file_pix_h": 6297,
         "style": "rolled",
-        "sku": "5M210M8S12X18"
+        "sku": "5M210M8S15X21",
+        "file_key": "raw/sized/019891b0-f39c-7f63-87fd-b7a8a860889f_15x21.jpg"
       },
       {
-        "width_inches": 9,
-        "height_inches": 13,
+        "width_inches": 10,
+        "height_inches": 14,
+        "image_width_inches": 8.23,
+        "image_height_inches": 12.4,
+        "border_inches": 0.8,
+        "file_pix_w": 3000,
+        "file_pix_h": 4200,
         "style": "rolled",
-        "sku": "5M210M8S9X13"
+        "sku": "5M210M8S10X14",
+        "file_key": "raw/sized/019891b0-f39c-7f63-87fd-b7a8a860889f_10x14.jpg"
       }
     ],
     "finerworks_image": {
@@ -2629,22 +3445,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 18,
-        "height_inches": 35,
+        "width_inches": 22,
+        "height_inches": 39,
+        "image_width_inches": 18.48,
+        "image_height_inches": 35.13,
+        "border_inches": 1.76,
+        "file_pix_w": 4010,
+        "file_pix_h": 7108,
         "style": "rolled",
-        "sku": "5M210M8S18X35"
+        "sku": "5M210M8S22X39",
+        "file_key": "raw/sized/019891b0-f39c-7403-80d4-4da1440b7976_22x39.jpg"
       },
       {
-        "width_inches": 13,
-        "height_inches": 24,
+        "width_inches": 16,
+        "height_inches": 28,
+        "image_width_inches": 13.38,
+        "image_height_inches": 25.44,
+        "border_inches": 1.28,
+        "file_pix_w": 4026,
+        "file_pix_h": 7046,
         "style": "rolled",
-        "sku": "5M210M8S13X24"
+        "sku": "5M210M8S16X28",
+        "file_key": "raw/sized/019891b0-f39c-7403-80d4-4da1440b7976_16x28.jpg"
       },
       {
-        "width_inches": 9,
-        "height_inches": 17,
+        "width_inches": 11,
+        "height_inches": 19,
+        "image_width_inches": 9.07,
+        "image_height_inches": 17.24,
+        "border_inches": 0.88,
+        "file_pix_w": 3300,
+        "file_pix_h": 5700,
         "style": "rolled",
-        "sku": "5M210M8S9X17"
+        "sku": "5M210M8S11X19",
+        "file_key": "raw/sized/019891b0-f39c-7403-80d4-4da1440b7976_11x19.jpg"
       }
     ],
     "finerworks_image": {
@@ -2680,22 +3514,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 18,
-        "height_inches": 27,
+        "width_inches": 21,
+        "height_inches": 30,
+        "image_width_inches": 17.38,
+        "image_height_inches": 26.64,
+        "border_inches": 1.68,
+        "file_pix_w": 4887,
+        "file_pix_h": 6982,
         "style": "rolled",
-        "sku": "5M210M8S18X27"
+        "sku": "5M210M8S21X30",
+        "file_key": "raw/sized/019891b0-f39c-792d-b5e8-b80ef8754ca2_21x30.jpg"
       },
       {
-        "width_inches": 12,
-        "height_inches": 19,
+        "width_inches": 15,
+        "height_inches": 22,
+        "image_width_inches": 12.6,
+        "image_height_inches": 19.31,
+        "border_inches": 1.2,
+        "file_pix_w": 4500,
+        "file_pix_h": 6600,
         "style": "rolled",
-        "sku": "5M210M8S12X19"
+        "sku": "5M210M8S15X22",
+        "file_key": "raw/sized/019891b0-f39c-792d-b5e8-b80ef8754ca2_15x22.jpg"
       },
       {
-        "width_inches": 8,
-        "height_inches": 13,
+        "width_inches": 11,
+        "height_inches": 16,
+        "image_width_inches": 9.24,
+        "image_height_inches": 14.16,
+        "border_inches": 0.88,
+        "file_pix_w": 3300,
+        "file_pix_h": 4800,
         "style": "rolled",
-        "sku": "5M210M8S8X13"
+        "sku": "5M210M8S11X16",
+        "file_key": "raw/sized/019891b0-f39c-792d-b5e8-b80ef8754ca2_11x16.jpg"
       }
     ],
     "finerworks_image": {
@@ -2731,10 +3583,28 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 7,
-        "height_inches": 16,
+        "width_inches": 9,
+        "height_inches": 18,
+        "image_width_inches": 7.56,
+        "image_height_inches": 16.35,
+        "border_inches": 0.72,
+        "file_pix_w": 1657,
+        "file_pix_h": 3314,
         "style": "rolled",
-        "sku": "5M210M8S7X16"
+        "sku": "5M210M8S9X18",
+        "file_key": "raw/sized/019891b0-f39c-71dd-be15-f32291c15cc6_9x18.jpg"
+      },
+      {
+        "width_inches": 8,
+        "height_inches": 14,
+        "image_width_inches": 5.88,
+        "image_height_inches": 12.72,
+        "border_inches": 0.64,
+        "file_pix_w": 1893,
+        "file_pix_h": 3313,
+        "style": "rolled",
+        "sku": "5M210M8S8X14",
+        "file_key": "raw/sized/019891b0-f39c-71dd-be15-f32291c15cc6_8x14.jpg"
       }
     ],
     "finerworks_image": {
@@ -2770,22 +3640,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 36,
-        "height_inches": 19,
+        "width_inches": 40,
+        "height_inches": 23,
+        "image_width_inches": 35.95,
+        "image_height_inches": 19.32,
+        "border_inches": 1.84,
+        "file_pix_w": 7275,
+        "file_pix_h": 4183,
         "style": "rolled",
-        "sku": "5M210M8S36X19"
+        "sku": "5M210M8S40X23",
+        "file_key": "raw/sized/019891b0-f39c-7b75-910e-8ef8046a7bb9_40x23.jpg"
       },
       {
-        "width_inches": 25,
-        "height_inches": 13,
+        "width_inches": 29,
+        "height_inches": 17,
+        "image_width_inches": 26.28,
+        "image_height_inches": 14.12,
+        "border_inches": 1.36,
+        "file_pix_w": 7215,
+        "file_pix_h": 4229,
         "style": "rolled",
-        "sku": "5M210M8S25X13"
+        "sku": "5M210M8S29X17",
+        "file_key": "raw/sized/019891b0-f39c-7b75-910e-8ef8046a7bb9_29x17.jpg"
       },
       {
-        "width_inches": 18,
-        "height_inches": 10,
+        "width_inches": 19,
+        "height_inches": 11,
+        "image_width_inches": 17.19,
+        "image_height_inches": 9.24,
+        "border_inches": 0.88,
+        "file_pix_w": 5700,
+        "file_pix_h": 3300,
         "style": "rolled",
-        "sku": "5M210M8S18X10"
+        "sku": "5M210M8S19X11",
+        "file_key": "raw/sized/019891b0-f39c-7b75-910e-8ef8046a7bb9_19x11.jpg"
       }
     ],
     "finerworks_image": {
@@ -2821,16 +3709,28 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 8,
-        "height_inches": 28,
+        "width_inches": 10,
+        "height_inches": 30,
+        "image_width_inches": 8.12,
+        "image_height_inches": 28.4,
+        "border_inches": 0.8,
+        "file_pix_w": 1829,
+        "file_pix_h": 5488,
         "style": "rolled",
-        "sku": "5M210M8S8X28"
+        "sku": "5M210M8S10X30",
+        "file_key": "raw/sized/019891b0-f39c-721b-b645-0e2a1c090d9b_10x30.jpg"
       },
       {
-        "width_inches": 6,
-        "height_inches": 20,
+        "width_inches": 8,
+        "height_inches": 22,
+        "image_width_inches": 5.92,
+        "image_height_inches": 20.72,
+        "border_inches": 0.64,
+        "file_pix_w": 2006,
+        "file_pix_h": 5516,
         "style": "rolled",
-        "sku": "5M210M8S6X20"
+        "sku": "5M210M8S8X22",
+        "file_key": "raw/sized/019891b0-f39c-721b-b645-0e2a1c090d9b_8x22.jpg"
       }
     ],
     "finerworks_image": {
@@ -2866,10 +3766,28 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 15,
-        "height_inches": 8,
+        "width_inches": 17,
+        "height_inches": 10,
+        "image_width_inches": 15.4,
+        "image_height_inches": 8.11,
+        "border_inches": 0.8,
+        "file_pix_w": 3115,
+        "file_pix_h": 1832,
         "style": "rolled",
-        "sku": "5M210M8S15X8"
+        "sku": "5M210M8S17X10",
+        "file_key": "raw/sized/019891b0-f39c-7539-8543-c9a7de487cca_17x10.jpg"
+      },
+      {
+        "width_inches": 14,
+        "height_inches": 8,
+        "image_width_inches": 12.72,
+        "image_height_inches": 6.7,
+        "border_inches": 0.64,
+        "file_pix_w": 3106,
+        "file_pix_h": 1775,
+        "style": "rolled",
+        "sku": "5M210M8S14X8",
+        "file_key": "raw/sized/019891b0-f39c-7539-8543-c9a7de487cca_14x8.jpg"
       }
     ],
     "finerworks_image": {
@@ -2905,16 +3823,28 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 8,
-        "height_inches": 15,
+        "width_inches": 9,
+        "height_inches": 16,
+        "image_width_inches": 7.46,
+        "image_height_inches": 14.56,
+        "border_inches": 0.72,
+        "file_pix_w": 1768,
+        "file_pix_h": 3143,
         "style": "rolled",
-        "sku": "5M210M8S8X15"
+        "sku": "5M210M8S9X16",
+        "file_key": "raw/sized/019891b0-f39c-7fb1-9331-58595bfdef27_9x16.jpg"
       },
       {
-        "width_inches": 6,
-        "height_inches": 11,
+        "width_inches": 8,
+        "height_inches": 14,
+        "image_width_inches": 6.52,
+        "image_height_inches": 12.72,
+        "border_inches": 0.64,
+        "file_pix_w": 1799,
+        "file_pix_h": 3148,
         "style": "rolled",
-        "sku": "5M210M8S6X11"
+        "sku": "5M210M8S8X14",
+        "file_key": "raw/sized/019891b0-f39c-7fb1-9331-58595bfdef27_8x14.jpg"
       }
     ],
     "finerworks_image": {
@@ -2950,16 +3880,28 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 8,
-        "height_inches": 15,
+        "width_inches": 9,
+        "height_inches": 16,
+        "image_width_inches": 7.47,
+        "image_height_inches": 14.56,
+        "border_inches": 0.72,
+        "file_pix_w": 1767,
+        "file_pix_h": 3142,
         "style": "rolled",
-        "sku": "5M210M8S8X15"
+        "sku": "5M210M8S9X16",
+        "file_key": "raw/sized/019891b0-f39c-7995-bcb5-8b510d734e53_9x16.jpg"
       },
       {
-        "width_inches": 6,
-        "height_inches": 11,
+        "width_inches": 8,
+        "height_inches": 14,
+        "image_width_inches": 6.53,
+        "image_height_inches": 12.72,
+        "border_inches": 0.64,
+        "file_pix_w": 1798,
+        "file_pix_h": 3147,
         "style": "rolled",
-        "sku": "5M210M8S6X11"
+        "sku": "5M210M8S8X14",
+        "file_key": "raw/sized/019891b0-f39c-7995-bcb5-8b510d734e53_8x14.jpg"
       }
     ],
     "finerworks_image": {
@@ -2995,22 +3937,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 36,
-        "height_inches": 18,
+        "width_inches": 39,
+        "height_inches": 21,
+        "image_width_inches": 35.35,
+        "image_height_inches": 17.64,
+        "border_inches": 1.68,
+        "file_pix_w": 7152,
+        "file_pix_h": 3851,
         "style": "rolled",
-        "sku": "5M210M8S36X18"
+        "sku": "5M210M8S39X21",
+        "file_key": "raw/sized/019891b0-f39c-71f0-bd5c-b448f22ef5f4_39x21.jpg"
       },
       {
-        "width_inches": 25,
-        "height_inches": 12,
+        "width_inches": 28,
+        "height_inches": 15,
+        "image_width_inches": 25.25,
+        "image_height_inches": 12.6,
+        "border_inches": 1.2,
+        "file_pix_w": 7189,
+        "file_pix_h": 3851,
         "style": "rolled",
-        "sku": "5M210M8S25X12"
+        "sku": "5M210M8S28X15",
+        "file_key": "raw/sized/019891b0-f39c-71f0-bd5c-b448f22ef5f4_28x15.jpg"
       },
       {
-        "width_inches": 18,
-        "height_inches": 9,
+        "width_inches": 20,
+        "height_inches": 11,
+        "image_width_inches": 18.24,
+        "image_height_inches": 9.1,
+        "border_inches": 0.88,
+        "file_pix_w": 6000,
+        "file_pix_h": 3300,
         "style": "rolled",
-        "sku": "5M210M8S18X9"
+        "sku": "5M210M8S20X11",
+        "file_key": "raw/sized/019891b0-f39c-71f0-bd5c-b448f22ef5f4_20x11.jpg"
       }
     ],
     "finerworks_image": {
@@ -3046,22 +4006,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 35,
-        "height_inches": 17,
+        "width_inches": 39,
+        "height_inches": 21,
+        "image_width_inches": 35.44,
+        "image_height_inches": 17.64,
+        "border_inches": 1.68,
+        "file_pix_w": 7104,
+        "file_pix_h": 3825,
         "style": "rolled",
-        "sku": "5M210M8S35X17"
+        "sku": "5M210M8S39X21",
+        "file_key": "raw/sized/019891b0-f39c-7e7e-ab7e-4b6efd6d2dfa_39x21.jpg"
       },
       {
-        "width_inches": 25,
-        "height_inches": 12,
+        "width_inches": 28,
+        "height_inches": 15,
+        "image_width_inches": 25.32,
+        "image_height_inches": 12.6,
+        "border_inches": 1.2,
+        "file_pix_w": 7140,
+        "file_pix_h": 3825,
         "style": "rolled",
-        "sku": "5M210M8S25X12"
+        "sku": "5M210M8S28X15",
+        "file_key": "raw/sized/019891b0-f39c-7e7e-ab7e-4b6efd6d2dfa_28x15.jpg"
       },
       {
-        "width_inches": 17,
-        "height_inches": 8,
+        "width_inches": 20,
+        "height_inches": 11,
+        "image_width_inches": 18.24,
+        "image_height_inches": 9.08,
+        "border_inches": 0.88,
+        "file_pix_w": 6000,
+        "file_pix_h": 3300,
         "style": "rolled",
-        "sku": "5M210M8S17X8"
+        "sku": "5M210M8S20X11",
+        "file_key": "raw/sized/019891b0-f39c-7e7e-ab7e-4b6efd6d2dfa_20x11.jpg"
       }
     ],
     "finerworks_image": {
@@ -3097,22 +4075,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 28,
-        "height_inches": 26,
+        "width_inches": 33,
+        "height_inches": 31,
+        "image_width_inches": 28.04,
+        "image_height_inches": 25.79,
+        "border_inches": 2.48,
+        "file_pix_w": 6086,
+        "file_pix_h": 5717,
         "style": "rolled",
-        "sku": "5M210M8S28X26"
+        "sku": "5M210M8S33X31",
+        "file_key": "raw/sized/019891b0-f39c-7a31-8759-95a350b1e45b_33x31.jpg"
       },
       {
-        "width_inches": 20,
-        "height_inches": 18,
+        "width_inches": 24,
+        "height_inches": 22,
+        "image_width_inches": 20.09,
+        "image_height_inches": 18.48,
+        "border_inches": 1.76,
+        "file_pix_w": 6177,
+        "file_pix_h": 5662,
         "style": "rolled",
-        "sku": "5M210M8S20X18"
+        "sku": "5M210M8S24X22",
+        "file_key": "raw/sized/019891b0-f39c-7a31-8759-95a350b1e45b_24x22.jpg"
       },
       {
-        "width_inches": 14,
-        "height_inches": 13,
+        "width_inches": 17,
+        "height_inches": 16,
+        "image_width_inches": 14.44,
+        "image_height_inches": 13.28,
+        "border_inches": 1.28,
+        "file_pix_w": 5100,
+        "file_pix_h": 4800,
         "style": "rolled",
-        "sku": "5M210M8S14X13"
+        "sku": "5M210M8S17X16",
+        "file_key": "raw/sized/019891b0-f39c-7a31-8759-95a350b1e45b_17x16.jpg"
       }
     ],
     "finerworks_image": {
@@ -3148,22 +4144,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 27,
-        "height_inches": 25,
+        "width_inches": 32,
+        "height_inches": 30,
+        "image_width_inches": 27.01,
+        "image_height_inches": 25.2,
+        "border_inches": 2.4,
+        "file_pix_w": 5797,
+        "file_pix_h": 5435,
         "style": "rolled",
-        "sku": "5M210M8S27X25"
+        "sku": "5M210M8S32X30",
+        "file_key": "raw/sized/019891b0-f39c-7b15-9621-9861ba359745_32x30.jpg"
       },
       {
-        "width_inches": 19,
-        "height_inches": 18,
+        "width_inches": 22,
+        "height_inches": 21,
+        "image_width_inches": 18.64,
+        "image_height_inches": 17.39,
+        "border_inches": 1.68,
+        "file_pix_w": 5775,
+        "file_pix_h": 5512,
         "style": "rolled",
-        "sku": "5M210M8S19X18"
+        "sku": "5M210M8S22X21",
+        "file_key": "raw/sized/019891b0-f39c-7b15-9621-9861ba359745_22x21.jpg"
       },
       {
-        "width_inches": 13,
-        "height_inches": 12,
+        "width_inches": 16,
+        "height_inches": 15,
+        "image_width_inches": 13.51,
+        "image_height_inches": 12.6,
+        "border_inches": 1.2,
+        "file_pix_w": 4800,
+        "file_pix_h": 4500,
         "style": "rolled",
-        "sku": "5M210M8S13X12"
+        "sku": "5M210M8S16X15",
+        "file_key": "raw/sized/019891b0-f39c-7b15-9621-9861ba359745_16x15.jpg"
       }
     ],
     "finerworks_image": {
@@ -3199,16 +4213,28 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 9,
-        "height_inches": 34,
+        "width_inches": 11,
+        "height_inches": 36,
+        "image_width_inches": 8.74,
+        "image_height_inches": 34.24,
+        "border_inches": 0.88,
+        "file_pix_w": 1987,
+        "file_pix_h": 6502,
         "style": "rolled",
-        "sku": "5M210M8S9X34"
+        "sku": "5M210M8S11X36",
+        "file_key": "raw/sized/019891b0-f39c-73f5-98b1-d68da1664faf_11x36.jpg"
       },
       {
-        "width_inches": 6,
-        "height_inches": 24,
+        "width_inches": 8,
+        "height_inches": 26,
+        "image_width_inches": 6.31,
+        "image_height_inches": 24.72,
+        "border_inches": 0.64,
+        "file_pix_w": 2001,
+        "file_pix_h": 6504,
         "style": "rolled",
-        "sku": "5M210M8S6X24"
+        "sku": "5M210M8S8X26",
+        "file_key": "raw/sized/019891b0-f39c-73f5-98b1-d68da1664faf_8x26.jpg"
       }
     ],
     "finerworks_image": {
@@ -3254,22 +4280,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 35,
-        "height_inches": 19,
+        "width_inches": 38,
+        "height_inches": 22,
+        "image_width_inches": 34.45,
+        "image_height_inches": 18.48,
+        "border_inches": 1.76,
+        "file_pix_w": 7133,
+        "file_pix_h": 4130,
         "style": "rolled",
-        "sku": "5M210M8S35X19"
+        "sku": "5M210M8S38X22",
+        "file_key": "raw/sized/019891b0-f39c-7b83-902a-1f7f7bc72183_38x22.jpg"
       },
       {
-        "width_inches": 25,
-        "height_inches": 13,
+        "width_inches": 28,
+        "height_inches": 16,
+        "image_width_inches": 25.05,
+        "image_height_inches": 13.44,
+        "border_inches": 1.28,
+        "file_pix_w": 7227,
+        "file_pix_h": 4130,
         "style": "rolled",
-        "sku": "5M210M8S25X13"
+        "sku": "5M210M8S28X16",
+        "file_key": "raw/sized/019891b0-f39c-7b83-902a-1f7f7bc72183_28x16.jpg"
       },
       {
-        "width_inches": 17,
-        "height_inches": 9,
+        "width_inches": 19,
+        "height_inches": 11,
+        "image_width_inches": 17.22,
+        "image_height_inches": 9.24,
+        "border_inches": 0.88,
+        "file_pix_w": 5700,
+        "file_pix_h": 3300,
         "style": "rolled",
-        "sku": "5M210M8S17X9"
+        "sku": "5M210M8S19X11",
+        "file_key": "raw/sized/019891b0-f39c-7b83-902a-1f7f7bc72183_19x11.jpg"
       }
     ],
     "finerworks_image": {
@@ -3305,10 +4349,16 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 7,
-        "height_inches": 7,
+        "width_inches": 8,
+        "height_inches": 8,
+        "image_width_inches": 6.31,
+        "image_height_inches": 6.72,
+        "border_inches": 0.64,
+        "file_pix_w": 1571,
+        "file_pix_h": 1571,
         "style": "rolled",
-        "sku": "5M210M8S7X7"
+        "sku": "5M210M8S8X8",
+        "file_key": "raw/sized/019891b0-f39c-7809-a063-80f25d10a396_8x8.jpg"
       }
     ],
     "finerworks_image": {
@@ -3344,10 +4394,16 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 6,
-        "height_inches": 7,
+        "width_inches": 8,
+        "height_inches": 9,
+        "image_width_inches": 6.72,
+        "image_height_inches": 7.33,
+        "border_inches": 0.64,
+        "file_pix_w": 1457,
+        "file_pix_h": 1639,
         "style": "rolled",
-        "sku": "5M210M8S6X7"
+        "sku": "5M210M8S8X9",
+        "file_key": "raw/sized/019891b0-f39c-763c-819c-62b3e41136e1_8x9.jpg"
       }
     ],
     "finerworks_image": {
@@ -3383,22 +4439,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 17,
-        "height_inches": 26,
+        "width_inches": 21,
+        "height_inches": 30,
+        "image_width_inches": 17.64,
+        "image_height_inches": 26.62,
+        "border_inches": 1.68,
+        "file_pix_w": 4557,
+        "file_pix_h": 6510,
         "style": "rolled",
-        "sku": "5M210M8S17X26"
+        "sku": "5M210M8S21X30",
+        "file_key": "raw/sized/019891b0-f39c-7455-9267-14eb33bed415_21x30.jpg"
       },
       {
-        "width_inches": 12,
-        "height_inches": 18,
+        "width_inches": 14,
+        "height_inches": 20,
+        "image_width_inches": 11.76,
+        "image_height_inches": 17.74,
+        "border_inches": 1.12,
+        "file_pix_w": 4200,
+        "file_pix_h": 6000,
         "style": "rolled",
-        "sku": "5M210M8S12X18"
+        "sku": "5M210M8S14X20",
+        "file_key": "raw/sized/019891b0-f39c-7455-9267-14eb33bed415_14x20.jpg"
       },
       {
-        "width_inches": 9,
-        "height_inches": 13,
+        "width_inches": 11,
+        "height_inches": 16,
+        "image_width_inches": 9.24,
+        "image_height_inches": 13.94,
+        "border_inches": 0.88,
+        "file_pix_w": 3300,
+        "file_pix_h": 4800,
         "style": "rolled",
-        "sku": "5M210M8S9X13"
+        "sku": "5M210M8S11X16",
+        "file_key": "raw/sized/019891b0-f39c-7455-9267-14eb33bed415_11x16.jpg"
       }
     ],
     "finerworks_image": {
@@ -3434,10 +4508,16 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 6,
-        "height_inches": 21,
+        "width_inches": 8,
+        "height_inches": 22,
+        "image_width_inches": 6.08,
+        "image_height_inches": 20.72,
+        "border_inches": 0.64,
+        "file_pix_w": 1459,
+        "file_pix_h": 4014,
         "style": "rolled",
-        "sku": "5M210M8S6X21"
+        "sku": "5M210M8S8X22",
+        "file_key": "raw/sized/019891b0-f39c-70a8-aa76-019cadc5409d_8x22.jpg"
       }
     ],
     "finerworks_image": {
@@ -3473,10 +4553,28 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 17,
-        "height_inches": 8,
+        "width_inches": 18,
+        "height_inches": 9,
+        "image_width_inches": 16.56,
+        "image_height_inches": 7.38,
+        "border_inches": 0.72,
+        "file_pix_w": 3334,
+        "file_pix_h": 1667,
         "style": "rolled",
-        "sku": "5M210M8S17X8"
+        "sku": "5M210M8S18X9",
+        "file_key": "raw/sized/019891b0-f39c-729c-bef5-b90e2cafb77e_18x9.jpg"
+      },
+      {
+        "width_inches": 14,
+        "height_inches": 8,
+        "image_width_inches": 12.72,
+        "image_height_inches": 5.67,
+        "border_inches": 0.64,
+        "file_pix_w": 3376,
+        "file_pix_h": 1929,
+        "style": "rolled",
+        "sku": "5M210M8S14X8",
+        "file_key": "raw/sized/019891b0-f39c-729c-bef5-b90e2cafb77e_14x8.jpg"
       }
     ],
     "finerworks_image": {
@@ -3512,16 +4610,28 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 8,
-        "height_inches": 15,
+        "width_inches": 9,
+        "height_inches": 16,
+        "image_width_inches": 7.56,
+        "image_height_inches": 14.49,
+        "border_inches": 0.72,
+        "file_pix_w": 1761,
+        "file_pix_h": 3130,
         "style": "rolled",
-        "sku": "5M210M8S8X15"
+        "sku": "5M210M8S9X16",
+        "file_key": "raw/sized/019891b0-f39c-7cf8-86a3-61f2f44df76f_9x16.jpg"
       },
       {
-        "width_inches": 6,
-        "height_inches": 11,
+        "width_inches": 8,
+        "height_inches": 14,
+        "image_width_inches": 6.64,
+        "image_height_inches": 12.72,
+        "border_inches": 0.64,
+        "file_pix_w": 1783,
+        "file_pix_h": 3120,
         "style": "rolled",
-        "sku": "5M210M8S6X11"
+        "sku": "5M210M8S8X14",
+        "file_key": "raw/sized/019891b0-f39c-7cf8-86a3-61f2f44df76f_8x14.jpg"
       }
     ],
     "finerworks_image": {
@@ -3567,16 +4677,28 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 9,
-        "height_inches": 13,
+        "width_inches": 10,
+        "height_inches": 14,
+        "image_width_inches": 8.4,
+        "image_height_inches": 12.25,
+        "border_inches": 0.8,
+        "file_pix_w": 1929,
+        "file_pix_h": 2700,
         "style": "rolled",
-        "sku": "5M210M8S9X13"
+        "sku": "5M210M8S10X14",
+        "file_key": "raw/sized/019891b0-f39c-7a90-ab98-022c8b72668e_10x14.jpg"
       },
       {
-        "width_inches": 6,
-        "height_inches": 9,
+        "width_inches": 8,
+        "height_inches": 11,
+        "image_width_inches": 6.67,
+        "image_height_inches": 9.72,
+        "border_inches": 0.64,
+        "file_pix_w": 1944,
+        "file_pix_h": 2673,
         "style": "rolled",
-        "sku": "5M210M8S6X9"
+        "sku": "5M210M8S8X11",
+        "file_key": "raw/sized/019891b0-f39c-7a90-ab98-022c8b72668e_8x11.jpg"
       }
     ],
     "finerworks_image": {
@@ -3612,16 +4734,28 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 8,
-        "height_inches": 8,
+        "width_inches": 10,
+        "height_inches": 10,
+        "image_width_inches": 8.38,
+        "image_height_inches": 8.4,
+        "border_inches": 0.8,
+        "file_pix_w": 1905,
+        "file_pix_h": 1905,
         "style": "rolled",
-        "sku": "5M210M8S8X8"
+        "sku": "5M210M8S10X10",
+        "file_key": "raw/sized/019891b0-f39c-7972-b2d2-06fc3c573914_10x10.jpg"
       },
       {
-        "width_inches": 6,
-        "height_inches": 6,
+        "width_inches": 8,
+        "height_inches": 8,
+        "image_width_inches": 6.71,
+        "image_height_inches": 6.72,
+        "border_inches": 0.64,
+        "file_pix_w": 1905,
+        "file_pix_h": 1905,
         "style": "rolled",
-        "sku": "5M210M8S6X6"
+        "sku": "5M210M8S8X8",
+        "file_key": "raw/sized/019891b0-f39c-7972-b2d2-06fc3c573914_8x8.jpg"
       }
     ],
     "finerworks_image": {
@@ -3667,22 +4801,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 34,
-        "height_inches": 18,
+        "width_inches": 37,
+        "height_inches": 21,
+        "image_width_inches": 33.64,
+        "image_height_inches": 17.45,
+        "border_inches": 1.68,
+        "file_pix_w": 6838,
+        "file_pix_h": 3881,
         "style": "rolled",
-        "sku": "5M210M8S34X18"
+        "sku": "5M210M8S37X21",
+        "file_key": "raw/sized/019891b0-f39c-7201-bdba-6943519e8862_37x21.jpg"
       },
       {
-        "width_inches": 24,
-        "height_inches": 12,
+        "width_inches": 27,
+        "height_inches": 15,
+        "image_width_inches": 24.29,
+        "image_height_inches": 12.6,
+        "border_inches": 1.2,
+        "file_pix_w": 6911,
+        "file_pix_h": 3839,
         "style": "rolled",
-        "sku": "5M210M8S24X12"
+        "sku": "5M210M8S27X15",
+        "file_key": "raw/sized/019891b0-f39c-7201-bdba-6943519e8862_27x15.jpg"
       },
       {
-        "width_inches": 17,
-        "height_inches": 9,
+        "width_inches": 19,
+        "height_inches": 11,
+        "image_width_inches": 17.24,
+        "image_height_inches": 8.94,
+        "border_inches": 0.88,
+        "file_pix_w": 5700,
+        "file_pix_h": 3300,
         "style": "rolled",
-        "sku": "5M210M8S17X9"
+        "sku": "5M210M8S19X11",
+        "file_key": "raw/sized/019891b0-f39c-7201-bdba-6943519e8862_19x11.jpg"
       }
     ],
     "finerworks_image": {
@@ -3728,16 +4880,28 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 8,
-        "height_inches": 8,
+        "width_inches": 10,
+        "height_inches": 10,
+        "image_width_inches": 8.28,
+        "image_height_inches": 8.4,
+        "border_inches": 0.8,
+        "file_pix_w": 1905,
+        "file_pix_h": 1905,
         "style": "rolled",
-        "sku": "5M210M8S8X8"
+        "sku": "5M210M8S10X10",
+        "file_key": "raw/sized/019891b0-f39c-7530-ace8-fffa8fead53e_10x10.jpg"
       },
       {
-        "width_inches": 6,
-        "height_inches": 6,
+        "width_inches": 8,
+        "height_inches": 8,
+        "image_width_inches": 6.63,
+        "image_height_inches": 6.72,
+        "border_inches": 0.64,
+        "file_pix_w": 1905,
+        "file_pix_h": 1905,
         "style": "rolled",
-        "sku": "5M210M8S6X6"
+        "sku": "5M210M8S8X8",
+        "file_key": "raw/sized/019891b0-f39c-7530-ace8-fffa8fead53e_8x8.jpg"
       }
     ],
     "finerworks_image": {
@@ -3783,22 +4947,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 34,
-        "height_inches": 17,
+        "width_inches": 38,
+        "height_inches": 21,
+        "image_width_inches": 34.64,
+        "image_height_inches": 17.37,
+        "border_inches": 1.68,
+        "file_pix_w": 6844,
+        "file_pix_h": 3782,
         "style": "rolled",
-        "sku": "5M210M8S34X17"
+        "sku": "5M210M8S38X21",
+        "file_key": "raw/sized/019891b0-f39c-70a9-9b91-b5a11b16a4e5_38x21.jpg"
       },
       {
-        "width_inches": 24,
-        "height_inches": 12,
+        "width_inches": 27,
+        "height_inches": 15,
+        "image_width_inches": 24.6,
+        "image_height_inches": 12.34,
+        "border_inches": 1.2,
+        "file_pix_w": 6848,
+        "file_pix_h": 3804,
         "style": "rolled",
-        "sku": "5M210M8S24X12"
+        "sku": "5M210M8S27X15",
+        "file_key": "raw/sized/019891b0-f39c-70a9-9b91-b5a11b16a4e5_27x15.jpg"
       },
       {
-        "width_inches": 17,
-        "height_inches": 9,
+        "width_inches": 20,
+        "height_inches": 11,
+        "image_width_inches": 18.24,
+        "image_height_inches": 9.15,
+        "border_inches": 0.88,
+        "file_pix_w": 6000,
+        "file_pix_h": 3300,
         "style": "rolled",
-        "sku": "5M210M8S17X9"
+        "sku": "5M210M8S20X11",
+        "file_key": "raw/sized/019891b0-f39c-70a9-9b91-b5a11b16a4e5_20x11.jpg"
       }
     ],
     "finerworks_image": {
@@ -3834,10 +5016,16 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 13,
-        "height_inches": 7,
+        "width_inches": 14,
+        "height_inches": 8,
+        "image_width_inches": 12.72,
+        "image_height_inches": 6.39,
+        "border_inches": 0.64,
+        "file_pix_w": 2600,
+        "file_pix_h": 1486,
         "style": "rolled",
-        "sku": "5M210M8S13X7"
+        "sku": "5M210M8S14X8",
+        "file_key": "raw/sized/019891b0-f39c-7b5a-9017-6de6a497f059_14x8.jpg"
       }
     ],
     "finerworks_image": {
@@ -3933,16 +5121,28 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 8,
-        "height_inches": 7,
+        "width_inches": 10,
+        "height_inches": 9,
+        "image_width_inches": 8.17,
+        "image_height_inches": 7.56,
+        "border_inches": 0.72,
+        "file_pix_w": 1958,
+        "file_pix_h": 1762,
         "style": "rolled",
-        "sku": "5M210M8S8X7"
+        "sku": "5M210M8S10X9",
+        "file_key": "raw/sized/019891b0-f39c-7109-bdf7-2aff4e78b0ee_10x9.jpg"
       },
       {
-        "width_inches": 6,
-        "height_inches": 6,
+        "width_inches": 8,
+        "height_inches": 8,
+        "image_width_inches": 6.72,
+        "image_height_inches": 6.22,
+        "border_inches": 0.64,
+        "file_pix_w": 1905,
+        "file_pix_h": 1905,
         "style": "rolled",
-        "sku": "5M210M8S6X6"
+        "sku": "5M210M8S8X8",
+        "file_key": "raw/sized/019891b0-f39c-7109-bdf7-2aff4e78b0ee_8x8.jpg"
       }
     ],
     "finerworks_image": {
@@ -3998,22 +5198,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 62,
-        "height_inches": 24,
+        "width_inches": 61,
+        "height_inches": 26,
+        "image_width_inches": 56.84,
+        "image_height_inches": 21.72,
+        "border_inches": 2.08,
+        "file_pix_w": 18300,
+        "file_pix_h": 7800,
         "style": "rolled",
-        "sku": "5M210M8S62X24"
+        "sku": "5M210M8S61X26",
+        "file_key": "raw/sized/01a12c08-744b-7a49-a73f-aa17ced76313_61x26.jpg"
       },
       {
-        "width_inches": 43,
-        "height_inches": 16,
+        "width_inches": 42,
+        "height_inches": 18,
+        "image_width_inches": 39.12,
+        "image_height_inches": 14.95,
+        "border_inches": 1.44,
+        "file_pix_w": 12600,
+        "file_pix_h": 5400,
         "style": "rolled",
-        "sku": "5M210M8S43X16"
+        "sku": "5M210M8S42X18",
+        "file_key": "raw/sized/01a12c08-744b-7a49-a73f-aa17ced76313_42x18.jpg"
       },
       {
         "width_inches": 31,
-        "height_inches": 12,
+        "height_inches": 13,
+        "image_width_inches": 28.58,
+        "image_height_inches": 10.92,
+        "border_inches": 1.04,
+        "file_pix_w": 9300,
+        "file_pix_h": 3900,
         "style": "rolled",
-        "sku": "5M210M8S31X12"
+        "sku": "5M210M8S31X13",
+        "file_key": "raw/sized/01a12c08-744b-7a49-a73f-aa17ced76313_31x13.jpg"
       }
     ],
     "finerworks_image": {
@@ -4049,22 +5267,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 62,
-        "height_inches": 25,
+        "width_inches": 61,
+        "height_inches": 27,
+        "image_width_inches": 56.68,
+        "image_height_inches": 22.58,
+        "border_inches": 2.16,
+        "file_pix_w": 17069,
+        "file_pix_h": 7555,
         "style": "rolled",
-        "sku": "5M210M8S62X25"
+        "sku": "5M210M8S61X27",
+        "file_key": "raw/sized/01a12c08-760d-7f02-9e34-ee049ef3aa30_61x27.jpg"
       },
       {
         "width_inches": 43,
-        "height_inches": 17,
+        "height_inches": 19,
+        "image_width_inches": 39.96,
+        "image_height_inches": 15.92,
+        "border_inches": 1.52,
+        "file_pix_w": 12900,
+        "file_pix_h": 5700,
         "style": "rolled",
-        "sku": "5M210M8S43X17"
+        "sku": "5M210M8S43X19",
+        "file_key": "raw/sized/01a12c08-760d-7f02-9e34-ee049ef3aa30_43x19.jpg"
       },
       {
         "width_inches": 31,
-        "height_inches": 12,
+        "height_inches": 14,
+        "image_width_inches": 28.76,
+        "image_height_inches": 11.46,
+        "border_inches": 1.12,
+        "file_pix_w": 9300,
+        "file_pix_h": 4200,
         "style": "rolled",
-        "sku": "5M210M8S31X12"
+        "sku": "5M210M8S31X14",
+        "file_key": "raw/sized/01a12c08-760d-7f02-9e34-ee049ef3aa30_31x14.jpg"
       }
     ],
     "finerworks_image": {
@@ -4100,22 +5336,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 18,
-        "height_inches": 33,
+        "width_inches": 21,
+        "height_inches": 36,
+        "image_width_inches": 17.39,
+        "image_height_inches": 32.64,
+        "border_inches": 1.68,
+        "file_pix_w": 3903,
+        "file_pix_h": 6690,
         "style": "rolled",
-        "sku": "5M210M8S18X33"
+        "sku": "5M210M8S21X36",
+        "file_key": "raw/sized/01a12c08-76a6-7554-a63d-33fd120a3d6e_21x36.jpg"
       },
       {
-        "width_inches": 12,
-        "height_inches": 23,
+        "width_inches": 15,
+        "height_inches": 26,
+        "image_width_inches": 12.57,
+        "image_height_inches": 23.6,
+        "border_inches": 1.2,
+        "file_pix_w": 3856,
+        "file_pix_h": 6683,
         "style": "rolled",
-        "sku": "5M210M8S12X23"
+        "sku": "5M210M8S15X26",
+        "file_key": "raw/sized/01a12c08-76a6-7554-a63d-33fd120a3d6e_15x26.jpg"
       },
       {
-        "width_inches": 9,
-        "height_inches": 16,
+        "width_inches": 11,
+        "height_inches": 19,
+        "image_width_inches": 9.19,
+        "image_height_inches": 17.24,
+        "border_inches": 0.88,
+        "file_pix_w": 3300,
+        "file_pix_h": 5700,
         "style": "rolled",
-        "sku": "5M210M8S9X16"
+        "sku": "5M210M8S11X19",
+        "file_key": "raw/sized/01a12c08-76a6-7554-a63d-33fd120a3d6e_11x19.jpg"
       }
     ],
     "finerworks_image": {
@@ -4151,22 +5405,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 17,
-        "height_inches": 34,
+        "width_inches": 21,
+        "height_inches": 38,
+        "image_width_inches": 17.64,
+        "image_height_inches": 34.6,
+        "border_inches": 1.68,
+        "file_pix_w": 3808,
+        "file_pix_h": 6891,
         "style": "rolled",
-        "sku": "5M210M8S17X34"
+        "sku": "5M210M8S21X38",
+        "file_key": "raw/sized/01a12c08-774a-7a4c-97b2-d6513cd07092_21x38.jpg"
       },
       {
-        "width_inches": 12,
-        "height_inches": 24,
+        "width_inches": 15,
+        "height_inches": 27,
+        "image_width_inches": 12.54,
+        "image_height_inches": 24.6,
+        "border_inches": 1.2,
+        "file_pix_w": 3826,
+        "file_pix_h": 6887,
         "style": "rolled",
-        "sku": "5M210M8S12X24"
+        "sku": "5M210M8S15X27",
+        "file_key": "raw/sized/01a12c08-774a-7a4c-97b2-d6513cd07092_15x27.jpg"
       },
       {
-        "width_inches": 9,
-        "height_inches": 17,
+        "width_inches": 11,
+        "height_inches": 20,
+        "image_width_inches": 9.24,
+        "image_height_inches": 18.12,
+        "border_inches": 0.88,
+        "file_pix_w": 3300,
+        "file_pix_h": 6000,
         "style": "rolled",
-        "sku": "5M210M8S9X17"
+        "sku": "5M210M8S11X20",
+        "file_key": "raw/sized/01a12c08-774a-7a4c-97b2-d6513cd07092_11x20.jpg"
       }
     ],
     "finerworks_image": {
@@ -4202,16 +5474,28 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 8,
-        "height_inches": 17,
+        "width_inches": 10,
+        "height_inches": 18,
+        "image_width_inches": 8.15,
+        "image_height_inches": 16.4,
+        "border_inches": 0.8,
+        "file_pix_w": 1891,
+        "file_pix_h": 3405,
         "style": "rolled",
-        "sku": "5M210M8S8X17"
+        "sku": "5M210M8S10X18",
+        "file_key": "raw/sized/01a12c08-78c9-726b-a131-b3ded67f2226_10x18.jpg"
       },
       {
-        "width_inches": 6,
-        "height_inches": 12,
+        "width_inches": 8,
+        "height_inches": 14,
+        "image_width_inches": 6.32,
+        "image_height_inches": 12.72,
+        "border_inches": 0.64,
+        "file_pix_w": 1951,
+        "file_pix_h": 3414,
         "style": "rolled",
-        "sku": "5M210M8S6X12"
+        "sku": "5M210M8S8X14",
+        "file_key": "raw/sized/01a12c08-78c9-726b-a131-b3ded67f2226_8x14.jpg"
       }
     ],
     "finerworks_image": {
@@ -4247,22 +5531,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 18,
-        "height_inches": 36,
+        "width_inches": 21,
+        "height_inches": 38,
+        "image_width_inches": 17.43,
+        "image_height_inches": 34.64,
+        "border_inches": 1.68,
+        "file_pix_w": 3953,
+        "file_pix_h": 7152,
         "style": "rolled",
-        "sku": "5M210M8S18X36"
+        "sku": "5M210M8S21X38",
+        "file_key": "raw/sized/01a12c08-7a4d-70b2-ab6b-737569cdb762_21x38.jpg"
       },
       {
-        "width_inches": 13,
-        "height_inches": 25,
+        "width_inches": 15,
+        "height_inches": 27,
+        "image_width_inches": 12.38,
+        "image_height_inches": 24.6,
+        "border_inches": 1.2,
+        "file_pix_w": 3976,
+        "file_pix_h": 7156,
         "style": "rolled",
-        "sku": "5M210M8S13X25"
+        "sku": "5M210M8S15X27",
+        "file_key": "raw/sized/01a12c08-7a4d-70b2-ab6b-737569cdb762_15x27.jpg"
       },
       {
-        "width_inches": 9,
-        "height_inches": 18,
+        "width_inches": 11,
+        "height_inches": 20,
+        "image_width_inches": 9.18,
+        "image_height_inches": 18.24,
+        "border_inches": 0.88,
+        "file_pix_w": 3300,
+        "file_pix_h": 6000,
         "style": "rolled",
-        "sku": "5M210M8S9X18"
+        "sku": "5M210M8S11X20",
+        "file_key": "raw/sized/01a12c08-7a4d-70b2-ab6b-737569cdb762_11x20.jpg"
       }
     ],
     "finerworks_image": {
@@ -4298,22 +5600,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 33,
-        "height_inches": 17,
+        "width_inches": 36,
+        "height_inches": 20,
+        "image_width_inches": 32.8,
+        "image_height_inches": 16.65,
+        "border_inches": 1.6,
+        "file_pix_w": 6715,
+        "file_pix_h": 3730,
         "style": "rolled",
-        "sku": "5M210M8S33X17"
+        "sku": "5M210M8S36X20",
+        "file_key": "raw/sized/01a12c08-7af0-79b2-b048-64ba1e583856_36x20.jpg"
       },
       {
-        "width_inches": 23,
-        "height_inches": 12,
+        "width_inches": 27,
+        "height_inches": 15,
+        "image_width_inches": 24.6,
+        "image_height_inches": 12.49,
+        "border_inches": 1.2,
+        "file_pix_w": 6715,
+        "file_pix_h": 3730,
         "style": "rolled",
-        "sku": "5M210M8S23X12"
+        "sku": "5M210M8S27X15",
+        "file_key": "raw/sized/01a12c08-7af0-79b2-b048-64ba1e583856_27x15.jpg"
       },
       {
-        "width_inches": 16,
-        "height_inches": 8,
+        "width_inches": 18,
+        "height_inches": 10,
+        "image_width_inches": 16.4,
+        "image_height_inches": 8.33,
+        "border_inches": 0.8,
+        "file_pix_w": 5400,
+        "file_pix_h": 3000,
         "style": "rolled",
-        "sku": "5M210M8S16X8"
+        "sku": "5M210M8S18X10",
+        "file_key": "raw/sized/01a12c08-7af0-79b2-b048-64ba1e583856_18x10.jpg"
       }
     ],
     "finerworks_image": {
@@ -4349,22 +5669,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 33,
-        "height_inches": 18,
+        "width_inches": 37,
+        "height_inches": 22,
+        "image_width_inches": 33.48,
+        "image_height_inches": 18.25,
+        "border_inches": 1.76,
+        "file_pix_w": 6707,
+        "file_pix_h": 3988,
         "style": "rolled",
-        "sku": "5M210M8S33X18"
+        "sku": "5M210M8S37X22",
+        "file_key": "raw/sized/01a12c08-7b4c-795f-857e-219a554dedb2_37x22.jpg"
       },
       {
-        "width_inches": 23,
-        "height_inches": 13,
+        "width_inches": 27,
+        "height_inches": 16,
+        "image_width_inches": 24.44,
+        "image_height_inches": 13.32,
+        "border_inches": 1.28,
+        "file_pix_w": 6705,
+        "file_pix_h": 3973,
         "style": "rolled",
-        "sku": "5M210M8S23X13"
+        "sku": "5M210M8S27X16",
+        "file_key": "raw/sized/01a12c08-7b4c-795f-857e-219a554dedb2_27x16.jpg"
       },
       {
-        "width_inches": 16,
-        "height_inches": 9,
+        "width_inches": 19,
+        "height_inches": 11,
+        "image_width_inches": 16.95,
+        "image_height_inches": 9.24,
+        "border_inches": 0.88,
+        "file_pix_w": 5700,
+        "file_pix_h": 3300,
         "style": "rolled",
-        "sku": "5M210M8S16X9"
+        "sku": "5M210M8S19X11",
+        "file_key": "raw/sized/01a12c08-7b4c-795f-857e-219a554dedb2_19x11.jpg"
       }
     ],
     "finerworks_image": {
@@ -4400,22 +5738,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 31,
-        "height_inches": 16,
+        "width_inches": 34,
+        "height_inches": 19,
+        "image_width_inches": 30.86,
+        "image_height_inches": 15.96,
+        "border_inches": 1.52,
+        "file_pix_w": 6223,
+        "file_pix_h": 3477,
         "style": "rolled",
-        "sku": "5M210M8S31X16"
+        "sku": "5M210M8S34X19",
+        "file_key": "raw/sized/01a12c08-7c8e-7d1f-b42b-8c25e42265ea_34x19.jpg"
       },
       {
-        "width_inches": 21,
-        "height_inches": 11,
+        "width_inches": 25,
+        "height_inches": 14,
+        "image_width_inches": 22.74,
+        "image_height_inches": 11.76,
+        "border_inches": 1.12,
+        "file_pix_w": 6210,
+        "file_pix_h": 3477,
         "style": "rolled",
-        "sku": "5M210M8S21X11"
+        "sku": "5M210M8S25X14",
+        "file_key": "raw/sized/01a12c08-7c8e-7d1f-b42b-8c25e42265ea_25x14.jpg"
       },
       {
-        "width_inches": 15,
-        "height_inches": 8,
+        "width_inches": 18,
+        "height_inches": 10,
+        "image_width_inches": 16.24,
+        "image_height_inches": 8.4,
+        "border_inches": 0.8,
+        "file_pix_w": 5400,
+        "file_pix_h": 3000,
         "style": "rolled",
-        "sku": "5M210M8S15X8"
+        "sku": "5M210M8S18X10",
+        "file_key": "raw/sized/01a12c08-7c8e-7d1f-b42b-8c25e42265ea_18x10.jpg"
       }
     ],
     "finerworks_image": {
@@ -4451,22 +5807,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 31,
-        "height_inches": 16,
+        "width_inches": 34,
+        "height_inches": 19,
+        "image_width_inches": 30.88,
+        "image_height_inches": 15.96,
+        "border_inches": 1.52,
+        "file_pix_w": 6338,
+        "file_pix_h": 3542,
         "style": "rolled",
-        "sku": "5M210M8S31X16"
+        "sku": "5M210M8S34X19",
+        "file_key": "raw/sized/01a12c08-7dd5-7e33-8a4f-b8ca88fd825d_34x19.jpg"
       },
       {
-        "width_inches": 22,
-        "height_inches": 11,
+        "width_inches": 25,
+        "height_inches": 14,
+        "image_width_inches": 22.75,
+        "image_height_inches": 11.76,
+        "border_inches": 1.12,
+        "file_pix_w": 6324,
+        "file_pix_h": 3542,
         "style": "rolled",
-        "sku": "5M210M8S22X11"
+        "sku": "5M210M8S25X14",
+        "file_key": "raw/sized/01a12c08-7dd5-7e33-8a4f-b8ca88fd825d_25x14.jpg"
       },
       {
-        "width_inches": 15,
-        "height_inches": 8,
+        "width_inches": 18,
+        "height_inches": 10,
+        "image_width_inches": 16.25,
+        "image_height_inches": 8.4,
+        "border_inches": 0.8,
+        "file_pix_w": 5400,
+        "file_pix_h": 3000,
         "style": "rolled",
-        "sku": "5M210M8S15X8"
+        "sku": "5M210M8S18X10",
+        "file_key": "raw/sized/01a12c08-7dd5-7e33-8a4f-b8ca88fd825d_18x10.jpg"
       }
     ],
     "finerworks_image": {
@@ -4502,22 +5876,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 34,
-        "height_inches": 17,
+        "width_inches": 38,
+        "height_inches": 21,
+        "image_width_inches": 34.64,
+        "image_height_inches": 17.49,
+        "border_inches": 1.68,
+        "file_pix_w": 6905,
+        "file_pix_h": 3816,
         "style": "rolled",
-        "sku": "5M210M8S34X17"
+        "sku": "5M210M8S38X21",
+        "file_key": "raw/sized/01a12c08-7e53-75bc-b67d-b0f7db8ae950_38x21.jpg"
       },
       {
-        "width_inches": 24,
-        "height_inches": 12,
+        "width_inches": 27,
+        "height_inches": 15,
+        "image_width_inches": 24.6,
+        "image_height_inches": 12.42,
+        "border_inches": 1.2,
+        "file_pix_w": 6908,
+        "file_pix_h": 3838,
         "style": "rolled",
-        "sku": "5M210M8S24X12"
+        "sku": "5M210M8S27X15",
+        "file_key": "raw/sized/01a12c08-7e53-75bc-b67d-b0f7db8ae950_27x15.jpg"
       },
       {
-        "width_inches": 17,
-        "height_inches": 9,
+        "width_inches": 20,
+        "height_inches": 11,
+        "image_width_inches": 18.24,
+        "image_height_inches": 9.21,
+        "border_inches": 0.88,
+        "file_pix_w": 6000,
+        "file_pix_h": 3300,
         "style": "rolled",
-        "sku": "5M210M8S17X9"
+        "sku": "5M210M8S20X11",
+        "file_key": "raw/sized/01a12c08-7e53-75bc-b67d-b0f7db8ae950_20x11.jpg"
       }
     ],
     "finerworks_image": {
@@ -4553,22 +5945,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 29,
-        "height_inches": 15,
+        "width_inches": 33,
+        "height_inches": 18,
+        "image_width_inches": 29.84,
+        "image_height_inches": 15.12,
+        "border_inches": 1.44,
+        "file_pix_w": 5963,
+        "file_pix_h": 3252,
         "style": "rolled",
-        "sku": "5M210M8S29X15"
+        "sku": "5M210M8S33X18",
+        "file_key": "raw/sized/01a12c08-7f85-7482-b5c9-28ce6c747ce7_33x18.jpg"
       },
       {
-        "width_inches": 20,
-        "height_inches": 10,
+        "width_inches": 23,
+        "height_inches": 13,
+        "image_width_inches": 20.92,
+        "image_height_inches": 10.6,
+        "border_inches": 1.04,
+        "file_pix_w": 5928,
+        "file_pix_h": 3351,
         "style": "rolled",
-        "sku": "5M210M8S20X10"
+        "sku": "5M210M8S23X13",
+        "file_key": "raw/sized/01a12c08-7f85-7482-b5c9-28ce6c747ce7_23x13.jpg"
       },
       {
-        "width_inches": 14,
-        "height_inches": 7,
+        "width_inches": 16,
+        "height_inches": 9,
+        "image_width_inches": 14.56,
+        "image_height_inches": 7.38,
+        "border_inches": 0.72,
+        "file_pix_w": 4800,
+        "file_pix_h": 2700,
         "style": "rolled",
-        "sku": "5M210M8S14X7"
+        "sku": "5M210M8S16X9",
+        "file_key": "raw/sized/01a12c08-7f85-7482-b5c9-28ce6c747ce7_16x9.jpg"
       }
     ],
     "finerworks_image": {
@@ -4604,22 +6014,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 31,
-        "height_inches": 17,
+        "width_inches": 34,
+        "height_inches": 20,
+        "image_width_inches": 30.8,
+        "image_height_inches": 16.73,
+        "border_inches": 1.6,
+        "file_pix_w": 6277,
+        "file_pix_h": 3692,
         "style": "rolled",
-        "sku": "5M210M8S31X17"
+        "sku": "5M210M8S34X20",
+        "file_key": "raw/sized/01a12c08-8105-7029-bf94-690d1bd84536_34x20.jpg"
       },
       {
-        "width_inches": 22,
-        "height_inches": 12,
+        "width_inches": 24,
+        "height_inches": 14,
+        "image_width_inches": 21.65,
+        "image_height_inches": 11.76,
+        "border_inches": 1.12,
+        "file_pix_w": 6304,
+        "file_pix_h": 3677,
         "style": "rolled",
-        "sku": "5M210M8S22X12"
+        "sku": "5M210M8S24X14",
+        "file_key": "raw/sized/01a12c08-8105-7029-bf94-690d1bd84536_24x14.jpg"
       },
       {
-        "width_inches": 15,
-        "height_inches": 8,
+        "width_inches": 17,
+        "height_inches": 10,
+        "image_width_inches": 15.4,
+        "image_height_inches": 8.37,
+        "border_inches": 0.8,
+        "file_pix_w": 5100,
+        "file_pix_h": 3000,
         "style": "rolled",
-        "sku": "5M210M8S15X8"
+        "sku": "5M210M8S17X10",
+        "file_key": "raw/sized/01a12c08-8105-7029-bf94-690d1bd84536_17x10.jpg"
       }
     ],
     "finerworks_image": {
@@ -4655,22 +6083,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 33,
-        "height_inches": 23,
+        "width_inches": 38,
+        "height_inches": 28,
+        "image_width_inches": 33.15,
+        "image_height_inches": 23.52,
+        "border_inches": 2.24,
+        "file_pix_w": 6912,
+        "file_pix_h": 5093,
         "style": "rolled",
-        "sku": "5M210M8S33X23"
+        "sku": "5M210M8S38X28",
+        "file_key": "raw/sized/01a12c08-819f-7964-8ff9-2e0d0db13ada_38x28.jpg"
       },
       {
-        "width_inches": 23,
-        "height_inches": 16,
+        "width_inches": 27,
+        "height_inches": 20,
+        "image_width_inches": 23.68,
+        "image_height_inches": 16.8,
+        "border_inches": 1.6,
+        "file_pix_w": 6875,
+        "file_pix_h": 5093,
         "style": "rolled",
-        "sku": "5M210M8S23X16"
+        "sku": "5M210M8S27X20",
+        "file_key": "raw/sized/01a12c08-819f-7964-8ff9-2e0d0db13ada_27x20.jpg"
       },
       {
-        "width_inches": 16,
-        "height_inches": 11,
+        "width_inches": 19,
+        "height_inches": 14,
+        "image_width_inches": 16.58,
+        "image_height_inches": 11.76,
+        "border_inches": 1.12,
+        "file_pix_w": 5700,
+        "file_pix_h": 4200,
         "style": "rolled",
-        "sku": "5M210M8S16X11"
+        "sku": "5M210M8S19X14",
+        "file_key": "raw/sized/01a12c08-819f-7964-8ff9-2e0d0db13ada_19x14.jpg"
       }
     ],
     "finerworks_image": {
@@ -4706,22 +6152,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 17,
-        "height_inches": 31,
+        "width_inches": 20,
+        "height_inches": 34,
+        "image_width_inches": 16.56,
+        "image_height_inches": 30.8,
+        "border_inches": 1.6,
+        "file_pix_w": 3669,
+        "file_pix_h": 6237,
         "style": "rolled",
-        "sku": "5M210M8S17X31"
+        "sku": "5M210M8S20X34",
+        "file_key": "raw/sized/01a12c08-82b3-7941-9b50-01a43fc9a318_20x34.jpg"
       },
       {
-        "width_inches": 11,
-        "height_inches": 21,
+        "width_inches": 14,
+        "height_inches": 24,
+        "image_width_inches": 11.7,
+        "image_height_inches": 21.76,
+        "border_inches": 1.12,
+        "file_pix_w": 3635,
+        "file_pix_h": 6232,
         "style": "rolled",
-        "sku": "5M210M8S11X21"
+        "sku": "5M210M8S14X24",
+        "file_key": "raw/sized/01a12c08-82b3-7941-9b50-01a43fc9a318_14x24.jpg"
       },
       {
-        "width_inches": 8,
-        "height_inches": 15,
+        "width_inches": 10,
+        "height_inches": 17,
+        "image_width_inches": 8.28,
+        "image_height_inches": 15.4,
+        "border_inches": 0.8,
+        "file_pix_w": 3000,
+        "file_pix_h": 5100,
         "style": "rolled",
-        "sku": "5M210M8S8X15"
+        "sku": "5M210M8S10X17",
+        "file_key": "raw/sized/01a12c08-82b3-7941-9b50-01a43fc9a318_10x17.jpg"
       }
     ],
     "finerworks_image": {
@@ -4757,22 +6221,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 17,
-        "height_inches": 32,
+        "width_inches": 20,
+        "height_inches": 35,
+        "image_width_inches": 16.8,
+        "image_height_inches": 31.42,
+        "border_inches": 1.6,
+        "file_pix_w": 3719,
+        "file_pix_h": 6508,
         "style": "rolled",
-        "sku": "5M210M8S17X32"
+        "sku": "5M210M8S20X35",
+        "file_key": "raw/sized/01a12c08-83be-7111-815d-140b9e441427_20x35.jpg"
       },
       {
-        "width_inches": 12,
-        "height_inches": 22,
+        "width_inches": 15,
+        "height_inches": 26,
+        "image_width_inches": 12.6,
+        "image_height_inches": 23.57,
+        "border_inches": 1.2,
+        "file_pix_w": 3719,
+        "file_pix_h": 6446,
         "style": "rolled",
-        "sku": "5M210M8S12X22"
+        "sku": "5M210M8S15X26",
+        "file_key": "raw/sized/01a12c08-83be-7111-815d-140b9e441427_15x26.jpg"
       },
       {
-        "width_inches": 9,
-        "height_inches": 16,
+        "width_inches": 11,
+        "height_inches": 19,
+        "image_width_inches": 9.22,
+        "image_height_inches": 17.24,
+        "border_inches": 0.88,
+        "file_pix_w": 3300,
+        "file_pix_h": 5700,
         "style": "rolled",
-        "sku": "5M210M8S9X16"
+        "sku": "5M210M8S11X19",
+        "file_key": "raw/sized/01a12c08-83be-7111-815d-140b9e441427_11x19.jpg"
       }
     ],
     "finerworks_image": {
@@ -4808,22 +6290,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 16,
-        "height_inches": 31,
+        "width_inches": 20,
+        "height_inches": 35,
+        "image_width_inches": 16.51,
+        "image_height_inches": 31.8,
+        "border_inches": 1.6,
+        "file_pix_w": 3603,
+        "file_pix_h": 6304,
         "style": "rolled",
-        "sku": "5M210M8S16X31"
+        "sku": "5M210M8S20X35",
+        "file_key": "raw/sized/01a12c08-851e-7c3b-98af-0ddc3d36f291_20x35.jpg"
       },
       {
-        "width_inches": 11,
-        "height_inches": 22,
+        "width_inches": 14,
+        "height_inches": 25,
+        "image_width_inches": 11.76,
+        "image_height_inches": 22.66,
+        "border_inches": 1.12,
+        "file_pix_w": 3539,
+        "file_pix_h": 6320,
         "style": "rolled",
-        "sku": "5M210M8S11X22"
+        "sku": "5M210M8S14X25",
+        "file_key": "raw/sized/01a12c08-851e-7c3b-98af-0ddc3d36f291_14x25.jpg"
       },
       {
-        "width_inches": 8,
-        "height_inches": 15,
+        "width_inches": 10,
+        "height_inches": 18,
+        "image_width_inches": 8.4,
+        "image_height_inches": 16.18,
+        "border_inches": 0.8,
+        "file_pix_w": 3000,
+        "file_pix_h": 5400,
         "style": "rolled",
-        "sku": "5M210M8S8X15"
+        "sku": "5M210M8S10X18",
+        "file_key": "raw/sized/01a12c08-851e-7c3b-98af-0ddc3d36f291_10x18.jpg"
       }
     ],
     "finerworks_image": {
@@ -4859,22 +6359,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 15,
-        "height_inches": 30,
+        "width_inches": 18,
+        "height_inches": 33,
+        "image_width_inches": 15.12,
+        "image_height_inches": 29.95,
+        "border_inches": 1.44,
+        "file_pix_w": 3343,
+        "file_pix_h": 6129,
         "style": "rolled",
-        "sku": "5M210M8S15X30"
+        "sku": "5M210M8S18X33",
+        "file_key": "raw/sized/01a12c08-8670-7105-b4f4-17e755f37bd1_18x33.jpg"
       },
       {
-        "width_inches": 11,
-        "height_inches": 21,
+        "width_inches": 13,
+        "height_inches": 24,
+        "image_width_inches": 10.92,
+        "image_height_inches": 21.63,
+        "border_inches": 1.04,
+        "file_pix_w": 3343,
+        "file_pix_h": 6171,
         "style": "rolled",
-        "sku": "5M210M8S11X21"
+        "sku": "5M210M8S13X24",
+        "file_key": "raw/sized/01a12c08-8670-7105-b4f4-17e755f37bd1_13x24.jpg"
       },
       {
-        "width_inches": 8,
-        "height_inches": 15,
+        "width_inches": 10,
+        "height_inches": 18,
+        "image_width_inches": 8.28,
+        "image_height_inches": 16.4,
+        "border_inches": 0.8,
+        "file_pix_w": 3000,
+        "file_pix_h": 5400,
         "style": "rolled",
-        "sku": "5M210M8S8X15"
+        "sku": "5M210M8S10X18",
+        "file_key": "raw/sized/01a12c08-8670-7105-b4f4-17e755f37bd1_10x18.jpg"
       }
     ],
     "finerworks_image": {
@@ -4910,22 +6428,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 18,
-        "height_inches": 33,
+        "width_inches": 21,
+        "height_inches": 36,
+        "image_width_inches": 17.43,
+        "image_height_inches": 32.64,
+        "border_inches": 1.68,
+        "file_pix_w": 3914,
+        "file_pix_h": 6710,
         "style": "rolled",
-        "sku": "5M210M8S18X33"
+        "sku": "5M210M8S21X36",
+        "file_key": "raw/sized/01a12c08-8729-74a7-8018-c717bd7fbea6_21x36.jpg"
       },
       {
-        "width_inches": 12,
-        "height_inches": 23,
+        "width_inches": 15,
+        "height_inches": 26,
+        "image_width_inches": 12.6,
+        "image_height_inches": 23.6,
+        "border_inches": 1.2,
+        "file_pix_w": 3867,
+        "file_pix_h": 6703,
         "style": "rolled",
-        "sku": "5M210M8S12X23"
+        "sku": "5M210M8S15X26",
+        "file_key": "raw/sized/01a12c08-8729-74a7-8018-c717bd7fbea6_15x26.jpg"
       },
       {
-        "width_inches": 9,
-        "height_inches": 16,
+        "width_inches": 11,
+        "height_inches": 19,
+        "image_width_inches": 9.2,
+        "image_height_inches": 17.24,
+        "border_inches": 0.88,
+        "file_pix_w": 3300,
+        "file_pix_h": 5700,
         "style": "rolled",
-        "sku": "5M210M8S9X16"
+        "sku": "5M210M8S11X19",
+        "file_key": "raw/sized/01a12c08-8729-74a7-8018-c717bd7fbea6_11x19.jpg"
       }
     ],
     "finerworks_image": {
@@ -4961,22 +6497,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 19,
-        "height_inches": 35,
+        "width_inches": 22,
+        "height_inches": 38,
+        "image_width_inches": 18.48,
+        "image_height_inches": 34.41,
+        "border_inches": 1.76,
+        "file_pix_w": 4044,
+        "file_pix_h": 6985,
         "style": "rolled",
-        "sku": "5M210M8S19X35"
+        "sku": "5M210M8S22X38",
+        "file_key": "raw/sized/01a12c08-87d3-71d4-b8c7-57e799971b1e_22x38.jpg"
       },
       {
-        "width_inches": 13,
-        "height_inches": 24,
+        "width_inches": 16,
+        "height_inches": 27,
+        "image_width_inches": 13.12,
+        "image_height_inches": 24.44,
+        "border_inches": 1.28,
+        "file_pix_w": 4141,
+        "file_pix_h": 6989,
         "style": "rolled",
-        "sku": "5M210M8S13X24"
+        "sku": "5M210M8S16X27",
+        "file_key": "raw/sized/01a12c08-87d3-71d4-b8c7-57e799971b1e_16x27.jpg"
       },
       {
-        "width_inches": 9,
-        "height_inches": 17,
+        "width_inches": 11,
+        "height_inches": 19,
+        "image_width_inches": 9.24,
+        "image_height_inches": 17.21,
+        "border_inches": 0.88,
+        "file_pix_w": 3300,
+        "file_pix_h": 5700,
         "style": "rolled",
-        "sku": "5M210M8S9X17"
+        "sku": "5M210M8S11X19",
+        "file_key": "raw/sized/01a12c08-87d3-71d4-b8c7-57e799971b1e_11x19.jpg"
       }
     ],
     "finerworks_image": {
@@ -5012,22 +6566,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 29,
-        "height_inches": 19,
+        "width_inches": 32,
+        "height_inches": 22,
+        "image_width_inches": 28.48,
+        "image_height_inches": 18.33,
+        "border_inches": 1.76,
+        "file_pix_w": 5996,
+        "file_pix_h": 4122,
         "style": "rolled",
-        "sku": "5M210M8S29X19"
+        "sku": "5M210M8S32X22",
+        "file_key": "raw/sized/01a12c08-8867-7938-9daa-e9d59a505103_32x22.jpg"
       },
       {
-        "width_inches": 20,
-        "height_inches": 13,
+        "width_inches": 23,
+        "height_inches": 16,
+        "image_width_inches": 20.44,
+        "image_height_inches": 13.16,
+        "border_inches": 1.28,
+        "file_pix_w": 6004,
+        "file_pix_h": 4177,
         "style": "rolled",
-        "sku": "5M210M8S20X13"
+        "sku": "5M210M8S23X16",
+        "file_key": "raw/sized/01a12c08-8867-7938-9daa-e9d59a505103_23x16.jpg"
       },
       {
-        "width_inches": 14,
-        "height_inches": 9,
+        "width_inches": 16,
+        "height_inches": 11,
+        "image_width_inches": 14.24,
+        "image_height_inches": 9.17,
+        "border_inches": 0.88,
+        "file_pix_w": 4800,
+        "file_pix_h": 3300,
         "style": "rolled",
-        "sku": "5M210M8S14X9"
+        "sku": "5M210M8S16X11",
+        "file_key": "raw/sized/01a12c08-8867-7938-9daa-e9d59a505103_16x11.jpg"
       }
     ],
     "finerworks_image": {
@@ -5063,22 +6635,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 29,
-        "height_inches": 19,
+        "width_inches": 32,
+        "height_inches": 22,
+        "image_width_inches": 28.48,
+        "image_height_inches": 18.39,
+        "border_inches": 1.76,
+        "file_pix_w": 6013,
+        "file_pix_h": 4134,
         "style": "rolled",
-        "sku": "5M210M8S29X19"
+        "sku": "5M210M8S32X22",
+        "file_key": "raw/sized/01a12c08-88e7-7031-ae40-cd06faaace50_32x22.jpg"
       },
       {
-        "width_inches": 20,
-        "height_inches": 13,
+        "width_inches": 23,
+        "height_inches": 16,
+        "image_width_inches": 20.44,
+        "image_height_inches": 13.2,
+        "border_inches": 1.28,
+        "file_pix_w": 6022,
+        "file_pix_h": 4189,
         "style": "rolled",
-        "sku": "5M210M8S20X13"
+        "sku": "5M210M8S23X16",
+        "file_key": "raw/sized/01a12c08-88e7-7031-ae40-cd06faaace50_23x16.jpg"
       },
       {
-        "width_inches": 14,
-        "height_inches": 9,
+        "width_inches": 16,
+        "height_inches": 11,
+        "image_width_inches": 14.24,
+        "image_height_inches": 9.2,
+        "border_inches": 0.88,
+        "file_pix_w": 4800,
+        "file_pix_h": 3300,
         "style": "rolled",
-        "sku": "5M210M8S14X9"
+        "sku": "5M210M8S16X11",
+        "file_key": "raw/sized/01a12c08-88e7-7031-ae40-cd06faaace50_16x11.jpg"
       }
     ],
     "finerworks_image": {
@@ -5114,22 +6704,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 30,
-        "height_inches": 20,
+        "width_inches": 34,
+        "height_inches": 24,
+        "image_width_inches": 30.16,
+        "image_height_inches": 20.15,
+        "border_inches": 1.92,
+        "file_pix_w": 6142,
+        "file_pix_h": 4335,
         "style": "rolled",
-        "sku": "5M210M8S30X20"
+        "sku": "5M210M8S34X24",
+        "file_key": "raw/sized/01a12c08-8974-7e58-9392-976477b460ef_34x24.jpg"
       },
       {
-        "width_inches": 21,
-        "height_inches": 14,
+        "width_inches": 24,
+        "height_inches": 17,
+        "image_width_inches": 21.28,
+        "image_height_inches": 14.22,
+        "border_inches": 1.36,
+        "file_pix_w": 6144,
+        "file_pix_h": 4352,
         "style": "rolled",
-        "sku": "5M210M8S21X14"
+        "sku": "5M210M8S24X17",
+        "file_key": "raw/sized/01a12c08-8974-7e58-9392-976477b460ef_24x17.jpg"
       },
       {
-        "width_inches": 15,
-        "height_inches": 10,
+        "width_inches": 17,
+        "height_inches": 12,
+        "image_width_inches": 15.08,
+        "image_height_inches": 10.08,
+        "border_inches": 0.96,
+        "file_pix_w": 5100,
+        "file_pix_h": 3600,
         "style": "rolled",
-        "sku": "5M210M8S15X10"
+        "sku": "5M210M8S17X12",
+        "file_key": "raw/sized/01a12c08-8974-7e58-9392-976477b460ef_17x12.jpg"
       }
     ],
     "finerworks_image": {
@@ -5165,22 +6773,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 25,
-        "height_inches": 20,
+        "width_inches": 29,
+        "height_inches": 24,
+        "image_width_inches": 25.12,
+        "image_height_inches": 20.16,
+        "border_inches": 1.92,
+        "file_pix_w": 5351,
+        "file_pix_h": 4429,
         "style": "rolled",
-        "sku": "5M210M8S25X20"
+        "sku": "5M210M8S29X24",
+        "file_key": "raw/sized/01a12c08-89f9-72ee-8a49-0e273955c94a_29x24.jpg"
       },
       {
-        "width_inches": 18,
-        "height_inches": 14,
+        "width_inches": 22,
+        "height_inches": 18,
+        "image_width_inches": 18.84,
+        "image_height_inches": 15.12,
+        "border_inches": 1.44,
+        "file_pix_w": 5413,
+        "file_pix_h": 4429,
         "style": "rolled",
-        "sku": "5M210M8S18X14"
+        "sku": "5M210M8S22X18",
+        "file_key": "raw/sized/01a12c08-89f9-72ee-8a49-0e273955c94a_22x18.jpg"
       },
       {
-        "width_inches": 12,
-        "height_inches": 10,
+        "width_inches": 16,
+        "height_inches": 13,
+        "image_width_inches": 13.61,
+        "image_height_inches": 10.92,
+        "border_inches": 1.04,
+        "file_pix_w": 4800,
+        "file_pix_h": 3900,
         "style": "rolled",
-        "sku": "5M210M8S12X10"
+        "sku": "5M210M8S16X13",
+        "file_key": "raw/sized/01a12c08-89f9-72ee-8a49-0e273955c94a_16x13.jpg"
       }
     ],
     "finerworks_image": {
@@ -5216,22 +6842,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 18,
-        "height_inches": 30,
+        "width_inches": 21,
+        "height_inches": 33,
+        "image_width_inches": 17.64,
+        "image_height_inches": 29.29,
+        "border_inches": 1.68,
+        "file_pix_w": 4112,
+        "file_pix_h": 6462,
         "style": "rolled",
-        "sku": "5M210M8S18X30"
+        "sku": "5M210M8S21X33",
+        "file_key": "raw/sized/01a12c08-8a4b-7777-a0fc-dc13cd47ccab_21x33.jpg"
       },
       {
-        "width_inches": 13,
-        "height_inches": 21,
+        "width_inches": 15,
+        "height_inches": 23,
+        "image_width_inches": 12.41,
+        "image_height_inches": 20.6,
+        "border_inches": 1.2,
+        "file_pix_w": 4176,
+        "file_pix_h": 6403,
         "style": "rolled",
-        "sku": "5M210M8S13X21"
+        "sku": "5M210M8S15X23",
+        "file_key": "raw/sized/01a12c08-8a4b-7777-a0fc-dc13cd47ccab_15x23.jpg"
       },
       {
-        "width_inches": 9,
-        "height_inches": 15,
+        "width_inches": 11,
+        "height_inches": 17,
+        "image_width_inches": 9.18,
+        "image_height_inches": 15.24,
+        "border_inches": 0.88,
+        "file_pix_w": 3300,
+        "file_pix_h": 5100,
         "style": "rolled",
-        "sku": "5M210M8S9X15"
+        "sku": "5M210M8S11X17",
+        "file_key": "raw/sized/01a12c08-8a4b-7777-a0fc-dc13cd47ccab_11x17.jpg"
       }
     ],
     "finerworks_image": {
@@ -5267,16 +6911,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 10,
-        "height_inches": 31,
+        "width_inches": 12,
+        "height_inches": 33,
+        "image_width_inches": 10.08,
+        "image_height_inches": 30.81,
+        "border_inches": 0.96,
+        "file_pix_w": 2206,
+        "file_pix_h": 6066,
         "style": "rolled",
-        "sku": "5M210M8S10X31"
+        "sku": "5M210M8S12X33",
+        "file_key": "raw/sized/01a12c08-8bb5-77ae-a7c0-5f7cf426c475_12x33.jpg"
       },
       {
-        "width_inches": 7,
-        "height_inches": 22,
+        "width_inches": 9,
+        "height_inches": 24,
+        "image_width_inches": 7.38,
+        "image_height_inches": 22.56,
+        "border_inches": 0.72,
+        "file_pix_w": 2259,
+        "file_pix_h": 6024,
         "style": "rolled",
-        "sku": "5M210M8S7X22"
+        "sku": "5M210M8S9X24",
+        "file_key": "raw/sized/01a12c08-8bb5-77ae-a7c0-5f7cf426c475_9x24.jpg"
+      },
+      {
+        "width_inches": 8,
+        "height_inches": 18,
+        "image_width_inches": 5.47,
+        "image_height_inches": 16.72,
+        "border_inches": 0.64,
+        "file_pix_w": 2400,
+        "file_pix_h": 5400,
+        "style": "rolled",
+        "sku": "5M210M8S8X18",
+        "file_key": "raw/sized/01a12c08-8bb5-77ae-a7c0-5f7cf426c475_8x18.jpg"
       }
     ],
     "finerworks_image": {
@@ -5312,22 +6980,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 20,
-        "height_inches": 31,
+        "width_inches": 24,
+        "height_inches": 35,
+        "image_width_inches": 20.16,
+        "image_height_inches": 30.77,
+        "border_inches": 1.92,
+        "file_pix_w": 4445,
+        "file_pix_h": 6483,
         "style": "rolled",
-        "sku": "5M210M8S20X31"
+        "sku": "5M210M8S24X35",
+        "file_key": "raw/sized/01a12c08-8c41-706c-81b9-bed4223b5b0b_24x35.jpg"
       },
       {
-        "width_inches": 14,
-        "height_inches": 22,
+        "width_inches": 18,
+        "height_inches": 26,
+        "image_width_inches": 15.12,
+        "image_height_inches": 23.08,
+        "border_inches": 1.44,
+        "file_pix_w": 4445,
+        "file_pix_h": 6421,
         "style": "rolled",
-        "sku": "5M210M8S14X22"
+        "sku": "5M210M8S18X26",
+        "file_key": "raw/sized/01a12c08-8c41-706c-81b9-bed4223b5b0b_18x26.jpg"
       },
       {
-        "width_inches": 10,
-        "height_inches": 15,
+        "width_inches": 12,
+        "height_inches": 17,
+        "image_width_inches": 9.88,
+        "image_height_inches": 15.08,
+        "border_inches": 0.96,
+        "file_pix_w": 3600,
+        "file_pix_h": 5100,
         "style": "rolled",
-        "sku": "5M210M8S10X15"
+        "sku": "5M210M8S12X17",
+        "file_key": "raw/sized/01a12c08-8c41-706c-81b9-bed4223b5b0b_12x17.jpg"
       }
     ],
     "finerworks_image": {
@@ -5363,22 +7049,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 19,
-        "height_inches": 32,
+        "width_inches": 23,
+        "height_inches": 36,
+        "image_width_inches": 19.04,
+        "image_height_inches": 32.32,
+        "border_inches": 1.84,
+        "file_pix_w": 4191,
+        "file_pix_h": 6560,
         "style": "rolled",
-        "sku": "5M210M8S19X32"
+        "sku": "5M210M8S23X36",
+        "file_key": "raw/sized/01a12c08-8ca0-751d-bbfb-5441bc66e8d6_23x36.jpg"
       },
       {
-        "width_inches": 13,
-        "height_inches": 22,
+        "width_inches": 16,
+        "height_inches": 25,
+        "image_width_inches": 13.22,
+        "image_height_inches": 22.44,
+        "border_inches": 1.28,
+        "file_pix_w": 4199,
+        "file_pix_h": 6561,
         "style": "rolled",
-        "sku": "5M210M8S13X22"
+        "sku": "5M210M8S16X25",
+        "file_key": "raw/sized/01a12c08-8ca0-751d-bbfb-5441bc66e8d6_16x25.jpg"
       },
       {
-        "width_inches": 9,
-        "height_inches": 16,
+        "width_inches": 12,
+        "height_inches": 19,
+        "image_width_inches": 10.06,
+        "image_height_inches": 17.08,
+        "border_inches": 0.96,
+        "file_pix_w": 3600,
+        "file_pix_h": 5700,
         "style": "rolled",
-        "sku": "5M210M8S9X16"
+        "sku": "5M210M8S12X19",
+        "file_key": "raw/sized/01a12c08-8ca0-751d-bbfb-5441bc66e8d6_12x19.jpg"
       }
     ],
     "finerworks_image": {
@@ -5414,22 +7118,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 19,
-        "height_inches": 29,
+        "width_inches": 22,
+        "height_inches": 32,
+        "image_width_inches": 18.48,
+        "image_height_inches": 28.11,
+        "border_inches": 1.76,
+        "file_pix_w": 4129,
+        "file_pix_h": 6005,
         "style": "rolled",
-        "sku": "5M210M8S19X29"
+        "sku": "5M210M8S22X32",
+        "file_key": "raw/sized/01a12c08-8d3e-782e-b66e-2cd9a498fa2d_22x32.jpg"
       },
       {
-        "width_inches": 13,
-        "height_inches": 20,
+        "width_inches": 16,
+        "height_inches": 23,
+        "image_width_inches": 13.44,
+        "image_height_inches": 20.44,
+        "border_inches": 1.28,
+        "file_pix_w": 4130,
+        "file_pix_h": 5937,
         "style": "rolled",
-        "sku": "5M210M8S13X20"
+        "sku": "5M210M8S16X23",
+        "file_key": "raw/sized/01a12c08-8d3e-782e-b66e-2cd9a498fa2d_16x23.jpg"
       },
       {
-        "width_inches": 9,
-        "height_inches": 14,
+        "width_inches": 12,
+        "height_inches": 17,
+        "image_width_inches": 9.91,
+        "image_height_inches": 15.08,
+        "border_inches": 0.96,
+        "file_pix_w": 3600,
+        "file_pix_h": 5100,
         "style": "rolled",
-        "sku": "5M210M8S9X14"
+        "sku": "5M210M8S12X17",
+        "file_key": "raw/sized/01a12c08-8d3e-782e-b66e-2cd9a498fa2d_12x17.jpg"
       }
     ],
     "finerworks_image": {
@@ -5465,22 +7187,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 18,
-        "height_inches": 31,
+        "width_inches": 22,
+        "height_inches": 35,
+        "image_width_inches": 18.48,
+        "image_height_inches": 31.39,
+        "border_inches": 1.76,
+        "file_pix_w": 4010,
+        "file_pix_h": 6379,
         "style": "rolled",
-        "sku": "5M210M8S18X31"
+        "sku": "5M210M8S22X35",
+        "file_key": "raw/sized/01a12c08-8de6-7852-b660-c075ff2067d1_22x35.jpg"
       },
       {
-        "width_inches": 13,
-        "height_inches": 22,
+        "width_inches": 16,
+        "height_inches": 25,
+        "image_width_inches": 13.21,
+        "image_height_inches": 22.44,
+        "border_inches": 1.28,
+        "file_pix_w": 4079,
+        "file_pix_h": 6374,
         "style": "rolled",
-        "sku": "5M210M8S13X22"
+        "sku": "5M210M8S16X25",
+        "file_key": "raw/sized/01a12c08-8de6-7852-b660-c075ff2067d1_16x25.jpg"
       },
       {
-        "width_inches": 9,
-        "height_inches": 15,
+        "width_inches": 12,
+        "height_inches": 19,
+        "image_width_inches": 10.06,
+        "image_height_inches": 17.08,
+        "border_inches": 0.96,
+        "file_pix_w": 3600,
+        "file_pix_h": 5700,
         "style": "rolled",
-        "sku": "5M210M8S9X15"
+        "sku": "5M210M8S12X19",
+        "file_key": "raw/sized/01a12c08-8de6-7852-b660-c075ff2067d1_12x19.jpg"
       }
     ],
     "finerworks_image": {
@@ -5516,22 +7256,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 19,
-        "height_inches": 29,
+        "width_inches": 22,
+        "height_inches": 32,
+        "image_width_inches": 18.34,
+        "image_height_inches": 28.48,
+        "border_inches": 1.76,
+        "file_pix_w": 4153,
+        "file_pix_h": 6040,
         "style": "rolled",
-        "sku": "5M210M8S19X29"
+        "sku": "5M210M8S22X32",
+        "file_key": "raw/sized/01a12c08-8eb1-74de-a953-1a918c927ee4_22x32.jpg"
       },
       {
-        "width_inches": 13,
-        "height_inches": 20,
+        "width_inches": 16,
+        "height_inches": 23,
+        "image_width_inches": 13.16,
+        "image_height_inches": 20.44,
+        "border_inches": 1.28,
+        "file_pix_w": 4208,
+        "file_pix_h": 6049,
         "style": "rolled",
-        "sku": "5M210M8S13X20"
+        "sku": "5M210M8S16X23",
+        "file_key": "raw/sized/01a12c08-8eb1-74de-a953-1a918c927ee4_16x23.jpg"
       },
       {
-        "width_inches": 9,
-        "height_inches": 14,
+        "width_inches": 11,
+        "height_inches": 16,
+        "image_width_inches": 9.17,
+        "image_height_inches": 14.24,
+        "border_inches": 0.88,
+        "file_pix_w": 3300,
+        "file_pix_h": 4800,
         "style": "rolled",
-        "sku": "5M210M8S9X14"
+        "sku": "5M210M8S11X16",
+        "file_key": "raw/sized/01a12c08-8eb1-74de-a953-1a918c927ee4_11x16.jpg"
       }
     ],
     "finerworks_image": {
@@ -5567,22 +7325,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 19,
-        "height_inches": 29,
+        "width_inches": 22,
+        "height_inches": 32,
+        "image_width_inches": 18.38,
+        "image_height_inches": 28.48,
+        "border_inches": 1.76,
+        "file_pix_w": 4153,
+        "file_pix_h": 6040,
         "style": "rolled",
-        "sku": "5M210M8S19X29"
+        "sku": "5M210M8S22X32",
+        "file_key": "raw/sized/01a12c08-8f83-785f-a4e1-6c45d9d8d9c2_22x32.jpg"
       },
       {
-        "width_inches": 13,
-        "height_inches": 20,
+        "width_inches": 16,
+        "height_inches": 23,
+        "image_width_inches": 13.19,
+        "image_height_inches": 20.44,
+        "border_inches": 1.28,
+        "file_pix_w": 4208,
+        "file_pix_h": 6049,
         "style": "rolled",
-        "sku": "5M210M8S13X20"
+        "sku": "5M210M8S16X23",
+        "file_key": "raw/sized/01a12c08-8f83-785f-a4e1-6c45d9d8d9c2_16x23.jpg"
       },
       {
-        "width_inches": 9,
-        "height_inches": 14,
+        "width_inches": 11,
+        "height_inches": 16,
+        "image_width_inches": 9.19,
+        "image_height_inches": 14.24,
+        "border_inches": 0.88,
+        "file_pix_w": 3300,
+        "file_pix_h": 4800,
         "style": "rolled",
-        "sku": "5M210M8S9X14"
+        "sku": "5M210M8S11X16",
+        "file_key": "raw/sized/01a12c08-8f83-785f-a4e1-6c45d9d8d9c2_11x16.jpg"
       }
     ],
     "finerworks_image": {
@@ -5618,22 +7394,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 19,
-        "height_inches": 29,
+        "width_inches": 22,
+        "height_inches": 32,
+        "image_width_inches": 18.25,
+        "image_height_inches": 28.48,
+        "border_inches": 1.76,
+        "file_pix_w": 4147,
+        "file_pix_h": 6033,
         "style": "rolled",
-        "sku": "5M210M8S19X29"
+        "sku": "5M210M8S22X32",
+        "file_key": "raw/sized/01a12c08-903b-7173-b9c7-4eb24f9695e6_22x32.jpg"
       },
       {
-        "width_inches": 13,
-        "height_inches": 20,
+        "width_inches": 17,
+        "height_inches": 25,
+        "image_width_inches": 14.28,
+        "image_height_inches": 22.28,
+        "border_inches": 1.36,
+        "file_pix_w": 4097,
+        "file_pix_h": 6024,
         "style": "rolled",
-        "sku": "5M210M8S13X20"
+        "sku": "5M210M8S17X25",
+        "file_key": "raw/sized/01a12c08-903b-7173-b9c7-4eb24f9695e6_17x25.jpg"
       },
       {
-        "width_inches": 9,
-        "height_inches": 14,
+        "width_inches": 11,
+        "height_inches": 16,
+        "image_width_inches": 9.12,
+        "image_height_inches": 14.24,
+        "border_inches": 0.88,
+        "file_pix_w": 3300,
+        "file_pix_h": 4800,
         "style": "rolled",
-        "sku": "5M210M8S9X14"
+        "sku": "5M210M8S11X16",
+        "file_key": "raw/sized/01a12c08-903b-7173-b9c7-4eb24f9695e6_11x16.jpg"
       }
     ],
     "finerworks_image": {
@@ -5669,22 +7463,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 19,
-        "height_inches": 30,
+        "width_inches": 23,
+        "height_inches": 34,
+        "image_width_inches": 19.32,
+        "image_height_inches": 29.96,
+        "border_inches": 1.84,
+        "file_pix_w": 4171,
+        "file_pix_h": 6166,
         "style": "rolled",
-        "sku": "5M210M8S19X30"
+        "sku": "5M210M8S23X34",
+        "file_key": "raw/sized/01a12c08-90d5-71f6-9411-2ec27d458231_23x34.jpg"
       },
       {
-        "width_inches": 14,
-        "height_inches": 21,
+        "width_inches": 17,
+        "height_inches": 25,
+        "image_width_inches": 14.28,
+        "image_height_inches": 22.15,
+        "border_inches": 1.36,
+        "file_pix_w": 4171,
+        "file_pix_h": 6134,
         "style": "rolled",
-        "sku": "5M210M8S14X21"
+        "sku": "5M210M8S17X25",
+        "file_key": "raw/sized/01a12c08-90d5-71f6-9411-2ec27d458231_17x25.jpg"
       },
       {
-        "width_inches": 10,
-        "height_inches": 15,
+        "width_inches": 11,
+        "height_inches": 16,
+        "image_width_inches": 9.18,
+        "image_height_inches": 14.24,
+        "border_inches": 0.88,
+        "file_pix_w": 3300,
+        "file_pix_h": 4800,
         "style": "rolled",
-        "sku": "5M210M8S10X15"
+        "sku": "5M210M8S11X16",
+        "file_key": "raw/sized/01a12c08-90d5-71f6-9411-2ec27d458231_11x16.jpg"
       }
     ],
     "finerworks_image": {
@@ -5720,22 +7532,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 19,
-        "height_inches": 30,
+        "width_inches": 21,
+        "height_inches": 31,
+        "image_width_inches": 17.63,
+        "image_height_inches": 27.64,
+        "border_inches": 1.68,
+        "file_pix_w": 4107,
+        "file_pix_h": 6062,
         "style": "rolled",
-        "sku": "5M210M8S19X30"
+        "sku": "5M210M8S21X31",
+        "file_key": "raw/sized/01a12c08-9182-7522-b1d0-512382018d51_21x31.jpg"
       },
       {
-        "width_inches": 13,
-        "height_inches": 21,
+        "width_inches": 16,
+        "height_inches": 24,
+        "image_width_inches": 13.44,
+        "image_height_inches": 21.07,
+        "border_inches": 1.28,
+        "file_pix_w": 4104,
+        "file_pix_h": 6155,
         "style": "rolled",
-        "sku": "5M210M8S13X21"
+        "sku": "5M210M8S16X24",
+        "file_key": "raw/sized/01a12c08-9182-7522-b1d0-512382018d51_16x24.jpg"
       },
       {
-        "width_inches": 10,
-        "height_inches": 15,
+        "width_inches": 11,
+        "height_inches": 16,
+        "image_width_inches": 9.08,
+        "image_height_inches": 14.24,
+        "border_inches": 0.88,
+        "file_pix_w": 3300,
+        "file_pix_h": 4800,
         "style": "rolled",
-        "sku": "5M210M8S10X15"
+        "sku": "5M210M8S11X16",
+        "file_key": "raw/sized/01a12c08-9182-7522-b1d0-512382018d51_11x16.jpg"
       }
     ],
     "finerworks_image": {
@@ -5771,22 +7601,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 19,
-        "height_inches": 29,
+        "width_inches": 22,
+        "height_inches": 32,
+        "image_width_inches": 18.21,
+        "image_height_inches": 28.48,
+        "border_inches": 1.76,
+        "file_pix_w": 4120,
+        "file_pix_h": 5993,
         "style": "rolled",
-        "sku": "5M210M8S19X29"
+        "sku": "5M210M8S22X32",
+        "file_key": "raw/sized/01a12c08-9209-7473-9eb7-f22af9600970_22x32.jpg"
       },
       {
-        "width_inches": 13,
-        "height_inches": 20,
+        "width_inches": 15,
+        "height_inches": 22,
+        "image_width_inches": 12.53,
+        "image_height_inches": 19.6,
+        "border_inches": 1.2,
+        "file_pix_w": 4082,
+        "file_pix_h": 5987,
         "style": "rolled",
-        "sku": "5M210M8S13X20"
+        "sku": "5M210M8S15X22",
+        "file_key": "raw/sized/01a12c08-9209-7473-9eb7-f22af9600970_15x22.jpg"
       },
       {
-        "width_inches": 9,
-        "height_inches": 14,
+        "width_inches": 11,
+        "height_inches": 16,
+        "image_width_inches": 9.11,
+        "image_height_inches": 14.24,
+        "border_inches": 0.88,
+        "file_pix_w": 3300,
+        "file_pix_h": 4800,
         "style": "rolled",
-        "sku": "5M210M8S9X14"
+        "sku": "5M210M8S11X16",
+        "file_key": "raw/sized/01a12c08-9209-7473-9eb7-f22af9600970_11x16.jpg"
       }
     ],
     "finerworks_image": {
@@ -5822,22 +7670,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 19,
-        "height_inches": 30,
+        "width_inches": 23,
+        "height_inches": 34,
+        "image_width_inches": 19.32,
+        "image_height_inches": 29.93,
+        "border_inches": 1.84,
+        "file_pix_w": 4155,
+        "file_pix_h": 6142,
         "style": "rolled",
-        "sku": "5M210M8S19X30"
+        "sku": "5M210M8S23X34",
+        "file_key": "raw/sized/01a12c08-929f-7ce0-9650-14a0c3ea66d1_23x34.jpg"
       },
       {
-        "width_inches": 14,
-        "height_inches": 21,
+        "width_inches": 16,
+        "height_inches": 23,
+        "image_width_inches": 13.2,
+        "image_height_inches": 20.44,
+        "border_inches": 1.28,
+        "file_pix_w": 4232,
+        "file_pix_h": 6083,
         "style": "rolled",
-        "sku": "5M210M8S14X21"
+        "sku": "5M210M8S16X23",
+        "file_key": "raw/sized/01a12c08-929f-7ce0-9650-14a0c3ea66d1_16x23.jpg"
       },
       {
-        "width_inches": 10,
-        "height_inches": 15,
+        "width_inches": 11,
+        "height_inches": 16,
+        "image_width_inches": 9.19,
+        "image_height_inches": 14.24,
+        "border_inches": 0.88,
+        "file_pix_w": 3300,
+        "file_pix_h": 4800,
         "style": "rolled",
-        "sku": "5M210M8S10X15"
+        "sku": "5M210M8S11X16",
+        "file_key": "raw/sized/01a12c08-929f-7ce0-9650-14a0c3ea66d1_11x16.jpg"
       }
     ],
     "finerworks_image": {
@@ -5873,22 +7739,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 19,
-        "height_inches": 29,
+        "width_inches": 22,
+        "height_inches": 32,
+        "image_width_inches": 18.4,
+        "image_height_inches": 28.48,
+        "border_inches": 1.76,
+        "file_pix_w": 4120,
+        "file_pix_h": 5993,
         "style": "rolled",
-        "sku": "5M210M8S19X29"
+        "sku": "5M210M8S22X32",
+        "file_key": "raw/sized/01a12c08-9355-701b-b10b-518c0b56c9af_22x32.jpg"
       },
       {
-        "width_inches": 13,
-        "height_inches": 20,
+        "width_inches": 16,
+        "height_inches": 23,
+        "image_width_inches": 13.21,
+        "image_height_inches": 20.44,
+        "border_inches": 1.28,
+        "file_pix_w": 4175,
+        "file_pix_h": 6002,
         "style": "rolled",
-        "sku": "5M210M8S13X20"
+        "sku": "5M210M8S16X23",
+        "file_key": "raw/sized/01a12c08-9355-701b-b10b-518c0b56c9af_16x23.jpg"
       },
       {
-        "width_inches": 9,
-        "height_inches": 14,
+        "width_inches": 11,
+        "height_inches": 16,
+        "image_width_inches": 9.2,
+        "image_height_inches": 14.24,
+        "border_inches": 0.88,
+        "file_pix_w": 3300,
+        "file_pix_h": 4800,
         "style": "rolled",
-        "sku": "5M210M8S9X14"
+        "sku": "5M210M8S11X16",
+        "file_key": "raw/sized/01a12c08-9355-701b-b10b-518c0b56c9af_11x16.jpg"
       }
     ],
     "finerworks_image": {
@@ -5924,22 +7808,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 26,
-        "height_inches": 39,
+        "width_inches": 30,
+        "height_inches": 43,
+        "image_width_inches": 25.02,
+        "image_height_inches": 38.2,
+        "border_inches": 2.4,
+        "file_pix_w": 9000,
+        "file_pix_h": 12900,
         "style": "rolled",
-        "sku": "5M210M8S26X39"
+        "sku": "5M210M8S30X43",
+        "file_key": "raw/sized/01a12c08-93ef-7162-b124-102ca0bf526c_30x43.jpg"
       },
       {
-        "width_inches": 18,
-        "height_inches": 27,
+        "width_inches": 22,
+        "height_inches": 32,
+        "image_width_inches": 18.48,
+        "image_height_inches": 28.21,
+        "border_inches": 1.76,
+        "file_pix_w": 6600,
+        "file_pix_h": 9600,
         "style": "rolled",
-        "sku": "5M210M8S18X27"
+        "sku": "5M210M8S22X32",
+        "file_key": "raw/sized/01a12c08-93ef-7162-b124-102ca0bf526c_22x32.jpg"
       },
       {
-        "width_inches": 12,
-        "height_inches": 19,
+        "width_inches": 16,
+        "height_inches": 23,
+        "image_width_inches": 13.39,
+        "image_height_inches": 20.44,
+        "border_inches": 1.28,
+        "file_pix_w": 4800,
+        "file_pix_h": 6900,
         "style": "rolled",
-        "sku": "5M210M8S12X19"
+        "sku": "5M210M8S16X23",
+        "file_key": "raw/sized/01a12c08-93ef-7162-b124-102ca0bf526c_16x23.jpg"
       }
     ],
     "finerworks_image": {
@@ -5975,22 +7877,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 20,
-        "height_inches": 29,
+        "width_inches": 25,
+        "height_inches": 33,
+        "image_width_inches": 20.48,
+        "image_height_inches": 29.0,
+        "border_inches": 2.0,
+        "file_pix_w": 4505,
+        "file_pix_h": 5947,
         "style": "rolled",
-        "sku": "5M210M8S20X29"
+        "sku": "5M210M8S25X33",
+        "file_key": "raw/sized/01a12c08-9479-729a-8712-a665908575a6_25x33.jpg"
       },
       {
-        "width_inches": 14,
-        "height_inches": 20,
+        "width_inches": 17,
+        "height_inches": 23,
+        "image_width_inches": 14.28,
+        "image_height_inches": 20.22,
+        "border_inches": 1.36,
+        "file_pix_w": 4394,
+        "file_pix_h": 5945,
         "style": "rolled",
-        "sku": "5M210M8S14X20"
+        "sku": "5M210M8S17X23",
+        "file_key": "raw/sized/01a12c08-9479-729a-8712-a665908575a6_17x23.jpg"
       },
       {
-        "width_inches": 10,
-        "height_inches": 14,
+        "width_inches": 12,
+        "height_inches": 16,
+        "image_width_inches": 9.94,
+        "image_height_inches": 14.08,
+        "border_inches": 0.96,
+        "file_pix_w": 3600,
+        "file_pix_h": 4800,
         "style": "rolled",
-        "sku": "5M210M8S10X14"
+        "sku": "5M210M8S12X16",
+        "file_key": "raw/sized/01a12c08-9479-729a-8712-a665908575a6_12x16.jpg"
       }
     ],
     "finerworks_image": {
@@ -6026,22 +7946,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 19,
-        "height_inches": 29,
+        "width_inches": 23,
+        "height_inches": 33,
+        "image_width_inches": 19.32,
+        "image_height_inches": 28.91,
+        "border_inches": 1.84,
+        "file_pix_w": 4163,
+        "file_pix_h": 5973,
         "style": "rolled",
-        "sku": "5M210M8S19X29"
+        "sku": "5M210M8S23X33",
+        "file_key": "raw/sized/01a12c08-94f1-700d-8ed8-4959350018f9_23x33.jpg"
       },
       {
-        "width_inches": 13,
-        "height_inches": 20,
+        "width_inches": 17,
+        "height_inches": 24,
+        "image_width_inches": 14.22,
+        "image_height_inches": 21.28,
+        "border_inches": 1.36,
+        "file_pix_w": 4180,
+        "file_pix_h": 5901,
         "style": "rolled",
-        "sku": "5M210M8S13X20"
+        "sku": "5M210M8S17X24",
+        "file_key": "raw/sized/01a12c08-94f1-700d-8ed8-4959350018f9_17x24.jpg"
       },
       {
-        "width_inches": 9,
-        "height_inches": 14,
+        "width_inches": 12,
+        "height_inches": 17,
+        "image_width_inches": 10.08,
+        "image_height_inches": 15.08,
+        "border_inches": 0.96,
+        "file_pix_w": 3600,
+        "file_pix_h": 5100,
         "style": "rolled",
-        "sku": "5M210M8S9X14"
+        "sku": "5M210M8S12X17",
+        "file_key": "raw/sized/01a12c08-94f1-700d-8ed8-4959350018f9_12x17.jpg"
       }
     ],
     "finerworks_image": {
@@ -6077,22 +8015,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 19,
-        "height_inches": 29,
+        "width_inches": 23,
+        "height_inches": 33,
+        "image_width_inches": 19.32,
+        "image_height_inches": 28.86,
+        "border_inches": 1.84,
+        "file_pix_w": 4274,
+        "file_pix_h": 6132,
         "style": "rolled",
-        "sku": "5M210M8S19X29"
+        "sku": "5M210M8S23X33",
+        "file_key": "raw/sized/01a12c08-958a-7dde-908c-1126e2202a2a_23x33.jpg"
       },
       {
-        "width_inches": 13,
-        "height_inches": 20,
+        "width_inches": 17,
+        "height_inches": 24,
+        "image_width_inches": 14.25,
+        "image_height_inches": 21.28,
+        "border_inches": 1.36,
+        "file_pix_w": 4284,
+        "file_pix_h": 6047,
         "style": "rolled",
-        "sku": "5M210M8S13X20"
+        "sku": "5M210M8S17X24",
+        "file_key": "raw/sized/01a12c08-958a-7dde-908c-1126e2202a2a_17x24.jpg"
       },
       {
-        "width_inches": 9,
-        "height_inches": 14,
+        "width_inches": 12,
+        "height_inches": 17,
+        "image_width_inches": 10.08,
+        "image_height_inches": 15.06,
+        "border_inches": 0.96,
+        "file_pix_w": 3600,
+        "file_pix_h": 5100,
         "style": "rolled",
-        "sku": "5M210M8S9X14"
+        "sku": "5M210M8S12X17",
+        "file_key": "raw/sized/01a12c08-958a-7dde-908c-1126e2202a2a_12x17.jpg"
       }
     ],
     "finerworks_image": {
@@ -6128,22 +8084,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 19,
-        "height_inches": 30,
+        "width_inches": 23,
+        "height_inches": 34,
+        "image_width_inches": 19.32,
+        "image_height_inches": 30.07,
+        "border_inches": 1.84,
+        "file_pix_w": 4173,
+        "file_pix_h": 6168,
         "style": "rolled",
-        "sku": "5M210M8S19X30"
+        "sku": "5M210M8S23X34",
+        "file_key": "raw/sized/01a12c08-961d-7601-8d24-5c3fccde7d12_23x34.jpg"
       },
       {
-        "width_inches": 13,
-        "height_inches": 21,
+        "width_inches": 17,
+        "height_inches": 25,
+        "image_width_inches": 14.28,
+        "image_height_inches": 22.23,
+        "border_inches": 1.36,
+        "file_pix_w": 4173,
+        "file_pix_h": 6136,
         "style": "rolled",
-        "sku": "5M210M8S13X21"
+        "sku": "5M210M8S17X25",
+        "file_key": "raw/sized/01a12c08-961d-7601-8d24-5c3fccde7d12_17x25.jpg"
       },
       {
-        "width_inches": 10,
-        "height_inches": 15,
+        "width_inches": 11,
+        "height_inches": 16,
+        "image_width_inches": 9.15,
+        "image_height_inches": 14.24,
+        "border_inches": 0.88,
+        "file_pix_w": 3300,
+        "file_pix_h": 4800,
         "style": "rolled",
-        "sku": "5M210M8S10X15"
+        "sku": "5M210M8S11X16",
+        "file_key": "raw/sized/01a12c08-961d-7601-8d24-5c3fccde7d12_11x16.jpg"
       }
     ],
     "finerworks_image": {
@@ -6179,22 +8153,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 19,
-        "height_inches": 30,
+        "width_inches": 22,
+        "height_inches": 33,
+        "image_width_inches": 18.48,
+        "image_height_inches": 29.31,
+        "border_inches": 1.76,
+        "file_pix_w": 4095,
+        "file_pix_h": 6143,
         "style": "rolled",
-        "sku": "5M210M8S19X30"
+        "sku": "5M210M8S22X33",
+        "file_key": "raw/sized/01a12c08-96ac-71f5-8f88-8d7875f7e5dc_22x33.jpg"
       },
       {
-        "width_inches": 13,
-        "height_inches": 21,
+        "width_inches": 16,
+        "height_inches": 24,
+        "image_width_inches": 13.44,
+        "image_height_inches": 21.32,
+        "border_inches": 1.28,
+        "file_pix_w": 4095,
+        "file_pix_h": 6143,
         "style": "rolled",
-        "sku": "5M210M8S13X21"
+        "sku": "5M210M8S16X24",
+        "file_key": "raw/sized/01a12c08-96ac-71f5-8f88-8d7875f7e5dc_16x24.jpg"
       },
       {
-        "width_inches": 9,
-        "height_inches": 15,
+        "width_inches": 12,
+        "height_inches": 18,
+        "image_width_inches": 10.08,
+        "image_height_inches": 15.99,
+        "border_inches": 0.96,
+        "file_pix_w": 3600,
+        "file_pix_h": 5400,
         "style": "rolled",
-        "sku": "5M210M8S9X15"
+        "sku": "5M210M8S12X18",
+        "file_key": "raw/sized/01a12c08-96ac-71f5-8f88-8d7875f7e5dc_12x18.jpg"
       }
     ],
     "finerworks_image": {
@@ -6230,16 +8222,28 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 8,
-        "height_inches": 31,
+        "width_inches": 10,
+        "height_inches": 33,
+        "image_width_inches": 8.37,
+        "image_height_inches": 31.4,
+        "border_inches": 0.8,
+        "file_pix_w": 1818,
+        "file_pix_h": 5998,
         "style": "rolled",
-        "sku": "5M210M8S8X31"
+        "sku": "5M210M8S10X33",
+        "file_key": "raw/sized/01a12c08-9747-78f0-aa9d-a3fad98f6d87_10x33.jpg"
       },
       {
-        "width_inches": 6,
-        "height_inches": 22,
+        "width_inches": 8,
+        "height_inches": 24,
+        "image_width_inches": 6.06,
+        "image_height_inches": 22.72,
+        "border_inches": 0.64,
+        "file_pix_w": 2010,
+        "file_pix_h": 6029,
         "style": "rolled",
-        "sku": "5M210M8S6X22"
+        "sku": "5M210M8S8X24",
+        "file_key": "raw/sized/01a12c08-9747-78f0-aa9d-a3fad98f6d87_8x24.jpg"
       }
     ],
     "finerworks_image": {
@@ -6275,10 +8279,28 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 7,
-        "height_inches": 30,
+        "width_inches": 9,
+        "height_inches": 32,
+        "image_width_inches": 7.47,
+        "image_height_inches": 30.56,
+        "border_inches": 0.72,
+        "file_pix_w": 1641,
+        "file_pix_h": 5834,
         "style": "rolled",
-        "sku": "5M210M8S7X30"
+        "sku": "5M210M8S9X32",
+        "file_key": "raw/sized/01a12c08-9a25-756b-8649-4f135033e118_9x32.jpg"
+      },
+      {
+        "width_inches": 8,
+        "height_inches": 23,
+        "image_width_inches": 5.31,
+        "image_height_inches": 21.72,
+        "border_inches": 0.64,
+        "file_pix_w": 2052,
+        "file_pix_h": 5899,
+        "style": "rolled",
+        "sku": "5M210M8S8X23",
+        "file_key": "raw/sized/01a12c08-9a25-756b-8649-4f135033e118_8x23.jpg"
       }
     ],
     "finerworks_image": {
@@ -6314,22 +8336,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 29,
-        "height_inches": 18,
+        "width_inches": 32,
+        "height_inches": 21,
+        "image_width_inches": 28.64,
+        "image_height_inches": 17.46,
+        "border_inches": 1.68,
+        "file_pix_w": 6792,
+        "file_pix_h": 4457,
         "style": "rolled",
-        "sku": "5M210M8S29X18"
+        "sku": "5M210M8S32X21",
+        "file_key": "raw/sized/01a12c08-9b7b-7744-bb98-e42bd8d8b969_32x21.jpg"
       },
       {
-        "width_inches": 20,
-        "height_inches": 12,
+        "width_inches": 23,
+        "height_inches": 15,
+        "image_width_inches": 20.6,
+        "image_height_inches": 12.56,
+        "border_inches": 1.2,
+        "file_pix_w": 6787,
+        "file_pix_h": 4426,
         "style": "rolled",
-        "sku": "5M210M8S20X12"
+        "sku": "5M210M8S23X15",
+        "file_key": "raw/sized/01a12c08-9b7b-7744-bb98-e42bd8d8b969_23x15.jpg"
       },
       {
-        "width_inches": 14,
-        "height_inches": 9,
+        "width_inches": 17,
+        "height_inches": 11,
+        "image_width_inches": 15.15,
+        "image_height_inches": 9.24,
+        "border_inches": 0.88,
+        "file_pix_w": 5100,
+        "file_pix_h": 3300,
         "style": "rolled",
-        "sku": "5M210M8S14X9"
+        "sku": "5M210M8S17X11",
+        "file_key": "raw/sized/01a12c08-9b7b-7744-bb98-e42bd8d8b969_17x11.jpg"
       }
     ],
     "finerworks_image": {
@@ -6365,22 +8405,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 30,
-        "height_inches": 18,
+        "width_inches": 32,
+        "height_inches": 21,
+        "image_width_inches": 28.64,
+        "image_height_inches": 17.4,
+        "border_inches": 1.68,
+        "file_pix_w": 6473,
+        "file_pix_h": 4248,
         "style": "rolled",
-        "sku": "5M210M8S30X18"
+        "sku": "5M210M8S32X21",
+        "file_key": "raw/sized/01a12c08-9d41-74ca-8229-7e6b61b01e3f_32x21.jpg"
       },
       {
-        "width_inches": 21,
-        "height_inches": 13,
+        "width_inches": 23,
+        "height_inches": 15,
+        "image_width_inches": 20.6,
+        "image_height_inches": 12.51,
+        "border_inches": 1.2,
+        "file_pix_w": 6468,
+        "file_pix_h": 4218,
         "style": "rolled",
-        "sku": "5M210M8S21X13"
+        "sku": "5M210M8S23X15",
+        "file_key": "raw/sized/01a12c08-9d41-74ca-8229-7e6b61b01e3f_23x15.jpg"
       },
       {
-        "width_inches": 15,
-        "height_inches": 9,
+        "width_inches": 17,
+        "height_inches": 11,
+        "image_width_inches": 15.21,
+        "image_height_inches": 9.24,
+        "border_inches": 0.88,
+        "file_pix_w": 5100,
+        "file_pix_h": 3300,
         "style": "rolled",
-        "sku": "5M210M8S15X9"
+        "sku": "5M210M8S17X11",
+        "file_key": "raw/sized/01a12c08-9d41-74ca-8229-7e6b61b01e3f_17x11.jpg"
       }
     ],
     "finerworks_image": {
@@ -6416,22 +8474,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 23,
-        "height_inches": 21,
+        "width_inches": 28,
+        "height_inches": 26,
+        "image_width_inches": 23.45,
+        "image_height_inches": 21.84,
+        "border_inches": 2.08,
+        "file_pix_w": 5126,
+        "file_pix_h": 4760,
         "style": "rolled",
-        "sku": "5M210M8S23X21"
+        "sku": "5M210M8S28X26",
+        "file_key": "raw/sized/01a12c08-9e9e-7329-88b3-0a0a087136b3_28x26.jpg"
       },
       {
-        "width_inches": 16,
-        "height_inches": 15,
+        "width_inches": 20,
+        "height_inches": 19,
+        "image_width_inches": 16.96,
+        "image_height_inches": 15.8,
+        "border_inches": 1.52,
+        "file_pix_w": 5061,
+        "file_pix_h": 4808,
         "style": "rolled",
-        "sku": "5M210M8S16X15"
+        "sku": "5M210M8S20X19",
+        "file_key": "raw/sized/01a12c08-9e9e-7329-88b3-0a0a087136b3_20x19.jpg"
       },
       {
-        "width_inches": 11,
-        "height_inches": 10,
+        "width_inches": 14,
+        "height_inches": 13,
+        "image_width_inches": 11.72,
+        "image_height_inches": 10.92,
+        "border_inches": 1.04,
+        "file_pix_w": 4200,
+        "file_pix_h": 3900,
         "style": "rolled",
-        "sku": "5M210M8S11X10"
+        "sku": "5M210M8S14X13",
+        "file_key": "raw/sized/01a12c08-9e9e-7329-88b3-0a0a087136b3_14x13.jpg"
       }
     ],
     "finerworks_image": {
@@ -6467,22 +8543,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 24,
-        "height_inches": 22,
+        "width_inches": 29,
+        "height_inches": 27,
+        "image_width_inches": 24.68,
+        "image_height_inches": 22.45,
+        "border_inches": 2.16,
+        "file_pix_w": 5232,
+        "file_pix_h": 4872,
         "style": "rolled",
-        "sku": "5M210M8S24X22"
+        "sku": "5M210M8S29X27",
+        "file_key": "raw/sized/01a12c08-9f30-7fc1-a07d-22ded6129946_29x27.jpg"
       },
       {
-        "width_inches": 17,
-        "height_inches": 15,
+        "width_inches": 21,
+        "height_inches": 19,
+        "image_width_inches": 17.54,
+        "image_height_inches": 15.96,
+        "border_inches": 1.52,
+        "file_pix_w": 5330,
+        "file_pix_h": 4823,
         "style": "rolled",
-        "sku": "5M210M8S17X15"
+        "sku": "5M210M8S21X19",
+        "file_key": "raw/sized/01a12c08-9f30-7fc1-a07d-22ded6129946_21x19.jpg"
       },
       {
-        "width_inches": 12,
-        "height_inches": 11,
+        "width_inches": 14,
+        "height_inches": 13,
+        "image_width_inches": 11.92,
+        "image_height_inches": 10.84,
+        "border_inches": 1.04,
+        "file_pix_w": 4200,
+        "file_pix_h": 3900,
         "style": "rolled",
-        "sku": "5M210M8S12X11"
+        "sku": "5M210M8S14X13",
+        "file_key": "raw/sized/01a12c08-9f30-7fc1-a07d-22ded6129946_14x13.jpg"
       }
     ],
     "finerworks_image": {
@@ -6518,22 +8612,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 25,
-        "height_inches": 23,
+        "width_inches": 30,
+        "height_inches": 28,
+        "image_width_inches": 25.52,
+        "image_height_inches": 23.1,
+        "border_inches": 2.24,
+        "file_pix_w": 5428,
+        "file_pix_h": 5066,
         "style": "rolled",
-        "sku": "5M210M8S25X23"
+        "sku": "5M210M8S30X28",
+        "file_key": "raw/sized/01a12c08-a115-781f-8a11-3a51690795dc_30x28.jpg"
       },
       {
-        "width_inches": 17,
-        "height_inches": 15,
+        "width_inches": 22,
+        "height_inches": 20,
+        "image_width_inches": 18.56,
+        "image_height_inches": 16.8,
+        "border_inches": 1.6,
+        "file_pix_w": 5474,
+        "file_pix_h": 4976,
         "style": "rolled",
-        "sku": "5M210M8S17X15"
+        "sku": "5M210M8S22X20",
+        "file_key": "raw/sized/01a12c08-a115-781f-8a11-3a51690795dc_22x20.jpg"
       },
       {
-        "width_inches": 12,
-        "height_inches": 11,
+        "width_inches": 15,
+        "height_inches": 14,
+        "image_width_inches": 12.76,
+        "image_height_inches": 11.55,
+        "border_inches": 1.12,
+        "file_pix_w": 4500,
+        "file_pix_h": 4200,
         "style": "rolled",
-        "sku": "5M210M8S12X11"
+        "sku": "5M210M8S15X14",
+        "file_key": "raw/sized/01a12c08-a115-781f-8a11-3a51690795dc_15x14.jpg"
       }
     ],
     "finerworks_image": {
@@ -6569,22 +8681,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 24,
-        "height_inches": 22,
+        "width_inches": 29,
+        "height_inches": 27,
+        "image_width_inches": 24.68,
+        "image_height_inches": 22.42,
+        "border_inches": 2.16,
+        "file_pix_w": 5227,
+        "file_pix_h": 4866,
         "style": "rolled",
-        "sku": "5M210M8S24X22"
+        "sku": "5M210M8S29X27",
+        "file_key": "raw/sized/01a12c08-a319-7f09-846e-57ec660f5807_29x27.jpg"
       },
       {
-        "width_inches": 17,
-        "height_inches": 15,
+        "width_inches": 21,
+        "height_inches": 19,
+        "image_width_inches": 17.57,
+        "image_height_inches": 15.96,
+        "border_inches": 1.52,
+        "file_pix_w": 5317,
+        "file_pix_h": 4811,
         "style": "rolled",
-        "sku": "5M210M8S17X15"
+        "sku": "5M210M8S21X19",
+        "file_key": "raw/sized/01a12c08-a319-7f09-846e-57ec660f5807_21x19.jpg"
       },
       {
-        "width_inches": 12,
-        "height_inches": 11,
+        "width_inches": 14,
+        "height_inches": 13,
+        "image_width_inches": 11.92,
+        "image_height_inches": 10.83,
+        "border_inches": 1.04,
+        "file_pix_w": 4200,
+        "file_pix_h": 3900,
         "style": "rolled",
-        "sku": "5M210M8S12X11"
+        "sku": "5M210M8S14X13",
+        "file_key": "raw/sized/01a12c08-a319-7f09-846e-57ec660f5807_14x13.jpg"
       }
     ],
     "finerworks_image": {
@@ -6620,22 +8750,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 24,
-        "height_inches": 25,
+        "width_inches": 29,
+        "height_inches": 30,
+        "image_width_inches": 23.93,
+        "image_height_inches": 25.36,
+        "border_inches": 2.32,
+        "file_pix_w": 5229,
+        "file_pix_h": 5410,
         "style": "rolled",
-        "sku": "5M210M8S24X25"
+        "sku": "5M210M8S29X30",
+        "file_key": "raw/sized/01a12c08-a50e-7059-b5c1-ca391d0e4f0b_29x30.jpg"
       },
       {
-        "width_inches": 16,
-        "height_inches": 17,
+        "width_inches": 20,
+        "height_inches": 21,
+        "image_width_inches": 16.8,
+        "image_height_inches": 17.8,
+        "border_inches": 1.6,
+        "file_pix_w": 5138,
+        "file_pix_h": 5395,
         "style": "rolled",
-        "sku": "5M210M8S16X17"
+        "sku": "5M210M8S20X21",
+        "file_key": "raw/sized/01a12c08-a50e-7059-b5c1-ca391d0e4f0b_20x21.jpg"
       },
       {
-        "width_inches": 11,
-        "height_inches": 12,
+        "width_inches": 14,
+        "height_inches": 15,
+        "image_width_inches": 11.76,
+        "image_height_inches": 12.46,
+        "border_inches": 1.12,
+        "file_pix_w": 4200,
+        "file_pix_h": 4500,
         "style": "rolled",
-        "sku": "5M210M8S11X12"
+        "sku": "5M210M8S14X15",
+        "file_key": "raw/sized/01a12c08-a50e-7059-b5c1-ca391d0e4f0b_14x15.jpg"
       }
     ],
     "finerworks_image": {
@@ -6671,22 +8819,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 14,
-        "height_inches": 23,
+        "width_inches": 16,
+        "height_inches": 25,
+        "image_width_inches": 13.44,
+        "image_height_inches": 22.41,
+        "border_inches": 1.28,
+        "file_pix_w": 2967,
+        "file_pix_h": 4635,
         "style": "rolled",
-        "sku": "5M210M8S14X23"
+        "sku": "5M210M8S16X25",
+        "file_key": "raw/sized/01a12c08-a5b7-70e7-8529-32dc34f94467_16x25.jpg"
       },
       {
-        "width_inches": 10,
-        "height_inches": 16,
+        "width_inches": 11,
+        "height_inches": 17,
+        "image_width_inches": 9.14,
+        "image_height_inches": 15.24,
+        "border_inches": 0.88,
+        "file_pix_w": 3000,
+        "file_pix_h": 4636,
         "style": "rolled",
-        "sku": "5M210M8S10X16"
+        "sku": "5M210M8S11X17",
+        "file_key": "raw/sized/01a12c08-a5b7-70e7-8529-32dc34f94467_11x17.jpg"
       },
       {
-        "width_inches": 7,
-        "height_inches": 11,
+        "width_inches": 9,
+        "height_inches": 14,
+        "image_width_inches": 7.53,
+        "image_height_inches": 12.56,
+        "border_inches": 0.72,
+        "file_pix_w": 2700,
+        "file_pix_h": 4200,
         "style": "rolled",
-        "sku": "5M210M8S7X11"
+        "sku": "5M210M8S9X14",
+        "file_key": "raw/sized/01a12c08-a5b7-70e7-8529-32dc34f94467_9x14.jpg"
       }
     ],
     "finerworks_image": {
@@ -6722,22 +8888,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 24,
-        "height_inches": 16,
+        "width_inches": 27,
+        "height_inches": 19,
+        "image_width_inches": 23.81,
+        "image_height_inches": 15.96,
+        "border_inches": 1.52,
+        "file_pix_w": 5006,
+        "file_pix_h": 3523,
         "style": "rolled",
-        "sku": "5M210M8S24X16"
+        "sku": "5M210M8S27X19",
+        "file_key": "raw/sized/01a12c08-a6cb-7387-b65e-ae888d412c52_27x19.jpg"
       },
       {
-        "width_inches": 17,
-        "height_inches": 11,
+        "width_inches": 20,
+        "height_inches": 14,
+        "image_width_inches": 17.55,
+        "image_height_inches": 11.76,
+        "border_inches": 1.12,
+        "file_pix_w": 5032,
+        "file_pix_h": 3523,
         "style": "rolled",
-        "sku": "5M210M8S17X11"
+        "sku": "5M210M8S20X14",
+        "file_key": "raw/sized/01a12c08-a6cb-7387-b65e-ae888d412c52_20x14.jpg"
       },
       {
-        "width_inches": 12,
-        "height_inches": 8,
+        "width_inches": 14,
+        "height_inches": 10,
+        "image_width_inches": 12.4,
+        "image_height_inches": 8.31,
+        "border_inches": 0.8,
+        "file_pix_w": 4200,
+        "file_pix_h": 3000,
         "style": "rolled",
-        "sku": "5M210M8S12X8"
+        "sku": "5M210M8S14X10",
+        "file_key": "raw/sized/01a12c08-a6cb-7387-b65e-ae888d412c52_14x10.jpg"
       }
     ],
     "finerworks_image": {
@@ -6773,22 +8957,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 18,
-        "height_inches": 27,
+        "width_inches": 21,
+        "height_inches": 30,
+        "image_width_inches": 17.46,
+        "image_height_inches": 26.64,
+        "border_inches": 1.68,
+        "file_pix_w": 4012,
+        "file_pix_h": 5731,
         "style": "rolled",
-        "sku": "5M210M8S18X27"
+        "sku": "5M210M8S21X30",
+        "file_key": "raw/sized/01a12c08-a760-73c3-96a3-cc7d528d191d_21x30.jpg"
       },
       {
-        "width_inches": 12,
-        "height_inches": 19,
+        "width_inches": 16,
+        "height_inches": 23,
+        "image_width_inches": 13.4,
+        "image_height_inches": 20.44,
+        "border_inches": 1.28,
+        "file_pix_w": 3984,
+        "file_pix_h": 5726,
         "style": "rolled",
-        "sku": "5M210M8S12X19"
+        "sku": "5M210M8S16X23",
+        "file_key": "raw/sized/01a12c08-a760-73c3-96a3-cc7d528d191d_16x23.jpg"
       },
       {
-        "width_inches": 9,
-        "height_inches": 13,
+        "width_inches": 11,
+        "height_inches": 16,
+        "image_width_inches": 9.24,
+        "image_height_inches": 14.1,
+        "border_inches": 0.88,
+        "file_pix_w": 3300,
+        "file_pix_h": 4800,
         "style": "rolled",
-        "sku": "5M210M8S9X13"
+        "sku": "5M210M8S11X16",
+        "file_key": "raw/sized/01a12c08-a760-73c3-96a3-cc7d528d191d_11x16.jpg"
       }
     ],
     "finerworks_image": {
@@ -6824,22 +9026,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 16,
-        "height_inches": 31,
+        "width_inches": 19,
+        "height_inches": 34,
+        "image_width_inches": 15.9,
+        "image_height_inches": 30.96,
+        "border_inches": 1.52,
+        "file_pix_w": 3502,
+        "file_pix_h": 6267,
         "style": "rolled",
-        "sku": "5M210M8S16X31"
+        "sku": "5M210M8S19X34",
+        "file_key": "raw/sized/01a12c32-fa30-73db-95d5-fcf84fc9b6df_19x34.jpg"
       },
       {
-        "width_inches": 11,
-        "height_inches": 22,
+        "width_inches": 14,
+        "height_inches": 25,
+        "image_width_inches": 11.69,
+        "image_height_inches": 22.76,
+        "border_inches": 1.12,
+        "file_pix_w": 3510,
+        "file_pix_h": 6269,
         "style": "rolled",
-        "sku": "5M210M8S11X22"
+        "sku": "5M210M8S14X25",
+        "file_key": "raw/sized/01a12c32-fa30-73db-95d5-fcf84fc9b6df_14x25.jpg"
       },
       {
-        "width_inches": 8,
-        "height_inches": 15,
+        "width_inches": 10,
+        "height_inches": 18,
+        "image_width_inches": 8.4,
+        "image_height_inches": 16.36,
+        "border_inches": 0.8,
+        "file_pix_w": 3000,
+        "file_pix_h": 5400,
         "style": "rolled",
-        "sku": "5M210M8S8X15"
+        "sku": "5M210M8S10X18",
+        "file_key": "raw/sized/01a12c32-fa30-73db-95d5-fcf84fc9b6df_10x18.jpg"
       }
     ],
     "finerworks_image": {
@@ -6875,22 +9095,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 19,
-        "height_inches": 29,
+        "width_inches": 23,
+        "height_inches": 33,
+        "image_width_inches": 19.32,
+        "image_height_inches": 29.22,
+        "border_inches": 1.84,
+        "file_pix_w": 4180,
+        "file_pix_h": 5997,
         "style": "rolled",
-        "sku": "5M210M8S19X29"
+        "sku": "5M210M8S23X33",
+        "file_key": "raw/sized/01a12c32-fae0-74b5-8639-7f9711bc320e_23x33.jpg"
       },
       {
-        "width_inches": 13,
-        "height_inches": 20,
+        "width_inches": 16,
+        "height_inches": 23,
+        "image_width_inches": 13.44,
+        "image_height_inches": 20.33,
+        "border_inches": 1.28,
+        "file_pix_w": 4180,
+        "file_pix_h": 6008,
         "style": "rolled",
-        "sku": "5M210M8S13X20"
+        "sku": "5M210M8S16X23",
+        "file_key": "raw/sized/01a12c32-fae0-74b5-8639-7f9711bc320e_16x23.jpg"
       },
       {
-        "width_inches": 9,
-        "height_inches": 14,
+        "width_inches": 12,
+        "height_inches": 17,
+        "image_width_inches": 9.97,
+        "image_height_inches": 15.08,
+        "border_inches": 0.96,
+        "file_pix_w": 3600,
+        "file_pix_h": 5100,
         "style": "rolled",
-        "sku": "5M210M8S9X14"
+        "sku": "5M210M8S12X17",
+        "file_key": "raw/sized/01a12c32-fae0-74b5-8639-7f9711bc320e_12x17.jpg"
       }
     ],
     "finerworks_image": {
@@ -6926,16 +9164,28 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 8,
-        "height_inches": 33,
+        "width_inches": 10,
+        "height_inches": 35,
+        "image_width_inches": 8.14,
+        "image_height_inches": 33.4,
+        "border_inches": 0.8,
+        "file_pix_w": 1822,
+        "file_pix_h": 6379,
         "style": "rolled",
-        "sku": "5M210M8S8X33"
+        "sku": "5M210M8S10X35",
+        "file_key": "raw/sized/01a12c32-fcaf-7ea9-aeb7-470e064888bc_10x35.jpg"
       },
       {
-        "width_inches": 6,
-        "height_inches": 23,
+        "width_inches": 8,
+        "height_inches": 25,
+        "image_width_inches": 5.78,
+        "image_height_inches": 23.72,
+        "border_inches": 0.64,
+        "file_pix_w": 2053,
+        "file_pix_h": 6415,
         "style": "rolled",
-        "sku": "5M210M8S6X23"
+        "sku": "5M210M8S8X25",
+        "file_key": "raw/sized/01a12c32-fcaf-7ea9-aeb7-470e064888bc_8x25.jpg"
       }
     ],
     "finerworks_image": {
@@ -6971,22 +9221,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 27,
-        "height_inches": 17,
+        "width_inches": 29,
+        "height_inches": 20,
+        "image_width_inches": 25.8,
+        "image_height_inches": 16.62,
+        "border_inches": 1.6,
+        "file_pix_w": 6153,
+        "file_pix_h": 4243,
         "style": "rolled",
-        "sku": "5M210M8S27X17"
+        "sku": "5M210M8S29X20",
+        "file_key": "raw/sized/01a12c32-fd1e-7d89-be39-684944073edd_29x20.jpg"
       },
       {
-        "width_inches": 19,
-        "height_inches": 12,
+        "width_inches": 22,
+        "height_inches": 15,
+        "image_width_inches": 19.56,
+        "image_height_inches": 12.6,
+        "border_inches": 1.2,
+        "file_pix_w": 6158,
+        "file_pix_h": 4199,
         "style": "rolled",
-        "sku": "5M210M8S19X12"
+        "sku": "5M210M8S22X15",
+        "file_key": "raw/sized/01a12c32-fd1e-7d89-be39-684944073edd_22x15.jpg"
       },
       {
-        "width_inches": 13,
-        "height_inches": 8,
+        "width_inches": 16,
+        "height_inches": 11,
+        "image_width_inches": 14.24,
+        "image_height_inches": 9.18,
+        "border_inches": 0.88,
+        "file_pix_w": 4800,
+        "file_pix_h": 3300,
         "style": "rolled",
-        "sku": "5M210M8S13X8"
+        "sku": "5M210M8S16X11",
+        "file_key": "raw/sized/01a12c32-fd1e-7d89-be39-684944073edd_16x11.jpg"
       }
     ],
     "finerworks_image": {
@@ -7022,22 +9290,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 18,
-        "height_inches": 27,
+        "width_inches": 21,
+        "height_inches": 30,
+        "image_width_inches": 17.42,
+        "image_height_inches": 26.64,
+        "border_inches": 1.68,
+        "file_pix_w": 4399,
+        "file_pix_h": 6285,
         "style": "rolled",
-        "sku": "5M210M8S18X27"
+        "sku": "5M210M8S21X30",
+        "file_key": "raw/sized/01a12c32-fd8c-7321-8ec9-0e56702657f0_21x30.jpg"
       },
       {
-        "width_inches": 12,
-        "height_inches": 19,
+        "width_inches": 15,
+        "height_inches": 22,
+        "image_width_inches": 12.6,
+        "image_height_inches": 19.27,
+        "border_inches": 1.2,
+        "file_pix_w": 4345,
+        "file_pix_h": 6373,
         "style": "rolled",
-        "sku": "5M210M8S12X19"
+        "sku": "5M210M8S15X22",
+        "file_key": "raw/sized/01a12c32-fd8c-7321-8ec9-0e56702657f0_15x22.jpg"
       },
       {
-        "width_inches": 9,
-        "height_inches": 13,
+        "width_inches": 11,
+        "height_inches": 16,
+        "image_width_inches": 9.24,
+        "image_height_inches": 14.13,
+        "border_inches": 0.88,
+        "file_pix_w": 3300,
+        "file_pix_h": 4800,
         "style": "rolled",
-        "sku": "5M210M8S9X13"
+        "sku": "5M210M8S11X16",
+        "file_key": "raw/sized/01a12c32-fd8c-7321-8ec9-0e56702657f0_11x16.jpg"
       }
     ],
     "finerworks_image": {
@@ -7073,22 +9359,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 17,
-        "height_inches": 26,
+        "width_inches": 20,
+        "height_inches": 29,
+        "image_width_inches": 16.56,
+        "image_height_inches": 25.8,
+        "border_inches": 1.6,
+        "file_pix_w": 3688,
+        "file_pix_h": 5348,
         "style": "rolled",
-        "sku": "5M210M8S17X26"
+        "sku": "5M210M8S20X29",
+        "file_key": "raw/sized/01a12c32-fdf8-7498-a075-a3fa93f187a0_20x29.jpg"
       },
       {
-        "width_inches": 12,
-        "height_inches": 18,
+        "width_inches": 15,
+        "height_inches": 22,
+        "image_width_inches": 12.58,
+        "image_height_inches": 19.6,
+        "border_inches": 1.2,
+        "file_pix_w": 3641,
+        "file_pix_h": 5341,
         "style": "rolled",
-        "sku": "5M210M8S12X18"
+        "sku": "5M210M8S15X22",
+        "file_key": "raw/sized/01a12c32-fdf8-7498-a075-a3fa93f187a0_15x22.jpg"
       },
       {
-        "width_inches": 8,
-        "height_inches": 13,
+        "width_inches": 10,
+        "height_inches": 15,
+        "image_width_inches": 8.4,
+        "image_height_inches": 13.09,
+        "border_inches": 0.8,
+        "file_pix_w": 3000,
+        "file_pix_h": 4500,
         "style": "rolled",
-        "sku": "5M210M8S8X13"
+        "sku": "5M210M8S10X15",
+        "file_key": "raw/sized/01a12c32-fdf8-7498-a075-a3fa93f187a0_10x15.jpg"
       }
     ],
     "finerworks_image": {
@@ -7124,22 +9428,40 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 25,
-        "height_inches": 25,
+        "width_inches": 30,
+        "height_inches": 30,
+        "image_width_inches": 25.2,
+        "image_height_inches": 25.1,
+        "border_inches": 2.4,
+        "file_pix_w": 5420,
+        "file_pix_h": 5420,
         "style": "rolled",
-        "sku": "5M210M8S25X25"
+        "sku": "5M210M8S30X30",
+        "file_key": "raw/sized/01a12c32-fe61-74db-9b2b-f99316181076_30x30.jpg"
       },
       {
-        "width_inches": 17,
-        "height_inches": 17,
+        "width_inches": 21,
+        "height_inches": 21,
+        "image_width_inches": 17.64,
+        "image_height_inches": 17.57,
+        "border_inches": 1.68,
+        "file_pix_w": 5420,
+        "file_pix_h": 5420,
         "style": "rolled",
-        "sku": "5M210M8S17X17"
+        "sku": "5M210M8S21X21",
+        "file_key": "raw/sized/01a12c32-fe61-74db-9b2b-f99316181076_21x21.jpg"
       },
       {
-        "width_inches": 12,
-        "height_inches": 12,
+        "width_inches": 15,
+        "height_inches": 15,
+        "image_width_inches": 12.6,
+        "image_height_inches": 12.55,
+        "border_inches": 1.2,
+        "file_pix_w": 4500,
+        "file_pix_h": 4500,
         "style": "rolled",
-        "sku": "5M210M8S12X12"
+        "sku": "5M210M8S15X15",
+        "file_key": "raw/sized/01a12c32-fe61-74db-9b2b-f99316181076_15x15.jpg"
       }
     ],
     "finerworks_image": {
