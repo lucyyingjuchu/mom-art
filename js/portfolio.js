@@ -221,7 +221,7 @@ class ChineseArtPortfolio {
     getDefaultCategories() {
         return {
             "paintings": {
-                "name": "國畫",
+                "name": "水墨畫",
                 "nameEn": "Chinese Paintings"
             },
             "calligraphy": {
@@ -1011,7 +1011,7 @@ class ChineseArtPortfolio {
     updatePageTitle() {
         // Same titles as the static <title> in index.html / scripts/build-zh.js
         const title = this.currentLanguage === 'zh'
-            ? '袁之靜（曉然）｜國畫・書法官方網站'
+            ? '袁之靜（曉然）｜水墨畫・書法官方網站'
             : 'Yuan Chih-Jin (Xiaoran) | Chinese Ink Painting & Calligraphy';
         if (title) {
             document.title = title;
