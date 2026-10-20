@@ -109,7 +109,9 @@
     "recommended_sizes": [
       {
         "width_inches": 8,
-        "height_inches": 6
+        "height_inches": 6,
+        "style": "mounted",
+        "sku": "5M210M37S8X6"
       }
     ],
     "finerworks_image": {
@@ -146,7 +148,9 @@
     "recommended_sizes": [
       {
         "width_inches": 8,
-        "height_inches": 7
+        "height_inches": 7,
+        "style": "mounted",
+        "sku": "5M210M37S8X7"
       }
     ],
     "finerworks_image": {
@@ -223,7 +227,9 @@
     "recommended_sizes": [
       {
         "width_inches": 7,
-        "height_inches": 8
+        "height_inches": 8,
+        "style": "mounted",
+        "sku": "5M210M37S7X8"
       }
     ],
     "finerworks_image": {
@@ -260,7 +266,9 @@
     "recommended_sizes": [
       {
         "width_inches": 7,
-        "height_inches": 16
+        "height_inches": 17,
+        "style": "mounted",
+        "sku": "5M210M37S7X17"
       }
     ],
     "finerworks_image": {
@@ -297,7 +305,9 @@
     "recommended_sizes": [
       {
         "width_inches": 7,
-        "height_inches": 7
+        "height_inches": 7,
+        "style": "mounted",
+        "sku": "5M210M37S7X7"
       }
     ],
     "finerworks_image": {
@@ -333,16 +343,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 24,
-        "height_inches": 16
+        "width_inches": 27,
+        "height_inches": 18,
+        "style": "mounted",
+        "sku": "5M210M37S27X18"
       },
       {
-        "width_inches": 17,
-        "height_inches": 11
+        "width_inches": 19,
+        "height_inches": 12,
+        "style": "mounted",
+        "sku": "5M210M37S19X12"
       },
       {
-        "width_inches": 12,
-        "height_inches": 8
+        "width_inches": 13,
+        "height_inches": 8,
+        "style": "mounted",
+        "sku": "5M210M37S13X8"
       }
     ],
     "finerworks_image": {
@@ -378,8 +394,10 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 12,
-        "height_inches": 6
+        "width_inches": 13,
+        "height_inches": 7,
+        "style": "mounted",
+        "sku": "5M210M37S13X7"
       }
     ],
     "finerworks_image": {
@@ -415,8 +433,10 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 6,
-        "height_inches": 12
+        "width_inches": 7,
+        "height_inches": 13,
+        "style": "mounted",
+        "sku": "5M210M37S7X13"
       }
     ],
     "finerworks_image": {
@@ -452,12 +472,16 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 13,
-        "height_inches": 8
+        "width_inches": 14,
+        "height_inches": 8,
+        "style": "mounted",
+        "sku": "5M210M37S14X8"
       },
       {
-        "width_inches": 9,
-        "height_inches": 6
+        "width_inches": 10,
+        "height_inches": 6,
+        "style": "mounted",
+        "sku": "5M210M37S10X6"
       }
     ],
     "finerworks_image": {
@@ -494,7 +518,9 @@
     "recommended_sizes": [
       {
         "width_inches": 7,
-        "height_inches": 7
+        "height_inches": 7,
+        "style": "mounted",
+        "sku": "5M210M37S7X7"
       }
     ],
     "finerworks_image": {
@@ -530,8 +556,10 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 6,
-        "height_inches": 12
+        "width_inches": 7,
+        "height_inches": 13,
+        "style": "mounted",
+        "sku": "5M210M37S7X13"
       }
     ],
     "finerworks_image": {
@@ -567,8 +595,16 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 12,
-        "height_inches": 8
+        "width_inches": 13,
+        "height_inches": 9,
+        "style": "mounted",
+        "sku": "5M210M37S13X9"
+      },
+      {
+        "width_inches": 9,
+        "height_inches": 6,
+        "style": "mounted",
+        "sku": "5M210M37S9X6"
       }
     ],
     "finerworks_image": {
@@ -604,8 +640,10 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 6,
-        "height_inches": 12
+        "width_inches": 7,
+        "height_inches": 13,
+        "style": "mounted",
+        "sku": "5M210M37S7X13"
       }
     ],
     "finerworks_image": {
@@ -641,8 +679,16 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 12,
-        "height_inches": 8
+        "width_inches": 13,
+        "height_inches": 9,
+        "style": "mounted",
+        "sku": "5M210M37S13X9"
+      },
+      {
+        "width_inches": 9,
+        "height_inches": 6,
+        "style": "mounted",
+        "sku": "5M210M37S9X6"
       }
     ],
     "finerworks_image": {
@@ -678,12 +724,16 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 10,
-        "height_inches": 15
+        "width_inches": 11,
+        "height_inches": 16,
+        "style": "mounted",
+        "sku": "5M210M37S11X16"
       },
       {
         "width_inches": 7,
-        "height_inches": 10
+        "height_inches": 11,
+        "style": "mounted",
+        "sku": "5M210M37S7X11"
       }
     ],
     "finerworks_image": {
@@ -729,16 +779,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 12,
-        "height_inches": 11
+        "width_inches": 13,
+        "height_inches": 12,
+        "style": "mounted",
+        "sku": "5M210M37S13X12"
       },
       {
-        "width_inches": 8,
-        "height_inches": 8
+        "width_inches": 9,
+        "height_inches": 9,
+        "style": "mounted",
+        "sku": "5M210M37S9X9"
       },
       {
         "width_inches": 6,
-        "height_inches": 6
+        "height_inches": 6,
+        "style": "mounted",
+        "sku": "5M210M37S6X6"
       }
     ],
     "finerworks_image": {
@@ -784,8 +840,10 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 6,
-        "height_inches": 12
+        "width_inches": 7,
+        "height_inches": 13,
+        "style": "mounted",
+        "sku": "5M210M37S7X13"
       }
     ],
     "finerworks_image": {
@@ -821,8 +879,10 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 12,
-        "height_inches": 6
+        "width_inches": 13,
+        "height_inches": 7,
+        "style": "mounted",
+        "sku": "5M210M37S13X7"
       }
     ],
     "finerworks_image": {
@@ -858,8 +918,10 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 12,
-        "height_inches": 6
+        "width_inches": 13,
+        "height_inches": 7,
+        "style": "mounted",
+        "sku": "5M210M37S13X7"
       }
     ],
     "finerworks_image": {
@@ -895,8 +957,10 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 6,
-        "height_inches": 12
+        "width_inches": 7,
+        "height_inches": 13,
+        "style": "mounted",
+        "sku": "5M210M37S7X13"
       }
     ],
     "finerworks_image": {
@@ -932,12 +996,16 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 10,
-        "height_inches": 10
+        "width_inches": 11,
+        "height_inches": 11,
+        "style": "mounted",
+        "sku": "5M210M37S11X11"
       },
       {
         "width_inches": 7,
-        "height_inches": 7
+        "height_inches": 7,
+        "style": "mounted",
+        "sku": "5M210M37S7X7"
       }
     ],
     "finerworks_image": {
@@ -973,16 +1041,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 23,
-        "height_inches": 24
+        "width_inches": 25,
+        "height_inches": 26,
+        "style": "rolled",
+        "sku": "5M210M8S25X26"
       },
       {
-        "width_inches": 16,
-        "height_inches": 17
+        "width_inches": 17,
+        "height_inches": 18,
+        "style": "mounted",
+        "sku": "5M210M37S17X18"
       },
       {
-        "width_inches": 12,
-        "height_inches": 12
+        "width_inches": 13,
+        "height_inches": 13,
+        "style": "mounted",
+        "sku": "5M210M37S13X13"
       }
     ],
     "finerworks_image": {
@@ -1018,12 +1092,16 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 8,
-        "height_inches": 15
+        "width_inches": 9,
+        "height_inches": 16,
+        "style": "mounted",
+        "sku": "5M210M37S9X16"
       },
       {
         "width_inches": 6,
-        "height_inches": 10
+        "height_inches": 11,
+        "style": "mounted",
+        "sku": "5M210M37S6X11"
       }
     ],
     "finerworks_image": {
@@ -1070,7 +1148,15 @@
     "recommended_sizes": [
       {
         "width_inches": 8,
-        "height_inches": 15
+        "height_inches": 16,
+        "style": "mounted",
+        "sku": "5M210M37S8X16"
+      },
+      {
+        "width_inches": 6,
+        "height_inches": 11,
+        "style": "mounted",
+        "sku": "5M210M37S6X11"
       }
     ],
     "finerworks_image": {
@@ -1106,12 +1192,16 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 15,
-        "height_inches": 9
+        "width_inches": 16,
+        "height_inches": 10,
+        "style": "mounted",
+        "sku": "5M210M37S16X10"
       },
       {
-        "width_inches": 10,
-        "height_inches": 7
+        "width_inches": 11,
+        "height_inches": 7,
+        "style": "mounted",
+        "sku": "5M210M37S11X7"
       }
     ],
     "finerworks_image": {
@@ -1147,8 +1237,16 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 7,
-        "height_inches": 14
+        "width_inches": 8,
+        "height_inches": 15,
+        "style": "mounted",
+        "sku": "5M210M37S8X15"
+      },
+      {
+        "width_inches": 6,
+        "height_inches": 11,
+        "style": "mounted",
+        "sku": "5M210M37S6X11"
       }
     ],
     "finerworks_image": {
@@ -1184,16 +1282,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 15,
-        "height_inches": 15
+        "width_inches": 16,
+        "height_inches": 16,
+        "style": "mounted",
+        "sku": "5M210M37S16X16"
       },
       {
-        "width_inches": 10,
-        "height_inches": 10
+        "width_inches": 11,
+        "height_inches": 11,
+        "style": "mounted",
+        "sku": "5M210M37S11X11"
       },
       {
         "width_inches": 8,
-        "height_inches": 7
+        "height_inches": 8,
+        "style": "mounted",
+        "sku": "5M210M37S8X8"
       }
     ],
     "finerworks_image": {
@@ -1229,12 +1333,16 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 15,
-        "height_inches": 9
+        "width_inches": 16,
+        "height_inches": 9,
+        "style": "mounted",
+        "sku": "5M210M37S16X9"
       },
       {
-        "width_inches": 10,
-        "height_inches": 6
+        "width_inches": 11,
+        "height_inches": 6,
+        "style": "mounted",
+        "sku": "5M210M37S11X6"
       }
     ],
     "finerworks_image": {
@@ -1270,16 +1378,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 15,
-        "height_inches": 15
+        "width_inches": 16,
+        "height_inches": 16,
+        "style": "mounted",
+        "sku": "5M210M37S16X16"
       },
       {
-        "width_inches": 10,
-        "height_inches": 10
+        "width_inches": 11,
+        "height_inches": 11,
+        "style": "mounted",
+        "sku": "5M210M37S11X11"
       },
       {
         "width_inches": 8,
-        "height_inches": 7
+        "height_inches": 8,
+        "style": "mounted",
+        "sku": "5M210M37S8X8"
       }
     ],
     "finerworks_image": {
@@ -1315,16 +1429,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 15,
-        "height_inches": 15
+        "width_inches": 16,
+        "height_inches": 16,
+        "style": "mounted",
+        "sku": "5M210M37S16X16"
       },
       {
-        "width_inches": 10,
-        "height_inches": 10
+        "width_inches": 11,
+        "height_inches": 11,
+        "style": "mounted",
+        "sku": "5M210M37S11X11"
       },
       {
-        "width_inches": 7,
-        "height_inches": 8
+        "width_inches": 8,
+        "height_inches": 8,
+        "style": "mounted",
+        "sku": "5M210M37S8X8"
       }
     ],
     "finerworks_image": {
@@ -1361,7 +1481,15 @@
     "recommended_sizes": [
       {
         "width_inches": 8,
-        "height_inches": 15
+        "height_inches": 16,
+        "style": "mounted",
+        "sku": "5M210M37S8X16"
+      },
+      {
+        "width_inches": 6,
+        "height_inches": 11,
+        "style": "mounted",
+        "sku": "5M210M37S6X11"
       }
     ],
     "finerworks_image": {
@@ -1397,16 +1525,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 15,
-        "height_inches": 11
+        "width_inches": 16,
+        "height_inches": 12,
+        "style": "mounted",
+        "sku": "5M210M37S16X12"
       },
       {
-        "width_inches": 10,
-        "height_inches": 8
+        "width_inches": 11,
+        "height_inches": 8,
+        "style": "mounted",
+        "sku": "5M210M37S11X8"
       },
       {
         "width_inches": 8,
-        "height_inches": 6
+        "height_inches": 6,
+        "style": "mounted",
+        "sku": "5M210M37S8X6"
       }
     ],
     "finerworks_image": {
@@ -1443,7 +1577,9 @@
     "recommended_sizes": [
       {
         "width_inches": 7,
-        "height_inches": 10
+        "height_inches": 11,
+        "style": "mounted",
+        "sku": "5M210M37S7X11"
       }
     ],
     "finerworks_image": {
@@ -1480,7 +1616,15 @@
     "recommended_sizes": [
       {
         "width_inches": 8,
-        "height_inches": 15
+        "height_inches": 16,
+        "style": "mounted",
+        "sku": "5M210M37S8X16"
+      },
+      {
+        "width_inches": 6,
+        "height_inches": 11,
+        "style": "mounted",
+        "sku": "5M210M37S6X11"
       }
     ],
     "finerworks_image": {
@@ -1516,16 +1660,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 15,
-        "height_inches": 14
+        "width_inches": 16,
+        "height_inches": 15,
+        "style": "mounted",
+        "sku": "5M210M37S16X15"
       },
       {
-        "width_inches": 10,
-        "height_inches": 10
+        "width_inches": 11,
+        "height_inches": 11,
+        "style": "mounted",
+        "sku": "5M210M37S11X11"
       },
       {
         "width_inches": 8,
-        "height_inches": 7
+        "height_inches": 8,
+        "style": "mounted",
+        "sku": "5M210M37S8X8"
       }
     ],
     "finerworks_image": {
@@ -1561,16 +1711,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 15,
-        "height_inches": 14
+        "width_inches": 16,
+        "height_inches": 15,
+        "style": "mounted",
+        "sku": "5M210M37S16X15"
       },
       {
-        "width_inches": 10,
-        "height_inches": 10
+        "width_inches": 11,
+        "height_inches": 10,
+        "style": "mounted",
+        "sku": "5M210M37S11X10"
       },
       {
         "width_inches": 8,
-        "height_inches": 7
+        "height_inches": 8,
+        "style": "mounted",
+        "sku": "5M210M37S8X8"
       }
     ],
     "finerworks_image": {
@@ -1607,7 +1763,15 @@
     "recommended_sizes": [
       {
         "width_inches": 8,
-        "height_inches": 15
+        "height_inches": 16,
+        "style": "mounted",
+        "sku": "5M210M37S8X16"
+      },
+      {
+        "width_inches": 6,
+        "height_inches": 11,
+        "style": "mounted",
+        "sku": "5M210M37S6X11"
       }
     ],
     "finerworks_image": {
@@ -1643,16 +1807,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 15,
-        "height_inches": 15
+        "width_inches": 16,
+        "height_inches": 16,
+        "style": "mounted",
+        "sku": "5M210M37S16X16"
       },
       {
-        "width_inches": 10,
-        "height_inches": 10
+        "width_inches": 11,
+        "height_inches": 11,
+        "style": "mounted",
+        "sku": "5M210M37S11X11"
       },
       {
         "width_inches": 8,
-        "height_inches": 7
+        "height_inches": 8,
+        "style": "mounted",
+        "sku": "5M210M37S8X8"
       }
     ],
     "finerworks_image": {
@@ -1689,7 +1859,15 @@
     "recommended_sizes": [
       {
         "width_inches": 8,
-        "height_inches": 15
+        "height_inches": 16,
+        "style": "mounted",
+        "sku": "5M210M37S8X16"
+      },
+      {
+        "width_inches": 6,
+        "height_inches": 11,
+        "style": "mounted",
+        "sku": "5M210M37S6X11"
       }
     ],
     "finerworks_image": {
@@ -1725,12 +1903,16 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 9,
-        "height_inches": 15
+        "width_inches": 10,
+        "height_inches": 16,
+        "style": "mounted",
+        "sku": "5M210M37S10X16"
       },
       {
         "width_inches": 7,
-        "height_inches": 10
+        "height_inches": 11,
+        "style": "mounted",
+        "sku": "5M210M37S7X11"
       }
     ],
     "finerworks_image": {
@@ -1766,8 +1948,10 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 15,
-        "height_inches": 7
+        "width_inches": 16,
+        "height_inches": 8,
+        "style": "mounted",
+        "sku": "5M210M37S16X8"
       }
     ],
     "finerworks_image": {
@@ -1803,12 +1987,16 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 15,
-        "height_inches": 10
+        "width_inches": 16,
+        "height_inches": 11,
+        "style": "mounted",
+        "sku": "5M210M37S16X11"
       },
       {
-        "width_inches": 10,
-        "height_inches": 7
+        "width_inches": 11,
+        "height_inches": 7,
+        "style": "mounted",
+        "sku": "5M210M37S11X7"
       }
     ],
     "finerworks_image": {
@@ -1845,11 +2033,15 @@
     "recommended_sizes": [
       {
         "width_inches": 10,
-        "height_inches": 15
+        "height_inches": 16,
+        "style": "mounted",
+        "sku": "5M210M37S10X16"
       },
       {
         "width_inches": 7,
-        "height_inches": 10
+        "height_inches": 11,
+        "style": "mounted",
+        "sku": "5M210M37S7X11"
       }
     ],
     "finerworks_image": {
@@ -1885,16 +2077,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 15,
-        "height_inches": 15
+        "width_inches": 16,
+        "height_inches": 16,
+        "style": "mounted",
+        "sku": "5M210M37S16X16"
       },
       {
-        "width_inches": 10,
-        "height_inches": 10
+        "width_inches": 11,
+        "height_inches": 11,
+        "style": "mounted",
+        "sku": "5M210M37S11X11"
       },
       {
         "width_inches": 8,
-        "height_inches": 7
+        "height_inches": 8,
+        "style": "mounted",
+        "sku": "5M210M37S8X8"
       }
     ],
     "finerworks_image": {
@@ -1931,7 +2129,9 @@
     "recommended_sizes": [
       {
         "width_inches": 6,
-        "height_inches": 8
+        "height_inches": 8,
+        "style": "mounted",
+        "sku": "5M210M37S6X8"
       }
     ],
     "finerworks_image": {
@@ -1968,11 +2168,15 @@
     "recommended_sizes": [
       {
         "width_inches": 10,
-        "height_inches": 15
+        "height_inches": 16,
+        "style": "mounted",
+        "sku": "5M210M37S10X16"
       },
       {
         "width_inches": 7,
-        "height_inches": 10
+        "height_inches": 11,
+        "style": "mounted",
+        "sku": "5M210M37S7X11"
       }
     ],
     "finerworks_image": {
@@ -2008,12 +2212,16 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 9,
-        "height_inches": 18
+        "width_inches": 10,
+        "height_inches": 19,
+        "style": "mounted",
+        "sku": "5M210M37S10X19"
       },
       {
-        "width_inches": 6,
-        "height_inches": 12
+        "width_inches": 7,
+        "height_inches": 13,
+        "style": "mounted",
+        "sku": "5M210M37S7X13"
       }
     ],
     "finerworks_image": {
@@ -2049,8 +2257,10 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 14,
-        "height_inches": 7
+        "width_inches": 15,
+        "height_inches": 8,
+        "style": "mounted",
+        "sku": "5M210M37S15X8"
       }
     ],
     "finerworks_image": {
@@ -2086,16 +2296,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 24,
-        "height_inches": 12
+        "width_inches": 47,
+        "height_inches": 24,
+        "style": "rolled",
+        "sku": "5M210M8S47X24"
       },
       {
-        "width_inches": 17,
-        "height_inches": 9
+        "width_inches": 33,
+        "height_inches": 17,
+        "style": "rolled",
+        "sku": "5M210M8S33X17"
       },
       {
-        "width_inches": 12,
-        "height_inches": 6
+        "width_inches": 23,
+        "height_inches": 12,
+        "style": "mounted",
+        "sku": "5M210M37S23X12"
       }
     ],
     "finerworks_image": {
@@ -2131,8 +2347,10 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 15,
-        "height_inches": 7
+        "width_inches": 17,
+        "height_inches": 8,
+        "style": "mounted",
+        "sku": "5M210M37S17X8"
       }
     ],
     "finerworks_image": {
@@ -2168,16 +2386,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 23,
-        "height_inches": 22
+        "width_inches": 25,
+        "height_inches": 25,
+        "style": "rolled",
+        "sku": "5M210M8S25X25"
       },
       {
-        "width_inches": 16,
-        "height_inches": 16
+        "width_inches": 17,
+        "height_inches": 17,
+        "style": "mounted",
+        "sku": "5M210M37S17X17"
       },
       {
-        "width_inches": 11,
-        "height_inches": 11
+        "width_inches": 12,
+        "height_inches": 12,
+        "style": "mounted",
+        "sku": "5M210M37S12X12"
       }
     ],
     "finerworks_image": {
@@ -2213,16 +2437,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 16,
-        "height_inches": 24
+        "width_inches": 19,
+        "height_inches": 29,
+        "style": "mounted",
+        "sku": "5M210M37S19X29"
       },
       {
-        "width_inches": 11,
-        "height_inches": 17
+        "width_inches": 13,
+        "height_inches": 20,
+        "style": "mounted",
+        "sku": "5M210M37S13X20"
       },
       {
-        "width_inches": 8,
-        "height_inches": 12
+        "width_inches": 9,
+        "height_inches": 14,
+        "style": "mounted",
+        "sku": "5M210M37S9X14"
       }
     ],
     "finerworks_image": {
@@ -2258,16 +2488,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 16,
-        "height_inches": 24
+        "width_inches": 18,
+        "height_inches": 27,
+        "style": "mounted",
+        "sku": "5M210M37S18X27"
       },
       {
-        "width_inches": 11,
-        "height_inches": 17
+        "width_inches": 12,
+        "height_inches": 19,
+        "style": "mounted",
+        "sku": "5M210M37S12X19"
       },
       {
-        "width_inches": 8,
-        "height_inches": 12
+        "width_inches": 9,
+        "height_inches": 13,
+        "style": "mounted",
+        "sku": "5M210M37S9X13"
       }
     ],
     "finerworks_image": {
@@ -2303,8 +2539,10 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 17,
-        "height_inches": 6
+        "width_inches": 19,
+        "height_inches": 7,
+        "style": "mounted",
+        "sku": "5M210M37S19X7"
       }
     ],
     "finerworks_image": {
@@ -2340,16 +2578,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 16,
-        "height_inches": 24
+        "width_inches": 17,
+        "height_inches": 26,
+        "style": "mounted",
+        "sku": "5M210M37S17X26"
       },
       {
-        "width_inches": 11,
-        "height_inches": 17
+        "width_inches": 12,
+        "height_inches": 18,
+        "style": "mounted",
+        "sku": "5M210M37S12X18"
       },
       {
-        "width_inches": 8,
-        "height_inches": 12
+        "width_inches": 9,
+        "height_inches": 13,
+        "style": "mounted",
+        "sku": "5M210M37S9X13"
       }
     ],
     "finerworks_image": {
@@ -2385,16 +2629,22 @@
     },
     "recommended_sizes": [
       {
+        "width_inches": 18,
+        "height_inches": 35,
+        "style": "rolled",
+        "sku": "5M210M8S18X35"
+      },
+      {
         "width_inches": 13,
-        "height_inches": 24
+        "height_inches": 24,
+        "style": "mounted",
+        "sku": "5M210M37S13X24"
       },
       {
         "width_inches": 9,
-        "height_inches": 17
-      },
-      {
-        "width_inches": 6,
-        "height_inches": 12
+        "height_inches": 17,
+        "style": "mounted",
+        "sku": "5M210M37S9X17"
       }
     ],
     "finerworks_image": {
@@ -2430,16 +2680,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 16,
-        "height_inches": 24
+        "width_inches": 18,
+        "height_inches": 27,
+        "style": "mounted",
+        "sku": "5M210M37S18X27"
       },
       {
-        "width_inches": 11,
-        "height_inches": 17
+        "width_inches": 12,
+        "height_inches": 19,
+        "style": "mounted",
+        "sku": "5M210M37S12X19"
       },
       {
         "width_inches": 8,
-        "height_inches": 12
+        "height_inches": 13,
+        "style": "mounted",
+        "sku": "5M210M37S8X13"
       }
     ],
     "finerworks_image": {
@@ -2476,7 +2732,9 @@
     "recommended_sizes": [
       {
         "width_inches": 7,
-        "height_inches": 15
+        "height_inches": 16,
+        "style": "mounted",
+        "sku": "5M210M37S7X16"
       }
     ],
     "finerworks_image": {
@@ -2512,16 +2770,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 24,
-        "height_inches": 13
+        "width_inches": 36,
+        "height_inches": 19,
+        "style": "rolled",
+        "sku": "5M210M8S36X19"
       },
       {
-        "width_inches": 17,
-        "height_inches": 9
+        "width_inches": 25,
+        "height_inches": 13,
+        "style": "mounted",
+        "sku": "5M210M37S25X13"
       },
       {
-        "width_inches": 12,
-        "height_inches": 6
+        "width_inches": 18,
+        "height_inches": 10,
+        "style": "mounted",
+        "sku": "5M210M37S18X10"
       }
     ],
     "finerworks_image": {
@@ -2557,8 +2821,16 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 7,
-        "height_inches": 24
+        "width_inches": 8,
+        "height_inches": 28,
+        "style": "mounted",
+        "sku": "5M210M37S8X28"
+      },
+      {
+        "width_inches": 6,
+        "height_inches": 20,
+        "style": "mounted",
+        "sku": "5M210M37S6X20"
       }
     ],
     "finerworks_image": {
@@ -2594,8 +2866,10 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 14,
-        "height_inches": 7
+        "width_inches": 15,
+        "height_inches": 8,
+        "style": "mounted",
+        "sku": "5M210M37S15X8"
       }
     ],
     "finerworks_image": {
@@ -2631,8 +2905,16 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 7,
-        "height_inches": 14
+        "width_inches": 8,
+        "height_inches": 15,
+        "style": "mounted",
+        "sku": "5M210M37S8X15"
+      },
+      {
+        "width_inches": 6,
+        "height_inches": 11,
+        "style": "mounted",
+        "sku": "5M210M37S6X11"
       }
     ],
     "finerworks_image": {
@@ -2668,8 +2950,16 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 7,
-        "height_inches": 14
+        "width_inches": 8,
+        "height_inches": 15,
+        "style": "mounted",
+        "sku": "5M210M37S8X15"
+      },
+      {
+        "width_inches": 6,
+        "height_inches": 11,
+        "style": "mounted",
+        "sku": "5M210M37S6X11"
       }
     ],
     "finerworks_image": {
@@ -2705,16 +2995,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 24,
-        "height_inches": 12
+        "width_inches": 36,
+        "height_inches": 18,
+        "style": "rolled",
+        "sku": "5M210M8S36X18"
       },
       {
-        "width_inches": 17,
-        "height_inches": 8
+        "width_inches": 25,
+        "height_inches": 12,
+        "style": "mounted",
+        "sku": "5M210M37S25X12"
       },
       {
-        "width_inches": 12,
-        "height_inches": 6
+        "width_inches": 18,
+        "height_inches": 9,
+        "style": "mounted",
+        "sku": "5M210M37S18X9"
       }
     ],
     "finerworks_image": {
@@ -2750,16 +3046,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 24,
-        "height_inches": 12
+        "width_inches": 35,
+        "height_inches": 17,
+        "style": "rolled",
+        "sku": "5M210M8S35X17"
+      },
+      {
+        "width_inches": 25,
+        "height_inches": 12,
+        "style": "mounted",
+        "sku": "5M210M37S25X12"
       },
       {
         "width_inches": 17,
-        "height_inches": 8
-      },
-      {
-        "width_inches": 12,
-        "height_inches": 6
+        "height_inches": 8,
+        "style": "mounted",
+        "sku": "5M210M37S17X8"
       }
     ],
     "finerworks_image": {
@@ -2795,16 +3097,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 24,
-        "height_inches": 22
+        "width_inches": 28,
+        "height_inches": 26,
+        "style": "rolled",
+        "sku": "5M210M8S28X26"
       },
       {
-        "width_inches": 17,
-        "height_inches": 15
+        "width_inches": 20,
+        "height_inches": 18,
+        "style": "mounted",
+        "sku": "5M210M37S20X18"
       },
       {
-        "width_inches": 12,
-        "height_inches": 11
+        "width_inches": 14,
+        "height_inches": 13,
+        "style": "mounted",
+        "sku": "5M210M37S14X13"
       }
     ],
     "finerworks_image": {
@@ -2840,16 +3148,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 24,
-        "height_inches": 22
+        "width_inches": 27,
+        "height_inches": 25,
+        "style": "rolled",
+        "sku": "5M210M8S27X25"
       },
       {
-        "width_inches": 17,
-        "height_inches": 16
+        "width_inches": 19,
+        "height_inches": 18,
+        "style": "mounted",
+        "sku": "5M210M37S19X18"
       },
       {
-        "width_inches": 12,
-        "height_inches": 11
+        "width_inches": 13,
+        "height_inches": 12,
+        "style": "mounted",
+        "sku": "5M210M37S13X12"
       }
     ],
     "finerworks_image": {
@@ -2885,8 +3199,16 @@
     },
     "recommended_sizes": [
       {
+        "width_inches": 9,
+        "height_inches": 34,
+        "style": "rolled",
+        "sku": "5M210M8S9X34"
+      },
+      {
         "width_inches": 6,
-        "height_inches": 24
+        "height_inches": 24,
+        "style": "mounted",
+        "sku": "5M210M37S6X24"
       }
     ],
     "finerworks_image": {
@@ -2932,16 +3254,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 24,
-        "height_inches": 13
+        "width_inches": 35,
+        "height_inches": 19,
+        "style": "rolled",
+        "sku": "5M210M8S35X19"
+      },
+      {
+        "width_inches": 25,
+        "height_inches": 13,
+        "style": "mounted",
+        "sku": "5M210M37S25X13"
       },
       {
         "width_inches": 17,
-        "height_inches": 9
-      },
-      {
-        "width_inches": 12,
-        "height_inches": 6
+        "height_inches": 9,
+        "style": "mounted",
+        "sku": "5M210M37S17X9"
       }
     ],
     "finerworks_image": {
@@ -2977,8 +3305,10 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 6,
-        "height_inches": 7
+        "width_inches": 7,
+        "height_inches": 7,
+        "style": "mounted",
+        "sku": "5M210M37S7X7"
       }
     ],
     "finerworks_image": {
@@ -3015,7 +3345,9 @@
     "recommended_sizes": [
       {
         "width_inches": 6,
-        "height_inches": 7
+        "height_inches": 7,
+        "style": "mounted",
+        "sku": "5M210M37S6X7"
       }
     ],
     "finerworks_image": {
@@ -3051,16 +3383,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 16,
-        "height_inches": 24
+        "width_inches": 17,
+        "height_inches": 26,
+        "style": "mounted",
+        "sku": "5M210M37S17X26"
       },
       {
-        "width_inches": 11,
-        "height_inches": 17
+        "width_inches": 12,
+        "height_inches": 18,
+        "style": "mounted",
+        "sku": "5M210M37S12X18"
       },
       {
-        "width_inches": 8,
-        "height_inches": 12
+        "width_inches": 9,
+        "height_inches": 13,
+        "style": "mounted",
+        "sku": "5M210M37S9X13"
       }
     ],
     "finerworks_image": {
@@ -3097,7 +3435,9 @@
     "recommended_sizes": [
       {
         "width_inches": 6,
-        "height_inches": 19
+        "height_inches": 21,
+        "style": "mounted",
+        "sku": "5M210M37S6X21"
       }
     ],
     "finerworks_image": {
@@ -3133,8 +3473,10 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 15,
-        "height_inches": 7
+        "width_inches": 17,
+        "height_inches": 8,
+        "style": "mounted",
+        "sku": "5M210M37S17X8"
       }
     ],
     "finerworks_image": {
@@ -3170,8 +3512,16 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 7,
-        "height_inches": 14
+        "width_inches": 8,
+        "height_inches": 15,
+        "style": "mounted",
+        "sku": "5M210M37S8X15"
+      },
+      {
+        "width_inches": 6,
+        "height_inches": 11,
+        "style": "mounted",
+        "sku": "5M210M37S6X11"
       }
     ],
     "finerworks_image": {
@@ -3217,12 +3567,16 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 8,
-        "height_inches": 12
+        "width_inches": 9,
+        "height_inches": 13,
+        "style": "mounted",
+        "sku": "5M210M37S9X13"
       },
       {
         "width_inches": 6,
-        "height_inches": 8
+        "height_inches": 9,
+        "style": "mounted",
+        "sku": "5M210M37S6X9"
       }
     ],
     "finerworks_image": {
@@ -3259,11 +3613,15 @@
     "recommended_sizes": [
       {
         "width_inches": 8,
-        "height_inches": 8
+        "height_inches": 8,
+        "style": "mounted",
+        "sku": "5M210M37S8X8"
       },
       {
         "width_inches": 6,
-        "height_inches": 6
+        "height_inches": 6,
+        "style": "mounted",
+        "sku": "5M210M37S6X6"
       }
     ],
     "finerworks_image": {
@@ -3309,16 +3667,22 @@
     },
     "recommended_sizes": [
       {
+        "width_inches": 34,
+        "height_inches": 18,
+        "style": "rolled",
+        "sku": "5M210M8S34X18"
+      },
+      {
         "width_inches": 24,
-        "height_inches": 12
+        "height_inches": 12,
+        "style": "mounted",
+        "sku": "5M210M37S24X12"
       },
       {
         "width_inches": 17,
-        "height_inches": 9
-      },
-      {
-        "width_inches": 12,
-        "height_inches": 6
+        "height_inches": 9,
+        "style": "mounted",
+        "sku": "5M210M37S17X9"
       }
     ],
     "finerworks_image": {
@@ -3365,11 +3729,15 @@
     "recommended_sizes": [
       {
         "width_inches": 8,
-        "height_inches": 8
+        "height_inches": 8,
+        "style": "mounted",
+        "sku": "5M210M37S8X8"
       },
       {
         "width_inches": 6,
-        "height_inches": 6
+        "height_inches": 6,
+        "style": "mounted",
+        "sku": "5M210M37S6X6"
       }
     ],
     "finerworks_image": {
@@ -3415,16 +3783,22 @@
     },
     "recommended_sizes": [
       {
+        "width_inches": 34,
+        "height_inches": 17,
+        "style": "rolled",
+        "sku": "5M210M8S34X17"
+      },
+      {
         "width_inches": 24,
-        "height_inches": 12
+        "height_inches": 12,
+        "style": "mounted",
+        "sku": "5M210M37S24X12"
       },
       {
         "width_inches": 17,
-        "height_inches": 8
-      },
-      {
-        "width_inches": 12,
-        "height_inches": 6
+        "height_inches": 9,
+        "style": "mounted",
+        "sku": "5M210M37S17X9"
       }
     ],
     "finerworks_image": {
@@ -3460,8 +3834,10 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 12,
-        "height_inches": 6
+        "width_inches": 13,
+        "height_inches": 7,
+        "style": "mounted",
+        "sku": "5M210M37S13X7"
       }
     ],
     "finerworks_image": {
@@ -3558,7 +3934,15 @@
     "recommended_sizes": [
       {
         "width_inches": 8,
-        "height_inches": 7
+        "height_inches": 7,
+        "style": "mounted",
+        "sku": "5M210M37S8X7"
+      },
+      {
+        "width_inches": 6,
+        "height_inches": 6,
+        "style": "mounted",
+        "sku": "5M210M37S6X6"
       }
     ],
     "finerworks_image": {
@@ -3614,12 +3998,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 24,
-        "height_inches": 9
+        "width_inches": 90,
+        "height_inches": 34,
+        "style": "rolled",
+        "sku": "5M210M8S90X34"
       },
       {
-        "width_inches": 17,
-        "height_inches": 6
+        "width_inches": 62,
+        "height_inches": 24,
+        "style": "rolled",
+        "sku": "5M210M8S62X24"
+      },
+      {
+        "width_inches": 45,
+        "height_inches": 17,
+        "style": "rolled",
+        "sku": "5M210M8S45X17"
       }
     ],
     "finerworks_image": {
@@ -3655,12 +4049,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 24,
-        "height_inches": 10
+        "width_inches": 88,
+        "height_inches": 35,
+        "style": "rolled",
+        "sku": "5M210M8S88X35"
       },
       {
-        "width_inches": 17,
-        "height_inches": 7
+        "width_inches": 61,
+        "height_inches": 24,
+        "style": "rolled",
+        "sku": "5M210M8S61X24"
+      },
+      {
+        "width_inches": 44,
+        "height_inches": 18,
+        "style": "rolled",
+        "sku": "5M210M8S44X18"
       }
     ],
     "finerworks_image": {
@@ -3696,16 +4100,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 13,
-        "height_inches": 24
+        "width_inches": 18,
+        "height_inches": 33,
+        "style": "rolled",
+        "sku": "5M210M8S18X33"
+      },
+      {
+        "width_inches": 12,
+        "height_inches": 23,
+        "style": "mounted",
+        "sku": "5M210M37S12X23"
       },
       {
         "width_inches": 9,
-        "height_inches": 17
-      },
-      {
-        "width_inches": 6,
-        "height_inches": 12
+        "height_inches": 16,
+        "style": "mounted",
+        "sku": "5M210M37S9X16"
       }
     ],
     "finerworks_image": {
@@ -3741,16 +4151,22 @@
     },
     "recommended_sizes": [
       {
+        "width_inches": 17,
+        "height_inches": 34,
+        "style": "rolled",
+        "sku": "5M210M8S17X34"
+      },
+      {
         "width_inches": 12,
-        "height_inches": 24
+        "height_inches": 24,
+        "style": "mounted",
+        "sku": "5M210M37S12X24"
       },
       {
         "width_inches": 9,
-        "height_inches": 17
-      },
-      {
-        "width_inches": 6,
-        "height_inches": 12
+        "height_inches": 17,
+        "style": "mounted",
+        "sku": "5M210M37S9X17"
       }
     ],
     "finerworks_image": {
@@ -3787,7 +4203,15 @@
     "recommended_sizes": [
       {
         "width_inches": 8,
-        "height_inches": 16
+        "height_inches": 17,
+        "style": "mounted",
+        "sku": "5M210M37S8X17"
+      },
+      {
+        "width_inches": 6,
+        "height_inches": 12,
+        "style": "mounted",
+        "sku": "5M210M37S6X12"
       }
     ],
     "finerworks_image": {
@@ -3823,16 +4247,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 12,
-        "height_inches": 24
+        "width_inches": 18,
+        "height_inches": 36,
+        "style": "rolled",
+        "sku": "5M210M8S18X36"
       },
       {
-        "width_inches": 8,
-        "height_inches": 17
+        "width_inches": 13,
+        "height_inches": 25,
+        "style": "mounted",
+        "sku": "5M210M37S13X25"
       },
       {
-        "width_inches": 6,
-        "height_inches": 12
+        "width_inches": 9,
+        "height_inches": 18,
+        "style": "mounted",
+        "sku": "5M210M37S9X18"
       }
     ],
     "finerworks_image": {
@@ -3868,16 +4298,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 24,
-        "height_inches": 12
+        "width_inches": 33,
+        "height_inches": 17,
+        "style": "rolled",
+        "sku": "5M210M8S33X17"
       },
       {
-        "width_inches": 17,
-        "height_inches": 9
+        "width_inches": 23,
+        "height_inches": 12,
+        "style": "mounted",
+        "sku": "5M210M37S23X12"
       },
       {
-        "width_inches": 12,
-        "height_inches": 6
+        "width_inches": 16,
+        "height_inches": 8,
+        "style": "mounted",
+        "sku": "5M210M37S16X8"
       }
     ],
     "finerworks_image": {
@@ -3913,16 +4349,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 24,
-        "height_inches": 13
+        "width_inches": 33,
+        "height_inches": 18,
+        "style": "rolled",
+        "sku": "5M210M8S33X18"
       },
       {
-        "width_inches": 17,
-        "height_inches": 9
+        "width_inches": 23,
+        "height_inches": 13,
+        "style": "mounted",
+        "sku": "5M210M37S23X13"
       },
       {
-        "width_inches": 12,
-        "height_inches": 7
+        "width_inches": 16,
+        "height_inches": 9,
+        "style": "mounted",
+        "sku": "5M210M37S16X9"
       }
     ],
     "finerworks_image": {
@@ -3958,16 +4400,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 24,
-        "height_inches": 12
+        "width_inches": 31,
+        "height_inches": 16,
+        "style": "rolled",
+        "sku": "5M210M8S31X16"
       },
       {
-        "width_inches": 17,
-        "height_inches": 9
+        "width_inches": 21,
+        "height_inches": 11,
+        "style": "mounted",
+        "sku": "5M210M37S21X11"
       },
       {
-        "width_inches": 12,
-        "height_inches": 6
+        "width_inches": 15,
+        "height_inches": 8,
+        "style": "mounted",
+        "sku": "5M210M37S15X8"
       }
     ],
     "finerworks_image": {
@@ -4003,16 +4451,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 24,
-        "height_inches": 12
+        "width_inches": 31,
+        "height_inches": 16,
+        "style": "rolled",
+        "sku": "5M210M8S31X16"
       },
       {
-        "width_inches": 17,
-        "height_inches": 9
+        "width_inches": 22,
+        "height_inches": 11,
+        "style": "mounted",
+        "sku": "5M210M37S22X11"
       },
       {
-        "width_inches": 12,
-        "height_inches": 6
+        "width_inches": 15,
+        "height_inches": 8,
+        "style": "mounted",
+        "sku": "5M210M37S15X8"
       }
     ],
     "finerworks_image": {
@@ -4048,16 +4502,22 @@
     },
     "recommended_sizes": [
       {
+        "width_inches": 34,
+        "height_inches": 17,
+        "style": "rolled",
+        "sku": "5M210M8S34X17"
+      },
+      {
         "width_inches": 24,
-        "height_inches": 12
+        "height_inches": 12,
+        "style": "mounted",
+        "sku": "5M210M37S24X12"
       },
       {
         "width_inches": 17,
-        "height_inches": 8
-      },
-      {
-        "width_inches": 12,
-        "height_inches": 6
+        "height_inches": 9,
+        "style": "mounted",
+        "sku": "5M210M37S17X9"
       }
     ],
     "finerworks_image": {
@@ -4093,16 +4553,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 24,
-        "height_inches": 12
+        "width_inches": 29,
+        "height_inches": 15,
+        "style": "mounted",
+        "sku": "5M210M37S29X15"
       },
       {
-        "width_inches": 17,
-        "height_inches": 9
+        "width_inches": 20,
+        "height_inches": 10,
+        "style": "mounted",
+        "sku": "5M210M37S20X10"
       },
       {
-        "width_inches": 12,
-        "height_inches": 6
+        "width_inches": 14,
+        "height_inches": 7,
+        "style": "mounted",
+        "sku": "5M210M37S14X7"
       }
     ],
     "finerworks_image": {
@@ -4138,16 +4604,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 24,
-        "height_inches": 13
+        "width_inches": 31,
+        "height_inches": 17,
+        "style": "rolled",
+        "sku": "5M210M8S31X17"
       },
       {
-        "width_inches": 17,
-        "height_inches": 9
+        "width_inches": 22,
+        "height_inches": 12,
+        "style": "mounted",
+        "sku": "5M210M37S22X12"
       },
       {
-        "width_inches": 12,
-        "height_inches": 7
+        "width_inches": 15,
+        "height_inches": 8,
+        "style": "mounted",
+        "sku": "5M210M37S15X8"
       }
     ],
     "finerworks_image": {
@@ -4183,16 +4655,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 24,
-        "height_inches": 17
+        "width_inches": 33,
+        "height_inches": 23,
+        "style": "rolled",
+        "sku": "5M210M8S33X23"
       },
       {
-        "width_inches": 17,
-        "height_inches": 12
+        "width_inches": 23,
+        "height_inches": 16,
+        "style": "mounted",
+        "sku": "5M210M37S23X16"
       },
       {
-        "width_inches": 12,
-        "height_inches": 9
+        "width_inches": 16,
+        "height_inches": 11,
+        "style": "mounted",
+        "sku": "5M210M37S16X11"
       }
     ],
     "finerworks_image": {
@@ -4228,16 +4706,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 13,
-        "height_inches": 24
+        "width_inches": 17,
+        "height_inches": 31,
+        "style": "rolled",
+        "sku": "5M210M8S17X31"
       },
       {
-        "width_inches": 9,
-        "height_inches": 17
+        "width_inches": 11,
+        "height_inches": 21,
+        "style": "mounted",
+        "sku": "5M210M37S11X21"
       },
       {
-        "width_inches": 6,
-        "height_inches": 12
+        "width_inches": 8,
+        "height_inches": 15,
+        "style": "mounted",
+        "sku": "5M210M37S8X15"
       }
     ],
     "finerworks_image": {
@@ -4273,16 +4757,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 13,
-        "height_inches": 24
+        "width_inches": 17,
+        "height_inches": 32,
+        "style": "rolled",
+        "sku": "5M210M8S17X32"
+      },
+      {
+        "width_inches": 12,
+        "height_inches": 22,
+        "style": "mounted",
+        "sku": "5M210M37S12X22"
       },
       {
         "width_inches": 9,
-        "height_inches": 17
-      },
-      {
-        "width_inches": 6,
-        "height_inches": 12
+        "height_inches": 16,
+        "style": "mounted",
+        "sku": "5M210M37S9X16"
       }
     ],
     "finerworks_image": {
@@ -4318,16 +4808,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 12,
-        "height_inches": 24
+        "width_inches": 16,
+        "height_inches": 31,
+        "style": "rolled",
+        "sku": "5M210M8S16X31"
       },
       {
-        "width_inches": 9,
-        "height_inches": 17
+        "width_inches": 11,
+        "height_inches": 22,
+        "style": "mounted",
+        "sku": "5M210M37S11X22"
       },
       {
-        "width_inches": 6,
-        "height_inches": 12
+        "width_inches": 8,
+        "height_inches": 15,
+        "style": "mounted",
+        "sku": "5M210M37S8X15"
       }
     ],
     "finerworks_image": {
@@ -4363,16 +4859,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 12,
-        "height_inches": 24
+        "width_inches": 15,
+        "height_inches": 30,
+        "style": "mounted",
+        "sku": "5M210M37S15X30"
+      },
+      {
+        "width_inches": 11,
+        "height_inches": 21,
+        "style": "mounted",
+        "sku": "5M210M37S11X21"
       },
       {
         "width_inches": 8,
-        "height_inches": 17
-      },
-      {
-        "width_inches": 6,
-        "height_inches": 12
+        "height_inches": 15,
+        "style": "mounted",
+        "sku": "5M210M37S8X15"
       }
     ],
     "finerworks_image": {
@@ -4408,16 +4910,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 13,
-        "height_inches": 24
+        "width_inches": 18,
+        "height_inches": 33,
+        "style": "rolled",
+        "sku": "5M210M8S18X33"
+      },
+      {
+        "width_inches": 12,
+        "height_inches": 23,
+        "style": "mounted",
+        "sku": "5M210M37S12X23"
       },
       {
         "width_inches": 9,
-        "height_inches": 17
-      },
-      {
-        "width_inches": 6,
-        "height_inches": 12
+        "height_inches": 16,
+        "style": "mounted",
+        "sku": "5M210M37S9X16"
       }
     ],
     "finerworks_image": {
@@ -4453,16 +4961,22 @@
     },
     "recommended_sizes": [
       {
+        "width_inches": 19,
+        "height_inches": 35,
+        "style": "rolled",
+        "sku": "5M210M8S19X35"
+      },
+      {
         "width_inches": 13,
-        "height_inches": 24
+        "height_inches": 24,
+        "style": "mounted",
+        "sku": "5M210M37S13X24"
       },
       {
         "width_inches": 9,
-        "height_inches": 17
-      },
-      {
-        "width_inches": 6,
-        "height_inches": 12
+        "height_inches": 17,
+        "style": "mounted",
+        "sku": "5M210M37S9X17"
       }
     ],
     "finerworks_image": {
@@ -4498,16 +5012,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 24,
-        "height_inches": 15
+        "width_inches": 29,
+        "height_inches": 19,
+        "style": "mounted",
+        "sku": "5M210M37S29X19"
       },
       {
-        "width_inches": 17,
-        "height_inches": 11
+        "width_inches": 20,
+        "height_inches": 13,
+        "style": "mounted",
+        "sku": "5M210M37S20X13"
       },
       {
-        "width_inches": 12,
-        "height_inches": 8
+        "width_inches": 14,
+        "height_inches": 9,
+        "style": "mounted",
+        "sku": "5M210M37S14X9"
       }
     ],
     "finerworks_image": {
@@ -4543,16 +5063,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 24,
-        "height_inches": 15
+        "width_inches": 29,
+        "height_inches": 19,
+        "style": "mounted",
+        "sku": "5M210M37S29X19"
       },
       {
-        "width_inches": 17,
-        "height_inches": 11
+        "width_inches": 20,
+        "height_inches": 13,
+        "style": "mounted",
+        "sku": "5M210M37S20X13"
       },
       {
-        "width_inches": 12,
-        "height_inches": 8
+        "width_inches": 14,
+        "height_inches": 9,
+        "style": "mounted",
+        "sku": "5M210M37S14X9"
       }
     ],
     "finerworks_image": {
@@ -4588,16 +5114,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 24,
-        "height_inches": 16
+        "width_inches": 30,
+        "height_inches": 20,
+        "style": "mounted",
+        "sku": "5M210M37S30X20"
       },
       {
-        "width_inches": 17,
-        "height_inches": 11
+        "width_inches": 21,
+        "height_inches": 14,
+        "style": "mounted",
+        "sku": "5M210M37S21X14"
       },
       {
-        "width_inches": 12,
-        "height_inches": 8
+        "width_inches": 15,
+        "height_inches": 10,
+        "style": "mounted",
+        "sku": "5M210M37S15X10"
       }
     ],
     "finerworks_image": {
@@ -4633,16 +5165,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 23,
-        "height_inches": 19
+        "width_inches": 25,
+        "height_inches": 20,
+        "style": "mounted",
+        "sku": "5M210M37S25X20"
       },
       {
-        "width_inches": 16,
-        "height_inches": 13
+        "width_inches": 18,
+        "height_inches": 14,
+        "style": "mounted",
+        "sku": "5M210M37S18X14"
       },
       {
         "width_inches": 12,
-        "height_inches": 9
+        "height_inches": 10,
+        "style": "mounted",
+        "sku": "5M210M37S12X10"
       }
     ],
     "finerworks_image": {
@@ -4678,16 +5216,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 14,
-        "height_inches": 24
+        "width_inches": 18,
+        "height_inches": 30,
+        "style": "mounted",
+        "sku": "5M210M37S18X30"
       },
       {
-        "width_inches": 10,
-        "height_inches": 17
+        "width_inches": 13,
+        "height_inches": 21,
+        "style": "mounted",
+        "sku": "5M210M37S13X21"
       },
       {
-        "width_inches": 7,
-        "height_inches": 12
+        "width_inches": 9,
+        "height_inches": 15,
+        "style": "mounted",
+        "sku": "5M210M37S9X15"
       }
     ],
     "finerworks_image": {
@@ -4723,8 +5267,16 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 8,
-        "height_inches": 24
+        "width_inches": 10,
+        "height_inches": 31,
+        "style": "rolled",
+        "sku": "5M210M8S10X31"
+      },
+      {
+        "width_inches": 7,
+        "height_inches": 22,
+        "style": "mounted",
+        "sku": "5M210M37S7X22"
       }
     ],
     "finerworks_image": {
@@ -4760,16 +5312,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 16,
-        "height_inches": 24
+        "width_inches": 20,
+        "height_inches": 31,
+        "style": "rolled",
+        "sku": "5M210M8S20X31"
       },
       {
-        "width_inches": 11,
-        "height_inches": 17
+        "width_inches": 14,
+        "height_inches": 22,
+        "style": "mounted",
+        "sku": "5M210M37S14X22"
       },
       {
-        "width_inches": 8,
-        "height_inches": 12
+        "width_inches": 10,
+        "height_inches": 15,
+        "style": "mounted",
+        "sku": "5M210M37S10X15"
       }
     ],
     "finerworks_image": {
@@ -4805,16 +5363,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 14,
-        "height_inches": 24
+        "width_inches": 19,
+        "height_inches": 32,
+        "style": "rolled",
+        "sku": "5M210M8S19X32"
       },
       {
-        "width_inches": 10,
-        "height_inches": 17
+        "width_inches": 13,
+        "height_inches": 22,
+        "style": "mounted",
+        "sku": "5M210M37S13X22"
       },
       {
-        "width_inches": 7,
-        "height_inches": 12
+        "width_inches": 9,
+        "height_inches": 16,
+        "style": "mounted",
+        "sku": "5M210M37S9X16"
       }
     ],
     "finerworks_image": {
@@ -4850,16 +5414,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 16,
-        "height_inches": 24
+        "width_inches": 19,
+        "height_inches": 29,
+        "style": "mounted",
+        "sku": "5M210M37S19X29"
       },
       {
-        "width_inches": 11,
-        "height_inches": 17
+        "width_inches": 13,
+        "height_inches": 20,
+        "style": "mounted",
+        "sku": "5M210M37S13X20"
       },
       {
-        "width_inches": 8,
-        "height_inches": 12
+        "width_inches": 9,
+        "height_inches": 14,
+        "style": "mounted",
+        "sku": "5M210M37S9X14"
       }
     ],
     "finerworks_image": {
@@ -4895,16 +5465,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 14,
-        "height_inches": 24
+        "width_inches": 18,
+        "height_inches": 31,
+        "style": "rolled",
+        "sku": "5M210M8S18X31"
       },
       {
-        "width_inches": 10,
-        "height_inches": 17
+        "width_inches": 13,
+        "height_inches": 22,
+        "style": "mounted",
+        "sku": "5M210M37S13X22"
       },
       {
-        "width_inches": 7,
-        "height_inches": 12
+        "width_inches": 9,
+        "height_inches": 15,
+        "style": "mounted",
+        "sku": "5M210M37S9X15"
       }
     ],
     "finerworks_image": {
@@ -4940,16 +5516,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 15,
-        "height_inches": 24
+        "width_inches": 19,
+        "height_inches": 29,
+        "style": "mounted",
+        "sku": "5M210M37S19X29"
       },
       {
-        "width_inches": 11,
-        "height_inches": 17
+        "width_inches": 13,
+        "height_inches": 20,
+        "style": "mounted",
+        "sku": "5M210M37S13X20"
       },
       {
-        "width_inches": 8,
-        "height_inches": 12
+        "width_inches": 9,
+        "height_inches": 14,
+        "style": "mounted",
+        "sku": "5M210M37S9X14"
       }
     ],
     "finerworks_image": {
@@ -4985,16 +5567,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 15,
-        "height_inches": 24
+        "width_inches": 19,
+        "height_inches": 29,
+        "style": "mounted",
+        "sku": "5M210M37S19X29"
       },
       {
-        "width_inches": 11,
-        "height_inches": 17
+        "width_inches": 13,
+        "height_inches": 20,
+        "style": "mounted",
+        "sku": "5M210M37S13X20"
       },
       {
-        "width_inches": 8,
-        "height_inches": 12
+        "width_inches": 9,
+        "height_inches": 14,
+        "style": "mounted",
+        "sku": "5M210M37S9X14"
       }
     ],
     "finerworks_image": {
@@ -5030,16 +5618,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 15,
-        "height_inches": 24
+        "width_inches": 19,
+        "height_inches": 29,
+        "style": "mounted",
+        "sku": "5M210M37S19X29"
       },
       {
-        "width_inches": 11,
-        "height_inches": 17
+        "width_inches": 13,
+        "height_inches": 20,
+        "style": "mounted",
+        "sku": "5M210M37S13X20"
       },
       {
-        "width_inches": 8,
-        "height_inches": 12
+        "width_inches": 9,
+        "height_inches": 14,
+        "style": "mounted",
+        "sku": "5M210M37S9X14"
       }
     ],
     "finerworks_image": {
@@ -5075,16 +5669,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 15,
-        "height_inches": 24
+        "width_inches": 19,
+        "height_inches": 30,
+        "style": "mounted",
+        "sku": "5M210M37S19X30"
       },
       {
-        "width_inches": 11,
-        "height_inches": 17
+        "width_inches": 14,
+        "height_inches": 21,
+        "style": "mounted",
+        "sku": "5M210M37S14X21"
       },
       {
-        "width_inches": 8,
-        "height_inches": 12
+        "width_inches": 10,
+        "height_inches": 15,
+        "style": "mounted",
+        "sku": "5M210M37S10X15"
       }
     ],
     "finerworks_image": {
@@ -5120,16 +5720,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 15,
-        "height_inches": 24
+        "width_inches": 19,
+        "height_inches": 30,
+        "style": "mounted",
+        "sku": "5M210M37S19X30"
       },
       {
-        "width_inches": 11,
-        "height_inches": 17
+        "width_inches": 13,
+        "height_inches": 21,
+        "style": "mounted",
+        "sku": "5M210M37S13X21"
       },
       {
-        "width_inches": 8,
-        "height_inches": 12
+        "width_inches": 10,
+        "height_inches": 15,
+        "style": "mounted",
+        "sku": "5M210M37S10X15"
       }
     ],
     "finerworks_image": {
@@ -5165,16 +5771,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 15,
-        "height_inches": 24
+        "width_inches": 19,
+        "height_inches": 29,
+        "style": "mounted",
+        "sku": "5M210M37S19X29"
       },
       {
-        "width_inches": 11,
-        "height_inches": 17
+        "width_inches": 13,
+        "height_inches": 20,
+        "style": "mounted",
+        "sku": "5M210M37S13X20"
       },
       {
-        "width_inches": 8,
-        "height_inches": 12
+        "width_inches": 9,
+        "height_inches": 14,
+        "style": "mounted",
+        "sku": "5M210M37S9X14"
       }
     ],
     "finerworks_image": {
@@ -5210,16 +5822,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 15,
-        "height_inches": 24
+        "width_inches": 19,
+        "height_inches": 30,
+        "style": "mounted",
+        "sku": "5M210M37S19X30"
       },
       {
-        "width_inches": 11,
-        "height_inches": 17
+        "width_inches": 14,
+        "height_inches": 21,
+        "style": "mounted",
+        "sku": "5M210M37S14X21"
       },
       {
-        "width_inches": 8,
-        "height_inches": 12
+        "width_inches": 10,
+        "height_inches": 15,
+        "style": "mounted",
+        "sku": "5M210M37S10X15"
       }
     ],
     "finerworks_image": {
@@ -5255,16 +5873,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 16,
-        "height_inches": 24
+        "width_inches": 19,
+        "height_inches": 29,
+        "style": "mounted",
+        "sku": "5M210M37S19X29"
       },
       {
-        "width_inches": 11,
-        "height_inches": 17
+        "width_inches": 13,
+        "height_inches": 20,
+        "style": "mounted",
+        "sku": "5M210M37S13X20"
       },
       {
-        "width_inches": 8,
-        "height_inches": 12
+        "width_inches": 9,
+        "height_inches": 14,
+        "style": "mounted",
+        "sku": "5M210M37S9X14"
       }
     ],
     "finerworks_image": {
@@ -5300,16 +5924,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 16,
-        "height_inches": 24
+        "width_inches": 26,
+        "height_inches": 39,
+        "style": "rolled",
+        "sku": "5M210M8S26X39"
       },
       {
-        "width_inches": 11,
-        "height_inches": 17
+        "width_inches": 18,
+        "height_inches": 27,
+        "style": "mounted",
+        "sku": "5M210M37S18X27"
       },
       {
-        "width_inches": 8,
-        "height_inches": 12
+        "width_inches": 12,
+        "height_inches": 19,
+        "style": "mounted",
+        "sku": "5M210M37S12X19"
       }
     ],
     "finerworks_image": {
@@ -5345,16 +5975,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 17,
-        "height_inches": 24
+        "width_inches": 20,
+        "height_inches": 29,
+        "style": "mounted",
+        "sku": "5M210M37S20X29"
       },
       {
-        "width_inches": 12,
-        "height_inches": 17
+        "width_inches": 14,
+        "height_inches": 20,
+        "style": "mounted",
+        "sku": "5M210M37S14X20"
       },
       {
-        "width_inches": 8,
-        "height_inches": 12
+        "width_inches": 10,
+        "height_inches": 14,
+        "style": "mounted",
+        "sku": "5M210M37S10X14"
       }
     ],
     "finerworks_image": {
@@ -5390,16 +6026,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 16,
-        "height_inches": 24
+        "width_inches": 19,
+        "height_inches": 29,
+        "style": "mounted",
+        "sku": "5M210M37S19X29"
       },
       {
-        "width_inches": 11,
-        "height_inches": 17
+        "width_inches": 13,
+        "height_inches": 20,
+        "style": "mounted",
+        "sku": "5M210M37S13X20"
       },
       {
-        "width_inches": 8,
-        "height_inches": 12
+        "width_inches": 9,
+        "height_inches": 14,
+        "style": "mounted",
+        "sku": "5M210M37S9X14"
       }
     ],
     "finerworks_image": {
@@ -5435,16 +6077,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 16,
-        "height_inches": 24
+        "width_inches": 19,
+        "height_inches": 29,
+        "style": "mounted",
+        "sku": "5M210M37S19X29"
       },
       {
-        "width_inches": 11,
-        "height_inches": 17
+        "width_inches": 13,
+        "height_inches": 20,
+        "style": "mounted",
+        "sku": "5M210M37S13X20"
       },
       {
-        "width_inches": 8,
-        "height_inches": 12
+        "width_inches": 9,
+        "height_inches": 14,
+        "style": "mounted",
+        "sku": "5M210M37S9X14"
       }
     ],
     "finerworks_image": {
@@ -5480,16 +6128,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 15,
-        "height_inches": 24
+        "width_inches": 19,
+        "height_inches": 30,
+        "style": "mounted",
+        "sku": "5M210M37S19X30"
       },
       {
-        "width_inches": 11,
-        "height_inches": 17
+        "width_inches": 13,
+        "height_inches": 21,
+        "style": "mounted",
+        "sku": "5M210M37S13X21"
       },
       {
-        "width_inches": 8,
-        "height_inches": 12
+        "width_inches": 10,
+        "height_inches": 15,
+        "style": "mounted",
+        "sku": "5M210M37S10X15"
       }
     ],
     "finerworks_image": {
@@ -5525,16 +6179,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 15,
-        "height_inches": 24
+        "width_inches": 19,
+        "height_inches": 30,
+        "style": "mounted",
+        "sku": "5M210M37S19X30"
       },
       {
-        "width_inches": 11,
-        "height_inches": 17
+        "width_inches": 13,
+        "height_inches": 21,
+        "style": "mounted",
+        "sku": "5M210M37S13X21"
       },
       {
-        "width_inches": 8,
-        "height_inches": 12
+        "width_inches": 9,
+        "height_inches": 15,
+        "style": "mounted",
+        "sku": "5M210M37S9X15"
       }
     ],
     "finerworks_image": {
@@ -5570,8 +6230,16 @@
     },
     "recommended_sizes": [
       {
+        "width_inches": 8,
+        "height_inches": 31,
+        "style": "rolled",
+        "sku": "5M210M8S8X31"
+      },
+      {
         "width_inches": 6,
-        "height_inches": 24
+        "height_inches": 22,
+        "style": "mounted",
+        "sku": "5M210M37S6X22"
       }
     ],
     "finerworks_image": {
@@ -5607,8 +6275,10 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 6,
-        "height_inches": 24
+        "width_inches": 7,
+        "height_inches": 30,
+        "style": "mounted",
+        "sku": "5M210M37S7X30"
       }
     ],
     "finerworks_image": {
@@ -5644,16 +6314,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 24,
-        "height_inches": 15
+        "width_inches": 29,
+        "height_inches": 18,
+        "style": "mounted",
+        "sku": "5M210M37S29X18"
       },
       {
-        "width_inches": 17,
-        "height_inches": 10
+        "width_inches": 20,
+        "height_inches": 12,
+        "style": "mounted",
+        "sku": "5M210M37S20X12"
       },
       {
-        "width_inches": 12,
-        "height_inches": 7
+        "width_inches": 14,
+        "height_inches": 9,
+        "style": "mounted",
+        "sku": "5M210M37S14X9"
       }
     ],
     "finerworks_image": {
@@ -5689,16 +6365,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 24,
-        "height_inches": 15
+        "width_inches": 30,
+        "height_inches": 18,
+        "style": "mounted",
+        "sku": "5M210M37S30X18"
       },
       {
-        "width_inches": 17,
-        "height_inches": 10
+        "width_inches": 21,
+        "height_inches": 13,
+        "style": "mounted",
+        "sku": "5M210M37S21X13"
       },
       {
-        "width_inches": 12,
-        "height_inches": 7
+        "width_inches": 15,
+        "height_inches": 9,
+        "style": "mounted",
+        "sku": "5M210M37S15X9"
       }
     ],
     "finerworks_image": {
@@ -5734,16 +6416,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 21,
-        "height_inches": 20
+        "width_inches": 23,
+        "height_inches": 21,
+        "style": "rolled",
+        "sku": "5M210M8S23X21"
       },
       {
-        "width_inches": 15,
-        "height_inches": 14
+        "width_inches": 16,
+        "height_inches": 15,
+        "style": "mounted",
+        "sku": "5M210M37S16X15"
       },
       {
         "width_inches": 11,
-        "height_inches": 10
+        "height_inches": 10,
+        "style": "mounted",
+        "sku": "5M210M37S11X10"
       }
     ],
     "finerworks_image": {
@@ -5779,16 +6467,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 22,
-        "height_inches": 20
+        "width_inches": 24,
+        "height_inches": 22,
+        "style": "rolled",
+        "sku": "5M210M8S24X22"
       },
       {
-        "width_inches": 16,
-        "height_inches": 14
+        "width_inches": 17,
+        "height_inches": 15,
+        "style": "mounted",
+        "sku": "5M210M37S17X15"
       },
       {
-        "width_inches": 11,
-        "height_inches": 10
+        "width_inches": 12,
+        "height_inches": 11,
+        "style": "mounted",
+        "sku": "5M210M37S12X11"
       }
     ],
     "finerworks_image": {
@@ -5824,16 +6518,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 23,
-        "height_inches": 21
+        "width_inches": 25,
+        "height_inches": 23,
+        "style": "rolled",
+        "sku": "5M210M8S25X23"
       },
       {
-        "width_inches": 16,
-        "height_inches": 15
+        "width_inches": 17,
+        "height_inches": 15,
+        "style": "mounted",
+        "sku": "5M210M37S17X15"
       },
       {
         "width_inches": 12,
-        "height_inches": 10
+        "height_inches": 11,
+        "style": "mounted",
+        "sku": "5M210M37S12X11"
       }
     ],
     "finerworks_image": {
@@ -5869,16 +6569,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 22,
-        "height_inches": 20
+        "width_inches": 24,
+        "height_inches": 22,
+        "style": "rolled",
+        "sku": "5M210M8S24X22"
       },
       {
-        "width_inches": 16,
-        "height_inches": 14
+        "width_inches": 17,
+        "height_inches": 15,
+        "style": "mounted",
+        "sku": "5M210M37S17X15"
       },
       {
-        "width_inches": 11,
-        "height_inches": 10
+        "width_inches": 12,
+        "height_inches": 11,
+        "style": "mounted",
+        "sku": "5M210M37S12X11"
       }
     ],
     "finerworks_image": {
@@ -5914,16 +6620,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 22,
-        "height_inches": 23
+        "width_inches": 24,
+        "height_inches": 25,
+        "style": "rolled",
+        "sku": "5M210M8S24X25"
       },
       {
-        "width_inches": 15,
-        "height_inches": 16
+        "width_inches": 16,
+        "height_inches": 17,
+        "style": "mounted",
+        "sku": "5M210M37S16X17"
       },
       {
         "width_inches": 11,
-        "height_inches": 11
+        "height_inches": 12,
+        "style": "mounted",
+        "sku": "5M210M37S11X12"
       }
     ],
     "finerworks_image": {
@@ -5959,16 +6671,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 12,
-        "height_inches": 21
+        "width_inches": 14,
+        "height_inches": 23,
+        "style": "mounted",
+        "sku": "5M210M37S14X23"
       },
       {
-        "width_inches": 9,
-        "height_inches": 15
+        "width_inches": 10,
+        "height_inches": 16,
+        "style": "mounted",
+        "sku": "5M210M37S10X16"
       },
       {
-        "width_inches": 6,
-        "height_inches": 10
+        "width_inches": 7,
+        "height_inches": 11,
+        "style": "mounted",
+        "sku": "5M210M37S7X11"
       }
     ],
     "finerworks_image": {
@@ -6004,16 +6722,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 22,
-        "height_inches": 15
+        "width_inches": 24,
+        "height_inches": 16,
+        "style": "mounted",
+        "sku": "5M210M37S24X16"
       },
       {
-        "width_inches": 15,
-        "height_inches": 10
+        "width_inches": 17,
+        "height_inches": 11,
+        "style": "mounted",
+        "sku": "5M210M37S17X11"
       },
       {
-        "width_inches": 11,
-        "height_inches": 7
+        "width_inches": 12,
+        "height_inches": 8,
+        "style": "mounted",
+        "sku": "5M210M37S12X8"
       }
     ],
     "finerworks_image": {
@@ -6049,16 +6773,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 16,
-        "height_inches": 24
+        "width_inches": 18,
+        "height_inches": 27,
+        "style": "mounted",
+        "sku": "5M210M37S18X27"
       },
       {
-        "width_inches": 11,
-        "height_inches": 17
+        "width_inches": 12,
+        "height_inches": 19,
+        "style": "mounted",
+        "sku": "5M210M37S12X19"
       },
       {
-        "width_inches": 8,
-        "height_inches": 12
+        "width_inches": 9,
+        "height_inches": 13,
+        "style": "mounted",
+        "sku": "5M210M37S9X13"
       }
     ],
     "finerworks_image": {
@@ -6094,16 +6824,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 12,
-        "height_inches": 24
+        "width_inches": 16,
+        "height_inches": 31,
+        "style": "rolled",
+        "sku": "5M210M8S16X31"
       },
       {
-        "width_inches": 9,
-        "height_inches": 17
+        "width_inches": 11,
+        "height_inches": 22,
+        "style": "mounted",
+        "sku": "5M210M37S11X22"
       },
       {
-        "width_inches": 6,
-        "height_inches": 12
+        "width_inches": 8,
+        "height_inches": 15,
+        "style": "mounted",
+        "sku": "5M210M37S8X15"
       }
     ],
     "finerworks_image": {
@@ -6139,16 +6875,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 16,
-        "height_inches": 24
+        "width_inches": 19,
+        "height_inches": 29,
+        "style": "mounted",
+        "sku": "5M210M37S19X29"
       },
       {
-        "width_inches": 11,
-        "height_inches": 17
+        "width_inches": 13,
+        "height_inches": 20,
+        "style": "mounted",
+        "sku": "5M210M37S13X20"
       },
       {
-        "width_inches": 8,
-        "height_inches": 12
+        "width_inches": 9,
+        "height_inches": 14,
+        "style": "mounted",
+        "sku": "5M210M37S9X14"
       }
     ],
     "finerworks_image": {
@@ -6184,8 +6926,16 @@
     },
     "recommended_sizes": [
       {
+        "width_inches": 8,
+        "height_inches": 33,
+        "style": "rolled",
+        "sku": "5M210M8S8X33"
+      },
+      {
         "width_inches": 6,
-        "height_inches": 24
+        "height_inches": 23,
+        "style": "mounted",
+        "sku": "5M210M37S6X23"
       }
     ],
     "finerworks_image": {
@@ -6221,16 +6971,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 24,
-        "height_inches": 15
+        "width_inches": 27,
+        "height_inches": 17,
+        "style": "mounted",
+        "sku": "5M210M37S27X17"
       },
       {
-        "width_inches": 17,
-        "height_inches": 11
+        "width_inches": 19,
+        "height_inches": 12,
+        "style": "mounted",
+        "sku": "5M210M37S19X12"
       },
       {
-        "width_inches": 12,
-        "height_inches": 8
+        "width_inches": 13,
+        "height_inches": 8,
+        "style": "mounted",
+        "sku": "5M210M37S13X8"
       }
     ],
     "finerworks_image": {
@@ -6266,16 +7022,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 16,
-        "height_inches": 24
+        "width_inches": 18,
+        "height_inches": 27,
+        "style": "mounted",
+        "sku": "5M210M37S18X27"
       },
       {
-        "width_inches": 11,
-        "height_inches": 17
+        "width_inches": 12,
+        "height_inches": 19,
+        "style": "mounted",
+        "sku": "5M210M37S12X19"
       },
       {
-        "width_inches": 8,
-        "height_inches": 12
+        "width_inches": 9,
+        "height_inches": 13,
+        "style": "mounted",
+        "sku": "5M210M37S9X13"
       }
     ],
     "finerworks_image": {
@@ -6311,16 +7073,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 15,
-        "height_inches": 24
+        "width_inches": 17,
+        "height_inches": 26,
+        "style": "mounted",
+        "sku": "5M210M37S17X26"
       },
       {
-        "width_inches": 11,
-        "height_inches": 17
+        "width_inches": 12,
+        "height_inches": 18,
+        "style": "mounted",
+        "sku": "5M210M37S12X18"
       },
       {
         "width_inches": 8,
-        "height_inches": 12
+        "height_inches": 13,
+        "style": "mounted",
+        "sku": "5M210M37S8X13"
       }
     ],
     "finerworks_image": {
@@ -6356,16 +7124,22 @@
     },
     "recommended_sizes": [
       {
-        "width_inches": 23,
-        "height_inches": 23
+        "width_inches": 25,
+        "height_inches": 25,
+        "style": "rolled",
+        "sku": "5M210M8S25X25"
       },
       {
-        "width_inches": 16,
-        "height_inches": 16
+        "width_inches": 17,
+        "height_inches": 17,
+        "style": "mounted",
+        "sku": "5M210M37S17X17"
       },
       {
-        "width_inches": 11,
-        "height_inches": 11
+        "width_inches": 12,
+        "height_inches": 12,
+        "style": "mounted",
+        "sku": "5M210M37S12X12"
       }
     ],
     "finerworks_image": {

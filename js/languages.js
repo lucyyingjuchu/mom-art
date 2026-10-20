@@ -139,6 +139,14 @@ const LANGUAGE_DATA = {
                                 answer: "**Originals** require filling out the \"Original Art Inquiry Form\" and we will contact you to arrange payment and shipping.\n**Prints** can be added directly to the shopping cart for checkout."
                             },
                             {
+                                question: "Do originals come framed?",
+                                answer: "**Within Taiwan**: the painting is delivered in its original frame, if it has one.\n**International**: to keep shipping safe and affordable, we send the painting itself, without the frame. If you would like the original frame too, mention it in the inquiry form - we will work out the extra shipping cost so you can decide."
+                            },
+                            {
+                                question: "Prints: what does \"mounted\" or \"rolled\" mean?",
+                                answer: "Prints up to 20 × 30 in are **mounted on thick board**, ready to frame or hang as they are.\nLarger prints are made on the same cotton paper and **shipped rolled** in a sturdy tube - take them to a framer.\nEach artwork's print section shows every size to scale."
+                            },
+                            {
                                 question: "How long will shipping take?",
                                 answer: "**Originals**: Delivery times vary by region — within Taiwan it is usually faster, while international orders take about 10–20 business days.\n**Prints**: Within the U.S., delivery speed depend on the shipping method chosen in the shopping cart. For addresses outside the U.S., it usually takes about 5–10 business days.\n"
                             }
@@ -258,7 +266,10 @@ const LANGUAGE_DATA = {
             cartEmpty: "Your cart is empty",
             cartEmptyDesc: "Browse artworks and add your favorite Glicee Fine Art prints to the cart",
             selectSizeTitle: "Giclee - Fine Art Paper Prints",
-            selectSizeSubtitle: "Thick Matboard mounted, hang or frame ready",
+            selectSizeSubtitle: "100% cotton fine art paper. Sizes up to 20 × 30 in come mounted on board, ready to frame. Larger sizes ship rolled in a tube, for your framer.",
+            styleMounted: "Mounted on board",
+            styleRolled: "Rolled print",
+            diagramLabel: "Print sizes to scale, next to a 170 cm person",
             availableSizes: "Available sizes:",
             quantity: "Quantity:",
             addToCart: "Add to Cart",
@@ -460,6 +471,14 @@ const LANGUAGE_DATA = {
                                 answer: "**原作**：需填寫「原作詢價表單」，我們會與您聯繫安排付款與出貨。\n**印刷品**：可直接加入購物車結帳。"
                             },
                             {
+                                question: "原作有附框嗎？",
+                                answer: "**台灣境內**：作品如原本有框，會連同原框一起交付。\n**海外**：為了運送安全並控制運費，原則上寄送畫心（不含框）。如希望連同原框寄送，請在詢價表單中註明，我們會先評估運費再與您討論。"
+                            },
+                            {
+                                question: "微噴版畫的「裱厚卡紙」和「捲裝寄送」有什麼不同？",
+                                answer: "20 × 30 吋以內的版畫**裱於厚卡紙**，收到後可直接裱框或懸掛。\n更大的尺寸使用同樣的棉質藝術紙印製，**以紙筒捲裝寄送**，請交由裱框店裝框。\n每件作品的版畫區都有各尺寸的比例示意圖。"
+                            },
+                            {
                                 question: "運送需要多長時間？",
                                 answer: "**原作**：寄送時間依地區而異——台灣境內通常更快，國際訂單約 10–20 個工作天。\n**印刷品**：美國境內的寄送速度依您在購物車選擇的方式而定，美國境外通常約 5–10 個工作天。"
                             }
@@ -578,7 +597,10 @@ const LANGUAGE_DATA = {
             cartEmpty: "購物車是空的",
             cartEmptyDesc: "瀏覽藝廊，將喜愛的微噴印刷品加入購物車",
             selectSizeTitle: "藝術微噴印刷",
-            selectSizeSubtitle: "厚卡紙裝裱，可掛可裱",
+            selectSizeSubtitle: "100% 棉質藝術紙。20 × 30 吋以內裱於厚卡紙，可直接裱框；更大的尺寸以紙筒捲裝寄送，請交由裱框店裝框。",
+            styleMounted: "裱厚卡紙",
+            styleRolled: "捲裝寄送",
+            diagramLabel: "各印刷尺寸與 170 公分人形的比例示意",
             availableSizes: "可選尺寸：",
             quantity: "數量：",
             addToCart: "加入購物車",
