@@ -125,6 +125,7 @@
             }
         }
     </style>
+    <script src="/js/analytics.js"></script>
 </head>
 <body>
     <div class="success-container">
@@ -198,6 +199,13 @@
                 if (!response.ok) throw new Error(order.error || 'Order lookup failed');
 
                 displayOrderDetails(order);
+                if (window.trackEvent && order.order_number) {
+                    window.trackEvent('purchase', {
+                        transaction_id: String(order.order_number),
+                        value: (order.amount_total || 0) / 100,
+                        currency: String(order.currency || 'usd').toUpperCase()
+                    });
+                }
                 showStatus(STATUS_TEXT[order.fulfillment] || STATUS_TEXT.recorded,
                            order.fulfillment === 'failed' ? 'error' : 'success');
                 localStorage.removeItem('xiaoran_cart');
