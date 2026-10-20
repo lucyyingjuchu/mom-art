@@ -11,7 +11,7 @@ const PLACEHOLDER = {
     US: { city: 'Kansas City', state_code: 'MO', zip_postal_code: '64105' },
     CA: { city: 'Toronto', province: 'ON', zip_postal_code: 'M5V 2T6' },
     GB: { city: 'London', province: 'London', zip_postal_code: 'SW1A 1AA' },
-    AU: { city: 'Sydney', state_code: 'NSW', zip_postal_code: '2000' },
+    AU: { city: 'Sydney', province: 'NSW', zip_postal_code: '2000' },
     TW: { city: 'Taichung', province: 'Taichung', zip_postal_code: '402' }
 };
 const headers = {
