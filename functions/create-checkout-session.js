@@ -10,7 +10,6 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY, {
 const PRINTS = require('../data/finerworks_ready_artworks.json');
 
 const SITE_URL = process.env.URL || 'https://xiaoranart.com';
-const MARKUP = 2.5;          // same markup the shop page shows (js/shopping.js)
 const MAX_QTY = 10;
 const MAX_LINES = 20;
 
@@ -21,7 +20,16 @@ const headers = {
     'Content-Type': 'application/json'
 };
 
-// Finerworks cost x MARKUP, worked out on the server. If the price list can't be
+// Retail price from the Finerworks cost: a bigger markup on small prints, a smaller
+// one on large prints, rounded up to a price ending in 9 (e.g. $93 cost -> $189).
+//   cost < $50: x2.5    $50-150: x2    over $150: x1.7
+// Keep in sync: js/shopping.js (shown on the page) and functions/create-checkout-session.js (charged).
+function retailPrice(cost) {
+    const markup = cost < 50 ? 2.5 : cost < 150 ? 2 : 1.7;
+    return Math.ceil((cost * markup + 1) / 10) * 10 - 1;
+}
+
+// Finerworks cost -> retail price, worked out on the server. If the price list can't be
 // reached we refuse the checkout rather than guess: the old fallback table
 // ($23-48) was far below what Finerworks charges for these sizes.
 async function priceFor(sku) {
@@ -40,7 +48,7 @@ async function priceFor(sku) {
     if (!res.ok || !base) {
         throw new Error(`Finerworks price lookup failed for ${sku}: ${res.status} ${JSON.stringify(data).slice(0, 200)}`);
     }
-    return Math.round(base * MARKUP * 100) / 100;
+    return retailPrice(base);
 }
 
 // Stripe metadata values are capped at 500 characters, so a long cart is split

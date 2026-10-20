@@ -29,6 +29,11 @@ button#cartIcon.header-icon.cart-icon {
     max-height: 50px !important;
 }
 
+/* Chinese site: no prints yet, so no cart (js/shopping.js updateCartIconVisibility) */
+button#cartIcon.header-icon.cart-icon.cart-hidden {
+    display: none !important;
+}
+
 button#cartIcon.header-icon.cart-icon:hover {
     background: #1a252f !important;
     transform: translateY(-2px) !important;

@@ -9,9 +9,10 @@ Largest print = the smallest of
 Offered sizes: 100 %, 70 % and 50 % of that, whole inches, same proportions as
 the painting (never cropped or stretched); the short side must be at least 6 in.
 
-Each size says how it is made:
-  "mounted" - on thick board, ready to frame      (SKU 5M210M37S<W>X<H>, up to 20 x 30 in)
-  "rolled"  - print only, shipped rolled in a tube (SKU 5M210M8S<W>X<H>,  up to 40 x 90 in)
+Every size is sold unmounted ("rolled": print only, shipped rolled in a tube,
+SKU 5M210M8S<W>X<H>, up to 40 x 90 in). Mounting on board (SKU 5M210M37S…) cost
+nearly twice as much and made a mounted 20x30 dearer than a rolled 24x36, so it
+was dropped in Oct 2026; set OFFER_MOUNTED = True to bring it back for <= 20 x 30 in.
 
 Run from the repo root to recompute every entry in finerworks_ready_artworks.json
 from the pixel sizes already stored there and the cm sizes in artworks.json:
@@ -25,12 +26,15 @@ MIN_PPI = 180
 STEPS = (1.0, 0.7, 0.5)
 MIN_SHORT_IN = 6
 MOUNTED_MAX = (20, 30)     # short side, long side (inches)
+OFFER_MOUNTED = False
 PAPER_MAX = (40, 90)
 CM_PER_IN = 2.54
 
 
 def style_for(w, h):
     short, long_ = sorted((w, h))
+    if not OFFER_MOUNTED:
+        return "rolled"
     return "mounted" if short <= MOUNTED_MAX[0] and long_ <= MOUNTED_MAX[1] else "rolled"
 
 
