@@ -13,6 +13,15 @@
 (function () {
     var GA_ID = 'G-P2575FCGHY';
 
+    // Family visits shouldn't count: open xiaoranart.com/?notrack=1 once in a browser
+    // and that browser stops sending anything to GA4; ?notrack=0 turns it back on.
+    try {
+        var nt = new URLSearchParams(location.search).get('notrack');
+        if (nt === '1') localStorage.setItem('xa_notrack', '1');
+        if (nt === '0') localStorage.removeItem('xa_notrack');
+        if (localStorage.getItem('xa_notrack') === '1') window['ga-disable-' + GA_ID] = true;
+    } catch (e) { /* private mode etc. - just track normally */ }
+
     window.dataLayer = window.dataLayer || [];
     window.gtag = function () { window.dataLayer.push(arguments); };
     gtag('js', new Date());
