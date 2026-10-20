@@ -46,9 +46,18 @@ exports.handler = async (event) => {
             },
             order_items: items.map((i, n) => ({
                 product_order_po: `quote-${n + 1}`, product_qty: i.qty, product_sku: i.sku,
-                product_image: null, product_title: 'quote', template: null,
+                // Finerworks wants an image for every item; any public picture of the right
+                // proportions will do for a quote (nothing is printed)
+                product_image: (() => {
+                    const [, w, h] = i.sku.match(/S(\d+)X(\d+)$/);
+                    return { pixel_width: w * 200, pixel_height: h * 200,
+                        product_url_file: `${SITE_URL}/images/logo/text_white/android-chrome-512x512.png`,
+                        product_url_thumbnail: `${SITE_URL}/images/logo/text_white/android-chrome-512x512.png` };
+                })(),
+                product_title: 'quote', template: null,
                 product_guid: '00000000-0000-0000-0000-000000000000'
             })),
+            shipping_code: 'SD',
             test_mode: true
         }]
     };
