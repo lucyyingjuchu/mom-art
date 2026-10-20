@@ -1,3 +1,12 @@
+// Retail price from the Finerworks cost: a bigger markup on small prints, a smaller
+// one on large prints, rounded up to a price ending in 9 (e.g. $93 cost -> $189).
+//   cost < $50: x2.5    $50-150: x2    over $150: x1.7
+// Keep in sync: js/shopping.js (shown on the page) and functions/create-checkout-session.js (charged).
+function retailPrice(cost) {
+    const markup = cost < 50 ? 2.5 : cost < 150 ? 2 : 1.7;
+    return Math.ceil((cost * markup + 1) / 10) * 10 - 1;
+}
+
 class ShoppingCart {
     constructor() {
         this.items = JSON.parse(localStorage.getItem('xiaoran_cart') || '[]');
@@ -24,6 +33,19 @@ class ShoppingCart {
         return 'zh'; // Default fallback
     }
     
+    // Prints are sold on the English site only for now: they are made and shipped
+    // in the U.S., which doesn't suit buyers in Taiwan. A Taiwan print service
+    // (printed locally) is being set up; until then the Chinese site shows originals only.
+    printsEnabled() {
+        return this.getCurrentLanguage() === 'en';
+    }
+
+    // The cart icon follows the same rule, but stays if something is already in the cart.
+    updateCartIconVisibility() {
+        const icon = document.getElementById('cartIcon');
+        if (icon) icon.classList.toggle('cart-hidden', !(this.printsEnabled() || this.items.length));
+    }
+
     // NEW: Get translated text
     getText(path) {
         const lang = this.getCurrentLanguage();
@@ -67,6 +89,7 @@ class ShoppingCart {
         }
         
         this.updateCartDisplay();
+        this.updateCartIconVisibility();
     }
 
     attachEventListeners() {
@@ -85,6 +108,11 @@ class ShoppingCart {
         document.addEventListener('languageChanged', () => {
             console.log('🌍 Language changed, updating cart UI');
             this.updateCartLanguage();
+            this.updateCartIconVisibility();
+            const lb = document.getElementById('lightbox') || document.querySelector('.lightbox');
+            if (this.lastArtwork && lb && lb.classList.contains('active')) {
+                this.enhanceLightboxWithShopping(this.lastArtwork);
+            }
         });
     }
     
@@ -149,6 +177,13 @@ class ShoppingCart {
     async enhanceLightboxWithShopping(artwork) {
         // Ignore results that arrive after the visitor has moved to another artwork
         const token = this.enhanceToken = (this.enhanceToken || 0) + 1;
+        this.lastArtwork = artwork;
+
+        if (!this.printsEnabled()) {
+            document.querySelector('.lightbox-info-section .shopping-section')?.remove();
+            this.renderPrintsEntryPoints(false, null);
+            return;
+        }
 
         // Fetch shopping data separately
         try {
@@ -404,8 +439,8 @@ class ShoppingCart {
                     ${person}${items}
                 </svg>
                 <figcaption>
-                    <span class="sd-key sd-key-board"></span>${this.getText('shopping.styleMounted')}
-                    <span class="sd-key sd-key-rolled"></span>${this.getText('shopping.styleRolled')}
+                    ${sizes.some(s => s.style !== 'rolled') ? `<span class="sd-key sd-key-board"></span>${this.getText('shopping.styleMounted')}` : ''}
+                    ${sizes.some(s => s.style === 'rolled') ? `<span class="sd-key sd-key-rolled"></span>${this.getText('shopping.styleRolled')}` : ''}
                 </figcaption>
             </figure>`;
     }
@@ -479,7 +514,7 @@ class ShoppingCart {
                 // so showing a made-up number here would only mislead.
                 throw new Error('Price API failed: ' + response.status);
             }
-            return Math.round(basePrice * 2.5 * 100) / 100;
+            return retailPrice(basePrice);
         } catch (error) {
             console.error('💰 Price fetch error:', error);
             throw error;
