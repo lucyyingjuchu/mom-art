@@ -2,9 +2,13 @@
 // one on large prints, rounded up to a price ending in 9 (e.g. $93 cost -> $189).
 //   cost < $50: x2.5    $50-150: x2    over $150: x1.7
 // Keep in sync: js/shopping.js (shown on the page) and functions/create-checkout-session.js (charged).
+// Each band never goes below the top of the band before it, so a bigger print is
+// never cheaper than a smaller one (e.g. cost $50 -> $129 like cost $49, not $109).
 function retailPrice(cost) {
-    const markup = cost < 50 ? 2.5 : cost < 150 ? 2 : 1.7;
-    return Math.ceil((cost * markup + 1) / 10) * 10 - 1;
+    const raw = cost < 50 ? cost * 2.5
+              : cost < 150 ? Math.max(cost * 2, 50 * 2.5)
+              : Math.max(cost * 1.7, 150 * 2);
+    return Math.ceil((raw + 1) / 10) * 10 - 1;
 }
 
 class ShoppingCart {

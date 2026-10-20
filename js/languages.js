@@ -264,8 +264,8 @@ const LANGUAGE_DATA = {
         shopping: {
             cartTitle: "Shopping Cart",
             cartEmpty: "Your cart is empty",
-            cartEmptyDesc: "Browse artworks and add your favorite Glicee Fine Art prints to the cart",
-            selectSizeTitle: "Giclee - Fine Art Paper Prints",
+            cartEmptyDesc: "Browse artworks and add your favorite giclée fine art prints to the cart",
+            selectSizeTitle: "Giclée Fine Art Prints",
             selectSizeSubtitle: "100% cotton fine art paper, shipped unmounted (rolled in a tube), ready for your framer.",
             styleMounted: "Mounted on board",
             styleRolled: "Rolled print",
