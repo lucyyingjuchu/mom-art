@@ -43,7 +43,7 @@ const SHIPPING_CODES = {
 const crypto = require('crypto');
 const S3_REGION = 'us-east-1';
 
-function presignS3Url(url, { accessKeyId, secretAccessKey, region = S3_REGION, expires = 604800, now = new Date() }) {
+function presignS3Url(url, { accessKeyId, secretAccessKey, region = S3_REGION, expires = 604800, now = new Date(), method = 'GET' }) {
     const u = new URL(url);
     const amzDate = now.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');   // YYYYMMDDTHHMMSSZ
     const day = amzDate.slice(0, 8);
@@ -58,7 +58,7 @@ function presignS3Url(url, { accessKeyId, secretAccessKey, region = S3_REGION, e
     };
     const query = Object.keys(params).sort().map(k => `${enc(k)}=${enc(params[k])}`).join('&');
     const path = u.pathname.split('/').map(seg => enc(decodeURIComponent(seg))).join('/');
-    const canonical = ['GET', path, query, `host:${u.host}\n`, 'host', 'UNSIGNED-PAYLOAD'].join('\n');
+    const canonical = [method, path, query, `host:${u.host}\n`, 'host', 'UNSIGNED-PAYLOAD'].join('\n');
     const toSign = ['AWS4-HMAC-SHA256', amzDate, scope,
         crypto.createHash('sha256').update(canonical).digest('hex')].join('\n');
     const hmac = (key, data) => crypto.createHmac('sha256', key).update(data).digest();
@@ -141,7 +141,7 @@ function buildFinerworksOrder(session, cart) {
     };
 }
 
-exports.presignS3Url = presignS3Url;   // for the test in scripts/
+exports.presignS3Url = presignS3Url;   // also used by print-file-check.js
 
 exports.handler = async (event) => {
     if (event.httpMethod === 'OPTIONS') return { statusCode: 204, headers, body: '' };
