@@ -704,6 +704,12 @@ function submitInquiry(data) {
     })
     .then(result => {
         console.log('Email sent successfully:', result);
+        if (window.trackEvent) {
+            window.trackEvent('generate_lead', {
+                lead_type: 'original_inquiry',
+                items: [window.analyticsItem(currentInquiryArtwork || { id: data.artwork?.id, title: data.artwork?.title })]
+            });
+        }
         showFormMessage(getContactText('contactForm.submitSuccess'), 'success');
         
         // Close form after 3 seconds

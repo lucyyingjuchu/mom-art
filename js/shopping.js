@@ -513,6 +513,16 @@ class ShoppingCart {
         if (addToCartBtn && this.prices[sizeIndex]) {
             addToCartBtn.disabled = false;
         }
+
+        const chosen = this.currentArtwork?.recommended_sizes?.[sizeIndex];
+        if (window.trackEvent && chosen) {
+            window.trackEvent('select_item', {
+                items: [window.analyticsItem(this.currentArtwork, {
+                    item_variant: `${chosen.width_inches}x${chosen.height_inches} in`,
+                    price: this.prices[sizeIndex] || undefined
+                })]
+            });
+        }
     }
     
     addToCart() {
@@ -565,6 +575,16 @@ class ShoppingCart {
         
         // Save to localStorage
         localStorage.setItem('xiaoran_cart', JSON.stringify(this.items));
+
+        if (window.trackEvent) {
+            window.trackEvent('add_to_cart', {
+                currency: 'USD',
+                value: price * quantity,
+                items: [window.analyticsItem(this.currentArtwork, {
+                    item_variant: cartItem.size, price: price, quantity: quantity
+                })]
+            });
+        }
         
         // Update display
         this.updateCartDisplay();
@@ -753,6 +773,17 @@ class ShoppingCart {
             return;
         }
         
+        if (window.trackEvent) {
+            window.trackEvent('begin_checkout', {
+                currency: 'USD',
+                value: this.items.reduce((sum, i) => sum + (i.price || 0) * (i.quantity || 1), 0),
+                items: this.items.map(i => ({
+                    item_id: String(i.artworkId), item_name: i.title, item_variant: i.size,
+                    price: i.price, quantity: i.quantity
+                }))
+            });
+        }
+
         try {
             const response = await fetch('/.netlify/functions/create-checkout-session', {
                 method: 'POST',
