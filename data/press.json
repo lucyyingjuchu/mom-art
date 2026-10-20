@@ -2,6 +2,82 @@
   "_howTo": "Newest first. A video needs youtubeId. For English: add captionsEn (a file in data/captions/) for synced English subtitles, or dubbedYoutubeIdEn for an English-dubbed upload — the English page then plays that version instead. showOnAbout: true puts the video on the About page too.",
   "videos": [
     {
+      "youtubeId": "g4nFSsySoKI",
+      "date": "2026-10-20",
+      "outlet": {
+        "zh": "100芬",
+        "en": "100 Fen"
+      },
+      "title": {
+        "zh": "「天地之美，心源之境」對談講座 Ⅰ",
+        "en": "“The Beauty of Heaven and Earth, the Source of the Heart” — Conversation, Part 1"
+      },
+      "summary": {
+        "zh": "策展人賴慕芬策劃，國美館館長陳貺怡與袁之靜在國立彰化生活美學館的東西方藝術對談：從莫內光影、自然寫生到詩書畫印，談「筆端要常帶感情」與「筆墨當隨時代」（第一段）。",
+        "en": "Part 1 of the conversation between the artist and NTMoFA Director Chen Kuang-yi, curated by Lai Mu-fen — from Monet's light and painting from nature to poetry, calligraphy, painting and seal, and ink painting's experiments in contemporary art."
+      },
+      "captionsEn": "",
+      "dubbedYoutubeIdEn": "",
+      "showOnAbout": false
+    },
+    {
+      "youtubeId": "ehCOG6Ca0QQ",
+      "date": "2026-10-20",
+      "outlet": {
+        "zh": "100芬",
+        "en": "100 Fen"
+      },
+      "title": {
+        "zh": "「天地之美，心源之境」對談講座 Ⅱ",
+        "en": "“The Beauty of Heaven and Earth, the Source of the Heart” — Conversation, Part 2"
+      },
+      "summary": {
+        "zh": "策展人賴慕芬策劃，國美館館長陳貺怡與袁之靜在國立彰化生活美學館的東西方藝術對談：從莫內光影、自然寫生到詩書畫印，談「筆端要常帶感情」與「筆墨當隨時代」（第二段）。",
+        "en": "Part 2 of the conversation between the artist and NTMoFA Director Chen Kuang-yi, curated by Lai Mu-fen — from Monet's light and painting from nature to poetry, calligraphy, painting and seal, and ink painting's experiments in contemporary art."
+      },
+      "captionsEn": "",
+      "dubbedYoutubeIdEn": "",
+      "showOnAbout": false
+    },
+    {
+      "youtubeId": "ZumPkvd5jg8",
+      "date": "2026-10-20",
+      "outlet": {
+        "zh": "100芬",
+        "en": "100 Fen"
+      },
+      "title": {
+        "zh": "「天地之美，心源之境」對談講座 Ⅲ",
+        "en": "“The Beauty of Heaven and Earth, the Source of the Heart” — Conversation, Part 3"
+      },
+      "summary": {
+        "zh": "策展人賴慕芬策劃，國美館館長陳貺怡與袁之靜在國立彰化生活美學館的東西方藝術對談：從莫內光影、自然寫生到詩書畫印，談「筆端要常帶感情」與「筆墨當隨時代」（第三段）。",
+        "en": "Part 3 of the conversation between the artist and NTMoFA Director Chen Kuang-yi, curated by Lai Mu-fen — from Monet's light and painting from nature to poetry, calligraphy, painting and seal, and ink painting's experiments in contemporary art."
+      },
+      "captionsEn": "",
+      "dubbedYoutubeIdEn": "",
+      "showOnAbout": false
+    },
+    {
+      "youtubeId": "HyS522RDNAg",
+      "date": "2026-10-20",
+      "outlet": {
+        "zh": "100芬",
+        "en": "100 Fen"
+      },
+      "title": {
+        "zh": "「天地之美，心源之境」對談講座 Ⅳ",
+        "en": "“The Beauty of Heaven and Earth, the Source of the Heart” — Conversation, Part 4"
+      },
+      "summary": {
+        "zh": "策展人賴慕芬策劃，國美館館長陳貺怡與袁之靜在國立彰化生活美學館的東西方藝術對談：從莫內光影、自然寫生到詩書畫印，談「筆端要常帶感情」與「筆墨當隨時代」（第四段）。",
+        "en": "Part 4 of the conversation between the artist and NTMoFA Director Chen Kuang-yi, curated by Lai Mu-fen — from Monet's light and painting from nature to poetry, calligraphy, painting and seal, and ink painting's experiments in contemporary art."
+      },
+      "captionsEn": "",
+      "dubbedYoutubeIdEn": "",
+      "showOnAbout": false
+    },
+    {
       "youtubeId": "KJk9B8HN8ck",
       "date": "2026-10-14",
       "outlet": {
@@ -53,6 +129,25 @@
       "summary": {
         "zh": "「天地之美，心源之境」對談活動報導。",
         "en": "Coverage of the public conversation on tradition and transformation in ink painting."
+      },
+      "captionsEn": "",
+      "dubbedYoutubeIdEn": "",
+      "showOnAbout": false
+    },
+    {
+      "youtubeId": "BvRJYIhxfgU",
+      "date": "2026-10-08",
+      "outlet": {
+        "zh": "彰化人彰化事新聞",
+        "en": "Changhua News"
+      },
+      "title": {
+        "zh": "天地有大美！袁之靜彰美館開展　與國美館長對談水墨傳承與轉化",
+        "en": "“The Great Beauty of Heaven and Earth”: Yuan Chih-Jin in Conversation with the NTMoFA Director on Ink's Tradition and Transformation"
+      },
+      "summary": {
+        "zh": "國立彰化生活美學館舉辦「天地之美，心源之境」對談活動，袁之靜與國美館館長陳貺怡深度對話。",
+        "en": "Coverage of the public conversation between the artist and NTMoFA Director Chen Kuang-yi at the National Changhua Living Art Center."
       },
       "captionsEn": "",
       "dubbedYoutubeIdEn": "",
@@ -644,6 +739,18 @@
         "en": "Ink that Writes Heaven and Earth: 63 New Works by Yuan Chih-Jin on View"
       },
       "url": "https://www.jinghaimedia.com/archives/62766"
+    },
+    {
+      "date": "2026-08-31",
+      "outlet": {
+        "zh": "典藏 ARTouch",
+        "en": "ARTouch"
+      },
+      "title": {
+        "zh": "回返水墨創作的內心平靜—「天地有大美—2026袁之靜水墨創作展」",
+        "en": "Rediscovering Inner Peace Through Ink Painting: “There is Great Beauty in Heaven and Earth”: Yuan Chih-Jin Ink Painting Exhibition 2026"
+      },
+      "url": "https://artouch.com/art-views/content-214838.html"
     },
     {
       "date": "2026-08-31",
