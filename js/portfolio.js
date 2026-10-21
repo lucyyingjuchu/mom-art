@@ -850,21 +850,23 @@ class ChineseArtPortfolio {
             // Small pieces don't share a row with larger works either, or they would be
             // blown up to the larger work's height.
             const isVertical = el => box(el) < 0.9;
+            // Upright and wide paintings never share a row, in any pass (squares go with either)
+            const sameShape = list => !(list.some(el => box(el) < 0.9) && list.some(el => box(el) > 1.1));
+            // A panorama (3:1 or wider, e.g. 17 x 92 cm) gets a row to itself at its own
+            // scale: in a shared row it would set a height that shrinks everything else
+            const isPano = el => box(el) >= 2.5;
+            const panoRows = items.filter(isPano).map(el => ({
+                items: [el], pano: true,
+                h: Math.min(naturalH(el), (width - 1) / box(el))
+            }));
             const kinds = new Map();
-            for (const el of items) {
+            for (const el of items.filter(el => !isPano(el))) {
                 // large and medium works may share a row; small pieces keep to themselves
                 const k = (isVertical(el) ? 'v' : 'h') + (sizeClass(el) === 'S' ? 'S' : 'LM');
                 if (!kinds.has(k)) kinds.set(k, []);
                 kinds.get(k).push(el);
             }
-            // A lone small piece shares a row with the small pieces of the other shape
-            // (never with larger works, which would blow it up)
-            const vS = kinds.get('vS') || [], hS = kinds.get('hS') || [];
-            if ((vS.length === 1 || hS.length === 1) && vS.length + hS.length > 1) {
-                kinds.delete('vS'); kinds.delete('hS');
-                kinds.set('S', [...vS, ...hS].sort((a, b) => a.dataset.idx - b.dataset.idx));
-            }
-            const rows = [...kinds.values()].flatMap(list => fitRows(list))
+            const rows = [...kinds.values()].flatMap(list => fitRows(list)).concat(panoRows)
                 .sort((a, b) => a.items[0].dataset.idx - b.items[0].dataset.idx);
             // Tidy-up: a row holding a single painting that fills less than half the width
             // joins the neighbouring row (the previous one if possible), unless that would
@@ -876,14 +878,14 @@ class ChineseArtPortfolio {
             for (const strict of [true, false]) {
                 for (let i = 0; i < rows.length; i++) {
                     const r = rows[i];
-                    if (r.items.length !== 1 || rowWidth(r) >= width * 0.5) continue;
+                    if (r.pano || r.items.length !== 1 || rowWidth(r) >= width * 0.5) continue;
                     // a large work alone is a deliberate feature; only small pieces go looking
                     if (!strict && sizeClass(r.items[0]) === 'L') continue;
                     for (const j of [i - 1, i + 1]) {
                         const other = rows[j];
-                        if (!other) continue;
+                        if (!other || other.pano) continue;
                         const both = j < i ? [...other.items, ...r.items] : [...r.items, ...other.items];
-                        if (tooWide(both) || (strict && !canShare(both))) continue;
+                        if (tooWide(both) || !sameShape(both) || (strict && !canShare(both))) continue;
                         const h = Math.min(heightFor(both), targetFor(both));
                         rows.splice(Math.min(i, j), 2, { items: both, h });
                         i = Math.max(-1, Math.min(i, j) - 1);   // re-check from the merged row
