@@ -1313,19 +1313,17 @@ class ChineseArtPortfolio {
             .featured-gallery {
                 max-width: 1400px;
                 margin: 0 auto;
-                padding: 3rem 2rem;
+                padding: 1.5rem 2rem 3rem;
             }
             
+            /* The tab already says 精選 / Featured: the heading stays for screen
+               readers and search engines but takes no space, so the works come first */
             .featured-header {
-                text-align: center;
-                margin-bottom: 3rem;
-            }
-            
-            .featured-header h2 {
-                font-size: 2.5rem;
-                color: #2c3e50;
-                margin-bottom: 1rem;
-                font-weight: 300;
+                position: absolute;
+                width: 1px; height: 1px;
+                overflow: hidden;
+                clip: rect(0 0 0 0);
+                white-space: nowrap;
             }
             
             .featured-header p {
@@ -1588,11 +1586,7 @@ class ChineseArtPortfolio {
                 }
                 
                 .featured-gallery {
-                    padding: 2rem 1rem;
-                }
-                
-                .featured-header h2 {
-                    font-size: 2rem;
+                    padding: 1rem 1rem 2rem;
                 }
                 
                 .featured-info {
