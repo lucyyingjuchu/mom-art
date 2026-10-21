@@ -150,20 +150,19 @@ def link_for(a):
 
 
 def order(artworks):
-    """Newest and featured first, then rotate through boards so the feed mixes."""
+    """Newest and featured first within each board, with every board spread
+    evenly across the whole run so each batch mixes all four boards."""
     def key(a):
         y = int(a["year"]) if str(a.get("year", "")).isdigit() else 0
         return (0 if a.get("featured") else 1, -y)
     by_board = {}
     for a in sorted(artworks, key=key):
         by_board.setdefault(board_for(a), []).append(a)
-    queues = [by_board[b] for b in BOARDS.values() if b in by_board]
-    out = []
-    while any(queues):
-        for q in queues:
-            if q:
-                out.append(q.pop(0))
-    return out
+    slots = []
+    for rank, items in enumerate(by_board.values()):
+        n = len(items)
+        slots += [((i + 0.5) / n, rank, a) for i, a in enumerate(items)]
+    return [a for _, _, a in sorted(slots, key=lambda t: (t[0], t[1]))]
 
 
 def schedule(n, start, per_day):
