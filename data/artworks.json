@@ -6093,7 +6093,7 @@
     "year": "2026",
     "price": "",
     "available": true,
-    "featured": true,
+    "featured": false,
     "curatorNote": "畫作以多層藍黑色鋪陳大地與山體之厚度,形成深邃而沉穩的底蘊。主峰突起,筆勢凝練,勾勒出玉山之巍峩。上方一輪明月,色澤柔和,與山形成剛柔對照。構圖簡約有力,展現出當代水墨中氣勢與內斂並存之美。思及東坡詩句:「與誰同坐,明月、清風、我」唯美,正合畫境,勾勒出了一種極致的孤獨與灑脫,又有超然物外的豁達。",
     "curatorNoteEn": "Layers of blue-black build the weight of earth and mountain, deep and steady. The main peak rises in concentrated strokes, outlining the majesty of Yushan, while a soft-toned moon above sets gentleness against strength. Simple and powerful, it shows the beauty of contemporary ink painting where force and restraint live together. It recalls Su Dongpo's line, \"With whom shall I sit? The bright moon, the clear breeze, and I\" — a picture of complete solitude and freedom, and of a heart at ease beyond worldly things.",
     "productViews": [
@@ -6116,7 +6116,8 @@
     "printFile": {
       "scan": "28.jpg",
       "pixels": "3734x5700"
-    }
+    },
+    "sizeCm": "101 × 67 cm"
   },
   {
     "id": "01a12c08-8ca0-751d-bbfb-5441bc66e8d6",
