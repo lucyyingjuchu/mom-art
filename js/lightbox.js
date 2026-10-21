@@ -260,7 +260,7 @@
         const title = textFor(artwork, 'title') || (zh ? '未命名' : 'Untitled');
         const values = {
             artworkTitle: title,
-            artworkTitleEn: zh ? (artwork.titleEn || '') : '',
+            artworkTitleEn: '',   // each language shows its own title only
             artworkDescription: textFor(artwork, 'description'),
             artworkYear: artwork.year || (zh ? '年份不詳' : 'Unknown'),
             artworkSize: size,

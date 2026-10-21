@@ -522,7 +522,7 @@ const LANGUAGE_DATA = {
             availableStatus: "點此洽詢購買原作",
             soldStatus: "原作已售出",
             yearLabel: "年份",
-            dimensionsLabel: " 尺寸(高x寬)",
+            dimensionsLabel: "尺寸（高×寬）",
             mediumLabel: "媒材", 
             formatLabel: "裝裱",
             shareTitle: "分享作品",

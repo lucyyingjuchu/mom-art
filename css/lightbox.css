@@ -496,9 +496,16 @@
     margin-bottom: 1.5rem; /* Reduced from 2rem */
 }
 
+/* One label column for all rows, as wide as the longest label (never wraps) */
+.artwork-specs {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+}
+
 .spec-item {
-    display: grid; /* Changed from flex */
-    grid-template-columns: 90px 1fr; /* Fixed label width */
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: subgrid;
     gap: 1rem;
     margin-bottom: 0.6rem; /* Reduced from 0.8rem */
     font-size: 0.9rem; /* Reduced from 0.95rem */
@@ -517,6 +524,8 @@
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    white-space: nowrap;
+    min-width: 72px;
 }
 
 .spec-value {
