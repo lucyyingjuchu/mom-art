@@ -37,7 +37,7 @@ SKIP_YEARS = set()         # e.g. {"2027"} to hold back a year until its photos 
 # Publish times in UTC, one per pin per day (--per-day picks the first N)
 POST_HOURS_UTC = [1, 14, 18]   # 9pm / 10am / 2pm New York
 
-# Category (from artworks.json autoCategories/manualCategories) -> Pinterest board.
+# Subject (artworks.json "subjects") -> Pinterest board.
 # Boards that don't exist yet are created by Pinterest on upload.
 BOARDS = {
     "waterfall": "Chinese Waterfall Paintings",
@@ -62,16 +62,8 @@ BASE_KEYWORDS = "chinese ink painting, asian wall art, traditional chinese paint
 
 
 def categories(art):
-    cats = []
-    for field in ("autoCategories", "manualCategories"):
-        value = art.get(field) or {}
-        if isinstance(value, dict):
-            for group in value.values():
-                cats.extend(group or [])
-        elif isinstance(value, list):
-            cats.extend(value)
-    cats.extend(art.get("categories") or [])
-    return [c for c in cats if isinstance(c, str)]
+    """The work's subjects (山水, 瀑布 ... as keys like 'landscape'), from artworks.json."""
+    return [c for c in (art.get("subjects") or []) if isinstance(c, str)]
 
 
 def is_public(art):

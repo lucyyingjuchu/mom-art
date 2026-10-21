@@ -28,11 +28,7 @@ const BOARDS = {
 const BOARD_ORDER = ['calligraphy', 'flower-bird', 'abstract', 'landscape'];
 
 function subjects(a) {
-    const s = new Set();
-    for (const key of ['manualCategories', 'autoCategories']) {
-        ((a[key] || {}).subjects || []).forEach(x => s.add(x));
-    }
-    return s;
+    return new Set(Array.isArray(a.subjects) ? a.subjects : []);
 }
 
 // One board per Pin, by what dominates the work. Landscapes that carry a

@@ -24,9 +24,9 @@ What it does for each row
 Photos are matched by the sheet's 圖片/檔名 column if there is one, otherwise by a
 file whose name starts with the artwork title (e.g. "清音.jpg" or "清音-1.JPG").
 
-After importing: fill English titles/poems (Unified_translator.py, or ask Claude),
-then run artwork_categorizer.py. Rows with a 題材 (and/or 地點) column filled in
-keep exactly those filter tags; rows without one get keyword guesses.
+After importing: fill English titles/poems (Unified_translator.py, or ask Claude).
+The 題材 column (e.g. 山水、瀑布) decides which gallery tabs a work appears under;
+a row without one shows only under 全部 until a 題材 is ticked on the admin page.
 """
 
 import argparse
@@ -75,7 +75,6 @@ COLUMN_NAMES = {
     "price":        ["價格", "售價", "price"],
     "series":       ["系列", "series"],
     "subjects":     ["題材", "題材分類", "分類", "類別", "subject", "subjects", "category", "categories"],
-    "locations":    ["地點", "地點分類", "景點", "location", "locations", "place"],
     "photo":        ["圖片", "照片", "檔名", "圖檔", "圖片檔名", "photo", "image", "file", "filename"],
     "ignore":       ["編號", "媒材", "no", "no.", "#"],   # recognised so they don't get mistaken for other columns
 }
@@ -227,36 +226,35 @@ def save_resized(src, dest, long_side, quality):
 
 
 def load_category_words():
-    """Map 山水 / Landscape / landscape -> ("subjects", "landscape"), 玉山 -> ("locations", "yushan"), ..."""
+    """Map 山水 / Landscapes / landscape / 墨竹 (alias) -> 'landscape' / 'flowers' ..."""
     with open(CATEGORY_CONFIG, encoding="utf-8") as f:
         cfg = json.load(f)
     words = {}
-    for kind in ("subjects", "locations"):
-        for key in cfg["categories"][kind]:
-            words[norm(key)] = (kind, key)
-            for lang in ("zh", "en"):
-                label = cfg["displayLabels"][lang][kind].get(key)
-                if label:
-                    words[norm(label)] = (kind, key)
-    words[norm("花卉")] = words[norm("花鳥")]   # common alternative names
-    words[norm("雲")] = words[norm("煙雲")]
-    words[norm("月")] = words[norm("明月")]
+    for key in cfg["subjects"]:
+        words[norm(key)] = key
+        for lang in ("zh", "en"):
+            label = cfg["labels"][lang].get(key)
+            if label:
+                words[norm(label)] = key
+    for word, key in (cfg.get("aliases") or {}).items():
+        words[norm(word)] = key
     return words
 
 
 def parse_categories(text, words, where):
-    """'山水、煙雲 / 玉山' -> {"subjects": ["landscape", "flowingclouds"], "locations": ["yushan"]}"""
-    found = {"subjects": [], "locations": []}
+    """'山水、明月' -> ["landscape", "moon"] (瀑布/煙雲 take the place of 山水)"""
+    found = []
     for part in re.split(r"[、,，;；/／|\s]+", text or ""):
         if not part:
             continue
-        hit = words.get(norm(part))
-        if not hit:
-            print(f"⚠️  {where}: unknown category '{part}' ignored (known: 山水 瀑布 煙雲 明月 花鳥 墨竹 書法 抽象, or a place like 玉山)")
+        key = words.get(norm(part))
+        if not key:
+            print(f"⚠️  {where}: unknown 題材 '{part}' ignored (known: 山水 瀑布 煙雲 花鳥 明月 抽象 書法)")
             continue
-        kind, key = hit
-        if key not in found[kind]:
-            found[kind].append(key)
+        if key not in found:
+            found.append(key)
+    if "landscape" in found and ("waterfall" in found or "flowingclouds" in found):
+        found.remove("landscape")
     return found
 
 
@@ -334,10 +332,7 @@ def main():
         if get("series"):
             artwork["series"] = get("series")    # gallery keeps a year's series together
         # 題材 / 地點 columns -> hand-picked filter tags (these win over the automatic guesses)
-        cats = parse_categories(get("subjects") + " " + get("locations"), category_words, f"Row {r}")
-        if cats["subjects"] or cats["locations"]:
-            artwork["autoCategories"] = {"subjects": [], "locations": []}
-            artwork["manualCategories"] = cats
+        artwork["subjects"] = parse_categories(get("subjects"), category_words, f"Row {r}")
         if h is not None and w is not None:
             artwork.update({
                 "heightCm": h, "widthCm": w,
@@ -382,8 +377,7 @@ def main():
     print(f"\n{'Row':>4}  {'Photo':<28} Size        Title")
     for (r, title, photo, h, w), art in zip(added, artworks[len(artworks) - len(added):]):
         size = f"{h}×{w}" if h is not None else "—"
-        tags = art.get("manualCategories", {})
-        tags = " ".join(tags.get("subjects", []) + tags.get("locations", [])) or "(no 題材 - will be guessed)"
+        tags = " ".join(art.get("subjects", [])) or "(no 題材 - only under 全部)"
         print(f"{r:>4}  {(photo or '(none → draft)'):<28} {size:<11} {title or '(無題 → draft)'}  [{tags}]")
     if skipped:
         print(f"\nAlready on the site, skipped ({len(skipped)}): " + "、".join(skipped))

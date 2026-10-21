@@ -41,6 +41,36 @@
     border-bottom-color: #a3342c;
 }
 
+.gallery-search-row {
+    display: flex;
+    justify-content: center;
+    margin: 0.9rem auto 0;
+    padding: 0 1rem;
+}
+
+.gallery-search {
+    width: 100%;
+    max-width: 320px;
+    font: inherit;
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+    color: #2c3e50;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid #d9d2c7;
+    border-radius: 0;
+    padding: 0.45rem 0.2rem;
+    text-align: center;
+}
+.gallery-search::placeholder { color: #b0a698; }
+.gallery-search:focus { outline: none; border-bottom-color: #a3342c; }
+
+.gallery-empty {
+    text-align: center;
+    color: #8a7f72;
+    padding: 3rem 1rem;
+}
+
 #gallery .results-info {
     text-align: center;
     color: #a99f92;
