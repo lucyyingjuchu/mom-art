@@ -446,7 +446,7 @@ const LANGUAGE_DATA = {
         faq: {
                 tabs: { authenticity: "真品與創作", shipping: "運送", pricing: "價格與付款" },
                 title: "常見問題",
-                subtitle: "作品各自有不同的旅程：原作由藝術家工作室於台灣直寄；\n藝術微噴版畫(fine art giclée prints)則於美國製作並寄送，讓水墨藝術更容易走向世界。",
+                subtitle: "作品各自有不同的旅程：原作由藝術家工作室於台灣直寄；\n藝術微噴印刷品(fine art giclée prints)則於美國製作並寄送，讓水墨藝術更容易走向世界。",
                 
                 sections: {
                     authenticity: {
@@ -459,7 +459,7 @@ const LANGUAGE_DATA = {
                             },
                             {
                                 question: "原作與印刷品有什麼差別？",
-                                answer: "**原作**：宣紙上的獨一無二收藏級作品。\n**印刷品**：典藏級藝術微噴複製品(fine art giclée prints)，目前由美國合作夥伴製作，僅於英文版網站提供訂購；台灣地區的版畫服務正在籌備中。"
+                                answer: "**原作**：宣紙上的獨一無二收藏級作品。\n**印刷品**：典藏級藝術微噴複製品(fine art giclée prints)，目前由美國合作夥伴製作，僅於英文版網站提供訂購；台灣地區的印刷品訂購正在籌備中。"
                             }
                         ]
                     },
@@ -472,8 +472,8 @@ const LANGUAGE_DATA = {
                                 answer: "**原作**：由曉然文化工作室於台灣直寄。\n**印刷品**（英文版網站）：由美國合作夥伴製作並寄送。"
                             },
                             {
-                                question: "如何購買原作與藝術微噴版畫(fine art giclée prints)？",
-                                answer: "**原作**：需填寫「原作詢價表單」，我們會與您聯繫安排付款與出貨。\n**印刷品**：目前僅於英文版網站提供訂購；台灣地區的版畫服務正在籌備中。"
+                                question: "如何購買原作與藝術微噴印刷品(fine art giclée prints)？",
+                                answer: "**原作**：需填寫「原作詢價表單」，我們會與您聯繫安排付款與出貨。\n**印刷品**：目前僅於英文版網站提供訂購；台灣地區的印刷品訂購正在籌備中。"
                             },
                             {
                                 question: "原作有附框嗎？",
@@ -507,7 +507,7 @@ const LANGUAGE_DATA = {
             emailTitle: "電子郵件",
             copy: "複製",
             copied: "已複製",
-            printsNote: "版畫、運送或裝裱的問題？",
+            printsNote: "印刷品、運送或裝裱的問題？",
             printsLink: "請看常見問題",
             followTitle: "追蹤畫室",
             facebookTitle: "Facebook",
@@ -602,7 +602,7 @@ const LANGUAGE_DATA = {
             imageSize: "畫面",
             shipTo: "寄送至",
             printSizeLabel: "紙張尺寸(高x寬)",
-            shipNote: "運費會在結帳時依版畫尺寸計算，版畫以紙筒捲裝寄送。",
+            shipNote: "運費會在結帳時依印刷尺寸計算，印刷品以紙筒捲裝寄送。",
             styleMounted: "裱厚卡紙",
             styleRolled: "捲裝寄送",
             diagramLabel: "各印刷尺寸與 170 公分人形的比例示意",
@@ -622,11 +622,11 @@ const LANGUAGE_DATA = {
             priceLoading: "價格載入中...",
             priceLoadFailed: "價格載入失敗",
 
-            // 作品資訊上方的版畫入口
-            printsTeaser: "提供藝術微噴版畫",
-            printsTeaserFrom: "提供藝術微噴版畫 · {price} 起",
-            printsPill: "版畫",
-            printsPillFrom: "版畫 {price} 起",
+            // 作品資訊上方的印刷品入口
+            printsTeaser: "提供藝術微噴印刷品",
+            printsTeaserFrom: "提供藝術微噴印刷品 · {price} 起",
+            printsPill: "印刷品",
+            printsPillFrom: "印刷品 {price} 起",
             
             // Checkout form
             checkoutTitle: "結帳資訊",
