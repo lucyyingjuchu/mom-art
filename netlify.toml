@@ -17,6 +17,13 @@
   force = true
   conditions = {Language = ["zh"]}
 
+# ---- Pinterest RSS feeds, one per board (functions/pinterest-feed.js) ----
+[[redirects]]
+  from = "/pinterest/*"
+  to = "/.netlify/functions/pinterest-feed/:splat"
+  status = 200
+  force = true
+
 # ---- Keep working files off the public website ----
 [[redirects]]
   from = "/data/data_processing_scripts/*"
