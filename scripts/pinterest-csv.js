@@ -28,6 +28,7 @@ function arg(name, fallback) {
 const root = path.join(__dirname, '..');
 const artworks = JSON.parse(fs.readFileSync(path.join(root, 'data/artworks.json'), 'utf8')).filter(P.isPublic);
 const schedule = JSON.parse(fs.readFileSync(path.join(root, 'data/pinterest_schedule.json'), 'utf8'));
+P.setBoardOverrides(schedule.board);
 
 let rows;
 const idsFile = arg('ids');

@@ -1,10 +1,8 @@
 // functions/pinterest-feed.js
 //
 // RSS feeds Pinterest auto-publishes from, one per board:
-//   https://xiaoranart.com/pinterest/landscape.xml
-//   https://xiaoranart.com/pinterest/flower-bird.xml
-//   https://xiaoranart.com/pinterest/abstract.xml
-//   https://xiaoranart.com/pinterest/calligraphy.xml
+//   https://xiaoranart.com/pinterest/<board>.xml for each key in BOARDS:
+//   landscape, waterfall, clouds, flower-bird, moon, abstract, calligraphy
 // Each feed lists that board's artworks whose release time has passed (see
 // functions/_shared/pinterest.js), so Pins go out a few a day instead of all at
 // once, and artworks added to the site later join the queue on their own.
@@ -12,6 +10,7 @@
 const P = require('./_shared/pinterest');
 const artworks = require('../data/artworks.json');
 const schedule = require('../data/pinterest_schedule.json');
+P.setBoardOverrides(schedule.board);
 
 const MAX_ITEMS = 100;
 const xml = s => String(s).replace(/[<>&'"]/g, c => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;', "'": '&apos;', '"': '&quot;' }[c]));
