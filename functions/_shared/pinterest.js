@@ -9,6 +9,8 @@
 // Release plan (data/pinterest_schedule.json):
 //   csv: ids already uploaded to Pinterest by CSV  -> never in a feed
 //   rss: { id: ISO time }                          -> appears in its feed from that time
+//   board: { id: board key }                       -> board a Pin was published on; kept
+//       even if the work is re-tagged later, so it never shows up in a second feed
 //   any other public artwork (new works added later) -> queued after the last
 //       scheduled one, one every 8 hours, never before the artwork was created
 //       (ids are UUIDv7, so the id carries its creation time). This keeps a batch
@@ -18,31 +20,42 @@ const SITE = 'https://xiaoranart.com';
 const ARTIST = 'Yuan Chih-Jin';
 const GAP_MS = 8 * 3600 * 1000;
 
+// One board per gallery tab (題材). Keys are the feed names (/pinterest/<key>.xml).
 const BOARDS = {
-    landscape: 'Chinese Ink Landscape Painting',
-    'flower-bird': 'Chinese Flower & Bird Painting',
-    abstract: 'Contemporary Ink Abstraction',
-    calligraphy: 'Chinese Calligraphy Art'
+    landscape: 'Chinese Ink Landscape Painting',      // 山水
+    waterfall: 'Chinese Ink Waterfall Painting',      // 瀑布
+    clouds: 'Clouds & Mist Ink Painting',             // 煙雲
+    'flower-bird': 'Chinese Flower & Bird Painting',  // 花鳥
+    moon: 'Moon in Chinese Ink Painting',             // 明月
+    abstract: 'Contemporary Ink Abstraction',         // 抽象
+    calligraphy: 'Chinese Calligraphy Art'            // 書法
 };
 // Order boards rotate in when spreading Pins out
-const BOARD_ORDER = ['calligraphy', 'flower-bird', 'abstract', 'landscape'];
+const BOARD_ORDER = ['calligraphy', 'moon', 'abstract', 'flower-bird', 'waterfall', 'clouds', 'landscape'];
+
+// artworks.json subject -> board
+const SUBJECT_BOARD = {
+    landscape: 'landscape', waterfall: 'waterfall', flowingclouds: 'clouds',
+    flowers: 'flower-bird', moon: 'moon', abstract: 'abstract', calligraphy: 'calligraphy'
+};
+// A Pin goes on one board. When a work is under several gallery tabs, the more
+// specific motif wins, since that is what people search Pinterest for.
+const BOARD_PRIORITY = ['calligraphy', 'moon', 'waterfall', 'flowingclouds', 'abstract', 'flowers', 'landscape'];
 
 function subjects(a) {
     return new Set(Array.isArray(a.subjects) ? a.subjects : []);
 }
 
-// One board per Pin, by what dominates the work. Landscapes that carry a
-// calligraphy poem stay on the landscape board; the calligraphy board is for works
-// that are mainly writing. Abstract style wins over subject.
+// Pins that already went out keep the board they were published on
+// (data/pinterest_schedule.json "board"), so a later re-tag never re-pins them.
+let BOARD_OVERRIDES = {};
+function setBoardOverrides(map) { BOARD_OVERRIDES = map || {}; }
+
 function boardKey(a) {
+    if (BOARD_OVERRIDES[a.id] && BOARDS[BOARD_OVERRIDES[a.id]]) return BOARD_OVERRIDES[a.id];
     const s = subjects(a);
-    const has = (...xs) => xs.some(x => s.has(x));
-    const scenery = has('landscape', 'flowingclouds', 'waterfall', '山水', '煙雲');
-    const title = `${a.title || ''} ${a.titleEn || ''}`.toLowerCase();
-    if (s.has('calligraphy') && !scenery && !has('flowers', 'bamboo', 'abstract')) return 'calligraphy';
-    if (s.has('abstract')) return 'abstract';
-    if ((has('flowers', 'bamboo', '花鳥') && !s.has('landscape')) || /bird|peacock|鳥/.test(title)) return 'flower-bird';
-    return 'landscape';
+    const first = BOARD_PRIORITY.find(k => s.has(k));
+    return first ? SUBJECT_BOARD[first] : 'landscape';
 }
 const boardName = a => BOARDS[boardKey(a)];
 
@@ -70,7 +83,10 @@ function kindPhrase(a) {
         calligraphy: 'Chinese calligraphy',
         'flower-bird': 'Chinese bird-and-flower ink painting',
         abstract: 'contemporary Chinese ink painting',
-        landscape: 'Chinese ink landscape painting'
+        landscape: 'Chinese ink landscape painting',
+        waterfall: 'Chinese ink painting of a waterfall',
+        clouds: 'Chinese ink painting of clouds and mist',
+        moon: 'Chinese ink painting of the moon'
     }[boardKey(a)];
 }
 
@@ -100,12 +116,11 @@ function keywords(a) {
     const kw = ['chinese ink painting', 'ink wash painting', 'asian art', 'wall art', ARTIST];
     const extra = {
         calligraphy: boardKey(a) === 'calligraphy' ? ['chinese calligraphy', 'calligraphy art'] : ['painting with calligraphy'],
-        flowers: ['flower painting', 'botanical art'],
-        bamboo: ['bamboo painting'],
+        flowers: ['flower painting', 'bird and flower painting'],
         landscape: ['mountain landscape', 'shan shui'],
         waterfall: ['waterfall painting'],
         flowingclouds: ['misty mountains'],
-        moon: ['moon art'],
+        moon: ['moon art', 'moon painting'],
         abstract: ['abstract ink art']
     };
     for (const [k, v] of Object.entries(extra)) if (s.has(k)) kw.push(...v);
@@ -160,7 +175,7 @@ function releases(artworks, schedule) {
 }
 
 module.exports = {
-    SITE, BOARDS, BOARD_ORDER, GAP_MS,
+    SITE, BOARDS, BOARD_ORDER, GAP_MS, setBoardOverrides,
     subjects, boardKey, boardName, isPublic, imageUrl, title, description, keywords, link,
     order, createdAt, releases
 };
