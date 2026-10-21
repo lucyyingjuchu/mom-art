@@ -37,68 +37,6 @@ function uuidv7() {
 }
 
 // ================================
-// FORM DATA COLLECTION HELPER
-// ================================
-
-function collectFormData(artworkId) {
-    // Collect all form fields - CRITICAL FIX: Now includes height/width
-    const title = document.getElementById('artworkTitle').value.trim();
-    const year = document.getElementById('artworkYear').value.trim();
-    const height = document.getElementById('artworkHeight').value.trim();
-    const width = document.getElementById('artworkWidth').value.trim();
-    
-    // Validate required fields
-    if (!title || !year || !height || !width) {
-        throw new Error('標題、年份、高度和寬度為必填欄位');
-    }
-    
-    // Validate dimensions are positive numbers
-    const heightNum = parseFloat(height);
-    const widthNum = parseFloat(width);
-    
-    if (isNaN(heightNum) || isNaN(widthNum) || heightNum <= 0 || widthNum <= 0) {
-        throw new Error('高度和寬度必須是有效的正數');
-    }
-    
-    return {
-        id: artworkId,
-        title: title,
-        titleEn: '', // 英文版本之後翻譯
-        category: 'paintings',
-        subcategory: (window.manualCategories || []).join(', '), // Use manual categories
-        manualCategories: window.manualCategories || [], // Store the array separately
-        description: document.getElementById('artworkDescription').value.trim(),
-        descriptionEn: '', // 英文版本之後翻譯
-        curatorNote: document.getElementById('artworkCuratorNote').value.trim(),
-        curatorNoteEn: '', // 英文版本之後翻譯
-        format: document.getElementById('artworkFormat').value,
-        formatEn: '', // 英文版本之後翻譯
-        mediumEn: '', // 媒材英文版本之後翻譯
-        // NEW: Separate dimension fields
-        heightCm: heightNum,
-        widthCm: widthNum,
-        heightInches: parseFloat((heightNum / 2.54).toFixed(1)),
-        widthInches: parseFloat((widthNum / 2.54).toFixed(1)),
-        // LEGACY: For backward compatibility
-        sizeCm: `${heightNum}×${widthNum}`,
-        sizeInches: `${(heightNum / 2.54).toFixed(1)}×${(widthNum / 2.54).toFixed(1)}`,
-        year: year,
-        price: document.getElementById('artworkPrice').value.trim(),
-        available: document.getElementById('artworkAvailable').checked,
-        featured: document.getElementById('artworkFeatured').checked,
-        recent: parseInt(year) >= 2020,
-        exhibitions: [],
-        tags: [],
-        // NEW: Auto-categorization support
-        categories: [], // Will be populated by admin.html logic
-        autoCategories: { subjects: [], locations: [] }, // Will be populated by admin.html logic
-        // Image paths will be set after upload
-        image: '',
-        imageHigh: ''
-    };
-}
-
-// ================================
 // ADMIN PASSWORD (sent to githubProxy as X-Admin-Key)
 // ================================
 const ADMIN_KEY_STORAGE = 'xr_admin_key';

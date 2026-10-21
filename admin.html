@@ -654,6 +654,14 @@
         .badge.featured { background: #fff4d6; color: #8a6400; }
         .badge.warn { background: #fdebd0; color: #a04000; }
 
+        .subject-checks { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.3rem 0 0.6rem; }
+        .subject-check {
+            display: inline-flex; align-items: center; gap: 0.35rem; cursor: pointer;
+            border: 1px solid #ddd; border-radius: 6px; padding: 0.35rem 0.7rem; font-weight: normal;
+        }
+        .form-group .subject-check { display: inline-flex; margin: 0; }
+        .form-group .subject-check input { width: auto; margin: 0; padding: 0; }
+        .subject-check:has(input:checked) { border-color: #a3342c; background: #fbf1ef; color: #a3342c; }
         .tab-preview { font-size: 0.85rem; color: #2c3e50; background: #f4f1ec; border-radius: 6px; padding: 0.4rem 0.6rem; margin-bottom: 0.6rem; }
         .field-hint { color: #8a7f72; font-size: 0.8rem; margin-top: 0.25rem; }
         details.english-fields { margin-top: 0.5rem; border: 1px solid #e3e6ea; border-radius: 8px; padding: 0.5rem 0.8rem; }
@@ -826,52 +834,13 @@
                                 <textarea id="artworkCuratorNote" placeholder="請輸入策展人筆記或評論..."></textarea>
                             </div>
                             
-                            <!-- CLEANED UP CATEGORY MANAGEMENT -->
                             <div class="form-group">
-                                <label>分類標籤管理</label>
+                                <label>網站分頁（題材，可複選）</label>
+                                <div class="subject-checks" id="subjectChecks"></div>
+                                <div class="field-hint">瀑布、煙雲的畫不勾山水（山水留給其他山水畫）；其他可以複選，例如抽象＋明月</div>
                                 <div class="tab-preview" id="tabPreview"></div>
-                                
-                                <!-- Available Category Labels Display -->
-                                <div class="category-section">
-                                    <h5>🏷️ 可用分類標籤參考</h5>
-                                    <div id="availableCategoryLabels" style="max-height: 100px; overflow-y: auto; font-size: 0.8rem; color: #6c757d;">
-                                        載入中...
-                                    </div>
-                                </div>
-
-                                <!-- Auto Categories Section -->
-                                <div class="category-section" id="autoCategoriesSection">
-                                    <h5>🤖 自動分類（可移除）</h5>
-                                    <div style="color: #6c757d; font-size: 0.8rem; margin-bottom: 0.4rem;">
-                                        有手動題材時，網站只用手動題材（地點同理）
-                                    </div>
-                                    <div class="category-tags" id="autoSubjectTags"></div>
-                                    <div class="category-tags" id="autoLocationTags"></div>
-                                    <div id="noAutoCategories" style="color: #6c757d; font-size: 0.8rem; display: none;">
-                                        目前無自動分類
-                                    </div>
-                                </div>
-                                
-                                <!-- Manual Categories Section -->
-                                <div class="category-section">
-                                    <h5>✏️ 手動分類</h5>
-                                    <div class="category-tags" id="manualSubjectTags"></div>
-                                    <div class="category-tags" id="manualLocationTags"></div>
-                                    
-                                    <div class="category-input-row">
-                                        <input type="text" id="manualCategoryInput" placeholder="新增分類標籤..." 
-                                               onkeypress="handleCategoryInputKeypress(event)">
-                                        <button type="button" class="btn btn-small" onclick="addManualCategory()">
-                                            ➕ 新增
-                                        </button>
-                                    </div>
-                                    
-                                    <div id="noManualCategories" style="color: #6c757d; font-size: 0.8rem; margin-top: 0.5rem;">
-                                        尚無手動分類標籤
-                                    </div>
-                                </div>
                             </div>
-                            
+
                             <div class="form-group">
                                 <div style="display: flex; gap: 1rem;">
                                     <label>
@@ -950,11 +919,6 @@
         let adminTab = 'all';
         let printReadyIds = new Set(); // works with print sizes (data/finerworks_ready_artworks.json)
         
-        // CLEANED UP: Category management - no more hardcoded categories
-        let currentArtworkCategories = {
-            autoCategories: { subjects: [], locations: [] },
-            manualCategories: { subjects: [], locations: [] }
-        };
 
         // CRITICAL SAFETY FUNCTION: Always use this for GitHub updates
         function getMasterArtworksArray() {
@@ -1008,231 +972,39 @@
             throw new Error('CategoryManager not ready after 5 seconds');
         }
 
-        // CLEANED UP: Category management functions using CategoryManager
-        function updateCategoryDisplay() {
-            if (!currentEditingId) {
-                // 新作品：確保 currentArtworkCategories 已初始化
-                if (!currentArtworkCategories || !currentArtworkCategories.autoCategories) {
-                    currentArtworkCategories = {
-                        autoCategories: { subjects: [], locations: [] },
-                        manualCategories: { subjects: [], locations: [] }
-                    };
-                }
-                displayCategoryTags({ subjects: [], locations: [] }, { subjects: [], locations: [] });
-                return;
-            }
-            
-            const artwork = allArtworks.find(a => a.id === currentEditingId);
-            if (!artwork) return;
-            
-            // Extract categories with fallback support
-            let autoCategories = { subjects: [], locations: [] };
-            let manualCategories = { subjects: [], locations: [] };
-            
-            if (artwork.autoCategories) {
-                autoCategories = artwork.autoCategories;
-            }
-            if (artwork.manualCategories) {
-                if (typeof artwork.manualCategories === 'object' && !Array.isArray(artwork.manualCategories)) {
-                    manualCategories = artwork.manualCategories;
-                }
-            }
-            
-            currentArtworkCategories = {
-                autoCategories: JSON.parse(JSON.stringify(autoCategories)),
-                manualCategories: JSON.parse(JSON.stringify(manualCategories))
-            };
-            
-            displayCategoryTags(autoCategories, manualCategories);
-        }
-        function displayCategoryTags(autoCategories, manualCategories) {
-            const autoSubjectTags = document.getElementById('autoSubjectTags');
-            const autoLocationTags = document.getElementById('autoLocationTags');
-            const noAutoCategories = document.getElementById('noAutoCategories');
-            const manualSubjectTags = document.getElementById('manualSubjectTags');
-            const manualLocationTags = document.getElementById('manualLocationTags');
-            const noManualCategories = document.getElementById('noManualCategories');
-            
-            function getCategoryLabel(category) {
-                if (categoryManager && categoryManager.getCategoryLabel) {
-                    return categoryManager.getCategoryLabel(category, 'zh');
-                }
-                return category;
-            }
-            
-            // Auto categories - 分成題材和地點
-            let autoSubjectsHtml = '';
-            let autoLocationsHtml = '';
-            
-            if (autoCategories.subjects && autoCategories.subjects.length > 0) {
-                autoSubjectsHtml = `
-                    <div style="margin-bottom: 0.5rem;">
-                        <strong style="font-size: 0.8rem; color: #495057;">題材分類：</strong><br>
-                        ${autoCategories.subjects.map(subject => `
-                            <span class="category-tag">
-                                📂 ${getCategoryLabel(subject)}
-                                <button type="button" onclick="removeAutoCategory('subjects', '${subject}')">✕</button>
-                            </span>
-                        `).join('')}
-                    </div>
-                `;
-            }
-            
-            if (autoCategories.locations && autoCategories.locations.length > 0) {
-                autoLocationsHtml = `
-                    <div style="margin-bottom: 0.5rem;">
-                        <strong style="font-size: 0.8rem; color: #495057;">地點分類：</strong><br>
-                        ${autoCategories.locations.map(location => `
-                            <span class="category-tag location">
-                                🗺️ ${getCategoryLabel(location)}
-                                <button type="button" onclick="removeAutoCategory('locations', '${location}')">✕</button>
-                            </span>
-                        `).join('')}
-                    </div>
-                `;
-            }
-            
-            if (autoSubjectTags) autoSubjectTags.innerHTML = autoSubjectsHtml;
-            if (autoLocationTags) autoLocationTags.innerHTML = autoLocationsHtml;
-            
-            // Manual categories - 分成題材和地點
-            let manualSubjectsHtml = '';
-            let manualLocationsHtml = '';
-            
-            if (manualCategories.subjects && manualCategories.subjects.length > 0) {
-                manualSubjectsHtml = `
-                    <div style="margin-bottom: 0.5rem;">
-                        <strong style="font-size: 0.8rem; color: #495057;">題材分類：</strong><br>
-                        ${manualCategories.subjects.map(subject => `
-                            <span class="category-tag manual">
-                                📂 ${getCategoryLabel(subject)}
-                                <button type="button" onclick="removeManualCategory('subjects', '${subject}')">✕</button>
-                            </span>
-                        `).join('')}
-                    </div>
-                `;
-            }
-            
-            if (manualCategories.locations && manualCategories.locations.length > 0) {
-                manualLocationsHtml = `
-                    <div style="margin-bottom: 0.5rem;">
-                        <strong style="font-size: 0.8rem; color: #495057;">地點分類：</strong><br>
-                        ${manualCategories.locations.map(location => `
-                            <span class="category-tag manual location">
-                                🗺️ ${getCategoryLabel(location)}
-                                <button type="button" onclick="removeManualCategory('locations', '${location}')">✕</button>
-                            </span>
-                        `).join('')}
-                    </div>
-                `;
-            }
-            
-            if (manualSubjectTags) manualSubjectTags.innerHTML = manualSubjectsHtml;
-            if (manualLocationTags) manualLocationTags.innerHTML = manualLocationsHtml;
-            
-            // Show/hide empty state messages
-            const hasAutoCategories = autoSubjectsHtml || autoLocationsHtml;
-            const hasManualCategories = manualSubjectsHtml || manualLocationsHtml;
-            
-            if (noAutoCategories) {
-                noAutoCategories.style.display = hasAutoCategories ? 'none' : 'block';
-            }
-            if (noManualCategories) {
-                noManualCategories.style.display = hasManualCategories ? 'none' : 'block';
-            }
-
-            // Which gallery tabs this work will appear under on the website
-            const preview = document.getElementById('tabPreview');
-            if (preview && window.categoryManager && categoryManager.getArtworkTabs) {
-                const tabs = categoryManager.getArtworkTabs({ autoCategories, manualCategories });
-                preview.innerHTML = tabs.length
-                    ? `🖼️ 網站分頁：全部、${tabs.map(t => t.zh).join('、')}`
-                    : '🖼️ 網站分頁：只在「全部」（加上題材，例如山水、花鳥、明月，才會出現在對應分頁）';
-            }
+        // 題材 checkboxes - one per gallery tab (data/category-config.json)
+        function renderSubjectChecks(selected = []) {
+            const box = document.getElementById('subjectChecks');
+            box.innerHTML = categoryManager.getAllSubjects().map(key => `
+                <label class="subject-check">
+                    <input type="checkbox" value="${key}" ${selected.includes(key) ? 'checked' : ''} onchange="subjectCheckChanged(this)">
+                    ${categoryManager.getCategoryLabel(key, 'zh')}
+                </label>`).join('');
+            updateTabPreview();
         }
 
-        function removeAutoCategory(categoryType, categoryKey) {
-            if (!currentArtworkCategories.autoCategories[categoryType]) return;
-            
-            const index = currentArtworkCategories.autoCategories[categoryType].indexOf(categoryKey);
-            if (index > -1) {
-                currentArtworkCategories.autoCategories[categoryType].splice(index, 1);
-                displayCategoryTags(currentArtworkCategories.autoCategories, currentArtworkCategories.manualCategories);
-                
-                let label = categoryKey;
-                if (typeof categoryManager !== 'undefined' && categoryManager.getCategoryLabel) {
-                    label = categoryManager.getCategoryLabel(categoryKey, 'zh');
-                }
-                showMessage(`已移除自動${categoryType === 'subjects' ? '題材' : '地點'}分類「${label}」`, 'info');
+        // 山水 and 瀑布/煙雲 don't go together: a waterfall or a sea of clouds goes
+        // under its own tab, so 山水 stays for the other landscapes
+        function subjectCheckChanged(input) {
+            if (input.checked) {
+                const clash = input.value === 'landscape' ? ['waterfall', 'flowingclouds']
+                    : (input.value === 'waterfall' || input.value === 'flowingclouds') ? ['landscape'] : [];
+                document.querySelectorAll('#subjectChecks input').forEach(i => {
+                    if (clash.includes(i.value)) i.checked = false;
+                });
             }
+            updateTabPreview();
         }
 
-        function removeManualCategory(categoryType, categoryKey) {
-            if (!currentArtworkCategories.manualCategories[categoryType]) return;
-            
-            const index = currentArtworkCategories.manualCategories[categoryType].indexOf(categoryKey);
-            if (index > -1) {
-                currentArtworkCategories.manualCategories[categoryType].splice(index, 1);
-                displayCategoryTags(currentArtworkCategories.autoCategories, currentArtworkCategories.manualCategories);
-                
-                let label = categoryKey;
-                if (typeof categoryManager !== 'undefined' && categoryManager.getCategoryLabel) {
-                    label = categoryManager.getCategoryLabel(categoryKey, 'zh');
-                }
-                showMessage(`已移除手動${categoryType === 'subjects' ? '題材' : '地點'}分類「${label}」`, 'info');
-            }
+        function readSubjectChecks() {
+            return [...document.querySelectorAll('#subjectChecks input:checked')].map(i => i.value);
         }
 
-        // Add manual category
-        function addManualCategory() {
-            const input = document.getElementById('manualCategoryInput');
-            const categoryText = input.value.trim();
-            
-            if (!categoryText) {
-                showMessage('請輸入分類標籤', 'warning');
-                return;
-            }
-            
-            // Use CategoryManager to normalize and classify
-            const normalizedKey = categoryManager && categoryManager.chineseToEnglish ? 
-                                categoryManager.chineseToEnglish(categoryText) : categoryText;
-            
-            // Determine if it's a subject or location using CategoryManager
-            let categoryType = 'subjects'; // Default
-            if (categoryManager && categoryManager.isLocation && categoryManager.isLocation(normalizedKey)) {
-                categoryType = 'locations';
-            }
-            
-            // Check if already exists
-            // Only hand-picked tags count: once any are set, the site ignores the automatic guesses
-            const allExistingCategories = currentArtworkCategories.manualCategories[categoryType] || [];
-            
-            if (allExistingCategories.includes(normalizedKey)) {
-                showMessage('此分類標籤已存在', 'warning');
-                return;
-            }
-            
-            // Add to manual categories
-            if (!currentArtworkCategories.manualCategories[categoryType]) {
-                currentArtworkCategories.manualCategories[categoryType] = [];
-            }
-            currentArtworkCategories.manualCategories[categoryType].push(normalizedKey);
-            
-            input.value = '';
-            
-            // 重要修復：直接調用 displayCategoryTags
-            displayCategoryTags(currentArtworkCategories.autoCategories, currentArtworkCategories.manualCategories);
-            
-            const label = (categoryManager && categoryManager.getCategoryLabel) ? 
-                        categoryManager.getCategoryLabel(normalizedKey, 'zh') : normalizedKey;
-            showMessage(`已新增${categoryType === 'subjects' ? '題材' : '地點'}分類「${label}」`, 'success');
-        }
-        // Handle Enter key in category input
-        function handleCategoryInputKeypress(event) {
-            if (event.key === 'Enter') {
-                event.preventDefault();
-                addManualCategory();
-            }
+        function updateTabPreview() {
+            const subjects = readSubjectChecks();
+            document.getElementById('tabPreview').innerHTML = subjects.length
+                ? `🖼️ 網站上會出現在：全部、${subjects.map(s => categoryManager.getCategoryLabel(s, 'zh')).join('、')}`
+                : '🖼️ 沒勾題材的話，只會出現在「全部」';
         }
 
         // Tabs + search + add button. The tabs are the website's own gallery tabs
@@ -1278,69 +1050,6 @@
             applyAdminFilters();
         }
 
-        function displayAvailableCategoryLabels() {
-            const container = document.getElementById('availableCategoryLabels');
-            if (!container) return;
-            
-            let html = '';
-            
-            // Display available subjects
-            if (typeof categoryManager !== 'undefined' && categoryManager.getAllSubjects) {
-                const subjects = categoryManager.getAllSubjects();
-                if (subjects.length > 0) {
-                    const subjectLabels = subjects.map(subject => {
-                        const label = categoryManager.getCategoryLabel ? categoryManager.getCategoryLabel(subject, 'zh') : subject;
-                        return `<span class="available-label" onclick="quickAddCategory('subjects', '${subject}')" title="點擊快速加入">📂 ${label}</span>`;
-                    }).join(' ');
-                    html += `<div style="margin-bottom: 0.5rem;"><strong>題材：</strong> ${subjectLabels}</div>`;
-                }
-            }
-            
-            // Display available locations
-            if (typeof categoryManager !== 'undefined' && categoryManager.getAllLocations) {
-                const locations = categoryManager.getAllLocations();
-                if (locations.length > 0) {
-                    const locationLabels = locations.map(location => {
-                        const label = categoryManager.getCategoryLabel ? categoryManager.getCategoryLabel(location, 'zh') : location;
-                        return `<span class="available-label" onclick="quickAddCategory('locations', '${location}')" title="點擊快速加入">🗺️ ${label}</span>`;
-                    }).join(' ');
-                    html += `<div><strong>地點：</strong> ${locationLabels}</div>`;
-                }
-            }
-            
-            if (html === '') {
-                html = '<span style="color: #6c757d;">CategoryManager 未載入，無法顯示可用標籤</span>';
-            }
-            
-            container.innerHTML = html;
-        }
-
-        // Quick add category function
-        function quickAddCategory(categoryType, categoryKey) {
-            // Check if already exists
-            const allExisting = [
-                ...(currentArtworkCategories.autoCategories[categoryType] || []),
-                ...(currentArtworkCategories.manualCategories[categoryType] || [])
-            ];
-            
-            if (allExisting.includes(categoryKey)) {
-                showMessage('此分類已存在', 'warning');
-                return;
-            }
-            
-            // Add to manual categories
-            if (!currentArtworkCategories.manualCategories[categoryType]) {
-                currentArtworkCategories.manualCategories[categoryType] = [];
-            }
-            currentArtworkCategories.manualCategories[categoryType].push(categoryKey);
-            
-            // 重要修復：直接調用 displayCategoryTags
-            displayCategoryTags(currentArtworkCategories.autoCategories, currentArtworkCategories.manualCategories);
-            
-            const label = (categoryManager && categoryManager.getCategoryLabel) ? 
-                        categoryManager.getCategoryLabel(categoryKey, 'zh') : categoryKey;
-            showMessage(`已快速添加${categoryType === 'subjects' ? '題材' : '地點'}分類「${label}」`, 'success');
-        }
         // Open tab + search box -> the list shown (always rebuilt from the master array)
         function applyAdminFilters() {
             const query = (document.getElementById('searchInput')?.value || '').toLowerCase().trim();
@@ -1401,10 +1110,6 @@
             if (!checkEditingPermission()) return;
             
             currentEditingId = null;
-            currentArtworkCategories = {
-                autoCategories: { subjects: [], locations: [] },
-                manualCategories: { subjects: [], locations: [] }
-            };
             
             document.getElementById('modalTitle').textContent = '新增作品';
             document.getElementById('artworkForm').reset();
@@ -1417,10 +1122,7 @@
             document.getElementById('imageControls').style.display = 'none';
             document.getElementById('artworkModal').style.display = 'block';
          
-            updateCategoryDisplay();
-            displayAvailableCategoryLabels();
-
-
+            renderSubjectChecks([]);
         }
 
         function closeModal() {
@@ -1461,9 +1163,7 @@
             document.getElementById('artworkPrice').value = artwork.price || '';
             document.getElementById('artworkModal').style.display = 'block';
 
-            // Load categories
-            updateCategoryDisplay();
-            displayAvailableCategoryLabels();
+            renderSubjectChecks(categoryManager.getArtworkCategories(artwork));
 
             // Handle existing image
             const previewImg = document.getElementById('previewImage');
@@ -1866,23 +1566,17 @@
                 available: document.getElementById('artworkAvailable').checked,
                 price: document.getElementById('artworkPrice').value.trim(),
                 
-                // CLEANED UP: Use current category structure
-                autoCategories: {
-                    subjects: [...(currentArtworkCategories.autoCategories.subjects || [])],
-                    locations: [...(currentArtworkCategories.autoCategories.locations || [])]
-                },
-                manualCategories: {
-                    subjects: [...(currentArtworkCategories.manualCategories.subjects || [])],
-                    locations: [...(currentArtworkCategories.manualCategories.locations || [])]
-                },
+                subjects: readSubjectChecks(),
                 
                 // Preserve existing image paths if no new image
                 image: existingArtwork.image || '',
                 imageHigh: existingArtwork.imageHigh || ''
             };
             
-            // The old flat "categories" list would bring back guesses the hand-picked tags replace
+            // Old tag fields (replaced by subjects)
             delete formData.categories;
+            delete formData.autoCategories;
+            delete formData.manualCategories;
 
             // English series name and mounting: reuse what other works with the same
             // Chinese name already use (the English site shows these)
@@ -1891,8 +1585,7 @@
             if (!formData.series) { delete formData.series; delete formData.seriesEn; }
 
             console.log(`📋 Form data collected for ${artworkId}`);
-            console.log(`   Auto: ${formData.autoCategories.subjects.length} subjects, ${formData.autoCategories.locations.length} locations`);
-            console.log(`   Manual: ${formData.manualCategories.subjects.length} subjects, ${formData.manualCategories.locations.length} locations`);
+            console.log(`   Subjects: ${formData.subjects.join(', ') || '(none)'}`);
             
             return formData;
         }

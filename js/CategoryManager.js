@@ -1,318 +1,168 @@
-// CategoryManager.js - Centralized Category Management System
-// ULTIMATE SIMPLIFIED: Single source of truth using displayLabels only
+// CategoryManager.js - the gallery's subjects (題材), shared by the website and the admin page.
+//
+// One list, one rule: each work has a `subjects` list in artworks.json, picked by hand,
+// and every subject is one gallery tab. A work may have several subjects and then
+// appears under each of those tabs. The list and the zh/en names live in
+// data/category-config.json.
 
-// Prevent duplicate loading
 if (!window.categoryManagerLoaded) {
     window.categoryManagerLoaded = true;
 
+    const FALLBACK_CONFIG = {
+        subjects: ['landscape', 'waterfall', 'flowingclouds', 'flowers', 'moon', 'abstract', 'calligraphy'],
+        labels: {
+            zh: { landscape: '山水', waterfall: '瀑布', flowingclouds: '煙雲', flowers: '花鳥', moon: '明月', abstract: '抽象', calligraphy: '書法' },
+            en: { landscape: 'Landscapes', waterfall: 'Waterfalls', flowingclouds: 'Clouds & Mist', flowers: 'Flowers & Birds', moon: 'Moon', abstract: 'Abstract', calligraphy: 'Calligraphy' }
+        },
+        aliases: {}
+    };
+
+    const OTHER_LABELS = {
+        zh: { available: '可售', sold: '已售', unknown: '狀態未明', uncategorized: '未分類' },
+        en: { available: 'Available', sold: 'Sold', unknown: 'Status Unknown', uncategorized: 'Uncategorized' }
+    };
+
     class CategoryManager {
         constructor() {
-            this.config = null;
+            this.config = FALLBACK_CONFIG;
             this.loaded = false;
-            this._chineseToEnglishCache = null; // Computed from displayLabels
-            console.log('🔧 CategoryManager constructor called (ultimate simplified version)');
         }
 
         async loadConfig() {
-            if (this.loaded && this.config) {
-                return this.config;
-            }
-
+            if (this.loaded) return this.config;
             try {
                 const response = await fetch('./data/category-config.json');
-                if (!response.ok) {
-                    throw new Error(`Failed to load config: ${response.status}`);
-                }
-                
-                this.config = await response.json();
-                this.loaded = true;
-                
-                // Clear cache when config reloads
-                this._chineseToEnglishCache = null;
-                
-                console.log('✅ Category config loaded successfully (ultimate simplified)');
-                console.log(`📊 Subjects: ${this.config.categories.subjects.length}, Locations: ${this.config.categories.locations.length}`);
-                
-                return this.config;
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                const cfg = await response.json();
+                if (!Array.isArray(cfg.subjects) || !cfg.labels) throw new Error('unexpected format');
+                this.config = cfg;
             } catch (error) {
-                console.error('❌ Failed to load category config:', error);
-                this.config = this.getFallbackConfig();
-                this.loaded = true;
-                return this.config;
+                console.warn('⚠️ category-config.json not loaded, using built-in list:', error.message);
+                this.config = FALLBACK_CONFIG;
             }
-        }
-
-        getFallbackConfig() {
-            return {
-                categories: {
-                    subjects: ["landscape", "waterfall", "flowers", "calligraphy"],
-                    locations: ["huangshan", "alishan"]
-                },
-                displayLabels: {
-                    zh: {
-                        subjects: { "landscape": "山水", "waterfall": "瀑布", "flowers": "花鳥", "calligraphy": "書法" },
-                        locations: { "huangshan": "黃山", "alishan": "阿里山" },
-                        availability: { "available": "可售", "sold": "已售", "unknown": "狀態未明" },
-                        filterSections: { "bySubject": "題材分類", "byLocation": "地點分類", "byAvailability": "販售狀態" }
-                    },
-                    en: {
-                        subjects: { "landscape": "Landscape", "waterfall": "Waterfalls", "flowers": "Flowers & Birds", "calligraphy": "Calligraphy" },
-                        locations: { "huangshan": "HuangShan", "alishan": "AliShan" },
-                        availability: { "available": "Available", "sold": "Sold", "unknown": "Status Unknown" },
-                        filterSections: { "bySubject": "By Subject", "byLocation": "By Location", "byAvailability": "By Availability" }
-                    }
-                }
-            };
-        }
-
-        // ULTIMATE SIMPLIFICATION: Compute Chinese->English mapping from displayLabels
-        getChineseToEnglishMapping() {
-            if (!this._chineseToEnglishCache) {
-                this._chineseToEnglishCache = {};
-                
-                if (this.config && this.config.displayLabels && this.config.displayLabels.zh) {
-                    const zhLabels = this.config.displayLabels.zh;
-                    
-                    // Invert subjects: "waterfall" -> "瀑布" becomes "瀑布" -> "waterfall"
-                    if (zhLabels.subjects) {
-                        Object.entries(zhLabels.subjects).forEach(([english, chinese]) => {
-                            this._chineseToEnglishCache[chinese] = english;
-                        });
-                    }
-                    
-                    // Invert locations: "huangshan" -> "黃山" becomes "黃山" -> "huangshan"
-                    if (zhLabels.locations) {
-                        Object.entries(zhLabels.locations).forEach(([english, chinese]) => {
-                            this._chineseToEnglishCache[chinese] = english;
-                        });
-                    }
-                }
-                
-                console.log('🔄 Computed Chinese->English mapping from displayLabels:', Object.keys(this._chineseToEnglishCache).length, 'entries');
-            }
-            
-            return this._chineseToEnglishCache;
-        }
-
-        isSubject(categoryKey) {
-            if (!this.config) return false;
-            return this.config.categories.subjects.includes(categoryKey);
-        }
-
-        isLocation(categoryKey) {
-            if (!this.config) return false;
-            return this.config.categories.locations.includes(categoryKey);
-        }
-
-        // Get category labels from displayLabels (single source of truth)
-        getCategoryLabel(categoryKey, language = 'zh') {
-            if (!this.config || !this.config.displayLabels) {
-                return this.getFallbackLabel(categoryKey, language);
-            }
-
-            const langData = this.config.displayLabels[language];
-            if (!langData) {
-                return categoryKey;
-            }
-
-            // Check subjects first
-            if (langData.subjects && langData.subjects[categoryKey]) {
-                return langData.subjects[categoryKey];
-            }
-
-            // Check locations
-            if (langData.locations && langData.locations[categoryKey]) {
-                return langData.locations[categoryKey];
-            }
-
-            // Check availability status
-            if (langData.availability && langData.availability[categoryKey]) {
-                return langData.availability[categoryKey];
-            }
-
-            // Fallback to key itself
-            return categoryKey;
-        }
-
-        getFallbackLabel(categoryKey, language) {
-            const fallbackLabels = {
-                zh: {
-                    "waterfall": "瀑布", "landscape": "山水", "flowers": "花鳥", 
-                    "calligraphy": "書法", "huangshan": "黃山", "alishan": "阿里山",
-                    "available": "可售", "sold": "已售", "uncategorized": "未分類"
-                },
-                en: {
-                    "waterfall": "Waterfalls", "landscape": "Landscape", "flowers": "Flowers & Birds",
-                    "calligraphy": "Calligraphy", "huangshan": "HuangShan", "alishan": "AliShan",
-                    "available": "Available", "sold": "Sold", "uncategorized": "Uncategorized"
-                }
-            };
-            
-            return fallbackLabels[language]?.[categoryKey] || categoryKey;
-        }
-
-        // ULTIMATE SIMPLIFICATION: Use computed mapping from displayLabels
-        chineseToEnglish(chineseText) {
-            const mapping = this.getChineseToEnglishMapping();
-            return mapping[chineseText] || chineseText;
-        }
-
-        // Use displayLabels directly for English->Chinese
-        englishToChinese(englishKey) {
-            if (this.config && this.config.displayLabels && this.config.displayLabels.zh) {
-                const zhLabels = this.config.displayLabels.zh;
-                
-                // Check subjects
-                if (zhLabels.subjects && zhLabels.subjects[englishKey]) {
-                    return zhLabels.subjects[englishKey];
-                }
-                
-                // Check locations
-                if (zhLabels.locations && zhLabels.locations[englishKey]) {
-                    return zhLabels.locations[englishKey];
-                }
-            }
-            
-            return englishKey;
-        }
-
-        normalizeCategories(categories) {
-            if (!Array.isArray(categories)) return [];
-            
-            return categories.map(category => {
-                if (this.isSubject(category) || this.isLocation(category)) {
-                    return category;
-                }
-                
-                const englishKey = this.chineseToEnglish(category);
-                if (englishKey !== category) {
-                    return englishKey;
-                }
-                
-                return category;
-            });
-        }
-
-        separateCategories(categories) {
-            const normalizedCategories = this.normalizeCategories(categories);
-            
-            const subjects = [];
-            const locations = [];
-            const unknown = [];
-
-            normalizedCategories.forEach(category => {
-                if (this.isSubject(category)) {
-                    subjects.push(category);
-                } else if (this.isLocation(category)) {
-                    locations.push(category);
-                } else {
-                    unknown.push(category);
-                    subjects.push(category);
-                }
-            });
-
-            return { subjects, locations, unknown };
+            this.loaded = true;
+            return this.config;
         }
 
         getAllSubjects() {
-            if (!this.config) return [];
-            return this.config.categories.subjects;
+            return [...this.config.subjects];
         }
 
         getAllLocations() {
-            if (!this.config) return [];
-            return this.config.categories.locations;
+            return [];   // locations were retired
+        }
+
+        isSubject(key) {
+            return this.config.subjects.includes(key);
+        }
+
+        isLocation() {
+            return false;
+        }
+
+        getCategoryLabel(key, language = 'zh') {
+            const lang = language === 'en' ? 'en' : 'zh';
+            return this.config.labels[lang]?.[key] || OTHER_LABELS[lang][key] || key;
+        }
+
+        // 山水 / Landscapes / landscape / 墨竹 (alias) -> 'landscape' / 'flowers'; unknown -> null
+        normalize(word) {
+            const w = String(word || '').trim();
+            if (!w) return null;
+            if (this.isSubject(w)) return w;
+            const lower = w.toLowerCase();
+            for (const key of this.config.subjects) {
+                if (key.toLowerCase() === lower) return key;
+                for (const lang of ['zh', 'en']) {
+                    if ((this.config.labels[lang]?.[key] || '').toLowerCase() === lower) return key;
+                }
+            }
+            const alias = (this.config.aliases || {})[w] || (this.config.aliases || {})[lower];
+            return alias && this.isSubject(alias) ? alias : null;
+        }
+
+        chineseToEnglish(word) {
+            return this.normalize(word) || word;
+        }
+
+        // The work's subjects, in the configured order
+        getArtworkCategories(artwork) {
+            const raw = Array.isArray(artwork?.subjects) ? artwork.subjects : [];
+            const keys = new Set(raw.map(s => this.normalize(s)).filter(Boolean));
+            // 山水 is for landscapes that are neither waterfalls nor clouds & mist
+            if (keys.has('waterfall') || keys.has('flowingclouds')) keys.delete('landscape');
+            return this.config.subjects.filter(s => keys.has(s));
+        }
+
+        separateCategories(categories) {
+            return { subjects: (categories || []).filter(c => this.isSubject(c)), locations: [], unknown: [] };
+        }
+
+        getArtworkAvailability(artwork) {
+            const a = artwork.available;
+            if (a === true || a === 'true') return 'available';
+            if (a === false || a === 'false') return 'sold';
+            return 'unknown';
         }
 
         calculateStats(artworks) {
-            const stats = {
-                subjects: {},
-                locations: {},
-                availability: { available: 0, sold: 0, unknown: 0 }
-            };
-
-            if (!Array.isArray(artworks)) return stats;
-
-            let uncategorizedCount = 0;
-
-            artworks.forEach(artwork => {
-                const allCategories = this.getArtworkCategories(artwork);
-                const separated = this.separateCategories(allCategories);
-
-                if (separated.subjects.length > 0) {
-                    separated.subjects.forEach(subject => {
-                        stats.subjects[subject] = (stats.subjects[subject] || 0) + 1;
-                    });
-                } else {
-                    uncategorizedCount++;
-                }
-
-                separated.locations.forEach(location => {
-                    stats.locations[location] = (stats.locations[location] || 0) + 1;
-                });
-
-                const availability = this.getArtworkAvailability(artwork);
-                stats.availability[availability]++;
-            });
-
-            if (uncategorizedCount > 0) {
-                stats.subjects['uncategorized'] = uncategorizedCount;
+            const stats = { subjects: {}, locations: {}, availability: { available: 0, sold: 0, unknown: 0 } };
+            for (const artwork of artworks || []) {
+                const subjects = this.getArtworkCategories(artwork);
+                if (!subjects.length) stats.subjects.uncategorized = (stats.subjects.uncategorized || 0) + 1;
+                subjects.forEach(s => { stats.subjects[s] = (stats.subjects[s] || 0) + 1; });
+                stats.availability[this.getArtworkAvailability(artwork)]++;
             }
-
-            console.log(`📊 Category stats: ${Object.keys(stats.subjects).length} subjects, ${Object.keys(stats.locations).length} locations, ${uncategorizedCount} uncategorized`);
-
             return stats;
         }
 
-        // Get all categories for an artwork (merges auto + manual)
-        getArtworkCategories(artwork) {
-            const categories = [];
-
-            // Hand-picked tags (manualCategories) win over keyword guesses (autoCategories):
-            // if someone chose subjects by hand, the guessed subjects are ignored; same for locations.
-            const manual = artwork.manualCategories;
-            const manualObj = manual && !Array.isArray(manual) && typeof manual === 'object' ? manual : null;
-            const auto = artwork.autoCategories || {};
-            const manualSubjects = manualObj?.subjects || [];
-            const manualLocations = manualObj?.locations || [];
-
-            categories.push(...(manualSubjects.length ? manualSubjects : (auto.subjects || [])));
-            categories.push(...(manualLocations.length ? manualLocations : (auto.locations || [])));
-
-            if (Array.isArray(manual)) {
-                // Old format: ["花鳥", "黃山"] - convert Chinese to English
-                categories.push(...this.normalizeCategories(manual));
+        // filters: { subject: [...], availability: [...] } - a work matches a group when it has any of its values
+        artworkMatchesFilters(artwork, filters) {
+            for (const [type, values] of Object.entries(filters || {})) {
+                if (!Array.isArray(values) || !values.length) continue;
+                if (type === 'subject') {
+                    const subjects = this.getArtworkCategories(artwork);
+                    const ok = values.includes('uncategorized') ? !subjects.length : values.some(v => subjects.includes(v));
+                    if (!ok) return false;
+                } else if (type === 'availability') {
+                    if (!values.includes(this.getArtworkAvailability(artwork))) return false;
+                }
             }
+            return true;
+        }
 
-            // BACKWARD COMPATIBILITY: old flat categories array, only for records that
-            // predate autoCategories/manualCategories (otherwise it re-adds replaced guesses)
-            if (Array.isArray(artwork.categories) && !artwork.autoCategories && !manual) {
-                categories.push(...artwork.categories);
-            }
+        generateFilterHTML() {
+            return '';   // the old filter wall was replaced by the gallery tabs
+        }
 
-            // Remove duplicates and filter out 'traditional'
-            return [...new Set(categories)].filter(cat => cat !== 'traditional');
+        debugArtwork(artwork) {
+            console.log(`🎨 ${artwork.title || artwork.id}:`, this.getArtworkCategories(artwork));
+        }
+
+        debugConfig() {
+            console.log('🔧 Subjects:', this.config.subjects, 'loaded:', this.loaded);
         }
 
         // ---- Shared by the gallery (js/portfolio.js) and the admin page, so both
         // show the same tabs and the same order.
 
-        // Gallery series tabs. Each tab maps to one or more subject categories.
+        // Gallery tabs: 全部, then one tab per subject
         getGalleryTabs() {
             return [
-                { key: 'all',         zh: '全部', en: 'All',             subjects: [] },
-                { key: 'landscape',   zh: '山水', en: 'Landscapes',      subjects: ['landscape', 'waterfall', 'flowingclouds'] },
-                { key: 'flowers',     zh: '花鳥', en: 'Flowers & Birds', subjects: ['flowers', 'bamboo'] },
-                { key: 'moon',        zh: '月光', en: 'Moonlight',       subjects: ['moon'] },
-                { key: 'abstract',    zh: '抽象', en: 'Abstract',        subjects: ['abstract'] },
-                { key: 'calligraphy', zh: '書法', en: 'Calligraphy',     subjects: ['calligraphy'] }
+                { key: 'all', zh: '全部', en: 'All', subjects: [] },
+                ...this.config.subjects.map(key => ({
+                    key,
+                    zh: this.getCategoryLabel(key, 'zh'),
+                    en: this.getCategoryLabel(key, 'en'),
+                    subjects: [key]
+                }))
             ];
         }
 
         // Tabs an artwork appears under (besides 全部)
         getArtworkTabs(artwork) {
-            const cats = this.getArtworkCategories(artwork);
-            return this.getGalleryTabs().filter(t => t.subjects.some(s => cats.includes(s)));
+            const subjects = this.getArtworkCategories(artwork);
+            return this.getGalleryTabs().filter(t => t.subjects.some(s => subjects.includes(s)));
         }
 
         galleryYear(artwork) {
@@ -343,191 +193,8 @@ if (!window.categoryManagerLoaded) {
                 firstSeen.get(groupKey(a)) - firstSeen.get(groupKey(b)) ||
                 fileIndex.get(a.id) - fileIndex.get(b.id));
         }
-
-        getArtworkAvailability(artwork) {
-            const available = artwork.available;
-            
-            if (available === true || available === 'true') {
-                return 'available';
-            } else if (available === false || available === 'false') {
-                return 'sold';
-            } else {
-                return 'unknown';
-            }
-        }
-
-        artworkMatchesFilters(artwork, activeFilters) {
-            const artworkCategories = this.getArtworkCategories(artwork);
-            const separated = this.separateCategories(artworkCategories);
-
-            for (const [filterType, filterValues] of Object.entries(activeFilters)) {
-                if (!Array.isArray(filterValues) || filterValues.length === 0) {
-                    continue;
-                }
-
-                let matches = false;
-
-                switch(filterType) {
-                    case 'subject':
-                        // SPECIAL CASE: Handle 'uncategorized' filter
-                        if (filterValues.includes('uncategorized')) {
-                            // Show artworks with no subjects (excluding 'uncategorized' itself)
-                            const realSubjects = separated.subjects.filter(s => s !== 'uncategorized');
-                            matches = realSubjects.length === 0;
-                        } else {
-                            // Normal subject filtering
-                            matches = filterValues.some(value => separated.subjects.includes(value));
-                        }
-                        break;
-                        
-                    case 'location':
-                        matches = filterValues.some(value => separated.locations.includes(value));
-                        break;
-                        
-                    case 'availability':
-                        const availability = this.getArtworkAvailability(artwork);
-                        matches = filterValues.includes(availability);
-                        break;
-                        
-                    default:
-                        matches = true;
-                }
-
-                if (!matches) {
-                    return false;
-                }
-            }
-
-            return true;
-        }
-
-        generateFilterHTML(stats, currentLanguage = 'zh') {
-            let html = '';
-
-            if (Object.keys(stats.subjects).length > 0) {
-                const subjectsHTML = Object.entries(stats.subjects).map(([subject, count]) => `
-                    <button class="secondary-filter-btn" 
-                            data-filter-type="subject" 
-                            data-filter-value="${subject}">
-                        ${this.getCategoryLabel(subject, currentLanguage)} (${count})
-                    </button>
-                `).join('');
-
-                html += `
-                    <div class="filter-section">
-                        <h4>📂 ${this.getFilterSectionTitle('bySubject', currentLanguage)}</h4>
-                        <div class="secondary-filters">
-                            ${subjectsHTML}
-                        </div>
-                    </div>
-                `;
-            }
-
-            if (Object.keys(stats.locations).length > 0) {
-                const locationsHTML = Object.entries(stats.locations).map(([location, count]) => `
-                    <button class="secondary-filter-btn"
-                            data-filter-type="location" 
-                            data-filter-value="${location}">
-                        ${this.getCategoryLabel(location, currentLanguage)} (${count})
-                    </button>
-                `).join('');
-
-                html += `
-                    <div class="filter-section">
-                        <h4>🗺️ ${this.getFilterSectionTitle('byLocation', currentLanguage)}</h4>
-                        <div class="secondary-filters">
-                            ${locationsHTML}
-                        </div>
-                    </div>
-                `;
-            }
-
-            const availabilityHTML = Object.entries(stats.availability).map(([status, count]) => `
-                <button class="secondary-filter-btn"
-                        data-filter-type="availability" 
-                        data-filter-value="${status}">
-                    ${this.getCategoryLabel(status, currentLanguage)} (${count})
-                </button>
-            `).join('');
-
-            html += `
-                <div class="filter-section">
-                    <h4>💰 ${this.getFilterSectionTitle('byAvailability', currentLanguage)}</h4>
-                    <div class="secondary-filters">
-                        ${availabilityHTML}
-                    </div>
-                </div>
-            `;
-
-            return html;
-        }
-
-        // Get filter section titles from displayLabels
-        getFilterSectionTitle(sectionKey, language = 'zh') {
-            if (this.config && this.config.displayLabels && 
-                this.config.displayLabels[language] && 
-                this.config.displayLabels[language].filterSections &&
-                this.config.displayLabels[language].filterSections[sectionKey]) {
-                return this.config.displayLabels[language].filterSections[sectionKey];
-            }
-            
-            const fallbackTitles = {
-                zh: { bySubject: '題材分類', byLocation: '地點分類', byAvailability: '販售狀態' },
-                en: { bySubject: 'By Subject', byLocation: 'By Location', byAvailability: 'By Availability' }
-            };
-            
-            return fallbackTitles[language]?.[sectionKey] || sectionKey;
-        }
-
-        debugArtwork(artwork) {
-            console.group(`🎨 Debug: ${artwork.title || artwork.id}`);
-            
-            const allCategories = this.getArtworkCategories(artwork);
-            console.log('📋 All categories:', allCategories);
-            
-            const separated = this.separateCategories(allCategories);
-            console.log('🎯 Separated:', separated);
-            
-            const availability = this.getArtworkAvailability(artwork);
-            console.log('💰 Availability:', availability);
-            
-            console.groupEnd();
-        }
-
-        debugConfig() {
-            console.group('🔧 Category Config Debug (Ultimate Simplified)');
-            console.log('✅ Config loaded:', this.loaded);
-            console.log('📊 Subjects:', this.config?.categories?.subjects || []);
-            console.log('🗺️ Locations:', this.config?.categories?.locations || []);
-            console.log('🔄 Chinese->English cache:', this._chineseToEnglishCache ? Object.keys(this._chineseToEnglishCache).length + ' entries' : 'Not computed yet');
-            console.log('🏷️ Display labels available:', !!this.config?.displayLabels);
-            if (this.config?.displayLabels) {
-                console.log('🌐 Languages available:', Object.keys(this.config.displayLabels));
-                console.log('🎯 ZH subjects:', Object.keys(this.config.displayLabels.zh?.subjects || {}));
-                console.log('🗺️ ZH locations:', Object.keys(this.config.displayLabels.zh?.locations || {}));
-            }
-            console.groupEnd();
-        }
-
-        detectCategories(text) {
-            if (!this.config?.autoDetectionKeywords || !text) return [];
-            
-            const detected = [];
-            const lowerText = text.toLowerCase();
-            
-            Object.entries(this.config.autoDetectionKeywords).forEach(([category, keywords]) => {
-                if (keywords.some(keyword => lowerText.includes(keyword.toLowerCase()))) {
-                    detected.push(category);
-                }
-            });
-            
-            return detected;
-        }
     }
 
-    // Create and expose the CategoryManager
-    console.log('🔧 Creating ultimate simplified CategoryManager instance...');
     const categoryManager = new CategoryManager();
     window.categoryManager = categoryManager;
-    console.log('✅ Ultimate simplified CategoryManager created and assigned to window');
 }

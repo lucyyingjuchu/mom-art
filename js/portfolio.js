@@ -88,10 +88,7 @@ class ChineseArtPortfolio {
             artworkMatchesFilters: () => true,
             getArtworkCategories: (artwork) => {
                 // Simple fallback - just return existing categories
-                const categories = [];
-                if (artwork.categories) categories.push(...artwork.categories);
-                if (artwork.manualCategories) categories.push(...artwork.manualCategories);
-                return categories;
+                return Array.isArray(artwork.subjects) ? artwork.subjects : [];
             },
             separateCategories: (categories) => ({ subjects: categories || [], locations: [], unknown: [] }),
             getArtworkAvailability: (artwork) => {
@@ -200,9 +197,7 @@ class ChineseArtPortfolio {
                     index,
                     id: artwork.id,
                     title: artwork.title || 'Untitled',
-                    hasAutoCategories: !!artwork.autoCategories,
-                    hasCategories: !!(artwork.categories?.length),
-                    hasManualCategories: !!(artwork.manualCategories?.length)
+                    subjects: artwork.subjects || []
                 });
             }
         });
@@ -354,13 +349,20 @@ class ChineseArtPortfolio {
             const descriptionEn = (artwork.descriptionEn || '').toLowerCase();
             const year = (artwork.year || '').toString();
             const size = (artwork.sizeCm || '').toLowerCase();
-            
+            // series and tab names too, so 霜林, 瀑布 or "moon" find their works
+            const cm = window.categoryManager;
+            const subjects = cm && cm.getArtworkCategories ? cm.getArtworkCategories(artwork)
+                .flatMap(k => [cm.getCategoryLabel(k, 'zh'), cm.getCategoryLabel(k, 'en')]) : [];
+            const more = [artwork.series, artwork.seriesEn, artwork.curatorNote, artwork.curatorNoteEn, ...subjects]
+                .map(v => String(v || '').toLowerCase());
+
             return title.includes(searchTerm) ||
                    titleEn.includes(searchTerm) ||
                    description.includes(searchTerm) ||
                    descriptionEn.includes(searchTerm) ||
                    year.includes(searchTerm) ||
-                   size.includes(searchTerm);
+                   size.includes(searchTerm) ||
+                   more.some(v => v.includes(searchTerm));
         });
     }
 
@@ -676,8 +678,10 @@ class ChineseArtPortfolio {
         const galleryGrid = document.getElementById('galleryGrid');
         if (!galleryGrid) return;
 
-        // Use CategoryManager for filtering
-        const filteredArtworks = this.getMultiFilteredArtworks(this.activeFilters, this.artworks);
+        // Open tab, narrowed by the search box (if anything is typed)
+        const query = (this.galleryQuery || '').trim();
+        const base = query ? this.searchArtworks(query) : this.artworks;
+        const filteredArtworks = this.getMultiFilteredArtworks(this.activeFilters, base);
 
         // Newest first, each year's series kept together (see sortForGallery)
         const artworksWithImages = filteredArtworks.filter(artwork => this.hasRealImage(artwork));
@@ -695,9 +699,17 @@ class ChineseArtPortfolio {
         // Quiet count under the tabs
         const resultsInfo = document.getElementById('resultsInfo');
         if (resultsInfo) {
-            resultsInfo.textContent = this.currentLanguage === 'zh'
-                ? `${imageCount} 件作品`
-                : `${imageCount} ${imageCount === 1 ? 'work' : 'works'}`;
+            const zh = this.currentLanguage === 'zh';
+            resultsInfo.textContent = query
+                ? (zh ? `找到 ${imageCount} 件「${query}」` : `${imageCount} ${imageCount === 1 ? 'work matches' : 'works match'} “${query}”`)
+                : (zh ? `${imageCount} 件作品` : `${imageCount} ${imageCount === 1 ? 'work' : 'works'}`);
+        }
+        if (query && !filteredArtworks.length) {
+            this.currentGalleryOrder = [];
+            galleryGrid.innerHTML = `<p class="gallery-empty">${this.currentLanguage === 'zh'
+                ? '沒有符合的作品，試試別的字或切到「全部」。'
+                : 'No works match. Try another word, or the All tab.'}</p>`;
+            return;
         }
 
         // Render artwork cards, grouped by year and series
@@ -981,6 +993,12 @@ class ChineseArtPortfolio {
                 ${tabs.map(tab => `<button type="button" class="gallery-tab${tab.key === current ? ' active' : ''}"
                     data-tab="${tab.key}" aria-pressed="${tab.key === current}">${zh ? tab.zh : tab.en}</button>`).join('')}
             </nav>
+            <div class="gallery-search-row">
+                <input type="search" id="gallerySearch" class="gallery-search" autocomplete="off"
+                    value="${(this.galleryQuery || '').replace(/[&"<>]/g, c => ({ '&': '&amp;', '"': '&quot;', '<': '&lt;', '>': '&gt;' }[c]))}"
+                    placeholder="${zh ? '搜尋作品名稱、年份、系列…' : 'Search titles, years, series…'}"
+                    aria-label="${zh ? '搜尋作品' : 'Search artworks'}">
+            </div>
         `;
     }
 
@@ -1051,6 +1069,16 @@ class ChineseArtPortfolio {
         document.querySelectorAll('.gallery-tab').forEach(btn => {
             btn.addEventListener('click', () => this.setGalleryTab(btn.dataset.tab));
         });
+        const search = document.getElementById('gallerySearch');
+        if (search) {
+            search.addEventListener('input', () => {
+                clearTimeout(this._searchTimer);
+                this._searchTimer = setTimeout(() => {
+                    this.galleryQuery = search.value;
+                    this.renderGallery();
+                }, 200);
+            });
+        }
     }
     
     // Render featured works on home page with museum-quality presentation
