@@ -1105,3 +1105,24 @@
     /* land below the sticky sheet handle, not under it */
     .lightbox .lightbox-info-section .shopping-section { scroll-margin-top: var(--lb-sheet-peek); }
 }
+
+/* "Actual size / 實際尺寸" view: the original to scale on a wall beside a 170 cm person */
+.lightbox.scale-view .lb-stage .lightbox-image { display: none; }
+.lightbox.scale-view .lb-zoom { visibility: hidden; }
+.lb-scale {
+    width: calc(100% - 136px);       /* room for the side arrows */
+    height: calc(100% - 96px);       /* room for the view switch below */
+    margin-bottom: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.lb-scale-svg { width: 100%; height: 100%; display: block; }
+.lb-scale-svg .lbs-wall { fill: #f4f1ea; }
+.lb-scale-svg .lbs-floor { stroke: #b9b2a5; stroke-width: 4; }
+.lb-scale-svg .lbs-person { fill: #b5bcc3; }
+.lb-scale-svg .lbs-shadow { fill: rgba(0, 0, 0, 0.18); }
+.lb-scale-svg text { fill: #d8d4cc; font-family: system-ui, -apple-system, "PingFang TC", "Microsoft JhengHei", sans-serif; }
+@media (max-width: 768px) {
+    .lb-scale { width: calc(100% - 24px); }
+}

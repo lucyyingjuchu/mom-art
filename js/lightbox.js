@@ -165,9 +165,11 @@
         };
         views = [original];
         (artwork.productViews || []).forEach(v => {
-            if (!v || !v.image || v.type === 'original') return;
+            // Room mockups are retired: scale is shown by the to-scale diagram in the panel
+            if (!v || !v.image || v.type === 'original' || /mockup|room/.test(String(v.type))) return;
             views.push({ type: v.type || 'view', low: v.image, high: v.image, title: v.title });
         });
+        if (hasScale(artwork)) views.push({ type: 'scale' });
         viewIndex = 0;
     }
 
@@ -175,6 +177,20 @@
         viewIndex = i;
         const view = views[i];
         const token = ++loadToken;
+        const oldScale = el.stage.querySelector('.lb-scale');
+        if (oldScale) oldScale.remove();
+        el.box.classList.toggle('scale-view', view.type === 'scale');
+        if (view.type === 'scale') {
+            const wrap = document.createElement('div');
+            wrap.className = 'lb-scale';
+            wrap.innerHTML = scaleSvg(list[index]);
+            el.stage.insertBefore(wrap, el.img.nextSibling);
+            el.stage.querySelectorAll('.view-dot').forEach((b, k) => {
+                b.classList.toggle('active', k === i);
+                b.setAttribute('aria-selected', k === i ? 'true' : 'false');
+            });
+            return;
+        }
         const placeholder = getPlaceholderImage();
         const artwork = list[index];
         el.img.alt = textFor(artwork, 'title');
@@ -199,8 +215,8 @@
         if (views.length < 2) return;
 
         const labels = lang() === 'en'
-            ? { original: 'Artwork', mockup: 'In a room', detail: 'Detail' }
-            : { original: '作品', mockup: '實景', detail: '細節' };
+            ? { original: 'Artwork', scale: 'Actual size', detail: 'Detail' }
+            : { original: '作品', scale: '實際尺寸', detail: '細節' };
         const tabs = document.createElement('div');
         tabs.className = 'view-indicators';
         tabs.setAttribute('role', 'tablist');
@@ -211,7 +227,7 @@
             b.setAttribute('role', 'tab');
             const type = String(v.type);
             b.textContent = type === 'original' ? labels.original
-                : (type.includes('mockup') || type === 'room') ? labels.mockup
+                : type === 'scale' ? labels.scale
                 : (type.includes('detail') || type.includes('close')) ? labels.detail
                 : (v.title || String(i + 1));
             b.addEventListener('click', (e) => {
@@ -294,6 +310,51 @@
         el.panel.scrollTop = 0;
     }
 
+    // The original painting drawn to scale on a wall next to a 170 cm person,
+    // hung with its centre near eye level (or 20 cm off the floor for very tall works).
+    // Shown as the "Actual size / 實際尺寸" view on the stage, in place of the old room mockups.
+    function hasScale(artwork) {
+        return parseFloat(artwork.heightCm) > 0 && parseFloat(artwork.widthCm) > 0 && !!(artwork.image || artwork.imageHigh);
+    }
+
+    function scaleSvg(artwork) {
+        const zh = lang() === 'zh';
+        const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+        const hCm = parseFloat(artwork.heightCm), wCm = parseFloat(artwork.widthCm);
+        const img = artwork.imageHigh || artwork.image;
+        const PERSON = 170, personW = PERSON * 0.28, GAP_CM = 40, SIDE_CM = 30;
+        const bottomCm = Math.max(20, 150 - hCm / 2);
+        const topCm = Math.max(PERSON, bottomCm + hCm) + 15;
+        const spanCm = SIDE_CM + personW + GAP_CM + wCm + SIDE_CM;
+        // Keep the drawing at least as wide as it is tall so short works don't shrink to a sliver
+        const viewW = Math.max(spanCm, topCm * 1.1);
+        const k = 10;                                   // 10 viewBox units per cm
+        const W = viewW * k, FLOOR = topCm * k;
+        const fs = Math.max(W, FLOOR) * 0.026, H = FLOOR + fs * 2.2;
+        const left = (viewW - spanCm) / 2 * k + SIDE_CM * k;
+        const ph = PERSON * k, pw = personW * k, cx = left + pw / 2;
+        const x = left + pw + GAP_CM * k, w = wCm * k, h = hCm * k, y = FLOOR - (bottomCm + hCm) * k;
+        let label = `${artwork.heightCm} × ${artwork.widthCm} cm`;
+        if (!zh && artwork.heightInches && artwork.widthInches) label += `  (${artwork.heightInches}″ × ${artwork.widthInches}″)`;
+        const personLabel = zh ? '170 公分' : '170 cm (5′7″)';
+        const aria = zh ? `原作尺寸 ${label}，與 170 公分人形的比例示意` : `Original, ${label}, shown to scale beside a 170 cm person`;
+        return `
+            <svg class="lb-scale-svg" viewBox="0 0 ${W.toFixed(0)} ${H.toFixed(0)}" role="img" aria-label="${esc(aria)}" style="font-size:${fs.toFixed(0)}px">
+                <rect class="lbs-wall" x="0" y="0" width="${W.toFixed(0)}" height="${FLOOR.toFixed(0)}"/>
+                <line class="lbs-floor" x1="0" y1="${FLOOR}" x2="${W.toFixed(0)}" y2="${FLOOR}"/>
+                <g class="lbs-person" aria-hidden="true">
+                    <circle cx="${cx}" cy="${FLOOR - ph + ph * 0.07}" r="${ph * 0.07}"/>
+                    <path d="M${cx - pw * 0.5} ${FLOOR - ph * 0.5} Q${cx - pw * 0.5} ${FLOOR - ph * 0.83} ${cx} ${FLOOR - ph * 0.83}
+                             Q${cx + pw * 0.5} ${FLOOR - ph * 0.83} ${cx + pw * 0.5} ${FLOOR - ph * 0.5}
+                             L${cx + pw * 0.28} ${FLOOR - ph * 0.5} L${cx + pw * 0.3} ${FLOOR} L${cx - pw * 0.3} ${FLOOR} L${cx - pw * 0.28} ${FLOOR - ph * 0.5} Z"/>
+                </g>
+                <rect class="lbs-shadow" x="${x + h * 0.012 + 4}" y="${y + h * 0.012 + 4}" width="${w}" height="${h}"/>
+                <image href="${esc(img)}" preserveAspectRatio="none" x="${x}" y="${y}" width="${w}" height="${h}"/>
+                <text x="${cx}" y="${FLOOR + fs * 1.5}" text-anchor="middle">${esc(personLabel)}</text>
+                <text x="${x + w / 2}" y="${FLOOR + fs * 1.5}" text-anchor="middle">${esc(label)}</text>
+            </svg>`;
+    }
+
     function preloadNeighbours() {
         [1, -1].forEach(d => {
             const a = list[(index + d + list.length) % list.length];
@@ -351,6 +412,7 @@
 
     // Zoom to scale s keeping the screen point (px, py) still
     function zoomTo(s, px, py, animate) {
+        if (views[viewIndex] && views[viewIndex].type === 'scale') return;
         const r = el.stage.getBoundingClientRect();
         const cx = (px ?? r.left + r.width / 2) - (r.left + r.width / 2);
         const cy = (py ?? r.top + r.height / 2) - (r.top + r.height / 2);
