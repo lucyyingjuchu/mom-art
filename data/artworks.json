@@ -5460,7 +5460,7 @@
     "year": "2026",
     "price": "",
     "available": true,
-    "featured": true,
+    "featured": false,
     "curatorNote": "這是在新竹縣五峰鄉山上人家,如夢幻的粉紅櫻花大道與壯麗雲海聞名。此作見群山起伏間,櫻花盛放,深淺相映,如霞似霧;雲瀑自遠方奔騰而至,雲氣翻湧,時聚時散,山中人家隱約其間,若現若藏。畫面以淡墨鋪陳空靈氣氛,以重彩點染花海生機,虛實相生,動靜互映,呈現一種遠離塵囂、恍若桃源的人間仙境。若問人間何處好,半山煙雲半山閒。",
     "curatorNoteEn": "Painted at \"Home on the Mountain\" in Wufeng, Hsinchu, famed for its dreamlike avenues of pink cherry blossoms and spectacular seas of cloud. Among rolling hills the cherry trees bloom in light and deep tones, like dawn clouds or mist; a waterfall of cloud surges in from afar, gathering and dispersing, while mountain homes appear and disappear within it. Pale ink sets an airy mood and rich color brings the sea of blossoms to life — a peaceful paradise far from the noise of the world. Where is the best place on earth? Half the mountain in mist, half the mountain at ease.",
     "productViews": [
@@ -5482,7 +5482,8 @@
     "printFile": {
       "scan": "10.jpg",
       "pixels": "5756x2975"
-    }
+    },
+    "sizeCm": "75 × 142 cm"
   },
   {
     "id": "01a12c08-7e53-75bc-b67d-b0f7db8ae950",
