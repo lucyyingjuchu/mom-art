@@ -734,7 +734,7 @@
             </div>
             <div class="stat-card">
                 <span class="stat-number" id="printCount">0</span>
-                <div class="stat-label">可買版畫</div>
+                <div class="stat-label">可買印刷品</div>
             </div>
         </div>
 
@@ -1664,7 +1664,7 @@
                 draft ? '<span class="badge warn">📝 草稿・網站不顯示</span>' : '',
                 sold ? '<span class="badge sold">已售</span>' : '',
                 featured ? '<span class="badge featured">⭐ 首頁精選</span>' : '',
-                printReadyIds.has(artwork.id) ? '<span class="badge print">🖨️ 可買版畫</span>' : '',
+                printReadyIds.has(artwork.id) ? '<span class="badge print">🖨️ 可買印刷品</span>' : '',
                 ...tabs.map(t => `<span class="badge">${t.zh}</span>`),
                 !draft && !tabs.length ? '<span class="badge warn">沒有題材・只在「全部」</span>' : ''
             ].join('');
@@ -1741,7 +1741,7 @@
                 artworks = [...allArtworks];
                 window.artworks = getMasterArtworksArray();
 
-                // Which works have print sizes (shown as 🖨️ 可買版畫)
+                // Which works have print sizes (shown as 🖨️ 可買印刷品)
                 try {
                     const prints = await (await fetch('./data/finerworks_ready_artworks.json')).json();
                     printReadyIds = new Set(Object.keys(prints).filter(id =>

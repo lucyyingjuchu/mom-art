@@ -11,7 +11,7 @@ let html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 
 const SITE = 'https://xiaoranart.com';
 const TITLE = '袁之靜（曉然）｜水墨畫・書法官方網站';
-const DESC = '袁之靜（號曉然）官方網站：台中水墨畫家、書法家，四十餘年詩書畫印創作。原作與藝術微噴版畫。';
+const DESC = '袁之靜（號曉然）官方網站：台中水墨畫家、書法家，四十餘年詩書畫印創作。原作與藝術微噴印刷品。';
 
 // [pattern, replacement] — the build fails loudly if any pattern is missing,
 // so a later edit to index.html can't silently break the Chinese page.
