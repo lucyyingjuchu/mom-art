@@ -810,6 +810,12 @@ class ChineseArtPortfolio {
                 return Math.min(Math.exp(logMean), maxH);
             };
             const miss = row => Math.abs(Math.log(heightFor(row) / targetFor(row)));
+            // A row never holds more than MAX_ROW_CM of real painting width (about one
+            // wall), so rows stay comparable and many works aren't squeezed into one.
+            // A single painting wider than that keeps a row to itself.
+            const MAX_ROW_CM = 360;
+            const realW = el => parseFloat(el.dataset.wcm) || (parseFloat(el.dataset.cm) || REF_CM) * Math.sqrt(box(el));
+            const tooWide = list => list.length > 1 && list.reduce((sum, el) => sum + realW(el), 0) > MAX_ROW_CM;
 
             // Fit one kind of painting into rows of (nearly) equal height
             const fitRows = list => {
@@ -817,7 +823,7 @@ class ChineseArtPortfolio {
                 let row = [];
                 for (const el of list) {
                     const withIt = [...row, el];
-                    if (row.length && heightFor(withIt) < targetFor(withIt) && miss(row) <= miss(withIt)) {
+                    if (row.length && (tooWide(withIt) || (heightFor(withIt) < targetFor(withIt) && miss(row) <= miss(withIt)))) {
                         rows.push({ items: row, h: Math.min(heightFor(row), targetFor(row) * 1.25) });
                         row = [el];
                     } else {
@@ -830,7 +836,7 @@ class ChineseArtPortfolio {
                 const last = rows[rows.length - 1], prev = rows[rows.length - 2];
                 if (prev && heightFor(last.items) > last.h * 1.4) {
                     const both = [...prev.items, ...last.items];
-                    if (heightFor(both) >= 0.75 * targetFor(both)) {
+                    if (!tooWide(both) && heightFor(both) >= 0.75 * targetFor(both)) {
                         rows.splice(-2, 2, { items: both, h: heightFor(both) });
                     }
                 }
@@ -877,7 +883,7 @@ class ChineseArtPortfolio {
                         const other = rows[j];
                         if (!other) continue;
                         const both = j < i ? [...other.items, ...r.items] : [...r.items, ...other.items];
-                        if (strict && !canShare(both)) continue;
+                        if (tooWide(both) || (strict && !canShare(both))) continue;
                         const h = Math.min(heightFor(both), targetFor(both));
                         rows.splice(Math.min(i, j), 2, { items: both, h });
                         i = Math.max(-1, Math.min(i, j) - 1);   // re-check from the merged row
@@ -959,7 +965,7 @@ class ChineseArtPortfolio {
         const ratio = this.artworkRatio(artwork).toFixed(3);
 
         return `
-            <div class="gallery-item" data-idx="${idx}" data-size="${this.artworkSizeClass(artwork)}" data-cm="${this.artworkScaleCm(artwork)}" style="--r:${ratio}" onclick="openLightbox('${artwork.id}', 'gallery')" data-artwork-id="${artwork.id}">
+            <div class="gallery-item" data-idx="${idx}" data-size="${this.artworkSizeClass(artwork)}" data-cm="${this.artworkScaleCm(artwork)}" data-wcm="${parseFloat(artwork.widthCm) || ''}" style="--r:${ratio}" onclick="openLightbox('${artwork.id}', 'gallery')" data-artwork-id="${artwork.id}">
                 <div class="gallery-item-image">
                     <img src="${imageUrl}" ${this.gallerySrcset(artwork, ratio)} alt="${title}" loading="lazy"
                          onload="const r=this.naturalWidth/this.naturalHeight; if (r && Math.abs(r-${ratio})>0.02) portfolio.galleryRatioChanged(this, r)"
