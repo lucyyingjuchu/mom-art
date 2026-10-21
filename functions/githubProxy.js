@@ -91,18 +91,33 @@ exports.handler = async (event) => {
 
     const owner = process.env.GITHUB_OWNER || 'lucyyingjuchu';
     const repo = process.env.GITHUB_REPO || 'mom-art';
+    const fileUrl = `${GITHUB_API_BASE}/repos/${owner}/${repo}/contents/${path}`;
+    const headers = {
+        'Authorization': `Bearer ${GITHUB_TOKEN}`,
+        'Accept': 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json',
+        'User-Agent': 'Netlify-Function-GitHubProxy/2.0'
+    };
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), TIMEOUT);
 
     try {
-        const response = await fetch(`${GITHUB_API_BASE}/repos/${owner}/${repo}/contents/${path}`, {
+        // Replacing an existing file (artworks.json, a re-uploaded photo): GitHub
+        // refuses the write (422) unless it gets the file's current SHA. The admin
+        // page doesn't send one, so look it up here with the token.
+        if (method === 'PUT' && !githubBody.sha) {
+            const existing = await fetch(`${fileUrl}?ref=${BRANCH}`, { headers, signal: controller.signal });
+            if (existing.ok) {
+                const info = await existing.json().catch(() => ({}));
+                if (info.sha) githubBody.sha = info.sha;
+            } else if (existing.status !== 404) {
+                console.warn('Could not read current SHA:', existing.status);
+            }
+        }
+
+        const response = await fetch(fileUrl, {
             method,
-            headers: {
-                'Authorization': `Bearer ${GITHUB_TOKEN}`,
-                'Accept': 'application/vnd.github.v3+json',
-                'Content-Type': 'application/json',
-                'User-Agent': 'Netlify-Function-GitHubProxy/2.0'
-            },
+            headers,
             body: JSON.stringify(githubBody),
             signal: controller.signal
         });
