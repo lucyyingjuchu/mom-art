@@ -6131,7 +6131,7 @@
     "year": "2026",
     "price": "",
     "available": true,
-    "featured": false,
+    "featured": true,
     "curatorNote": "月色如水,彷彿一縷流泉,自虛空如瀑布般垂落人間,不僅是視覺焦點,更是精神象徵,如同覺照之心,自虛空而來,貫通上下,無所阻隔。畫面以重墨為體、流白為用,動靜相涵,極具「一念通天」之勢。將「月光」擬人化,「嫁給」了水面。描繪出一幅「水天一色、相伴到老」的絕美宇宙浪漫。表達月光水影,不離不棄、生死相依的動人情懷。",
     "curatorNoteEn": "Moonlight like water, like a stream, falls from the void into the world like a waterfall — not only the visual focus but a spiritual symbol, like an awakened mind coming from emptiness and flowing through everything without obstruction. Heavy ink forms the body, flowing white the movement; stillness and motion hold each other. The moonlight becomes a person who \"marries\" the water — a beautiful cosmic romance of sky and water as one, together to the end: moonlight and its reflection, never parting, bound in life and death.",
     "productViews": [
@@ -6154,7 +6154,8 @@
     "printFile": {
       "scan": "29.jpg",
       "pixels": "3470x5889"
-    }
+    },
+    "sizeCm": "100 × 60 cm"
   },
   {
     "id": "01a12c08-8d3e-782e-b66e-2cd9a498fa2d",
