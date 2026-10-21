@@ -5534,7 +5534,7 @@
     "year": "2026",
     "price": "",
     "available": true,
-    "featured": false,
+    "featured": true,
     "curatorNote": "這幅作品氣息清潤而悠遠,淡雅而動人:杏花如雪,鋪陳成雲;一抹青青草原橫出畫中,使畫面在虛實之間生出呼吸;點點白羊點綴其上,悠然的吃草,動中見靜,靜中見動。觀之令人心平氣和,悠然閒自適,平淡見天真。。",
     "curatorNoteEn": "Fresh, gentle and far-reaching: apricot blossoms like snow spread out into clouds, and a band of green meadow stretches across the painting, letting it breathe between solid and empty. White sheep graze unhurried upon it — stillness in motion, motion in stillness. It calms the heart: leisurely, content, and true in its simplicity.",
     "productViews": [
@@ -5556,7 +5556,8 @@
     "printFile": {
       "scan": "12.jpg",
       "pixels": "5392x2732"
-    }
+    },
+    "sizeCm": "70 × 135 cm"
   },
   {
     "id": "01a12c08-8105-7029-bf94-690d1bd84536",
