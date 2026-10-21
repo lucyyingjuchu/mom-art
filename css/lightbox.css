@@ -1105,3 +1105,8 @@
     /* land below the sticky sheet handle, not under it */
     .lightbox .lightbox-info-section .shopping-section { scroll-margin-top: var(--lb-sheet-peek); }
 }
+
+/* Original-size diagram in the details panel: keep it a compact reference, not a hero */
+.artwork-scale { margin: 1.25rem 0 0.5rem; }
+.artwork-scale .size-diagram svg { width: auto; max-width: 100%; max-height: 190px; margin: 0 auto; }
+.artwork-scale .size-diagram figcaption { justify-content: center; }

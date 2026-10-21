@@ -165,7 +165,8 @@
         };
         views = [original];
         (artwork.productViews || []).forEach(v => {
-            if (!v || !v.image || v.type === 'original') return;
+            // Room mockups are retired: scale is shown by the to-scale diagram in the panel
+            if (!v || !v.image || v.type === 'original' || /mockup|room/.test(String(v.type))) return;
             views.push({ type: v.type || 'view', low: v.image, high: v.image, title: v.title });
         });
         viewIndex = 0;
@@ -199,8 +200,8 @@
         if (views.length < 2) return;
 
         const labels = lang() === 'en'
-            ? { original: 'Artwork', mockup: 'In a room', detail: 'Detail' }
-            : { original: '作品', mockup: '實景', detail: '細節' };
+            ? { original: 'Artwork', detail: 'Detail' }
+            : { original: '作品', detail: '細節' };
         const tabs = document.createElement('div');
         tabs.className = 'view-indicators';
         tabs.setAttribute('role', 'tablist');
@@ -211,7 +212,6 @@
             b.setAttribute('role', 'tab');
             const type = String(v.type);
             b.textContent = type === 'original' ? labels.original
-                : (type.includes('mockup') || type === 'room') ? labels.mockup
                 : (type.includes('detail') || type.includes('close')) ? labels.detail
                 : (v.title || String(i + 1));
             b.addEventListener('click', (e) => {
@@ -256,6 +256,8 @@
         const labels = ['lightbox.yearLabel', 'lightbox.dimensionsLabel', 'lightbox.formatLabel'];
         el.box.querySelectorAll('.spec-label').forEach((n, i) => { if (labels[i]) n.textContent = t(labels[i]); });
 
+        renderScale(artwork);
+
         const note = (zh ? (artwork.curatorNote || artwork.curatorNoteEn) : (artwork.curatorNoteEn || artwork.curatorNote)) || '';
         $('artworkNoteLabel').textContent = zh ? '作品說明' : 'About this work';
         $('artworkNoteText').textContent = note.trim();
@@ -292,6 +294,49 @@
         el.zoomLevel.title = zh ? '符合畫面 (0)' : 'Fit to screen (0)';
 
         el.panel.scrollTop = 0;
+    }
+
+    // The original painting drawn to scale on a wall next to a 170 cm person,
+    // hung with its centre near eye level (or 20 cm off the floor for very tall works).
+    function renderScale(artwork) {
+        const box = $('artworkScale');
+        if (!box) return;
+        const hCm = parseFloat(artwork.heightCm), wCm = parseFloat(artwork.widthCm);
+        const img = artwork.image || artwork.imageHigh;
+        if (!(hCm > 0 && wCm > 0) || !img) { box.hidden = true; box.innerHTML = ''; return; }
+
+        const zh = lang() === 'zh';
+        const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+        const PERSON = 170, personW = PERSON * 0.28, GAP_CM = 30;
+        const bottomCm = Math.max(20, 150 - hCm / 2);
+        const topCm = Math.max(PERSON, bottomCm + hCm);
+        const W = 360, H = 220, FLOOR = H - 28, TOP = 8, LEFT = 12;
+        const k = Math.min((W - LEFT * 2) / (personW + GAP_CM + wCm), (FLOOR - TOP) / topCm);
+
+        const ph = PERSON * k, pw = personW * k, cx = LEFT + pw / 2;
+        const x = LEFT + pw + GAP_CM * k, w = wCm * k, h = hCm * k, y = FLOOR - (bottomCm + hCm) * k;
+        const used = Math.ceil(x + w + LEFT);
+        const label = `${artwork.heightCm} × ${artwork.widthCm} cm`;
+        const aria = zh ? `原作尺寸 ${label}，與 170 公分人形的比例示意` : `Original, ${label}, shown to scale beside a 170 cm person`;
+
+        box.innerHTML = `
+            <figure class="size-diagram">
+                <svg viewBox="0 0 ${used} ${H}" style="font-size:${(12 / Math.min(190 / H, 320 / used)).toFixed(1)}px" role="img" aria-label="${esc(aria)}">
+                    <line class="sd-floor" x1="0" y1="${FLOOR}" x2="${used}" y2="${FLOOR}"/>
+                    <g class="sd-person" aria-hidden="true">
+                        <circle cx="${cx}" cy="${FLOOR - ph + ph * 0.07}" r="${ph * 0.07}"/>
+                        <path d="M${cx - pw * 0.5} ${FLOOR - ph * 0.5} Q${cx - pw * 0.5} ${FLOOR - ph * 0.83} ${cx} ${FLOOR - ph * 0.83}
+                                 Q${cx + pw * 0.5} ${FLOOR - ph * 0.83} ${cx + pw * 0.5} ${FLOOR - ph * 0.5}
+                                 L${cx + pw * 0.28} ${FLOOR - ph * 0.5} L${cx + pw * 0.3} ${FLOOR} L${cx - pw * 0.3} ${FLOOR} L${cx - pw * 0.28} ${FLOOR - ph * 0.5} Z"/>
+                        <text x="${cx}" y="${FLOOR + 16}" text-anchor="middle">170 cm</text>
+                    </g>
+                    <rect class="sd-board" x="${x + 2}" y="${y + 2}" width="${w}" height="${h}"/>
+                    <image href="${esc(img)}" preserveAspectRatio="none" x="${x}" y="${y}" width="${w}" height="${h}"/>
+                    <text x="${x + w / 2}" y="${FLOOR + 16}" text-anchor="middle">${esc(label)}</text>
+                </svg>
+                <figcaption>${zh ? '原作尺寸示意（與 170 公分人形比較）' : 'Original to scale, beside a 170 cm (5′7″) person'}</figcaption>
+            </figure>`;
+        box.hidden = false;
     }
 
     function preloadNeighbours() {
