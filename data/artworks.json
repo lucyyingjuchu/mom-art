@@ -4848,7 +4848,7 @@
         "image": "./images/paintings/large/019891b0-f39c-7ec8-a85c-a9c9c25cf4b5_large.jpg"
       }
     ],
-    "imageRatio": 2.0
+    "imageRatio": 2
   },
   {
     "id": "019891b0-f39c-7296-b1fe-00c0dc5bac9e",
@@ -5135,7 +5135,7 @@
     "curatorNoteEn": "A monumental work capturing the grandeur of Iguazu Falls, the brush steady and the energy unbroken. The falls thunder forward layer upon layer — the majesty of nature, and also the steady growth of character. Within movement there is virtue; within force there is the Way. As heaven moves without rest, strength forms the bones; as water nourishes in silence, generosity fills the heart. Standing before it, one is moved not only by its power but by the inner cultivation and breadth of spirit it carries. In August 2019 the artist travelled with her teacher Luo Zhen-xian and a party of nine across the ocean to Iguazu Falls, on the border of Brazil and Argentina, to paint from life. Deeply moved by the immensity and power of the falls, she set that feeling down with her brush. At 6.4 by 16.5 chi, only a painting this wide could carry the spirit of Iguazu; it is the main image of the exhibition. Painted in a single ink tone with light color, its simple palette opens an infinitely wide, deep, lively and surging space — a picture that answers the heart: as wide as the painting is, so open is the heart.",
     "heightCm": 193,
     "widthCm": 503.7,
-    "heightInches": 76.0,
+    "heightInches": 76,
     "widthInches": 198.3,
     "productViews": [
       {
@@ -5882,7 +5882,7 @@
     "heightCm": 65,
     "widthCm": 99,
     "heightInches": 25.6,
-    "widthInches": 39.0,
+    "widthInches": 39,
     "series": "帆影",
     "seriesEn": "Waters & Sails",
     "imageRatio": 1.553,
@@ -5952,7 +5952,7 @@
     ],
     "heightCm": 66,
     "widthCm": 96,
-    "heightInches": 26.0,
+    "heightInches": 26,
     "widthInches": 37.8,
     "subjects": [
       "abstract"
@@ -6179,7 +6179,7 @@
     "heightCm": 98,
     "widthCm": 66,
     "heightInches": 38.6,
-    "widthInches": 26.0,
+    "widthInches": 26,
     "subjects": [
       "moon",
       "abstract"
@@ -6406,7 +6406,7 @@
     ],
     "heightCm": 99,
     "widthCm": 64,
-    "heightInches": 39.0,
+    "heightInches": 39,
     "widthInches": 25.2,
     "subjects": [
       "moon",
@@ -6444,7 +6444,7 @@
     ],
     "heightCm": 99,
     "widthCm": 65,
-    "heightInches": 39.0,
+    "heightInches": 39,
     "widthInches": 25.6,
     "subjects": [
       "moon",
@@ -6635,7 +6635,7 @@
     "heightCm": 97,
     "widthCm": 66,
     "heightInches": 38.2,
-    "widthInches": 26.0,
+    "widthInches": 26,
     "subjects": [
       "abstract"
     ],
@@ -6787,7 +6787,7 @@
     "heightCm": 140,
     "widthCm": 38,
     "heightInches": 55.1,
-    "widthInches": 15.0,
+    "widthInches": 15,
     "series": "山水",
     "seriesEn": "Landscapes",
     "imageRatio": 0.267,
@@ -7071,7 +7071,7 @@
     ],
     "heightCm": 71,
     "widthCm": 76,
-    "heightInches": 28.0,
+    "heightInches": 28,
     "widthInches": 29.9,
     "subjects": [
       "waterfall",
@@ -7279,7 +7279,7 @@
     "year": "2026",
     "price": "",
     "available": true,
-    "featured": false,
+    "featured": true,
     "curatorNote": "",
     "curatorNoteEn": "",
     "productViews": [
@@ -7299,7 +7299,8 @@
     "printFile": {
       "scan": "46.jpg",
       "pixels": "3511x5311"
-    }
+    },
+    "sizeCm": "100 × 65 cm"
   },
   {
     "id": "01a12c32-fcaf-7ea9-aeb7-470e064888bc",
