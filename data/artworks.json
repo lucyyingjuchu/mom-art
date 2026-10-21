@@ -6660,7 +6660,7 @@
     "year": "2026",
     "price": "",
     "available": true,
-    "featured": true,
+    "featured": false,
     "curatorNote": "此作以深藍色為基調,層層積染,營造出近乎無垠的空間深度。畫面上方金色垂直筆觸,若光柱、火焰、天際樓群,在虛實交融間升騰流轉。金與藍的對比,形成強烈張力,如黑夜中的文明之光,又如幽谷中乍現的覺悟之火。畫面下方沉靜而深遠,上方則充滿向上的能量,構成由沉潛至綻放、由無聲至有象的生命歷程。其間點綴紅綠細線,猶如城市運行的節奏、股市漲跌的曲線,亦如人心跳起伏的波動。全作在抽象語彙中蘊含深刻哲思,展現出老莊「萬物並作,吾以觀復」的觀照精神。",
     "curatorNoteEn": "Deep blue, built up layer by layer, creates an almost infinite depth. Golden vertical strokes rise above like pillars of light, flames or a city skyline, ascending between solid and empty. The contrast of gold and blue is intense — like the light of civilization in the night, or the fire of awakening in a dark valley. The lower part is calm and deep, the upper full of upward energy: a life journey from stillness to blossoming, from silence to form. Fine red and green lines suggest the rhythm of a city, the rise and fall of the stock market, or the beating of a heart. In abstract language it holds a profound idea, the Daoist contemplation: \"All things arise together, and I watch them return.\"",
     "productViews": [
@@ -6682,7 +6682,8 @@
     "printFile": {
       "scan": "43.jpg",
       "pixels": "3590x5362"
-    }
+    },
+    "sizeCm": "100 × 65 cm"
   },
   {
     "id": "01a12c08-961d-7601-8d24-5c3fccde7d12",
