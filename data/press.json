@@ -669,6 +669,18 @@
   ],
   "articles": [
     {
+      "date": "2026-10-22",
+      "outlet": {
+        "zh": "NOWnews 今日新聞",
+        "en": "NOWnews"
+      },
+      "title": {
+        "zh": "袁之靜「天地有大美」展覽 藝術對談解讀當代水墨之美",
+        "en": "Yuan Chih-Jin's “The Great Beauty of Heaven and Earth”: A Conversation on the Beauty of Contemporary Ink Painting"
+      },
+      "url": "https://www.nownews.com/news/6885639"
+    },
+    {
       "date": "2026-10-16",
       "outlet": {
         "zh": "ETtoday 新聞雲",
