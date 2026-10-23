@@ -549,12 +549,15 @@
             font-weight: bold;
         }
 
-        .gallery-item {
-            opacity: 0;
-            animation: fadeInGallery 0.6s ease forwards;
+        /* Fade the gallery in once per render (tab switch, search) - on the grid, not on
+           each card: the row fitting re-inserts cards whenever a photo loads, and a
+           per-card animation would restart each time, making the gallery flash on phones */
+        .gallery-grid.fade-in {
+            animation: fadeInGallery 0.6s ease;
         }
 
         @keyframes fadeInGallery {
+            from { opacity: 0; }
             to { opacity: 1; }
         }
 
