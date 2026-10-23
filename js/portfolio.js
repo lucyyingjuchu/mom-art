@@ -715,6 +715,10 @@ class ChineseArtPortfolio {
         // Render artwork cards, grouped by year and series
         galleryGrid.innerHTML = this.renderGroupedCards(prioritizedArtworks);
         this.layoutGalleryRows();
+        // fade the new gallery in once (restart the animation on the grid itself)
+        galleryGrid.classList.remove('fade-in');
+        void galleryGrid.offsetWidth;
+        galleryGrid.classList.add('fade-in');
         
         // ADD THIS LINE:
         setTimeout(() => {
