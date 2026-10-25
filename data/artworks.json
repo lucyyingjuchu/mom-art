@@ -6879,7 +6879,7 @@
     "formatEn": "Framed",
     "year": "2026",
     "price": "",
-    "available": true,
+    "available": false,
     "featured": false,
     "curatorNote": "這幅水墨畫見黑白之間層層暈染,虛實互生,鋪陳出一片空靈寂靜的水岸景致。遠樹如煙,近岸含潤,水光微動之處,數隻白鷺點破沉寂,使畫面在靜中見動、淡中有神,既有山水畫的深遠構圖,也帶現代抽象的肌理與節奏。",
     "curatorNoteEn": "Layers of wash between black and white, solid and empty, create an airy, silent waterside. Distant trees like smoke, the near shore moist, and where the water glimmers, a few white egrets break the silence — movement within stillness, spirit within lightness. It has the deep composition of classical landscape painting along with the texture and rhythm of modern abstraction.",
@@ -6902,7 +6902,8 @@
     "printFile": {
       "scan": "49.jpg",
       "pixels": "6079x3707"
-    }
+    },
+    "sizeCm": "47 × 76 cm"
   },
   {
     "id": "01a12c08-9d41-74ca-8229-7e6b61b01e3f",
