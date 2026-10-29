@@ -669,6 +669,54 @@
   ],
   "articles": [
     {
+      "date": "2026-10-28",
+      "outlet": {
+        "zh": "報新聞（蕃新聞）",
+        "en": "Bao News (yam News)"
+      },
+      "title": {
+        "zh": "袁之靜「天地有大美」水墨展　台中市美館館長賴依欣觀展",
+        "en": "Taichung Art Museum Director Lai I-hsin Visits Yuan Chih-Jin's “The Great Beauty of Heaven and Earth”"
+      },
+      "url": "https://n.yam.com/Article/20261028295908"
+    },
+    {
+      "date": "2026-10-28",
+      "outlet": {
+        "zh": "大宇宙新聞",
+        "en": "Macrocosm News"
+      },
+      "title": {
+        "zh": "袁之靜「天地有大美」個展 吸引藝文界人士關注，備受讚譽，提升當代女性水墨能見度",
+        "en": "Yuan Chih-Jin's “The Great Beauty of Heaven and Earth” Draws Praise from the Art World, Raising the Profile of Women in Contemporary Ink Painting"
+      },
+      "url": "https://macrocosm.tw/%E8%A2%81%E4%B9%8B%E9%9D%9C%E3%80%8C%E5%A4%A9%E5%9C%B0%E6%9C%89%E5%A4%A7%E7%BE%8E%E3%80%8D%E5%80%8B%E5%B1%95-%E5%90%B8%E5%BC%95%E8%97%9D%E6%96%87%E7%95%8C%E4%BA%BA%E5%A3%AB%E9%97%9C%E6%B3%A8%EF%BC%8C/"
+    },
+    {
+      "date": "2026-10-25",
+      "outlet": {
+        "zh": "品傳媒（蕃新聞）",
+        "en": "Pin Media (yam News)"
+      },
+      "title": {
+        "zh": "彰化生活美學館《天地有大美》 2026 袁之靜個展 「浮生若夢，而夢，從來不是用來沉迷，而是用來覺悟。」",
+        "en": "“The Great Beauty of Heaven and Earth” at the Changhua Living Art Center: “Life Is Like a Dream, and a Dream Is Not for Losing Oneself in, but for Awakening”"
+      },
+      "url": "https://n.yam.com/Article/20261025396616"
+    },
+    {
+      "date": "2026-10-22",
+      "outlet": {
+        "zh": "NOWnews 今日新聞",
+        "en": "NOWnews"
+      },
+      "title": {
+        "zh": "袁之靜「天地有大美」展覽 藝術對談解讀當代水墨之美",
+        "en": "Yuan Chih-Jin's “The Great Beauty of Heaven and Earth”: An Art Conversation on the Beauty of Contemporary Ink Painting"
+      },
+      "url": "https://www.nownews.com/news/6885639"
+    },
+    {
       "date": "2026-10-16",
       "outlet": {
         "zh": "ETtoday 新聞雲",
