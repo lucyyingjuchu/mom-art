@@ -670,3 +670,14 @@ label[for="shippingMethod"] {
         color: #2c3e50;
     }
 }
+
+/* The work being asked about, with its listed price */
+.inquiry-artwork {
+    margin-bottom: 1.25rem;
+    padding: 0.85rem 1rem;
+    border-radius: 10px;
+    background: #f4f6f8;
+}
+
+.inquiry-artwork-title { color: #2c3e50; font-weight: 600; }
+.inquiry-artwork-meta { margin-top: 0.2rem; color: #5a6672; font-size: 0.9rem; }

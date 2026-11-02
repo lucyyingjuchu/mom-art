@@ -41,8 +41,6 @@ exports.handler = async (event, context) => {
         const requiredFields = [
             data.customer?.name,
             data.customer?.email,
-            data.customer?.phone,
-            data.shipping?.address,
             data.artwork?.title
         ];
 

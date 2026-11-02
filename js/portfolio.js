@@ -4,6 +4,16 @@
 // Content Management System for Chinese Art Portfolio - UPDATED WITH CATEGORY MANAGER
 // Now uses centralized category configuration instead of hardcoded lists
 
+// Originals are priced by size. To change the price of every work, change these numbers.
+// One work can be set by hand in its price field (a number in NT$, or text for "on request").
+const ORIGINAL_PRICING = {
+    showPrices: false,        // false hides every price until the unit price is confirmed
+    ntdPerUnit: 10000,        // NT$ per unit
+    unitCm: 30,               // one unit is 30 × 30 cm
+    onRequestFromUnits: 30,   // this many units or more: "price on request"
+    twdPerUsd: 32.6           // USD price = NT$ ÷ this, rounded up to the next $100
+};
+
 class ChineseArtPortfolio {
     constructor() {
         this.artworks = [];
@@ -251,6 +261,41 @@ class ChineseArtPortfolio {
         }
         
         return defaultValue;
+    }
+
+    // Price of an original: { ntd, usd }, or null when it is "price on request".
+    // A number in the artwork's own price field (admin page / Excel) wins; any other
+    // text there, a missing or framed size, or a very large work means on request.
+    originalPrice(artwork) {
+        const rule = ORIGINAL_PRICING;
+        const manual = String(artwork.price ?? '').trim();
+        let ntd;
+        if (manual) {
+            ntd = /^[\d,\s]+$/.test(manual) ? parseInt(manual.replace(/\D/g, ''), 10) : 0;
+        } else {
+            const units = (parseFloat(artwork.heightCm) * parseFloat(artwork.widthCm)) / (rule.unitCm * rule.unitCm);
+            if (!units || artwork.sizeIncludesFrame || units >= rule.onRequestFromUnits) return null;
+            ntd = Math.round((units * rule.ntdPerUnit) / 1000) * 1000;
+        }
+        if (!ntd) return null;
+        return { ntd, usd: Math.ceil(ntd / rule.twdPerUsd / 100) * 100 };
+    }
+
+    // What the visitor reads: { main: 'Original US$3,300', note: 'Shipping not included' }
+    // Null while prices are hidden.
+    originalPriceText(artwork) {
+        if (!ORIGINAL_PRICING.showPrices) return null;
+        const zh = this.currentLanguage === 'zh';
+        const price = this.originalPrice(artwork);
+        const label = this.t('lightbox.originalLabel');
+        if (!price) return { main: `${label}｜${this.t('lightbox.priceOnRequest')}`, note: '', short: this.t('lightbox.priceOnRequest') };
+        const amount = zh ? `NT$${price.ntd.toLocaleString('en-US')}` : `US$${price.usd.toLocaleString('en-US')}`;
+        const framed = /框/.test(artwork.format || '');
+        return {
+            main: `${label} ${amount}`,
+            short: amount,
+            note: this.t(framed ? 'lightbox.priceNoteFramed' : 'lightbox.priceNotePlain')
+        };
     }
 
     // Get artwork by ID
