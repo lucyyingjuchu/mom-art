@@ -7,26 +7,13 @@ console.log('📋 Loading enhanced contact form system...');
 // 全域變數
 // ================================
 let currentInquiryArtwork = null;
+let inquirySize = '';
 let contactFormOpen = false;
 let userCountry = 'TW'; // Default to Taiwan
 
 // ================================
 // Country Detection & Phone Enhancement
 // ================================
-
-const COUNTRY_CODES = {
-    'TW': '+886', 'CN': '+86', 'US': '+1', 'CA': '+1', 'GB': '+44',
-    'AU': '+61', 'JP': '+81', 'KR': '+82', 'SG': '+65', 'HK': '+852',
-    'MY': '+60', 'TH': '+66', 'PH': '+63', 'ID': '+62', 'VN': '+84',
-    'IN': '+91', 'FR': '+33', 'DE': '+49', 'IT': '+39', 'ES': '+34',
-    'NL': '+31', 'BE': '+32', 'CH': '+41', 'AT': '+43', 'SE': '+46',
-    'NO': '+47', 'DK': '+45', 'FI': '+358', 'BR': '+55', 'MX': '+52',
-    'AR': '+54', 'CL': '+56', 'CO': '+57', 'PE': '+51', 'NZ': '+64'
-};
-
-function getCountryCode(countryCode) {
-    return COUNTRY_CODES[countryCode] || '+886';
-}
 
 async function detectUserCountry() {
     try {
@@ -46,8 +33,8 @@ async function detectUserCountry() {
 const CONTACT_FORM_TEXTS = {
     zh: {
         contactForm: {
-            title: "購買詢價",
-            subtitle: "對此作品有興趣？請填寫以下資訊",
+            title: "我想收藏這件",
+            subtitle: "我們會在 3 個工作天內回覆，確認作品是否仍可收藏、運費與付款方式。",
             artworkInfoTitle: "作品資訊",
             contactInfoTitle: "聯絡資訊", 
             shippingInfoTitle: "配送資訊",
@@ -61,7 +48,8 @@ const CONTACT_FORM_TEXTS = {
             // 聯絡資訊欄位
             customerName: "姓名",
             customerEmail: "電子郵件",
-            customerPhone: "手機號碼",
+            note: "留言（選填）",
+            notePlaceholder: "例如寄送地區、想問的問題",
             
             // 配送資訊欄位  
             shippingAddress: "配送地址",
@@ -77,7 +65,7 @@ const CONTACT_FORM_TEXTS = {
             },
             
             // 按鈕文字
-            submitButton: "送出詢價",
+            submitButton: "送出",
             cancelButton: "取消",
             closeButton: "關閉",
             
@@ -85,7 +73,7 @@ const CONTACT_FORM_TEXTS = {
             requiredField: "必填欄位",
             
             // 成功/錯誤訊息
-            submitSuccess: "詢價表單已送出！我們將儘快與您聯繫。",
+            submitSuccess: "已收到！我們會在 3 個工作天內回覆您。",
             submitError: "送出失敗，請稍後再試或直接聯繫我們。",
             invalidEmail: "請輸入有效的電子郵件格式",
             invalidPhone: "請輸入有效的手機號碼"
@@ -93,8 +81,8 @@ const CONTACT_FORM_TEXTS = {
     },
     en: {
         contactForm: {
-            title: "Purchase Inquiry",
-            subtitle: "Interested in this artwork? Please fill out the information below",
+            title: "Collect This Work",
+            subtitle: "We'll reply within 3 business days to confirm availability, shipping and payment.",
             artworkInfoTitle: "Artwork Information",
             contactInfoTitle: "Contact Information",
             shippingInfoTitle: "Shipping Information",
@@ -108,7 +96,8 @@ const CONTACT_FORM_TEXTS = {
             // Contact info fields
             customerName: "Name",
             customerEmail: "Email",
-            customerPhone: "Phone Number",
+            note: "Message (optional)",
+            notePlaceholder: "For example, where it would ship to, or any questions",
             
             // Shipping info fields
             shippingAddress: "Shipping Address", 
@@ -124,7 +113,7 @@ const CONTACT_FORM_TEXTS = {
             },
             
             // Button texts
-            submitButton: "Send Inquiry",
+            submitButton: "Send",
             cancelButton: "Cancel", 
             closeButton: "Close",
             
@@ -132,7 +121,7 @@ const CONTACT_FORM_TEXTS = {
             requiredField: "Required field",
             
             // Success/error messages
-            submitSuccess: "Inquiry submitted successfully! We will contact you soon.",
+            submitSuccess: "Thank you! We'll reply within 3 business days.",
             submitError: "Submission failed. Please try again later or contact us directly.",
             invalidEmail: "Please enter a valid email format",
             invalidPhone: "Please enter a valid phone number"
@@ -163,14 +152,6 @@ function validateEmail(email) {
     return emailRegex.test(email);
 }
 
-// 驗證手機號碼（國際格式）
-function validatePhone(phone) {
-    // Remove all non-digit characters for validation
-    const cleanPhone = phone.replace(/[^\d]/g, '');
-    // Accept phone numbers between 7-15 digits (international standard)
-    return cleanPhone.length >= 7 && cleanPhone.length <= 15;
-}
-
 // ================================
 // HTML 生成函數
 // ================================
@@ -178,67 +159,22 @@ function validatePhone(phone) {
 function generateContactInfoSection() {
     return `
         <div class="form-section">
-            <h3>${getContactText('contactForm.contactInfoTitle')}</h3>
             <div class="form-row">
                 <div class="form-group">
                     <label>${getContactText('contactForm.customerName')} <span class="required">*</span></label>
-                    <input type="text" 
-                           id="customerName" 
-                           name="given-name"
-                           autocomplete="given-name"
-                           required>
+                    <input type="text" id="customerName" name="name" autocomplete="name" required>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group">
                     <label>${getContactText('contactForm.customerEmail')} <span class="required">*</span></label>
-                    <input type="email" 
-                           id="customerEmail" 
-                           name="email"
-                           autocomplete="email"
-                           required>
+                    <input type="email" id="customerEmail" name="email" autocomplete="email" required>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group">
-                    <label>${getContactText('contactForm.customerPhone')} <span class="required">*</span></label>
-                    <div class="phone-input-container">
-                        <input type="text" 
-                               id="countryCode"
-                               class="country-code-input" 
-                               value="${getCountryCode(userCountry)}"
-                               placeholder="+886">
-                        <input type="tel" 
-                               id="customerPhone"
-                               class="phone-number-input"
-                               name="tel"
-                               autocomplete="tel"
-                               required>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `;
-}
-
-function generateShippingInfoSection() {
-    return `
-        <div class="form-section">
-            <h3>${getContactText('contactForm.shippingInfoTitle')}</h3>
-            <div class="form-row">
-                <div class="form-group">
-                    <label>${getContactText('contactForm.shippingAddress')} <span class="required">*</span></label>
-                    <textarea id="shippingAddress" 
-                              name="street-address"
-                              autocomplete="shipping street-address"
-                              rows="3" 
-                              required></textarea>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group">
-                    <label>${getContactText('contactForm.shippingNote')}</label>
-                    <textarea id="shippingNote" rows="3"></textarea>
+                    <label>${getContactText('contactForm.note')}</label>
+                    <textarea id="customerNote" rows="3" placeholder="${getContactText('contactForm.notePlaceholder')}"></textarea>
                 </div>
             </div>
         </div>
@@ -257,33 +193,13 @@ function generateContactFormHTML() {
                 </div>
                 
                 <form class="contact-form-content" id="artworkInquiryForm">
-                    <!-- 作品資訊區塊 -->
-                    <div class="form-section artwork-info-section">
-                        <h3>${getContactText('contactForm.artworkInfoTitle')}</h3>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>${getContactText('contactForm.artworkTitle')}</label>
-                                <input type="text" id="contactArtworkTitle" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label>${getContactText('contactForm.artworkYear')}</label>
-                                <input type="text" id="contactArtworkYear" readonly>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>${getContactText('contactForm.artworkSize')}</label>
-                                <input type="text" id="contactArtworkSize" readonly>
-                            </div>
-                        </div>
+                    <div class="inquiry-artwork">
+                        <div class="inquiry-artwork-title" id="inquiryArtworkTitle"></div>
+                        <div class="inquiry-artwork-meta" id="inquiryArtworkMeta"></div>
                     </div>
-                    
-                    <!-- 聯絡資訊區塊 -->
+
                     ${generateContactInfoSection()}
-                    
-                    <!-- 配送資訊區塊 -->
-                    ${generateShippingInfoSection()}
-                    
+
                     <!-- 表單按鈕 -->
                     <div class="form-actions">
                         <button type="button" class="btn-cancel">${getContactText('contactForm.cancelButton')}</button>
@@ -397,14 +313,9 @@ function bindContactFormEvents(modal) {
     
     // 即時驗證
     const emailInput = modal.querySelector('#customerEmail');
-    const phoneInput = modal.querySelector('#customerPhone');
     
     emailInput.addEventListener('blur', function() {
         validateEmailInput(this);
-    });
-    
-    phoneInput.addEventListener('blur', function() {
-        validatePhoneInput(this);
     });
 }
 
@@ -414,22 +325,6 @@ function populateArtworkInfo() {
     
     if (!currentInquiryArtwork) {
         console.error('No current inquiry artwork');
-        return;
-    }
-    
-    // Use unique IDs that don't conflict with lightbox
-    const titleInput = document.getElementById('contactArtworkTitle');
-    const yearInput = document.getElementById('contactArtworkYear');
-    const sizeInput = document.getElementById('contactArtworkSize');
-    
-    console.log('Form elements found:', {
-        titleInput: !!titleInput,
-        yearInput: !!yearInput,
-        sizeInput: !!sizeInput,
-    });
-    
-    if (!titleInput || !yearInput || !sizeInput) {
-        console.error('Some form elements not found');
         return;
     }
     
@@ -457,16 +352,16 @@ function populateArtworkInfo() {
         }
     }
     
-    // Set the values
-    titleInput.value = title;
-    yearInput.value = artwork.year || '未指定';
-    sizeInput.value = size;
-    
-    console.log('Values set:', {
-        title: titleInput.value,
-        year: yearInput.value,
-        size: sizeInput.value,
-    });
+    // The work being asked about, with its listed price
+    inquirySize = size;
+    document.getElementById('inquiryArtworkTitle').textContent = title;
+    document.getElementById('inquiryArtworkMeta').textContent = [size, portfolio.originalPriceText(artwork).main].join(' · ');
+}
+
+// The studio's email shows both currencies, whichever site the visitor used
+function inquiryPriceForEmail() {
+    const price = portfolio.originalPrice(currentInquiryArtwork);
+    return price ? `NT$${price.ntd.toLocaleString('en-US')} / US$${price.usd.toLocaleString('en-US')}` : '價格請洽詢';
 }
 
 // ================================
@@ -479,19 +374,6 @@ function validateEmailInput(input) {
     
     if (email && !validateEmail(email)) {
         showFieldError(input, getContactText('contactForm.invalidEmail'));
-        return false;
-    } else {
-        hideFieldError(input);
-        return true;
-    }
-}
-
-// 驗證手機號碼輸入
-function validatePhoneInput(input) {
-    const phone = input.value.trim();
-    
-    if (phone && !validatePhone(phone)) {
-        showFieldError(input, getContactText('contactForm.invalidPhone'));
         return false;
     } else {
         hideFieldError(input);
@@ -615,10 +497,8 @@ function validateForm(form) {
     
     // 特殊驗證
     const emailInput = form.querySelector('#customerEmail');
-    const phoneInput = form.querySelector('#customerPhone');
     
     if (!validateEmailInput(emailInput)) isValid = false;
-    if (!validatePhoneInput(phoneInput)) isValid = false;
     
     return isValid;
 }
@@ -642,20 +522,19 @@ function handleFormSubmit(e) {
     const inquiryData = {
         artwork: {
             id: currentInquiryArtwork?.id,
-            title: document.getElementById('contactArtworkTitle').value,
+            title: document.getElementById('inquiryArtworkTitle').textContent,
             titleEn: currentInquiryArtwork?.titleEn || currentInquiryArtwork?.title,
-            year: document.getElementById('contactArtworkYear').value,
-            size: document.getElementById('contactArtworkSize').value
+            year: currentInquiryArtwork?.year || '',
+            size: inquirySize,
+            price: inquiryPriceForEmail()
         },
         customer: {
             name: document.getElementById('customerName').value,
             email: document.getElementById('customerEmail').value,
-            phone: document.getElementById('countryCode').value + ' ' + document.getElementById('customerPhone').value,
             country: userCountry
         },
         shipping: {
-            address: document.getElementById('shippingAddress').value,
-            note: document.getElementById('shippingNote').value
+            note: document.getElementById('customerNote').value
         },
         analytics: {
             timestamp: new Date().toISOString(),
@@ -752,18 +631,18 @@ function sendEmailViaClientSide(data) {
                 // Customer info
                 customer_name: data.customer.name,
                 customer_email: data.customer.email,
-                customer_phone: data.customer.phone,
+                customer_phone: '—',
                 customer_country: data.customer.country,
                 
                 // Artwork info
                 artwork_title: data.artwork.title,
                 artwork_title_en: data.artwork.titleEn || data.artwork.title,
                 artwork_year: data.artwork.year,
-                artwork_size: data.artwork.size,
+                artwork_size: data.artwork.size + (data.artwork.price ? ` · ${data.artwork.price}` : ''),
                 artwork_id: data.artwork.id,
                 
                 // Shipping info
-                shipping_address: data.shipping.address,
+                shipping_address: '—',
                 shipping_note: data.shipping.note || 'No additional notes',
                 
                 // Analytics

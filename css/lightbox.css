@@ -552,6 +552,28 @@
     margin-bottom: 0.4rem;
 }
 
+/* Price of the original, above the button */
+.original-price { margin: 0.25rem 0 0.75rem; }
+.original-price[hidden] { display: none; }
+
+.original-price-main {
+    display: block;
+    color: #2c3e50;
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.original-price-note {
+    display: block;
+    margin-top: 0.15rem;
+    color: #6b7680;
+    font-size: 0.82rem;
+}
+
+.original-price-note:empty { display: none; }
+
+.lb-sheet-price, .collect-pill { display: none; }
+
 /* Availability status - 可點擊版本 */
 .availability-status {
     padding: 0.6rem 1rem;
@@ -1083,12 +1105,48 @@
 }
 
 @media (max-width: 768px) {
-    /* title moves left to make room for the pill on the right */
-    .lb-sheet-handle:has(.prints-pill) .lb-sheet-title {
+    /* title moves left to make room for the pills on the right */
+    .lb-sheet-handle:has(.prints-pill) .lb-sheet-title,
+    .lb-sheet-handle:has(.collect-pill) .lb-sheet-title {
         align-self: stretch;
         text-align: left;
         padding-right: 9.5rem;
     }
+
+    /* an available original: price and button stay visible with the sheet closed */
+    .lightbox.has-collect { --lb-sheet-peek: 84px; }
+    .lb-sheet-handle:has(.collect-pill) { gap: 6px; }
+    .lb-sheet-handle:has(.collect-pill) .lb-sheet-title::after { content: none; }
+
+    .lb-sheet-price {
+        display: block;
+        align-self: stretch;
+        text-align: left;
+        color: #2c3e50;
+        font: 600 0.9rem/1.2 system-ui, -apple-system, "PingFang TC", "Microsoft JhengHei", sans-serif;
+    }
+
+    .collect-pill {
+        display: inline-flex;
+        align-items: center;
+        position: absolute;
+        right: 16px;
+        bottom: 24px;
+        padding: 0.5rem 0.95rem;
+        border-radius: 999px;
+        background: #1e8449;
+        color: #fff;
+        font: 600 0.9rem/1.2 system-ui, -apple-system, "PingFang TC", "Microsoft JhengHei", sans-serif;
+        white-space: nowrap;
+        cursor: pointer;
+    }
+
+    /* English site: "Collect" above "Prints" */
+    .lb-sheet-handle:has(.prints-pill) .collect-pill { bottom: 42px; padding: 0.35rem 0.8rem; font-size: 0.8rem; }
+    .lb-sheet-handle:has(.collect-pill) .prints-pill { bottom: 10px; }
+
+    .lightbox.sheet-open .collect-pill,
+    .lightbox.sheet-open .lb-sheet-price { display: none; }
 
     .prints-pill {
         display: inline-flex;
@@ -1109,7 +1167,8 @@
     }
 
     .lightbox.sheet-open .prints-pill { display: none; }
-    .lightbox.sheet-open .lb-sheet-handle:has(.prints-pill) .lb-sheet-title { padding-right: 0; }
+    .lightbox.sheet-open .lb-sheet-handle:has(.prints-pill) .lb-sheet-title,
+    .lightbox.sheet-open .lb-sheet-handle:has(.collect-pill) .lb-sheet-title { padding-right: 0; }
 
     /* land below the sticky sheet handle, not under it */
     .lightbox .lightbox-info-section .shopping-section { scroll-margin-top: var(--lb-sheet-peek); }

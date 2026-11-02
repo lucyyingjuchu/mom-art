@@ -246,6 +246,29 @@
             : (artwork[field + 'En'] || artwork[field] || '');
     }
 
+    // Price above the button, and on phones price + button in the collapsed sheet
+    function fillPrice(artwork, available, inquire) {
+        const text = available && typeof portfolio !== 'undefined' ? portfolio.originalPriceText(artwork) : null;
+        $('originalPrice').hidden = !text;
+        $('originalPriceMain').textContent = text ? text.main : '';
+        $('originalPriceNote').textContent = text ? text.note : '';
+        $('lbSheetPrice').textContent = text ? text.short : '';
+
+        $('collectPill')?.remove();
+        el.box.classList.toggle('has-collect', !!text);
+        if (!text) return;
+        const pill = document.createElement('span');
+        pill.id = 'collectPill';
+        pill.className = 'collect-pill';
+        pill.setAttribute('role', 'button');
+        pill.textContent = t('lightbox.availableStatus');
+        // Keep the tap from also counting as a tap on the sheet handle
+        pill.addEventListener('pointerdown', e => e.stopPropagation());
+        pill.addEventListener('pointerup', e => e.stopPropagation());
+        pill.addEventListener('click', e => { e.stopPropagation(); inquire(); });
+        el.sheetHandle.appendChild(pill);
+    }
+
     function fillDetails(artwork) {
         const zh = lang() === 'zh';
         let size;
@@ -287,15 +310,16 @@
         const available = typeof portfolio !== 'undefined' ? portfolio.getBooleanValue(artwork, 'available', true) : true;
         status.textContent = t(available ? 'lightbox.availableStatus' : 'lightbox.soldStatus');
         status.className = `availability-status ${available ? 'available' : 'sold'}`;
+        const inquire = () => {
+            if (typeof openContactForm === 'function') openContactForm(artwork.id);
+        };
         if (available) {
             status.setAttribute('role', 'button');
             status.tabIndex = 0;
-            const inquire = () => {
-                if (typeof openContactForm === 'function') openContactForm(artwork.id);
-            };
             status.addEventListener('click', inquire);
             status.addEventListener('keydown', e => { if (e.key === 'Enter') inquire(); });
         }
+        fillPrice(artwork, available, inquire);
 
         // Tooltips in the current language
         el.prev.title = t('lightbox.prevTitle');

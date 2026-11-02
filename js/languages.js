@@ -137,7 +137,7 @@ const LANGUAGE_DATA = {
                             },
                             {
                                 question: "How do I purchase originals and prints?",
-                                answer: "**Originals** require filling out the \"Original Art Inquiry Form\" and we will contact you to arrange payment and shipping.\n**Prints** can be added directly to the shopping cart for checkout."
+                                answer: "**Originals**: press \"Collect This Work\" and send the short form. We reply within 3 business days to confirm the work is available and to arrange shipping and payment.\n**Prints** can be added directly to the shopping cart for checkout."
                             },
                             {
                                 question: "Do originals come framed?",
@@ -170,7 +170,7 @@ const LANGUAGE_DATA = {
         connect: {
             title: "Contact",
             subtitle: "For exhibitions, collaborations, or painting and calligraphy classes, please write to the studio.",
-            collectNote: "Interested in a specific work? Use “Original Art Inquiry” on its page.",
+            collectNote: "Interested in a specific work? Use “Collect This Work” on its page.",
             collectLink: "Go to the Gallery",
             emailTitle: "Email",
             copy: "Copy",
@@ -187,7 +187,11 @@ const LANGUAGE_DATA = {
         
         // Lightbox
         lightbox: {
-            availableStatus: "Original Art Inquiry",
+            availableStatus: "Collect This Work",
+            originalLabel: "Original",
+            priceOnRequest: "Price on request",
+            priceNoteFramed: "Frame and shipping not included",
+            priceNotePlain: "Shipping not included",
             soldStatus: "Original Art Sold",
             yearLabel: "Year",
             dimensionsLabel: "Size (HxW)", 
@@ -473,7 +477,7 @@ const LANGUAGE_DATA = {
                             },
                             {
                                 question: "如何購買原作與藝術微噴印刷品(fine art giclée prints)？",
-                                answer: "**原作**：需填寫「原作詢價表單」，我們會與您聯繫安排付款與出貨。\n**印刷品**：目前僅於英文版網站提供訂購；台灣地區的印刷品訂購正在籌備中。"
+                                answer: "**原作**：點「我想收藏這件」並送出簡短表單，我們會在 3 個工作天內回覆，確認作品是否仍可收藏，並安排運費與付款。\n**印刷品**：目前僅於英文版網站提供訂購；台灣地區的印刷品訂購正在籌備中。"
                             },
                             {
                                 question: "原作有附框嗎？",
@@ -490,8 +494,8 @@ const LANGUAGE_DATA = {
                         icon: "💳",
                         questions: [
                             {
-                                question: "為什麼價格顯示為美元？",
-                                answer: "我們面向國際銷售，美元是大多數收藏家都理解的標準貨幣。結帳時，您的銀行可能會顯示轉換後的當地貨幣金額。"
+                                question: "價格以什麼幣別標示？",
+                                answer: "**原作**以新台幣標價。\n**印刷品**目前僅於英文版網站提供，以美元計價。"
                             }
                         ]
                     }
@@ -502,7 +506,7 @@ const LANGUAGE_DATA = {
         connect: {
             title: "聯絡",
             subtitle: "邀展合作或書畫課程，歡迎來信畫室。",
-            collectNote: "想收藏某件作品？請在作品頁點「點此洽詢購買原作」。",
+            collectNote: "想收藏某件作品？請在作品頁點「我想收藏這件」。",
             collectLink: "前往藝廊",
             emailTitle: "電子郵件",
             copy: "複製",
@@ -519,7 +523,11 @@ const LANGUAGE_DATA = {
         
         // Lightbox
         lightbox: {
-            availableStatus: "點此洽詢購買原作",
+            availableStatus: "我想收藏這件",
+            originalLabel: "原作",
+            priceOnRequest: "價格請洽詢",
+            priceNoteFramed: "含原框（台灣）",
+            priceNotePlain: "",
             soldStatus: "原作已售出",
             yearLabel: "年份",
             dimensionsLabel: "尺寸（高×寬）",
