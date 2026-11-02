@@ -1,11 +1,16 @@
 // functions/submit-order.js
 //
-// Called by order_success_page.html with the Stripe session id after checkout.
+// Sends a paid order to Finerworks, and reports its status to order_success_page.html.
 // Everything happens server-side:
 //   1. Ask Stripe whether the session is really paid (the browser can't fake this).
 //   2. Rebuild the order from Stripe's own record + data/finerworks_ready_artworks.json.
 //   3. Send it to Finerworks ONCE - the PaymentIntent is stamped so a page reload
-//      or a second tab never creates a duplicate print order.
+//      or a repeated webhook never creates a duplicate print order.
+//   4. Email the studio about the order (functions/_shared/order-alert.js).
+//
+// When STRIPE_WEBHOOK_SECRET is set, only functions/stripe-webhook.js sends orders and
+// the success page just reads the status, so the two can't both send one order.
+// Without it, the success page sends the order, as it did before the webhook existed.
 //
 // Netlify env var FINERWORKS_ORDER_MODE controls step 3:
 //   "off"      (default) - nothing is sent to Finerworks; the order is only logged
@@ -16,6 +21,7 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY, {
     apiVersion: '2025-08-27.basil'
 });
 const PRINTS = require('../data/finerworks_ready_artworks.json');
+const { sendOrderAlert } = require('./_shared/order-alert');
 
 const SITE_URL = process.env.URL || 'https://xiaoranart.com';
 const MODE = (process.env.FINERWORKS_ORDER_MODE || 'off').toLowerCase();
@@ -176,33 +182,8 @@ function buildFinerworksOrder(session, cart, shippingCode) {
     };
 }
 
-exports.presignS3Url = presignS3Url;   // also used by print-file-check.js
-exports.sizedPrintImage = sizedPrintImage;
-
-exports.handler = async (event) => {
-    if (event.httpMethod === 'OPTIONS') return { statusCode: 204, headers, body: '' };
-    if (event.httpMethod !== 'POST') return reply(405, { error: 'Method not allowed' });
-
-    let sessionId;
-    try {
-        sessionId = JSON.parse(event.body || '{}').session_id;
-    } catch {
-        return reply(400, { error: 'Invalid request' });
-    }
-    if (typeof sessionId !== 'string' || !/^cs_(test|live)_[A-Za-z0-9]+$/.test(sessionId)) {
-        return reply(400, { error: 'Invalid session id' });
-    }
-
-    let session;
-    try {
-        session = await stripe.checkout.sessions.retrieve(sessionId);
-    } catch (err) {
-        return reply(404, { error: 'Order not found' });
-    }
-    if (session.payment_status !== 'paid') return reply(402, { error: 'Payment not completed' });
-
-    const cart = readCart(session.metadata || {});
-    const summary = {
+function orderSummary(session, cart) {
+    return {
         order_number: `XR-${new Date(session.created * 1000).getFullYear()}-${session.metadata.order_id.slice(-6)}`,
         amount_total: session.amount_total,
         currency: session.currency,
@@ -210,12 +191,58 @@ exports.handler = async (event) => {
         customer_email: session.customer_details?.email || session.customer_email || '',
         item_count: cart.length
     };
+}
+
+function orderDetails(session, cart, status) {
+    const s = orderSummary(session, cart);
+    const items = cart.map(i => {
+        const info = PRINTS[i.id]?.artwork_info || {};
+        return `- ${info.title || i.id} ${i.h}" × ${i.w}" × ${i.q}`;
+    });
+    return [
+        `訂單編號：${s.order_number}`,
+        `Finerworks 狀態：${status}（送單模式：${MODE}）`,
+        `金額：${(s.amount_total / 100).toFixed(2)} ${String(s.currency).toUpperCase()}`,
+        `買家：${s.customer_name} <${s.customer_email}>`,
+        '作品：',
+        ...items,
+        `Stripe 付款：${session.payment_intent}`
+    ].join('\n');
+}
+
+const ALERT_SUBJECT = {
+    submitted: '新印刷訂單',
+    validated: '⚠️ 已收款，但訂單沒有送印（validate 模式）',
+    recorded: '⚠️ 已收款，但訂單沒有送印（off 模式）',
+    failed: '⚠️ 已收款，但送單失敗，請處理',
+    unclear: '⚠️ 已收款，送單結果不明，請先查 Finerworks'
+};
+
+async function alertStudio(session, cart, status) {
+    const s = orderSummary(session, cart);
+    await sendOrderAlert(`${ALERT_SUBJECT[status]} ${s.order_number}`, orderDetails(session, cart, status));
+}
+
+// Sends one paid session to Finerworks. Safe to call again for the same session.
+async function fulfillSession(session, { fromWebhook = false } = {}) {
+    if (session.payment_status !== 'paid') return 'unpaid';
+
+    const cart = readCart(session.metadata || {});
+    const stamp = metadata => stripe.paymentIntents.update(session.payment_intent, { metadata });
 
     // Idempotency: has this payment already been sent to Finerworks?
     const pi = await stripe.paymentIntents.retrieve(session.payment_intent);
-    if (pi.metadata?.finerworks_status) {
-        return reply(200, { ...summary, fulfillment: pi.metadata.finerworks_status });
+    const earlier = pi.metadata?.finerworks_status;
+    if (earlier === 'sending' && fromWebhook) {
+        // A repeat of an attempt that never finished: the order may or may not have
+        // reached Finerworks, so a person checks rather than risking a second print.
+        await stamp({ finerworks_status: 'failed', finerworks_at: new Date().toISOString() });
+        await alertStudio(session, cart, 'unclear');
+        return 'failed';
     }
+    if (earlier) return earlier;
+
+    await stamp({ finerworks_status: 'sending', finerworks_at: new Date().toISOString() });
 
     let status;
     try {
@@ -244,13 +271,45 @@ exports.handler = async (event) => {
         status = 'failed';
     }
 
-    // Only lock the order once it has actually gone through (or been recorded),
-    // so a failed attempt can be retried by reloading the page.
-    if (status !== 'failed') {
-        await stripe.paymentIntents.update(session.payment_intent, {
-            metadata: { finerworks_status: status, finerworks_at: new Date().toISOString() }
-        });
+    // A failed order stays marked failed and the studio is told. Nothing resends it by
+    // itself: Finerworks may have received it, and a repeat would print it twice.
+    await stamp({ finerworks_status: status, finerworks_at: new Date().toISOString() });
+    await alertStudio(session, cart, status);
+    return status;
+}
+
+exports.presignS3Url = presignS3Url;   // also used by print-file-check.js
+exports.sizedPrintImage = sizedPrintImage;
+exports.fulfillSession = fulfillSession;   // also used by stripe-webhook.js
+
+exports.handler = async (event) => {
+    if (event.httpMethod === 'OPTIONS') return { statusCode: 204, headers, body: '' };
+    if (event.httpMethod !== 'POST') return reply(405, { error: 'Method not allowed' });
+
+    let sessionId;
+    try {
+        sessionId = JSON.parse(event.body || '{}').session_id;
+    } catch {
+        return reply(400, { error: 'Invalid request' });
+    }
+    if (typeof sessionId !== 'string' || !/^cs_(test|live)_[A-Za-z0-9]+$/.test(sessionId)) {
+        return reply(400, { error: 'Invalid session id' });
     }
 
-    return reply(200, { ...summary, fulfillment: status });
+    let session;
+    try {
+        session = await stripe.checkout.sessions.retrieve(sessionId);
+    } catch (err) {
+        return reply(404, { error: 'Order not found' });
+    }
+    if (session.payment_status !== 'paid') return reply(402, { error: 'Payment not completed' });
+
+    const summary = orderSummary(session, readCart(session.metadata || {}));
+
+    if (process.env.STRIPE_WEBHOOK_SECRET) {
+        const pi = await stripe.paymentIntents.retrieve(session.payment_intent);
+        return reply(200, { ...summary, fulfillment: pi.metadata?.finerworks_status || 'processing' });
+    }
+
+    return reply(200, { ...summary, fulfillment: await fulfillSession(session) });
 };
