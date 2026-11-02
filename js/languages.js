@@ -137,7 +137,7 @@ const LANGUAGE_DATA = {
                             },
                             {
                                 question: "How do I purchase originals and prints?",
-                                answer: "**Originals**: press \"Collect This Work\" and send the short form. We reply within 3 business days to confirm the work is available and to arrange shipping and payment.\n**Prints** can be added directly to the shopping cart for checkout."
+                                answer: "**Originals**: press \"Collect This Work\" and send the short form. We reply within 3 business days with availability, price, shipping and payment.\n**Prints** can be added directly to the shopping cart for checkout."
                             },
                             {
                                 question: "Do originals come framed?",
@@ -477,7 +477,7 @@ const LANGUAGE_DATA = {
                             },
                             {
                                 question: "如何購買原作與藝術微噴印刷品(fine art giclée prints)？",
-                                answer: "**原作**：點「我想收藏這件」並送出簡短表單，我們會在 3 個工作天內回覆，確認作品是否仍可收藏，並安排運費與付款。\n**印刷品**：目前僅於英文版網站提供訂購；台灣地區的印刷品訂購正在籌備中。"
+                                answer: "**原作**：點「我想收藏這件」並送出簡短表單，我們會在 3 個工作天內回覆作品是否仍可收藏、價格、運費與付款方式。\n**印刷品**：目前僅於英文版網站提供訂購；台灣地區的印刷品訂購正在籌備中。"
                             },
                             {
                                 question: "原作有附框嗎？",
@@ -495,7 +495,7 @@ const LANGUAGE_DATA = {
                         questions: [
                             {
                                 question: "價格以什麼幣別標示？",
-                                answer: "**原作**以新台幣標價。\n**印刷品**目前僅於英文版網站提供，以美元計價。"
+                                answer: "**原作**以新台幣報價。\n**印刷品**目前僅於英文版網站提供，以美元計價。"
                             }
                         ]
                     }

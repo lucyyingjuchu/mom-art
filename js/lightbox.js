@@ -248,15 +248,15 @@
 
     // Price above the button, and on phones price + button in the collapsed sheet
     function fillPrice(artwork, available, inquire) {
-        const text = available && typeof portfolio !== 'undefined' ? portfolio.originalPriceText(artwork) : null;
+        const text = available ? portfolio.originalPriceText(artwork) : null;
         $('originalPrice').hidden = !text;
         $('originalPriceMain').textContent = text ? text.main : '';
         $('originalPriceNote').textContent = text ? text.note : '';
         $('lbSheetPrice').textContent = text ? text.short : '';
 
         $('collectPill')?.remove();
-        el.box.classList.toggle('has-collect', !!text);
-        if (!text) return;
+        el.box.classList.toggle('has-collect', available);
+        if (!available) return;
         const pill = document.createElement('span');
         pill.id = 'collectPill';
         pill.className = 'collect-pill';

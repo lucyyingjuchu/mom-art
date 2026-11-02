@@ -7,6 +7,7 @@
 // Originals are priced by size. To change the price of every work, change these numbers.
 // One work can be set by hand in its price field (a number in NT$, or text for "on request").
 const ORIGINAL_PRICING = {
+    showPrices: false,        // false hides every price until the unit price is confirmed
     ntdPerUnit: 10000,        // NT$ per unit
     unitCm: 30,               // one unit is 30 × 30 cm
     onRequestFromUnits: 30,   // this many units or more: "price on request"
@@ -281,7 +282,9 @@ class ChineseArtPortfolio {
     }
 
     // What the visitor reads: { main: 'Original US$3,300', note: 'Shipping not included' }
+    // Null while prices are hidden.
     originalPriceText(artwork) {
+        if (!ORIGINAL_PRICING.showPrices) return null;
         const zh = this.currentLanguage === 'zh';
         const price = this.originalPrice(artwork);
         const label = this.t('lightbox.originalLabel');

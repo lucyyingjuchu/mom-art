@@ -34,7 +34,7 @@ const CONTACT_FORM_TEXTS = {
     zh: {
         contactForm: {
             title: "我想收藏這件",
-            subtitle: "我們會在 3 個工作天內回覆，確認作品是否仍可收藏、運費與付款方式。",
+            subtitle: "我們會在 3 個工作天內回覆作品是否仍可收藏、價格、運費與付款方式。",
             artworkInfoTitle: "作品資訊",
             contactInfoTitle: "聯絡資訊", 
             shippingInfoTitle: "配送資訊",
@@ -82,7 +82,7 @@ const CONTACT_FORM_TEXTS = {
     en: {
         contactForm: {
             title: "Collect This Work",
-            subtitle: "We'll reply within 3 business days to confirm availability, shipping and payment.",
+            subtitle: "We'll reply within 3 business days with availability, price, shipping and payment.",
             artworkInfoTitle: "Artwork Information",
             contactInfoTitle: "Contact Information",
             shippingInfoTitle: "Shipping Information",
@@ -355,11 +355,13 @@ function populateArtworkInfo() {
     // The work being asked about, with its listed price
     inquirySize = size;
     document.getElementById('inquiryArtworkTitle').textContent = title;
-    document.getElementById('inquiryArtworkMeta').textContent = [size, portfolio.originalPriceText(artwork).main].join(' · ');
+    const priceText = portfolio.originalPriceText(artwork);
+    document.getElementById('inquiryArtworkMeta').textContent = priceText ? `${size} · ${priceText.main}` : size;
 }
 
 // The studio's email shows both currencies, whichever site the visitor used
 function inquiryPriceForEmail() {
+    if (!portfolio.originalPriceText(currentInquiryArtwork)) return '';
     const price = portfolio.originalPrice(currentInquiryArtwork);
     return price ? `NT$${price.ntd.toLocaleString('en-US')} / US$${price.usd.toLocaleString('en-US')}` : '價格請洽詢';
 }
