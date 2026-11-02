@@ -52,11 +52,11 @@ const LANGUAGE_DATA = {
         
         // About page
         about: {
-            mainTitle: "Yuan Chih-Jin (Xiaoran)",
+            mainTitle: "Yuan Chih-Jin (Xiaoran) 袁之靜",
             mainSubtitle: "Ink painter · Calligrapher · Teacher",
             quote: "“The landscapes I see slowly become the landscapes of my heart.”",
             story: [
-                "Yuan Chih-Jin, who paints under the name Xiaoran, grew up in a scholarly household in Taichung, Taiwan. Her father, the calligrapher Yuan De-jiong, filled their home with poetry and brushwork — she learned to read a classical poem and shape a character long before she painted her first mountain. In 2013, father and daughter exhibited side by side.",
+                "Yuan Chih-Jin (袁之靜), who paints under the name Xiaoran (曉然), grew up in a scholarly household in Taichung, Taiwan. Her father, the calligrapher Yuan De-jiong, filled their home with poetry and brushwork — she learned to read a classical poem and shape a character long before she painted her first mountain. In 2013, father and daughter exhibited side by side.",
                 "She built a career outside the studio but never put the brush down, and later returned to school for an M.F.A. in Painting and Calligraphy at National Taiwan University of Arts. Over four decades she has studied with more than a dozen masters, including Luo Zhen-xian and Ou Hao-nian, and carried her sketchbook from Jade Mountain to Iguazu Falls.",
                 "Teaching has always run alongside her painting. She has taught at National Chung Hsing University — including Chinese painting for international students — Chaoyang University of Technology and Central Taiwan University of Science and Technology, and still leads classes at the Taichung Dadun Cultural Center, showing with her students year after year. A past President of the Taiwan Province Chinese Painting and Calligraphy Association, she now serves as its Honorary President.",
                 "Her work has gradually moved from recognizable landscapes toward abstraction — blocks of color, light and line, moons on gold xuan paper, sailboats leaving the harbor. It has been shown across Taiwan and as far as Venice, yet every painting still begins the same way: with a walk, a sketch, and a quiet heart."
