@@ -13,10 +13,10 @@
 .news-more-btn,
 .view-all-btn {
     padding: 0.55rem 1.4rem;
-    border: 1px solid #c9bba8;
+    border: 1px solid var(--stone-300);
     border-radius: 999px;
     background: #fff;
-    color: #2b2723;
+    color: var(--ink);
     font: inherit;
     font-size: 1rem;
     letter-spacing: 0.02em;
@@ -31,30 +31,30 @@
 .news-invite button:hover,
 .news-more-btn:hover,
 .view-all-btn:hover {
-    border-color: #2b2723;
+    border-color: var(--ink);
 }
 
 .btn-submit,
 .checkout-btn,
 .add-to-cart-btn,
 .history-filters button.active {
-    background: #2b2723;
-    border-color: #2b2723;
-    color: #fbf8f3;
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--paper);
 }
 
 .btn-submit:hover,
 .checkout-btn:hover,
 .add-to-cart-btn:hover {
-    background: #4a433b;
-    border-color: #4a433b;
+    background: var(--stone-700);
+    border-color: var(--stone-700);
 }
 
 .btn-submit:disabled,
 .checkout-btn:disabled,
 .add-to-cart-btn:disabled {
-    background: #a89e90;
-    border-color: #a89e90;
+    background: var(--stone-400);
+    border-color: var(--stone-400);
     cursor: not-allowed;
 }
 

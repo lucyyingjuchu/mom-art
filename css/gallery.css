@@ -5,7 +5,7 @@
     gap: 2rem;
     margin: 0.5rem auto 0.25rem;
     padding: 0 1rem;
-    border-bottom: 1px solid #e9e4dc;
+    border-bottom: 1px solid var(--stone-300);
     overflow-x: auto;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
@@ -29,16 +29,16 @@
     font: inherit;
     font-size: 1.02rem;
     letter-spacing: 0.08em;
-    color: #8a7f72;
+    color: var(--stone-500);
     cursor: pointer;
     transition: color 0.2s ease, border-color 0.2s ease;
 }
 
-.gallery-tab:hover { color: #2b2723; }
+.gallery-tab:hover { color: var(--ink); }
 
 .gallery-tab.active {
-    color: #2b2723;
-    border-bottom-color: #a3342c;
+    color: var(--ink);
+    border-bottom-color: var(--seal);
 }
 
 .gallery-search-row {
@@ -54,26 +54,26 @@
     font: inherit;
     font-size: 0.95rem;
     letter-spacing: 0.04em;
-    color: #2b2723;
+    color: var(--ink);
     background: transparent;
     border: 0;
-    border-bottom: 1px solid #d9d2c7;
+    border-bottom: 1px solid var(--stone-300);
     border-radius: 0;
     padding: 0.45rem 0.2rem;
     text-align: center;
 }
-.gallery-search::placeholder { color: #b0a698; }
-.gallery-search:focus { outline: none; border-bottom-color: #a3342c; }
+.gallery-search::placeholder { color: var(--stone-400); }
+.gallery-search:focus { outline: none; border-bottom-color: var(--seal); }
 
 .gallery-empty {
     text-align: center;
-    color: #8a7f72;
+    color: var(--stone-500);
     padding: 3rem 1rem;
 }
 
 #gallery .results-info {
     text-align: center;
-    color: #a99f92;
+    color: var(--stone-400);
     font-size: 0.85rem;
     letter-spacing: 0.05em;
     border: 0;

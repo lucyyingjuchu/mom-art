@@ -543,7 +543,7 @@ function showExtensionWarning() {
         <div style="font-weight: bold; margin-bottom: 8px;">${msg.title}</div>
         <div style="margin-bottom: 12px; white-space: pre-line;">${msg.message}</div>
         <button onclick="this.parentElement.remove(); sessionStorage.setItem('extension-warning-shown', 'true');" 
-                style="background: #ffc107; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; color: #212529;">
+                style="background: #ffc107; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; color: #292524;">
             ${msg.button}
         </button>
     `;

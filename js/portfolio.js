@@ -1374,7 +1374,7 @@ class ChineseArtPortfolio {
             
             .featured-header p {
                 font-size: 1.2rem;
-                color: #756b5f;
+                color: #78716c;
                 font-style: italic;
             }
             
@@ -1418,7 +1418,7 @@ class ChineseArtPortfolio {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                background: #f6f2e9;
+                background: #f5f5f4;
             }
             
             .featured-image-container img {
@@ -1461,7 +1461,7 @@ class ChineseArtPortfolio {
                 left: 0;
                 right: 0;
                 bottom: 0;
-                background: linear-gradient(135deg, rgba(43,39,35,0.8), rgba(52,73,94,0.6));
+                background: linear-gradient(135deg, rgba(41, 37, 36,0.8), rgba(52,73,94,0.6));
                 opacity: 0;
                 transition: opacity 0.3s ease;
                 display: flex;
@@ -1491,7 +1491,7 @@ class ChineseArtPortfolio {
             
             .view-details:hover {
                 background: white;
-                color: #2b2723;
+                color: #292524;
             }
             
             .featured-info {
@@ -1507,7 +1507,7 @@ class ChineseArtPortfolio {
             
             .featured-title {
                 font-size: 1.4rem;
-                color: #2b2723;
+                color: #292524;
                 margin: 0;
                 font-weight: 400;
                 line-height: 1.3;
@@ -1515,12 +1515,12 @@ class ChineseArtPortfolio {
             
             .featured-year {
                 font-size: 0.9rem;
-                color: #756b5f;
+                color: #78716c;
                 font-style: italic;
             }
             
             .featured-description {
-                color: #574f46;
+                color: #57534e;
                 line-height: 1.6;
                 margin-bottom: 1.5rem;
                 display: -webkit-box;
@@ -1538,8 +1538,8 @@ class ChineseArtPortfolio {
             }
             
             .featured-size {
-                color: #756b5f;
-                background: #f6f2e9;
+                color: #78716c;
+                background: #f5f5f4;
                 padding: 0.3rem 0.8rem;
                 border-radius: 12px;
                 font-size: 0.8rem;
@@ -1560,7 +1560,7 @@ class ChineseArtPortfolio {
             
             .featured-status.sold {
                 background: none;
-                color: #800000;
+                color: #a3342c;
             }
             
             .featured-footer {
@@ -2056,12 +2056,12 @@ function showArtworkNotFoundMessage(artworkId) {
     `;
     
     message.innerHTML = `
-        <h3 style="margin: 0 0 10px 0; color: #ff6b6b;">Artwork Not Found</h3>
+        <h3 style="margin: 0 0 10px 0; color: #a3342c;">Artwork Not Found</h3>
         <p style="margin: 0;">The shared artwork link appears to be invalid or the artwork may have been removed.</p>
         <button onclick="this.parentElement.remove()" style="
             margin-top: 15px;
             padding: 8px 20px;
-            background: #2b2723;
+            background: #292524;
             color: #fbf8f3;
             border: none;
             border-radius: 999px;
