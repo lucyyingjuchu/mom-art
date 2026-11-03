@@ -124,10 +124,6 @@ const LANGUAGE_DATA = {
 
                                 question: "What's the difference between originals and prints?",
                                 answer: "**Originals**: one-of-a-kind, collectible works on Xuan paper (or known as rice paper).\n**Prints**: archival giclée reproductions, made in the U.S. through trusted partners for museum-quality results, available in multiple sizes for everyday interiors."
-                            },
-                            {
-                                question: "Does the work come with documentation?",
-                                answer: "Each original is accompanied by a certificate of authenticity signed and sealed by the artist."
                             }
                         ]
                     },
@@ -479,10 +475,6 @@ const LANGUAGE_DATA = {
                             {
                                 question: "原作與印刷品有什麼差別？",
                                 answer: "**原作**：宣紙上的獨一無二收藏級作品。\n**印刷品**：典藏級藝術微噴複製品(fine art giclée prints)，目前由美國合作夥伴製作，僅於英文版網站提供訂購；台灣地區的印刷品訂購正在籌備中。"
-                            },
-                            {
-                                question: "作品附有證明文件嗎？",
-                                answer: "每件原作皆附藝術家親筆簽名並用印的作品保證書。"
                             }
                         ]
                     },
