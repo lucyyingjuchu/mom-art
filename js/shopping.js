@@ -343,7 +343,7 @@ class ShoppingCart {
         if (sizes.length === 0) {
             section.innerHTML = `
                 <h4>${this.getText('shopping.notAvailable')}</h4>
-                <p style="color: #756b5f; font-size: 0.9rem;">
+                <p style="color: #78716c; font-size: 0.9rem;">
                     ${this.getText('shopping.notAvailableDesc')}
                 </p>
             `;
@@ -518,7 +518,7 @@ class ShoppingCart {
             } catch (error) {
                 console.error('Failed to load price:', error);
                 if (priceElement) {
-                    priceElement.innerHTML = `<div class="price-amount" style="color: #dc3545;">${this.getText('shopping.priceLoadFailed')}</div>`;
+                    priceElement.innerHTML = `<div class="price-amount" style="color: #a3342c;">${this.getText('shopping.priceLoadFailed')}</div>`;
                 }
             }
         }

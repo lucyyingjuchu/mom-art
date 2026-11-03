@@ -56,7 +56,7 @@
    ================================ */
 
 .contact-form-header {
-    background: linear-gradient(135deg, #2b2723 0%, #4a433b 100%);
+    background: linear-gradient(135deg, var(--ink) 0%, var(--stone-700) 100%);
     color: white;
     padding: 2rem;
     border-radius: 16px 16px 0 0;
@@ -116,12 +116,12 @@
 }
 
 .form-section h3 {
-    color: #2b2723;
+    color: var(--ink);
     font-size: 1.2rem;
     font-weight: 600;
     margin: 0 0 1.5rem 0;
     padding-bottom: 0.5rem;
-    border-bottom: 2px solid #ece6db;
+    border-bottom: 2px solid var(--stone-200);
 }
 
 .form-row {
@@ -138,13 +138,13 @@
 
 .form-group label {
     font-weight: 600;
-    color: #574f46;
+    color: var(--stone-600);
     margin-bottom: 0.5rem;
     font-size: 0.9rem;
 }
 
 .required {
-    color: #a3342c;
+    color: var(--seal);
     font-weight: 700;
 }
 
@@ -156,7 +156,7 @@
 .form-group select,
 .form-group textarea {
     padding: 0.8rem 1rem;
-    border: 2px solid #ece6db;
+    border: 2px solid var(--stone-200);
     border-radius: 8px;
     font-size: 0.95rem;
     transition: all 0.3s ease;
@@ -168,8 +168,8 @@
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #2b2723;
-    box-shadow: 0 0 0 3px rgba(43, 39, 35, 0.1);
+    border-color: var(--ink);
+    box-shadow: 0 0 0 3px rgba(41, 37, 36, 0.1);
     transform: translateY(-1px);
 }
 
@@ -188,16 +188,16 @@
    ================================ */
 
 .artwork-info-section {
-    background: linear-gradient(135deg, #2b2723 0%, #4a433b 100%);
-    border: 2px solid #5a6c7d;
+    background: linear-gradient(135deg, var(--ink) 0%, var(--stone-700) 100%);
+    border: 2px solid var(--stone-600);
     border-radius: 12px;
     padding: 1.5rem;
     margin-bottom: 2rem;
 }
 
 .artwork-info-section h3 {
-    color: #efe9de;
-    border-bottom: 2px solid #3498db;
+    color: var(--stone-100);
+    border-bottom: 2px solid var(--ink);
     font-size: 1.2rem;
     font-weight: 600;
     margin: 0 0 1.5rem 0;
@@ -205,22 +205,22 @@
 }
 
 .artwork-info-section .form-group label {
-    color: #bdc3c7;
+    color: var(--stone-400);
     font-weight: 500;
 }
 
 .artwork-info-section .form-group input[readonly] {
-    background: linear-gradient(135deg, #4a433b 0%, #2b2723 100%);
-    color: #efe9de;
+    background: linear-gradient(135deg, var(--stone-700) 0%, var(--ink) 100%);
+    color: var(--stone-100);
     font-weight: 500;
     cursor: default;
-    border: 2px solid #5a6c7d;
+    border: 2px solid var(--stone-600);
     box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
 }
 
 .artwork-info-section .form-group input[readonly]:focus {
-    border-color: #3498db;
-    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+    border-color: var(--ink);
+    box-shadow: 0 0 0 3px rgba(41, 37, 36, 0.2);
 }
 
 /* ================================
@@ -237,8 +237,8 @@
     flex: 0 0 80px;
     text-align: center;
     font-weight: 600;
-    background: #f6f2e9;
-    border: 2px solid #e3dccf;
+    background: var(--stone-100);
+    border: 2px solid var(--stone-300);
     font-family: monospace;
     padding: 0.8rem 0.5rem;
     border-radius: 8px;
@@ -247,8 +247,8 @@
 }
 
 .country-code-input:focus {
-    border-color: #2b2723;
-    box-shadow: 0 0 0 3px rgba(43, 39, 35, 0.1);
+    border-color: var(--ink);
+    box-shadow: 0 0 0 3px rgba(41, 37, 36, 0.1);
     outline: none;
     transform: translateY(-1px);
 }
@@ -256,7 +256,7 @@
 .phone-number-input {
     flex: 1;
     padding: 0.8rem 1rem;
-    border: 2px solid #ece6db;
+    border: 2px solid var(--stone-200);
     border-radius: 8px;
     font-size: 0.95rem;
     transition: all 0.3s ease;
@@ -265,8 +265,8 @@
 
 .phone-number-input:focus {
     outline: none;
-    border-color: #2b2723;
-    box-shadow: 0 0 0 3px rgba(43, 39, 35, 0.1);
+    border-color: var(--ink);
+    box-shadow: 0 0 0 3px rgba(41, 37, 36, 0.1);
     transform: translateY(-1px);
 }
 
@@ -277,13 +277,13 @@
 .form-group input.error,
 .form-group select.error,
 .form-group textarea.error {
-    border-color: #a3342c;
-    background: #fdf2f2;
-    color: #2b2723; /* Ensure text is dark and visible */
+    border-color: var(--seal);
+    background: var(--seal-soft);
+    color: var(--ink); /* Ensure text is dark and visible */
 }
 
 .error-message {
-    color: #a3342c;
+    color: var(--seal);
     font-size: 0.8rem;
     margin-top: 0.3rem;
     font-weight: 500;
@@ -298,7 +298,7 @@
     flex-direction: column; /* send on top, cancel below */
     gap: 0.75rem;
     padding-top: 2rem;
-    border-top: 1px solid #ece6db;
+    border-top: 1px solid var(--stone-200);
     margin-top: 2rem;
 }
 
@@ -404,17 +404,17 @@ label[for="shippingMethod"] {
 }
 
 .contact-form-container::-webkit-scrollbar-track {
-    background: #f1ece2;
+    background: var(--stone-100);
     border-radius: 3px;
 }
 
 .contact-form-container::-webkit-scrollbar-thumb {
-    background: #c1c1c1;
+    background: var(--stone-400);
     border-radius: 3px;
 }
 
 .contact-form-container::-webkit-scrollbar-thumb:hover {
-    background: #a8a8a8;
+    background: var(--stone-400);
 }
 
 /* ================================
@@ -573,47 +573,47 @@ label[for="shippingMethod"] {
 
 @media (prefers-color-scheme: dark) {
     .contact-form-container {
-        background: #2b2723;
-        color: #efe9de;
+        background: var(--ink);
+        color: var(--stone-100);
     }
     
     .form-section h3 {
-        color: #efe9de;
-        border-bottom-color: #4a433b;
+        color: var(--stone-100);
+        border-bottom-color: var(--stone-700);
     }
     
     .form-group label {
-        color: #bdc3c7;
+        color: var(--stone-400);
     }
     
     .form-group input,
     .form-group select,
     .form-group textarea {
-        background: #4a433b;
-        border-color: #4a5f7a;
-        color: #efe9de;
+        background: var(--stone-700);
+        border-color: var(--stone-600);
+        color: var(--stone-100);
     }
     
     .form-group input:focus,
     .form-group select:focus,
     .form-group textarea:focus {
-        border-color: #3498db;
-        box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        border-color: var(--ink);
+        box-shadow: 0 0 0 3px rgba(41, 37, 36, 0.1);
     }
     
     .form-actions {
-        border-top-color: #4a433b;
+        border-top-color: var(--stone-700);
     }
     
     /* Keep phone input light in dark mode for better UX */
     .country-code-input {
-        background: #f6f2e9;
-        color: #2b2723;
+        background: var(--stone-100);
+        color: var(--ink);
     }
     
     .phone-number-input {
         background: white;
-        color: #2b2723;
+        color: var(--ink);
     }
 }
 
@@ -622,13 +622,13 @@ label[for="shippingMethod"] {
     margin-bottom: 1.25rem;
     padding: 0.85rem 1rem;
     border-radius: 10px;
-    background: #f4f6f8;
+    background: var(--stone-100);
 }
 
-.inquiry-artwork-title { color: #2b2723; font-weight: 600; }
-.inquiry-artwork-meta { margin-top: 0.2rem; color: #5a6672; font-size: 0.9rem; }
-.inquiry-artwork-price { margin-top: 0.6rem; color: #2b2723; font-size: 0.95rem; }
-.inquiry-artwork-note { margin: 0.25rem 0 0; color: #6b7680; font-size: 0.8rem; line-height: 1.5; }
+.inquiry-artwork-title { color: var(--ink); font-weight: 600; }
+.inquiry-artwork-meta { margin-top: 0.2rem; color: var(--stone-600); font-size: 0.9rem; }
+.inquiry-artwork-price { margin-top: 0.6rem; color: var(--ink); font-size: 0.95rem; }
+.inquiry-artwork-note { margin: 0.25rem 0 0; color: var(--stone-600); font-size: 0.8rem; line-height: 1.5; }
 .inquiry-artwork-price:empty, .inquiry-artwork-note:empty { display: none; }
 
 /* Phone / LINE / email: any one will do */
@@ -649,11 +649,11 @@ label[for="shippingMethod"] {
 .contact-methods-hint {
     margin: 0.2rem 0 0.75rem;
     font-size: 0.85rem;
-    color: #5a6672;
+    color: var(--stone-600);
 }
 
 .contact-methods-hint.error {
-    color: #a3342c;
+    color: var(--seal);
     font-weight: 600;
 }
 

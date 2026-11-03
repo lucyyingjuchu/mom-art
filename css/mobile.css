@@ -101,10 +101,10 @@
         display: block;
         width: 100%;
         padding: 0.7rem 1rem;
-        border: 1px solid #e3dccf;
+        border: 1px solid var(--stone-300);
         border-radius: 8px;
-        background: #f6f2e9;
-        color: #2b2723;
+        background: var(--stone-100);
+        color: var(--ink);
         font-size: 0.95rem;
         text-align: left;
         cursor: pointer;
@@ -149,10 +149,10 @@
         z-index: 900;
         width: 46px;
         height: 46px;
-        border: 1px solid #d9d2c7;
+        border: 1px solid var(--stone-300);
         border-radius: 50%;
         background: rgba(251, 248, 243, 0.95);
-        color: #2b2723;
+        color: var(--ink);
         font-size: 1.2rem;
         line-height: 1;
         cursor: pointer;
