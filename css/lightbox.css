@@ -490,51 +490,12 @@
 }
 
 /* Specifications - FINAL VERSION */
-.artwork-specs {
-    border-top: 1px solid #e9ecef; /* Softer border */
-    padding-top: 1rem; /* Reduced from 1.5rem */
-    margin-bottom: 1.5rem; /* Reduced from 2rem */
+.artwork-caption {
+    margin: 0.35rem 0 1rem;
+    color: #5a6672;
+    font-size: 0.9rem;
+    line-height: 1.5;
 }
-
-/* One label column for all rows, as wide as the longest label (never wraps) */
-.artwork-specs {
-    display: grid;
-    grid-template-columns: max-content 1fr;
-}
-
-.spec-item {
-    display: grid;
-    grid-column: 1 / -1;
-    grid-template-columns: subgrid;
-    gap: 1rem;
-    margin-bottom: 0.6rem; /* Reduced from 0.8rem */
-    font-size: 0.9rem; /* Reduced from 0.95rem */
-    align-items: baseline;
-    padding: 0.4rem 0;
-    border-bottom: 1px solid #f1f3f4;
-}
-
-.spec-item:last-child {
-    border-bottom: none;
-}
-
-.spec-label {
-    font-weight: 600;
-    color: #6c757d; /* Softer color */
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    white-space: nowrap;
-    min-width: 72px;
-}
-
-.spec-value {
-    color: #2c3e50;
-    text-align: left; /* Changed from right for better readability */
-    word-break: break-word; /* Handle long text */
-    line-height: 1.3;
-}
-
 
 /* Tags - FINAL VERSION */
 .artwork-tags {
@@ -551,18 +512,6 @@
     margin-right: 0.4rem; /* Reduced spacing */
     margin-bottom: 0.4rem;
 }
-
-/* Price of the original: a spec row, with this small note under the specs */
-#originalPriceRow[hidden] { display: none; }
-
-.original-price-note {
-    margin: 0.5rem 0 0;
-    color: #6b7680;
-    font-size: 0.8rem;
-    line-height: 1.5;
-}
-
-.original-price-note:empty { display: none; }
 
 /* Inquire link / sold note: quiet text, not a shop button */
 .availability-status {

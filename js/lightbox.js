@@ -246,15 +246,6 @@
             : (artwork[field + 'En'] || artwork[field] || '');
     }
 
-    // The price is one quiet row among the specs; sold works show none
-    function fillPrice(artwork, available) {
-        const text = available ? portfolio.originalPriceText(artwork) : null;
-        $('originalPriceRow').hidden = !text;
-        $('originalPriceLabel').textContent = t('lightbox.priceLabel');
-        $('originalPriceMain').textContent = text ? text.main : '';
-        $('originalPriceNote').textContent = text ? text.note : '';
-    }
-
     function fillDetails(artwork) {
         const zh = lang() === 'zh';
         let size;
@@ -271,15 +262,12 @@
             artworkTitle: title,
             artworkTitleEn: '',   // each language shows its own title only
             artworkDescription: textFor(artwork, 'description'),
-            artworkYear: artwork.year || (zh ? '年份不詳' : 'Unknown'),
-            artworkSize: size,
-            artworkFormat: textFor(artwork, 'format') || '—'
+            // One line, like a museum label. Framing is left out: it changes and is confirmed per inquiry.
+            artworkCaption: [/\d/.test(artwork.year) ? artwork.year : '', /框/.test(artwork.format || '') ? '' : textFor(artwork, 'format'), size]
+                .filter(Boolean).join('｜')
         };
         Object.entries(values).forEach(([id, text]) => { const n = $(id); if (n) n.textContent = text; });
         el.sheetTitle.textContent = title;
-
-        const labels = ['lightbox.yearLabel', 'lightbox.dimensionsLabel', 'lightbox.formatLabel'];
-        el.box.querySelectorAll('.spec-label').forEach((n, i) => { if (labels[i]) n.textContent = t(labels[i]); });
 
         const note = (zh ? (artwork.curatorNote || artwork.curatorNoteEn) : (artwork.curatorNoteEn || artwork.curatorNote)) || '';
         $('artworkNoteLabel').textContent = zh ? '作品說明' : 'About this work';
@@ -305,7 +293,6 @@
             status.addEventListener('click', inquire);
             status.addEventListener('keydown', e => { if (e.key === 'Enter') inquire(); });
         }
-        fillPrice(artwork, available);
 
         // Tooltips in the current language
         el.prev.title = t('lightbox.prevTitle');

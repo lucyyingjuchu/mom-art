@@ -205,7 +205,7 @@ const LANGUAGE_DATA = {
         lightbox: {
             availableStatus: "Inquire",
             priceLabel: "Price",
-            priceOnRequest: "On request",
+            priceOnRequest: "on request",
             priceNote: "Price is for the painting. Availability, framing, and shipping are confirmed with your quotation.",
             soldStatus: "Sold",
             yearLabel: "Year",

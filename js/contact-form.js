@@ -196,6 +196,8 @@ function generateContactFormHTML() {
                     <div class="inquiry-artwork">
                         <div class="inquiry-artwork-title" id="inquiryArtworkTitle"></div>
                         <div class="inquiry-artwork-meta" id="inquiryArtworkMeta"></div>
+                        <div class="inquiry-artwork-price" id="inquiryArtworkPrice"></div>
+                        <p class="inquiry-artwork-note" id="inquiryArtworkNote"></p>
                     </div>
 
                     ${generateContactInfoSection()}
@@ -355,8 +357,10 @@ function populateArtworkInfo() {
     // The work being asked about, with its listed price
     inquirySize = size;
     document.getElementById('inquiryArtworkTitle').textContent = title;
+    document.getElementById('inquiryArtworkMeta').textContent = size;
     const priceText = portfolio.originalPriceText(artwork);
-    document.getElementById('inquiryArtworkMeta').textContent = priceText ? `${size} · ${priceText.main}` : size;
+    document.getElementById('inquiryArtworkPrice').textContent = priceText ? `${portfolio.t('lightbox.priceLabel')} ${priceText.main}` : '';
+    document.getElementById('inquiryArtworkNote').textContent = priceText ? priceText.note : '';
 }
 
 // The studio's email shows both currencies, whichever site the visitor used
