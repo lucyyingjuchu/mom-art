@@ -5,7 +5,7 @@
     gap: 2rem;
     margin: 0.5rem auto 0.25rem;
     padding: 0 1rem;
-    border-bottom: 1px solid var(--stone-300);
+    border-bottom: 1px solid var(--warm-300);
     overflow-x: auto;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
@@ -29,7 +29,7 @@
     font: inherit;
     font-size: 1.02rem;
     letter-spacing: 0.08em;
-    color: var(--stone-500);
+    color: var(--warm-500);
     cursor: pointer;
     transition: color 0.2s ease, border-color 0.2s ease;
 }
@@ -57,23 +57,23 @@
     color: var(--ink);
     background: transparent;
     border: 0;
-    border-bottom: 1px solid var(--stone-300);
+    border-bottom: 1px solid var(--warm-300);
     border-radius: 0;
     padding: 0.45rem 0.2rem;
     text-align: center;
 }
-.gallery-search::placeholder { color: var(--stone-400); }
+.gallery-search::placeholder { color: var(--warm-400); }
 .gallery-search:focus { outline: none; border-bottom-color: var(--seal); }
 
 .gallery-empty {
     text-align: center;
-    color: var(--stone-500);
+    color: var(--warm-500);
     padding: 3rem 1rem;
 }
 
 #gallery .results-info {
     text-align: center;
-    color: var(--stone-400);
+    color: var(--warm-400);
     font-size: 0.85rem;
     letter-spacing: 0.05em;
     border: 0;

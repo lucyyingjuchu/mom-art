@@ -1374,7 +1374,7 @@ class ChineseArtPortfolio {
             
             .featured-header p {
                 font-size: 1.2rem;
-                color: #78716c;
+                color: #7d5e54;
                 font-style: italic;
             }
             
@@ -1418,7 +1418,7 @@ class ChineseArtPortfolio {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                background: #f5f5f4;
+                background: #f6edea;
             }
             
             .featured-image-container img {
@@ -1515,12 +1515,12 @@ class ChineseArtPortfolio {
             
             .featured-year {
                 font-size: 0.9rem;
-                color: #78716c;
+                color: #7d5e54;
                 font-style: italic;
             }
             
             .featured-description {
-                color: #57534e;
+                color: #43302b;
                 line-height: 1.6;
                 margin-bottom: 1.5rem;
                 display: -webkit-box;
@@ -1538,8 +1538,8 @@ class ChineseArtPortfolio {
             }
             
             .featured-size {
-                color: #78716c;
-                background: #f5f5f4;
+                color: #7d5e54;
+                background: #f6edea;
                 padding: 0.3rem 0.8rem;
                 border-radius: 12px;
                 font-size: 0.8rem;

@@ -13,7 +13,7 @@
 .news-more-btn,
 .view-all-btn {
     padding: 0.55rem 1.4rem;
-    border: 1px solid var(--stone-300);
+    border: 1px solid var(--warm-300);
     border-radius: 999px;
     background: #fff;
     color: var(--ink);
@@ -46,15 +46,15 @@
 .btn-submit:hover,
 .checkout-btn:hover,
 .add-to-cart-btn:hover {
-    background: var(--stone-700);
-    border-color: var(--stone-700);
+    background: var(--warm-600);
+    border-color: var(--warm-600);
 }
 
 .btn-submit:disabled,
 .checkout-btn:disabled,
 .add-to-cart-btn:disabled {
-    background: var(--stone-400);
-    border-color: var(--stone-400);
+    background: var(--warm-400);
+    border-color: var(--warm-400);
     cursor: not-allowed;
 }
 

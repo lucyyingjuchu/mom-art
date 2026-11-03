@@ -2,7 +2,7 @@
 
 /* ---------- About: story ---------- */
 .artist-subtitle {
-    color: var(--stone-500);
+    color: var(--warm-500);
     letter-spacing: 0.08em;
     margin: -0.8rem 0 1.5rem;
     font-size: 0.95rem;
@@ -45,14 +45,14 @@
     display: flex;
     flex-direction: column;
     background: none;
-    border: 1px solid var(--stone-300);
+    border: 1px solid var(--warm-300);
     overflow: hidden;
     color: inherit;
     text-decoration: none;
     transition: box-shadow 0.2s ease;
 }
 
-a.update-card:hover { border-color: var(--stone-300); }
+a.update-card:hover { border-color: var(--warm-300); }
 
 .update-card img {
     width: 100%;
@@ -73,7 +73,7 @@ a.update-card:hover { border-color: var(--stone-300); }
 
 .update-body p {
     margin: 0;
-    color: var(--stone-600);
+    color: var(--warm-600);
     line-height: 1.7;
 }
 
@@ -106,7 +106,7 @@ a.update-card:hover { border-color: var(--stone-300); }
 .press-video {
     margin: 0;
     background: none;
-    border: 1px solid var(--stone-300);
+    border: 1px solid var(--warm-300);
     overflow: hidden;
 }
 
@@ -174,7 +174,7 @@ a.update-card:hover { border-color: var(--stone-300); }
 }
 
 .press-meta {
-    color: var(--stone-500);
+    color: var(--warm-500);
     font-size: 0.85rem;
 }
 
@@ -184,7 +184,7 @@ a.update-card:hover { border-color: var(--stone-300); }
 }
 
 .press-summary {
-    color: var(--stone-600);
+    color: var(--warm-600);
     line-height: 1.6;
     font-size: 0.95rem;
 }
@@ -193,7 +193,7 @@ a.update-card:hover { border-color: var(--stone-300); }
     list-style: none;
     padding: 0;
     margin: 0;
-    border-top: 1px solid var(--stone-200);
+    border-top: 1px solid var(--warm-200);
 }
 
 .press-articles li a {
@@ -201,7 +201,7 @@ a.update-card:hover { border-color: var(--stone-300); }
     flex-direction: column;
     gap: 0.25rem;
     padding: 0.9rem 0.2rem;
-    border-bottom: 1px solid var(--stone-200);
+    border-bottom: 1px solid var(--warm-200);
     color: inherit;
     text-decoration: none;
 }
@@ -214,7 +214,7 @@ a.update-card:hover { border-color: var(--stone-300); }
 }
 
 .press-lang-note {
-    color: var(--stone-500);
+    color: var(--warm-500);
     font-size: 0.85rem;
     margin-top: 0.8rem;
 }
@@ -235,8 +235,8 @@ a.update-card:hover { border-color: var(--stone-300); }
 }
 
 .show-card {
-    background: var(--stone-100);
-    border: 1px solid var(--stone-300);
+    background: var(--warm-100);
+    border: 1px solid var(--warm-300);
     border-left: 3px solid var(--seal);
     padding: 1.3rem 1.4rem;
 }
@@ -261,7 +261,7 @@ a.update-card:hover { border-color: var(--stone-300); }
 
 .show-venue, .show-dates, .show-note {
     margin: 0.2rem 0;
-    color: var(--stone-600);
+    color: var(--warm-600);
     line-height: 1.6;
 }
 
@@ -274,14 +274,14 @@ a.update-card:hover { border-color: var(--stone-300); }
     list-style: none;
     padding: 0;
     margin: 0;
-    border-top: 1px solid var(--stone-200);
+    border-top: 1px solid var(--warm-200);
 }
 
 .news-item {
     display: flex;
     gap: 1rem;
     padding: 1rem 0.2rem;
-    border-bottom: 1px solid var(--stone-200);
+    border-bottom: 1px solid var(--warm-200);
     color: inherit;
     text-decoration: none;
 }
@@ -302,7 +302,7 @@ a.news-item:hover p { color: var(--seal); }
     align-items: center;
     gap: 0.5rem;
     font-size: 0.85rem;
-    color: var(--stone-500);
+    color: var(--warm-500);
     margin-bottom: 0.3rem;
 }
 
@@ -313,7 +313,7 @@ a.news-item:hover p { color: var(--seal); }
 }
 
 .news-tag-studio { background: var(--seal-soft); color: var(--seal); }
-.news-tag-press { background: var(--stone-200); color: var(--ink); }
+.news-tag-press { background: var(--warm-200); color: var(--ink); }
 
 .news-body p {
     margin: 0;
@@ -353,7 +353,7 @@ a.news-item:hover p { color: var(--seal); }
 }
 
 .news-header p {
-    color: var(--stone-600);
+    color: var(--warm-600);
     margin: 0 0 1.8rem;
     line-height: 1.7;
 }
@@ -378,7 +378,7 @@ a.news-item:hover p { color: var(--seal); }
     grid-template-columns: 80px 1fr;
     gap: 1rem;
     padding: 1rem 0;
-    border-top: 1px solid var(--stone-200);
+    border-top: 1px solid var(--warm-200);
 }
 
 .history-year-label {
@@ -396,14 +396,14 @@ a.news-item:hover p { color: var(--seal); }
     padding: 0.35rem 0 0.8rem;
 }
 
-.history-type { font-size: 0.78rem; color: var(--stone-500); letter-spacing: 0.05em; }
+.history-type { font-size: 0.78rem; color: var(--warm-500); letter-spacing: 0.05em; }
 .history-title { color: var(--ink); line-height: 1.5; }
 .history-title a { color: inherit; }
-.history-venue { color: var(--stone-500); font-size: 0.92rem; }
+.history-venue { color: var(--warm-500); font-size: 0.92rem; }
 
 .news-invite {
     text-align: center;
-    background: var(--stone-100);
+    background: var(--warm-100);
     padding: 1.8rem 1rem;
     margin-bottom: 2rem;
 }
@@ -418,7 +418,7 @@ a.news-item:hover p { color: var(--seal); }
 .about-highlights {
     max-width: 1200px;
     margin: 0 auto 2.5rem;
-    background: var(--stone-100);
+    background: var(--warm-100);
     padding: 1.4rem 1.6rem;
 }
 
@@ -437,7 +437,7 @@ a.news-item:hover p { color: var(--seal); }
 .cv-year {
     flex: 0 0 auto;
     min-width: 3.2em;
-    color: var(--stone-500);
+    color: var(--warm-500);
     font-variant-numeric: tabular-nums;
 }
 
@@ -488,7 +488,7 @@ a.news-item:hover p { color: var(--seal); }
 .cv-grid .section-header {
     background: none;
     border: 0;
-    border-bottom: 1px solid var(--stone-300);
+    border-bottom: 1px solid var(--warm-300);
     padding: 0 0 0.55rem;
     margin: 0 0 0.6rem;
     font-size: 1.05rem;
@@ -509,7 +509,7 @@ a.news-item:hover p { color: var(--seal); }
 .cv-grid .section-content li {
     padding: 0.42rem 0;
     border-bottom: 0;
-    color: var(--stone-700);
+    color: var(--warm-600);
     line-height: 1.6;
 }
 @media (max-width: 768px) {
@@ -520,4 +520,4 @@ a.news-item:hover p { color: var(--seal); }
 .faq-tabbed #faqTitle,
 .faq-tabbed #faqSubtitle { display: none; }
 
-.history-summary { color: var(--stone-600); margin: 0 0 1rem; line-height: 1.7; }
+.history-summary { color: var(--warm-600); margin: 0 0 1rem; line-height: 1.7; }

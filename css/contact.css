@@ -14,14 +14,14 @@
 }
 
 .contact-lead {
-    color: var(--stone-600);
+    color: var(--warm-600);
     line-height: 1.8;
     margin: 0 auto 0.4rem;
     max-width: 560px;
 }
 
 .contact-collect {
-    color: var(--stone-500);
+    color: var(--warm-500);
     font-size: 0.85rem;
     line-height: 1.7;
     margin: 0 auto 2rem;
@@ -33,7 +33,7 @@
 /* Email: the main way in */
 .contact-mail {
     background: var(--paper);
-    border: 1px solid var(--stone-300);
+    border: 1px solid var(--warm-300);
     border-radius: 10px;
     padding: 2rem 1.5rem 1.6rem;
     margin-bottom: 2.8rem;
@@ -53,7 +53,7 @@
     letter-spacing: 0.04em;
     color: var(--ink);
     text-decoration: none;
-    border-bottom: 1px solid var(--stone-300);
+    border-bottom: 1px solid var(--warm-300);
     padding-bottom: 2px;
 }
 
@@ -70,7 +70,7 @@
 .contact-prints {
     margin: 1.2rem 0 0;
     font-size: 0.85rem;
-    color: var(--stone-500);
+    color: var(--warm-500);
 }
 
 .contact-prints a { color: var(--ink); margin-left: 0.3rem; }
@@ -97,7 +97,7 @@
     align-items: center;
     gap: 0.45rem;
     padding: 0.5rem 0.95rem;
-    border: 1px solid var(--stone-300);
+    border: 1px solid var(--warm-300);
     border-radius: 999px;
     background: #fff;
     color: var(--ink);
@@ -119,7 +119,7 @@
 
 .contact-social-name { font-weight: 600; letter-spacing: 0.03em; }
 /* Language of the posts: 中文 / 英文 */
-.contact-social-desc { font-size: 0.75rem; color: var(--stone-500); }
+.contact-social-desc { font-size: 0.75rem; color: var(--warm-500); }
 .contact-social-desc::before { content: "· "; }
 
 @media (max-width: 768px) {

@@ -96,9 +96,9 @@
         display: block;
         width: 100%;
         padding: 0.7rem 1rem;
-        border: 1px solid var(--stone-300);
+        border: 1px solid var(--warm-300);
         border-radius: 8px;
-        background: var(--stone-100);
+        background: var(--warm-100);
         color: var(--ink);
         font-size: 0.95rem;
         text-align: left;
@@ -144,7 +144,7 @@
         z-index: 900;
         width: 46px;
         height: 46px;
-        border: 1px solid var(--stone-300);
+        border: 1px solid var(--warm-300);
         border-radius: 50%;
         background: rgba(251, 248, 243, 0.95);
         color: var(--ink);
