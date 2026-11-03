@@ -309,11 +309,6 @@ nav .nav-cart {
     gap: 0.5rem;
 }
 
-.shopping-section h4::before {
-    content: "🛒";
-    font-size: 1.2rem;
-}
-
 /* Size selection */
 .size-selection {
     margin-bottom: 1.5rem;
