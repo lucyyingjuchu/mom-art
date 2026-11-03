@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Turns half-width punctuation in the Chinese artwork texts of data/artworks.json
+"""Turns half-width punctuation in the Chinese artwork titles and texts of data/artworks.json
 into full-width. Numbers such as 6.4 stay as they are; English fields are not touched.
 Run after adding artwork text:   python3 scripts/normalize-punctuation.py"""
 import json, pathlib, re
 
-FIELDS = ('description', 'curatorNote')
+FIELDS = ('title', 'description', 'curatorNote')
 CJK = r'[㐀-鿿　-〿＀-￯]'
 PATH = pathlib.Path(__file__).resolve().parent.parent / 'data/artworks.json'
 
