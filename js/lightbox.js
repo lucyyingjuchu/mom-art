@@ -262,15 +262,13 @@
             artworkTitle: title,
             artworkTitleEn: '',   // each language shows its own title only
             artworkDescription: textFor(artwork, 'description'),
-            // One line, like a museum label. Framing is left out: it changes and is confirmed per inquiry.
-            artworkCaption: [/\d/.test(artwork.year) ? artwork.year : '', /框/.test(artwork.format || '') ? '' : textFor(artwork, 'format'), size]
-                .filter(Boolean).join('｜')
+            // One line, like a museum label: year and size only
+            artworkCaption: [/\d/.test(artwork.year) ? artwork.year : '', size].filter(Boolean).join('｜')
         };
         Object.entries(values).forEach(([id, text]) => { const n = $(id); if (n) n.textContent = text; });
         el.sheetTitle.textContent = title;
 
         const note = (zh ? (artwork.curatorNote || artwork.curatorNoteEn) : (artwork.curatorNoteEn || artwork.curatorNote)) || '';
-        $('artworkNoteLabel').textContent = zh ? '作品說明' : 'About this work';
         $('artworkNoteText').textContent = note.trim();
         $('artworkNote').hidden = !note.trim();
 

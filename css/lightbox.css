@@ -975,14 +975,6 @@
     margin: 0 0 1.5rem;
 }
 
-.artwork-note-label {
-    font-size: 0.75rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #7f8c8d;
-    margin-bottom: 0.4rem;
-}
-
 .artwork-note-text {
     font-size: 0.9rem;
     line-height: 1.75;

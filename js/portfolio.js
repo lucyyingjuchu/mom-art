@@ -1318,7 +1318,6 @@ class ChineseArtPortfolio {
         const description = this.getText(artwork, 'description') || '';
         const year = artwork.year || '';
         const size = artwork.sizeCm || '';
-        const medium = this.getText(artwork, 'format') || '';
         const imageUrl = this.getFeaturedImageUrl(artwork);
         const available = this.getBooleanValue(artwork, 'available', true);
         
@@ -1344,7 +1343,6 @@ class ChineseArtPortfolio {
                     ${description ? `<p class="featured-description">${description}</p>` : ''}
                     <div class="featured-meta">
                         ${size ? `<span class="featured-size">${size}</span>` : ''}
-                        ${medium ? `<span class="featured-medium">${medium}</span>` : ''}
                         ${available ? '' : `<span class="featured-status sold">${this.t('common.sold')}</span>`}
                     </div>
                 </div>
@@ -1554,14 +1552,6 @@ class ChineseArtPortfolio {
             }
             
             .featured-size,
-            .featured-medium {
-                color: #6c757d;
-                background: #f8f9fa;
-                padding: 0.3rem 0.8rem;
-                border-radius: 12px;
-                font-size: 0.8rem;
-            }
-            
             .featured-status {
                 font-weight: 600;
                 padding: 0.4rem 1rem;
