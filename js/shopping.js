@@ -73,7 +73,8 @@ class ShoppingCart {
             const cartIcon = document.createElement('button');
             cartIcon.id = 'cartIcon';
             cartIcon.className = 'header-icon cart-icon';
-            cartIcon.innerHTML = '🛒<span class="cart-count" id="cartCount">0</span>';
+            cartIcon.setAttribute('aria-label', 'Cart');
+            cartIcon.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.2 12.5H6.2L5 8z"/><path d="M9 10.5V7a3 3 0 0 1 6 0v3.5"/></svg><span class="cart-count" id="cartCount">0</span>';
             cartIcon.onclick = () => this.toggleCart();
             
             // Insert into header icons container
@@ -321,7 +322,7 @@ class ShoppingCart {
         if (sizes.length === 0) {
             section.innerHTML = `
                 <h4>${this.getText('shopping.notAvailable')}</h4>
-                <p style="color: #6c757d; font-size: 0.9rem;">
+                <p style="color: #756b5f; font-size: 0.9rem;">
                     ${this.getText('shopping.notAvailableDesc')}
                 </p>
             `;
