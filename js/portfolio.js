@@ -1551,7 +1551,14 @@ class ChineseArtPortfolio {
                 font-size: 0.9rem;
             }
             
-            .featured-size,
+            .featured-size {
+                color: #6c757d;
+                background: #f8f9fa;
+                padding: 0.3rem 0.8rem;
+                border-radius: 12px;
+                font-size: 0.8rem;
+            }
+            
             .featured-status {
                 font-weight: 600;
                 padding: 0.4rem 1rem;
