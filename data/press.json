@@ -2,6 +2,25 @@
   "_howTo": "Newest first. A video needs youtubeId. For English: add captionsEn (a file in data/captions/) for synced English subtitles, or dubbedYoutubeIdEn for an English-dubbed upload — the English page then plays that version instead. showOnAbout: true puts the video on the About page too.",
   "videos": [
     {
+      "youtubeId": "XLnicxWRYJI",
+      "date": "2026-10-27",
+      "outlet": {
+        "zh": "台灣廣播公司中興電台",
+        "en": "BCC Zhongxing Radio"
+      },
+      "title": {
+        "zh": "專訪：天地有大美～袁之靜水墨創作展",
+        "en": "Interview: “The Great Beauty of Heaven and Earth” — Yuan Chih-Jin's Ink Painting Exhibition"
+      },
+      "summary": {
+        "zh": "中興電台專訪藝術家袁之靜，介紹《天地有大美》水墨創作展：以「詩、書、畫、印」的底蘊融合對天地萬物的觀照，邀請大家走進國立彰化生活美學館。",
+        "en": "BCC Zhongxing Radio interviews the artist about “The Great Beauty of Heaven and Earth” at the National Changhua Living Art Center, where a grounding in poetry, calligraphy, painting and seal carving meets close observation of the natural world."
+      },
+      "captionsEn": "",
+      "dubbedYoutubeIdEn": "",
+      "showOnAbout": false
+    },
+    {
       "youtubeId": "g4nFSsySoKI",
       "date": "2026-10-20",
       "outlet": {
@@ -668,6 +687,18 @@
     }
   ],
   "articles": [
+    {
+      "date": "2026-10-28",
+      "outlet": {
+        "zh": "文化部",
+        "en": "Ministry of Culture"
+      },
+      "title": {
+        "zh": "袁之靜「天地有大美」個展 吸引藝文界人士關注，備受讚譽，提升當代女性水墨能見度",
+        "en": "Yuan Chih-Jin's “The Great Beauty of Heaven and Earth” Draws Praise from the Art World, Raising the Profile of Women in Contemporary Ink Painting"
+      },
+      "url": "https://www.moc.gov.tw/News_Content.aspx?n=105&s=264184"
+    },
     {
       "date": "2026-10-28",
       "outlet": {
