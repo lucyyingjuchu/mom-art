@@ -523,20 +523,6 @@
 .availability-status.available {
     width: max-content;
     margin-inline: auto;
-    padding: 0.3rem 1rem;
-    border: 1px solid #2b2723;
-    border-radius: 2px;
-    color: #2b2723;
-    font-size: 0.85rem;
-    font-weight: 400;
-    letter-spacing: 0.05em;
-    cursor: pointer;
-    transition: background 0.2s ease, color 0.2s ease;
-}
-
-.availability-status.available:hover {
-    background: #2b2723;
-    color: #fff;
 }
 
 .availability-status.sold { color: #800000; } /* the seal's red */
@@ -902,41 +888,6 @@
 }
 
 /* Add to cart button */
-.add-to-cart-btn {
-    width: 100%;
-    padding: 1rem;
-    background: linear-gradient(135deg, #2b2723 0%, #4a433b 100%);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-}
-
-.add-to-cart-btn:hover {
-    background: linear-gradient(135deg, #1a1714 0%, #2b2723 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(43,39,35,0.3);
-}
-
-.add-to-cart-btn:disabled {
-    background: #756b5f;
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
-}
-
-.add-to-cart-btn::before {
-    content: "🛒";
-    font-size: 1.1rem;
-}
-
 /* Shopping success message */
 .shopping-message {
     margin-top: 1rem;

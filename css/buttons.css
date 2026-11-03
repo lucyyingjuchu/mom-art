@@ -1,0 +1,78 @@
+/* One button language for the whole site.
+   Outline pill = ordinary action. Filled ink pill = the main action or the selected choice.
+   Add new buttons to one of the two lists below rather than styling them separately. */
+
+.availability-status.available,
+.btn-cancel,
+.btn-submit,
+.checkout-btn,
+.add-to-cart-btn,
+.contact-copy,
+.history-filters button,
+.news-invite button,
+.news-more-btn,
+.view-all-btn {
+    padding: 0.55rem 1.4rem;
+    border: 1px solid #c9bba8;
+    border-radius: 999px;
+    background: #fff;
+    color: #2b2723;
+    font: inherit;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.availability-status.available:hover,
+.btn-cancel:hover,
+.contact-copy:hover,
+.history-filters button:hover,
+.news-invite button:hover,
+.news-more-btn:hover,
+.view-all-btn:hover {
+    border-color: #2b2723;
+}
+
+.btn-submit,
+.checkout-btn,
+.add-to-cart-btn,
+.history-filters button.active {
+    background: #2b2723;
+    border-color: #2b2723;
+    color: #fbf8f3;
+}
+
+.btn-submit:hover,
+.checkout-btn:hover,
+.add-to-cart-btn:hover {
+    background: #4a433b;
+    border-color: #4a433b;
+}
+
+.btn-submit:disabled,
+.checkout-btn:disabled,
+.add-to-cart-btn:disabled {
+    background: #a89e90;
+    border-color: #a89e90;
+    cursor: not-allowed;
+}
+
+/* Full-width actions */
+.btn-cancel,
+.btn-submit,
+.checkout-btn,
+.add-to-cart-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.7rem 1.4rem;
+}
+
+/* Small inline action beside the email address */
+.contact-copy {
+    padding: 0.25rem 0.85rem;
+    font-size: 0.85rem;
+}

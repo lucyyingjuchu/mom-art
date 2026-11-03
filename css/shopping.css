@@ -261,36 +261,6 @@ button#cartIcon.cart-hidden {
     font-weight: 700;
 }
 
-.checkout-btn {
-    width: 100%;
-    padding: 1rem;
-    background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-}
-
-.checkout-btn:hover {
-    background: linear-gradient(135deg, #229954 0%, #27ae60 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(39,174,96,0.3);
-}
-
-.checkout-btn:disabled {
-    background: #756b5f;
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
-}
-
 /* ================================ */
 /* LIGHTBOX SHOPPING SECTION */
 /* ================================ */
@@ -468,41 +438,6 @@ button#cartIcon.cart-hidden {
 }
 
 /* Add to cart button */
-.add-to-cart-btn {
-    width: 100%;
-    padding: 1rem;
-    background: linear-gradient(135deg, #2b2723 0%, #4a433b 100%);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-}
-
-.add-to-cart-btn:hover {
-    background: linear-gradient(135deg, #1a1714 0%, #2b2723 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(43,39,35,0.3);
-}
-
-.add-to-cart-btn:disabled {
-    background: #756b5f;
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
-}
-
-.add-to-cart-btn::before {
-    content: "🛒";
-    font-size: 1.1rem;
-}
-
 /* Shopping success message */
 .shopping-message {
     margin-top: 1rem;

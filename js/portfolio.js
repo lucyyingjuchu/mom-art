@@ -1568,22 +1568,7 @@ class ChineseArtPortfolio {
                 margin-top: 3rem;
             }
             
-            .view-all-btn {
-                background: none;
-                color: #2b2723;
-                padding: 0.75rem 2rem;
-                border: 1px solid #2b2723;
-                font: inherit;
-                letter-spacing: 0.08em;
-                cursor: pointer;
-                transition: color 0.2s ease, background 0.2s ease;
-            }
-            
-            .view-all-btn:hover {
-                background: #2b2723;
-                color: #fbf8f3;
-            }
-            
+                        
             @media (max-width: 1200px) {
                 .featured-row {
                     grid-template-columns: repeat(2, 1fr);
@@ -2063,11 +2048,11 @@ function showArtworkNotFoundMessage(artworkId) {
         <p style="margin: 0;">The shared artwork link appears to be invalid or the artwork may have been removed.</p>
         <button onclick="this.parentElement.remove()" style="
             margin-top: 15px;
-            padding: 8px 16px;
-            background: #ff6b6b;
-            color: white;
+            padding: 8px 20px;
+            background: #2b2723;
+            color: #fbf8f3;
             border: none;
-            border-radius: 6px;
+            border-radius: 999px;
             cursor: pointer;
         ">Close</button>
     `;
