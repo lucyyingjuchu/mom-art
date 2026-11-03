@@ -503,8 +503,8 @@ const LANGUAGE_DATA = {
                                 answer: "可預約於台中看原作，或透過視訊觀看。"
                             },
                             {
-                                question: "標價包含裱框嗎？",
-                                answer: "標價僅含作品本身。如作品目前已有裱框，或您希望裱框，我們會提供建議，並將裱框、拆框等相關費用列入報價。"
+                                question: "典藏價包含裱框嗎？",
+                                answer: "典藏價僅含作品本身。如作品目前已有裱框，或您希望裱框，我們會提供建議，並將裱框、拆框等相關費用列入報價。"
                             },
                             {
                                 question: "原作如何運送？",
@@ -522,7 +522,7 @@ const LANGUAGE_DATA = {
                         questions: [
                             {
                                 question: "價格以什麼幣別標示？",
-                                answer: "**原作**以新台幣標價。\n**印刷品**目前僅於英文版網站提供，以美元計價。"
+                                answer: "**原作**以新台幣計價。\n**印刷品**目前僅於英文版網站提供，以美元計價。"
                             },
                             {
                                 question: "可以退換嗎？",
@@ -555,9 +555,9 @@ const LANGUAGE_DATA = {
         // Lightbox
         lightbox: {
             availableStatus: "洽詢此作",
-            priceLabel: "標價",
+            priceLabel: "典藏價",
             priceOnRequest: "請洽詢",
-            priceNote: "標價僅含作品本身，現況、裱框與運費將於報價時確認。",
+            priceNote: "典藏價僅含作品本身，現況、裱框與運費將於報價時確認。",
             soldStatus: "已收藏",
             yearLabel: "年份",
             dimensionsLabel: "尺寸（高×寬）",
