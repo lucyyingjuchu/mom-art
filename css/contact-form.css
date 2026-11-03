@@ -684,3 +684,33 @@ label[for="shippingMethod"] {
 .inquiry-artwork-price { margin-top: 0.6rem; color: #2b2723; font-size: 0.95rem; }
 .inquiry-artwork-note { margin: 0.25rem 0 0; color: #6b7680; font-size: 0.8rem; line-height: 1.5; }
 .inquiry-artwork-price:empty, .inquiry-artwork-note:empty { display: none; }
+
+/* Phone / LINE / email: any one will do */
+.contact-methods {
+    border: 0;
+    margin: 0 0 1rem;
+    padding: 0;
+    min-width: 0;
+}
+
+.contact-methods legend {
+    padding: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: inherit;
+}
+
+.contact-methods-hint {
+    margin: 0.2rem 0 0.75rem;
+    font-size: 0.85rem;
+    color: #5a6672;
+}
+
+.contact-methods-hint.error {
+    color: #a3342c;
+    font-weight: 600;
+}
+
+.contact-methods .form-group {
+    margin-bottom: 0.75rem;
+}

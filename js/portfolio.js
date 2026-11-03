@@ -1951,6 +1951,18 @@ window.showSection = function(sectionId) {
     window.scrollTo({ top: 0 });
 };
 
+// Back-to-top button: gallery only, once the visitor has scrolled well down
+(function setupBackToTop() {
+    const button = document.getElementById('backToTop');
+    if (!button) return;
+    const update = () => {
+        const inGallery = document.getElementById('gallery')?.classList.contains('active');
+        button.classList.toggle('show', Boolean(inGallery) && window.scrollY > 1200);
+    };
+    window.addEventListener('scroll', update, { passive: true });
+    button.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+})();
+
 window.filterGallery = function(filterType, filterValue) {
     portfolio.renderGallery(filterType, filterValue);
 };
