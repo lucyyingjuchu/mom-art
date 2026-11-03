@@ -282,7 +282,7 @@ const LANGUAGE_DATA = {
             cartEmpty: "Your cart is empty",
             cartEmptyDesc: "Browse artworks and add your favorite giclée fine art prints to the cart",
             selectSizeTitle: "Giclée Fine Art Prints",
-            selectSizeSubtitle: "Printed on heavyweight 100% cotton watercolor paper with a soft natural grain, using pigment inks that resist fading. Shipped rolled and unmounted.",
+            selectSizeSubtitle: "The whole painting, with a white museum border, printed on heavyweight 100% cotton watercolor paper in pigment inks that resist fading. Shipped rolled and unmounted.",
             imageSize: "image",
             shipTo: "Ship to",
             printSizeLabel: "Paper size (H×W)",
