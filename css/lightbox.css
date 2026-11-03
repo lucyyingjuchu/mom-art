@@ -392,7 +392,7 @@
         height: var(--lb-sheet-peek);
         padding: 10px 20px 0;
         border: none;
-        background: #fff;
+        background: #fbf8f3;
         color: #2b2723;
         cursor: pointer;
         touch-action: none;
@@ -475,7 +475,7 @@
     margin-bottom: 1.5rem; /* Reduced from 2rem */
     font-family: inherit;
     padding: 1rem; /* Add padding for visual separation */
-    background: #f6f2e9; /* Light background */
+    background: none;
     border-radius: 6px;
     border-left: 3px solid #ece6db;
 }
@@ -630,7 +630,7 @@
     align-items: center;
     padding: 20px 24px;
     border-bottom: 1px solid #ece6db;
-    background: #f6f2e9;
+    background: none;
 }
 
 .qr-header h3 {
@@ -692,7 +692,7 @@
     border-top: 2px solid #ece6db;
     margin-top: 2rem;
     padding-top: 2rem;
-    background: #f6f2e9;
+    background: none;
     margin-left: -2rem;
     margin-right: -2rem;
     padding-left: 2rem;
@@ -776,7 +776,7 @@
 
 .size-option.selected {
     border-color: #2b2723;
-    background: #f6f2e9;
+    background: white;
     box-shadow: 0 0 0 1px #2b2723;
 }
 
@@ -965,8 +965,8 @@
 .prints-pill { display: none; }
 
 @keyframes printsHighlight {
-    from { background-color: #fff6df; }
-    to { background-color: #f6f2e9; }
+    from { background-color: #f6f2e9; }
+    to { background-color: #fbf8f3; }
 }
 
 .lightbox .lightbox-info-section .shopping-section.prints-highlight {
