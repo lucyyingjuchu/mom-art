@@ -523,11 +523,13 @@
 .availability-status.available {
     width: max-content;
     margin-inline: auto;
-    padding: 0.55rem 1.75rem;
+    padding: 0.3rem 1rem;
     border: 1px solid #800000; /* the seal's red */
     border-radius: 2px;
     color: #800000;
-    letter-spacing: 0.08em;
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
     cursor: pointer;
     transition: background 0.2s ease, color 0.2s ease;
 }
