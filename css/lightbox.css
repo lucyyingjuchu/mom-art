@@ -392,7 +392,7 @@
         height: var(--lb-sheet-peek);
         padding: 10px 20px 0;
         border: none;
-        background: #fff;
+        background: #fbf8f3;
         color: #2b2723;
         cursor: pointer;
         touch-action: none;
@@ -475,7 +475,7 @@
     margin-bottom: 1.5rem; /* Reduced from 2rem */
     font-family: inherit;
     padding: 1rem; /* Add padding for visual separation */
-    background: #f6f2e9; /* Light background */
+    background: var(--tint);
     border-radius: 6px;
     border-left: 3px solid #ece6db;
 }
@@ -523,20 +523,6 @@
 .availability-status.available {
     width: max-content;
     margin-inline: auto;
-    padding: 0.3rem 1rem;
-    border: 1px solid #2b2723;
-    border-radius: 2px;
-    color: #2b2723;
-    font-size: 0.85rem;
-    font-weight: 400;
-    letter-spacing: 0.05em;
-    cursor: pointer;
-    transition: background 0.2s ease, color 0.2s ease;
-}
-
-.availability-status.available:hover {
-    background: #2b2723;
-    color: #fff;
 }
 
 .availability-status.sold { color: #800000; } /* the seal's red */
@@ -644,7 +630,7 @@
     align-items: center;
     padding: 20px 24px;
     border-bottom: 1px solid #ece6db;
-    background: #f6f2e9;
+    background: var(--tint);
 }
 
 .qr-header h3 {
@@ -706,7 +692,7 @@
     border-top: 2px solid #ece6db;
     margin-top: 2rem;
     padding-top: 2rem;
-    background: #f6f2e9;
+    background: var(--tint);
     margin-left: -2rem;
     margin-right: -2rem;
     padding-left: 2rem;
@@ -724,17 +710,12 @@
     gap: 0.5rem;
 }
 
-.shopping-section h4::before {
-    content: "🛒";
-    font-size: 1.2rem;
-}
-
 /* one line on paper and mounting, right under the heading */
 .shopping-section .size-subtitle {
     margin: -1rem 0 1.25rem;
     font-size: 0.85rem;
     line-height: 1.5;
-    color: #756b5f;
+    color: #574f46;
 }
 
 /* To-scale size picture (shopping.js createSizeDiagram) */
@@ -795,7 +776,7 @@
 
 .size-option.selected {
     border-color: #2b2723;
-    background: #f6f2e9;
+    background: white;
     box-shadow: 0 0 0 1px #2b2723;
 }
 
@@ -902,41 +883,6 @@
 }
 
 /* Add to cart button */
-.add-to-cart-btn {
-    width: 100%;
-    padding: 1rem;
-    background: linear-gradient(135deg, #2b2723 0%, #4a433b 100%);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-}
-
-.add-to-cart-btn:hover {
-    background: linear-gradient(135deg, #1a1714 0%, #2b2723 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(43,39,35,0.3);
-}
-
-.add-to-cart-btn:disabled {
-    background: #756b5f;
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
-}
-
-.add-to-cart-btn::before {
-    content: "🛒";
-    font-size: 1.1rem;
-}
-
 /* Shopping success message */
 .shopping-message {
     margin-top: 1rem;
@@ -1019,8 +965,8 @@
 .prints-pill { display: none; }
 
 @keyframes printsHighlight {
-    from { background-color: #fff6df; }
-    to { background-color: #f6f2e9; }
+    from { background-color: #f6f2e9; }
+    to { background-color: var(--tint); }
 }
 
 .lightbox .lightbox-info-section .shopping-section.prints-highlight {

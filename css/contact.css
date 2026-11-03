@@ -67,20 +67,6 @@
     gap: 0.4rem 0.8rem;
 }
 
-.contact-copy {
-    padding: 0.3rem 0.8rem;
-    border-radius: 999px;
-    border: 1px solid #c9bba8;
-    background: #fff;
-    color: #6c6255;
-    font: inherit;
-    font-size: 0.8rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.contact-copy:hover { background: #2b2723; border-color: #2b2723; color: #fff; }
-
 .contact-prints {
     margin: 1.2rem 0 0;
     font-size: 0.85rem;
@@ -111,7 +97,7 @@
     align-items: center;
     gap: 0.45rem;
     padding: 0.5rem 0.95rem;
-    border: 1px solid #e9e4dc;
+    border: 1px solid #c9bba8;
     border-radius: 999px;
     background: #fff;
     color: #2b2723;
@@ -122,7 +108,7 @@
 
 .contact-social-card[hidden] { display: none; }
 
-.contact-social-card:hover { border-color: #c9bba8; background: #fbf8f3; }
+.contact-social-card:hover { border-color: #2b2723; }
 
 .contact-social-card svg {
     width: 18px;

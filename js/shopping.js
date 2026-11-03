@@ -45,9 +45,25 @@ class ShoppingCart {
     }
 
     // The cart icon follows the same rule, but stays if something is already in the cart.
+    // Empty cart: a quiet bag in the header (only where prints are sold).
+    // With items: the bag moves to the sticky nav and appears in the lightbox.
     updateCartIconVisibility() {
-        const icon = document.getElementById('cartIcon');
-        if (icon) icon.classList.toggle('cart-hidden', !(this.printsEnabled() || this.items.length));
+        const hasItems = this.items.length > 0;
+        document.getElementById('cartIcon')?.classList.toggle('cart-hidden', hasItems || !this.printsEnabled());
+        document.getElementById('navCartBtn')?.classList.toggle('cart-hidden', !hasItems);
+        document.getElementById('lbCartBtn')?.classList.toggle('cart-hidden', !hasItems);
+        document.querySelector('body > nav')?.classList.toggle('has-cart', hasItems);
+    }
+
+    createCartButton(id, className) {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.id = id;
+        button.className = className;
+        button.setAttribute('aria-label', this.getText('shopping.cartTitle'));
+        button.innerHTML = '<svg class="cart-bag" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.2 12.5H6.2L5 8z"/><path d="M9 10.5V7a3 3 0 0 1 6 0v3.5"/></svg><span class="cart-count">0</span>';
+        button.onclick = () => this.toggleCart();
+        return button;
     }
 
     // NEW: Get translated text
@@ -70,12 +86,7 @@ class ShoppingCart {
     initializeCart() {
         // Create cart icon if it doesn't exist
         if (!document.getElementById('cartIcon')) {
-            const cartIcon = document.createElement('button');
-            cartIcon.id = 'cartIcon';
-            cartIcon.className = 'header-icon cart-icon';
-            cartIcon.setAttribute('aria-label', 'Cart');
-            cartIcon.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.2 12.5H6.2L5 8z"/><path d="M9 10.5V7a3 3 0 0 1 6 0v3.5"/></svg><span class="cart-count" id="cartCount">0</span>';
-            cartIcon.onclick = () => this.toggleCart();
+            const cartIcon = this.createCartButton('cartIcon', 'header-icon cart-icon');
             
             // Insert into header icons container
             const headerIcons = document.querySelector('.header-icons');
@@ -86,6 +97,16 @@ class ShoppingCart {
                 console.error('❌ Header icons container not found');
                 return;
             }
+        }
+        
+        // Once the cart has something in it, a bag also stays reachable from the
+        // sticky nav and from inside the lightbox (see updateCartIconVisibility)
+        if (!document.getElementById('navCartBtn')) {
+            document.querySelector('body > nav')?.appendChild(this.createCartButton('navCartBtn', 'header-icon nav-cart cart-hidden'));
+        }
+        if (!document.getElementById('lbCartBtn')) {
+            const close = document.getElementById('lbClose');
+            close?.before(this.createCartButton('lbCartBtn', 'lb-btn lb-cart cart-hidden'));
         }
         
         // Create cart sidebar if it doesn't exist
@@ -645,8 +666,8 @@ class ShoppingCart {
         // Update display
         this.updateCartDisplay();
         
-        // Show success message
-        this.showShoppingMessage(this.getText('shopping.addedToCart'), 'success');
+        // Show the cart straight away, with checkout one click from here
+        this.openCart();
         
         // Animate button
         const btn = document.getElementById('addToCartBtn');
@@ -706,19 +727,13 @@ class ShoppingCart {
     }
     
     updateCartDisplay() {
-        // Update cart count
-        const cartCount = document.getElementById('cartCount');
-        if (cartCount) {
-            const totalItems = this.items.reduce((sum, item) => sum + item.quantity, 0);
-            cartCount.textContent = totalItems;
-            
-            // Show/hide the count badge
-            if (totalItems > 0) {
-                cartCount.style.display = 'flex';
-            } else {
-                cartCount.style.display = 'none';
-            }
-        }
+        // Update the count on every bag; the badge only shows when there are items
+        const totalItems = this.items.reduce((sum, item) => sum + item.quantity, 0);
+        document.querySelectorAll('.cart-count').forEach(count => {
+            count.textContent = totalItems;
+            count.style.display = totalItems > 0 ? 'flex' : 'none';
+        });
+        this.updateCartIconVisibility();
     }
     
     renderCartItems() {

@@ -620,6 +620,11 @@
     // ------------------------------------------------------------- keyboard
     function onKey(e) {
         if (!el.box.classList.contains('active')) return;
+        // The cart drawer sits on top of the lightbox and takes the keyboard while open
+        if (document.getElementById('cartSidebar')?.classList.contains('open')) {
+            if (e.key === 'Escape') window.shoppingCart?.closeCart();
+            return;
+        }
         const a = document.activeElement;
         if (a && (a.tagName === 'INPUT' || a.tagName === 'TEXTAREA' || a.tagName === 'SELECT' || a.isContentEditable)) {
             if (e.key === 'Escape') window.closeLightbox();

@@ -214,8 +214,8 @@ function generateContactFormHTML() {
 
                     <!-- 表單按鈕 -->
                     <div class="form-actions">
-                        <button type="button" class="btn-cancel">${getContactText('contactForm.cancelButton')}</button>
                         <button type="submit" class="btn-submit">${getContactText('contactForm.submitButton')}</button>
+                        <button type="button" class="btn-cancel">${getContactText('contactForm.cancelButton')}</button>
                     </div>
                 </form>
                 

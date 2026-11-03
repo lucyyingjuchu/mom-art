@@ -329,18 +329,6 @@ a.news-item:hover p { color: #a3342c; }
     margin-top: 0.9rem;
 }
 
-.news-more-btn,
-.history-filters button,
-.news-invite button {
-    font: inherit;
-    cursor: pointer;
-    border-radius: 999px;
-    padding: 0.4rem 1rem;
-    border: 1px solid #c9bba8;
-    background: #fff;
-    color: #2b2723;
-}
-
 .update-more {
     background: none;
     border: 0;
@@ -383,12 +371,6 @@ a.news-item:hover p { color: #a3342c; }
     flex-wrap: wrap;
     gap: 0.5rem;
     margin-bottom: 1.3rem;
-}
-
-.history-filters button.active {
-    background: #2b2723;
-    border-color: #2b2723;
-    color: #fff;
 }
 
 .history-year {

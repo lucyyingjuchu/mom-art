@@ -1,15 +1,39 @@
 /* shopping.css - Complete Shopping Cart & E-commerce Styles */
 
+/* Second surface for cart and lightbox panels, one step off the paper white */
+:root { --tint: #e4eae5; } /* celadon */
+
 /* ================================ */
 /* CART ICON IN HEADER */
 /* ================================ */
 
 /* Base look comes from .header-icon in index.html */
 
-/* Chinese site: no prints yet, so no cart (js/shopping.js updateCartIconVisibility) */
-button#cartIcon.cart-hidden {
+/* Which bag shows when: js/shopping.js updateCartIconVisibility */
+button.cart-hidden {
     display: none;
 }
+
+.cart-bag {
+    width: 21px;
+    height: 21px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Stays on the right of the sticky nav, clear of the sideways-scrolling links */
+nav .nav-cart {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    background: #fbf8f3;
+}
+
+.lb-cart { position: relative; }
 
 /* ================================ */
 /* CART SIDEBAR/DRAWER */
@@ -23,7 +47,7 @@ button#cartIcon.cart-hidden {
     width: 100%;
     height: 100%;
     background: rgba(0,0,0,0.5);
-    z-index: 9999;
+    z-index: 10500; /* above the lightbox, below the inquiry form */
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
@@ -42,8 +66,8 @@ button#cartIcon.cart-hidden {
     width: 400px;
     max-width: 90vw;
     height: 100vh;
-    background: white;
-    z-index: 10000;
+    background: #fbf8f3;
+    z-index: 10600;
     transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     box-shadow: -4px 0 20px rgba(0,0,0,0.3);
     display: flex;
@@ -62,7 +86,7 @@ button#cartIcon.cart-hidden {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #f6f2e9;
+    background: var(--tint);
     flex-shrink: 0;
 }
 
@@ -128,7 +152,7 @@ button#cartIcon.cart-hidden {
 }
 
 .cart-item:hover {
-    background: #f6f2e9;
+    background: none;
 }
 
 .cart-item:last-child {
@@ -238,7 +262,7 @@ button#cartIcon.cart-hidden {
 .cart-footer {
     border-top: 1px solid #ece6db;
     padding: 1.5rem;
-    background: #f6f2e9;
+    background: var(--tint);
     flex-shrink: 0;
 }
 
@@ -261,36 +285,6 @@ button#cartIcon.cart-hidden {
     font-weight: 700;
 }
 
-.checkout-btn {
-    width: 100%;
-    padding: 1rem;
-    background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-}
-
-.checkout-btn:hover {
-    background: linear-gradient(135deg, #229954 0%, #27ae60 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(39,174,96,0.3);
-}
-
-.checkout-btn:disabled {
-    background: #756b5f;
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
-}
-
 /* ================================ */
 /* LIGHTBOX SHOPPING SECTION */
 /* ================================ */
@@ -300,7 +294,7 @@ button#cartIcon.cart-hidden {
     border-top: 2px solid #ece6db;
     margin-top: 2rem;
     padding-top: 2rem;
-    background: #f6f2e9;
+    background: var(--tint);
     margin-left: -2rem;
     margin-right: -2rem;
     padding-left: 2rem;
@@ -316,11 +310,6 @@ button#cartIcon.cart-hidden {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-}
-
-.shopping-section h4::before {
-    content: "🛒";
-    font-size: 1.2rem;
 }
 
 /* Size selection */
@@ -361,7 +350,7 @@ button#cartIcon.cart-hidden {
 
 .size-option.selected {
     border-color: #2b2723;
-    background: #f6f2e9;
+    background: white;
     box-shadow: 0 0 0 1px #2b2723;
 }
 
@@ -468,41 +457,6 @@ button#cartIcon.cart-hidden {
 }
 
 /* Add to cart button */
-.add-to-cart-btn {
-    width: 100%;
-    padding: 1rem;
-    background: linear-gradient(135deg, #2b2723 0%, #4a433b 100%);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-}
-
-.add-to-cart-btn:hover {
-    background: linear-gradient(135deg, #1a1714 0%, #2b2723 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(43,39,35,0.3);
-}
-
-.add-to-cart-btn:disabled {
-    background: #756b5f;
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
-}
-
-.add-to-cart-btn::before {
-    content: "🛒";
-    font-size: 1.1rem;
-}
-
 /* Shopping success message */
 .shopping-message {
     margin-top: 1rem;
@@ -618,4 +572,4 @@ button#cartIcon.cart-hidden {
 .cart-ship-to { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; margin: 0.25rem 0 0.4rem; }
 .cart-ship-label { font-size: 0.9rem; color: #2b2723; }
 .cart-ship-select { padding: 0.35rem 0.5rem; border: 1px solid #d5d9dd; border-radius: 6px; background: #fff; font: inherit; font-size: 0.9rem; }
-.cart-ship-note { margin: 0 0 0.75rem; font-size: 0.78rem; line-height: 1.45; color: #756b5f; }
+.cart-ship-note { margin: 0 0 0.75rem; font-size: 0.78rem; line-height: 1.45; color: #574f46; }
