@@ -103,10 +103,6 @@ const CONTACT_FORM_TEXTS = {
             
             // Contact info fields
             customerName: "Name",
-            contactMethods: "How to reach you",
-            contactMethodsHint: "Please leave at least one: phone, LINE or email",
-            customerPhone: "Phone",
-            customerLine: "LINE ID",
             customerEmail: "Email",
             shipTo: "Shipping destination",
             shipToPlaceholder: "For example: California, USA",
@@ -138,8 +134,6 @@ const CONTACT_FORM_TEXTS = {
             submitSuccess: "Thank you! We'll reply within 3 business days.",
             submitError: "Submission failed. Please try again later or contact us directly.",
             invalidEmail: "Please enter a valid email format",
-            invalidPhone: "Please enter a valid phone number",
-            contactRequired: "Please leave at least one way to reach you",
             invalidPhone: "Please enter a valid phone number"
         }
     }
@@ -172,15 +166,22 @@ function validateEmail(email) {
 // HTML 生成函數
 // ================================
 
-function generateContactInfoSection() {
-    return `
-        <div class="form-section">
+// The Chinese site offers phone, LINE or email; the English site uses email only
+function generateContactMethodsSection() {
+    const currentLang = (typeof portfolio !== 'undefined') ? portfolio.currentLanguage : 'zh';
+
+    if (currentLang !== 'zh') {
+        return `
             <div class="form-row">
                 <div class="form-group">
-                    <label>${getContactText('contactForm.customerName')} <span class="required">*</span></label>
-                    <input type="text" id="customerName" name="name" autocomplete="name" required>
+                    <label>${getContactText('contactForm.customerEmail')} <span class="required">*</span></label>
+                    <input type="email" id="customerEmail" name="email" autocomplete="email" required>
                 </div>
             </div>
+        `;
+    }
+
+    return `
             <fieldset class="contact-methods" id="contactMethods">
                 <legend>${getContactText('contactForm.contactMethods')} <span class="required">*</span></legend>
                 <p class="contact-methods-hint">${getContactText('contactForm.contactMethodsHint')}</p>
@@ -197,6 +198,19 @@ function generateContactInfoSection() {
                     <input type="email" id="customerEmail" name="email" autocomplete="email">
                 </div>
             </fieldset>
+    `;
+}
+
+function generateContactInfoSection() {
+    return `
+        <div class="form-section">
+            <div class="form-row">
+                <div class="form-group">
+                    <label>${getContactText('contactForm.customerName')} <span class="required">*</span></label>
+                    <input type="text" id="customerName" name="name" autocomplete="name" required>
+                </div>
+            </div>
+            ${generateContactMethodsSection()}
             <div class="form-row">
                 <div class="form-group">
                     <label>${getContactText('contactForm.shipTo')} <span class="required">*</span></label>
@@ -353,9 +367,11 @@ function bindContactFormEvents(modal) {
     });
 
     const phoneInput = modal.querySelector('#customerPhone');
-    phoneInput.addEventListener('blur', function() {
-        validatePhoneInput(this);
-    });
+    if (phoneInput) {
+        phoneInput.addEventListener('blur', function() {
+            validatePhoneInput(this);
+        });
+    }
 
     // Clear the "leave at least one" message as soon as one is filled in
     modal.querySelectorAll('#contactMethods input').forEach(input => {
@@ -433,6 +449,7 @@ function validateEmailInput(input) {
 
 // 驗證電話輸入（台灣或國際號碼，只檢查格式合理）
 function validatePhoneInput(input) {
+    if (!input) return true; // English form has no phone field
     const phone = input.value.trim();
     const digits = phone.replace(/\D/g, '');
 
@@ -447,7 +464,7 @@ function validatePhoneInput(input) {
 // 電話、LINE、Email 至少一項
 function hasContactMethod(form) {
     return ['#customerPhone', '#customerLine', '#customerEmail']
-        .some(selector => form.querySelector(selector).value.trim());
+        .some(selector => form.querySelector(selector)?.value.trim());
 }
 
 function showContactMethodsError(form) {
@@ -583,7 +600,7 @@ function validateForm(form) {
     if (!validateEmailInput(emailInput)) isValid = false;
     if (!validatePhoneInput(form.querySelector('#customerPhone'))) isValid = false;
 
-    if (!hasContactMethod(form)) {
+    if (form.querySelector('#contactMethods') && !hasContactMethod(form)) {
         showContactMethodsError(form);
         isValid = false;
     }
@@ -619,8 +636,8 @@ function handleFormSubmit(e) {
         customer: {
             name: document.getElementById('customerName').value,
             email: document.getElementById('customerEmail').value.trim(),
-            phone: document.getElementById('customerPhone').value.trim(),
-            line: document.getElementById('customerLine').value.trim(),
+            phone: document.getElementById('customerPhone')?.value.trim() || '',
+            line: document.getElementById('customerLine')?.value.trim() || '',
             country: userCountry
         },
         shipping: {
