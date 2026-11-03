@@ -246,27 +246,13 @@
             : (artwork[field + 'En'] || artwork[field] || '');
     }
 
-    // Price above the button, and on phones price + button in the collapsed sheet
-    function fillPrice(artwork, available, inquire) {
+    // The price is one quiet row among the specs; sold works show none
+    function fillPrice(artwork, available) {
         const text = available ? portfolio.originalPriceText(artwork) : null;
-        $('originalPrice').hidden = !text;
+        $('originalPriceRow').hidden = !text;
+        $('originalPriceLabel').textContent = t('lightbox.priceLabel');
         $('originalPriceMain').textContent = text ? text.main : '';
         $('originalPriceNote').textContent = text ? text.note : '';
-        $('lbSheetPrice').textContent = text ? text.short : '';
-
-        $('collectPill')?.remove();
-        el.box.classList.toggle('has-collect', available);
-        if (!available) return;
-        const pill = document.createElement('span');
-        pill.id = 'collectPill';
-        pill.className = 'collect-pill';
-        pill.setAttribute('role', 'button');
-        pill.textContent = t('lightbox.availableStatus');
-        // Keep the tap from also counting as a tap on the sheet handle
-        pill.addEventListener('pointerdown', e => e.stopPropagation());
-        pill.addEventListener('pointerup', e => e.stopPropagation());
-        pill.addEventListener('click', e => { e.stopPropagation(); inquire(); });
-        el.sheetHandle.appendChild(pill);
     }
 
     function fillDetails(artwork) {
@@ -319,7 +305,7 @@
             status.addEventListener('click', inquire);
             status.addEventListener('keydown', e => { if (e.key === 'Enter') inquire(); });
         }
-        fillPrice(artwork, available, inquire);
+        fillPrice(artwork, available);
 
         // Tooltips in the current language
         el.prev.title = t('lightbox.prevTitle');

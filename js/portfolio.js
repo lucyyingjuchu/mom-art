@@ -5,13 +5,14 @@
 // Now uses centralized category configuration instead of hardcoded lists
 
 // Originals are priced by size. To change the price of every work, change these numbers.
+// Chinese site shows NT$, English site shows US$. A price is rounded to NT$1,000 / US$100.
 // One work can be set by hand in its price field (a number in NT$, or text for "on request").
 const ORIGINAL_PRICING = {
-    showPrices: false,        // false hides every price until the unit price is confirmed
-    ntdPerUnit: 10000,        // NT$ per unit
+    showPrices: true,         // false hides every price
+    ntdPerUnit: 35000,        // NT$ per unit (Chinese site)
+    usdPerUnit: 1200,         // US$ per unit (English site)
     unitCm: 30,               // one unit is 30 × 30 cm
-    onRequestFromUnits: 30,   // this many units or more: "price on request"
-    twdPerUsd: 32.6           // USD price = NT$ ÷ this, rounded up to the next $100
+    onRequestFromUnits: 30    // this many units or more: "price on request"
 };
 
 class ChineseArtPortfolio {
@@ -269,32 +270,32 @@ class ChineseArtPortfolio {
     originalPrice(artwork) {
         const rule = ORIGINAL_PRICING;
         const manual = String(artwork.price ?? '').trim();
-        let ntd;
+        let units;
         if (manual) {
-            ntd = /^[\d,\s]+$/.test(manual) ? parseInt(manual.replace(/\D/g, ''), 10) : 0;
+            const ntd = /^[\d,\s]+$/.test(manual) ? parseInt(manual.replace(/\D/g, ''), 10) : 0;
+            units = ntd / rule.ntdPerUnit;
         } else {
-            const units = (parseFloat(artwork.heightCm) * parseFloat(artwork.widthCm)) / (rule.unitCm * rule.unitCm);
-            if (!units || artwork.sizeIncludesFrame || units >= rule.onRequestFromUnits) return null;
-            ntd = Math.round((units * rule.ntdPerUnit) / 1000) * 1000;
+            units = (parseFloat(artwork.heightCm) * parseFloat(artwork.widthCm)) / (rule.unitCm * rule.unitCm);
+            if (artwork.sizeIncludesFrame || units >= rule.onRequestFromUnits) return null;
         }
-        if (!ntd) return null;
-        return { ntd, usd: Math.ceil(ntd / rule.twdPerUsd / 100) * 100 };
+        if (!units) return null;
+        return {
+            ntd: Math.round((units * rule.ntdPerUnit) / 1000) * 1000,
+            usd: Math.round((units * rule.usdPerUnit) / 100) * 100
+        };
     }
 
-    // What the visitor reads: { main: 'Original US$3,300', note: 'Shipping not included' }
+    // What the visitor reads: { main: 'US$7,200', note: 'Price is for the painting. …' }
     // Null while prices are hidden.
     originalPriceText(artwork) {
         if (!ORIGINAL_PRICING.showPrices) return null;
         const zh = this.currentLanguage === 'zh';
         const price = this.originalPrice(artwork);
-        const label = this.t('lightbox.originalLabel');
-        if (!price) return { main: `${label}｜${this.t('lightbox.priceOnRequest')}`, note: '', short: this.t('lightbox.priceOnRequest') };
-        const amount = zh ? `NT$${price.ntd.toLocaleString('en-US')}` : `US$${price.usd.toLocaleString('en-US')}`;
-        const framed = /框/.test(artwork.format || '');
+        const note = this.t('lightbox.priceNote');
+        if (!price) return { main: this.t('lightbox.priceOnRequest'), note };
         return {
-            main: `${label} ${amount}`,
-            short: amount,
-            note: this.t(framed ? 'lightbox.priceNoteFramed' : 'lightbox.priceNotePlain')
+            main: zh ? `NT$${price.ntd.toLocaleString('en-US')}` : `US$${price.usd.toLocaleString('en-US')}`,
+            note
         };
     }
 
@@ -1344,9 +1345,7 @@ class ChineseArtPortfolio {
                     <div class="featured-meta">
                         ${size ? `<span class="featured-size">${size}</span>` : ''}
                         ${medium ? `<span class="featured-medium">${medium}</span>` : ''}
-                        <span class="featured-status ${available ? 'available' : 'sold'}">
-                            ${available ? this.t('common.available') : this.t('common.sold')}
-                        </span>
+                        ${available ? '' : `<span class="featured-status sold">${this.t('common.sold')}</span>`}
                     </div>
                 </div>
             </div>

@@ -33,8 +33,8 @@ async function detectUserCountry() {
 const CONTACT_FORM_TEXTS = {
     zh: {
         contactForm: {
-            title: "我想收藏這件",
-            subtitle: "我們會在 3 個工作天內回覆作品是否仍可收藏、價格、運費與付款方式。",
+            title: "洽詢此作",
+            subtitle: "我們會在 3 個工作天內回覆，確認作品現況，並提供裱框、運費與正式報價。",
             artworkInfoTitle: "作品資訊",
             contactInfoTitle: "聯絡資訊", 
             shippingInfoTitle: "配送資訊",
@@ -81,8 +81,8 @@ const CONTACT_FORM_TEXTS = {
     },
     en: {
         contactForm: {
-            title: "Collect This Work",
-            subtitle: "We'll reply within 3 business days with availability, price, shipping and payment.",
+            title: "Inquire About This Work",
+            subtitle: "We'll reply within 3 business days to confirm availability and share a formal quotation, including framing and shipping.",
             artworkInfoTitle: "Artwork Information",
             contactInfoTitle: "Contact Information",
             shippingInfoTitle: "Shipping Information",

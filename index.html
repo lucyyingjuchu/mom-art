@@ -1520,21 +1520,11 @@
                 <button class="lb-sheet-handle" id="lbSheetHandle" type="button" aria-label="Details">
                     <span class="lb-sheet-grip"></span>
                     <span class="lb-sheet-title" id="lbSheetTitle"></span>
-                    <span class="lb-sheet-price" id="lbSheetPrice"></span>
                 </button>
                 <div class="lb-panel-body">
                     <div class="artwork-title" id="artworkTitle">Title</div>
                     <div class="artwork-title-en" id="artworkTitleEn">English Title</div>
                     
-                    <div class="original-price" id="originalPrice" hidden>
-                        <span class="original-price-main" id="originalPriceMain"></span>
-                        <span class="original-price-note" id="originalPriceNote"></span>
-                    </div>
-
-                    <div class="availability-status available" id="availabilityStatus">
-                        <!-- Will be filled by JavaScript -->
-                    </div>
-
                     <div class="artwork-description" id="artworkDescription">
                         Description goes here...
                     </div>
@@ -1553,6 +1543,17 @@
                             <span class="spec-label"><!-- Will be filled by JavaScript --></span>
                             <span class="spec-value" id="artworkFormat">Hanging Scroll</span>
                         </div>
+
+                        <div class="spec-item" id="originalPriceRow" hidden>
+                            <span class="spec-label" id="originalPriceLabel"></span>
+                            <span class="spec-value" id="originalPriceMain"></span>
+                        </div>
+                    </div>
+
+                    <p class="original-price-note" id="originalPriceNote"></p>
+
+                    <div class="availability-status available" id="availabilityStatus">
+                        <!-- Will be filled by JavaScript -->
                     </div>
 
                     <!-- Artist's note about the work (作品說明); hidden when empty -->
