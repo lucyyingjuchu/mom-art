@@ -83,8 +83,11 @@
 
 @media (max-width: 768px) {
     .gallery-tabs {
-        justify-content: flex-start;
-        gap: 1.4rem;
+        /* every tab stays in view: wrap instead of hiding some off-screen */
+        justify-content: center;
+        flex-wrap: wrap;
+        overflow-x: visible;
+        gap: 0 1.4rem;
         margin: 0 -0.75rem 0.25rem;
         padding: 0 1rem;
     }

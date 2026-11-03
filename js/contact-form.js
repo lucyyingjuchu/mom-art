@@ -47,7 +47,11 @@ const CONTACT_FORM_TEXTS = {
             
             // 聯絡資訊欄位
             customerName: "姓名",
-            customerEmail: "電子郵件",
+            contactMethods: "聯絡方式",
+            contactMethodsHint: "電話、LINE、Email 請至少留一項",
+            customerPhone: "電話",
+            customerLine: "LINE ID",
+            customerEmail: "Email",
             shipTo: "寄送地區",
             shipToPlaceholder: "例如：台中、美國加州",
             note: "留言（選填）",
@@ -78,6 +82,8 @@ const CONTACT_FORM_TEXTS = {
             submitSuccess: "已收到！我們會在 3 個工作天內回覆您。",
             submitError: "送出失敗，請稍後再試或直接聯繫我們。",
             invalidEmail: "請輸入有效的電子郵件格式",
+            invalidPhone: "請輸入有效的電話號碼",
+            contactRequired: "請至少留下一種聯絡方式",
             invalidPhone: "請輸入有效的手機號碼"
         }
     },
@@ -160,6 +166,41 @@ function validateEmail(email) {
 // HTML 生成函數
 // ================================
 
+// The Chinese site offers phone, LINE or email; the English site uses email only
+function generateContactMethodsSection() {
+    const currentLang = (typeof portfolio !== 'undefined') ? portfolio.currentLanguage : 'zh';
+
+    if (currentLang !== 'zh') {
+        return `
+            <div class="form-row">
+                <div class="form-group">
+                    <label>${getContactText('contactForm.customerEmail')} <span class="required">*</span></label>
+                    <input type="email" id="customerEmail" name="email" autocomplete="email" required>
+                </div>
+            </div>
+        `;
+    }
+
+    return `
+            <fieldset class="contact-methods" id="contactMethods">
+                <legend>${getContactText('contactForm.contactMethods')} <span class="required">*</span></legend>
+                <p class="contact-methods-hint">${getContactText('contactForm.contactMethodsHint')}</p>
+                <div class="form-group">
+                    <label for="customerPhone">${getContactText('contactForm.customerPhone')}</label>
+                    <input type="tel" id="customerPhone" name="tel" autocomplete="tel">
+                </div>
+                <div class="form-group">
+                    <label for="customerLine">${getContactText('contactForm.customerLine')}</label>
+                    <input type="text" id="customerLine" name="line-id" autocomplete="off" autocapitalize="none" spellcheck="false">
+                </div>
+                <div class="form-group">
+                    <label for="customerEmail">${getContactText('contactForm.customerEmail')}</label>
+                    <input type="email" id="customerEmail" name="email" autocomplete="email">
+                </div>
+            </fieldset>
+    `;
+}
+
 function generateContactInfoSection() {
     return `
         <div class="form-section">
@@ -169,12 +210,7 @@ function generateContactInfoSection() {
                     <input type="text" id="customerName" name="name" autocomplete="name" required>
                 </div>
             </div>
-            <div class="form-row">
-                <div class="form-group">
-                    <label>${getContactText('contactForm.customerEmail')} <span class="required">*</span></label>
-                    <input type="email" id="customerEmail" name="email" autocomplete="email" required>
-                </div>
-            </div>
+            ${generateContactMethodsSection()}
             <div class="form-row">
                 <div class="form-group">
                     <label>${getContactText('contactForm.shipTo')} <span class="required">*</span></label>
@@ -329,6 +365,20 @@ function bindContactFormEvents(modal) {
     emailInput.addEventListener('blur', function() {
         validateEmailInput(this);
     });
+
+    const phoneInput = modal.querySelector('#customerPhone');
+    if (phoneInput) {
+        phoneInput.addEventListener('blur', function() {
+            validatePhoneInput(this);
+        });
+    }
+
+    // Clear the "leave at least one" message as soon as one is filled in
+    modal.querySelectorAll('#contactMethods input').forEach(input => {
+        input.addEventListener('input', () => {
+            if (input.value.trim()) hideContactMethodsError();
+        });
+    });
 }
 
 // 填入作品資訊
@@ -395,6 +445,39 @@ function validateEmailInput(input) {
         hideFieldError(input);
         return true;
     }
+}
+
+// 驗證電話輸入（台灣或國際號碼，只檢查格式合理）
+function validatePhoneInput(input) {
+    if (!input) return true; // English form has no phone field
+    const phone = input.value.trim();
+    const digits = phone.replace(/\D/g, '');
+
+    if (phone && (!/^[+\d\s().#-]+$/.test(phone) || digits.length < 7 || digits.length > 15)) {
+        showFieldError(input, getContactText('contactForm.invalidPhone'));
+        return false;
+    }
+    hideFieldError(input);
+    return true;
+}
+
+// 電話、LINE、Email 至少一項
+function hasContactMethod(form) {
+    return ['#customerPhone', '#customerLine', '#customerEmail']
+        .some(selector => form.querySelector(selector)?.value.trim());
+}
+
+function showContactMethodsError(form) {
+    const hint = form.querySelector('.contact-methods-hint');
+    hint.textContent = getContactText('contactForm.contactRequired');
+    hint.classList.add('error');
+}
+
+function hideContactMethodsError() {
+    const hint = document.querySelector('.contact-methods-hint');
+    if (!hint) return;
+    hint.textContent = getContactText('contactForm.contactMethodsHint');
+    hint.classList.remove('error');
 }
 
 // 檢測瀏覽器擴充功能干擾
@@ -515,7 +598,13 @@ function validateForm(form) {
     const emailInput = form.querySelector('#customerEmail');
     
     if (!validateEmailInput(emailInput)) isValid = false;
-    
+    if (!validatePhoneInput(form.querySelector('#customerPhone'))) isValid = false;
+
+    if (form.querySelector('#contactMethods') && !hasContactMethod(form)) {
+        showContactMethodsError(form);
+        isValid = false;
+    }
+
     return isValid;
 }
 
@@ -546,7 +635,9 @@ function handleFormSubmit(e) {
         },
         customer: {
             name: document.getElementById('customerName').value,
-            email: document.getElementById('customerEmail').value,
+            email: document.getElementById('customerEmail').value.trim(),
+            phone: document.getElementById('customerPhone')?.value.trim() || '',
+            line: document.getElementById('customerLine')?.value.trim() || '',
             country: userCountry
         },
         shipping: {
@@ -647,8 +738,11 @@ function sendEmailViaClientSide(data) {
             const templateParams = {
                 // Customer info
                 customer_name: data.customer.name,
-                customer_email: data.customer.email,
-                customer_phone: '—',
+                // The EmailJS template's Reply-To is {{customer_email}}, which must stay a
+                // valid address, so a phone- or LINE-only inquiry falls back to the studio's.
+                customer_email: data.customer.email || 'info@xiaoranart.com',
+                customer_phone: [data.customer.phone, data.customer.line && `LINE: ${data.customer.line}`]
+                    .filter(Boolean).join('｜') || '—',
                 customer_country: data.customer.country,
                 
                 // Artwork info

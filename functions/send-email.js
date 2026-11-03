@@ -40,11 +40,17 @@ exports.handler = async (event, context) => {
         // Validate required fields
         const requiredFields = [
             data.customer?.name,
-            data.customer?.email,
             data.artwork?.title
         ];
+        // Phone, LINE or email: any one is enough
+        const contactMethods = [
+            data.customer?.phone,
+            data.customer?.line,
+            data.customer?.email
+        ];
 
-        if (requiredFields.some(field => !field || field.trim() === '')) {
+        if (requiredFields.some(field => !field || field.trim() === '') ||
+            !contactMethods.some(field => field && field.trim() !== '')) {
             return {
                 statusCode: 400,
                 headers: {
@@ -58,9 +64,9 @@ exports.handler = async (event, context) => {
             };
         }
 
-        // Validate email format
+        // Validate email format, when one was given
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(data.customer.email)) {
+        if (data.customer.email && !emailRegex.test(data.customer.email)) {
             return {
                 statusCode: 400,
                 headers: {
