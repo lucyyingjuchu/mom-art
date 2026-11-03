@@ -149,25 +149,6 @@
             margin: 0;
         }
 
-        .language-toggle {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: var(--ink);
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            z-index: 200;
-            transition: background 0.3s ease;
-        }
-
-        .language-toggle:hover {
-            background: var(--ink-deep);
-        }
-
         /* ================================ */
         /* NAVIGATION STYLES */
         /* ================================ */
@@ -1105,11 +1086,6 @@
                 padding: 1rem;
             }
 
-            .language-toggle {
-                position: static;
-                margin-bottom: 1rem;
-            }
-
             .filter-menu {
                 padding: 0 1rem;
             }
@@ -1192,13 +1168,6 @@
     }
 
     .header-icon:hover { color: var(--seal); }
-
-    /* Override old language toggle positioning */
-    .language-toggle {
-        position: static !important;
-        top: auto !important;
-        right: auto !important;
-    }
 
     /* Cart Count Badge */
     .cart-count {

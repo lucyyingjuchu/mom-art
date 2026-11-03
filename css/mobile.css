@@ -58,11 +58,6 @@
         font-size: 13px;
     }
 
-    .language-toggle {
-        position: static;
-        margin: 0;
-    }
-
     /* ---------- Nav: one slim row that scrolls sideways if needed ---------- */
     .nav-container {
         flex-direction: row;
