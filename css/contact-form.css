@@ -325,14 +325,14 @@
 }
 
 .btn-submit {
-    background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+    background: #2c3e50;
     color: white;
 }
 
 .btn-submit:hover {
-    background: linear-gradient(135deg, #219a52 0%, #27ae60 100%);
+    background: #34495e;
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(39, 174, 96, 0.3);
+    box-shadow: 0 4px 12px rgba(44, 62, 80, 0.25);
 }
 
 .btn-submit:disabled {
@@ -681,3 +681,6 @@ label[for="shippingMethod"] {
 
 .inquiry-artwork-title { color: #2c3e50; font-weight: 600; }
 .inquiry-artwork-meta { margin-top: 0.2rem; color: #5a6672; font-size: 0.9rem; }
+.inquiry-artwork-price { margin-top: 0.6rem; color: #2c3e50; font-size: 0.95rem; }
+.inquiry-artwork-note { margin: 0.25rem 0 0; color: #6b7680; font-size: 0.8rem; line-height: 1.5; }
+.inquiry-artwork-price:empty, .inquiry-artwork-note:empty { display: none; }

@@ -246,29 +246,6 @@
             : (artwork[field + 'En'] || artwork[field] || '');
     }
 
-    // Price above the button, and on phones price + button in the collapsed sheet
-    function fillPrice(artwork, available, inquire) {
-        const text = available ? portfolio.originalPriceText(artwork) : null;
-        $('originalPrice').hidden = !text;
-        $('originalPriceMain').textContent = text ? text.main : '';
-        $('originalPriceNote').textContent = text ? text.note : '';
-        $('lbSheetPrice').textContent = text ? text.short : '';
-
-        $('collectPill')?.remove();
-        el.box.classList.toggle('has-collect', available);
-        if (!available) return;
-        const pill = document.createElement('span');
-        pill.id = 'collectPill';
-        pill.className = 'collect-pill';
-        pill.setAttribute('role', 'button');
-        pill.textContent = t('lightbox.availableStatus');
-        // Keep the tap from also counting as a tap on the sheet handle
-        pill.addEventListener('pointerdown', e => e.stopPropagation());
-        pill.addEventListener('pointerup', e => e.stopPropagation());
-        pill.addEventListener('click', e => { e.stopPropagation(); inquire(); });
-        el.sheetHandle.appendChild(pill);
-    }
-
     function fillDetails(artwork) {
         const zh = lang() === 'zh';
         let size;
@@ -285,18 +262,13 @@
             artworkTitle: title,
             artworkTitleEn: '',   // each language shows its own title only
             artworkDescription: textFor(artwork, 'description'),
-            artworkYear: artwork.year || (zh ? '年份不詳' : 'Unknown'),
-            artworkSize: size,
-            artworkFormat: textFor(artwork, 'format') || '—'
+            // One line, like a museum label: year and size only
+            artworkCaption: [/\d/.test(artwork.year) ? artwork.year : '', size].filter(Boolean).join('｜')
         };
         Object.entries(values).forEach(([id, text]) => { const n = $(id); if (n) n.textContent = text; });
         el.sheetTitle.textContent = title;
 
-        const labels = ['lightbox.yearLabel', 'lightbox.dimensionsLabel', 'lightbox.formatLabel'];
-        el.box.querySelectorAll('.spec-label').forEach((n, i) => { if (labels[i]) n.textContent = t(labels[i]); });
-
         const note = (zh ? (artwork.curatorNote || artwork.curatorNoteEn) : (artwork.curatorNoteEn || artwork.curatorNote)) || '';
-        $('artworkNoteLabel').textContent = zh ? '作品說明' : 'About this work';
         $('artworkNoteText').textContent = note.trim();
         $('artworkNote').hidden = !note.trim();
 
@@ -319,7 +291,6 @@
             status.addEventListener('click', inquire);
             status.addEventListener('keydown', e => { if (e.key === 'Enter') inquire(); });
         }
-        fillPrice(artwork, available, inquire);
 
         // Tooltips in the current language
         el.prev.title = t('lightbox.prevTitle');

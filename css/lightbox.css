@@ -490,51 +490,12 @@
 }
 
 /* Specifications - FINAL VERSION */
-.artwork-specs {
-    border-top: 1px solid #e9ecef; /* Softer border */
-    padding-top: 1rem; /* Reduced from 1.5rem */
-    margin-bottom: 1.5rem; /* Reduced from 2rem */
+.artwork-caption {
+    margin: 0.35rem 0 1rem;
+    color: #5a6672;
+    font-size: 0.9rem;
+    line-height: 1.5;
 }
-
-/* One label column for all rows, as wide as the longest label (never wraps) */
-.artwork-specs {
-    display: grid;
-    grid-template-columns: max-content 1fr;
-}
-
-.spec-item {
-    display: grid;
-    grid-column: 1 / -1;
-    grid-template-columns: subgrid;
-    gap: 1rem;
-    margin-bottom: 0.6rem; /* Reduced from 0.8rem */
-    font-size: 0.9rem; /* Reduced from 0.95rem */
-    align-items: baseline;
-    padding: 0.4rem 0;
-    border-bottom: 1px solid #f1f3f4;
-}
-
-.spec-item:last-child {
-    border-bottom: none;
-}
-
-.spec-label {
-    font-weight: 600;
-    color: #6c757d; /* Softer color */
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    white-space: nowrap;
-    min-width: 72px;
-}
-
-.spec-value {
-    color: #2c3e50;
-    text-align: left; /* Changed from right for better readability */
-    word-break: break-word; /* Handle long text */
-    line-height: 1.3;
-}
-
 
 /* Tags - FINAL VERSION */
 .artwork-tags {
@@ -552,63 +513,33 @@
     margin-bottom: 0.4rem;
 }
 
-/* Price of the original, above the button */
-.original-price { margin: 0.25rem 0 0.75rem; }
-.original-price[hidden] { display: none; }
-
-.original-price-main {
-    display: block;
-    color: #2c3e50;
-    font-size: 1.05rem;
-    font-weight: 600;
-}
-
-.original-price-note {
-    display: block;
-    margin-top: 0.15rem;
-    color: #6b7680;
-    font-size: 0.82rem;
-}
-
-.original-price-note:empty { display: none; }
-
-.lb-sheet-price, .collect-pill { display: none; }
-
-/* Availability status - 可點擊版本 */
+/* Inquire button in the site's ink colour; sold note in the red of the seal */
 .availability-status {
-    padding: 0.6rem 1rem;
-    border-radius: 20px;
+    margin: 1.25rem 0;
+    font-size: 0.95rem;
     text-align: center;
-    font-weight: 500;
-    margin-bottom: 1rem;
-    font-size: 0.85rem;
-    transition: all 0.3s ease; /* 添加過渡效果 */
 }
 
 .availability-status.available {
-    background: #d5f4e6;
-    color: #27ae60;
-    border: 1px solid #27ae60;
-    cursor: pointer; /* 可點擊游標 */
+    width: max-content;
+    margin-inline: auto;
+    padding: 0.3rem 1rem;
+    border: 1px solid #2c3e50;
+    border-radius: 2px;
+    color: #2c3e50;
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
 }
 
 .availability-status.available:hover {
-    background: #c8e6c9; /* 滑鼠懸停效果 */
-    transform: translateY(-1px); /* 輕微上移 */
-    box-shadow: 0 2px 8px rgba(39, 174, 96, 0.2); /* 陰影效果 */
+    background: #2c3e50;
+    color: #fff;
 }
 
-.availability-status.available:active {
-    transform: translateY(0); /* 點擊時回歸原位 */
-    box-shadow: 0 1px 4px rgba(39, 174, 96, 0.2);
-}
-
-.availability-status.sold {
-    background: #fadbd8;
-    color: #e74c3c;
-    border: 1px solid #e74c3c;
-    cursor: default; /* 默認游標 */
-}
+.availability-status.sold { color: #800000; } /* the seal's red */
 
 
 /* Share Dropdown Menu */
@@ -1044,14 +975,6 @@
     margin: 0 0 1.5rem;
 }
 
-.artwork-note-label {
-    font-size: 0.75rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #7f8c8d;
-    margin-bottom: 0.4rem;
-}
-
 .artwork-note-text {
     font-size: 0.9rem;
     line-height: 1.75;
@@ -1106,47 +1029,12 @@
 
 @media (max-width: 768px) {
     /* title moves left to make room for the pills on the right */
-    .lb-sheet-handle:has(.prints-pill) .lb-sheet-title,
-    .lb-sheet-handle:has(.collect-pill) .lb-sheet-title {
+    .lb-sheet-handle:has(.prints-pill) .lb-sheet-title {
         align-self: stretch;
         text-align: left;
         padding-right: 9.5rem;
     }
 
-    /* an available original: price and button stay visible with the sheet closed */
-    .lightbox.has-collect { --lb-sheet-peek: 84px; }
-    .lb-sheet-handle:has(.collect-pill) { gap: 6px; }
-    .lb-sheet-handle:has(.collect-pill) .lb-sheet-title::after { content: none; }
-
-    .lb-sheet-price {
-        display: block;
-        align-self: stretch;
-        text-align: left;
-        color: #2c3e50;
-        font: 600 0.9rem/1.2 system-ui, -apple-system, "PingFang TC", "Microsoft JhengHei", sans-serif;
-    }
-
-    .collect-pill {
-        display: inline-flex;
-        align-items: center;
-        position: absolute;
-        right: 16px;
-        bottom: 24px;
-        padding: 0.5rem 0.95rem;
-        border-radius: 999px;
-        background: #1e8449;
-        color: #fff;
-        font: 600 0.9rem/1.2 system-ui, -apple-system, "PingFang TC", "Microsoft JhengHei", sans-serif;
-        white-space: nowrap;
-        cursor: pointer;
-    }
-
-    /* English site: "Collect" above "Prints" */
-    .lb-sheet-handle:has(.prints-pill) .collect-pill { bottom: 42px; padding: 0.35rem 0.8rem; font-size: 0.8rem; }
-    .lb-sheet-handle:has(.collect-pill) .prints-pill { bottom: 10px; }
-
-    .lightbox.sheet-open .collect-pill,
-    .lightbox.sheet-open .lb-sheet-price { display: none; }
 
     .prints-pill {
         display: inline-flex;
@@ -1168,7 +1056,6 @@
 
     .lightbox.sheet-open .prints-pill { display: none; }
     .lightbox.sheet-open .lb-sheet-handle:has(.prints-pill) .lb-sheet-title,
-    .lightbox.sheet-open .lb-sheet-handle:has(.collect-pill) .lb-sheet-title { padding-right: 0; }
 
     /* land below the sticky sheet handle, not under it */
     .lightbox .lightbox-info-section .shopping-section { scroll-margin-top: var(--lb-sheet-peek); }

@@ -33,8 +33,8 @@ async function detectUserCountry() {
 const CONTACT_FORM_TEXTS = {
     zh: {
         contactForm: {
-            title: "我想收藏這件",
-            subtitle: "我們會在 3 個工作天內回覆作品是否仍可收藏、價格、運費與付款方式。",
+            title: "洽詢此作",
+            subtitle: "我們會在 3 個工作天內回覆，確認作品現況，並提供裱框、運費與正式報價。",
             artworkInfoTitle: "作品資訊",
             contactInfoTitle: "聯絡資訊", 
             shippingInfoTitle: "配送資訊",
@@ -48,8 +48,10 @@ const CONTACT_FORM_TEXTS = {
             // 聯絡資訊欄位
             customerName: "姓名",
             customerEmail: "電子郵件",
+            shipTo: "寄送地區",
+            shipToPlaceholder: "例如：台中、美國加州",
             note: "留言（選填）",
-            notePlaceholder: "例如寄送地區、想問的問題",
+            notePlaceholder: "例如想問的問題",
             
             // 配送資訊欄位  
             shippingAddress: "配送地址",
@@ -81,8 +83,8 @@ const CONTACT_FORM_TEXTS = {
     },
     en: {
         contactForm: {
-            title: "Collect This Work",
-            subtitle: "We'll reply within 3 business days with availability, price, shipping and payment.",
+            title: "Inquire About This Work",
+            subtitle: "We'll reply within 3 business days to confirm availability and share a formal quotation, including framing and shipping.",
             artworkInfoTitle: "Artwork Information",
             contactInfoTitle: "Contact Information",
             shippingInfoTitle: "Shipping Information",
@@ -96,8 +98,10 @@ const CONTACT_FORM_TEXTS = {
             // Contact info fields
             customerName: "Name",
             customerEmail: "Email",
+            shipTo: "Shipping destination",
+            shipToPlaceholder: "For example: California, USA",
             note: "Message (optional)",
-            notePlaceholder: "For example, where it would ship to, or any questions",
+            notePlaceholder: "For example, any questions about the work",
             
             // Shipping info fields
             shippingAddress: "Shipping Address", 
@@ -173,6 +177,12 @@ function generateContactInfoSection() {
             </div>
             <div class="form-row">
                 <div class="form-group">
+                    <label>${getContactText('contactForm.shipTo')} <span class="required">*</span></label>
+                    <input type="text" id="customerShipTo" name="ship-to" autocomplete="off" placeholder="${getContactText('contactForm.shipToPlaceholder')}" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
                     <label>${getContactText('contactForm.note')}</label>
                     <textarea id="customerNote" rows="3" placeholder="${getContactText('contactForm.notePlaceholder')}"></textarea>
                 </div>
@@ -196,6 +206,8 @@ function generateContactFormHTML() {
                     <div class="inquiry-artwork">
                         <div class="inquiry-artwork-title" id="inquiryArtworkTitle"></div>
                         <div class="inquiry-artwork-meta" id="inquiryArtworkMeta"></div>
+                        <div class="inquiry-artwork-price" id="inquiryArtworkPrice"></div>
+                        <p class="inquiry-artwork-note" id="inquiryArtworkNote"></p>
                     </div>
 
                     ${generateContactInfoSection()}
@@ -355,8 +367,10 @@ function populateArtworkInfo() {
     // The work being asked about, with its listed price
     inquirySize = size;
     document.getElementById('inquiryArtworkTitle').textContent = title;
+    document.getElementById('inquiryArtworkMeta').textContent = size;
     const priceText = portfolio.originalPriceText(artwork);
-    document.getElementById('inquiryArtworkMeta').textContent = priceText ? `${size} · ${priceText.main}` : size;
+    document.getElementById('inquiryArtworkPrice').textContent = priceText ? `${portfolio.t('lightbox.priceLabel')} ${priceText.main}` : '';
+    document.getElementById('inquiryArtworkNote').textContent = priceText ? priceText.note : '';
 }
 
 // The studio's email shows both currencies, whichever site the visitor used
@@ -536,6 +550,7 @@ function handleFormSubmit(e) {
             country: userCountry
         },
         shipping: {
+            destination: document.getElementById('customerShipTo').value,
             note: document.getElementById('customerNote').value
         },
         analytics: {
@@ -644,7 +659,7 @@ function sendEmailViaClientSide(data) {
                 artwork_id: data.artwork.id,
                 
                 // Shipping info
-                shipping_address: '—',
+                shipping_address: data.shipping.destination || '—',
                 shipping_note: data.shipping.note || 'No additional notes',
                 
                 // Analytics

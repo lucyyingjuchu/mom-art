@@ -545,8 +545,7 @@
         }
 
         .sold {
-            color: #dc3545;
-            font-weight: bold;
+            color: #800000; /* the seal's red */
         }
 
         /* Fade the gallery in once per render (tab switch, search) - on the grid, not on
@@ -1520,44 +1519,23 @@
                 <button class="lb-sheet-handle" id="lbSheetHandle" type="button" aria-label="Details">
                     <span class="lb-sheet-grip"></span>
                     <span class="lb-sheet-title" id="lbSheetTitle"></span>
-                    <span class="lb-sheet-price" id="lbSheetPrice"></span>
                 </button>
                 <div class="lb-panel-body">
                     <div class="artwork-title" id="artworkTitle">Title</div>
                     <div class="artwork-title-en" id="artworkTitleEn">English Title</div>
+                    <div class="artwork-caption" id="artworkCaption"></div>
                     
-                    <div class="original-price" id="originalPrice" hidden>
-                        <span class="original-price-main" id="originalPriceMain"></span>
-                        <span class="original-price-note" id="originalPriceNote"></span>
+                    <div class="artwork-description" id="artworkDescription">
+                        Description goes here...
                     </div>
+
 
                     <div class="availability-status available" id="availabilityStatus">
                         <!-- Will be filled by JavaScript -->
                     </div>
 
-                    <div class="artwork-description" id="artworkDescription">
-                        Description goes here...
-                    </div>
-
-                    <div class="artwork-specs">
-                        <div class="spec-item">
-                            <span class="spec-label"><!-- Will be filled by JavaScript --></span>
-                            <span class="spec-value" id="artworkYear">2023</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label"><!-- Will be filled by JavaScript --></span>
-                            <span class="spec-value" id="artworkSize">135 × 70 cm</span>
-                        </div>
-
-                        <div class="spec-item">
-                            <span class="spec-label"><!-- Will be filled by JavaScript --></span>
-                            <span class="spec-value" id="artworkFormat">Hanging Scroll</span>
-                        </div>
-                    </div>
-
                     <!-- Artist's note about the work (作品說明); hidden when empty -->
                     <div class="artwork-note" id="artworkNote" hidden>
-                        <div class="artwork-note-label" id="artworkNoteLabel"></div>
                         <p class="artwork-note-text" id="artworkNoteText"></p>
                     </div>
 

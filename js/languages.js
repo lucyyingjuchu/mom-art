@@ -136,16 +136,24 @@ const LANGUAGE_DATA = {
                                 answer: "**Originals** ship directly from the artist’s studio in Taiwan.\n**Prints** are produced and shipped from the U.S. through trusted partners. This allows us to share Taiwanese ink art more easily with collectors worldwide, especially reaching audiences in the United States."
                             },
                             {
-                                question: "How do I purchase originals and prints?",
-                                answer: "**Originals**: press \"Collect This Work\" and send the short form. We reply within 3 business days with availability, price, shipping and payment.\n**Prints** can be added directly to the shopping cart for checkout."
+                                question: "How do I acquire an original or a print?",
+                                answer: "**Originals**: press \"Inquire\" on the work's page. We reply within 3 business days to confirm its availability and share further details, along with a formal quotation including shipping.\n**Prints** can be added directly to the shopping cart for checkout."
                             },
                             {
-                                question: "Do originals come framed?",
-                                answer: "**Within Taiwan**: the painting is delivered in its original frame, if it has one.\n**International**: to keep shipping safe and affordable, we send the painting itself, without the frame. If you would like the original frame too, mention it in the inquiry form - we will work out the extra shipping cost so you can decide."
+                                question: "May I view a work before deciding?",
+                                answer: "Viewings can be arranged by appointment in Taichung, or by video call."
+                            },
+                            {
+                                question: "Is framing included?",
+                                answer: "Listed prices are for the painting alone. If a work is currently framed, or you would like it framed, we can advise on the options and include any framing, removal, or related costs in your quotation."
+                            },
+                            {
+                                question: "How are originals shipped?",
+                                answer: "Each work is insured and shipped by a specialist art carrier. International orders are generally sent unframed, ready to be mounted locally. Shipping is quoted based on destination."
                             },
                             {
                                 question: "How are prints shipped?",
-                                answer: "Every print is made on 100% cotton fine art paper: the whole painting at its true proportions - never cropped or stretched - with a white museum border. Prints are **shipped unmounted, rolled in a sturdy tube**, ready for your framer.\nEach artwork's print section shows every size to scale."
+                                answer: "Every print is made on thick, softly textured watercolor paper: the whole painting at its true proportions - never cropped or stretched - with a white museum border. Prints are **shipped unmounted, rolled in a sturdy tube**.\nEach artwork's print section shows every size to scale."
                             },
                             {
                                 question: "How long will shipping take?",
@@ -160,6 +168,10 @@ const LANGUAGE_DATA = {
                             {
                                 question: "Why are prices shown in USD?",
                                 answer: "We sell internationally, and USD is a standard currency most collectors understand. At checkout, your local bank may show the converted amount."
+                            },
+                            {
+                                question: "What is your returns policy?",
+                                answer: "Full terms are included with each quotation."
                             }
                         ]
                     }
@@ -170,7 +182,7 @@ const LANGUAGE_DATA = {
         connect: {
             title: "Contact",
             subtitle: "For exhibitions, collaborations, or painting and calligraphy classes, please write to the studio.",
-            collectNote: "Interested in a specific work? Use “Collect This Work” on its page.",
+            collectNote: "Interested in a specific work? Use “Inquire” on its page.",
             collectLink: "Go to the Gallery",
             emailTitle: "Email",
             copy: "Copy",
@@ -187,12 +199,11 @@ const LANGUAGE_DATA = {
         
         // Lightbox
         lightbox: {
-            availableStatus: "Collect This Work",
-            originalLabel: "Original",
-            priceOnRequest: "Price on request",
-            priceNoteFramed: "Frame and shipping not included",
-            priceNotePlain: "Shipping not included",
-            soldStatus: "Original Art Sold",
+            availableStatus: "Inquire",
+            priceLabel: "Price",
+            priceOnRequest: "on request",
+            priceNote: "Price is for the painting. Availability, framing, and shipping are confirmed with your quotation.",
+            soldStatus: "Sold",
             yearLabel: "Year",
             dimensionsLabel: "Size (HxW)", 
             mediumLabel: "Medium",
@@ -271,7 +282,7 @@ const LANGUAGE_DATA = {
             cartEmpty: "Your cart is empty",
             cartEmptyDesc: "Browse artworks and add your favorite giclée fine art prints to the cart",
             selectSizeTitle: "Giclée Fine Art Prints",
-            selectSizeSubtitle: "100% cotton fine art paper. The whole painting, at its true proportions, with a white museum border; shipped unmounted, rolled in a tube, ready for your framer.",
+            selectSizeSubtitle: "Printed on thick, softly textured watercolor paper, each print holds the full depth of the ink, from the deepest black to the faintest wash. The whole painting rests uncropped within a white museum border, just as the artist composed it. Pigment inks resist fading, so the work stays luminous over time. Shipped rolled and unmounted.",
             imageSize: "image",
             shipTo: "Ship to",
             printSizeLabel: "Paper size (H×W)",
@@ -476,12 +487,20 @@ const LANGUAGE_DATA = {
                                 answer: "**原作**：由曉然文化工作室於台灣直寄。\n**印刷品**（英文版網站）：由美國合作夥伴製作並寄送。"
                             },
                             {
-                                question: "如何購買原作與藝術微噴印刷品(fine art giclée prints)？",
-                                answer: "**原作**：點「我想收藏這件」並送出簡短表單，我們會在 3 個工作天內回覆作品是否仍可收藏、價格、運費與付款方式。\n**印刷品**：目前僅於英文版網站提供訂購；台灣地區的印刷品訂購正在籌備中。"
+                                question: "如何收藏原作與藝術微噴印刷品(fine art giclée prints)？",
+                                answer: "**原作**：請在作品頁點「洽詢此作」，我們會在 3 個工作天內回覆，確認作品現況，並提供作品細節與含運費的正式報價。\n**印刷品**：目前僅於英文版網站提供訂購；台灣地區的印刷品訂購正在籌備中。"
                             },
                             {
-                                question: "原作有附框嗎？",
-                                answer: "**台灣境內**：作品如原本有框，會連同原框一起交付。\n**海外**：為了運送安全並控制運費，原則上寄送畫心（不含框）。如希望連同原框寄送，請在詢價表單中註明，我們會先評估運費再與您討論。"
+                                question: "可以先看作品嗎？",
+                                answer: "可預約於台中看原作，或透過視訊觀看。"
+                            },
+                            {
+                                question: "典藏價包含裱框嗎？",
+                                answer: "典藏價僅含作品本身。如作品目前已有裱框，或您希望裱框，我們會提供建議，並將裱框、拆框等相關費用列入報價。"
+                            },
+                            {
+                                question: "原作如何運送？",
+                                answer: "每件作品皆投保，並由專業藝術品物流運送。海外訂單原則上不含框，可於當地裝裱。運費依寄送地點報價。"
                             },
                             {
                                 question: "運送需要多長時間？",
@@ -495,7 +514,11 @@ const LANGUAGE_DATA = {
                         questions: [
                             {
                                 question: "價格以什麼幣別標示？",
-                                answer: "**原作**以新台幣報價。\n**印刷品**目前僅於英文版網站提供，以美元計價。"
+                                answer: "**原作**以新台幣計價。\n**印刷品**目前僅於英文版網站提供，以美元計價。"
+                            },
+                            {
+                                question: "可以退換嗎？",
+                                answer: "完整條款會隨報價單提供。"
                             }
                         ]
                     }
@@ -506,7 +529,7 @@ const LANGUAGE_DATA = {
         connect: {
             title: "聯絡",
             subtitle: "邀展合作或書畫課程，歡迎來信畫室。",
-            collectNote: "想收藏某件作品？請在作品頁點「我想收藏這件」。",
+            collectNote: "想收藏某件作品？請在作品頁點「洽詢此作」。",
             collectLink: "前往藝廊",
             emailTitle: "電子郵件",
             copy: "複製",
@@ -523,12 +546,11 @@ const LANGUAGE_DATA = {
         
         // Lightbox
         lightbox: {
-            availableStatus: "我想收藏這件",
-            originalLabel: "原作",
-            priceOnRequest: "價格請洽詢",
-            priceNoteFramed: "含原框（台灣）",
-            priceNotePlain: "",
-            soldStatus: "原作已售出",
+            availableStatus: "洽詢此作",
+            priceLabel: "典藏價",
+            priceOnRequest: "請洽詢",
+            priceNote: "典藏價僅含作品本身，現況、裱框與運費將於報價時確認。",
+            soldStatus: "已收藏",
             yearLabel: "年份",
             dimensionsLabel: "尺寸（高×寬）",
             mediumLabel: "媒材", 
@@ -665,7 +687,7 @@ const LANGUAGE_DATA = {
         // Common
         common: {
             available: "可售",
-            sold: "已售",
+            sold: "已收藏",
             untitled: "無題",
             unknown: "未知",
             sizeNotSpecified: "尺寸未標明",
