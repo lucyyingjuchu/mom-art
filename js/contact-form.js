@@ -48,8 +48,10 @@ const CONTACT_FORM_TEXTS = {
             // 聯絡資訊欄位
             customerName: "姓名",
             customerEmail: "電子郵件",
+            shipTo: "寄送地區",
+            shipToPlaceholder: "例如：台中、美國加州",
             note: "留言（選填）",
-            notePlaceholder: "例如寄送地區、想問的問題",
+            notePlaceholder: "例如想問的問題",
             
             // 配送資訊欄位  
             shippingAddress: "配送地址",
@@ -96,8 +98,10 @@ const CONTACT_FORM_TEXTS = {
             // Contact info fields
             customerName: "Name",
             customerEmail: "Email",
+            shipTo: "Shipping destination",
+            shipToPlaceholder: "For example: California, USA",
             note: "Message (optional)",
-            notePlaceholder: "For example, where it would ship to, or any questions",
+            notePlaceholder: "For example, any questions about the work",
             
             // Shipping info fields
             shippingAddress: "Shipping Address", 
@@ -169,6 +173,12 @@ function generateContactInfoSection() {
                 <div class="form-group">
                     <label>${getContactText('contactForm.customerEmail')} <span class="required">*</span></label>
                     <input type="email" id="customerEmail" name="email" autocomplete="email" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>${getContactText('contactForm.shipTo')} <span class="required">*</span></label>
+                    <input type="text" id="customerShipTo" name="ship-to" autocomplete="off" placeholder="${getContactText('contactForm.shipToPlaceholder')}" required>
                 </div>
             </div>
             <div class="form-row">
@@ -540,6 +550,7 @@ function handleFormSubmit(e) {
             country: userCountry
         },
         shipping: {
+            destination: document.getElementById('customerShipTo').value,
             note: document.getElementById('customerNote').value
         },
         analytics: {
@@ -648,7 +659,7 @@ function sendEmailViaClientSide(data) {
                 artwork_id: data.artwork.id,
                 
                 // Shipping info
-                shipping_address: '—',
+                shipping_address: data.shipping.destination || '—',
                 shipping_note: data.shipping.note || 'No additional notes',
                 
                 // Analytics
