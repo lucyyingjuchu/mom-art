@@ -282,7 +282,7 @@ const LANGUAGE_DATA = {
             cartEmpty: "Your cart is empty",
             cartEmptyDesc: "Browse artworks and add your favorite giclée fine art prints to the cart",
             selectSizeTitle: "Giclée Fine Art Prints",
-            selectSizeSubtitle: "The whole painting, with a white museum border, on thick, softly textured watercolor paper. Deep blacks, pure whites, and inks that resist fading. Shipped rolled and unmounted.",
+            selectSizeSubtitle: "Each print is made to order on thick watercolor paper, with a soft natural grain that suits ink painting. Pigment inks give deep blacks and pure whites, and resist fading over time. The whole painting appears at its true proportions, never cropped, within a white museum border. Shipped rolled and unmounted.",
             imageSize: "image",
             shipTo: "Ship to",
             printSizeLabel: "Paper size (H×W)",
