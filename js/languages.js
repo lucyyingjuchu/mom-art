@@ -153,7 +153,7 @@ const LANGUAGE_DATA = {
                             },
                             {
                                 question: "How are prints shipped?",
-                                answer: "Every print is made on Canson Arches Aquarelle Rag, a 100% cotton watercolor paper: the whole painting at its true proportions - never cropped or stretched - with a white museum border. Prints are **shipped unmounted, rolled in a sturdy tube**.\nEach artwork's print section shows every size to scale."
+                                answer: "Every print is made on heavyweight 100% cotton watercolor paper: the whole painting at its true proportions - never cropped or stretched - with a white museum border. Prints are **shipped unmounted, rolled in a sturdy tube**.\nEach artwork's print section shows every size to scale."
                             },
                             {
                                 question: "How long will shipping take?",
@@ -282,7 +282,7 @@ const LANGUAGE_DATA = {
             cartEmpty: "Your cart is empty",
             cartEmptyDesc: "Browse artworks and add your favorite giclée fine art prints to the cart",
             selectSizeTitle: "Giclée Fine Art Prints",
-            selectSizeSubtitle: "Printed on Canson Arches Aquarelle Rag, a 100% cotton watercolor paper, with pigment inks that resist fading. Shipped rolled and unmounted.",
+            selectSizeSubtitle: "Printed on heavyweight 100% cotton watercolor paper with a soft natural grain, using pigment inks that resist fading. Shipped rolled and unmounted.",
             imageSize: "image",
             shipTo: "Ship to",
             printSizeLabel: "Paper size (H×W)",
