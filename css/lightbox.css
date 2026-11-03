@@ -8,7 +8,7 @@
 
 .lightbox {
     --lb-bg: 21, 19, 16; /* warm ink black */
-    --lb-panel-w: 380px;
+    --lb-panel-w: 420px;
     --lb-top-h: 56px;
     --lb-film-h: 78px;
     position: fixed;
@@ -310,7 +310,7 @@
 
 /* medium screens: narrower panel */
 @media (max-width: 1100px) and (min-width: 769px) {
-    .lightbox { --lb-panel-w: 320px; }
+    .lightbox { --lb-panel-w: 360px; }
     .lb-stage .lightbox-image { max-width: calc(100% - 112px); }
     .lb-stage .nav-arrow.prev { left: 10px; }
     .lb-stage .nav-arrow.next { right: 10px; }
@@ -415,7 +415,7 @@
 
     .lb-sheet-title::after {
         content: "  ⌃";
-        color: var(--warm-400);
+        color: var(--warm-500);
         font-size: 0.85rem;
     }
 
@@ -469,8 +469,8 @@
 }
 
 .artwork-description {
-    font-size: 0.9rem; /* Reduced from 1rem */
-    line-height: 1.6; /* Better for reading */
+    font-size: 1.1rem;
+    line-height: 1.85;
     color: var(--warm-600);
     margin-bottom: 1.5rem; /* Reduced from 2rem */
     font-family: inherit;
@@ -732,7 +732,7 @@
 .size-diagram .sd-outline { fill: none; stroke: transparent; stroke-width: 1.5; }
 .size-diagram .sd-print.selected .sd-outline { stroke: var(--ink); }
 .size-diagram .sd-print.selected text { fill: var(--ink); font-weight: 600; }
-.size-diagram figcaption { margin-top: 0.4rem; font-size: 0.78rem; color: var(--warm-500); display: flex; align-items: center; gap: 0.35rem; flex-wrap: wrap; }
+.size-diagram figcaption { margin-top: 0.4rem; font-size: 0.9rem; color: var(--warm-500); display: flex; align-items: center; gap: 0.35rem; flex-wrap: wrap; }
 .size-diagram .sd-key { display: inline-block; width: 12px; height: 9px; background: var(--warm-200); margin-left: 0.6rem; }
 .size-diagram .sd-key:first-child { margin-left: 0; }
 .size-diagram .sd-key-board { box-shadow: 2px 2px 0 var(--warm-400); }
@@ -793,7 +793,7 @@
 }
 
 .size-description {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     color: var(--warm-500);
 }
 
@@ -922,8 +922,8 @@
 }
 
 .artwork-note-text {
-    font-size: 0.9rem;
-    line-height: 1.75;
+    font-size: 1.05rem;
+    line-height: 1.85;
     color: var(--warm-600);
     white-space: pre-line;
 }
@@ -954,7 +954,7 @@
 }
 
 .prints-teaser-arrow {
-    color: var(--warm-400);
+    color: var(--warm-500);
     transition: transform 0.2s ease;
 }
 

@@ -309,7 +309,7 @@ a.news-item:hover p { color: var(--seal); }
 .news-tag {
     padding: 0.1rem 0.5rem;
     border-radius: 3px;
-    font-size: 0.78rem;
+    font-size: 0.9rem;
 }
 
 .news-tag-studio { background: var(--seal-soft); color: var(--seal); }
@@ -396,7 +396,7 @@ a.news-item:hover p { color: var(--seal); }
     padding: 0.35rem 0 0.8rem;
 }
 
-.history-type { font-size: 0.78rem; color: var(--warm-500); letter-spacing: 0.05em; }
+.history-type { font-size: 0.9rem; color: var(--warm-500); letter-spacing: 0.05em; }
 .history-title { color: var(--ink); line-height: 1.5; }
 .history-title a { color: inherit; }
 .history-venue { color: var(--warm-500); font-size: 0.92rem; }

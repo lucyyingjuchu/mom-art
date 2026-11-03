@@ -8,3 +8,5 @@
   past exhibitions, courses and societies (data/exhibitions.json, data/cv.json) stay as they were.
 - Colours: use only the variables in `css/palette.css` (paper, ink, seal red, Radix Bronze scale). Do not add new hex values.
 - After any styling change, check hover, focus and selected states, not only the resting page.
+- After adding artworks, run `python3 scripts/build-placeholders.py` to refresh the blurred previews.
+- After adding artwork text, run `python3 scripts/normalize-punctuation.py` so Chinese descriptions use full-width punctuation.
