@@ -1,19 +1,19 @@
 /* The site's only colours. Add nothing outside this list.
-   Paper, the seal's red, and the Tailwind "stone" warm-neutral scale for everything between.
-   Contrast (WCAG): ink 14:1 and stone-600 7:1 on paper; stone-500 is for paper only, 4.5:1;
-   text on --tint uses stone-600 or darker, 6:1. */
+   Paper, the ink, the seal's red, and the Radix Bronze scale for everything between.
+   Bronze is warm without yellowing and shares its hue family with the seal.
+   Contrast (WCAG): ink 14:1, warm-600 11.7:1, warm-500 5.5:1 on paper;
+   warm-500 4.7:1 and warm-600 9.9:1 on --tint. */
 :root {
     --paper: #fbf8f3;
-    --stone-100: #f5f5f4;
-    --stone-200: #e7e5e4;
-    --stone-300: #d6d3d1;
-    --stone-400: #a8a29e;
-    --stone-500: #78716c;
-    --stone-600: #57534e;
-    --stone-700: #44403c;
-    --ink: #292524;       /* stone-800 */
-    --ink-deep: #1c1917;  /* stone-900 */
+    --warm-100: #f6edea;  /* bronze 3 */
+    --warm-200: #efe4df;  /* bronze 4 */
+    --warm-300: #dfcdc5;  /* bronze 6 */
+    --warm-400: #c2a499;  /* bronze 8 */
+    --warm-500: #7d5e54;  /* bronze 11 */
+    --warm-600: #43302b;  /* bronze 12 */
+    --ink: #292524;
+    --ink-deep: #1c1917;
     --seal: #a3342c;      /* the red of her seal: the single accent */
     --seal-soft: #f3e7e5;
-    --tint: var(--stone-200); /* second surface, one step below paper */
+    --tint: var(--warm-200); /* second surface, one step below paper */
 }

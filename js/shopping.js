@@ -343,7 +343,7 @@ class ShoppingCart {
         if (sizes.length === 0) {
             section.innerHTML = `
                 <h4>${this.getText('shopping.notAvailable')}</h4>
-                <p style="color: #78716c; font-size: 0.9rem;">
+                <p style="color: #7d5e54; font-size: 0.9rem;">
                     ${this.getText('shopping.notAvailableDesc')}
                 </p>
             `;

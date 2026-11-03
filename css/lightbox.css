@@ -402,7 +402,7 @@
         width: 40px;
         height: 4px;
         border-radius: 2px;
-        background: var(--stone-300);
+        background: var(--warm-300);
     }
 
     .lb-sheet-title {
@@ -415,7 +415,7 @@
 
     .lb-sheet-title::after {
         content: "  ⌃";
-        color: var(--stone-400);
+        color: var(--warm-400);
         font-size: 0.85rem;
     }
 
@@ -454,7 +454,7 @@
 
 .artwork-title-en {
     font-size: 1rem; /* Reduced from 1.1rem */
-    color: var(--stone-500);
+    color: var(--warm-500);
     margin-bottom: 1rem; /* Reduced from 1.5rem */
     font-style: italic;
     line-height: 1.4;
@@ -471,13 +471,13 @@
 .artwork-description {
     font-size: 0.9rem; /* Reduced from 1rem */
     line-height: 1.6; /* Better for reading */
-    color: var(--stone-700);
+    color: var(--warm-600);
     margin-bottom: 1.5rem; /* Reduced from 2rem */
     font-family: inherit;
     padding: 1rem; /* Add padding for visual separation */
     background: var(--tint);
     border-radius: 6px;
-    border-left: 3px solid var(--stone-200);
+    border-left: 3px solid var(--warm-200);
 }
 
 /* Hide description completely when empty */
@@ -492,7 +492,7 @@
 /* Specifications - FINAL VERSION */
 .artwork-caption {
     margin: 0.35rem 0 1rem;
-    color: var(--stone-600);
+    color: var(--warm-600);
     font-size: 0.9rem;
     line-height: 1.5;
 }
@@ -504,8 +504,8 @@
 
 .tag {
     display: inline-block;
-    background: var(--stone-200); /* Neutral background */
-    color: var(--stone-600);
+    background: var(--warm-200); /* Neutral background */
+    color: var(--warm-600);
     padding: 0.3rem 0.6rem; /* Reduced padding */
     border-radius: 20px;
     font-size: 0.75rem; /* Reduced from 0.8rem */
@@ -533,7 +533,7 @@
     background: white;
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-    border: 1px solid var(--stone-200);
+    border: 1px solid var(--warm-200);
     min-width: 180px;
     overflow: hidden;
     animation: shareDropdownIn 0.2s ease;
@@ -557,7 +557,7 @@
     padding: 12px 16px;
     cursor: pointer;
     transition: background-color 0.2s ease;
-    border-bottom: 1px solid var(--stone-100);
+    border-bottom: 1px solid var(--warm-100);
     font-size: 14px;
     color: var(--ink);
 }
@@ -567,12 +567,12 @@
 }
 
 .share-option:hover {
-    background-color: var(--stone-100);
+    background-color: var(--warm-100);
 }
 
 .share-option svg {
     flex-shrink: 0;
-    color: var(--stone-500);
+    color: var(--warm-500);
 }
 
 .share-option:hover svg {
@@ -629,7 +629,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px 24px;
-    border-bottom: 1px solid var(--stone-200);
+    border-bottom: 1px solid var(--warm-200);
     background: var(--tint);
 }
 
@@ -644,7 +644,7 @@
     background: none;
     border: none;
     font-size: 24px;
-    color: var(--stone-500);
+    color: var(--warm-500);
     cursor: pointer;
     padding: 0;
     width: 30px;
@@ -657,7 +657,7 @@
 }
 
 .qr-close:hover {
-    background: var(--stone-200);
+    background: var(--warm-200);
     color: var(--ink);
 }
 
@@ -671,12 +671,12 @@
     margin: 0;
     padding: 0 24px 24px;
     font-size: 12px;
-    color: var(--stone-500);
+    color: var(--warm-500);
     text-align: center;
     word-break: break-all;
     line-height: 1.4;
-    background: var(--stone-100);
-    border-top: 1px solid var(--stone-200);
+    background: var(--warm-100);
+    border-top: 1px solid var(--warm-200);
     padding-top: 16px;
     margin-top: 16px;
 }
@@ -689,7 +689,7 @@
 
 /* Shopping section in lightbox info panel */
 .shopping-section {
-    border-top: 2px solid var(--stone-200);
+    border-top: 2px solid var(--warm-200);
     margin-top: 2rem;
     padding-top: 2rem;
     background: var(--tint);
@@ -715,27 +715,27 @@
     margin: -1rem 0 1.25rem;
     font-size: 0.85rem;
     line-height: 1.5;
-    color: var(--stone-600);
+    color: var(--warm-600);
 }
 
 /* To-scale size picture (shopping.js createSizeDiagram) */
 .size-diagram { margin: 0 0 1.25rem; }
 .size-diagram svg { display: block; width: 100%; height: auto; overflow: visible; }
-.size-diagram text { fill: var(--stone-500); font-family: inherit; }
-.size-diagram .sd-floor { stroke: var(--stone-300); stroke-width: 1; }
-.size-diagram .sd-person { fill: var(--stone-300); }
-.size-diagram .sd-board { fill: var(--stone-400); }
-.size-diagram .sd-paper { fill: var(--paper); stroke: var(--stone-300); stroke-width: 0.6; }
-.size-diagram .sd-curl { fill: var(--stone-100); stroke: var(--stone-300); stroke-width: 0.5; }
-.size-diagram .sd-curl-back { fill: var(--stone-100); }
+.size-diagram text { fill: var(--warm-500); font-family: inherit; }
+.size-diagram .sd-floor { stroke: var(--warm-300); stroke-width: 1; }
+.size-diagram .sd-person { fill: var(--warm-300); }
+.size-diagram .sd-board { fill: var(--warm-400); }
+.size-diagram .sd-paper { fill: var(--paper); stroke: var(--warm-300); stroke-width: 0.6; }
+.size-diagram .sd-curl { fill: var(--warm-100); stroke: var(--warm-300); stroke-width: 0.5; }
+.size-diagram .sd-curl-back { fill: var(--warm-100); }
 .size-diagram .sd-print { cursor: pointer; }
 .size-diagram .sd-outline { fill: none; stroke: transparent; stroke-width: 1.5; }
 .size-diagram .sd-print.selected .sd-outline { stroke: var(--ink); }
 .size-diagram .sd-print.selected text { fill: var(--ink); font-weight: 600; }
-.size-diagram figcaption { margin-top: 0.4rem; font-size: 0.78rem; color: var(--stone-500); display: flex; align-items: center; gap: 0.35rem; flex-wrap: wrap; }
-.size-diagram .sd-key { display: inline-block; width: 12px; height: 9px; background: var(--stone-200); margin-left: 0.6rem; }
+.size-diagram figcaption { margin-top: 0.4rem; font-size: 0.78rem; color: var(--warm-500); display: flex; align-items: center; gap: 0.35rem; flex-wrap: wrap; }
+.size-diagram .sd-key { display: inline-block; width: 12px; height: 9px; background: var(--warm-200); margin-left: 0.6rem; }
 .size-diagram .sd-key:first-child { margin-left: 0; }
-.size-diagram .sd-key-board { box-shadow: 2px 2px 0 var(--stone-400); }
+.size-diagram .sd-key-board { box-shadow: 2px 2px 0 var(--warm-400); }
 .size-diagram .sd-key-rolled { clip-path: polygon(0 0, 100% 0, 100% 55%, 55% 100%, 0 100%); }
 
 /* Size selection */
@@ -746,7 +746,7 @@
 .size-label {
     display: block;
     font-weight: 600;
-    color: var(--stone-600);
+    color: var(--warm-600);
     margin-bottom: 0.8rem;
     font-size: 0.9rem;
 }
@@ -762,7 +762,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
-    border: 2px solid var(--stone-200);
+    border: 2px solid var(--warm-200);
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -794,7 +794,7 @@
 
 .size-description {
     font-size: 0.8rem;
-    color: var(--stone-500);
+    color: var(--warm-500);
 }
 
 .size-price {
@@ -812,7 +812,7 @@
 
 .price-loading {
     font-size: 0.8rem;
-    color: var(--stone-500);
+    color: var(--warm-500);
     font-style: italic;
 }
 
@@ -830,14 +830,14 @@
 
 .quantity-selector label {
     font-weight: 600;
-    color: var(--stone-600);
+    color: var(--warm-600);
     font-size: 0.9rem;
 }
 
 .quantity-controls {
     display: flex;
     align-items: center;
-    border: 2px solid var(--stone-200);
+    border: 2px solid var(--warm-200);
     border-radius: 6px;
     background: white;
 }
@@ -853,12 +853,12 @@
     justify-content: center;
     font-size: 1.2rem;
     font-weight: 600;
-    color: var(--stone-600);
+    color: var(--warm-600);
     transition: all 0.2s ease;
 }
 
 .quantity-btn:hover {
-    background: var(--stone-100);
+    background: var(--warm-100);
     color: var(--ink);
 }
 
@@ -879,7 +879,7 @@
 
 .quantity-input:focus {
     outline: none;
-    background: var(--stone-100);
+    background: var(--warm-100);
 }
 
 /* Add to cart button */
@@ -924,7 +924,7 @@
 .artwork-note-text {
     font-size: 0.9rem;
     line-height: 1.75;
-    color: var(--stone-700);
+    color: var(--warm-600);
     white-space: pre-line;
 }
 
@@ -942,8 +942,8 @@
     padding: 0.7rem 0.1rem;
     background: none;
     border: none;
-    border-top: 1px solid var(--stone-300);
-    border-bottom: 1px solid var(--stone-300);
+    border-top: 1px solid var(--warm-300);
+    border-bottom: 1px solid var(--warm-300);
     color: var(--ink);
     font: inherit;
     font-size: 0.92rem;
@@ -954,7 +954,7 @@
 }
 
 .prints-teaser-arrow {
-    color: var(--stone-400);
+    color: var(--warm-400);
     transition: transform 0.2s ease;
 }
 
@@ -965,7 +965,7 @@
 .prints-pill { display: none; }
 
 @keyframes printsHighlight {
-    from { background-color: var(--stone-100); }
+    from { background-color: var(--warm-100); }
     to { background-color: var(--tint); }
 }
 
@@ -1019,11 +1019,11 @@
     justify-content: center;
 }
 .lb-scale-svg { width: 100%; height: 100%; display: block; }
-.lb-scale-svg .lbs-wall { fill: var(--stone-100); }
-.lb-scale-svg .lbs-floor { stroke: var(--stone-400); stroke-width: 4; }
-.lb-scale-svg .lbs-person { fill: var(--stone-400); }
+.lb-scale-svg .lbs-wall { fill: var(--warm-100); }
+.lb-scale-svg .lbs-floor { stroke: var(--warm-400); stroke-width: 4; }
+.lb-scale-svg .lbs-person { fill: var(--warm-400); }
 .lb-scale-svg .lbs-shadow { fill: rgba(0, 0, 0, 0.18); }
-.lb-scale-svg text { fill: var(--stone-300); font-family: system-ui, -apple-system, "PingFang TC", "Microsoft JhengHei", sans-serif; }
+.lb-scale-svg text { fill: var(--warm-300); font-family: system-ui, -apple-system, "PingFang TC", "Microsoft JhengHei", sans-serif; }
 @media (max-width: 768px) {
     .lb-scale { width: calc(100% - 24px); }
 }

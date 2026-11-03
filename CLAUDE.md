@@ -6,4 +6,5 @@
   `scripts/build-zh.js`. Chinese title/description live in that script.
 - Wording: say 水墨畫 (ink painting), not 國畫, in anything the site writes itself. Official names of
   past exhibitions, courses and societies (data/exhibitions.json, data/cv.json) stay as they were.
-- Colours: use only the variables in `css/palette.css` (paper, Tailwind stone scale, seal red). Do not add new hex values.
+- Colours: use only the variables in `css/palette.css` (paper, ink, seal red, Radix Bronze scale). Do not add new hex values.
+- After any styling change, check hover, focus and selected states, not only the resting page.
