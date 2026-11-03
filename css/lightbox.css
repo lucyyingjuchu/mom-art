@@ -513,7 +513,7 @@
     margin-bottom: 0.4rem;
 }
 
-/* Inquire button and sold note, in the red of the seal */
+/* Inquire button in the site's ink colour; sold note in the red of the seal */
 .availability-status {
     margin: 1.25rem 0;
     font-size: 0.95rem;
@@ -524,9 +524,9 @@
     width: max-content;
     margin-inline: auto;
     padding: 0.3rem 1rem;
-    border: 1px solid #800000; /* the seal's red */
+    border: 1px solid #2c3e50;
     border-radius: 2px;
-    color: #800000;
+    color: #2c3e50;
     font-size: 0.85rem;
     font-weight: 400;
     letter-spacing: 0.05em;
@@ -535,11 +535,11 @@
 }
 
 .availability-status.available:hover {
-    background: #800000;
+    background: #2c3e50;
     color: #fff;
 }
 
-.availability-status.sold { color: #800000; }
+.availability-status.sold { color: #800000; } /* the seal's red */
 
 
 /* Share Dropdown Menu */
