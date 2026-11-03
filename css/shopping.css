@@ -1,5 +1,8 @@
 /* shopping.css - Complete Shopping Cart & E-commerce Styles */
 
+/* Second surface for cart and lightbox panels, one step off the paper white */
+:root { --tint: #e4eae5; } /* celadon */
+
 /* ================================ */
 /* CART ICON IN HEADER */
 /* ================================ */
@@ -83,7 +86,7 @@ nav .nav-cart {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: none;
+    background: var(--tint);
     flex-shrink: 0;
 }
 
@@ -259,7 +262,7 @@ nav .nav-cart {
 .cart-footer {
     border-top: 1px solid #ece6db;
     padding: 1.5rem;
-    background: none;
+    background: var(--tint);
     flex-shrink: 0;
 }
 
@@ -291,7 +294,7 @@ nav .nav-cart {
     border-top: 2px solid #ece6db;
     margin-top: 2rem;
     padding-top: 2rem;
-    background: none;
+    background: var(--tint);
     margin-left: -2rem;
     margin-right: -2rem;
     padding-left: 2rem;
@@ -569,4 +572,4 @@ nav .nav-cart {
 .cart-ship-to { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; margin: 0.25rem 0 0.4rem; }
 .cart-ship-label { font-size: 0.9rem; color: #2b2723; }
 .cart-ship-select { padding: 0.35rem 0.5rem; border: 1px solid #d5d9dd; border-radius: 6px; background: #fff; font: inherit; font-size: 0.9rem; }
-.cart-ship-note { margin: 0 0 0.75rem; font-size: 0.78rem; line-height: 1.45; color: #756b5f; }
+.cart-ship-note { margin: 0 0 0.75rem; font-size: 0.78rem; line-height: 1.45; color: #574f46; }
