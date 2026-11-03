@@ -9,8 +9,16 @@ Push to `main` → Netlify deploys in ~1 minute.
 |---|---|---|
 | `ADMIN_PASSWORD` | a long password only you and Mom know | admin page asks for it before saving anything |
 | `GITHUB_TOKEN` | fine-grained token, **only** the `mom-art` repo, Contents: read & write | used by the admin page to save |
-| `FINERWORKS_ORDER_MODE` | `off` → `validate` → `live` | `off`: paid orders are only logged; `validate`: Finerworks checks but doesn't print; `live`: real print orders |
+| `FINERWORKS_ORDER_MODE` | `live` | **Must be `live` or paid orders are not printed.** `off` (also when missing): only logged; `validate`: Finerworks checks but doesn't print |
+| `STRIPE_WEBHOOK_SECRET` | signing secret of the Stripe webhook | sends the print order even if the buyer closes the page |
+| `EMAILJS_PRIVATE_KEY`, `EMAILJS_ALERT_TEMPLATE_ID` | from EmailJS | emails the studio about every paid print order and any failure |
 | `STRIPE_SECRET_KEY`, `FINERWORKS_*`, `EMAILJS_*` | unchanged | |
+
+To check the order settings, open `/.netlify/functions/print-file-check`: it should show `"order_mode":"live"`, `"webhook_set":true`, `"alerts_set":true`.
+
+## If a paid print order failed
+
+The alert email names the order, and the status is on the Stripe payment's metadata as `finerworks_status`. Look in Finerworks first: the order may have arrived anyway. If it did not, delete that metadata on the Stripe payment, then use Resend on the event in Stripe > Developers > Webhooks.
 
 ## Adding artworks from Mom's Excel sheet
 

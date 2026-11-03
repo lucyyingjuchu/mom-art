@@ -8,15 +8,23 @@
 //   GET /.netlify/functions/print-file-check?sized=1  (also every size's print file)
 //   -> { keys_set: true, signed_status: 200 }   all good
 //      { keys_set: false, ... }                   S3_PRINT_* env vars missing
+// Every answer also reports the order settings: order_mode ("live" prints for real),
+// webhook_set and alerts_set. Names of settings only, never their values.
 
 process.env.STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY || 'unused';
 const { presignS3Url } = require('./submit-order');
 const PRINTS = require('../data/finerworks_ready_artworks.json');
+const { alertsConfigured } = require('./_shared/order-alert');
 
 const S3 = 'https://xiaoran-raw-artworks.s3.us-east-1.amazonaws.com/';
 
 exports.handler = async (event) => {
-    const reply = body => ({ statusCode: 200, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' }, body: JSON.stringify(body) });
+    const settings = {
+        order_mode: (process.env.FINERWORKS_ORDER_MODE || 'off').toLowerCase(),
+        webhook_set: !!process.env.STRIPE_WEBHOOK_SECRET,
+        alerts_set: alertsConfigured()
+    };
+    const reply = body => ({ statusCode: 200, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' }, body: JSON.stringify({ ...settings, ...body }) });
     const accessKeyId = process.env.S3_PRINT_ACCESS_KEY_ID;
     const secretAccessKey = process.env.S3_PRINT_SECRET_ACCESS_KEY;
     const url = Object.values(PRINTS)
