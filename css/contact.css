@@ -7,7 +7,7 @@
 }
 
 .contact-page h2 {
-    color: #2c3e50;
+    color: #2b2723;
     font-size: 1.9rem;
     letter-spacing: 0.08em;
     margin: 0.5rem 0 0.6rem;
@@ -28,7 +28,7 @@
     max-width: 560px;
 }
 
-.contact-collect a { color: #2c3e50; margin-left: 0.3rem; white-space: nowrap; }
+.contact-collect a { color: #2b2723; margin-left: 0.3rem; white-space: nowrap; }
 
 /* Email: the main way in */
 .contact-mail {
@@ -51,7 +51,7 @@
     display: inline-block;
     font-size: 1.35rem;
     letter-spacing: 0.04em;
-    color: #2c3e50;
+    color: #2b2723;
     text-decoration: none;
     border-bottom: 1px solid #c9bba8;
     padding-bottom: 2px;
@@ -79,7 +79,7 @@
     transition: all 0.2s ease;
 }
 
-.contact-copy:hover { background: #2c3e50; border-color: #2c3e50; color: #fff; }
+.contact-copy:hover { background: #2b2723; border-color: #2b2723; color: #fff; }
 
 .contact-prints {
     margin: 1.2rem 0 0;
@@ -87,11 +87,11 @@
     color: #8a7f72;
 }
 
-.contact-prints a { color: #2c3e50; margin-left: 0.3rem; }
+.contact-prints a { color: #2b2723; margin-left: 0.3rem; }
 
 /* Follow */
 .contact-follow-title {
-    color: #2c3e50;
+    color: #2b2723;
     font-size: 1.1rem;
     letter-spacing: 0.08em;
     margin: 0 0 1rem;
@@ -114,7 +114,7 @@
     border: 1px solid #e9e4dc;
     border-radius: 999px;
     background: #fff;
-    color: #2c3e50;
+    color: #2b2723;
     text-decoration: none;
     font-size: 0.95rem;
     transition: border-color 0.2s ease, background 0.2s ease;

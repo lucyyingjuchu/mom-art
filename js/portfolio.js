@@ -1359,7 +1359,7 @@ class ChineseArtPortfolio {
             .featured-gallery {
                 max-width: 1400px;
                 margin: 0 auto;
-                padding: 1.5rem 2rem 3rem;
+                padding: 0 0 2rem;
             }
             
             /* The tab already says 精選 / Featured: the heading stays for screen
@@ -1374,7 +1374,7 @@ class ChineseArtPortfolio {
             
             .featured-header p {
                 font-size: 1.2rem;
-                color: #6c757d;
+                color: #756b5f;
                 font-style: italic;
             }
             
@@ -1405,19 +1405,9 @@ class ChineseArtPortfolio {
             }
             
             .featured-item {
-                background: white;
-                border-radius: 12px;
-                overflow: hidden;
-                box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-                transition: all 0.4s ease;
                 cursor: pointer;
                 position: relative;
                 width: 100%;
-            }
-            
-            .featured-item:hover {
-                transform: translateY(-8px);
-                box-shadow: 0 20px 60px rgba(0,0,0,0.2);
             }
             
             .featured-image-container {
@@ -1428,7 +1418,7 @@ class ChineseArtPortfolio {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                background: #f8f9fa;
+                background: #f6f2e9;
             }
             
             .featured-image-container img {
@@ -1438,7 +1428,6 @@ class ChineseArtPortfolio {
                 display: block;
                 object-fit: cover;
                 object-position: center;
-                transition: transform 0.4s ease;
             }
             
             .featured-item-span-1 .featured-image-container {
@@ -1465,9 +1454,6 @@ class ChineseArtPortfolio {
                 min-height: 250px;
             }
             
-            .featured-item:hover .featured-image-container img {
-                transform: scale(1.05);
-            }
             
             .featured-overlay {
                 position: absolute;
@@ -1475,7 +1461,7 @@ class ChineseArtPortfolio {
                 left: 0;
                 right: 0;
                 bottom: 0;
-                background: linear-gradient(135deg, rgba(44,62,80,0.8), rgba(52,73,94,0.6));
+                background: linear-gradient(135deg, rgba(43,39,35,0.8), rgba(52,73,94,0.6));
                 opacity: 0;
                 transition: opacity 0.3s ease;
                 display: flex;
@@ -1505,11 +1491,11 @@ class ChineseArtPortfolio {
             
             .view-details:hover {
                 background: white;
-                color: #2c3e50;
+                color: #2b2723;
             }
             
             .featured-info {
-                padding: 2rem;
+                padding: 1rem 0 0.5rem;
             }
             
             .featured-title-section {
@@ -1521,7 +1507,7 @@ class ChineseArtPortfolio {
             
             .featured-title {
                 font-size: 1.4rem;
-                color: #2c3e50;
+                color: #2b2723;
                 margin: 0;
                 font-weight: 400;
                 line-height: 1.3;
@@ -1529,12 +1515,12 @@ class ChineseArtPortfolio {
             
             .featured-year {
                 font-size: 0.9rem;
-                color: #6c757d;
+                color: #756b5f;
                 font-style: italic;
             }
             
             .featured-description {
-                color: #495057;
+                color: #574f46;
                 line-height: 1.6;
                 margin-bottom: 1.5rem;
                 display: -webkit-box;
@@ -1552,8 +1538,8 @@ class ChineseArtPortfolio {
             }
             
             .featured-size {
-                color: #6c757d;
-                background: #f8f9fa;
+                color: #756b5f;
+                background: #f6f2e9;
                 padding: 0.3rem 0.8rem;
                 border-radius: 12px;
                 font-size: 0.8rem;
@@ -1583,21 +1569,19 @@ class ChineseArtPortfolio {
             }
             
             .view-all-btn {
-                background: #2c3e50;
-                color: white;
-                padding: 1rem 2.5rem;
-                border: none;
-                border-radius: 30px;
-                font-size: 1.1rem;
+                background: none;
+                color: #2b2723;
+                padding: 0.75rem 2rem;
+                border: 1px solid #2b2723;
+                font: inherit;
+                letter-spacing: 0.08em;
                 cursor: pointer;
-                transition: all 0.3s ease;
-                box-shadow: 0 4px 15px rgba(44,62,80,0.3);
+                transition: color 0.2s ease, background 0.2s ease;
             }
             
             .view-all-btn:hover {
-                background: #1a252f;
-                transform: translateY(-2px);
-                box-shadow: 0 8px 25px rgba(44,62,80,0.4);
+                background: #2b2723;
+                color: #fbf8f3;
             }
             
             @media (max-width: 1200px) {
@@ -1635,7 +1619,7 @@ class ChineseArtPortfolio {
                 }
                 
                 .featured-info {
-                    padding: 1.5rem;
+                    padding: 0.75rem 0 0.25rem;
                 }
             }
         `;

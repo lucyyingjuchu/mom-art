@@ -71,6 +71,10 @@
     </script>
 
     <!-- External Lightbox CSS -->
+    <!-- Traditional-Chinese serif; Google serves only the characters a page uses -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600&display=swap">
     <link rel="stylesheet" href="./css/lightbox.css">
     <!-- Contact form CSS -->
     <link rel="stylesheet" href="./css/contact-form.css">
@@ -86,20 +90,19 @@
         }
 
         body {
-            font-family: 'Georgia', serif;
+            font-family: 'Georgia', 'Noto Serif TC', 'Songti TC', 'PMingLiU', serif;
             line-height: 1.6;
-            color: #333;
-            background: #fefefe;
+            color: #3a342d;
+            background: #fbf8f3;
         }
 
         /* ================================ */
         /* HEADER STYLES */
         /* ================================ */
         header {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 2rem 0;
+            background: none;
+            padding: 1.1rem 0 0.9rem;
             text-align: center;
-            border-bottom: 1px solid #dee2e6;
             position: relative;
         }
 
@@ -115,18 +118,10 @@
         }
 
         .header-logo {
-            width: 70px;
-            height: 70px;
-            object-fit: cover;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            transition: all 0.3s ease;
+            width: 56px;
+            height: 56px;
+            object-fit: contain; /* the seal keeps its own carved edge */
             flex-shrink: 0; /* Prevent logo from shrinking */
-        }
-
-        .header-logo:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
         }
 
         .title-text {
@@ -139,17 +134,17 @@
 
         /* Adjust existing logo (title) styles */
         .logo {
-            font-size: 2.5rem;
-            font-weight: 300;
-            color: #2c3e50;
-            margin-bottom: 0.3rem; /* Reduced from 0.5rem */
+            font-size: 2rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            color: #2b2723;
+            margin-bottom: 0.2rem;
             line-height: 1.1;
         }
 
         .subtitle {
-            font-size: 1.1rem;
-            color: #6c757d;
-            font-style: italic;
+            font-size: 1rem;
+            color: #756b5f;
             margin: 0;
         }
 
@@ -157,7 +152,7 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            background: #2c3e50;
+            background: #2b2723;
             color: white;
             border: none;
             padding: 0.5rem 1rem;
@@ -169,16 +164,16 @@
         }
 
         .language-toggle:hover {
-            background: #1a252f;
+            background: #1a1714;
         }
 
         /* ================================ */
         /* NAVIGATION STYLES */
         /* ================================ */
         nav {
-            background: white;
-            padding: 1rem 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            background: #fbf8f3;
+            padding: 0;
+            border-bottom: 1px solid #e9e4dc;
             position: sticky;
             top: 0;
             z-index: 100;
@@ -194,18 +189,23 @@
 
         .nav-btn {
             background: none;
-            border: none;
+            border: 0;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -1px;
+            font: inherit;
             font-size: 1rem;
-            color: #495057;
+            letter-spacing: 0.08em;
+            color: #574f46;
             cursor: pointer;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            transition: all 0.3s ease;
+            padding: 0.8rem 0.25rem;
+            transition: color 0.2s ease, border-color 0.2s ease;
         }
 
-        .nav-btn:hover, .nav-btn.active {
-            background: #e9ecef;
-            color: #2c3e50;
+        .nav-btn:hover { color: #2b2723; }
+
+        .nav-btn.active {
+            color: #2b2723;
+            border-bottom-color: #a3342c;
         }
 
         /* ================================ */
@@ -214,7 +214,7 @@
         .filter-container {
             background: white;
             padding: 1.5rem 0;
-            border-bottom: 1px solid #dee2e6;
+            border-bottom: 1px solid #e3dccf;
             position: sticky;
             top: 60px;
             z-index: 99;
@@ -235,25 +235,25 @@
         }
 
         .filter-btn {
-            background: #f8f9fa;
-            border: 1px solid #dee2e6;
+            background: #f6f2e9;
+            border: 1px solid #e3dccf;
             padding: 0.5rem 1rem;
             border-radius: 25px;
             cursor: pointer;
             transition: all 0.3s ease;
             font-size: 0.9rem;
-            color: #495057;
+            color: #574f46;
         }
 
         .filter-btn:hover {
-            background: #e9ecef;
+            background: #ece6db;
             border-color: #adb5bd;
         }
 
         .filter-btn.active {
-            background: #2c3e50;
+            background: #2b2723;
             color: white;
-            border-color: #2c3e50;
+            border-color: #2b2723;
         }
 
         .filter-section {
@@ -263,7 +263,7 @@
         .filter-section h4 {
             text-align: center;
             margin-bottom: 0.8rem;
-            color: #495057;
+            color: #574f46;
             font-size: 0.95rem;
             font-weight: 500;
         }
@@ -276,25 +276,25 @@
         }
 
         .secondary-filter-btn {
-            background: #f8f9fa;
-            border: 1px solid #dee2e6;
+            background: #f6f2e9;
+            border: 1px solid #e3dccf;
             padding: 0.4rem 0.8rem;
             border-radius: 15px;
             cursor: pointer;
             transition: all 0.2s ease;
             font-size: 0.8rem;
-            color: #6c757d;
+            color: #756b5f;
         }
 
         .secondary-filter-btn:hover {
-            background: #e9ecef;
-            color: #495057;
+            background: #ece6db;
+            color: #574f46;
         }
 
         .secondary-filter-btn.active {
-            background: #495057;
+            background: #574f46;
             color: white;
-            border-color: #495057;
+            border-color: #574f46;
         }
 
         .search-sort-container {
@@ -313,16 +313,16 @@
 
         .search-box input {
             padding: 0.5rem 0.8rem 0.5rem 2rem;
-            border: 1px solid #dee2e6;
+            border: 1px solid #e3dccf;
             border-radius: 20px;
             font-size: 0.9rem;
             outline: none;
-            font-family: 'Georgia', serif;
+            font-family: inherit;
             width: 100%;
         }
 
         .search-box input:focus {
-            border-color: #2c3e50;
+            border-color: #2b2723;
         }
 
         .search-icon {
@@ -330,16 +330,16 @@
             left: 0.8rem;
             top: 50%;
             transform: translateY(-50%);
-            color: #6c757d;
+            color: #756b5f;
             font-size: 0.9rem;
         }
 
         .sort-dropdown {
             padding: 0.5rem 0.8rem;
-            border: 1px solid #dee2e6;
+            border: 1px solid #e3dccf;
             border-radius: 20px;
             background: white;
-            font-family: 'Georgia', serif;
+            font-family: inherit;
             outline: none;
             font-size: 0.9rem;
         }
@@ -347,7 +347,7 @@
         .results-info {
             text-align: center;
             margin: 1rem 0;
-            color: #6c757d;
+            color: #756b5f;
             font-size: 0.9rem;
         }
 
@@ -387,14 +387,14 @@
 
         .hero h1 {
             font-size: 3rem;
-            color: #2c3e50;
+            color: #2b2723;
             margin-bottom: 1rem;
             font-weight: 300;
         }
 
         .hero p {
             font-size: 1.2rem;
-            color: #6c757d;
+            color: #756b5f;
             max-width: 600px;
             margin: 0 auto;
         }
@@ -407,19 +407,10 @@
         }
 
         .featured-work {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
             cursor: pointer;
             display: flex;
             flex-direction: column;
             height: auto;
-        }
-
-        .featured-work:hover {
-            transform: translateY(-5px);
         }
 
         .featured-work img {
@@ -428,7 +419,7 @@
             object-fit: cover;
             object-position: center;
             display: block;
-            background: #f8f9fa;
+            background: #f6f2e9;
         }
 
         .featured-work-info {
@@ -437,7 +428,7 @@
         }
 
         .featured-work h3 {
-            color: #2c3e50;
+            color: #2b2723;
             margin-bottom: 0.5rem;
             line-height: 1.3;
         }
@@ -466,7 +457,7 @@
         .gallery-year {
             font-size: 1.6rem;
             font-weight: 400;
-            color: #2c3e50;
+            color: #2b2723;
             letter-spacing: 0.05em;
             margin: 0 0 0.75rem;
             padding-bottom: 0.4rem;
@@ -526,7 +517,7 @@
         .gallery-item h3 {
             font-size: 0.95rem;
             font-weight: 400;
-            color: #2c3e50;
+            color: #2b2723;
             line-height: 1.35;
             margin: 0 0 0.2rem;
         }
@@ -578,12 +569,10 @@
             width: 100%;
             height: 500px;
             object-fit: cover;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
         .artist-intro h2 {
-            color: #2c3e50;
+            color: #2b2723;
             font-size: 1.8rem;
             margin-bottom: 1.5rem;
             line-height: 1.4;
@@ -592,7 +581,7 @@
         .intro-text p {
             margin-bottom: 1.5rem;
             line-height: 1.8;
-            color: #495057;
+            color: #574f46;
             font-size: 1.05rem;
         }
 
@@ -603,7 +592,7 @@
         }
 
         .featured-video h3 {
-            color: #2c3e50;
+            color: #2b2723;
             font-size: 1.5rem;
             margin-bottom: 2rem;
         }
@@ -635,20 +624,20 @@
         .info-section {
             background: white;
             border-radius: 8px;
-            border: 1px solid #e9ecef;
+            border: 1px solid #ece6db;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             overflow: hidden;
         }
 
         /* ENHANCED SECTION HEADERS */
         .section-header {
-            background: #f8f9fa;
+            background: #f6f2e9;
             padding: 1.2rem 1.5rem;
             margin: 0;
             font-size: 1.1rem;
             font-weight: 600;
-            color: #2c3e50;
-            border-bottom: 1px solid #e9ecef;
+            color: #2b2723;
+            border-bottom: 1px solid #ece6db;
         }
 
         /* IMPROVED COLLAPSIBLE HEADERS */
@@ -662,14 +651,14 @@
         }
 
         .section-header.collapsible:hover {
-            background: #e9ecef;
+            background: #ece6db;
             transform: translateY(-1px);
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         
         .toggle-arrow {
             transition: transform 0.3s ease;
-            color: #6c757d;
+            color: #756b5f;
             font-size: 1.1rem;
             font-weight: bold;
             margin-left: 1rem;
@@ -693,9 +682,9 @@
 
         .section-content li {
             padding: 0.6rem 0;
-            color: #495057;
+            color: #574f46;
             line-height: 1.6;
-            border-bottom: 1px solid #f8f9fa;
+            border-bottom: 1px solid #f6f2e9;
         }
 
         .section-content li:last-child {
@@ -796,7 +785,7 @@
         }
 
         .faq-content h2 {
-            color: #2c3e50;
+            color: #2b2723;
             font-size: 2.2rem;
             margin-bottom: 1rem;
             text-align: center;
@@ -805,7 +794,7 @@
 
         .faq-content > p {
             font-size: 1.1rem;
-            color: #6c757d;
+            color: #756b5f;
             margin-bottom: 3rem;
             text-align: left;
             line-height: 1.6;
@@ -822,17 +811,17 @@
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             overflow: hidden;
-            border: 1px solid #e9ecef;
+            border: 1px solid #ece6db;
         }
 
         .faq-section-header {
-            background: #f8f9fa;
+            background: #f6f2e9;
             padding: 1.5rem 2rem;
             margin: 0;
             font-size: 1.3rem;
             font-weight: 600;
-            color: #2c3e50;
-            border-bottom: 1px solid #e9ecef;
+            color: #2b2723;
+            border-bottom: 1px solid #ece6db;
             display: flex;
             align-items: center;
             gap: 0.8rem;
@@ -848,7 +837,7 @@
 
         .faq-item {
             margin-bottom: 2rem;
-            border-bottom: 1px solid #f8f9fa;
+            border-bottom: 1px solid #f6f2e9;
             padding-bottom: 1.5rem;
         }
 
@@ -860,14 +849,14 @@
 
         .faq-question {
             font-weight: 600;
-            color: #2c3e50;
+            color: #2b2723;
             font-size: 1.1rem;
             line-height: 1.4;
             margin-bottom: 0.8rem;
         }
 
         .faq-answer {
-            color: #495057;
+            color: #574f46;
             line-height: 1.7;
             font-size: 1rem;
         }
@@ -881,7 +870,7 @@
         }
 
         .faq-answer strong {
-            color: #2c3e50;
+            color: #2b2723;
             font-weight: 600;
         }
 
@@ -947,14 +936,14 @@
         }
 
         .connect-content h2 {
-            color: #2c3e50;
+            color: #2b2723;
             margin-bottom: 1rem;
             font-size: 2rem;
         }
 
         .connect-content > p {
             font-size: 1.1rem;
-            color: #6c757d;
+            color: #756b5f;
             margin-bottom: 3rem;
             line-height: 1.6;
         }
@@ -992,13 +981,13 @@
             object-fit: contain;
         }
         .connect-item h3 {
-            color: #2c3e50;
+            color: #2b2723;
             margin-bottom: 0.5rem;
             font-size: 1.3rem;
         }
 
         .connect-item p {
-            color: #6c757d;
+            color: #756b5f;
             font-size: 0.9rem;
             margin-bottom: 1rem;
             line-height: 1.5;
@@ -1017,7 +1006,7 @@
 
         /* Style for email display */
         .connect-email {
-            color: #2c3e50;
+            color: #2b2723;
             font-weight: 500;
             font-size: 1.1rem;
             margin-top: 0.5rem;
@@ -1025,7 +1014,7 @@
 
         .coming-soon {
             display: block;
-            color: #6c757d;
+            color: #756b5f;
             font-style: italic;
             font-size: 0.8rem;
             margin-top: 0.5rem;
@@ -1037,9 +1026,9 @@
             align-items: center;
             gap: 0.5rem;
             padding: 1rem;
-            background: #f8f9fa;
+            background: #f6f2e9;
             border-radius: 8px;
-            color: #495057;
+            color: #574f46;
             font-size: 1rem;
         }
 
@@ -1186,27 +1175,31 @@
 
     /* Consistent Icon Styling for both language and cart */
     .header-icon {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
+        width: 40px;
+        height: 40px;
         border: none;
         cursor: pointer;
-        font-size: 16px;
-        font-weight: 600;
+        font: inherit;
+        font-size: 15px;
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        transition: color 0.2s ease;
         position: relative;
-        background: #2c3e50;
-        color: white;
+        background: none;
+        color: #574f46;
     }
 
-    .header-icon:hover {
-        background: #1a252f;
-        transform: translateY(-2px);
-        box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    .header-icon:hover { color: #a3342c; }
+
+    .header-icon svg {
+        width: 21px;
+        height: 21px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.4;
+        stroke-linecap: round;
+        stroke-linejoin: round;
     }
 
     /* Override old language toggle positioning */
@@ -1219,26 +1212,17 @@
     /* Cart Count Badge */
     .cart-count {
         position: absolute;
-        top: -8px;
-        right: -8px;
-        background: #e74c3c;
+        top: 0;
+        right: -2px;
+        background: #a3342c;
         color: white;
         border-radius: 50%;
-        width: 24px;
-        height: 24px;
-        font-size: 12px;
-        font-weight: 600;
-        display: none;
+        width: 17px;
+        height: 17px;
+        font-size: 10px;
+        display: none; /* shopping.js shows it when the cart has items */
         align-items: center;
         justify-content: center;
-        border: 2px solid white;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    }
-
-    /* Show cart count when there are items */
-    .cart-count[style*="display: flex"], 
-    .cart-count:not(:empty) {
-        display: flex !important;
     }
 
     /* Mobile responsive */
