@@ -6,7 +6,9 @@ import json, pathlib, re
 
 FIELDS = ('title', 'description', 'curatorNote')
 CJK = r'[㐀-鿿　-〿＀-￯]'
-PATH = pathlib.Path(__file__).resolve().parent.parent / 'data/artworks.json'
+ROOT = pathlib.Path(__file__).resolve().parent.parent
+PATH = ROOT / 'data/artworks.json'
+PRINTS = ROOT / 'data/finerworks_ready_artworks.json'
 
 
 def normalize(text):
@@ -18,6 +20,11 @@ def normalize(text):
     return re.sub(rf'(?<={CJK}) +(?={CJK})', '　', text)
 
 
+def save(path, content):
+    ending = '\n' if path.read_text(encoding='utf8').endswith('\n') else ''
+    path.write_text(json.dumps(content, ensure_ascii=False, indent=2) + ending, encoding='utf8')
+
+
 data = json.loads(PATH.read_text(encoding='utf8'))
 artworks = data['artworks'] if isinstance(data, dict) else data
 changed = 0
@@ -27,6 +34,14 @@ for artwork in artworks:
         if isinstance(value, str) and normalize(value) != value:
             artwork[field] = normalize(value)
             changed += 1
-raw = PATH.read_text(encoding='utf8')
-PATH.write_text(json.dumps(data, ensure_ascii=False, indent=2) + ('\n' if raw.endswith('\n') else ''), encoding='utf8')
+save(PATH, data)
+
+# Print orders read their titles from this file
+prints = json.loads(PRINTS.read_text(encoding='utf8'))
+for entry in prints.values():
+    info = entry.get('artwork_info') or {}
+    if isinstance(info.get('title'), str) and normalize(info['title']) != info['title']:
+        info['title'] = normalize(info['title'])
+        changed += 1
+save(PRINTS, prints)
 print(changed, 'fields changed')
