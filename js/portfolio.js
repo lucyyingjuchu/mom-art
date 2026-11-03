@@ -1576,8 +1576,8 @@ class ChineseArtPortfolio {
             }
             
             .featured-status.sold {
-                background: #f8d7da;
-                color: #721c24;
+                background: none;
+                color: #800000;
             }
             
             .featured-footer {
