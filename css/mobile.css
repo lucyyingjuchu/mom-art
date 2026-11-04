@@ -61,8 +61,8 @@
     .nav-container {
         flex-direction: row;
         justify-content: safe center;
-        gap: 0.8rem;
-        padding: 0 0.6rem;
+        gap: clamp(0.7rem, 3.5vw, 1.1rem);
+        padding: 0 0.75rem;
         overflow-x: auto;
         scrollbar-width: none;
         -webkit-overflow-scrolling: touch;
