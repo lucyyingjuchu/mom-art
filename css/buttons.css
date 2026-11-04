@@ -10,8 +10,7 @@
 .contact-copy,
 .history-filters button,
 .news-invite button,
-.news-more-btn,
-.view-all-btn {
+.news-more-btn {
     padding: 0.55rem 1.4rem;
     border: 1px solid var(--warm-300);
     border-radius: 999px;
@@ -29,8 +28,7 @@
 .contact-copy:hover,
 .history-filters button:hover,
 .news-invite button:hover,
-.news-more-btn:hover,
-.view-all-btn:hover {
+.news-more-btn:hover {
     border-color: var(--ink);
 }
 

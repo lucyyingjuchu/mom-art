@@ -124,14 +124,14 @@
 
     // ---------- Home ----------
     function renderHome() {
-        const home = document.getElementById('home');
-        if (!home) return;
+        const opening = document.getElementById('opening');
+        if (!opening) return;
         let box = document.getElementById('latestUpdates');
         if (!box) {
             box = document.createElement('div');
             box.id = 'latestUpdates';
             box.className = 'latest-updates';
-            home.insertBefore(box, home.firstChild);
+            opening.appendChild(box);
         }
         // Home stays light: just the current/upcoming show (title, venue, dates).
         // Notes and studio news live on the Exhibitions & News page.

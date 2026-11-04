@@ -59,7 +59,13 @@
     const reducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     function sourceImage(artworkId) {
-        return document.querySelector(`.section.active [data-artwork-id="${artworkId}"] img`);
+        // A work can appear twice (opening and gallery): prefer the one on screen
+        const images = [...document.querySelectorAll(`.section.active [data-artwork-id="${artworkId}"] img`)];
+        const onScreen = (img) => {
+            const box = img.getBoundingClientRect();
+            return box.bottom > 0 && box.top < window.innerHeight;
+        };
+        return images.find(onScreen) || images[images.length - 1];
     }
 
     // The painted area of an image, which is smaller than its box under object-fit: contain
@@ -143,6 +149,9 @@
         if (context === 'featured') list = portfolio.getFeaturedArtworks();
         else if (context === 'gallery' && typeof portfolio.getCurrentGalleryArtworks === 'function') list = portfolio.getCurrentGalleryArtworks();
         else list = portfolio.artworks;
+
+        // The opening work isn't in the All view: browse on from it into the gallery
+        if (context === 'gallery' && !list.includes(artwork)) list = [artwork, ...list];
 
         index = list.findIndex(a => a.id === artworkId);
         if (index === -1) {

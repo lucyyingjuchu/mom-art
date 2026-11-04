@@ -61,7 +61,7 @@
     .nav-container {
         flex-direction: row;
         justify-content: flex-start;
-        gap: 1.1rem;
+        gap: clamp(0.7rem, 3.5vw, 1.1rem);
         padding: 0 0.75rem;
         overflow-x: auto;
         scrollbar-width: none;
@@ -78,7 +78,7 @@
         flex: 0 0 auto;
         padding: 0.6rem 0.1rem;
         font-size: 0.95rem;
-        letter-spacing: 0.04em;
+        letter-spacing: 0.015em;
         white-space: nowrap;
     }
 
@@ -152,19 +152,6 @@
         cursor: pointer;
     }
     .back-to-top.show { display: block; }
-}
-
-/* Featured: show each painting whole on phones - never crop the artwork */
-@media (max-width: 768px) {
-    .featured-grid .featured-item .featured-image-container,
-    .featured-grid .featured-item .featured-image-container img {
-        min-height: 0;
-    }
-
-    .featured-grid .featured-item .featured-image-container img {
-        height: auto;
-        object-fit: contain;
-    }
 }
 
 /* Very narrow phones: slightly smaller rows */
