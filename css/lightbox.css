@@ -481,6 +481,12 @@
     border-left: 3px solid var(--warm-200);
 }
 
+.verse-line { display: block; }
+
+/* English verse lines run long: smaller text, and a wrapped line hangs under its start */
+html[lang="en"] .artwork-description { font-size: 1rem; line-height: 1.65; }
+html[lang="en"] .verse-line { padding-left: 1em; text-indent: -1em; }
+
 /* Hide description completely when empty */
 .artwork-description:empty {
     display: none;

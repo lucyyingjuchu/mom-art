@@ -361,6 +361,16 @@
         el.sheetTitle.textContent = title;
 
         const note = (zh ? (artwork.curatorNote || artwork.curatorNoteEn) : (artwork.curatorNoteEn || artwork.curatorNote)) || '';
+        // Each verse line is its own block, so a line that wraps can hang (css/lightbox.css)
+        const verse = $('artworkDescription');
+        const lines = verse.textContent.split('\n').filter((line) => line.trim());
+        verse.replaceChildren(...lines.map((line) => {
+            const span = document.createElement('span');
+            span.className = 'verse-line';
+            span.textContent = line;
+            return span;
+        }));
+
         $('artworkNoteText').textContent = note.trim();
         $('artworkNote').hidden = !note.trim();
 
