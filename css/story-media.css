@@ -464,7 +464,6 @@ a.news-item:hover p { color: var(--seal); }
 
 /* ---------- Sub-tabs (About, Exhibitions & News, FAQ) ---------- */
 .subtab-hidden { display: none !important; }
-.sub-tabs { margin: 0.5rem auto 2rem; max-width: 1100px; }
 .news-tabbed .news-block > h3,
 .faq-tabbed .faq-section-header { display: none; }
 
@@ -521,3 +520,6 @@ a.news-item:hover p { color: var(--seal); }
 .faq-tabbed #faqSubtitle { display: none; }
 
 .history-summary { color: var(--warm-600); margin: 0 0 1rem; line-height: 1.7; }
+
+/* With its heading hidden, the FAQ's tabs meet the main nav like the other sections */
+.faq-tabbed .faq-content { padding-top: 0; margin-top: 0; }

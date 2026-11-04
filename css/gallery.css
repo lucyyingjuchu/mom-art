@@ -1,15 +1,16 @@
-/* Gallery series tabs — one quiet row of words, artwork first */
+/* Second menu level: smaller and quieter than the main nav, like an index under a chapter title.
+   No background: size, tone and space carry the hierarchy. */
 .gallery-tabs {
     display: flex;
     justify-content: center;
     gap: 2rem;
-    margin: 0.5rem auto 0.25rem;
+    margin: -1.25rem auto 1.75rem;
     padding: 0 1rem;
-    border-bottom: 1px solid var(--warm-300);
     overflow-x: auto;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
     /* undo the site-wide <nav> bar styling */
+    border-bottom: 0;
     background: none;
     box-shadow: none;
     position: static;
@@ -23,11 +24,10 @@
     flex: 0 0 auto;
     background: none;
     border: 0;
-    border-bottom: 2px solid transparent;
-    margin-bottom: -1px;
-    padding: 0.8rem 0.1rem;
+    border-bottom: 1px solid transparent;
+    padding: 0.4rem 0.1rem;
     font: inherit;
-    font-size: 1.02rem;
+    font-size: 0.95rem;
     letter-spacing: 0.08em;
     color: var(--warm-500);
     cursor: pointer;
@@ -38,8 +38,11 @@
 
 .gallery-tab.active {
     color: var(--ink);
-    border-bottom-color: var(--seal);
+    border-bottom-color: var(--ink);
 }
+
+/* When exhibition cards sit above the tabs, the band stands on its own */
+.show-cards + .gallery-tabs { margin-top: 1.5rem; }
 
 .gallery-search-row {
     display: flex;
@@ -87,9 +90,9 @@
         justify-content: center;
         flex-wrap: wrap;
         overflow-x: visible;
-        gap: 0 1.4rem;
-        margin: 0 -0.75rem 0.25rem;
-        padding: 0 1rem;
+        gap: 0 clamp(0.7rem, 3vw, 1rem);
+        margin: -0.1rem auto 0.9rem;
+        padding: 0;
     }
-    .gallery-tab { font-size: 0.98rem; padding: 0.7rem 0.1rem; }
+    .gallery-tab { font-size: 0.92rem; line-height: 1.35; letter-spacing: 0.02em; padding: 0.6rem 0.05rem; }
 }
