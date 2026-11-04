@@ -18,3 +18,28 @@
     --seal-soft: #f3e7e5;
     --tint: var(--warm-200); /* second surface, one step below paper */
 }
+
+/* Type: serif for titles and inscriptions, sans for reading. Song-style strokes turn
+   hairline-thin in small Chinese text on ordinary screens, so the sans carries the body.
+   Never fall back to PMingLiU (新細明體). */
+:root {
+    --font-body: Georgia, 'Noto Sans TC', 'Microsoft JhengHei', 'PingFang TC', sans-serif;
+    --font-title: Georgia, 'Noto Serif TC', 'Songti TC', serif;
+}
+
+html[lang^="zh"] {
+    --font-body: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+    --font-title: 'Noto Serif TC', 'Songti TC', serif;
+}
+
+h1, h2, h3,
+.logo,
+.artwork-title,
+.artwork-description,
+.gallery-year,
+.show-card h3 { font-family: var(--font-title); }
+
+.gallery-item h3 { font-family: var(--font-body); }
+
+html[lang^="zh"] .logo,
+html[lang^="zh"] .artwork-description { font-weight: 500; }
