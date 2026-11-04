@@ -474,11 +474,18 @@
     color: var(--warm-600);
     margin-bottom: 1.5rem; /* Reduced from 2rem */
     font-family: var(--font-title);
+    white-space: pre-line; /* verse keeps its line breaks */
     padding: 1rem; /* Add padding for visual separation */
     background: var(--tint);
     border-radius: 6px;
     border-left: 3px solid var(--warm-200);
 }
+
+.verse-line { display: block; }
+
+/* English verse lines run long: smaller text, and a wrapped line hangs under its start */
+html[lang="en"] .artwork-description { font-size: 1rem; line-height: 1.65; }
+html[lang="en"] .verse-line { padding-left: 1em; text-indent: -1em; }
 
 /* Hide description completely when empty */
 .artwork-description:empty {

@@ -872,7 +872,10 @@ class ChineseArtPortfolio {
             // A single painting wider than that keeps a row to itself.
             const MAX_ROW_CM = 360;
             const realW = el => parseFloat(el.dataset.wcm) || (parseFloat(el.dataset.cm) || REF_CM) * Math.sqrt(box(el));
-            const tooWide = list => list.length > 1 && list.reduce((sum, el) => sum + realW(el), 0) > MAX_ROW_CM;
+            // On a phone, two works side by side is the most that stays readable
+            const maxPerRow = window.innerWidth <= 768 ? 2 : Infinity;
+            const tooWide = list => list.length > maxPerRow
+                || (list.length > 1 && list.reduce((sum, el) => sum + realW(el), 0) > MAX_ROW_CM);
 
             // Fit one kind of painting into rows of (nearly) equal height
             const fitRows = list => {
