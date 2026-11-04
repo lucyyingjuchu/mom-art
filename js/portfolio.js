@@ -756,9 +756,8 @@ class ChineseArtPortfolio {
         const resultsInfo = document.getElementById('resultsInfo');
         if (resultsInfo) {
             const zh = this.currentLanguage === 'zh';
-            resultsInfo.textContent = query
-                ? (zh ? `找到 ${imageCount} 件「${query}」` : `${imageCount} ${imageCount === 1 ? 'work matches' : 'works match'} “${query}”`)
-                : (zh ? `${imageCount} 件作品` : `${imageCount} ${imageCount === 1 ? 'work' : 'works'}`);
+            // The count only earns its place while searching
+            resultsInfo.textContent = !query ? '' : (zh ? `找到 ${imageCount} 件「${query}」` : `${imageCount} ${imageCount === 1 ? 'work matches' : 'works match'} “${query}”`);
         }
         if (query && !filteredArtworks.length) {
             this.currentGalleryOrder = [];
@@ -1065,16 +1064,25 @@ class ChineseArtPortfolio {
         const current = this.galleryTab || 'all';
         const tabs = this.getGalleryTabs().filter(tab => tab.key === 'all' ||
             this.getMultiFilteredArtworks({ subject: tab.subjects }, this.artworks).length > 0);
+        const searchOpen = Boolean(this.gallerySearchOpen || this.galleryQuery);
         return `
             <nav class="gallery-tabs" aria-label="${zh ? '作品系列' : 'Series'}">
                 ${tabs.map(tab => `<button type="button" class="gallery-tab${tab.key === current ? ' active' : ''}"
                     data-tab="${tab.key}" aria-pressed="${tab.key === current}">${zh ? tab.zh : tab.en}</button>`).join('')}
+                <button type="button" id="gallerySearchToggle" class="gallery-search-toggle"
+                    aria-controls="gallerySearchRow" aria-expanded="${searchOpen}"
+                    aria-label="${searchOpen ? (zh ? '關閉搜尋' : 'Close search') : (zh ? '搜尋作品' : 'Search artworks')}">
+                    <svg class="icon-search" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 20.5 20.5"/></svg>
+                    <svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6 18 18M18 6 6 18"/></svg>
+                </button>
             </nav>
-            <div class="gallery-search-row">
+            <div class="gallery-search-row${searchOpen ? ' open' : ''}" id="gallerySearchRow">
+                <div class="gallery-search-inner">
                 <input type="search" id="gallerySearch" class="gallery-search" autocomplete="off"
                     value="${(this.galleryQuery || '').replace(/[&"<>]/g, c => ({ '&': '&amp;', '"': '&quot;', '<': '&lt;', '>': '&gt;' }[c]))}"
                     placeholder="${zh ? '搜尋作品名稱、年份、系列…' : 'Search titles, years, series…'}"
                     aria-label="${zh ? '搜尋作品' : 'Search artworks'}">
+                </div>
             </div>
         `;
     }
@@ -1155,6 +1163,35 @@ class ChineseArtPortfolio {
                     this.renderGallery();
                 }, 200);
             });
+            search.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') this.toggleGallerySearch(false);
+            });
+        }
+        document.getElementById('gallerySearchToggle')
+            ?.addEventListener('click', () => this.toggleGallerySearch());
+    }
+
+    // The search field stays folded away until asked for; closing it clears the search
+    toggleGallerySearch(open = !this.gallerySearchOpen && !this.galleryQuery) {
+        const zh = this.currentLanguage === 'zh';
+        const row = document.getElementById('gallerySearchRow');
+        const toggle = document.getElementById('gallerySearchToggle');
+        const search = document.getElementById('gallerySearch');
+        if (!row || !toggle || !search) return;
+        this.gallerySearchOpen = open;
+        row.classList.toggle('open', open);
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? (zh ? '關閉搜尋' : 'Close search') : (zh ? '搜尋作品' : 'Search artworks'));
+        if (open) {
+            search.focus({ preventScroll: true });
+        } else {
+            clearTimeout(this._searchTimer);
+            search.value = '';
+            if (this.galleryQuery) {
+                this.galleryQuery = '';
+                this.renderGallery();
+            }
+            toggle.focus({ preventScroll: true });
         }
     }
     
