@@ -26,8 +26,8 @@
 .contact-form-overlay {
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(8px);
+    background: rgba(28, 25, 23, 0.6);
+    backdrop-filter: blur(4px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -36,19 +36,20 @@
 }
 
 .contact-form-container {
-    background: white;
+    background: var(--paper);
+    color: var(--ink);
     border-radius: 16px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 60px rgba(28, 25, 23, 0.25);
     width: 100%;
     max-width: 800px;
     max-height: 90vh;
     overflow-y: auto;
-    transform: scale(0.9);
-    transition: transform 0.3s ease;
+    transform: translateY(8px);
+    transition: transform 0.4s var(--ease-calm);
 }
 
 .contact-form-modal.active .contact-form-container {
-    transform: scale(1);
+    transform: none;
 }
 
 /* ================================
@@ -56,24 +57,24 @@
    ================================ */
 
 .contact-form-header {
-    background: var(--ink);
-    color: white;
-    padding: 2rem;
-    border-radius: 16px 16px 0 0;
+    color: var(--ink);
+    padding: 2rem 2rem 0;
     position: relative;
 }
 
 .contact-form-header h2 {
     margin: 0 0 0.5rem 0;
-    font-size: 1.8rem;
-    font-weight: 600;
+    font-size: 1.7rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
 }
 
 .contact-form-subtitle {
     margin: 0;
+    padding-right: 2.5rem;
     font-size: 1rem;
-    opacity: 0.9;
-    line-height: 1.4;
+    color: var(--warm-600);
+    line-height: 1.5;
 }
 
 .contact-form-close {
@@ -84,19 +85,19 @@
     height: 40px;
     border: none;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
+    background: none;
+    color: var(--warm-600);
     font-size: 1.5rem;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
+    transition: background 0.2s ease, color 0.2s ease;
 }
 
 .contact-form-close:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: scale(1.1);
+    background: var(--warm-200);
+    color: var(--ink);
 }
 
 /* ================================
@@ -156,13 +157,17 @@
 .form-group select,
 .form-group textarea {
     padding: 0.8rem 1rem;
-    border: 2px solid var(--warm-200);
+    border: 1px solid var(--warm-300);
     border-radius: 8px;
-    font-size: 0.95rem;
-    transition: all 0.3s ease;
+    font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
     font-family: inherit;
     background: white;
+    color: var(--ink);
 }
+
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: var(--warm-500); }
 
 .form-group input:focus,
 .form-group select:focus,
@@ -170,7 +175,6 @@
     outline: none;
     border-color: var(--ink);
     box-shadow: 0 0 0 3px rgba(41, 37, 36, 0.1);
-    transform: translateY(-1px);
 }
 
 .form-group textarea {
@@ -181,46 +185,6 @@
 
 .form-group select {
     cursor: pointer;
-}
-
-/* ================================
-   Artwork Info Section - Dark Theme
-   ================================ */
-
-.artwork-info-section {
-    background: var(--ink);
-    border: 2px solid var(--warm-600);
-    border-radius: 12px;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-.artwork-info-section h3 {
-    color: var(--warm-100);
-    border-bottom: 2px solid var(--ink);
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin: 0 0 1.5rem 0;
-    padding-bottom: 0.5rem;
-}
-
-.artwork-info-section .form-group label {
-    color: var(--warm-400);
-    font-weight: 500;
-}
-
-.artwork-info-section .form-group input[readonly] {
-    background: var(--ink);
-    color: var(--warm-100);
-    font-weight: 500;
-    cursor: default;
-    border: 2px solid var(--warm-600);
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
-}
-
-.artwork-info-section .form-group input[readonly]:focus {
-    border-color: var(--ink);
-    box-shadow: 0 0 0 3px rgba(41, 37, 36, 0.2);
 }
 
 /* ================================
@@ -237,37 +201,37 @@
     flex: 0 0 80px;
     text-align: center;
     font-weight: 600;
-    background: var(--warm-100);
-    border: 2px solid var(--warm-300);
-    font-family: monospace;
+    background: white;
+    color: var(--ink);
+    border: 1px solid var(--warm-300);
+    font-family: inherit;
     padding: 0.8rem 0.5rem;
     border-radius: 8px;
-    font-size: 0.95rem;
-    transition: all 0.3s ease;
+    font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .country-code-input:focus {
     border-color: var(--ink);
     box-shadow: 0 0 0 3px rgba(41, 37, 36, 0.1);
     outline: none;
-    transform: translateY(-1px);
 }
 
 .phone-number-input {
     flex: 1;
     padding: 0.8rem 1rem;
-    border: 2px solid var(--warm-200);
+    border: 1px solid var(--warm-300);
     border-radius: 8px;
-    font-size: 0.95rem;
-    transition: all 0.3s ease;
+    font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
     background: white;
+    color: var(--ink);
 }
 
 .phone-number-input:focus {
     outline: none;
     border-color: var(--ink);
     box-shadow: 0 0 0 3px rgba(41, 37, 36, 0.1);
-    transform: translateY(-1px);
 }
 
 /* ================================
@@ -355,7 +319,6 @@ label[for="shippingMethod"] {
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-    transform: translateY(-1px);
 }
 
 .btn-submit:disabled::after {
@@ -571,51 +534,6 @@ label[for="shippingMethod"] {
    Dark Mode Support (Optional)
    ================================ */
 
-@media (prefers-color-scheme: dark) {
-    .contact-form-container {
-        background: var(--ink);
-        color: var(--warm-100);
-    }
-    
-    .form-section h3 {
-        color: var(--warm-100);
-        border-bottom-color: var(--warm-600);
-    }
-    
-    .form-group label {
-        color: var(--warm-400);
-    }
-    
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-        background: var(--warm-600);
-        border-color: var(--warm-600);
-        color: var(--warm-100);
-    }
-    
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-        border-color: var(--ink);
-        box-shadow: 0 0 0 3px rgba(41, 37, 36, 0.1);
-    }
-    
-    .form-actions {
-        border-top-color: var(--warm-600);
-    }
-    
-    /* Keep phone input light in dark mode for better UX */
-    .country-code-input {
-        background: var(--warm-100);
-        color: var(--ink);
-    }
-    
-    .phone-number-input {
-        background: white;
-        color: var(--ink);
-    }
-}
 
 /* The work being asked about, with its listed price */
 .inquiry-artwork {
@@ -643,12 +561,12 @@ label[for="shippingMethod"] {
     padding: 0;
     font-size: 0.9rem;
     font-weight: 600;
-    color: inherit;
+    color: var(--warm-600);
 }
 
 .contact-methods-hint {
-    margin: 0.2rem 0 0.75rem;
-    font-size: 0.85rem;
+    margin: 0.25rem 0 0.75rem;
+    font-size: 0.95rem;
     color: var(--warm-600);
 }
 
@@ -659,4 +577,42 @@ label[for="shippingMethod"] {
 
 .contact-methods .form-group {
     margin-bottom: 0.75rem;
+}
+
+/* After sending: the thank-you replaces the form */
+.contact-form-modal.thanked .contact-form-header { display: none; }
+
+.inquiry-thanks {
+    padding: 2.5rem 2rem 2rem;
+    text-align: center;
+    animation: fadeIn 0.6s var(--ease-calm);
+}
+
+.inquiry-thanks img {
+    display: block;
+    max-width: 100%;
+    max-height: 240px;
+    margin: 0 auto 1.75rem;
+    box-shadow: 0 2px 10px rgba(41, 37, 36, 0.14);
+}
+
+.inquiry-thanks h2 {
+    margin: 0 0 0.75rem;
+    color: var(--ink);
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+}
+
+.inquiry-thanks p {
+    max-width: 30rem;
+    margin: 0 auto 1.75rem;
+    color: var(--warm-600);
+    line-height: 1.7;
+}
+
+.inquiry-thanks .btn-submit {
+    width: auto;
+    display: inline-flex;
+    min-width: 11rem;
 }

@@ -1,0 +1,60 @@
+/* Motion stays slow and steady, like the camera in the Reels. */
+:root { --ease-calm: cubic-bezier(0.22, 0.61, 0.36, 1); }
+
+/* Painting that travels between the gallery and the viewer (js/lightbox.js) */
+.lb-flight {
+    position: fixed;
+    z-index: 10001;
+    transform-origin: top left;
+    object-fit: contain;
+    pointer-events: none;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+}
+
+.lightbox.flying .lb-stage .lightbox-image { opacity: 0; }
+
+.lightbox.active { animation: lbFadeIn 0.34s ease; }
+
+.lightbox.closing {
+    display: grid;
+    pointer-events: none;
+    animation: lbFadeOut 0.34s ease forwards;
+}
+
+@keyframes lbFadeOut { to { opacity: 0; } }
+
+@media (min-width: 769px) {
+    .lightbox.active .lightbox-info-section { animation: lbPanelIn 0.5s var(--ease-calm); }
+}
+
+@keyframes lbPanelIn {
+    from { opacity: 0; transform: translateX(14px); }
+    to { opacity: 1; transform: none; }
+}
+
+/* A blurred preview holds the painting's place, then the real image fades in */
+.gallery-item-image,
+.featured-image-container {
+    background-color: var(--warm-100);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.gallery-item-image { background-color: transparent; background-size: contain; }
+.featured-image-container { background-size: cover; }
+
+.gallery-item img,
+.featured-image-container img {
+    opacity: 0;
+    transition: opacity 0.6s ease, filter 0.3s ease, transform 0.3s ease;
+}
+
+.gallery-item img.is-loaded,
+.featured-item.image-loaded .featured-image-container img { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}

@@ -53,10 +53,92 @@
     }
 
     // ------------------------------------------------------------- open / close
+    const FLIGHT_MS = 480;
+    let closingTimer = 0;
+
+    const reducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function sourceImage(artworkId) {
+        return document.querySelector(`.section.active [data-artwork-id="${artworkId}"] img`);
+    }
+
+    // The painted area of an image, which is smaller than its box under object-fit: contain
+    function paintedRect(img) {
+        const box = img.getBoundingClientRect();
+        const ratio = img.naturalWidth / img.naturalHeight;
+        if (!ratio || getComputedStyle(img).objectFit !== 'contain') return box;
+        const width = Math.min(box.width, box.height * ratio);
+        const height = width / ratio;
+        return { left: box.left + (box.width - width) / 2, top: box.top + (box.height - height) / 2, width, height };
+    }
+
+    function canFly(small, large) {
+        const onScreen = small.top + small.height > 0 && small.top < window.innerHeight;
+        const sameShape = Math.abs(small.width / small.height - large.width / large.height) < 0.04 * (large.width / large.height);
+        return onScreen && sameShape && large.width > 0 && !reducedMotion();
+    }
+
+    // The clone stays at the viewer's size and only its transform moves, so it stays sharp
+    function fly(src, small, large, opening, done) {
+        const clone = new Image();
+        clone.className = 'lb-flight';
+        clone.alt = '';
+        clone.src = src;
+        Object.assign(clone.style, {
+            left: `${large.left}px`, top: `${large.top}px`,
+            width: `${large.width}px`, height: `${large.height}px`
+        });
+        document.body.appendChild(clone);
+        const atThumb = `translate(${small.left - large.left}px, ${small.top - large.top}px) scale(${small.width / large.width}, ${small.height / large.height})`;
+        const animation = clone.animate(
+            [{ transform: opening ? atThumb : 'none' }, { transform: opening ? 'none' : atThumb }],
+            { duration: FLIGHT_MS, easing: 'cubic-bezier(0.22, 0.61, 0.36, 1)' }
+        );
+        animation.onfinish = animation.oncancel = () => { done(); clone.remove(); };
+    }
+
+    function flyIn(thumb) {
+        if (!thumb || !thumb.naturalWidth) return;
+        const small = paintedRect(thumb);
+        el.box.classList.add('flying');
+        const start = () => {
+            if (!el.box.classList.contains('active')) return;
+            const large = el.img.getBoundingClientRect();
+            if (!canFly(small, large)) { el.box.classList.remove('flying'); return; }
+            thumb.style.visibility = 'hidden';
+            fly(el.img.currentSrc || el.img.src, small, large, true, () => {
+                el.box.classList.remove('flying');
+                thumb.style.visibility = '';
+            });
+        };
+        Promise.race([
+            el.img.decode().catch(() => {}),
+            new Promise(resolve => setTimeout(resolve, 300))
+        ]).then(start);
+    }
+
+    function flyOut(artwork, large) {
+        const thumb = artwork && sourceImage(artwork.id);
+        if (!thumb || !thumb.naturalWidth || !large) return;
+        let small = paintedRect(thumb);
+        if (small.top + small.height <= 0 || small.top >= window.innerHeight) {
+            // Browsed to another work: bring its place in the gallery into view first
+            thumb.scrollIntoView({ behavior: 'instant', block: 'center' });
+            small = paintedRect(thumb);
+        }
+        if (!canFly(small, large)) return;
+        thumb.style.visibility = 'hidden';
+        fly(el.img.currentSrc || el.img.src, small, large, false, () => { thumb.style.visibility = ''; });
+        el.box.classList.add('flying');
+    }
+
     window.openLightbox = function (artworkId, context = 'all') {
         if (typeof portfolio === 'undefined') return;
         const artwork = portfolio.getArtwork(artworkId);
         if (!artwork) return;
+        const thumb = sourceImage(artworkId);
+        clearTimeout(closingTimer);
+        el.box.classList.remove('closing', 'flying');
 
         if (context === 'featured') list = portfolio.getFeaturedArtworks();
         else if (context === 'gallery' && typeof portfolio.getCurrentGalleryArtworks === 'function') list = portfolio.getCurrentGalleryArtworks();
@@ -75,6 +157,7 @@
 
         buildFilmstrip();
         render();
+        flyIn(thumb);
         showHintOnce();
 
         // Phone back button closes the viewer instead of leaving the page
@@ -90,15 +173,17 @@
     window.closeLightbox = function (fromHistory) {
         if (!el.box || !el.box.classList.contains('active')) return;
         const current = list[index];
+        const showingPainting = zoom.s <= 1.01 && !el.box.classList.contains('scale-view');
+        const large = showingPainting ? el.img.getBoundingClientRect() : null;
 
         el.box.classList.remove('active', 'sheet-open', 'immersive');
+        el.box.classList.add('closing');
+        clearTimeout(closingTimer);
+        closingTimer = setTimeout(() => el.box.classList.remove('closing', 'flying'), 360);
         document.body.style.overflow = '';
-        resetZoom(false);
         closeShareMenu();
-
-        if (current && typeof portfolio !== 'undefined' && typeof portfolio.scrollToArtwork === 'function') {
-            setTimeout(() => portfolio.scrollToArtwork(current.id), 200);
-        }
+        flyOut(current, large);
+        resetZoom(false);
 
         if (pushedHistory && !fromHistory) {
             // step back over the entry we added; announce the close once we're there

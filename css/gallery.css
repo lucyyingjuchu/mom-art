@@ -62,7 +62,7 @@
     padding: 0.45rem 0.2rem;
     text-align: center;
 }
-.gallery-search::placeholder { color: var(--warm-400); }
+.gallery-search::placeholder { color: var(--warm-500); }
 .gallery-search:focus { outline: none; border-bottom-color: var(--seal); }
 
 .gallery-empty {
@@ -73,7 +73,7 @@
 
 #gallery .results-info {
     text-align: center;
-    color: var(--warm-400);
+    color: var(--warm-500);
     font-size: 0.85rem;
     letter-spacing: 0.05em;
     border: 0;

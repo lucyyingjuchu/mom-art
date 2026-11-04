@@ -4,6 +4,7 @@
    Contrast (WCAG): ink 14:1, warm-600 11.7:1, warm-500 5.5:1 on paper;
    warm-500 4.7:1 and warm-600 9.9:1 on --tint. */
 :root {
+    color-scheme: light; /* the site has one look; ignore the system's dark mode */
     --paper: #fbf8f3;
     --warm-100: #f6edea;  /* bronze 3 */
     --warm-200: #efe4df;  /* bronze 4 */

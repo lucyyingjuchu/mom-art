@@ -80,6 +80,9 @@ const CONTACT_FORM_TEXTS = {
             
             // 成功/錯誤訊息
             submitSuccess: "已收到！我們會在 3 個工作天內回覆您。",
+            thanksTitle: "感謝您的來信",
+            thanksBody: "關於《{title}》的洽詢已收到。我們會在 3 個工作天內回覆您，確認作品現況並提供正式報價。",
+            thanksClose: "繼續欣賞",
             submitError: "送出失敗，請稍後再試或直接聯繫我們。",
             invalidEmail: "請輸入有效的電子郵件格式",
             invalidPhone: "請輸入有效的電話號碼",
@@ -132,6 +135,9 @@ const CONTACT_FORM_TEXTS = {
             
             // Success/error messages
             submitSuccess: "Thank you! We'll reply within 3 business days.",
+            thanksTitle: "Thank you for writing",
+            thanksBody: "Your inquiry about “{title}” has reached the studio. We'll reply within 3 business days to confirm availability and share a formal quotation.",
+            thanksClose: "Continue viewing",
             submitError: "Submission failed. Please try again later or contact us directly.",
             invalidEmail: "Please enter a valid email format",
             invalidPhone: "Please enter a valid phone number"
@@ -697,12 +703,7 @@ function submitInquiry(data) {
                 items: [window.analyticsItem(currentInquiryArtwork || { id: data.artwork?.id, title: data.artwork?.title })]
             });
         }
-        showFormMessage(getContactText('contactForm.submitSuccess'), 'success');
-        
-        // Close form after 3 seconds
-        setTimeout(() => {
-            closeContactForm();
-        }, 3000);
+        showInquiryThanks();
     })
     .catch(error => {
         console.error('Error:', error);
@@ -772,6 +773,39 @@ function sendEmailViaClientSide(data) {
                 config.publicKey
             );
         });
+}
+
+// A quiet thank-you in place of the form, with the work they asked about
+function showInquiryThanks() {
+    const modal = document.querySelector('.contact-form-modal');
+    const form = document.getElementById('artworkInquiryForm');
+    if (!modal || !form) return;
+    const artwork = currentInquiryArtwork;
+    const title = artwork ? portfolio.getText(artwork, 'title') : '';
+
+    const thanks = document.createElement('div');
+    thanks.className = 'inquiry-thanks';
+    thanks.setAttribute('role', 'status');
+    if (artwork?.image) {
+        const image = new Image();
+        image.src = artwork.image;
+        image.alt = title;
+        thanks.appendChild(image);
+    }
+    const heading = document.createElement('h2');
+    heading.textContent = getContactText('contactForm.thanksTitle');
+    const body = document.createElement('p');
+    body.textContent = getContactText('contactForm.thanksBody').replace('{title}', title);
+    const close = document.createElement('button');
+    close.type = 'button';
+    close.className = 'btn-submit';
+    close.textContent = getContactText('contactForm.thanksClose');
+    close.addEventListener('click', closeContactForm);
+    thanks.append(heading, body, close);
+
+    modal.classList.add('thanked');
+    form.replaceWith(thanks);
+    close.focus({ preventScroll: true });
 }
 
 // 顯示表單訊息

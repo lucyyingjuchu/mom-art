@@ -150,8 +150,10 @@ class ChineseArtPortfolio {
     // Load artworks from JSON file
     async loadArtworks() {
         try {
+            const previews = fetch('./data/placeholders.json').then(r => r.ok ? r.json() : {}).catch(() => ({}));
             const response = await fetch('./data/artworks.json');
             const data = await response.json();
+            this.placeholders = await previews;
             
             // Handle both formats: {artworks: [...]} or just [...]
             if (data.artworks) {
@@ -383,24 +385,32 @@ class ChineseArtPortfolio {
         }
     }
 
+    // Search text ignores case, full- or half-width characters, spaces and punctuation,
+    // so 墨荷-青煙, 墨荷－青煙 and 墨荷青煙 all find the same work
+    foldForSearch(value) {
+        return String(value ?? '').normalize('NFKC').toLowerCase()
+            .replace(/[×✕]/g, 'x')
+            .replace(/[\p{P}\p{S}\s]/gu, '');
+    }
+
     // Search artworks - FIXED VERSION
     searchArtworks(query) {
-        const searchTerm = query.toLowerCase().trim();
+        const searchTerm = this.foldForSearch(query);
         if (!searchTerm) return this.artworks; // Return all if empty search
         
         return this.artworks.filter(artwork => {
-            const title = (artwork.title || '').toLowerCase();
-            const titleEn = (artwork.titleEn || '').toLowerCase();
-            const description = (artwork.description || '').toLowerCase();
-            const descriptionEn = (artwork.descriptionEn || '').toLowerCase();
-            const year = (artwork.year || '').toString();
-            const size = (artwork.sizeCm || '').toLowerCase();
+            const title = this.foldForSearch(artwork.title);
+            const titleEn = this.foldForSearch(artwork.titleEn);
+            const description = this.foldForSearch(artwork.description);
+            const descriptionEn = this.foldForSearch(artwork.descriptionEn);
+            const year = this.foldForSearch(artwork.year);
+            const size = this.foldForSearch(artwork.sizeCm);
             // series and tab names too, so 霜林, 瀑布 or "moon" find their works
             const cm = window.categoryManager;
             const subjects = cm && cm.getArtworkCategories ? cm.getArtworkCategories(artwork)
                 .flatMap(k => [cm.getCategoryLabel(k, 'zh'), cm.getCategoryLabel(k, 'en')]) : [];
             const more = [artwork.series, artwork.seriesEn, artwork.curatorNote, artwork.curatorNoteEn, ...subjects]
-                .map(v => String(v || '').toLowerCase());
+                .map(v => this.foldForSearch(v));
 
             return title.includes(searchTerm) ||
                    titleEn.includes(searchTerm) ||
@@ -1006,6 +1016,15 @@ class ChineseArtPortfolio {
         return `srcset="${thumb} ${w(800)}w, ${large} ${w(extreme ? 2400 : 1600)}w" sizes="300px"`;
     }
 
+    // Blurred preview from data/placeholders.json; reserveShape also holds the painting's proportions
+    placeholderStyle(artwork, reserveShape = false) {
+        const preview = this.placeholders?.[artwork.id];
+        const rules = [];
+        if (preview) rules.push(`background-image:url(${preview})`);
+        if (reserveShape) rules.push(`aspect-ratio:${this.artworkRatio(artwork).toFixed(3)}`);
+        return rules.length ? ` style="${rules.join(';')}"` : '';
+    }
+
     // Create artwork card HTML - the whole painting, never cropped
     createArtworkCard(artwork, idx = 0) {
         const title = this.getText(artwork, 'title') || this.t('common.untitled');
@@ -1018,9 +1037,9 @@ class ChineseArtPortfolio {
 
         return `
             <div class="gallery-item" data-idx="${idx}" data-size="${this.artworkSizeClass(artwork)}" data-cm="${this.artworkScaleCm(artwork)}" data-wcm="${parseFloat(artwork.widthCm) || ''}" style="--r:${ratio}" onclick="openLightbox('${artwork.id}', 'gallery')" data-artwork-id="${artwork.id}">
-                <div class="gallery-item-image">
+                <div class="gallery-item-image"${this.placeholderStyle(artwork)}>
                     <img src="${imageUrl}" ${this.gallerySrcset(artwork, ratio)} alt="${title}" loading="lazy"
-                         onload="const r=this.naturalWidth/this.naturalHeight; if (r && Math.abs(r-${ratio})>0.02) portfolio.galleryRatioChanged(this, r)"
+                         onload="this.classList.add('is-loaded'); const r=this.naturalWidth/this.naturalHeight; if (r && Math.abs(r-${ratio})>0.02) portfolio.galleryRatioChanged(this, r)"
                          onerror="this.src='${this.getPlaceholderImage()}'">
                 </div>
                 <div class="gallery-item-info">
@@ -1324,8 +1343,8 @@ class ChineseArtPortfolio {
         const spanClass = `featured-item-span-${span}`;
         
         return `
-            <div class="featured-item ${spanClass}" onclick="openLightbox('${artwork.id}', 'featured')">
-                <div class="featured-image-container">
+            <div class="featured-item ${spanClass}" data-artwork-id="${artwork.id}" onclick="openLightbox('${artwork.id}', 'featured')">
+                <div class="featured-image-container"${this.placeholderStyle(artwork, true)}>
                     <img src="${imageUrl}" alt="${title}" 
                         onerror="this.src='${this.getPlaceholderImage()}'"
                         onload="this.parentElement.parentElement.classList.add('image-loaded')">
@@ -1521,7 +1540,8 @@ class ChineseArtPortfolio {
             
             .featured-description {
                 color: #43302b;
-                line-height: 1.6;
+                font-size: 1.05rem;
+                line-height: 1.75;
                 margin-bottom: 1.5rem;
                 display: -webkit-box;
                 -webkit-line-clamp: 3;
@@ -1542,7 +1562,7 @@ class ChineseArtPortfolio {
                 background: #f6edea;
                 padding: 0.3rem 0.8rem;
                 border-radius: 12px;
-                font-size: 0.8rem;
+                font-size: 0.9rem;
             }
             
             .featured-status {
