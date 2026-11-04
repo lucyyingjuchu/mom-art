@@ -141,16 +141,12 @@ const LANGUAGE_DATA = {
                                 answer: "**Originals**: press \"Inquire\" on the work's page. We reply within 3 business days to confirm its availability and share further details, along with a formal quotation including shipping.\n**Prints** can be added directly to the shopping cart for checkout."
                             },
                             {
-                                question: "May I view a work before deciding?",
-                                answer: "Viewings can be arranged by appointment in Taichung, or by video call."
-                            },
-                            {
                                 question: "Is framing included?",
                                 answer: "Listed prices are for the painting alone. If a work is currently framed, or you would like it framed, we can advise on the options and include any framing, removal, or related costs in your quotation."
                             },
                             {
                                 question: "How are originals shipped?",
-                                answer: "Each work is insured and shipped by a specialist art carrier. International orders are generally sent unframed, ready to be mounted locally. Shipping is quoted based on destination."
+                                answer: "Shipping is arranged to suit each work and destination, and explained with your quotation. International orders are generally sent unframed, ready to be mounted locally. Shipping is quoted based on destination."
                             },
                             {
                                 question: "How are prints shipped?",
@@ -158,7 +154,7 @@ const LANGUAGE_DATA = {
                             },
                             {
                                 question: "How long will shipping take?",
-                                answer: "**Originals**: Delivery times vary by region — within Taiwan it is usually faster, while international orders take about 10–20 business days.\n**Prints**: we ship to the **U.S. and Canada**. Printing takes about 2–3 business days; shipping options and prices for your order are shown at checkout (U.S. typically 3–7 business days, Canada about 5–10).\n"
+                                answer: "**Originals**: Delivery time depends on the destination and is confirmed with your quotation.\n**Prints**: we ship to the **U.S. and Canada**. Printing takes about 2–3 business days; shipping options and prices for your order are shown at checkout (U.S. typically 3–7 business days, Canada about 5–10).\n"
                             }
                         ]
                     },
@@ -169,10 +165,6 @@ const LANGUAGE_DATA = {
                             {
                                 question: "Why are prices shown in USD?",
                                 answer: "We sell internationally, and USD is a standard currency most collectors understand. At checkout, your local bank may show the converted amount."
-                            },
-                            {
-                                question: "What is your returns policy?",
-                                answer: "Full terms are included with each quotation."
                             }
                         ]
                     }
@@ -493,20 +485,16 @@ const LANGUAGE_DATA = {
                                 answer: "**原作**：請在作品頁點「洽詢此作」，我們會在 3 個工作天內回覆，確認作品現況，並提供作品細節與含運費的正式報價。\n**印刷品**：目前僅於英文版網站提供訂購；台灣地區的印刷品訂購正在籌備中。"
                             },
                             {
-                                question: "可以先看作品嗎？",
-                                answer: "可預約於台中看原作，或透過視訊觀看。"
-                            },
-                            {
                                 question: "典藏價包含裱框嗎？",
                                 answer: "典藏價僅含作品本身。如作品目前已有裱框，或您希望裱框，我們會提供建議，並將裱框、拆框等相關費用列入報價。"
                             },
                             {
                                 question: "原作如何運送？",
-                                answer: "每件作品皆投保，並由專業藝術品物流運送。海外訂單原則上不含框，可於當地裝裱。運費依寄送地點報價。"
+                                answer: "依作品與寄送地點安排適合的運送方式，並於報價時說明。海外訂單原則上不含框，可於當地裝裱。運費依寄送地點報價。"
                             },
                             {
                                 question: "運送需要多長時間？",
-                                answer: "**原作**：寄送時間依地區而異——台灣境內通常更快，國際訂單約 10–20 個工作天。"
+                                answer: "**原作**：寄送時間依地點而定，於報價時告知。"
                             }
                         ]
                     },
@@ -517,10 +505,6 @@ const LANGUAGE_DATA = {
                             {
                                 question: "價格以什麼幣別標示？",
                                 answer: "**原作**以新台幣計價。\n**印刷品**目前僅於英文版網站提供，以美元計價。"
-                            },
-                            {
-                                question: "可以退換嗎？",
-                                answer: "完整條款會隨報價單提供。"
                             }
                         ]
                     }
