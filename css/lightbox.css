@@ -486,6 +486,7 @@
 /* English verse lines run long: smaller text, and a wrapped line hangs under its start */
 html[lang="en"] .artwork-description { font-size: 1rem; line-height: 1.65; }
 html[lang="en"] .verse-line { padding-left: 1em; text-indent: -1em; }
+html[lang="en"] .verse-line:only-child { padding-left: 0; text-indent: 0; } /* prose, not verse */
 
 /* Hide description completely when empty */
 .artwork-description:empty {
