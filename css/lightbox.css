@@ -474,6 +474,7 @@
     color: var(--warm-600);
     margin-bottom: 1.5rem; /* Reduced from 2rem */
     font-family: var(--font-title);
+    white-space: pre-line; /* verse keeps its line breaks */
     padding: 1rem; /* Add padding for visual separation */
     background: var(--tint);
     border-radius: 6px;
