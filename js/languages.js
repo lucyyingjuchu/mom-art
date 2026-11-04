@@ -103,7 +103,7 @@ const LANGUAGE_DATA = {
             duo: "Father–Daughter",
             group: "Group & Teaching",
             more: "Press / details",
-            invite: "Interested in hosting an exhibition or visiting the studio?",
+            invite: "Interested in hosting an exhibition?",
             contact: "Get in touch"
         },
 
@@ -456,7 +456,7 @@ const LANGUAGE_DATA = {
             duo: "父女聯展",
             group: "聯展・師生展",
             more: "報導／詳情",
-            invite: "想邀請展出，或預約參觀畫室？",
+            invite: "想邀請展出嗎？",
             contact: "與我們聯絡"
         },
 
