@@ -13,7 +13,7 @@
 
     /* ---------- Header: logo + title on one row, icons top-right ---------- */
     header {
-        padding: 0.75rem 1rem;
+        padding: 0.6rem 1rem;
         text-align: left;
     }
 
@@ -24,24 +24,23 @@
     }
 
     .header-logo {
-        width: 42px;
-        height: 42px;
+        width: 38px;
+        height: 38px;
     }
 
     .logo {
-        font-size: 1.25rem;
-        letter-spacing: 0;
-        margin-bottom: 0.1rem;
+        font-size: 1.1rem;
+        line-height: 1.25;
+        letter-spacing: 0.02em;
+        margin-bottom: 0;
     }
 
     /* Artist name on one line, studio name on the next */
     .logo .logo-sep { display: none; }
     .logo .logo-studio { display: block; }
 
-    .subtitle {
-        font-size: 0.78rem;
-        line-height: 1.35;
-    }
+    /* The masthead stays small so the art comes sooner */
+    .subtitle { display: none; }
 
     .header-icons {
         position: absolute;
