@@ -123,27 +123,17 @@
     }
 
     // ---------- Home ----------
+    // One quiet line above the works: the show on view, or else the next within 6 months
     function renderHome() {
-        const opening = document.getElementById('opening');
-        if (!opening) return;
-        let box = document.getElementById('latestUpdates');
-        if (!box) {
-            box = document.createElement('div');
-            box.id = 'latestUpdates';
-            box.className = 'latest-updates';
-            opening.appendChild(box);
-        }
-        // Home stays light: just the current/upcoming show (title, venue, dates).
-        // Notes and studio news live on the Exhibitions & News page.
-        // On view now; if nothing is on, the shows opening in the next 6 months
+        const notice = document.getElementById('galleryNotice');
+        if (!notice) return;
         const { onView, upcoming } = currentShows();
-        const shows = onView.length
-            ? onView.map((e) => showCard(e, t('exhibitionsPage.onView'), true)).join('')
-            : upcoming.map((e) => showCard(e, t('exhibitionsPage.upcoming'), true)).join('');
-        if (!shows) { box.innerHTML = ''; return; }
-        box.innerHTML = `
-            <div class="show-cards">${shows}</div>
-            <button class="update-more" onclick="showSection('news')">${esc(t('about.seeAllExhibitions'))}</button>`;
+        const show = onView[0] || upcoming[0];
+        notice.innerHTML = show ? `
+            <button type="button" class="gallery-notice" onclick="showSection('news')">
+                <span class="gallery-notice-label">${esc(t(onView[0] ? 'exhibitionsPage.onView' : 'exhibitionsPage.upcoming'))}</span>
+                ${esc(pick(show.title))}<span aria-hidden="true"> →</span>
+            </button>` : '';
     }
 
     // ---------- Exhibitions & News page ----------

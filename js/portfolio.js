@@ -464,7 +464,6 @@ class ChineseArtPortfolio {
         this.updateStaticText();
         this.initializeFAQ();
         this.renderGallery();
-        this.renderOpeningWork();
         this.renderFilterMenu();
         this.updateLanguageToggle();
     }
@@ -735,11 +734,7 @@ class ChineseArtPortfolio {
 
         // Open tab, narrowed by the search box (if anything is typed)
         const query = (this.galleryQuery || '').trim();
-        // The opening work sits just above the All view, so it isn't repeated straight below it
-        const allView = !query && !Object.values(this.activeFilters).flat().length;
-        const opening = this.getOpeningArtwork();
-        const base = query ? this.searchArtworks(query)
-            : allView ? this.artworks.filter(artwork => artwork !== opening) : this.artworks;
+        const base = query ? this.searchArtworks(query) : this.artworks;
         const filteredArtworks = this.getMultiFilteredArtworks(this.activeFilters, base);
 
         // Newest first, each year's series kept together (see sortForGallery)
@@ -1018,13 +1013,10 @@ class ChineseArtPortfolio {
         return `srcset="${thumb} ${w(800)}w, ${large} ${w(extreme ? 2400 : 1600)}w" sizes="300px"`;
     }
 
-    // Blurred preview from data/placeholders.json; reserveShape also holds the painting's proportions
-    placeholderStyle(artwork, reserveShape = false) {
+    // Blurred preview from data/placeholders.json
+    placeholderStyle(artwork) {
         const preview = this.placeholders?.[artwork.id];
-        const rules = [];
-        if (preview) rules.push(`background-image:url(${preview})`);
-        if (reserveShape) rules.push(`aspect-ratio:${this.artworkRatio(artwork).toFixed(3)}`);
-        return rules.length ? ` style="${rules.join(';')}"` : '';
+        return preview ? ` style="background-image:url(${preview})"` : '';
     }
 
     // Create artwork card HTML - the whole painting, never cropped
@@ -1116,7 +1108,6 @@ class ChineseArtPortfolio {
         this.updatePageTitle(); 
         this.renderGallery();
         this.setupEventListeners();
-        this.renderOpeningWork();
         this.updateLanguageToggle();
         this.renderFilterMenu();
         this.updateStaticText();
@@ -1198,31 +1189,6 @@ class ChineseArtPortfolio {
         }
     }
     
-    // The first work marked "featured" in admin opens the site
-    getOpeningArtwork() {
-        return this.getFeaturedArtworks()[0] || this.artworks[0];
-    }
-
-    // The opening of the site: that one work, shown whole
-    renderOpeningWork() {
-        const box = document.getElementById('openingWork');
-        const artwork = this.getOpeningArtwork();
-        if (!box || !artwork) return;
-        const title = this.getText(artwork, 'title') || this.t('common.untitled');
-        const year = this.galleryYear(artwork) > 0 ? artwork.year : '';
-        const ratio = this.artworkRatio(artwork).toFixed(3);
-        box.dataset.artworkId = artwork.id;
-        box.innerHTML = `
-            <h2 class="visually-hidden">${this.t('home.featuredTitle')}</h2>
-            <button type="button" class="opening-work" style="--r:${ratio}" onclick="openLightbox('${artwork.id}', 'gallery')">
-                <span class="opening-image"${this.placeholderStyle(artwork)}>
-                    <img src="${this.getFeaturedImageUrl(artwork)}" alt="${title}" onload="this.classList.add('is-loaded')"
-                        onerror="this.src='${this.getPlaceholderImage()}'">
-                </span>
-                <span class="opening-caption">${[title, year].filter(Boolean).join('　')}</span>
-            </button>`;
-    }
-
     // FIXED: Setup event listeners with working search
     setupEventListeners() {
         // Language toggle
@@ -1534,12 +1500,11 @@ class ChineseArtPortfolio {
 const portfolio = new ChineseArtPortfolio();
 
 // Make functions available globally for onclick handlers
-// The opening sits above the gallery and contact lives under About;
+// Contact lives under About and the seal returns to the gallery;
 // 'home' and 'connect' still work for the links that use them.
 window.showSection = function(sectionId) {
-    const opening = sectionId === 'home';
     const contact = sectionId === 'connect';
-    const id = opening ? 'gallery' : contact ? 'about' : sectionId;
+    const id = sectionId === 'home' ? 'gallery' : contact ? 'about' : sectionId;
 
     document.querySelectorAll('.section').forEach(section => {
         section.classList.toggle('active', section.id === id);
@@ -1548,11 +1513,7 @@ window.showSection = function(sectionId) {
         btn.classList.toggle('active', btn.dataset.nav === id);
     });
     if (contact) window.openSubtab?.('about', 'contact');
-
-    // The Gallery link goes straight to the works; the seal returns to the opening
-    const tabs = id === 'gallery' && !opening ? document.querySelector('#gallery .gallery-tabs') : null;
-    const navHeight = document.querySelector('body > nav')?.offsetHeight || 0;
-    window.scrollTo({ top: tabs ? tabs.getBoundingClientRect().top + window.scrollY - navHeight - 14 : 0 });
+    window.scrollTo({ top: 0 });
 };
 
 // Back-to-top button: gallery only, once the visitor has scrolled well down

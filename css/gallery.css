@@ -152,60 +152,31 @@
     .gallery-tab { font-size: 0.92rem; line-height: 1.35; letter-spacing: 0.01em; padding: 0.6rem 0.05rem; }
 }
 
-/* The opening: one painting, whole, then the current exhibition */
-.visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
-}
+.logo-title-container { cursor: pointer; }
 
-.opening { margin: 0.25rem auto 0; }
-
-.opening-work {
+/* The current or upcoming exhibition: one line under the series tabs */
+.gallery-notice {
     display: block;
-    width: 100%;
-    padding: 0;
+    margin: 0 auto 1.25rem;
+    padding: 0.25rem 0.5rem;
     border: 0;
     background: none;
-    color: inherit;
-    font: inherit;
-    cursor: pointer;
-}
-
-.opening-image {
-    display: block;
-    width: min(100%, calc(70svh * var(--r)));
-    aspect-ratio: var(--r);
-    margin: 0 auto;
-}
-
-.opening-image img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.14));
-}
-
-.opening-caption {
-    display: block;
-    margin-top: 0.8rem;
-    text-align: center;
     color: var(--warm-600);
-    font-size: 1rem;
-    letter-spacing: 0.04em;
+    font: inherit;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    cursor: pointer;
+    transition: color 0.2s ease;
 }
 
-.opening .latest-updates { max-width: 720px; margin: 1.5rem auto 0; }
-
-#gallery .gallery-tabs { margin-top: 1.5rem; }
+.gallery-notice:hover { color: var(--ink); }
 
 @media (max-width: 768px) {
-    .opening { margin-top: 0.25rem; }
-    #gallery .gallery-tabs { margin-top: 1rem; }
+    .gallery-notice { text-wrap: balance; margin-bottom: 0.9rem; }
+    .gallery-notice span[aria-hidden] { display: none; }
 }
 
-.logo-title-container { cursor: pointer; }
+.gallery-notice-label {
+    margin-right: 0.5em;
+    color: var(--seal);
+}
