@@ -2499,8 +2499,8 @@
     "format": "鏡片",
     "year": "2022",
     "price": "",
-    "available": true,
-    "featured": "",
+    "available": false,
+    "featured": false,
     "curatorNote": "",
     "curatorNoteEn": "",
     "formatEn": "Mounted Panel",
@@ -2517,7 +2517,8 @@
         "image": "./images/paintings/large/019891b0-f39c-7904-960b-4b52cf3fe52e_large.jpg"
       }
     ],
-    "imageRatio": 1.966
+    "imageRatio": 1.966,
+    "sizeCm": "120 × 240 cm"
   },
   {
     "id": "019891b0-f39c-71be-8987-5f3e69224ab5",
