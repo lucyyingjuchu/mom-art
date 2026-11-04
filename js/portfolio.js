@@ -385,24 +385,32 @@ class ChineseArtPortfolio {
         }
     }
 
+    // Search text ignores case, full- or half-width characters, spaces and punctuation,
+    // so 墨荷-青煙, 墨荷－青煙 and 墨荷青煙 all find the same work
+    foldForSearch(value) {
+        return String(value ?? '').normalize('NFKC').toLowerCase()
+            .replace(/[×✕]/g, 'x')
+            .replace(/[\p{P}\p{S}\s]/gu, '');
+    }
+
     // Search artworks - FIXED VERSION
     searchArtworks(query) {
-        const searchTerm = query.toLowerCase().trim();
+        const searchTerm = this.foldForSearch(query);
         if (!searchTerm) return this.artworks; // Return all if empty search
         
         return this.artworks.filter(artwork => {
-            const title = (artwork.title || '').toLowerCase();
-            const titleEn = (artwork.titleEn || '').toLowerCase();
-            const description = (artwork.description || '').toLowerCase();
-            const descriptionEn = (artwork.descriptionEn || '').toLowerCase();
-            const year = (artwork.year || '').toString();
-            const size = (artwork.sizeCm || '').toLowerCase();
+            const title = this.foldForSearch(artwork.title);
+            const titleEn = this.foldForSearch(artwork.titleEn);
+            const description = this.foldForSearch(artwork.description);
+            const descriptionEn = this.foldForSearch(artwork.descriptionEn);
+            const year = this.foldForSearch(artwork.year);
+            const size = this.foldForSearch(artwork.sizeCm);
             // series and tab names too, so 霜林, 瀑布 or "moon" find their works
             const cm = window.categoryManager;
             const subjects = cm && cm.getArtworkCategories ? cm.getArtworkCategories(artwork)
                 .flatMap(k => [cm.getCategoryLabel(k, 'zh'), cm.getCategoryLabel(k, 'en')]) : [];
             const more = [artwork.series, artwork.seriesEn, artwork.curatorNote, artwork.curatorNoteEn, ...subjects]
-                .map(v => String(v || '').toLowerCase());
+                .map(v => this.foldForSearch(v));
 
             return title.includes(searchTerm) ||
                    titleEn.includes(searchTerm) ||
