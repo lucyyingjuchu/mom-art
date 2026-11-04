@@ -55,6 +55,7 @@
     // ------------------------------------------------------------- open / close
     const FLIGHT_MS = 480;
     let closingTimer = 0;
+    let scrollTimer = 0;
 
     const reducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -63,9 +64,8 @@
     }
 
     // The painted area of an image, which is smaller than its box under object-fit: contain
-    function paintedRect(img) {
+    function paintedRect(img, ratio = img.naturalWidth / img.naturalHeight) {
         const box = img.getBoundingClientRect();
-        const ratio = img.naturalWidth / img.naturalHeight;
         if (!ratio || getComputedStyle(img).objectFit !== 'contain') return box;
         const width = Math.min(box.width, box.height * ratio);
         const height = width / ratio;
@@ -119,14 +119,17 @@
 
     function flyOut(artwork, large) {
         const thumb = artwork && sourceImage(artwork.id);
-        if (!thumb || !thumb.naturalWidth || !large) return;
-        let small = paintedRect(thumb);
-        if (small.top + small.height <= 0 || small.top >= window.innerHeight) {
-            // Browsed to another work: bring its place in the gallery into view first
+        if (!thumb) return;
+        thumb.loading = 'eager';
+        // Browsed to another work: bring its place in the gallery fully into view first
+        const box = thumb.getBoundingClientRect();
+        const navHeight = document.querySelector('body > nav')?.offsetHeight || 0;
+        if (box.top < navHeight || box.bottom > window.innerHeight) {
             thumb.scrollIntoView({ behavior: 'instant', block: 'center' });
-            small = paintedRect(thumb);
         }
-        if (!canFly(small, large)) return;
+        // The viewer holds the same painting, so its shape stands in if the thumbnail hasn't loaded
+        const small = paintedRect(thumb, el.img.naturalWidth / el.img.naturalHeight);
+        if (!large || !canFly(small, large)) return;
         thumb.style.visibility = 'hidden';
         fly(el.img.currentSrc || el.img.src, small, large, false, () => { thumb.style.visibility = ''; });
         el.box.classList.add('flying');
@@ -139,6 +142,9 @@
         const thumb = sourceImage(artworkId);
         clearTimeout(closingTimer);
         el.box.classList.remove('closing', 'flying');
+        // Closing steps back in history; the browser must not scroll the page back with it
+        clearTimeout(scrollTimer);
+        history.scrollRestoration = 'manual';
 
         if (context === 'featured') list = portfolio.getFeaturedArtworks();
         else if (context === 'gallery' && typeof portfolio.getCurrentGalleryArtworks === 'function') list = portfolio.getCurrentGalleryArtworks();
@@ -180,6 +186,7 @@
         el.box.classList.add('closing');
         clearTimeout(closingTimer);
         closingTimer = setTimeout(() => el.box.classList.remove('closing', 'flying'), 360);
+        scrollTimer = setTimeout(() => { history.scrollRestoration = 'auto'; }, 800);
         document.body.style.overflow = '';
         closeShareMenu();
         flyOut(current, large);
