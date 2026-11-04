@@ -40,6 +40,16 @@ def break_english(text, lines):
         return '\n'.join(parts)
     if lines == 2 and len(parts) == 1 and len(re.findall(r'[,;]', flat)) == 1:
         return re.sub(r'([,;])\s+', r'\1\n', flat)
+    # Verse phrased in lower case: break where each phrase ends
+    phrases = re.split(r'(?<=[;.!?])\s+', flat)
+    if len(phrases) == lines:
+        return '\n'.join(phrases)
+    # One phrase short: the last phrase with a single comma or dash holds two lines
+    if len(phrases) == lines - 1:
+        for i in reversed(range(len(phrases))):
+            if len(re.findall('[,\u2014]', phrases[i])) == 1:
+                pair = re.split(r'(?<=,)\s+|\s+(?=\u2014)', phrases[i])
+                return '\n'.join(phrases[:i] + pair + phrases[i + 1:])
     # A couplet translated as two long sentences keeps those two lines
     sentences = re.split(r'(?<=[;.!?])\s+', flat)
     if len(sentences) * 2 == lines:
