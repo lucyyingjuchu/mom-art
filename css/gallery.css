@@ -142,14 +142,14 @@
         justify-content: center;
         flex-wrap: wrap;
         overflow-x: visible;
-        gap: 0 clamp(0.4rem, 2.2vw, 1rem);
+        gap: 0 0.6rem;
         margin: -0.1rem auto 0.9rem;
         padding: 0;
     }
     /* The magnifier keeps its own corner so it never drops to a line alone */
-    #gallery .gallery-tabs { position: relative; padding-right: 1.6rem; }
+    #gallery .gallery-tabs { position: relative; padding-right: 1.5rem; }
     .gallery-search-toggle { position: absolute; top: 2px; right: -6px; margin: 0; }
-    .gallery-tab { font-size: 0.92rem; line-height: 1.35; letter-spacing: 0.01em; padding: 0.6rem 0.05rem; }
+    .gallery-tab { font-size: 0.9rem; line-height: 1.35; letter-spacing: 0; padding: 0.6rem 0.05rem; }
 }
 
 .logo-title-container { cursor: pointer; }
