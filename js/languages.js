@@ -74,6 +74,7 @@ const LANGUAGE_DATA = {
             tabStory: "Story",
             tabVideos: "Documentaries",
             tabCareer: "Credentials",
+            tabContact: "Contact",
             educationTitle: "Education",
             awardsTitle: "Awards & Recognition",
             publicationsTitle: "Publications & Works",
@@ -426,6 +427,7 @@ const LANGUAGE_DATA = {
             tabStory: "介紹",
             tabVideos: "創作紀錄片",
             tabCareer: "經歷",
+            tabContact: "聯絡",
             educationTitle: "學歷",
             awardsTitle: "獲獎紀錄",
             publicationsTitle: "出版與著作",
@@ -461,7 +463,7 @@ const LANGUAGE_DATA = {
         faq: {
                 tabs: { authenticity: "真品與創作", shipping: "運送", pricing: "價格與付款" },
                 title: "常見問題",
-                subtitle: "作品各自有不同的旅程：原作由藝術家工作室於台灣直寄；\n藝術微噴印刷品(fine art giclée prints)則於美國製作並寄送，讓水墨藝術更容易走向世界。",
+                subtitle: "作品各自有不同的旅程：原作由畫室於台灣直寄；\n藝術微噴印刷品(fine art giclée prints)則於美國製作並寄送，讓水墨藝術更容易走向世界。",
                 
                 sections: {
                     authenticity: {
@@ -484,7 +486,7 @@ const LANGUAGE_DATA = {
                         questions: [
                             {
                                 question: "訂單從哪裡出貨？",
-                                answer: "**原作**：由曉然文化工作室於台灣直寄。\n**印刷品**（英文版網站）：由美國合作夥伴製作並寄送。"
+                                answer: "**原作**：由畫室於台灣直寄。\n**印刷品**（英文版網站）：由美國合作夥伴製作並寄送。"
                             },
                             {
                                 question: "如何收藏原作與藝術微噴印刷品(fine art giclée prints)？",
@@ -541,7 +543,7 @@ const LANGUAGE_DATA = {
             facebookDesc: "中文",
             instagramDesc: "中文",
             pinterestDesc: "英文",
-            locationText: "工作室位於台灣台中"
+            locationText: "畫室位於台灣台中"
         },
         
         // Lightbox

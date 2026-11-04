@@ -26,7 +26,7 @@
         nav.className = 'gallery-tabs sub-tabs';
         anchor.parentNode.insertBefore(nav, anchor);
         if (extraClass) section.classList.add(extraClass);
-        const group = { nav, panels, current: panels[0].key };
+        const group = { section, nav, panels, current: panels[0].key };
         nav.addEventListener('click', (e) => {
             const btn = e.target.closest('button[data-tab]');
             if (!btn) return;
@@ -44,7 +44,8 @@
             makeTabs(about, about.querySelector('.about-header'), [
                 { key: 'story', label: () => t('about.tabStory'), els: q('.about-header') },
                 { key: 'videos', label: () => t('about.tabVideos'), els: q('#aboutVideo') },
-                { key: 'career', label: () => t('about.tabCareer'), els: q('.professional-info') }
+                { key: 'career', label: () => t('about.tabCareer'), els: q('.professional-info') },
+                { key: 'contact', label: () => t('about.tabContact'), els: q('#connect') }
             ]);
         }
 
@@ -60,6 +61,13 @@
             })), 'faq-tabbed');
         }
     }
+
+    window.openSubtab = (sectionId, key) => {
+        const group = groups.find((g) => g.section.id === sectionId);
+        if (!group) return;
+        group.current = key;
+        render(group);
+    };
 
     const refresh = () => groups.forEach(render);
     document.addEventListener('languageChanged', refresh);

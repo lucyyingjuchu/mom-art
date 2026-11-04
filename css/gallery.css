@@ -151,3 +151,32 @@
     .gallery-search-toggle { position: absolute; top: 2px; right: -6px; margin: 0; }
     .gallery-tab { font-size: 0.92rem; line-height: 1.35; letter-spacing: 0.01em; padding: 0.6rem 0.05rem; }
 }
+
+.logo-title-container { cursor: pointer; }
+
+/* The current or upcoming exhibition: one line under the series tabs */
+.gallery-notice {
+    display: block;
+    margin: 0 auto 1.25rem;
+    padding: 0.25rem 0.5rem;
+    border: 0;
+    background: none;
+    color: var(--warm-600);
+    font: inherit;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.gallery-notice:hover { color: var(--ink); }
+
+@media (max-width: 768px) {
+    .gallery-notice { text-wrap: balance; margin-bottom: 0.9rem; }
+    .gallery-notice span[aria-hidden] { display: none; }
+}
+
+.gallery-notice-label {
+    margin-right: 0.5em;
+    color: var(--seal);
+}

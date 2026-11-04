@@ -464,7 +464,6 @@ class ChineseArtPortfolio {
         this.updateStaticText();
         this.initializeFAQ();
         this.renderGallery();
-        this.renderFeaturedWorks();
         this.renderFilterMenu();
         this.updateLanguageToggle();
     }
@@ -474,8 +473,7 @@ class ChineseArtPortfolio {
         console.log('🚀 updateStaticText() started');
 
     // NAVIGATION
-    const navKeys = { home: 'nav.featured', gallery: 'nav.gallery', news: 'nav.exhibitions',
-                      about: 'nav.about', faq: 'nav.faq', connect: 'nav.connect' };
+    const navKeys = { gallery: 'nav.gallery', news: 'nav.exhibitions', about: 'nav.about', faq: 'nav.faq' };
     document.querySelectorAll('.nav-btn[data-nav]').forEach(btn => {
         const key = navKeys[btn.dataset.nav];
         if (key) btn.textContent = this.t(key);
@@ -1015,13 +1013,10 @@ class ChineseArtPortfolio {
         return `srcset="${thumb} ${w(800)}w, ${large} ${w(extreme ? 2400 : 1600)}w" sizes="300px"`;
     }
 
-    // Blurred preview from data/placeholders.json; reserveShape also holds the painting's proportions
-    placeholderStyle(artwork, reserveShape = false) {
+    // Blurred preview from data/placeholders.json
+    placeholderStyle(artwork) {
         const preview = this.placeholders?.[artwork.id];
-        const rules = [];
-        if (preview) rules.push(`background-image:url(${preview})`);
-        if (reserveShape) rules.push(`aspect-ratio:${this.artworkRatio(artwork).toFixed(3)}`);
-        return rules.length ? ` style="${rules.join(';')}"` : '';
+        return preview ? ` style="background-image:url(${preview})"` : '';
     }
 
     // Create artwork card HTML - the whole painting, never cropped
@@ -1113,7 +1108,6 @@ class ChineseArtPortfolio {
         this.updatePageTitle(); 
         this.renderGallery();
         this.setupEventListeners();
-        this.renderFeaturedWorks();
         this.updateLanguageToggle();
         this.renderFilterMenu();
         this.updateStaticText();
@@ -1195,480 +1189,6 @@ class ChineseArtPortfolio {
         }
     }
     
-    // Render featured works on home page with museum-quality presentation
-    renderFeaturedWorks() {
-        const featuredContainer = document.querySelector('.featured-works');
-        if (!featuredContainer) return;
-
-        const featuredWorks = this.getFeaturedArtworks().slice(0, 6);
-        const worksToShow = featuredWorks.length > 0 ? featuredWorks : this.artworks.slice(0, 3);
-        
-        featuredContainer.innerHTML = `
-            <div class="featured-gallery">
-                <div class="featured-header">
-                    <h2>${this.t('home.featuredTitle')}</h2>
-                </div>
-                
-                <div class="featured-grid" id="featuredMasonryGrid">
-                    <!-- Items will be intelligently positioned by JavaScript -->
-                </div>
-                
-                <div class="featured-footer">
-                    <button class="view-all-btn" onclick="showSection('gallery')">
-                        ${this.t('home.viewAllButton')}
-                    </button>
-                </div>
-            </div>
-        `;
-        
-        this.addFeaturedWorksCSS();
-        this.createSmartMasonryLayout(worksToShow);
-    }
-    
-    // Determine how many columns an artwork should span (1, 2, or 3)
-    getArtworkSpan(artwork) {
-        console.log('🔍 Analyzing artwork:', artwork.title);
-        
-        // First try individual height/width fields
-        if (artwork.heightCm && artwork.widthCm) {
-            const height = artwork.heightCm;
-            const width = artwork.widthCm;
-            const aspectRatio = width / height;
-            
-            console.log(`📊 Direct dimensions: H${height} × W${width}, Aspect Ratio: ${aspectRatio.toFixed(2)}`);
-            
-            let span;
-            if (aspectRatio >= 2.0) {
-                span = 3;
-                console.log('🌅 Classified as: PANORAMIC (3 columns)');
-            } else if (aspectRatio >= 1.3) {
-                span = 2;
-                console.log('🏞️ Classified as: LANDSCAPE (2 columns)');
-            } else {
-                span = 1;
-                console.log('🖼️ Classified as: PORTRAIT/SQUARE (1 column)');
-            }
-            
-            return { span, aspectRatio };
-        }
-        
-        // Fallback to parsing size strings (for backward compatibility)
-        const sizeFields = [artwork.sizeCm, artwork.size, artwork.dimensions].filter(Boolean);
-        console.log('📏 Size fields found:', sizeFields);
-        
-        for (const size of sizeFields) {
-            console.log('📐 Parsing size string:', size);
-            
-            const patterns = [
-                /(\d+)\s*[×x]\s*(\d+)/,
-                /(\d+)\s*[×x]\s*(\d+)\s*cm/,
-                /(\d+)\s*cm\s*[×x]\s*(\d+)\s*cm/,
-                /(\d+)[\s]*[×x][\s]*(\d+)/
-            ];
-            
-            for (const pattern of patterns) {
-                const match = size.match(pattern);
-                if (match) {
-                    const height = parseInt(match[1]);
-                    const width = parseInt(match[2]);
-                    
-                    const aspectRatio = width / height;
-                    console.log(`📊 Dimensions: H${height} × W${width}, Aspect Ratio: ${aspectRatio.toFixed(2)}`);
-                    
-                    let span;
-                    if (aspectRatio >= 2.0) {
-                        span = 3;
-                        console.log('🌅 Classified as: PANORAMIC (3 columns)');
-                    } else if (aspectRatio >= 1.3) {
-                        span = 2;
-                        console.log('🏞️ Classified as: LANDSCAPE (2 columns)');
-                    } else {
-                        span = 1;
-                        console.log('🖼️ Classified as: PORTRAIT/SQUARE (1 column)');
-                    }
-                    
-                    return { span, aspectRatio };
-                }
-            }
-        }
-        
-        console.log('❌ No dimensions found, defaulting to 1 column');
-        return { span: 1, aspectRatio: 1.0 };
-    }
-
-    // Create smart masonry layout that fills rows efficiently
-    // How many columns the featured grid has at this width - must match the
-    // CSS breakpoints in addFeaturedWorksCSS (3 wide, 2 at <=1200px, 1 at <=768px)
-    featuredColumns() {
-        if (window.innerWidth <= 768) return 1;
-        if (window.innerWidth <= 1200) return 2;
-        return 3;
-    }
-
-    // Create a layout whose rows are always full for the current column count,
-    // so a vertical painting never ends up alone on its own row
-    createSmartMasonryLayout(worksToShow) {
-        const grid = document.getElementById('featuredMasonryGrid');
-        if (!grid) return;
-
-        const columns = this.featuredColumns();
-        this.featuredLayout = { works: worksToShow, columns };
-
-        const items = worksToShow.map((artwork, index) => ({
-            artwork,
-            index,
-            span: Math.min(this.getArtworkSpan(artwork).span, columns)
-        }));
-
-        // Widest first, then fill each row with whatever fits best
-        const remaining = [...items].sort((a, b) => b.span - a.span || a.index - b.index);
-        const rows = [];
-        while (remaining.length > 0) {
-            const row = [remaining.shift()];
-            let used = row[0].span;
-            while (used < columns) {
-                const room = columns - used;
-                // largest item that fits the space left in this row
-                const i = remaining.findIndex(item => item.span <= room);
-                if (i === -1) break;
-                used += remaining[i].span;
-                row.push(remaining.splice(i, 1)[0]);
-            }
-            rows.push(row);
-        }
-
-        // A last row that is not full: widen its single item so nothing sits alone
-        const last = rows[rows.length - 1];
-        if (rows.length > 1 && last.length === 1 && last[0].span < columns) {
-            last[0].span = columns;
-        }
-
-        grid.innerHTML = rows.map((row, rowIndex) => {
-            const totalSpan = row.reduce((sum, item) => sum + item.span, 0);
-            return `
-                <div class="featured-row" data-row="${rowIndex}" data-total-span="${totalSpan}">
-                    ${row.map(item => this.createFeaturedItemHTML(item)).join('')}
-                </div>
-            `;
-        }).join('');
-
-        // Re-plan the rows when the window crosses a column breakpoint
-        if (!this.featuredResizeBound) {
-            this.featuredResizeBound = true;
-            let timer;
-            window.addEventListener('resize', () => {
-                clearTimeout(timer);
-                timer = setTimeout(() => {
-                    if (this.featuredLayout && this.featuredColumns() !== this.featuredLayout.columns) {
-                        this.createSmartMasonryLayout(this.featuredLayout.works);
-                    }
-                }, 150);
-            });
-        }
-    }
-
-    // Create featured item HTML
-    createFeaturedItemHTML(item) {
-        const { artwork, span } = item;
-        const title = this.getText(artwork, 'title') || this.t('common.untitled');
-        const description = this.getText(artwork, 'description') || '';
-        const year = artwork.year || '';
-        const size = artwork.sizeCm || '';
-        const imageUrl = this.getFeaturedImageUrl(artwork);
-        const available = this.getBooleanValue(artwork, 'available', true);
-        
-        const spanClass = `featured-item-span-${span}`;
-        
-        return `
-            <div class="featured-item ${spanClass}" data-artwork-id="${artwork.id}" onclick="openLightbox('${artwork.id}', 'featured')">
-                <div class="featured-image-container"${this.placeholderStyle(artwork, true)}>
-                    <img src="${imageUrl}" alt="${title}" 
-                        onerror="this.src='${this.getPlaceholderImage()}'"
-                        onload="this.parentElement.parentElement.classList.add('image-loaded')">
-                    <div class="featured-overlay">
-                        <div class="featured-overlay-content">
-                            <span class="view-details">${this.t('common.viewDetails')}</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="featured-info">
-                    <div class="featured-title-section">
-                        <h3 class="featured-title">${title}</h3>
-                        ${year ? `<span class="featured-year">${year}</span>` : ''}
-                    </div>
-                    ${description ? `<p class="featured-description">${description}</p>` : ''}
-                    <div class="featured-meta">
-                        ${size ? `<span class="featured-size">${size}</span>` : ''}
-                        ${available ? '' : `<span class="featured-status sold">${this.t('common.sold')}</span>`}
-                    </div>
-                </div>
-            </div>
-        `;
-    }
-
-    addFeaturedWorksCSS() {
-        if (document.getElementById('featured-works-css')) return;
-        
-        const style = document.createElement('style');
-        style.id = 'featured-works-css';
-        style.textContent = `
-            .featured-gallery {
-                max-width: 1400px;
-                margin: 0 auto;
-                padding: 0 0 2rem;
-            }
-            
-            /* The tab already says 精選 / Featured: the heading stays for screen
-               readers and search engines but takes no space, so the works come first */
-            .featured-header {
-                position: absolute;
-                width: 1px; height: 1px;
-                overflow: hidden;
-                clip: rect(0 0 0 0);
-                white-space: nowrap;
-            }
-            
-            .featured-header p {
-                font-size: 1.2rem;
-                color: #7d5e54;
-                font-style: italic;
-            }
-            
-            .featured-grid {
-                display: block;
-                margin-bottom: 3rem;
-            }
-            
-            .featured-row {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 2rem;
-                margin-bottom: 2rem;
-                align-items: start;
-                position: relative;
-            }
-            
-            .featured-row .featured-item-span-1 {
-                grid-column: span 1;
-            }
-            
-            .featured-row .featured-item-span-2 {
-                grid-column: span 2;
-            }
-            
-            .featured-row .featured-item-span-3 {
-                grid-column: span 3;
-            }
-            
-            .featured-item {
-                cursor: pointer;
-                position: relative;
-                width: 100%;
-            }
-            
-            .featured-image-container {
-                position: relative;
-                width: 100%;
-                overflow: hidden;
-                min-height: 250px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                background: #f6edea;
-            }
-            
-            .featured-image-container img {
-                width: 100%;
-                height: 100%;
-                min-height: 250px;
-                display: block;
-                object-fit: cover;
-                object-position: center;
-            }
-            
-            .featured-item-span-1 .featured-image-container {
-                min-height: 300px;
-            }
-            
-            .featured-item-span-1 .featured-image-container img {
-                min-height: 300px;
-            }
-            
-            .featured-item-span-2 .featured-image-container {
-                min-height: 280px;
-            }
-            
-            .featured-item-span-2 .featured-image-container img {
-                min-height: 280px;
-            }
-            
-            .featured-item-span-3 .featured-image-container {
-                min-height: 250px;
-            }
-            
-            .featured-item-span-3 .featured-image-container img {
-                min-height: 250px;
-            }
-            
-            
-            .featured-overlay {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: linear-gradient(135deg, rgba(41, 37, 36,0.8), rgba(52,73,94,0.6));
-                opacity: 0;
-                transition: opacity 0.3s ease;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            
-            .featured-item:hover .featured-overlay {
-                opacity: 1;
-            }
-            
-            .featured-overlay-content {
-                text-align: center;
-                color: white;
-            }
-            
-            .view-details {
-                font-size: 1.1rem;
-                font-weight: 500;
-                padding: 0.8rem 1.5rem;
-                border: 2px solid white;
-                border-radius: 25px;
-                background: rgba(255,255,255,0.1);
-                backdrop-filter: blur(10px);
-                transition: all 0.3s ease;
-            }
-            
-            .view-details:hover {
-                background: white;
-                color: #292524;
-            }
-            
-            .featured-info {
-                padding: 1rem 0 0.5rem;
-            }
-            
-            .featured-title-section {
-                display: flex;
-                justify-content: space-between;
-                align-items: baseline;
-                margin-bottom: 1rem;
-            }
-            
-            .featured-title {
-                font-size: 1.4rem;
-                color: #292524;
-                margin: 0;
-                font-weight: 400;
-                line-height: 1.3;
-            }
-            
-            .featured-year {
-                font-size: 0.9rem;
-                color: #7d5e54;
-                font-style: italic;
-            }
-            
-            .featured-description {
-                color: #43302b;
-                font-size: 1.05rem;
-                line-height: 1.75;
-                margin-bottom: 1.5rem;
-                display: -webkit-box;
-                -webkit-line-clamp: 3;
-                -webkit-box-orient: vertical;
-                overflow: hidden;
-            }
-            
-            .featured-meta {
-                display: flex;
-                gap: 1rem;
-                align-items: center;
-                flex-wrap: wrap;
-                font-size: 0.9rem;
-            }
-            
-            .featured-size {
-                color: #7d5e54;
-                background: #f6edea;
-                padding: 0.3rem 0.8rem;
-                border-radius: 12px;
-                font-size: 0.9rem;
-            }
-            
-            .featured-status {
-                font-weight: 600;
-                padding: 0.4rem 1rem;
-                border-radius: 15px;
-                font-size: 0.8rem;
-                margin-left: auto;
-            }
-            
-            .featured-status.available {
-                background: #d4edda;
-                color: #155724;
-            }
-            
-            .featured-status.sold {
-                background: none;
-                color: #a3342c;
-            }
-            
-            .featured-footer {
-                text-align: center;
-                margin-top: 3rem;
-            }
-            
-                        
-            @media (max-width: 1200px) {
-                .featured-row {
-                    grid-template-columns: repeat(2, 1fr);
-                }
-                
-                .featured-item-span-3 {
-                    grid-column: span 2;
-                }
-                
-                .featured-item-span-2 {
-                    grid-column: span 2;
-                }
-                
-                .featured-item-span-1 {
-                    grid-column: span 1;
-                }
-            }
-            
-            @media (max-width: 768px) {
-                .featured-row {
-                    grid-template-columns: 1fr;
-                    gap: 1.5rem;
-                }
-                
-                .featured-item-span-1,
-                .featured-item-span-2,
-                .featured-item-span-3 {
-                    grid-column: span 1;
-                }
-                
-                .featured-gallery {
-                    padding: 1rem 1rem 2rem;
-                }
-                
-                .featured-info {
-                    padding: 0.75rem 0 0.25rem;
-                }
-            }
-        `;
-        
-        document.head.appendChild(style);
-    }
-
     // FIXED: Setup event listeners with working search
     setupEventListeners() {
         // Language toggle
@@ -1980,16 +1500,19 @@ class ChineseArtPortfolio {
 const portfolio = new ChineseArtPortfolio();
 
 // Make functions available globally for onclick handlers
+// Contact lives under About and the seal returns to the gallery;
+// 'home' and 'connect' still work for the links that use them.
 window.showSection = function(sectionId) {
-    document.querySelectorAll('.section').forEach(section => {
-        section.classList.remove('active');
-    });
-    const target = document.getElementById(sectionId);
-    if (target) target.classList.add('active');
+    const contact = sectionId === 'connect';
+    const id = sectionId === 'home' ? 'gallery' : contact ? 'about' : sectionId;
 
-    document.querySelectorAll('.nav-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.nav === sectionId);
+    document.querySelectorAll('.section').forEach(section => {
+        section.classList.toggle('active', section.id === id);
     });
+    document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.nav === id);
+    });
+    if (contact) window.openSubtab?.('about', 'contact');
     window.scrollTo({ top: 0 });
 };
 
