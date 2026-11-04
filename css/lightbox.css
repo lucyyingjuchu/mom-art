@@ -473,7 +473,7 @@
     line-height: 1.85;
     color: var(--warm-600);
     margin-bottom: 1.5rem; /* Reduced from 2rem */
-    font-family: inherit;
+    font-family: var(--font-title);
     padding: 1rem; /* Add padding for visual separation */
     background: var(--tint);
     border-radius: 6px;
