@@ -12,6 +12,7 @@
     let pressData = null;
     let cvData = null;
     let reelsData = null;
+    let dataReady = false;
     let historyFilter = 'all';
     let newsLimit = 6;
     let videoLimit = 6;
@@ -388,11 +389,14 @@
             loadJSON('./data/cv.json'),
             loadJSON('./data/reels.json')
         ]);
+        dataReady = true;
         renderAll();
     }
 
     document.addEventListener('languageChanged', renderAll);
-    document.addEventListener('artworksLoaded', renderNewsPage);   // the Reels tab needs artwork titles
+    // The Reels tab needs artwork titles. Before the data below is in, a render would see
+    // no news and move the page off its first tab.
+    document.addEventListener('artworksLoaded', () => { if (dataReady) renderNewsPage(); });
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
     } else {
