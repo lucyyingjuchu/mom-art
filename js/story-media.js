@@ -11,6 +11,7 @@
     let updatesData = null;
     let pressData = null;
     let cvData = null;
+    let reelsData = null;
     let historyFilter = 'all';
     let newsLimit = 6;
     let videoLimit = 6;
@@ -134,6 +135,12 @@
             </button>` : '';
     }
 
+    function reelHTML(reel) {
+        const artwork = portfolio.getArtwork(reel.id);
+        const title = lang() === 'zh' ? artwork.title : (artwork.titleEn || artwork.title);
+        return `<a class="reel" href="/?artwork=${encodeURIComponent(reel.id)}" data-artwork="${esc(reel.id)}"><img src="${esc(reel.cover)}" alt="${esc(title)}" width="540" height="960" loading="lazy"></a>`;
+    }
+
     // ---------- Exhibitions & News page ----------
     function renderNewsPage() {
         const box = document.getElementById('newsPage');
@@ -143,12 +150,13 @@
         const fb = updatesData && safeUrl(updatesData.facebookUrl);
         // The full video archive, newest first; 6 at a time with "show more"
         const videos = (pressData && pressData.videos) || [];
+        const reels = postedReels(reelsData || []).filter((r) => typeof portfolio !== 'undefined' && portfolio.getArtwork(r.id));
 
         box.innerHTML = `
             ${shows ? `<div class="show-cards">${shows}</div>` : ''}
 
             <nav class="gallery-tabs sub-tabs">
-                ${[['news', news.length], ['videos', videos.length], ['history', true]].filter(([, has]) => has).map(([key]) =>
+                ${[['news', news.length], ['reels', reels.length], ['videos', videos.length], ['history', true]].filter(([, has]) => has).map(([key]) =>
                     `<button type="button" class="gallery-tab${newsTab === key ? ' active' : ''}" data-tab="${key}" aria-pressed="${newsTab === key}">${esc(t('exhibitionsPage.tab' + key[0].toUpperCase() + key.slice(1)))}</button>`).join('')}
             </nav>
 
@@ -161,6 +169,12 @@
                     ${fb ? `<a class="update-more" href="${esc(fb)}" target="_blank" rel="noopener">${esc(t('home.latestMore'))} →</a>` : ''}
                 </div>
                 ${lang() === 'en' ? `<p class="press-lang-note">${esc(t('about.articlesNote'))}</p>` : ''}
+            </section>` : ''}
+
+            ${reels.length ? `
+            <section class="news-block" data-panel="reels">
+                <h3>${esc(t('exhibitionsPage.tabReels'))}</h3>
+                <div class="reels-grid">${reels.map(reelHTML).join('')}</div>
             </section>` : ''}
 
             ${videos.length ? `
@@ -204,6 +218,11 @@
             showTab();
         }));
         showTab();
+
+        box.querySelectorAll('.reel').forEach((link) => link.addEventListener('click', (e) => {
+            e.preventDefault();
+            openLightbox(link.dataset.artwork);
+        }));
 
         box.querySelectorAll('.history-filters button').forEach((btn) => btn.addEventListener('click', () => {
             historyFilter = btn.dataset.filter;
@@ -362,16 +381,18 @@
     }
 
     async function init() {
-        [exhibitionsData, updatesData, pressData, cvData] = await Promise.all([
+        [exhibitionsData, updatesData, pressData, cvData, reelsData] = await Promise.all([
             loadJSON('./data/exhibitions.json'),
             loadJSON('./data/updates.json'),
             loadJSON('./data/press.json'),
-            loadJSON('./data/cv.json')
+            loadJSON('./data/cv.json'),
+            loadJSON('./data/reels.json')
         ]);
         renderAll();
     }
 
     document.addEventListener('languageChanged', renderAll);
+    document.addEventListener('artworksLoaded', renderNewsPage);   // the Reels tab needs artwork titles
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
     } else {

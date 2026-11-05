@@ -1,0 +1,28 @@
+/* Reel covers, like an Instagram profile's Reels tab: on /reels and in Exhibitions & News */
+.reels-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    max-width: 640px;
+    margin: 0 auto 48px;
+}
+
+.reel {
+    display: block;
+    aspect-ratio: 9 / 16;
+    background: var(--warm-200);
+}
+
+.reel img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.reel:hover img { opacity: 0.85; }
+.reel:focus-visible { outline: 2px solid var(--seal); outline-offset: -2px; }
+
+@media (min-width: 700px) {
+    .reels-grid { gap: 6px; }
+}

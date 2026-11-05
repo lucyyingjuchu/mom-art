@@ -169,6 +169,7 @@ class ChineseArtPortfolio {
             // artworks.json and are still listed on the admin page.
             this.allArtworks = this.artworks;
             this.artworks = this.artworks.filter(artwork => this.isPublicReady(artwork));
+            document.dispatchEvent(new CustomEvent('artworksLoaded'));
             console.log(`🖼️ Public artworks: ${this.artworks.length} of ${this.allArtworks.length} (rest are drafts)`);
 
             this.scripts = data.scripts || {};
@@ -1089,7 +1090,7 @@ class ChineseArtPortfolio {
         const tab = this.getGalleryTabs().find(t => t.key === key) || this.getGalleryTabs()[0];
         this.galleryTab = tab.key;
         this.activeFilters = { subject: [...tab.subjects], location: [], availability: [] };
-        document.querySelectorAll('.gallery-tab').forEach(btn => {
+        document.querySelectorAll('#gallery .gallery-tab').forEach(btn => {
             const on = btn.dataset.tab === tab.key;
             btn.classList.toggle('active', on);
             btn.setAttribute('aria-pressed', on);
@@ -1148,7 +1149,7 @@ class ChineseArtPortfolio {
 
     // Series tab listeners
     setupFilterListeners() {
-        document.querySelectorAll('.gallery-tab').forEach(btn => {
+        document.querySelectorAll('#gallery .gallery-tab').forEach(btn => {
             btn.addEventListener('click', () => this.setGalleryTab(btn.dataset.tab));
         });
         const search = document.getElementById('gallerySearch');
