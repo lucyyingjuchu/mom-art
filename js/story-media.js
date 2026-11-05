@@ -39,7 +39,7 @@
             const monthsLong = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
             return lang() === 'zh' ? `${y} 年 ${parseInt(m, 10)} 月` : `${monthsLong[parseInt(m, 10) - 1]} ${y}`;
         }
-        if (lang() === 'zh') return withYear ? `${y}.${m}.${day}` : `${parseInt(m, 10)}/${parseInt(day, 10)}`;
+        if (lang() === 'zh') return withYear ? `${y}.${m}.${day}` : `${m}.${day}`;
         const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
         const md = `${months[parseInt(m, 10) - 1]} ${parseInt(day, 10)}`;
         return withYear ? `${md}, ${y}` : md;
@@ -77,7 +77,8 @@
     function showCard(e, label, compact) {
         const link = safeUrl(e.link);
         const dates = e.start && e.end
-            ? `${formatDate(e.start)} – ${formatDate(e.end, lang() !== 'zh' ? true : false)}`
+            // zh drops the end year only when the show stays within one year
+            ? `${formatDate(e.start)} – ${formatDate(e.end, lang() !== 'zh' || e.start.slice(0, 4) !== e.end.slice(0, 4))}`
             : formatDate(e.start);
         return `
         <article class="show-card">

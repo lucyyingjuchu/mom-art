@@ -808,6 +808,18 @@
       "url": "https://cityfm.tw/Client/P01.aspx?AC=K1510754138593000000&AK=P2624252697145000000&C2=Single&MenuItem=I1513874547038000000"
     },
     {
+      "date": "2026-09-19",
+      "outlet": {
+        "zh": "享新聞（蕃新聞）",
+        "en": "Xiang News (yam News)"
+      },
+      "title": {
+        "zh": "天地有大美─2026袁之靜水墨創作展",
+        "en": "“The Great Beauty of Heaven and Earth” — 2026 Yuan Chih-Jin Ink Painting Exhibition"
+      },
+      "url": "https://n.yam.com/Article/20260919775288"
+    },
+    {
       "date": "2026-09-07",
       "outlet": {
         "zh": "京海傳媒",
@@ -866,6 +878,42 @@
         "en": "“The Great Beauty of Heaven and Earth”: Looking Back on Forty Years of Ink Painting"
       },
       "url": "https://www.changhuanews.com/2026/08/news-2905.html"
+    },
+    {
+      "date": "2026-08-29",
+      "outlet": {
+        "zh": "暢NEWS",
+        "en": "Song News"
+      },
+      "title": {
+        "zh": "40年水墨寫人生　袁之靜5系列展現「由景入心」",
+        "en": "Forty Years of Ink: Yuan Chih-Jin's Five Series Move “From Scenery to the Heart”"
+      },
+      "url": "https://songnews.com.tw/209122/"
+    },
+    {
+      "date": "2026-08-29",
+      "outlet": {
+        "zh": "互傳媒（PChome 新聞）",
+        "en": "HOO Media (via PChome News)"
+      },
+      "title": {
+        "zh": "影／袁之靜40年水墨創作彰化展出　廖了以：收藏的是藝術家生命痕跡",
+        "en": "Yuan Chih-Jin's 40 Years of Ink on View in Changhua — Liao Liao-yi: “What We Collect Are the Traces of an Artist's Life”"
+      },
+      "url": "https://news.m.pchome.com.tw/society/hoomedia/20260829/index-78799920394238344002.html"
+    },
+    {
+      "date": "2026-08-29",
+      "outlet": {
+        "zh": "中華新聞雲（Yahoo 新聞）",
+        "en": "Zhonghua News Cloud (via Yahoo News)"
+      },
+      "title": {
+        "zh": "「天地有大美」 袁之靜以傳統筆墨「藝」體展現東方新美學",
+        "en": "“The Great Beauty of Heaven and Earth”: Yuan Chih-Jin's Traditional Brush and Ink Express a New Eastern Aesthetic"
+      },
+      "url": "https://tw.news.yahoo.com/%E5%A4%A9%E5%9C%B0%E6%9C%89%E5%A4%A7%E7%BE%8E-%E8%A2%81%E4%B9%8B%E9%9D%9C%E4%BB%A5%E5%82%B3%E7%B5%B1%E7%AD%86%E5%A2%A8-%E8%97%9D-%E9%AB%94%E5%B1%95%E7%8F%BE%E6%9D%B1%E6%96%B9%E6%96%B0%E7%BE%8E%E5%AD%B8-095032187.html"
     },
     {
       "date": "2026-08-27",

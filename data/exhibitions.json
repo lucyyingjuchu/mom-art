@@ -3,6 +3,25 @@
   "exhibitions": [
     {
       "year": 2026,
+      "type": "group",
+      "start": "2026-11-01",
+      "end": "2026-11-25",
+      "title": {
+        "zh": "《花語》袁之靜師生水墨畫展",
+        "en": "“The Language of Flowers” — Yuan Chih-Jin and Students"
+      },
+      "venue": {
+        "zh": "臺中市大墩文化中心 陳列室（三）",
+        "en": "Exhibition Room III, Taichung Dadun Cultural Center"
+      },
+      "note": {
+        "zh": "大墩文化中心藝文研習成果展。",
+        "en": "An arts-workshop showcase at the Dadun Cultural Center."
+      },
+      "link": "https://www.dadun.culture.taichung.gov.tw/Exhibition/ActiveDetail?g=AAD0001096"
+    },
+    {
+      "year": 2026,
       "type": "solo",
       "start": "2026-08-27",
       "end": "2026-11-01",
@@ -273,21 +292,21 @@
     {
       "year": 2023,
       "type": "group",
-      "start": "",
-      "end": "",
+      "start": "2023-03-02",
+      "end": "2023-03-26",
       "title": {
         "zh": "《潤物無聲》袁之靜師生水墨畫展",
         "en": "\"Silent Nourishment\" Yuan Chih-Jin Teacher-Student Ink Painting Exhibition"
       },
       "venue": {
-        "zh": "台中市大墩文化中心",
-        "en": "Taichung Dadun Cultural Center"
+        "zh": "台中市大墩文化中心 陳列室（三）",
+        "en": "Exhibition Room III, Taichung Dadun Cultural Center"
       },
       "note": {
         "zh": "",
         "en": ""
       },
-      "link": ""
+      "link": "https://www.dadun.culture.taichung.gov.tw/Exhibition/ActiveDetail?g=AAD0000599"
     },
     {
       "year": 2022,
