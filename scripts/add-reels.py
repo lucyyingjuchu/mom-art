@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Add artwork Reels to the 近期短影音 page (reels.html, data/reels.json).
+"""Add artwork Reels to the 短影音 tab in Exhibitions & News (data/reels.json).
 
     python3 scripts/add-reels.py <folder of Reels> [--year 2026] [--only 標題] [--at 0.45]
 
 Files are named MMDD_reel_作品名.mp4. The date is the day the Reel goes out, and the
-page shows it from 19:00 Taiwan time that day. Each name is matched to artworks.json,
+tab shows it from 19:00 Taiwan time that day. Each name is matched to artworks.json,
 and the cover is the frame --at of the way through. Run again with --only and another
 --at to pick a different frame. Needs ffmpeg and ffprobe.
 """

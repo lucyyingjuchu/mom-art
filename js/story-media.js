@@ -175,6 +175,7 @@
             ${reels.length ? `
             <section class="news-block" data-panel="reels">
                 <h3>${esc(t('exhibitionsPage.tabReels'))}</h3>
+                <p class="reels-note">${esc(t('exhibitionsPage.reelsNote'))}<br>${esc(t('exhibitionsPage.reelsWatch')).replace('{ig}', '<a href="https://www.instagram.com/yuanchihjin/" target="_blank" rel="noopener">Instagram</a>')}</p>
                 <div class="reels-grid">${reels.map(reelHTML).join('')}</div>
             </section>` : ''}
 
@@ -202,13 +203,13 @@
 
         box.classList.add('news-tabbed');
         const showTab = () => {
-            if (!box.querySelector(`[data-panel="${newsTab}"]`)) {
-                const first = box.querySelector('.sub-tabs .gallery-tab');
-                if (first) newsTab = first.dataset.tab;
-            }
-            box.querySelectorAll('[data-panel]').forEach((el) => el.classList.toggle('subtab-hidden', el.dataset.panel !== newsTab));
+            // A tab with nothing in it yet (e.g. Reels before artworks load) shows the first
+            // tab for now, but stays the choice, so it opens once its content arrives.
+            const first = box.querySelector('.sub-tabs .gallery-tab');
+            const shown = box.querySelector(`[data-panel="${newsTab}"]`) || !first ? newsTab : first.dataset.tab;
+            box.querySelectorAll('[data-panel]').forEach((el) => el.classList.toggle('subtab-hidden', el.dataset.panel !== shown));
             box.querySelectorAll('.sub-tabs .gallery-tab').forEach((b) => {
-                const on = b.dataset.tab === newsTab;
+                const on = b.dataset.tab === shown;
                 b.classList.toggle('active', on);
                 b.setAttribute('aria-pressed', on);
             });
@@ -390,6 +391,11 @@
             loadJSON('./data/reels.json')
         ]);
         dataReady = true;
+        // xiaoranart.com/reels (the Instagram profile link) arrives as ?section=reels
+        if (new URLSearchParams(location.search).get('section') === 'reels') {
+            newsTab = 'reels';
+            if (typeof showSection === 'function') showSection('news');
+        }
         renderAll();
     }
 

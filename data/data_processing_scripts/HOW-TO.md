@@ -16,9 +16,9 @@ Push to `main` → Netlify deploys in ~1 minute.
 
 To check the order settings, open `/.netlify/functions/print-file-check`: it should show `"order_mode":"live"`, `"webhook_set":true`, `"alerts_set":true`.
 
-## Adding artwork Reels to the 近期短影音 page
+## Adding artwork Reels to the 短影音 tab
 
-`python3 scripts/add-reels.py "<folder of Reels>"` (ffmpeg needed), then push. Files are named `MMDD_reel_作品名.mp4`; each Reel appears on `/reels` at 19:00 Taiwan time on its date. If a cover shows dated text such as a countdown, pick another frame with `--only 作品名 --at 0.7`.
+`python3 scripts/add-reels.py "<folder of Reels>"` (ffmpeg needed), then push. Files are named `MMDD_reel_作品名.mp4`; each Reel appears in Exhibitions & News › 短影音 (`xiaoranart.com/reels`) at 19:00 Taiwan time on its date. If a cover shows dated text such as a countdown, pick another frame with `--only 作品名 --at 0.7`.
 
 Each artwork's short link is `xiaoranart.com/w/` plus the last 5 characters of its id.
 

@@ -31,11 +31,12 @@
   status = 200
   force = true
 
-# ---- 近期短影音: the page linked from the Instagram profile ----
+# ---- Instagram profile link: opens Exhibitions & News on the Reels tab ----
+# (the language redirect above then sends Chinese browsers on to /zh/)
 [[redirects]]
   from = "/reels"
-  to = "/reels.html"
-  status = 200
+  to = "/?section=reels"
+  status = 302
 
 # ---- Keep working files off the public website ----
 [[redirects]]
