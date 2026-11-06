@@ -1,5 +1,5 @@
 {
-  "_howTo": "Newest first. type: solo | duo | group. start/end (YYYY-MM-DD) are optional — when today falls between them the show appears under 'On view now', and a future start appears under 'Upcoming'. link is optional (press or venue page). start may be month-only (YYYY-MM) while exact dates are not yet announced. highlight: true puts a show in the About page's 'Recent Highlights' (the 4 newest flagged ones are shown automatically). summary: one line shown above the exhibition history (counts of shows not listed individually).",
+  "_howTo": "Newest first. type: solo | duo | group. start/end (YYYY-MM-DD) are optional — when today falls between them the show appears under 'On view now', and a future start appears under 'Upcoming'. link is optional (press or venue page). start may be month-only (YYYY-MM) while exact dates are not yet announced. highlight: true puts a show in the About page's 'Recent Highlights' (the 4 newest flagged ones are shown automatically). summary: one line shown above the exhibition history (counts of shows not listed individually). Dates inside any text: zh 11.01 (2026.11.01 with the year, 2026.11 for a month, 08.27 – 11.01 for a range), en Nov 1 (Nov 1, 2026 with the year, Aug 2019 for a month). Quoted press headlines stay as published.",
   "exhibitions": [
     {
       "year": 2026,
@@ -73,8 +73,8 @@
         "en": "Taichung City Dadun Cultural Center, Dadun Galleries I–VII"
       },
       "note": {
-        "zh": "8/23 開幕。",
-        "en": "Opening August 23."
+        "zh": "08.23 開幕。",
+        "en": "Opening Aug 23."
       },
       "link": ""
     },
@@ -112,8 +112,8 @@
         "en": "Taichung Veterans General Hospital, Outpatient Building 2F Lobby"
       },
       "note": {
-        "zh": "展題取自老子《道德經》「上善若水，水善利萬物而不爭」，以水墨向醫者仁心致敬。主視覺〈上善若水－浩瀚伊瓜蘇〉（5×12 尺）。4/21 開幕，並捐贈書法作品〈上善若水〉予臺中榮總。",
-        "en": "The title comes from Laozi's Tao Te Ching: “The highest good is like water; water benefits all things and does not compete.” A tribute to the compassion of doctors, centered on “The Highest Goodness: Boundless Iguazu” (5 × 12 chi, about 1.5 × 3.6 m). At the April 21 opening she donated the calligraphy work “The Highest Good Is Like Water” to the hospital."
+        "zh": "展題取自老子《道德經》「上善若水，水善利萬物而不爭」，以水墨向醫者仁心致敬。主視覺〈上善若水－浩瀚伊瓜蘇〉（5×12 尺）。04.21 開幕，並捐贈書法作品〈上善若水〉予臺中榮總。",
+        "en": "The title comes from Laozi's Tao Te Ching: “The highest good is like water; water benefits all things and does not compete.” A tribute to the compassion of doctors, centered on “The Highest Goodness: Boundless Iguazu” (5 × 12 chi, about 1.5 × 3.6 m). At the Apr 21 opening she donated the calligraphy work “The Highest Good Is Like Water” to the hospital."
       },
       "link": "https://lycshow.blogspot.com/2026/04/2026.html",
       "highlight": true
@@ -132,8 +132,8 @@
         "en": "Yunlin County Cultural Affairs and Tourism Department Exhibition Hall"
       },
       "note": {
-        "zh": "67 件師生作品；參展學員多已持續創作十年以上。6/6 開幕茶會。學員：吳淑瑛、林麗玲、曹文娟、董妙玲、趙美鳳、廖麗華、劉惠花、賴秀玉、蘇月燕。",
-        "en": "67 works by the artist and nine long-time students, most of whom have painted with her for over a decade. Opening reception June 6."
+        "zh": "67 件師生作品；參展學員多已持續創作十年以上。06.06 開幕茶會。學員：吳淑瑛、林麗玲、曹文娟、董妙玲、趙美鳳、廖麗華、劉惠花、賴秀玉、蘇月燕。",
+        "en": "67 works by the artist and nine long-time students, most of whom have painted with her for over a decade. Opening reception Jun 6."
       },
       "link": "https://www.right-media.news/archives/214707"
     },
@@ -208,7 +208,7 @@
         "en": "Kaohsiung Chinese Painting and Calligraphy Society"
       },
       "note": {
-        "zh": "首次在高雄舉辦個展，展出圖象、心象、抽象三大系列。5/24 開幕式暨座談會。",
+        "zh": "首次在高雄舉辦個展，展出圖象、心象、抽象三大系列。05.24 開幕式暨座談會。",
         "en": "Her first solo exhibition in Kaohsiung, in three series: images, inner images and abstraction. Opening and talk on May 24."
       },
       "link": "https://lycshow.blogspot.com/2025/05/2025.html"
@@ -246,7 +246,7 @@
         "en": "Central Taiwan University of Science and Technology Art Center"
       },
       "note": {
-        "zh": "《天地有大美》系列巡迴展之二；5/16 開幕，98 歲的母親也到場。",
+        "zh": "《天地有大美》系列巡迴展之二；05.16 開幕，98 歲的母親也到場。",
         "en": "Second stop of “The Great Beauty of Heaven and Earth” touring exhibition. Opening on May 16, attended by her 98-year-old mother."
       },
       "link": "https://tw.news.yahoo.com/%E8%96%AA%E5%82%B3%E4%B8%AD%E8%87%BA-%E5%A4%A9%E5%9C%B0%E5%A4%A7%E7%BE%8E-2024-%E8%A2%81%E4%B9%8B%E9%9D%9C%E5%A4%A9%E5%9C%B0%E6%9C%89%E5%A4%A7%E7%BE%8E%E7%B3%BB%E5%88%97%E5%B7%A1%E8%BF%B4%E5%B1%95%E4%BA%8C-%E4%BB%8A5-123451183.html"

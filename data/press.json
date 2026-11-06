@@ -1,5 +1,5 @@
 {
-  "_howTo": "Newest first. A video needs youtubeId. For English: add captionsEn (a file in data/captions/) for synced English subtitles, or dubbedYoutubeIdEn for an English-dubbed upload — the English page then plays that version instead. showOnAbout: true puts the video on the About page too.",
+  "_howTo": "Newest first. A video needs youtubeId. For English: add captionsEn (a file in data/captions/) for synced English subtitles, or dubbedYoutubeIdEn for an English-dubbed upload — the English page then plays that version instead. showOnAbout: true puts the video on the About page too. Dates inside any text: zh 11.01 (2026.11.01 with the year, 2026.11 for a month, 08.27 – 11.01 for a range), en Nov 1 (Nov 1, 2026 with the year, Aug 2019 for a month). Quoted press headlines stay as published.",
   "videos": [
     {
       "youtubeId": "XLnicxWRYJI",
@@ -393,7 +393,7 @@
         "en": "“The Great Beauty of Heaven and Earth” Opens at the Changhua Living Art Center"
       },
       "summary": {
-        "zh": "8/27–11/1 於第一、二展覽室展出五大系列。",
+        "zh": "08.27 – 11.01 於第一、二展覽室展出五大系列。",
         "en": "On view Aug 27 – Nov 1 in Galleries 1 and 2, in five series."
       },
       "captionsEn": "",
@@ -659,7 +659,7 @@
         "en": "“Drifting Clouds, Flowing Water” 2018"
       },
       "summary": {
-        "zh": "3/17–4/8 台中市大墩文化中心大墩藝廊（三）。",
+        "zh": "03.17 – 04.08 台中市大墩文化中心大墩藝廊（三）。",
         "en": "Mar 17 – Apr 8, Dadun Gallery III, Taichung Dadun Cultural Center."
       },
       "captionsEn": "",

@@ -11,3 +11,4 @@
 - After adding artworks, run `python3 scripts/build-placeholders.py` to refresh the blurred previews.
 - After adding artwork text, run `python3 scripts/normalize-punctuation.py` so Chinese descriptions use full-width punctuation.
 - After adding artwork text, also run `python3 scripts/break-verses.py` to give regular verse its line breaks.
+- Dates on news and exhibitions use one format, in `data/*.json` text as well as on the page. Chinese: `2026.11.01`, `11.01` when the year is clear, `2026.11` for a month, `2026.11.01 – 11.25` or `08.27 – 11.01` for a range. English: `Nov 1, 2026`, `Nov 1` when the year is clear, `Nov 2026` for a month. Press headlines stay as published.
