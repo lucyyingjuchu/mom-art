@@ -1,0 +1,43 @@
+/* Exhibitions & News › 短影音: Reel covers, like an Instagram profile's Reels tab */
+.reels-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    max-width: 640px;
+    margin: 0 auto 48px;
+}
+
+.reels-note {
+    max-width: 640px;
+    margin: 0 auto 1.25rem;
+    padding: 0 1rem;
+    text-align: center;
+    color: var(--warm-500);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    text-wrap: balance;   /* no lone character on the next line */
+}
+
+.reels-note a { color: var(--ink); text-underline-offset: 3px; }
+.reels-note a:hover { color: var(--seal); }
+.reels-note a:focus-visible { outline: 2px solid var(--seal); outline-offset: 2px; }
+
+.reel {
+    display: block;
+    aspect-ratio: 9 / 16;
+    background: var(--warm-200);
+}
+
+.reel img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.reel:hover img { opacity: 0.85; }
+.reel:focus-visible { outline: 2px solid var(--seal); outline-offset: -2px; }
+
+@media (min-width: 700px) {
+    .reels-grid { gap: 6px; }
+}

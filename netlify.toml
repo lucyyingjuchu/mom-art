@@ -24,6 +24,20 @@
   status = 200
   force = true
 
+# ---- Short artwork links for Reel captions (functions/short-link.js) ----
+[[redirects]]
+  from = "/w/*"
+  to = "/.netlify/functions/short-link/w/:splat"
+  status = 200
+  force = true
+
+# ---- Instagram profile link: opens Exhibitions & News on the Reels tab ----
+# (the language redirect above then sends Chinese browsers on to /zh/)
+[[redirects]]
+  from = "/reels"
+  to = "/?section=reels"
+  status = 302
+
 # ---- Keep working files off the public website ----
 [[redirects]]
   from = "/data/data_processing_scripts/*"
