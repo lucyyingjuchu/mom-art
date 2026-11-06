@@ -1,11 +1,13 @@
 // functions/short-link.js
 //
-// Short artwork links for Reel captions: xiaoranart.com/w/<last 5 characters of the id>.
+// Short artwork links for Reel captions and the share button: xiaoranart.com/w/<code>
+// (codes are worked out in js/short-code.js).
 // People go straight to the artwork. Facebook, LINE and similar services read the
 // page behind a link for its preview, so they get that artwork's title and picture
 // instead of the site's general preview.
 
 const artworks = require('../data/artworks.json');
+const { findByCode } = require('../js/short-code.js');
 
 const SITE = 'https://xiaoranart.com';
 const PREVIEW_BOTS = /facebookexternalhit|facebot|twitterbot|linkedinbot|whatsapp|telegrambot|slackbot|discordbot|\bline\b/i;
@@ -13,11 +15,13 @@ const html = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<':
 const go = location => ({ statusCode: 302, headers: { Location: location, 'Cache-Control': 'no-store' }, body: '' });
 
 exports.handler = async (event) => {
-    const code = (/\/w\/([0-9a-f]{5})\/?$/i.exec(event.path || '') || [])[1];
-    const artwork = code && artworks.find(a => a.id.toLowerCase().endsWith(code.toLowerCase()));
+    const code = (/\/w\/([0-9a-f]{5,12})\/?$/i.exec(event.path || '') || [])[1];
+    const artwork = code && findByCode(code, artworks);
     if (!artwork) return go('/');
 
-    const target = `/?artwork=${encodeURIComponent(artwork.id)}&utm_source=facebook&utm_medium=social&utm_campaign=reel`;
+    // No utm tags: Analytics already shows where a visitor came from (Facebook, LINE …),
+    // and the same link is used in captions and shared by visitors.
+    const target = `/?artwork=${encodeURIComponent(artwork.id)}`;
     if (!PREVIEW_BOTS.test(event.headers?.['user-agent'] || '')) return go(target);
 
     const image = SITE + '/' + String(artwork.imageHigh || artwork.image).replace(/^\.?\//, '');

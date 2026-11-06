@@ -175,7 +175,7 @@
             ${reels.length ? `
             <section class="news-block" data-panel="reels">
                 <h3>${esc(t('exhibitionsPage.tabReels'))}</h3>
-                <p class="reels-note">${esc(t('exhibitionsPage.reelsNote'))}<br>${esc(t('exhibitionsPage.reelsWatch')).replace('{ig}', '<a href="https://www.instagram.com/yuanchihjin/" target="_blank" rel="noopener">Instagram</a>')}</p>
+                <p class="reels-note">${esc(t('exhibitionsPage.reelsNote'))}<br>${esc(t('exhibitionsPage.reelsWatch')).replace('{ig}', '<a href="https://www.instagram.com/yuanchihjin/" target="_blank" rel="noopener">Instagram</a>').replace('{fb}', '<a href="https://www.facebook.com/xiao.ran.714035" target="_blank" rel="noopener">Facebook</a>')}</p>
                 <div class="reels-grid">${reels.map(reelHTML).join('')}</div>
             </section>` : ''}
 
