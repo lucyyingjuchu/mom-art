@@ -759,7 +759,8 @@
         const artwork = list[index];
         if (!artwork) return;
         const zh = lang() === 'zh';
-        const url = `${window.location.origin}${window.location.pathname}?artwork=${artwork.id}&lang=${lang()}`;
+        const all = (portfolio.allArtworks || portfolio.artworks).map(a => a.id);
+        const url = `${window.location.origin}/w/${ShortCode.shortCode(artwork.id, all)}`;
 
         const menu = document.createElement('div');
         menu.className = 'share-dropdown';

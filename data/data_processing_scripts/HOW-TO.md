@@ -20,7 +20,7 @@ To check the order settings, open `/.netlify/functions/print-file-check`: it sho
 
 `python3 scripts/add-reels.py "<folder of Reels>"` (ffmpeg needed), then push. Files are named `MMDD_reel_作品名.mp4`; each Reel appears in Exhibitions & News › 短影音 (`xiaoranart.com/reels`) at 19:00 Taiwan time on its date. If a cover shows dated text such as a countdown, pick another frame with `--only 作品名 --at 0.7`.
 
-Each artwork's short link is `xiaoranart.com/w/` plus the last 5 characters of its id.
+Each artwork's short link is `xiaoranart.com/w/` plus the last 5 characters of its id (6 or more if an older artwork already ends the same way; see `js/short-code.js`). The share button copies the same link.
 
 ## If a paid print order failed
 
